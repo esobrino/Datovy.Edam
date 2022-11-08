@@ -382,6 +382,8 @@ namespace Edam.Data.Schema.ImportExport
          }
 
          DdlImportItemInfo item = new DdlImportItemInfo();
+         decimal? maxLength = null;
+
          item.Dbms = "";
          item.TableCatalog = asset.Name;
          item.TableSchema = ritem.Domain;
@@ -391,11 +393,31 @@ namespace Edam.Data.Schema.ImportExport
          {
             foreach(var eitem in eprop.RecordTrackingItem)
             {
-               item.ColumnName = eitem.Name;
-               item.DataType = eitem.TypeName;
+               maxLength = null;
                if (decimal.TryParse(eitem.DataSize, out var dataSize))
                {
-                  item.CharacterMaximumLength = dataSize;
+                  maxLength = dataSize;
+               }
+
+               // does the child exists? if so update info and continue...
+               var child = children.Find((x) => x.OriginalName == eitem.Name);
+               if (child != null)
+               {
+                  if (String.IsNullOrWhiteSpace(eitem.Description))
+                  {
+                     child.Annotation.Clear();
+                     child.AddAnnotation(eitem.Description);
+                  }
+                  child.Kind = eitem.Kind;
+                  continue;
+               }
+
+               // item was not found, add it...
+               item.ColumnName = eitem.Name;
+               item.DataType = eitem.TypeName;
+               if (maxLength.HasValue)
+               {
+                  item.CharacterMaximumLength = maxLength.Value;
                }
                var element = PrepareColumnDefinition(item);
                element.Description = eitem.Description;

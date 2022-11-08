@@ -59,7 +59,7 @@ namespace Edam.Data.Schema.ImportExport
          SortedDictionary<string, DdlAsset> dassets = 
             new SortedDictionary<string, DdlAsset>();
 
-         DdlAsset dasset = null;
+         DdlAsset dasset = null, previousAsset = null;
          int resourceCount = 0;
          int schemaCount = 1;
 
@@ -69,18 +69,25 @@ namespace Edam.Data.Schema.ImportExport
 
             if (!dassets.TryGetValue(item.TableSchema, out dasset))
             {
+               if (previousAsset != null)
+               {
+                  previousAsset.PrepareAdditionalColumns();
+               }
+
                dasset = new DdlAsset(header, namespaces, ns, m_Mapper,
                   item.TableSchema, schemaCount);
                dasset.asset.CatalogName = item.TableCatalog;
+               previousAsset = dasset;
 
                dassets.Add(item.TableSchema, dasset);
                schemaCount++;
             }
 
             // this is a new table definition
-            if (dasset == null || item.TableName != dasset.originalTableName)
+            if (dasset == null || 
+               item.TableName != previousAsset.originalTableName)
             {
-               dasset.PrepareAdditionalColumns();
+               previousAsset.PrepareAdditionalColumns();
                dasset.PrepareTableDefinition(item, item.TableName);
                dasset.originalTableName = item.TableName;
                //continue;

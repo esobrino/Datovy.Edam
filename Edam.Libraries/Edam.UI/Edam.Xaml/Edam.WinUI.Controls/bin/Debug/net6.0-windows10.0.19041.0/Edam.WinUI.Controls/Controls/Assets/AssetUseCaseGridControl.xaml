@@ -45,7 +45,7 @@
          </StackPanel>
 
          <dg:DataGrid x:ConnectionId='2'                                        
-                AutoGenerateColumns="False" AlternatingRowBackground="LightGray">
+                AutoGenerateColumns="False" RowBackground="#F9F9F9" AlternatingRowBackground="White">
             <dg:DataGrid.Columns>
                <dg:DataGridTextColumn Header="" Width="SizeToCells" Binding="{Binding ElementNo}" />
                <dg:DataGridTextColumn Header="Use Case" Width="SizeToCells" Binding="{Binding UseCaseName}" />

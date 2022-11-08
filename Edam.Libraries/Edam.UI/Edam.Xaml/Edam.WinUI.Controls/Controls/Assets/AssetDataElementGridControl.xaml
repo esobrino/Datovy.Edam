@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
    <UserControl.Resources>
-      <local:CustomRowStyleSelector x:Key="styleselector"/>
+      <local:ElementTypeRowConverter x:Key="ElementTypeConverter"/>
       <Style x:Key="typeStyle" TargetType="dg:DataGrid">
          <Setter Property="Background" Value="#F2F2FF" />
       </Style>
@@ -48,16 +48,17 @@
          </StackPanel>
 
          <dg:DataGrid ItemsSource="{x:Bind ViewModel.Items}" 
-                AutoGenerateColumns="False" RowBackground="#F9F9F9" AlternatingRowBackground="White">
-         <dg:DataGrid.Columns>
-            <dg:DataGridTextColumn Header="" Width="SizeToCells" Binding="{Binding OrdinalNo}" />
-            <dg:DataGridTextColumn Header="Entity" Width="SizeToCells" Binding="{Binding EntityQualifiedNameText}" />
-            <dg:DataGridTextColumn Header="Element" Width="SizeToCells" Binding="{Binding ElementName}" />
-            <dg:DataGridTextColumn Header="Type" Width="SizeToCells" Binding="{Binding DataTypeText}" />
-            <dg:DataGridTextColumn Header="ElementType" Width="SizeToCells" Binding="{Binding ElementTypeText}" />
-            <dg:DataGridTextColumn Header="Occurs" Width="SizeToCells" Binding="{Binding Occurs}" />
-            <dg:DataGridTextColumn Header="Annotation" Width="SizeToCells" Binding="{Binding AnnotationText}" />
-         </dg:DataGrid.Columns>
+            AutoGenerateColumns="False" RowBackground="#F6F6F6" AlternatingRowBackground="White">
+            <dg:DataGrid.Columns>
+               <dg:DataGridTextColumn Header="" Width="SizeToCells" Binding="{Binding OrdinalNo}" />
+               <dg:DataGridTextColumn Header="Schema" Width="SizeToCells" Binding="{Binding Domain}" />
+               <dg:DataGridTextColumn Header="Entity" Width="SizeToCells" Binding="{Binding EntityQualifiedNameText}" />
+               <dg:DataGridTextColumn Header="Element" Width="SizeToCells" Binding="{Binding ElementName}" />
+               <dg:DataGridTextColumn Header="Type" Width="SizeToCells" Binding="{Binding DataTypeText}" />
+               <dg:DataGridTextColumn Header="ElementType" Width="SizeToCells" Binding="{Binding ElementTypeText}" />
+               <dg:DataGridTextColumn Header="Occurs" Width="SizeToCells" Binding="{Binding Occurs}" />
+               <dg:DataGridTextColumn Header="Annotation" Width="SizeToCells" Binding="{Binding AnnotationText}" />
+            </dg:DataGrid.Columns>
          </dg:DataGrid>
 
       </dg:DockPanel>
