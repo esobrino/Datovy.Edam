@@ -1,0 +1,25 @@
+﻿<UserControl
+   x:Class="Edam.WinUI.Controls.Entities.EntityFollowUpGridControl"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:local="using:Edam.WinUI.Controls.Entities"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:dg="using:CommunityToolkit.WinUI.UI.Controls"
+   mc:Ignorable="d">
+
+   <dg:DataGrid ItemsSource="{Binding Items, Mode=TwoWay}"
+                AutoGenerateColumns="False" AlternatingRowBackground="LightGray">
+      <dg:DataGrid.Columns>
+         <dg:DataGridTextColumn Header="Phone" Width="SizeToCells" Binding="{Binding PhoneNumber}" MinWidth="150" />
+         <dg:DataGridTextColumn Header="State" Width="SizeToCells" Binding="{Binding StateProvince}" />
+         <dg:DataGridTextColumn Header="Zipcode" Width="SizeToCells" Binding="{Binding PostalCode}" />
+         <dg:DataGridTextColumn Header="Adddresses" Width="SizeToCells" Binding="{Binding AddressCount}" />
+         <dg:DataGridTextColumn Header="Notes" Width="SizeToCells" Binding="{Binding NotesCount}" />
+         <dg:DataGridTextColumn Header="Old" Width="SizeToCells" Binding="{Binding NoteDaysSinceLastText}" />
+         <dg:DataGridTextColumn Header="Name" Width="SizeToCells" Binding="{Binding NameText}" MinWidth="250" />
+         <dg:DataGridTextColumn Header="Email" Width="SizeToCells" Binding="{Binding Email}" MinWidth="300" />
+      </dg:DataGrid.Columns>
+   </dg:DataGrid>
+   
+</UserControl>

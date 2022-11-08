@@ -1,0 +1,18 @@
+{
+   "@context": {
+      "edam": "http://www.datovy.com/edam/settings"
+   },
+   "App": {
+      "ConsolePath": "c:/prjs/Datovy.Edam/Edam.App.Data/",
+      "Defaults": {
+         "OrganizationId": ""
+      }
+   },
+   "Schema": {
+      "Defaults": {
+         "TypePostfix": "_",
+         "DocumentPostfix": "_Document"
+      }
+   }
+}
+

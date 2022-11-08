@@ -1,0 +1,119 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>Edam.WinUI</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x86;x64;arm64</Platforms>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
+    <UseWinUI>true</UseWinUI>
+    <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="ApplicationData\AM_Console\Projects\DAM\Arguments\0010.ToAssets.Args.json" />
+    <None Remove="ApplicationData\AM_Console\Projects\DAM\Documents\placeholder.txt" />
+    <None Remove="ApplicationData\AM_Console\Projects\DAM\Files\placeholder.txt" />
+    <None Remove="ApplicationData\AM_Console\Projects\DAM\Samples\placeholder.txt" />
+    <None Remove="ApplicationData\AM_Console\Projects\DAM\TextMaps\DdlTextMap.json" />
+    <None Remove="ApplicationData\AM_Console\Samples\placeholder.txt" />
+    <None Remove="ApplicationData\AM_Console\Templates\SqlServerSchema.sql" />
+    <None Remove="ApplicationData\AM_Console\Templates\ToAssets.Args.json" />
+    <None Remove="ApplicationData\AM_Console\Templates\ToOpenXml.Args.json" />
+    <None Remove="ApplicationData\AM_Console\TextMaps\DdlTextMap.json" />
+    <None Remove="ApplicationData\AM_Console\TextMaps\GsqlTextMap.json" />
+    <None Remove="ApplicationData\AM_Console\TextMaps\JsdTextMap.json" />
+    <None Remove="ApplicationData\AM_Console\TextMaps\XsdTextMap.B2B.json" />
+    <None Remove="ApplicationData\AM_Console\TextMaps\XsdTextMap.Hl7.Fhir.json" />
+    <None Remove="ApplicationData\AM_Console\TextMaps\XsdTextMap.json" />
+    <None Remove="ReferenceDataTemplates\DataSource.Template.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ApplicationData\AM_Console\Projects\DAM\Arguments\0010.ToAssets.Args.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\Projects\DAM\Documents\placeholder.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\Projects\DAM\Files\placeholder.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\Projects\DAM\Samples\placeholder.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\Projects\DAM\TextMaps\DdlTextMap.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\Samples\placeholder.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\Templates\SqlServerSchema.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\Templates\ToAssets.Args.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\Templates\ToOpenXml.Args.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\TextMaps\DdlTextMap.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\TextMaps\GsqlTextMap.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\TextMaps\JsdTextMap.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\TextMaps\XsdTextMap.B2B.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\TextMaps\XsdTextMap.Hl7.Fhir.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationData\AM_Console\TextMaps\XsdTextMap.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="ReferenceDataTemplates\DataSource.Template.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.1.5" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <!-- Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
+       Tools extension to be activated for this project even if the Windows App SDK Nuget
+       package has not yet been restored -->
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnablePreviewMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.System\Edam.Security\Edam.Security.csproj" />
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.System\Edam.System\Edam.System.csproj" />
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\Edam.WinUI.Controls.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="ApplicationData\AM_Console\TextMaps\EditorLanguageTextMap.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="web\monaco-editor\" />
+  </ItemGroup>
+</Project>

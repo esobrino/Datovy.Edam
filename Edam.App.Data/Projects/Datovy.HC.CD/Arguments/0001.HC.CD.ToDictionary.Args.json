@@ -1,0 +1,50 @@
+{
+   "@context": {
+      "edam": "http://www.datovy.com/edam/arguments"
+   },
+   "Domain": {
+      "DomainId": "Datovy.HC.CD",
+      "Description": "Communicable Diseases"
+   },
+   "Namespace": {
+      "OrganizationDomainId": "datovy.hc.cd",
+      "Uri": "http://www.datovy.com/hc/cd",
+      "Prefix": "cd",
+      "Extension": "",
+      "RootElementName": "cd:Disease_Surveillance_Document"
+   },
+   "Process": {
+      "RecordId": null,
+      "Name": "Datovy.HC.CD.ToAssets",
+      "OrganizationId": "Datovy",
+      "OrganizationDomainUri": null,
+      "ProcedureName": "DdlImportToAssets",
+      "ProcedureTag": "DDL.DdlImportFileReader",
+      "SchemaType": 1,
+      "NextProcess": "",
+      "NextProcedure": [""]
+   },
+   "InputFile": {
+      "Extension": "xlsx",
+      "Name": "datovy.hc.cd.mdf",
+      "Path": "./Files",
+      "Full": null
+   },
+   "OutputFile": {
+      "Extension": "xlsx",
+      "Name": "datovy.hc.cd.dictionary",
+      "Path": "./Documents",
+      "Full": "./Documents/datovy.hc.cd.dictionary.xlsx"
+   },
+   "UriList": [
+      "./Archive/datovy.hc.cd.schema.xlsx"
+   ],
+   "InspectArguments": {
+      "ListLength": "1",
+      "MaxThreshold": "1"
+   },
+   "ConnectionString": "",
+   "ElementTransform": null,
+   "TextMapFilePath": "./Archive/DdlTextMap.json"
+}
+
