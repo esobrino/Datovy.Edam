@@ -1,0 +1,91 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "8106fd13-bccf-4772-9f21-00fb898f8ff6": {
+      "ProjectGuid": "8106fd13-bccf-4772-9f21-00fb898f8ff6",
+      "DisplayName": "InXone.B2b",
+      "ColorIndex": 0
+    },
+    "604cbc6f-4d5a-4a07-a417-e4d281a48f3d": {
+      "ProjectGuid": "604cbc6f-4d5a-4a07-a417-e4d281a48f3d",
+      "DisplayName": "InXone.Data.Asset.Services",
+      "ColorIndex": 1
+    },
+    "83954857-c7ea-42ef-85b8-7a2dde131b13": {
+      "ProjectGuid": "83954857-c7ea-42ef-85b8-7a2dde131b13",
+      "DisplayName": "InXone.Data.Assets",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "9e443301-a4c6-4eb4-8cf2-3e89f9784839": {
+      "ProjectGuid": "9e443301-a4c6-4eb4-8cf2-3e89f9784839",
+      "DisplayName": "InXone.Net",
+      "ColorIndex": 3
+    },
+    "bfa07231-9132-419f-bab4-a65a303abd06": {
+      "ProjectGuid": "bfa07231-9132-419f-bab4-a65a303abd06",
+      "DisplayName": "InXone.DataObjects",
+      "ColorIndex": 4
+    },
+    "3df649aa-4810-4f0e-bcce-eb3efff3ecd9": {
+      "ProjectGuid": "3df649aa-4810-4f0e-bcce-eb3efff3ecd9",
+      "DisplayName": "InXone.System",
+      "ColorIndex": 5
+    },
+    "409d9527-42f8-4bc7-bdcd-438ef7316532": {
+      "ProjectGuid": "409d9527-42f8-4bc7-bdcd-438ef7316532",
+      "DisplayName": "InXone.Gsql",
+      "ColorIndex": 6
+    },
+    "57e8b1b0-11bd-4876-aa83-8411384c0bf7": {
+      "ProjectGuid": "57e8b1b0-11bd-4876-aa83-8411384c0bf7",
+      "DisplayName": "InXone.Json",
+      "ColorIndex": 7
+    },
+    "476e601a-990b-46a2-a2d1-5e61623a46f9": {
+      "ProjectGuid": "476e601a-990b-46a2-a2d1-5e61623a46f9",
+      "DisplayName": "InXone.Data.AssetDb",
+      "ColorIndex": 8
+    },
+    "3cf8f7e4-c460-442e-911a-52e6f03825a3": {
+      "ProjectGuid": "3cf8f7e4-c460-442e-911a-52e6f03825a3",
+      "DisplayName": "InXone.AssetManagement.Console",
+      "ColorIndex": 9
+    },
+    "aa660836-03fb-4229-8711-4ffc1f7e0823": {
+      "ProjectGuid": "aa660836-03fb-4229-8711-4ffc1f7e0823",
+      "DisplayName": "InXone.GraphQl",
+      "ColorIndex": 10
+    },
+    "4ba7a1b6-b5ac-4d5a-9201-62158d398c22": {
+      "ProjectGuid": "4ba7a1b6-b5ac-4d5a-9201-62158d398c22",
+      "DisplayName": "InXone.Xml",
+      "ColorIndex": 11
+    },
+    "9affa192-d007-4306-8e18-5ec20fb53eb4": {
+      "ProjectGuid": "9affa192-d007-4306-8e18-5ec20fb53eb4",
+      "DisplayName": "InXone.Data.Schema",
+      "ColorIndex": 12
+    },
+    "9203a014-a684-41b9-98c0-dbe4fe0acd1e": {
+      "ProjectGuid": "9203a014-a684-41b9-98c0-dbe4fe0acd1e",
+      "DisplayName": "InXone.Data.EntityDb",
+      "ColorIndex": 13
+    },
+    "33a88f04-6d0e-4a8a-8712-474c8e226e8b": {
+      "ProjectGuid": "33a88f04-6d0e-4a8a-8712-474c8e226e8b",
+      "DisplayName": "InXone.Data.Templates",
+      "ColorIndex": 14
+    },
+    "1250839e-10d7-4765-856f-a9a1561ba5cd": {
+      "ProjectGuid": "1250839e-10d7-4765-856f-a9a1561ba5cd",
+      "DisplayName": "InXone.Security",
+      "ColorIndex": 15
+    }
+  },
+  "NextColorIndex": 0
+}

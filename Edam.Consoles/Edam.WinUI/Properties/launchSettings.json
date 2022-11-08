@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Edam.WinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Edam.WinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

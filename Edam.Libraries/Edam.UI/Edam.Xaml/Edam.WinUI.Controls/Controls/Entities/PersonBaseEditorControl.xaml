@@ -1,0 +1,177 @@
+﻿<UserControl
+   x:Class="Edam.WinUI.Controls.Entities.PersonBaseEditorControl"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:local="using:Edam.WinUI.Controls.Entities"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   mc:Ignorable="d">
+
+   <Grid>
+      <StackPanel Margin="10,8" Orientation="Vertical">
+         <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.Editing, Mode=TwoWay}">
+            <Button Command="{x:Bind ViewModel.SaveCommand}" Content="* Save" />
+            <Button
+               Margin="5,0"
+               Command="{x:Bind ViewModel.DoneEditCommand}"
+               Content="Done" />
+         </StackPanel>
+         <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.InSearch, Mode=TwoWay}">
+            <Button Command="{x:Bind ViewModel.FindCommand}" Content="= Find" />
+            <Button
+               Margin="5,0"
+               Command="{x:Bind ViewModel.DoneEditCommand}"
+               Content="Done" />
+         </StackPanel>
+         <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.InViewer, Mode=TwoWay}">
+            <Button Command="{x:Bind ViewModel.AddCommand}" Content="+ Add" />
+            <Button
+               Margin="5,0"
+               Command="{x:Bind ViewModel.SearchCommand}"
+               Content="= Search" />
+            <Button
+               Command="{x:Bind ViewModel.EditCommand}"
+               Content="^ Edit"
+               IsEnabled="{x:Bind ViewModel.HasRecord, Mode=TwoWay}" />
+            <Button
+               Margin="5,0"
+               Command="{x:Bind ViewModel.RetireCommand}"
+               Content="x Delete"
+               IsEnabled="{x:Bind ViewModel.HasRecord, Mode=TwoWay}" />
+         </StackPanel>
+         <StackPanel
+            Margin="0,10"
+            Orientation="Vertical"
+            Visibility="{x:Bind ViewModel.InEditor, Mode=TwoWay}">
+            <TextBox
+               Header="Email"
+               IsEnabled="{x:Bind ViewModel.ShowEditor, Mode=TwoWay}"
+               PlaceholderText="Enter email (Required)"
+               Text="{x:Bind ViewModel.SelectedItem.Email, Mode=TwoWay}" />
+            <TextBox
+               Header="Phone Number (Mobile)"
+               IsEnabled="{x:Bind ViewModel.ShowEditor, Mode=TwoWay}"
+               PlaceholderText="Enter phone number"
+               Text="{x:Bind ViewModel.SelectedItem.PhoneNumber, Mode=TwoWay}" />
+            <DatePicker
+               Date="{x:Bind ViewModel.SelectedItem.BirthDateOffset, Mode=TwoWay}"
+               Header="Birth Date (Required)"
+               IsEnabled="{x:Bind ViewModel.ShowEditor, Mode=TwoWay}" />
+            <Grid Margin="0,10">
+               <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+               </Grid.RowDefinitions>
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="5" />
+                  <ColumnDefinition Width="*" />
+               </Grid.ColumnDefinitions>
+               <StackPanel
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Orientation="Vertical">
+                  <TextBox
+                     Header="First Name"
+                     IsEnabled="{x:Bind ViewModel.ShowEditor, Mode=TwoWay}"
+                     PlaceholderText="First Name (Required)"
+                     Text="{x:Bind ViewModel.SelectedItem.GivenName, Mode=TwoWay}" />
+               </StackPanel>
+               <StackPanel
+                  Grid.Row="0"
+                  Grid.Column="2"
+                  Orientation="Vertical">
+                  <TextBox
+                     Header="Middle Name"
+                     IsEnabled="{x:Bind ViewModel.ShowEditor, Mode=TwoWay}"
+                     PlaceholderText="Middle Name"
+                     Text="{x:Bind ViewModel.SelectedItem.MiddleName, Mode=TwoWay}" />
+               </StackPanel>
+               <StackPanel
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  Orientation="Vertical">
+                  <TextBox
+                     Header="Last Name (Father)"
+                     IsEnabled="{x:Bind ViewModel.ShowEditor, Mode=TwoWay}"
+                     PlaceholderText="Last Name (Required)"
+                     Text="{x:Bind ViewModel.SelectedItem.FatherLastName, Mode=TwoWay}" />
+               </StackPanel>
+               <StackPanel
+                  Grid.Row="1"
+                  Grid.Column="2"
+                  Orientation="Vertical">
+                  <TextBox
+                     Header="Last Name (Mother)"
+                     IsEnabled="{x:Bind ViewModel.ShowEditor, Mode=TwoWay}"
+                     PlaceholderText="Second Last Name"
+                     Text="{x:Bind ViewModel.SelectedItem.MotherLastName, Mode=TwoWay}" />
+               </StackPanel>
+               <StackPanel
+                  Grid.Row="2"
+                  Grid.Column="0"
+                  Orientation="Vertical">
+                  <TextBox
+                     Header="State"
+                     IsEnabled="{x:Bind ViewModel.ShowEditor, Mode=TwoWay}"
+                     PlaceholderText="Enter state (e.g. PA)"
+                     Text="{x:Bind ViewModel.SelectedItem.StateProvince, Mode=TwoWay}" />
+               </StackPanel>
+               <StackPanel
+                  Grid.Row="2"
+                  Grid.Column="2"
+                  Orientation="Vertical">
+                  <TextBox
+                     Header="Postal Code"
+                     IsEnabled="{x:Bind ViewModel.ShowEditor, Mode=TwoWay}"
+                     PlaceholderText="Enter postal code"
+                     Text="{x:Bind ViewModel.SelectedItem.PostalCode, Mode=TwoWay}" />
+               </StackPanel>
+            </Grid>
+         </StackPanel>
+         <StackPanel Orientation="Vertical" Visibility="{Binding InSearch}">
+            <TextBlock Text="Found records will be added to list." />
+            <TextBlock Margin="0,0,0,10" Text="Refresh list to view group items only..." />
+
+            <TextBox
+               Header="Email"
+               PlaceholderText="Search by email"
+               Text="{x:Bind ViewModel.SelectedItem.Email, Mode=TwoWay}" />
+            <TextBox
+               Header="Phone Number (Mobile)"
+               PlaceholderText="Search by phone number"
+               Text="{x:Bind ViewModel.SelectedItem.PhoneNumber, Mode=TwoWay}" />
+
+            <Grid>
+               <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+               </Grid.RowDefinitions>
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="*" />
+               </Grid.ColumnDefinitions>
+               <StackPanel
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Orientation="Vertical">
+                  <TextBox
+                     Header="First Name"
+                     PlaceholderText="Search first name"
+                     Text="{x:Bind ViewModel.SelectedItem.GivenName, Mode=TwoWay}" />
+               </StackPanel>
+               <StackPanel
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  Orientation="Vertical">
+                  <TextBox
+                     Header="Last Name (Father)"
+                     PlaceholderText="Search last name"
+                     Text="{x:Bind ViewModel.SelectedItem.FatherLastName, Mode=TwoWay}" />
+               </StackPanel>
+            </Grid>
+         </StackPanel>
+      </StackPanel>
+   </Grid>
+  
+</UserControl>

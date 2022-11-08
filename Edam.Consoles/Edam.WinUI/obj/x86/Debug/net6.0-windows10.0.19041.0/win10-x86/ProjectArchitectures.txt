@@ -1,0 +1,1 @@
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.WinUI\InXone.WinUI.csproj;x86

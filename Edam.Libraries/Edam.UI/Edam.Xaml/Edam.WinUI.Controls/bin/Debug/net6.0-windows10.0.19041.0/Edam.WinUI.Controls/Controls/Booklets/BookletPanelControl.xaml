@@ -1,0 +1,57 @@
+﻿<UserControl
+    x:Class="Edam.WinUI.Controls.Booklets.BookletPanelControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Edam.WinUI.Controls.Booklets"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:tk="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+   <Grid Background="#F8F8F8">
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+
+      <StackPanel Grid.Row="0" Grid.Column="0" Margin="10,0"
+                  HorizontalAlignment="Stretch" Orientation="Horizontal" MinHeight="25"
+                  BorderBrush="#E0E0E0" BorderThickness="0,0,0,1">
+         <TextBox BorderThickness="0" PlaceholderText="Enter Booklet Title here"
+                  Background="Transparent" VerticalAlignment="Center" />
+         <AppBarButton Icon="Save" LabelPosition="Collapsed" Padding="0" Width="40"
+                       Foreground="Navy"/>
+         <AppBarSeparator />
+         <AppBarButton Icon="Add" LabelPosition="Collapsed" Padding="0" Width="40"
+                       ToolTipService.ToolTip="Add Cell">
+            <AppBarButton.Flyout>
+               <MenuBarItemFlyout>
+                  <MenuFlyoutItem x:ConnectionId='6' Text="Code Cell"                           />
+                  <MenuFlyoutItem x:ConnectionId='7' Text="Text Cell"                          />
+               </MenuBarItemFlyout>
+            </AppBarButton.Flyout>
+         </AppBarButton>
+         <AppBarButton x:ConnectionId='5' Icon="Cancel" LabelPosition="Collapsed" Padding="0" Width="40"
+                                                ToolTipService.ToolTip="Remove Cell"
+                       Foreground="Brown"/>
+      </StackPanel>
+
+      <ScrollViewer Grid.Row="1" Grid.Column="0">
+         <ListView x:ConnectionId='4' SelectionMode="Single" x:Name="BookletList" />
+      </ScrollViewer>
+
+      <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" 
+                  HorizontalAlignment="Center" VerticalAlignment="Top">
+         <TextBlock Text="Add" VerticalAlignment="Center" />
+         <HyperlinkButton x:ConnectionId='2' Content="+ Text"                           Padding="3,0"/>
+         <TextBlock Text="or" VerticalAlignment="Center"/>
+         <HyperlinkButton x:ConnectionId='3' Content="+ Code"                           Padding="3,0"/>
+         <TextBlock Text="Cell" VerticalAlignment="Center"/>
+      </StackPanel>
+   </Grid>
+</UserControl>
+

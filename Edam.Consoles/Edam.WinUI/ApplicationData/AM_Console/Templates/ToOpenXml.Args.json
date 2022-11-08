@@ -1,0 +1,45 @@
+﻿{
+   "@context": {
+      "am": "http://www.datovy.com/am/arguments"
+   },
+   "Namespace": {
+      "OrganizationDomainId": "cjust.ise",
+      "Uri": "http://da.scc.gov.org/cyberlaw",
+      "Prefix": "cl",
+      "Extension": "",
+      "RootElementName": "InitialFiling"
+   },
+   "Process": {
+      "RecordId": null,
+      "Name": "JServices",
+      "OrganizationId": "Datovy",
+      "OrganizationDomainUri": null,
+      "ProcedureName": "XsdToFile",
+      "SchemaType": 1,
+      "NextProcess": null,
+      "NextProcedure": []
+   },
+   "InputFile": {
+      "Extension": "xsd",
+      "Name": "jservices.local.v1r0.xsd",
+      "Path": "./Files",
+      "Full": null
+   },
+   "OutputFile": {
+      "Extension": "xlsx",
+      "Name": "cyberlaw",
+      "Path": "./Documents",
+      "Full": null
+   },
+   "UriList": [
+      "./Files"
+   ],
+   "InspectArguments": {
+      "ListLength": "1",
+      "MaxThreshold": "1"
+   },
+   "ConnectionString": null,
+   "ElementTransform": null,
+   "TextMapFilePath": "./TextMaps/XsdTextMap.json"
+}
+

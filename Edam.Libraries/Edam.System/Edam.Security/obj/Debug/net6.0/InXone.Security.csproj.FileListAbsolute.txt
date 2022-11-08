@@ -1,0 +1,15 @@
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\bin\Debug\net6.0\InXone.Security.deps.json
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\bin\Debug\net6.0\InXone.Security.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\bin\Debug\net6.0\InXone.Security.pdb
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\bin\Debug\net6.0\InXone.System.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\bin\Debug\net6.0\InXone.System.pdb
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\InXone.Security.csproj.AssemblyReference.cache
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\InXone.Security.GeneratedMSBuildEditorConfig.editorconfig
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\InXone.Security.AssemblyInfoInputs.cache
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\InXone.Security.AssemblyInfo.cs
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\InXone.Security.csproj.CoreCompileInputs.cache
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\InXone.Security.csproj.CopyComplete
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\InXone.Security.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\refint\InXone.Security.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\InXone.Security.pdb
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Security\obj\Debug\net6.0\ref\InXone.Security.dll

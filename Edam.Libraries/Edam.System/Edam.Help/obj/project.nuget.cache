@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "YKhuED4hsB2lprtrGtPc4pELnqIxIAWXlPC9sDdukQlDFj9SfSd/yraeVdfdrDIk7aalnezKO4WInF1P8bDbLA==",
+  "success": false,
+  "projectFilePath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Help\\Edam.Help.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\InXone.System\\InXone.System.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\InXone.System\\InXone.System.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\InXone.DataObjects\\InXone.DataObjects.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\InXone.DataObjects\\InXone.DataObjects.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}

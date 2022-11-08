@@ -1,0 +1,142 @@
+﻿<UserControl
+   x:Class="Edam.WinUI.Controls.Entities.EntityFollowUpViewControl"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:local="using:Edam.WinUI.Controls.Entities"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:nt="using:Edam.WinUI.Controls.Notes"
+   xmlns:p="using:Edam.WinUI.Controls.Entities"
+   xmlns:tk="using:CommunityToolkit.WinUI.UI.Controls"
+   xmlns:at="using:Edam.WinUI.Controls.Activities"
+   xmlns:pedit="using:Edam.WinUI.Controls.Entities"
+   xmlns:pson="using:Edam.UI.DataModel.Entities"
+   xmlns:rl="using:Edam.WinUI.Controls.ReferenceLists"
+   mc:Ignorable="d">
+
+   <Grid>
+      <SplitView
+         MinHeight="300"
+         DisplayMode="Inline"
+         IsPaneOpen="True"
+         OpenPaneLength="400"
+         PanePlacement="Right">
+         <SplitView.Pane>
+            <Grid BorderBrush="LightGray" BorderThickness="1,1,0,0">
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+               </Grid.ColumnDefinitions>
+               <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="*" />
+               </Grid.RowDefinitions>
+               <NavigationView
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Width="400"
+                  Visibility="{x:Bind ViewModel.FollowUpVisibility, Mode=TwoWay}"
+                  HorizontalAlignment="Stretch"
+                  Background="LightGray"
+                  IsBackButtonVisible="Collapsed"
+                  IsSettingsVisible="False"
+                  PaneDisplayMode="Top"
+                  SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                  SelectionFollowsFocus="Enabled">
+                  <NavigationView.MenuItems>
+                     <NavigationViewItem Content="Notes" IsSelected="True" />
+                     <NavigationViewItem Content="Person" />
+                     <NavigationViewItem Content="Progress" />
+                  </NavigationView.MenuItems>
+               </NavigationView>
+               <StackPanel Grid.Row="1" Grid.Column="0"
+                           Visibility="{x:Bind ViewModel.FollowUpVisibility, Mode=TwoWay}">
+                  <StackPanel Orientation="Vertical" Grid.Row="1">
+                     <nt:NotesViewEditControl
+                           x:Name="NotesEditorControl"
+                           Visibility="{x:Bind ViewModel.NotesVisibility, Mode=TwoWay}" />
+                     <pedit:PersonBaseEditorControl
+                           x:Name="PersonEditorControl"
+                           Visibility="{x:Bind ViewModel.PersonVisibility, Mode=TwoWay}" />
+                     <rl:ReferenceListGroupEditControl
+                           x:Name="ReferenceListGroupControl"
+                           Margin="10,5"
+                           Visibility="{x:Bind ViewModel.ProgressVisibility, Mode=TwoWay}" />
+                  </StackPanel>
+               </StackPanel>
+               <!--<tk:DockPanel Grid.Row="1" Grid.Column="0"
+                             Visibility="{x:Bind ViewModel.EvaluateVisibility, Mode=TwoWay}"
+                             LastChildFill="True">
+                  <TextBlock Text="SELECT PARTICIPANT" VerticalAlignment="Top"
+                             Padding="16,14" Foreground="DarkBlue"
+                             tk:DockPanel.Dock="Top" FontWeight="Bold"/>
+                  <ListView ItemsSource="{x:Bind ViewModel.Persons.Items}"
+                            x:Name="ParticipantList" DoubleTapped="ParticipantList_DoubleTapped"
+                            BorderBrush="LightGray" BorderThickness=".5">
+                     <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="pson:PersonModel">
+                           <TextBlock Text="{x:Bind NameText,Mode=OneWay}" />
+                        </DataTemplate>
+                     </ListView.ItemTemplate>
+                  </ListView>
+               </tk:DockPanel>-->
+               <pedit:ParticipantListViewControl Grid.Row="1" Grid.Column="0"
+                  x:Name="ParticipantListViewControl"
+                  Visibility="{x:Bind ViewModel.EvaluateVisibility, Mode=TwoWay}"/>
+            </Grid>
+         </SplitView.Pane>
+
+         <Grid
+            x:Name="ViewPanel"
+            Grid.Row="1"
+            VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="*" />
+               <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+               <CommandBar x:Name="ListOptionButton" Foreground="DarkBlue" DefaultLabelPosition="Right">
+                  <AppBarButton Icon="AllApps" Label="{x:Bind ViewModel.Persons.TitleText, Mode=TwoWay}"
+                                Click="ListOptionButton_Click" FontWeight="Bold" Foreground="DarkBlue"
+                                ToolTipService.ToolTip="Progress Group"/>
+                  <AppBarButton x:Name="EvaluateButton" Icon="Favorite" Label="Evaluate" Click="EvaluateButton_Click" />
+               </CommandBar>
+               <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.EvaluateVisibility, Mode=TwoWay}">
+                  <at:PeriodControl x:Name="PeriodOptionsControl" />
+                  <at:ProgramControl x:Name="ProgramOptionsControl" />
+                  <CommandBar DefaultLabelPosition="Collapsed">
+                     <AppBarButton x:Name="SaveEventsButton" Icon="Save" Click="SaveEventsButton_Click" />
+                  </CommandBar>
+               </StackPanel>
+            </StackPanel>
+
+            <Frame Grid.Row="1">
+                  <p:EntityFollowUpGridControl 
+                     x:Name="Persons" DataContext="{x:Bind ViewModel.Persons}"
+                     Visibility="{x:Bind ViewModel.FollowUpVisibility, Mode=TwoWay}"/>
+            </Frame>
+            <Frame Grid.Row="1">
+                  <at:ActivityPeriodRatingGridControl 
+                     x:Name="RatingGridControl"
+                     Visibility="{x:Bind ViewModel.EvaluateVisibility, Mode=TwoWay}" />
+            </Frame>
+
+            <StackPanel Grid.Row="2"
+               MinHeight="30"
+               Padding="5,0,0,0"
+               BorderBrush="DarkGray"
+               BorderThickness=".25"
+               Orientation="Horizontal">
+               <TextBlock VerticalAlignment="Center"
+                  Text="{x:Bind ViewModel.Persons.StatusMessageText, Mode=TwoWay}"
+                  TextAlignment="Left" />
+            </StackPanel>
+
+         </Grid>
+      </SplitView>
+   </Grid>
+</UserControl>

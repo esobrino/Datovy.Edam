@@ -1,0 +1,49 @@
+﻿<UserControl x:ConnectionId='1'
+    x:Class="InXone.WinUI.Controls.Booklets.FramePanelControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InXone.WinUI.Controls.Booklets"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Self" Margin="2,10,2,8"
+    mc:Ignorable="d" BorderBrush="Blue" BorderThickness="1">
+
+   <Grid>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="*" />
+         <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      
+      <StackPanel Grid.Row="0" Grid.Column="1"
+                  Margin="5,5" Padding="0">
+         <StackPanel x:ConnectionId='2' Orientation="Horizontal" ToolTipService.ToolTip="Run"
+                     ToolTipService.Placement="Bottom" x:Name="PlayButton">
+            <FontIcon x:ConnectionId='7' Margin="2" Foreground="DarkGreen" FontSize="12"
+                      FontFamily="Segoe MDL2 Assets" Glyph="&#xF5B0;" 
+                                                   />
+         </StackPanel>
+         <StackPanel x:ConnectionId='3' Orientation="Horizontal" ToolTipService.ToolTip="Remove"
+                     ToolTipService.Placement="Bottom" x:Name="RemoveButton">
+            <FontIcon x:ConnectionId='6' Margin="2,5" Foreground="Brown" FontSize="12"
+                      FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;" 
+                                                         />
+         </StackPanel>
+         <StackPanel x:ConnectionId='4' Orientation="Horizontal" ToolTipService.ToolTip="Add"
+                     ToolTipService.Placement="Bottom" x:Name="AddButton">
+            <FontIcon x:ConnectionId='5' Margin="2,5,2,0" Foreground="#4f4f4f" FontSize="12"
+                      FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"
+                                                      />
+         </StackPanel>
+      </StackPanel>
+
+      <ContentPresenter Grid.Row="0" Grid.Column="0" BorderBrush="LightBlue" BorderThickness="1"
+         HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         Content="{Binding FrameContent, ElementName=Self}" MinHeight="30">
+         
+      </ContentPresenter>
+   </Grid>
+</UserControl>
+

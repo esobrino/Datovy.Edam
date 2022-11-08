@@ -1,0 +1,3003 @@
+﻿{
+   "ElementProperty": [
+      {
+         "ElementName": "[any]",
+         "ElementTraversing": {
+            "ArrayToID": "true",
+            "ArrayToAssociation": "true",
+            "Instantiate": "false"
+         },
+         "DefaultSurragateReference": {
+            "ElementName": "RecordNo",
+            "TypeName": "SurrogateKey",
+            "TraverseAction": "Ignore",
+            "BaseType": {
+               "Name": "RecordNo",
+               "TypeName": "INT",
+               "DataSize": "",
+               "Identity": "true"
+            }
+         },
+         "PrimaryKey": [
+            {
+               "Name": "RecordNo",
+               "TypeName": "INT",
+               "DataSize": "",
+               "Identity": "true"
+            }
+         ],
+         "RecordTrackingItem": [
+            {
+               "Name": "DataOwnerID",
+               "TypeName": "VARCHAR",
+               "DataSize": "40",
+               "Default": "",
+               "Nullable": "false"
+            },
+            {
+               "Name": "RecordStatusCode",
+               "TypeName": "CHAR",
+               "DataSize": "1",
+               "Default": "'A'",
+               "Nullable": "false"
+            },
+            {
+               "Name": "CreateDateTime",
+               "TypeName": "DateTime",
+               "DataSize": "",
+               "Default": "getutcdate()",
+               "Nullable": "false"
+            },
+            {
+               "Name": "UpdateDateTime",
+               "TypeName": "DateTime",
+               "DataSize": "",
+               "Default": "getutcdate()",
+               "Nullable": "false"
+            },
+            {
+               "Name": "CreateSessionID",
+               "TypeName": "VARCHAR",
+               "DataSize": "40",
+               "Default": "",
+               "Nullable": "false"
+            },
+            {
+               "Name": "UpdateSessionID",
+               "TypeName": "VARCHAR",
+               "DataSize": "40",
+               "Default": "",
+               "Nullable": "false"
+            }
+         ]
+      },
+      {
+         "ElementName": "CodeSet",
+         "PrimaryKey": [
+            {
+               "Name": "CodeID",
+               "TypeName": "VARCHAR",
+               "DataSize": "",
+               "Identity": "true"
+            }
+         ],
+         "RecordTrackingItem": [
+            {
+               "Name": "CodeID",
+               "TypeName": "CHAR",
+               "DataSize": "1",
+               "Default": "'A'",
+               "Nullable": "false"
+            },
+            {
+               "Name": "DescriptionText",
+               "TypeName": "DateTime",
+               "DataSize": "",
+               "Default": "getutcdate()",
+               "Nullable": "false"
+            },
+            {
+               "Name": "CategoryText",
+               "TypeName": "DateTime",
+               "DataSize": "",
+               "Default": "getutcdate()",
+               "Nullable": "false"
+            }
+         ]
+      }
+   ],
+   "Element": [
+      {
+         "ElementName": "fh:Address",
+         "TypeName": "No",
+         "TraverseAction": "InstantiateAsObject",
+         "BaseType": {
+            "TypeName": "int",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "fh:TriggerDefinition",
+         "TypeName": "No",
+         "TraverseAction": "InstantiateAsElement",
+         "BaseType": {
+            "TypeName": "int",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "fh:AccountStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CapabilityStatementKind",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EventCapabilityMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ResourceVersionPolicy",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DocumentMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:RestfulCapabilityMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TypeRestfulInteraction",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+
+      {
+         "ElementName": "fh:AuditEventOutcome",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TypeRestfulInteraction",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AuditEventAction",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AuditEventAgentNetworkType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:BiologicallyDerivedProductCategory",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:BiologicallyDerivedProductStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:BiologicallyDerivedProductStorageScale",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:HTTPVerb",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:BundleType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SearchEntryMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CapabilityStatementKind",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EventCapabilityMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ResourceVersionPolicy",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DocumentMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:RestfulCapabilityMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TypeRestfulInteraction",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+
+      {
+         "ElementName": "fh:SystemRestfulInteraction",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ConditionalReadStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ReferenceHandlingPolicy",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ConditionalDeleteStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+
+      {
+         "ElementName": "fh:CarePlanActivityKind",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CarePlanActivityStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CarePlanIntent",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:RequestStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CareTeamStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CatalogEntryRelationType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:InvoicePriceComponentType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ChargeItemStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+
+      {
+         "ElementName": "fh:AdverseEventActuality",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AllergyIntoleranceCriticality",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AllergyIntoleranceType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AllergyIntoleranceCategory",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AllergyIntoleranceSeverity",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ParticipantRequired",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AppointmentStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:Use",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:FinancialResourceStatusCodes",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ClaimProcessingCodes",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ClinicalImpressionStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ParticipationStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AuditEventOutcome",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AuditEventAction",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AuditEventAgentNetworkType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:FilterOperator",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:QuestionnaireItemType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EnableWhenBehavior",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:QuestionnaireItemOperator",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:QuestionnaireResponseStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SpecimenContainedPreference",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:StructureDefinitionKind",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TypeDerivationRule",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ExtensionContextType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:XPathUsageType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SpecimenStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AssertionDirectionType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:VisionBase",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:VisionEyes",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AssertionOperatorType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AssertionResponseTypes",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:status",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TestScriptRequestMethodCode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TestReportStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TestReportActionResult",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TestReportParticipantType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TestReportResult",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:StructureMapInputMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SubscriptionStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:FHIRSubstanceStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TaskStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TaskIntent",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CodeSearchSupport",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SubscriptionChannelType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SupplyDeliveryStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SupplyRequestStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:StructureMapContextType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:StructureMapTargetListMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:StructureMapTransform",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:StructureMapSourceListMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:StructureMapGroupTypeMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:StructureMapModelMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SearchModifierCode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SlotStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SearchComparator",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ResearchElementType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ResearchSubjectStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ResearchStudyStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:VariableType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ActionRequiredBehavior",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ActionRelationshipType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ActionGroupingBehavior",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ActionSelectionBehavior",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ActionCardinalityBehavior",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ActionPrecheckBehavior",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ActionConditionKind",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:PropertyType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CodeSystemHierarchyMeaning",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CodeSystemContentMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:BiologicallyDerivedProductCategory",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:BiologicallyDerivedProductStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:BiologicallyDerivedProductStorageScale",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+
+      {
+         "ElementName": "fh:ActionParticipantType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:RequestIntent",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CompartmentType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:vConfidentialityClassification",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:RequestResourceType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EventStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "20"
+         }
+      },
+      {
+         "ElementName": "fh:RequestPriority",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:FamilyHistoryStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "20"
+         }
+      },
+      {
+         "ElementName": "fh:HTTPVerb",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "20"
+         }
+      },
+      {
+         "ElementName": "fh:BundleType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "20"
+         }
+      },
+      {
+         "ElementName": "fh:SearchEntryMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "20"
+         }
+      },
+      {
+         "ElementName": "fh:ConfidentialityClassification",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CompositionStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ConsentProvisionType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ContractResourceStatusCodes",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ContractResourcePublicationStatusCodes",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EligibilityRequestPurpose",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EligibilityResponsePurpose",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:PublicationStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SearchParamType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AdministrativeGender",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:FHIRVersion",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:NoteType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:strandType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:orientationType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:repositoryType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:IssueType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:IssueSeverity",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:OperationParameterUse",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:OperationKind",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:qualityType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ObservationDataType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ObservationRangeCategory",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:NamingSystemIdentifierType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:NamingSystemType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:sequenceType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:FlagStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:GoalLifecycleStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:RemittanceOutcome",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:GroupType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:MessageSignificanceCategory",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:messageheaderResponseRequest",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ResponseType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:medicationrequestStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:medicationRequestIntent",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:MedicationStatusCodes",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:MeasureReportStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:MeasureReportType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:LocationMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:LocationStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:LinkageType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ListStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:GuideParameterCode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:InvoiceStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SPDXLicense",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:GuidePageGeneration",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ImmunizationEvaluationStatusCodes",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DaysOfWeek",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ImmunizationStatusCodes",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ImagingStudyStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:GraphCompartmentUse",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:GraphCompartmentRule",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ConceptMapEquivalence",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DocumentReferenceStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ObservationStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DetectedIssueSeverity",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:FHIRDeviceStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DeviceNameType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:UDIEntryType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DeviceMetricCalibrationType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DeviceMetricColor",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DeviceMetricCalibrationState",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DeviceMetricOperationalStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DeviceUseStatementStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EncounterLocationStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EpisodeOfCareStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SortDirection",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ContactPointSystem",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:IdentifierUse",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:PropertyRepresentation",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ConstraintSeverity",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AggregationMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ReferenceVersionRules",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:SlicingRules",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:BindingStrength",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DiscriminatorType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ContactPointUse",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:NameUse",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EndpointStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ExplanationOfBenefitStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ExampleScenarioActorType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:Count",
+         "TypeName": "ID",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ResourceType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ContributorType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:RelatedArtifactType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ExpressionLanguage",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AddressUse",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:UnitsOfTime",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EventTiming",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:AddressType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:TriggerType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:QuantityComparator",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:NarrativeStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:Element",
+         "TypeName": "ReferenceID",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EvidenceVariableType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:GroupMeasure",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:EncounterStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ExposureState",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DiagnosticReportStatus",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DeviceMetricCategory",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ConsentDataMeaning",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ConsentState",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ConceptMapGroupUnmappedMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:DocumentRelationshipType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CompositionAttestationMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ListMode",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:CodeableConcept",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:LinkType",
+         "TypeName": "CodeSet",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:ResourceContainer",
+         "TypeName": "ReferenceAndType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "20"
+         },
+         "Transform": {
+            "Action": "Transform",
+            "TransformTo": "ReferenceAndType"
+         },
+         "AsInstance": {
+            "Action": "Ignore",
+            "TransformTo": "Reference"
+         }
+      },
+      {
+         "ElementName": "ResourceContainer",
+         "TypeName": "ReferenceAndType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "20"
+         },
+         "Transform": {
+            "Action": "Transform",
+            "TransformTo": "ReferenceAndType"
+         },
+         "AsInstance": {
+            "Action": "Ignore",
+            "TransformTo": "Reference"
+         }
+      },
+      {
+         "ElementName": "fh:anyType",
+         "TypeName": "ReferenceAndType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "xs:anyType",
+         "TypeName": "ReferenceAndType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:Parameters",
+         "TypeName": "ReferenceAndType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:Parameters.Parameter",
+         "TypeName": "ReferenceAndType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:Extension",
+         "TypeName": "ReferenceAndType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:ElementDefinition",
+         "TypeName": "Definition",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:ElementDefinition.Example",
+         "TypeName": "Definition",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:Duration",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:Distance",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:Age",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:SampledDataDataType",
+         "TypeName": "IdValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:date",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "date",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "fh:dateTime",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "dateTime",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "fh:code",
+         "TypeName": "IdValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:string",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "256"
+         }
+      },
+      {
+         "ElementName": "fh:integer",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "256"
+         }
+      },
+      {
+         "ElementName": "fh:oid",
+         "TypeName": "IdValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "256"
+         }
+      },
+      {
+         "ElementName": "fh:canonical",
+         "TypeName": "IdValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "256"
+         }
+      },
+      {
+         "ElementName": "fh:uri",
+         "TypeName": "IdValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "1024"
+         }
+      },
+      {
+         "ElementName": "fh:uuid",
+         "TypeName": "IdValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "256"
+         }
+      },
+      {
+         "ElementName": "fh:url",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "1024"
+         }
+      },
+      {
+         "ElementName": "fh:instance",
+         "TypeName": "IdValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:boolean",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "bit",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "fh:base64Binary",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varbinary",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "fh:unsignedInt",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "int",
+            "DataSize": "256"
+         }
+      },
+      {
+         "ElementName": "fh:markdown",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "fh:time",
+         "TypeName": "IdValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "time",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "fh:id",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "80"
+         }
+      },
+      {
+         "ElementName": "fh:positiveInt",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "int",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "fh:decimal",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "decimal",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "xs:string",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "256"
+         }
+      },
+      {
+         "ElementName": "fh:KeyValueType",
+         "TypeName": "CodeValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:ManifestType",
+         "TypeName": "ID",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:SignaturePropertiesType",
+         "TypeName": "ID",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:CanonicalizationMethodType",
+         "TypeName": "ID",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:SignatureMethodType",
+         "TypeName": "ID",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:SignatureType",
+         "TypeName": "IdValue",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:SignatureValueType",
+         "TypeName": "ID",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "fh:SignedInfoType",
+         "TypeName": "ID",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+
+      {
+         "ElementName": "p",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "br",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "area",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "img",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "tt",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "acronym",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "sub",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "abbr",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "cite",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "var",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "kbd",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "samp",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "q",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "code",
+         "TypeName": "ID",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "40"
+         }
+      },
+      {
+         "ElementName": "dfn",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "strong",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "em",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "small",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "big",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "b",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "i",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "bdo",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "span",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "acronym",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "xhtml:div",
+         "TypeName": "BaseType",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "div",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "caption",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "thead",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "tfoot",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "li",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "dl",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "dd",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "hr",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "blockquote",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "tbody",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "tr",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "td",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "table",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "colgroup",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "h1",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "a.content",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "pre.content",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "h2",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "Inline",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "Block",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "Flow",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "h1",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "h3",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "h4",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "h5",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      },
+      {
+         "ElementName": "h6",
+         "TypeName": "XHTML",
+         "TraverseAction": "Ignore",
+         "BaseType": {
+            "TypeName": "varchar",
+            "DataSize": "max"
+         }
+      }
+   ]
+}

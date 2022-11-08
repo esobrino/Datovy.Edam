@@ -1,0 +1,45 @@
+﻿{
+   "@context": {
+      "am": "http://www.datovy.com/am/arguments"
+   },
+   "Namespace": {
+      "OrganizationDomainId": "cjust.ise",
+      "Uri": "http://www.datovy.com/et/entity",
+      "Prefix": "et",
+      "Extension": "",
+      "RootElementName": "Reference.Entity"
+   },
+   "Process": {
+      "RecordId": null,
+      "Name": "ReferenceData",
+      "OrganizationId": "Datovy",
+      "OrganizationDomainUri": null,
+      "ProcedureName": "XsdToAssets",
+      "SchemaType": 1,
+      "NextProcess": null,
+      "NextProcedure": []
+   },
+   "InputFile": {
+      "Extension": "xsd",
+      "Name": "schema.local.v1r0.xsd",
+      "Path": "./Files",
+      "Full": null
+   },
+   "OutputFile": {
+      "Extension": "xlsx",
+      "Name": "referenceData",
+      "Path": "./Documents",
+      "Full": null
+   },
+   "UriList": [
+      "./Files"
+   ],
+   "InspectArguments": {
+      "ListLength": "1",
+      "MaxThreshold": "1"
+   },
+   "ConnectionString": null,
+   "ElementTransform": null,
+   "TextMapFilePath": "./TextMaps/XsdTextMap.json"
+}
+

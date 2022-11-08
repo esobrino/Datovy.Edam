@@ -1,0 +1,53 @@
+﻿<UserControl
+   x:Class="InXone.WinUI.Controls.Entities.EntityFollowUpGridControl"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:local="using:InXone.WinUI.Controls.Entities"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:sf="using:Syncfusion.UI.Xaml.DataGrid"
+   mc:Ignorable="d">
+   <sf:SfDataGrid x:ConnectionId='2'
+      x:Name="DataGrid"
+      HorizontalAlignment="Stretch"
+      AllowResizingColumns="True"
+      AutoGenerateColumns="False"
+      ColumnWidthMode="SizeToCells"
+      ItemsSource="{Binding Items, Mode=TwoWay}"
+      SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
+      <sf:SfDataGrid.Columns>
+         <sf:GridTextColumn
+            ColumnWidthMode="SizeToCells"
+            HeaderText="Name"
+            MappingName="NameText"
+            MinimumWidth="250" />
+         <sf:GridTextColumn
+            ColumnWidthMode="SizeToCells"
+            HeaderText="Email"
+            MappingName="Email"
+            MinimumWidth="300" />
+         <sf:GridTextColumn HeaderText="Phone" MappingName="PhoneNumber" />
+         <sf:GridTextColumn
+            HeaderText="State"
+            MappingName="StateProvince"
+            TextAlignment="Center" />
+         <sf:GridTextColumn
+            HeaderText="Zipcode"
+            MappingName="PostalCode"
+            TextAlignment="Center" />
+         <sf:GridTextColumn
+            HeaderText="Addresses"
+            MappingName="AddressCount"
+            TextAlignment="Right" />
+         <sf:GridTextColumn
+            HeaderText="Notes"
+            MappingName="NotesCount"
+            TextAlignment="Right" />
+         <sf:GridTextColumn
+            HeaderText="Old"
+            MappingName="NoteDaysSinceLast"
+            TextAlignment="Right" />
+      </sf:SfDataGrid.Columns>
+   </sf:SfDataGrid>
+</UserControl>
+

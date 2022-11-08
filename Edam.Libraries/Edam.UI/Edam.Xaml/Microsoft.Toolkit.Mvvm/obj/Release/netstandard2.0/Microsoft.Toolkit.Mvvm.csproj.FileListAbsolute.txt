@@ -1,0 +1,10 @@
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\bin\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.deps.json
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\bin\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.dll
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\bin\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.pdb
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\obj\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.csproj.AssemblyReference.cache
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\obj\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.GeneratedMSBuildEditorConfig.editorconfig
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\obj\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.AssemblyInfoInputs.cache
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\obj\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.AssemblyInfo.cs
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\obj\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.csproj.CoreCompileInputs.cache
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\obj\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.dll
+C:\prjs\InXone.WinUI\InXone.WinUI\InXone.Xaml\Microsoft.Toolkit.Mvvm\obj\Release\netstandard2.0\Microsoft.Toolkit.Mvvm.pdb

@@ -1,0 +1,19 @@
+﻿<UserControl
+   x:Class="Edam.WinUI.Controls.Home.DashboardControl"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:local="using:Edam.WinUI.Controls.Home"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:refl="using:Edam.WinUI.Controls.ReferenceLists"
+   xmlns:prjs="using:Edam.WinUI.Controls.Projects"
+   d:DesignHeight="300"
+   d:DesignWidth="400"
+   mc:Ignorable="d">
+
+   <Grid x:ConnectionId='2' x:Name="HomeControl">
+      <!--<refl:ReferenceListViewControl />-->
+      <!--<prjs:ProjectViewerControl />-->
+   </Grid>
+</UserControl>
+

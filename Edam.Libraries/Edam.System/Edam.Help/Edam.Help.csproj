@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InXone.DataObjects\InXone.DataObjects.csproj" />
+    <ProjectReference Include="..\InXone.System\InXone.System.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Merchants\" />
+    <Folder Include="UserAccounts\" />
+  </ItemGroup>
+
+</Project>

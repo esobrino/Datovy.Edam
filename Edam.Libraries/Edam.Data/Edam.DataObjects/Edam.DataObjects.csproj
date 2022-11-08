@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.0-beta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Edam.Data\Edam.Data.Assets\Edam.Data.Assets.csproj" />
+    <ProjectReference Include="..\..\Edam.Data\Edam.Data.Templates\Edam.Data.Templates.csproj" />
+    <ProjectReference Include="..\..\Edam.System\Edam.Net\Edam.Net.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="B2B\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="Syncfusion.Grid.WinUI" version="1.0" primary="true">
+		<Qualifiers>
+			<Language>EN-US</Language>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<ResourceMapSubtree name="Syncfusion.Calendar.WinUI">
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="calendar.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Calendar.WinUI/Themes/calendar.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="calendardatepicker.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Calendar.WinUI/Themes/calendardatepicker.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="calendardaterangepicker.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Calendar.WinUI/Themes/calendardaterangepicker.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="calendarheader.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Calendar.WinUI/Themes/calendarheader.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="calendaritem.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Calendar.WinUI/Themes/calendaritem.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="generic.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Calendar.WinUI/Themes/generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="navigationbutton.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Calendar.WinUI/Themes/navigationbutton.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="themeresources.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Calendar.WinUI/Themes/themeresources.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Syncfusion.Core.WinUI">
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Common.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Core.WinUI/Themes/Common.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="TextButton.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Core.WinUI/Themes/TextButton.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<ResourceMapSubtree name="DensityStyles">
+						<NamedResource name="Compact.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Core.WinUI/Themes/DensityStyles/Compact.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+						<NamedResource name="Standard.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Core.WinUI/Themes/DensityStyles/Standard.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+					</ResourceMapSubtree>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Syncfusion.Editors.WinUI">
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="autocomplete.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/autocomplete.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="colorpalette.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/colorpalette.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="colorpicker.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/colorpicker.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="colorpickerresources.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/colorpickerresources.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="combobox.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/combobox.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="datepicker.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/datepicker.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="datetimepickerresources.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/datetimepickerresources.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="datetimespinnerbase.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/datetimespinnerbase.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="dropdownbase.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/dropdownbase.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="dropdowncolorpalette.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/dropdowncolorpalette.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="dropdowncolorpicker.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/dropdowncolorpicker.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="flattextbox.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/flattextbox.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="generic.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="gradientstopseditor.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/gradientstopseditor.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="gradientstopthumb.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/gradientstopthumb.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="lineargradienteditor.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/lineargradienteditor.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="listview.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/listview.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="numberbox.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/numberbox.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="radialgradienteditor.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/radialgradienteditor.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="segmentedcontrol.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/segmentedcontrol.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="solidcolorchanneleditor.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/solidcolorchanneleditor.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="solidcolorspectrumeditor.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/solidcolorspectrumeditor.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="spinnerview.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/spinnerview.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="themeresources.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/themeresources.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="timepicker.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Editors.WinUI/Themes/timepicker.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Syncfusion.Grid.WinUI">
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="generic.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="themeresources.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/themeresources.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<ResourceMapSubtree name="SfDataGrid">
+						<NamedResource name="advancedfiltercontrol.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfDataGrid/advancedfiltercontrol.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+						<NamedResource name="detailsview.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfDataGrid/detailsview.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+						<NamedResource name="filterrow.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfDataGrid/filterrow.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+						<NamedResource name="gridfiltercontrol.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfDataGrid/gridfiltercontrol.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+						<NamedResource name="groupdroparea.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfDataGrid/groupdroparea.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+						<NamedResource name="printing.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfDataGrid/printing.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+						<NamedResource name="sfdatagrid.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfDataGrid/sfdatagrid.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+					</ResourceMapSubtree>
+					<ResourceMapSubtree name="SfTreeGrid">
+						<NamedResource name="sftreegrid.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfTreeGrid/sftreegrid.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+						<NamedResource name="treegridadvancefiltercontrol.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfTreeGrid/treegridadvancefiltercontrol.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+						<NamedResource name="treegridfiltercontrol.xbf" uri="ms-resource://Syncfusion.Grid.WinUI/Files/Syncfusion.Grid.WinUI/Themes/SfTreeGrid/treegridfiltercontrol.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+					</ResourceMapSubtree>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Syncfusion.Editors.WinUI">
+			<ResourceMapSubtree name="Syncfusion.Editors.WinUI">
+				<NamedResource name="A" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/A">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>A</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Accent" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Accent">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Accent</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Angle" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Angle">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Angle</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Aqua" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Aqua">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Aqua</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Automatic" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Automatic">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Automatic</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="B" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/B">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>B</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Background" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Background">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Background</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Black" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Black">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Black</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Blue" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Blue">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Blue</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="BlueGray" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/BlueGray">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Blue Gray</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="BrightGreen" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/BrightGreen">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Bright Green</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Brown" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Brown">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Brown</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="C" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/C">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>C</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Cancel" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Cancel">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cancel</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Center" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Center">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Center</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CMYK" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/CMYK">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>CMYK</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Coral" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Coral">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Coral</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Current" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Current">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Current</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DarkBlue" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/DarkBlue">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Dark Blue</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Darker" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Darker">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Darker</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DarkGray" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/DarkGray">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Dark Gray</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DarkGreen" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/DarkGreen">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Dark Green</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DarkPurple" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/DarkPurple">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Dark Purple</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DarkRed" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/DarkRed">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Dark Red</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DarkTeal" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/DarkTeal">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Dark Teal</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Day" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Day">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Day</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DayName" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/DayName">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>DayName</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Direction" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Direction">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Direction</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="EndPoint" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/EndPoint">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>End Point</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="G" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/G">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>G</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Gold" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Gold">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Gold</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Gray" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Gray">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Gray</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Green" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Green">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Green</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="H" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/H">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>H</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Hour" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Hour">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Hour</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="HSL" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/HSL">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>HSL</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="HSV" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/HSV">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>HSV</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="IceBlue" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/IceBlue">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Ice Blue</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Indigo" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Indigo">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Indigo</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="K" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/K">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>K</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="L" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/L">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>L</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Lavender" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Lavender">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Lavender</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Less" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Less">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Less</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LightBlue" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/LightBlue">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Light Blue</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Lighter" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Lighter">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Lighter</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LightGray" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/LightGray">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Light Gray</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LightGreen" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/LightGreen">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Light Green</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LightYellow" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/LightYellow">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Light Yellow</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Lime" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Lime">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Lime</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Linear" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Linear">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Linear</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="M" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/M">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>M</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Meridiem" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Meridiem">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Meridiem</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Minutes" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Minutes">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Minutes</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Month" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Month">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Month</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="More" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/More">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>More</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="MoreColors" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/MoreColors">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>More Colors</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="New" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/New">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>New</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NoColor" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/NoColor">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>No Color</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="OK" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/OK">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>OK</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="OliveGreen" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/OliveGreen">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Olive Green</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Orange" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Orange">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Orange</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Origin" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Origin">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Origin</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Pink" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Pink">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Pink</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Plum" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Plum">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Plum</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Purple" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Purple">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Purple</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="R" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/R">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>R</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Radial" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Radial">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Radial</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Radius" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Radius">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Radius</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="RecentColors" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/RecentColors">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Recent Colors</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Red" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Red">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Red</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="RGB" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/RGB">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>RGB</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="S" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/S">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>S</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Seconds" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Seconds">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Seconds</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Solid" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Solid">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Solid</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SpreadMethod" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/SpreadMethod">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Spread Method</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StandardColors" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/StandardColors">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Standard Colors</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StartPoint" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/StartPoint">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Start Point</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Tan" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Tan">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Tan</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Teal" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Teal">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Teal</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Text" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Text">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Text</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ThemeColors" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/ThemeColors">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Theme Colors</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Turquoise" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Turquoise">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Turquoise</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="V" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/V">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>V</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="White" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/White">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>White</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="X" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/X">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>X</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Y" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Y">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Y</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Year" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Year">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Year</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Yellow" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Editors.WinUI/Syncfusion.Editors.WinUI/Yellow">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Yellow</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Syncfusion.Grid.WinUI">
+			<ResourceMapSubtree name="Syncfusion.Grid.WinUI">
+				<NamedResource name="AddNewRowText" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/AddNewRowText">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Click here to add a new row</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="After" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/After">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>After</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="AfterOrEqual" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/AfterOrEqual">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>After Or Equal</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="AND" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/AND">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>AND</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Before" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Before">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Before</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="BeforeOrEqual" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/BeforeOrEqual">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Before Or Equal</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="BeginsWith" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/BeginsWith">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Begins With</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Blanks" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Blanks">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>(Blanks)</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Cancel" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Cancel">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cancel</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CantDropHere" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/CantDropHere">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot drop here</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ClearFilter" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/ClearFilter">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Clear Filter</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ColumnChooserTitle" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/ColumnChooserTitle">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Column Chooser</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ColumnChooserWaterMark" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/ColumnChooserWaterMark">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>(No Fields Available)</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Contains" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Contains">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Contains</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DateFilters" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/DateFilters">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Date Filters</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Done" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Done">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Done</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DropAbove" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/DropAbove">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Drop above</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DropAsChild" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/DropAsChild">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Drop as child</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DropBelow" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/DropBelow">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Drop below</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DropHere" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/DropHere">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Drop here</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DropRowsAbove" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/DropRowsAbove">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Drop {0} rows above</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DropRowsAsChild" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/DropRowsAsChild">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Drop {0} rows as child</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DropRowsBelow" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/DropRowsBelow">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Drop {0} rows below</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DropRowsHere" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/DropRowsHere">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Drop {0} rows here</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Empty" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Empty">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Empty</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="EndsWith" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/EndsWith">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Ends With</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="EnterValidFilterValue" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/EnterValidFilterValue">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Enter Valid Filter Value</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Equalss" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Equalss">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Equals</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="GreaterThan" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/GreaterThan">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Greater Than</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="GreaterThanorEqual" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/GreaterThanorEqual">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Greater Than or Equal</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="GroupDropAreaText" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/GroupDropAreaText">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Drag a column to group</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LessThan" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/LessThan">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Less Than</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LessThanorEqual" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/LessThanorEqual">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Less Than or Equal</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NoItems" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/NoItems">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>No Items</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NoMatches" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/NoMatches">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>No Matches</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NotBeginsWith" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/NotBeginsWith">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Does Not Begin With</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NotContains" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/NotContains">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Does Not Contain</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NotEmpty" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/NotEmpty">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Not Empty</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NotEndsWith" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/NotEndsWith">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Does Not End With</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NotEquals" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/NotEquals">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Does Not Equal</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NotNull" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/NotNull">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Not Null</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Null" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Null">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Null</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NumberFilters" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/NumberFilters">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Number Filters</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="OK" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/OK">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>OK</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="OR" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/OR">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>OR</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="RowErrorMessage" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/RowErrorMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Row Containing Error</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Search" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Search">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Search</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SelectAll" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/SelectAll">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>(Select All)</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ShowRowsWhere" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/ShowRowsWhere">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Show rows where:</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SortDateAscending" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/SortDateAscending">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Sort Oldest to Newest</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SortDateDescending" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/SortDateDescending">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Sort Newest to Oldest</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SortNumberAscending" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/SortNumberAscending">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Sort Smallest to Largest</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SortNumberDescending" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/SortNumberDescending">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Sort Largest to Smallest</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SortStringAscending" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/SortStringAscending">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Sort A to Z</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SortStringDescending" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/SortStringDescending">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Sort Z to A</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="TextFilters" uri="ms-resource://Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/Syncfusion.Grid.WinUI/TextFilters">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Text Filters</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

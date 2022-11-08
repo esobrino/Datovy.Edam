@@ -1,0 +1,9 @@
+﻿{
+   "Items": [
+      {
+         "Direction": "From",
+         "SourceText": "date-time",
+         "TargetText": "datetime"
+      }
+   ]
+}

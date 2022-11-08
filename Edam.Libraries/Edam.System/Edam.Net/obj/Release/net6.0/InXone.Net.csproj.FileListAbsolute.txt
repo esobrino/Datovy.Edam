@@ -1,0 +1,15 @@
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\bin\Release\net6.0\InXone.Net.deps.json
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\bin\Release\net6.0\InXone.Net.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\bin\Release\net6.0\InXone.Net.pdb
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\bin\Release\net6.0\InXone.System.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\bin\Release\net6.0\InXone.System.pdb
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\InXone.Net.csproj.AssemblyReference.cache
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\InXone.Net.GeneratedMSBuildEditorConfig.editorconfig
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\InXone.Net.AssemblyInfoInputs.cache
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\InXone.Net.AssemblyInfo.cs
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\InXone.Net.csproj.CoreCompileInputs.cache
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\InXone.Net.csproj.CopyComplete
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\InXone.Net.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\refint\InXone.Net.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\InXone.Net.pdb
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.Net\obj\Release\net6.0\ref\InXone.Net.dll

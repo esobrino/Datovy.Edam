@@ -1,0 +1,42 @@
+﻿{
+   "ElementProperty": [
+   ],
+   "Element": [
+      {
+         "ElementName": "x12:string",
+         "TypeName": "BaseType",
+         "BaseType": {
+            "NamespacePrefix": "xs",
+            "TypeName": "string",
+            "DataSize": "256"
+         }
+      },
+      {
+         "ElementName": "x12:number",
+         "TypeName": "BaseType",
+         "BaseType": {
+            "NamespacePrefix": "xs",
+            "TypeName": "decimal",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "x12:date",
+         "TypeName": "BaseType",
+         "BaseType": {
+            "NamespacePrefix": "xs",
+            "TypeName": "date",
+            "DataSize": ""
+         }
+      },
+      {
+         "ElementName": "x12:time",
+         "TypeName": "BaseType",
+         "BaseType": {
+            "NamespacePrefix": "xs",
+            "TypeName": "time",
+            "DataSize": ""
+         }
+      }
+   ]
+}

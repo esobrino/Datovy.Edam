@@ -1,0 +1,56 @@
+﻿<UserControl
+   x:Class="Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:local="using:Edam.WinUI.Controls.Controls.ReferenceData"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   mc:Ignorable="d">
+
+   <Grid x:Name="DataEditorGrid">
+      <Grid.RowDefinitions>
+         <RowDefinition Height="*" />
+         <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <ScrollViewer x:Name="DataEditorControl" Grid.Row="0" />
+      <StackPanel
+         x:Name="DataEditorCommandControl"
+         Grid.Row="1"
+         Margin="10,5,10,10"
+         Padding="0,10,0,0"
+         BorderBrush="LightGray"
+         BorderThickness="0,.5,0,0"
+         Orientation="Vertical">
+         <ComboBox
+            x:Name="RecordStatusCodeControl"
+            Width="{x:Bind ViewModel.EditorWidth}"
+            DisplayMemberPath="Description"
+            Header="{x:Bind ViewModel.RecordStatus.Title, Mode=TwoWay}"
+            ItemsSource="{x:Bind ViewModel.RecordStatus.Items}"
+            SelectedItem="{x:Bind ViewModel.RecordStatus.SelectedItem, Mode=TwoWay}"
+            SelectedValuePath="CodeId" />
+         <StackPanel Margin="0,10" Orientation="Horizontal">
+            <Button
+               Width="80"
+               Click="Save_Click"
+               Content="{x:Bind ViewModel.SaveButtonText, Mode=TwoWay}"
+               KeyDown="Button_TabKeyDown" />
+            <Button
+               Width="80"
+               Margin="5,0"
+               Click="Cancel_Click"
+               Content="{x:Bind ViewModel.CancelButtonText, Mode=TwoWay}"
+               IsTabStop="False" />
+            <Button
+               Width="80"
+               Click="New_Click"
+               Content="{x:Bind ViewModel.NewButtonText, Mode=TwoWay}"
+               IsTabStop="False" />
+         </StackPanel>
+         <TextBlock Text="{x:Bind ViewModel.MessageStatusText, Mode=TwoWay}" />
+      </StackPanel>
+   </Grid>
+</UserControl>

@@ -1,0 +1,17 @@
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.Xml.deps.json
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.Xml.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.Xml.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.Data.Assets.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.System.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.System.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.Data.Assets.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\Edam.Xml.csproj.AssemblyReference.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\Edam.Xml.GeneratedMSBuildEditorConfig.editorconfig
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\Edam.Xml.AssemblyInfoInputs.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\Edam.Xml.AssemblyInfo.cs
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\Edam.Xml.csproj.CoreCompileInputs.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\Edam.Xml.csproj.CopyComplete
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\Edam.Xml.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\refint\Edam.Xml.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\Edam.Xml.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\obj\Debug\net6.0\ref\Edam.Xml.dll

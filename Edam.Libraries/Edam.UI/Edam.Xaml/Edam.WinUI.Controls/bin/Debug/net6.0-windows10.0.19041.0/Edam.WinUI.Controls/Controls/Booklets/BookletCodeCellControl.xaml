@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Class="Edam.WinUI.Controls.Booklets.BookletCodeCellControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Edam.WinUI.Controls.Booklets"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+   <local:FramePanelControl x:ConnectionId='2' x:Name="PanelControl"
+      HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+      <StackPanel Background="#F6F6F6">
+         <TextBox x:ConnectionId='3' TextWrapping="Wrap" x:Name="CodeInputPanel"
+             AcceptsReturn="True" HorizontalAlignment="Stretch"
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+             ScrollViewer.VerticalScrollBarVisibility="Auto"
+             PlaceholderText="Enter Code here"/>
+         <TextBlock Text="jsonata" HorizontalAlignment="Right" FontSize="9" />
+         <TextBlock x:ConnectionId='4' Margin="10" HorizontalAlignment="Stretch" Text=""
+                    x:Name="CodeOutputPanel" Visibility="Collapsed"/>
+      </StackPanel>
+      <!--<tk:MarkdownTextBlock />-->
+   </local:FramePanelControl>
+</UserControl>
+

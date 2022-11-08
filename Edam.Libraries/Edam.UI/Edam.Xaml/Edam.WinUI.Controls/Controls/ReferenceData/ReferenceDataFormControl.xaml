@@ -1,0 +1,74 @@
+﻿<UserControl
+   x:Class="Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:local="using:Edam.WinUI.Controls.Controls.ReferenceData"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   mc:Ignorable="d">
+
+   <ScrollViewer x:Name="FormViewControl">
+      <ScrollViewer.Content>
+         <StackPanel Orientation="Vertical">
+            <Grid>
+               <Frame x:Name="FormFrame" />
+            </Grid>
+            <Grid BorderBrush="LightGray" BorderThickness="0,.5,0,0">
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="Auto" />
+               </Grid.ColumnDefinitions>
+               <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+               </Grid.RowDefinitions>
+               <StackPanel
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Margin="12,0,10,0"
+                  Orientation="Horizontal">
+                  <Button
+                     Width="80"
+                     VerticalAlignment="Bottom"
+                     Click="Save_Click"
+                     Content="{x:Bind ViewModel.SaveButtonText, Mode=TwoWay}"
+                     KeyDown="Button_TabKeyDown" />
+                  <Button
+                     Width="80"
+                     Margin="5,0"
+                     VerticalAlignment="Bottom"
+                     Click="Cancel_Click"
+                     Content="{x:Bind ViewModel.CancelButtonText, Mode=TwoWay}"
+                     IsTabStop="False" />
+                  <Button
+                     Width="80"
+                     VerticalAlignment="Bottom"
+                     Click="New_Click"
+                     Content="{x:Bind ViewModel.NewButtonText, Mode=TwoWay}"
+                     IsTabStop="False" />
+               </StackPanel>
+               <TextBlock
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  Margin="5,0,0,6"
+                  VerticalAlignment="Bottom"
+                  Text="{x:Bind ViewModel.MessageStatusText, Mode=TwoWay}" />
+               <ComboBox
+                  x:Name="FormRecordStatusCodeControl"
+                  Grid.Row="0"
+                  Grid.Column="2"
+                  Width="150"
+                  Margin="5,6,24,0"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Bottom"
+                  DisplayMemberPath="Description"
+                  Header="{x:Bind ViewModel.RecordStatus.Title, Mode=TwoWay}"
+                  ItemsSource="{x:Bind ViewModel.RecordStatus.Items}"
+                  SelectedItem="{x:Bind ViewModel.RecordStatus.SelectedItem, Mode=TwoWay}"
+                  SelectedValuePath="CodeId" />
+            </Grid>
+            <Grid Margin="0,0,0,15" />
+         </StackPanel>
+      </ScrollViewer.Content>
+   </ScrollViewer>
+</UserControl>

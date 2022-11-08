@@ -1,0 +1,45 @@
+﻿{
+   "@context": {
+      "am": "http://www.datovy.com/am/arguments"
+   },
+   "Namespace": {
+      "OrganizationDomainId": "datovy.com",
+      "Uri": "http://www.datovy.com/dam",
+      "Prefix": "dam",
+      "Extension": "",
+      "RootElementName": "Data.DataAsset"
+   },
+   "Process": {
+      "RecordId": null,
+      "Name": "DataAssetManagement",
+      "OrganizationId": "Datovy",
+      "OrganizationDomainUri": "http://www.datovy.com",
+      "ProcedureName": "DdlToAssets",
+      "SchemaType": 3,
+      "NextProcess": null,
+      "NextProcedure": []
+   },
+   "InputFile": {
+      "Extension": "xsd",
+      "Name": "dam.local.v1r0.xsd",
+      "Path": "./Files",
+      "Full": null
+   },
+   "OutputFile": {
+      "Extension": "xlsx",
+      "Name": "dam",
+      "Path": "./Documents",
+      "Full": null
+   },
+   "UriList": [
+      "./Files"
+   ],
+   "InspectArguments": {
+      "ListLength": "1",
+      "MaxThreshold": "1"
+   },
+   "ConnectionString": "Data Source=.;Initial Catalog=ReferenceData;Integrated Security=True",
+   "ElementTransform": null,
+   "TextMapFilePath": "./TextMaps/DdlTextMap.json"
+}
+

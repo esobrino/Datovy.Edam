@@ -1,0 +1,1 @@
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Edam.WinUI.csproj;x64

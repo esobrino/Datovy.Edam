@@ -1,0 +1,173 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+// -----------------------------------------------------------------------------
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
+using Edam.Data.Asset;
+using Edam.Data.AssetSchema;
+
+namespace Edam.Json.JsonSchemaReader
+{
+
+   public class JsonPropertyInfo : JsonPropertyItemInfo
+   {
+
+      public JsonPropertyInfo(
+         String propertyName, JSchema item, JsonSchema schema,
+         NamespaceList namespaces) :
+         base(propertyName, item, schema, namespaces)
+      {
+         EntityName = ElementQualifiedName.Name;
+         // check children for definitions and choices (options/groups)...
+         ExamineChildren();
+      }
+
+      public bool CheckDefinition(
+         JsonPropertyItemInfo item1, JsonPropertyItemInfo item2)
+      {
+         if (item1.IsDefinition && item2.IsDefinition)
+         {
+            return (item1.ItemNameType == item2.ItemNameType);
+         }
+         return false;
+      }
+
+      public Boolean ExamineDefinition(JsonPropertyItemInfo item)
+      {
+         Boolean done = false;
+         if (item.IsDefinition)
+         {
+            AddQualifiedTypeName(item.ElementQualifiedName.Name);
+            ElementQualifiedName = item.ElementQualifiedName;
+            done = true;
+         }
+         return done;
+      }
+
+      public Boolean ExamineArray(
+         JsonPropertyItemInfo item, String occuranceText)
+      {
+         Boolean done = false;
+         if (item.IsArray)
+         {
+            if (item.Children.Count == 1 &&
+                item.Children[0].IsDefinition)
+            {
+               if (item.Children[0].ElementQualifiedName.Name ==
+                  ElementQualifiedName.Name)
+               {
+                  if (IsOneOf)
+                  {
+                     Occurs = occuranceText;
+                     done = true;
+                  }
+               }
+            }
+         }
+         return done;
+      }
+
+      /// <summary>
+      /// Examine Children and setup OneOf Definition or Array if that 
+      /// structure is found, else return false
+      /// </summary>
+      /// <returns>true is returned if it is the same definition for a OneOf
+      /// for a type declaration or the same definition as an array,
+      /// else false</returns>
+      public Boolean ExamineDefinitionAndArray()
+      {
+         Boolean done = false;
+         Boolean gotDefinition = false;
+         if (Children.Count >= 1)
+         {
+            gotDefinition = ExamineDefinition(Children[0]);
+         }
+         if (Children.Count == 2 && gotDefinition)
+         {
+            done = ExamineArray(Children[1], OCCURS_1TO_UNBOUNDED);
+         }
+         return done;
+      }
+
+      /// <summary>
+      /// The same definition for an item and an item array for OneOf and AnyOf
+      /// children...
+      /// </summary>
+      /// <remarks>
+      /// Children are added based on their hierarchy backwards... so:
+      ///    OneOf - AnyOf
+      /// will be found as:
+      ///    AnyOf - OneOf
+      /// </remarks>
+      /// <returns>true is returned if OneOf and AnyOf with the same definition/
+      /// type is found, else false</returns>
+      public Boolean ExamineDefinitionArrayOneOfAnyOf()
+      {
+         Boolean done = false;
+         String typeName = null;
+         if (Children.Count >= 2 && Children[0].Children.Count >= 0 &&
+            Children[0].Children[0].Children.Count >= 1 &&
+            Children[0].Children[0].Children[0].IsOneOf)
+         {
+            if (Children[0].IsAnyOf &&
+               Children[0].Children[0].Children[0].IsDefinition)
+            {
+               typeName = Children[0].Children[0].Children[0].TypeName;
+            }
+         }
+         if (typeName == null)
+            return false;
+         String arrayTypeName = null;
+         if (Children[1].IsArray && Children[1].Children.Count >= 1 &&
+            Children[1].Children[0].Children.Count >= 1)
+         {
+            if (Children[1].Children[0].IsAnyOf)
+            {
+               if (Children[1].Children[0].Children[0].IsOneOf)
+               {
+                  arrayTypeName = Children[1].Children[0].Children[0].TypeName;
+               }
+            }
+         }
+         if (arrayTypeName == null)
+            return false;
+         if (typeName == arrayTypeName && TypeName == JsonLabel.OBJECT)
+         {
+            ElementQualifiedName = new QualifiedNameInfo(typeName);
+            AddQualifiedTypeName(typeName);
+            Occurs = OCCURS_ZTO_UNBOUNDED;
+            done = true;
+         }
+         return done;
+      }
+
+      /// <summary>
+      /// Try to fine a Type and Occurance definition examinine it's children,
+      /// if so then IsDefined will be set to true.
+      /// </summary>
+      /// <remarks>
+      /// If IsDefined is true then there is no need to examine its children and
+      /// this entry will have all needed for a full element definition.
+      /// </remarks>
+      /// <returns>true is returned of both the type and the item occurance  was
+      /// assigned, else false</returns>
+      public Boolean ExamineChildren()
+      {
+         m_IsDefined = false;
+         bool isDefinitionAndArray = ExamineDefinitionAndArray();
+         if (isDefinitionAndArray)
+         {
+            m_IsDefined = true;
+            return m_IsDefined;
+         }
+         bool isDefinitionOneOfAnyOf = ExamineDefinitionArrayOneOfAnyOf();
+         if (isDefinitionOneOfAnyOf)
+            m_IsDefined = true;
+         return m_IsDefined;
+      }
+
+   }
+
+}

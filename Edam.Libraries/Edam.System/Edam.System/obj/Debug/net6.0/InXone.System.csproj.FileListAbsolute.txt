@@ -1,0 +1,12 @@
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\bin\Debug\net6.0\InXone.System.deps.json
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\bin\Debug\net6.0\InXone.System.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\bin\Debug\net6.0\InXone.System.pdb
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\obj\Debug\net6.0\InXone.System.csproj.AssemblyReference.cache
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\obj\Debug\net6.0\InXone.System.GeneratedMSBuildEditorConfig.editorconfig
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\obj\Debug\net6.0\InXone.System.AssemblyInfoInputs.cache
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\obj\Debug\net6.0\InXone.System.AssemblyInfo.cs
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\obj\Debug\net6.0\InXone.System.csproj.CoreCompileInputs.cache
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\obj\Debug\net6.0\InXone.System.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\obj\Debug\net6.0\refint\InXone.System.dll
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\obj\Debug\net6.0\InXone.System.pdb
+C:\prjs\InXone.WinUI\InXone.Libraries\InXone.Libraries\InXone.System\InXone.System\obj\Debug\net6.0\ref\InXone.System.dll
