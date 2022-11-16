@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [IdBase]
+    AUTHORIZATION [dbo];
+

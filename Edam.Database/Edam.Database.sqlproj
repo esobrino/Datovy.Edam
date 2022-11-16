@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Edam.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{3b9ca6e6-a178-4f35-92fd-b61594cf726e}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Edam.Database</RootNamespace>
+    <AssemblyName>Edam.Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <AnsiNulls>False</AnsiNulls>
+    <QuotedIdentifier>False</QuotedIdentifier>
+    <QueryStoreCaptureMode>Auto</QueryStoreCaptureMode>
+    <QueryStoreDesiredState>Off</QueryStoreDesiredState>
+    <QueryStoreFlushInterval>900</QueryStoreFlushInterval>
+    <QueryStoreStatsInterval>60</QueryStoreStatsInterval>
+    <QueryStoreMaxPlansPerQuery>200</QueryStoreMaxPlansPerQuery>
+    <QueryStoreStaleQueryThreshold>30</QueryStoreStaleQueryThreshold>
+    <QueryStoreMaxStorageSize>1000</QueryStoreMaxStorageSize>
+    <DbScopedConfigLegacyCardinalityEstimation>Off</DbScopedConfigLegacyCardinalityEstimation>
+    <DbScopedConfigMaxDOP>0</DbScopedConfigMaxDOP>
+    <DbScopedConfigParameterSniffing>On</DbScopedConfigParameterSniffing>
+    <DbScopedConfigOptimizerHotfixes>Off</DbScopedConfigOptimizerHotfixes>
+    <DelayedDurability>DISABLED</DelayedDurability>
+    <AutoCreateStatisticsIncremental>False</AutoCreateStatisticsIncremental>
+    <MemoryOptimizedElevateToSnapshot>False</MemoryOptimizedElevateToSnapshot>
+    <Containment>None</Containment>
+    <IsNestedTriggersOn>True</IsNestedTriggersOn>
+    <IsTransformNoiseWordsOn>False</IsTransformNoiseWordsOn>
+    <TwoDigitYearCutoff>2049</TwoDigitYearCutoff>
+    <NonTransactedFileStreamAccess>OFF</NonTransactedFileStreamAccess>
+    <TargetRecoveryTimePeriod>60</TargetRecoveryTimePeriod>
+    <TargetRecoveryTimeUnit>SECONDS</TargetRecoveryTimeUnit>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>CHECKSUM</PageVerify>
+    <ServiceBrokerOption>EnableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <CompatibilityMode>150</CompatibilityMode>
+    <AnsiNullDefault>False</AnsiNullDefault>
+    <AnsiPadding>False</AnsiPadding>
+    <AnsiWarnings>False</AnsiWarnings>
+    <ArithAbort>False</ArithAbort>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>GLOBAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DataRetentionEnabled>False</DataRetentionEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Object\" />
+    <Folder Include="Object\Tables\" />
+    <Folder Include="IdBase\" />
+    <Folder Include="IdBase\Tables\" />
+    <Folder Include="Reference\" />
+    <Folder Include="Reference\Tables\" />
+    <Folder Include="Data\" />
+    <Folder Include="Data\Tables\" />
+    <Folder Include="B2B\" />
+    <Folder Include="B2B\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Helper\Functions\" />
+    <Folder Include="Common\" />
+    <Folder Include="Common\Functions\" />
+    <Folder Include="IdBase\Functions\" />
+    <Folder Include="Data\Stored Procedures\" />
+    <Folder Include="Helper\Stored Procedures\" />
+    <Folder Include="IdBase\Stored Procedures\" />
+    <Folder Include="Reference\Stored Procedures\" />
+    <Folder Include="B2B\Stored Procedures\" />
+    <Folder Include="Reference\User Defined Types\" />
+    <Folder Include="Common\Sequences\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Object\Tables\ObjectLanguages.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="IdBase\Tables\IdBaseGroups.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceBaseTypes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="IdBase\Tables\IdBasePrefixCounters.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataBatch.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="IdBase\Tables\IdBaseCounters.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceTypesGroups.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="IdBase\Tables\IdBaseExtensions.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="IdBase\Tables\IdBaseTypes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceTypesGroupMembers.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataNote.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceTypes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="IdBase\Tables\IdBaseGroupMembers.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceObjects.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataCodeSet.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="IdBase\Tables\IdBaseTypeExtensions.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataKind.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataCodeSetBatch.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataKeyType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataCode.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceTraceTypes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataAssetGroupType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataCodeElement.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceTraceLog.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataElementType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceDataEditGroup.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataGroupType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferencePolicyGroups.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataConstraintType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferencePolicyTypes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectRequirables.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceDataEditTemplate.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataReferenceType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectCheckables.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataAssociationType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferencePolicies.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectApplicables.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceDataEditGroupTemplate.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataDomainType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectStatus.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataReferenceStatus.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceOrganizationPreferences.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectSizes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataNoteType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectConditions.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataReferenceObject.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectStates.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectKeywordTypes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataDictionary.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferencePreference.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectValueTypes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataGroup.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceDevices.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectValueQualifiers.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceList.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectColors.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataDomain.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="B2B\Tables\ExchangeCode.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectScopes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceListGroup.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataTerm.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="B2B\Tables\ExchangeDefinition.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectTypes.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Reference\Tables\ReferenceListGroupItem.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectSeverity.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Tables\DataElement.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Object\Tables\ObjectRelevance.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="IdBase\Tables\IdBaseStatus.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\KifReader.sql" />
+    <Build Include="Security\KifReader_1.sql" />
+    <Build Include="Security\KifReportReader.sql" />
+    <Build Include="Security\KifReportReader_1.sql" />
+    <Build Include="Security\KifDbReader.sql" />
+    <Build Include="Security\KifDbReader_1.sql" />
+    <Build Include="Security\KifDbWriter.sql" />
+    <Build Include="Security\KifDbWriter_1.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Helper\Functions\HelperDateTimePatternParse.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Functions\HelperGetLanguageNo.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Common\Functions\IdBaseGetNewPrefixedYmdhmSequence.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="IdBase\Functions\IdBaseGroupMembersList.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataBatchUpsert.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropSchema.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropServiceMessageType.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropServiceContract.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropServiceQueue.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropService.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropView.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropSequence.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropProcedure.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropTable.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropFunction.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropType.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDropConstraint.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperSetStartEndDates.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperSchemaTablesSetAccess.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperSchemaObjectsRevokeAccess.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperSchemaDropObjects.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperSchemaSetAccess.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperSchemaProceduresSetAccess.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperSchemaSetExecuteToAll.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperResetBaseCouters.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Helper\Stored Procedures\HelperDiagnosticsCodeAdd.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="IdBase\Stored Procedures\IdBaseGroupMembersGetRecords.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="IdBase\Stored Procedures\IdBaseGetNewNo.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="IdBase\Stored Procedures\IdBaseGetNewBaseNo.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="IdBase\Stored Procedures\IdBaseGetNewPrefixedYmdhmId.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataReferenceDomainGet.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataReferenceTermGet.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataReferenceElementGet.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataReferenceGet.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataReferenceObjectNew.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataTermUpsert.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataDomainUpsert.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataElementUpsert.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataCodeSetGet.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataCodeSetUpsert.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataCodeGet.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Data\Stored Procedures\DataCodeUpsert.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\Stored Procedures\ReferenceDataTemplateMappingGet.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\Stored Procedures\ReferenceDataTemplateGet.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\Stored Procedures\ReferenceDataRecordExists.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\Stored Procedures\ReferenceDataRecordInsert.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\Stored Procedures\ReferenceDataRecordUpdate.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\Stored Procedures\ReferenceDataRecordStatusUpdate.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\Stored Procedures\ReferenceDataRecordCallProcedure.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\Stored Procedures\ReferenceDataRecordGet.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\Stored Procedures\ReferenceDataRecordProvide.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="B2B\Stored Procedures\ExchangeCodeInsertUpdate.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="B2B\Stored Procedures\ExchangeDefinitionInsertUpdate.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Reference\User Defined Types\ReferencePolicyValueItem.sql" />
+    <Build Include="Reference\User Defined Types\ReferenceListGroupCollectionItem.sql" />
+    <Build Include="Reference\User Defined Types\ReferenceDataElementCollectionItem.sql" />
+    <Build Include="Security\KifCert.sql" />
+    <Build Include="Security\B2B.sql" />
+    <Build Include="Security\Common.sql" />
+    <Build Include="Security\Data.sql" />
+    <Build Include="Security\Helper.sql" />
+    <Build Include="Security\IdBase.sql" />
+    <Build Include="Security\Object.sql" />
+    <Build Include="Security\Reference.sql" />
+    <Build Include="Security\KifSymKey.sql" />
+    <Build Include="Common\Sequences\IdBasePersonCounter.sql" />
+    <Build Include="Common\Sequences\IdBaseSubmissionCounter.sql" />
+    <Build Include="Common\Sequences\IdBaseReferenceCounter.sql" />
+    <Build Include="Common\Sequences\IdBaseSessionCounter.sql" />
+    <Build Include="Common\Sequences\IdBaseCounter.sql" />
+    <Build Include="Security\Permissions.sql" />
+    <Build Include="Security\KifMasterKey.sql" />
+  </ItemGroup>
+</Project>

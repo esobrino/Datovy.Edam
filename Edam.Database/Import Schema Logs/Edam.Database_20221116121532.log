@@ -1,0 +1,88 @@
+11/16/2022 7:15:32 AM	This log contains information about the import schema operation into project 'Edam.Database' on computer 'OPENK-MINI-02' by user 'esobr'.
+11/16/2022 7:15:32 AM	Import of database schema has started.
+11/16/2022 7:15:37 AM	Gathering database credentials
+11/16/2022 7:15:37 AM	Gathering database options
+11/16/2022 7:15:37 AM	Gathering generic database scoped configuration option
+11/16/2022 7:15:37 AM	Gathering users
+11/16/2022 7:15:37 AM	Gathering roles
+11/16/2022 7:15:37 AM	Gathering application roles
+11/16/2022 7:15:37 AM	Gathering role memberships
+11/16/2022 7:15:37 AM	Gathering filegroups
+11/16/2022 7:15:37 AM	Gathering full-text catalogs
+11/16/2022 7:15:37 AM	Gathering assemblies
+11/16/2022 7:15:37 AM	Gathering certificates
+11/16/2022 7:15:37 AM	Gathering asymmetric keys
+11/16/2022 7:15:37 AM	Gathering symmetric keys
+11/16/2022 7:15:37 AM	Gathering encrypted symmetric keys
+11/16/2022 7:15:37 AM	Gathering schemas
+11/16/2022 7:15:37 AM	Gathering XML schema collections
+11/16/2022 7:15:37 AM	Gathering user-defined data types
+11/16/2022 7:15:37 AM	Gathering user-defined types
+11/16/2022 7:15:37 AM	Gathering table types
+11/16/2022 7:15:37 AM	Gathering unique keys for table types
+11/16/2022 7:15:37 AM	Gathering primary keys for table types
+11/16/2022 7:15:37 AM	Gathering indexes for table types
+11/16/2022 7:15:37 AM	Gathering check constraints for table types
+11/16/2022 7:15:37 AM	Gathering default constraints for table types
+11/16/2022 7:15:37 AM	Gathering partition functions
+11/16/2022 7:15:37 AM	Gathering partition schemes
+11/16/2022 7:15:37 AM	Gathering functions
+11/16/2022 7:15:37 AM	Gathering encrypted functions
+11/16/2022 7:15:37 AM	Gathering aggregates
+11/16/2022 7:15:37 AM	Gathering procedures
+11/16/2022 7:15:37 AM	Gathering encrypted procedures
+11/16/2022 7:15:37 AM	Gathering tables
+11/16/2022 7:15:37 AM	Gathering primary keys
+11/16/2022 7:15:37 AM	Gathering unique constraints
+11/16/2022 7:15:37 AM	Gathering foreign keys
+11/16/2022 7:15:37 AM	Gathering default constraints
+11/16/2022 7:15:37 AM	Gathering check constraints
+11/16/2022 7:15:37 AM	Gathering views
+11/16/2022 7:15:37 AM	Gathering encrypted views
+11/16/2022 7:15:37 AM	Gathering indexes
+11/16/2022 7:15:37 AM	Gathering statistics
+11/16/2022 7:15:37 AM	Gathering full-text index stoplists
+11/16/2022 7:15:37 AM	Gathering search property lists
+11/16/2022 7:15:37 AM	Gathering search properties
+11/16/2022 7:15:37 AM	Gathering full-text indexes
+11/16/2022 7:15:37 AM	Gathering column store indexes
+11/16/2022 7:15:37 AM	Gathering spatial indexes
+11/16/2022 7:15:37 AM	Gathering XML indexes
+11/16/2022 7:15:37 AM	Gathering Selective XML indexes
+11/16/2022 7:15:37 AM	Gathering encrypted triggers
+11/16/2022 7:15:37 AM	Gathering triggers
+11/16/2022 7:15:37 AM	Gathering encrypted and clr ddl triggers
+11/16/2022 7:15:37 AM	Gathering ddl triggers
+11/16/2022 7:15:37 AM	Creating edge constraints
+11/16/2022 7:15:37 AM	Gathering synonyms
+11/16/2022 7:15:37 AM	Gathering defaults
+11/16/2022 7:15:37 AM	Gathering data constraint uddt bindings
+11/16/2022 7:15:37 AM	Gathering rules
+11/16/2022 7:15:37 AM	Gathering data constraint uddt bindings
+11/16/2022 7:15:37 AM	Gathering message types
+11/16/2022 7:15:37 AM	Gathering queues
+11/16/2022 7:15:37 AM	Gathering contracts
+11/16/2022 7:15:37 AM	Gathering services
+11/16/2022 7:15:37 AM	Gathering event notifications
+11/16/2022 7:15:37 AM	Gathering remote service bindings
+11/16/2022 7:15:37 AM	Gathering broker priorities
+11/16/2022 7:15:37 AM	Gathering signatures
+11/16/2022 7:15:37 AM	Gathering data compression options
+11/16/2022 7:15:37 AM	Gathering sequence types
+11/16/2022 7:15:37 AM	Gathering security policies
+11/16/2022 7:15:37 AM	Gather column encryption keys
+11/16/2022 7:15:37 AM	Gathering column master keys
+11/16/2022 7:15:37 AM	Gathering external data sources
+11/16/2022 7:15:37 AM	Gathering external file formats
+11/16/2022 7:15:37 AM	Gathering external tables
+11/16/2022 7:15:37 AM	Gathering database permissions
+11/16/2022 7:15:37 AM	Gathering extended properties
+11/16/2022 7:15:37 AM	Gathering assemblies
+11/16/2022 7:15:37 AM	Gathering credentials
+11/16/2022 7:15:37 AM	Gathering logins
+11/16/2022 7:15:37 AM	Gathering server audits
+11/16/2022 7:15:38 AM	Scanning project for duplicate elements
+11/16/2022 7:15:39 AM	Finished duplicate element processing
+11/16/2022 7:15:40 AM	Finished importing database.
+11/16/2022 7:15:40 AM	A summary of the import was saved to the following location: C:\prjs\Edam.Database\Import Schema Logs\Edam.Database_20221116121532.log
+11/16/2022 7:15:40 AM	Click Finish to continue...

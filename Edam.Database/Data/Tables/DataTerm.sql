@@ -1,0 +1,27 @@
+﻿CREATE TABLE [Data].[DataTerm] (
+    [CreatedDate]      DATETIME       DEFAULT (getutcdate()) NOT NULL,
+    [LastUpdateDate]   DATETIME2 (7)  DEFAULT (getutcdate()) NOT NULL,
+    [ReferenceDate]    DATETIME       DEFAULT (getutcdate()) NOT NULL,
+    [OrganizationId]   VARCHAR (20)   NOT NULL,
+    [DataOwnerId]      VARCHAR (20)   NOT NULL,
+    [ExpiredDate]      DATETIME       NULL,
+    [DomainNo]         INT            NOT NULL,
+    [Root]             VARCHAR (1024) NOT NULL,
+    [Domain]           VARCHAR (2048) NOT NULL,
+    [Type]             VARCHAR (256)  NULL,
+    [Element]          VARCHAR (256)  NULL,
+    [TermNo]           INT            IDENTITY (1, 1) NOT NULL,
+    [TermId]           VARCHAR (20)   NULL,
+    [TermURI]          VARCHAR (2048) NULL,
+    [TermName]         VARCHAR (1024) NOT NULL,
+    [Description]      VARCHAR (MAX)  NOT NULL,
+    [ConfidenceScore]  DECIMAL (6, 5) NULL,
+    [StatusNo]         INT            DEFAULT ((0)) NOT NULL,
+    [UpdateSessionID]  VARCHAR (40)   NULL,
+    [RecordStatusCode] CHAR (1)       DEFAULT ('A') NOT NULL,
+    PRIMARY KEY CLUSTERED ([TermNo] ASC),
+    CONSTRAINT [fk_DataTermDomainUri] FOREIGN KEY ([DomainNo]) REFERENCES [Data].[DataDomain] ([DomainNo]),
+    CONSTRAINT [fk_DataTermEntity] FOREIGN KEY ([OrganizationId], [DataOwnerId]) REFERENCES [Reference].[ReferenceObjects] ([OrganizationId], [ReferenceId]),
+    CONSTRAINT [fk_DataTermStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Data].[DataReferenceStatus] ([IdNo])
+);
+

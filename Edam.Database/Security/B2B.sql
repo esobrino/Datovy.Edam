@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [B2B]
+    AUTHORIZATION [dbo];
+

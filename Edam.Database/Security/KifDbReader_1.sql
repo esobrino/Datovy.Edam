@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [KifDbReader]
+    WITH PASSWORD = N'`m+gd_Qkj7z|feOVrlecncshmsFT7_&#$!~<Ubn45ylwolRs', SID = 0x0A32A387A632704889CEADCF52591829, DEFAULT_LANGUAGE = [us_english];
+

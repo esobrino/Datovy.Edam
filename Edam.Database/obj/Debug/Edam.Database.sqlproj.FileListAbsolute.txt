@@ -1,0 +1,6 @@
+C:\prjs\Edam.Database\bin\Debug\Edam.Database.dacpac
+C:\prjs\Edam.Database\bin\Debug\Edam.Database.dll
+C:\prjs\Edam.Database\bin\Debug\Edam.Database.pdb
+C:\prjs\Edam.Database\obj\Debug\Edam.Database.sqlproj.AssemblyReference.cache
+C:\prjs\Edam.Database\obj\Debug\Edam.Database.dll
+C:\prjs\Edam.Database\obj\Debug\Edam.Database.pdb
