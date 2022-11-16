@@ -19,13 +19,13 @@ namespace Edam.WinUI.Controls.Assets
             m_ViewModel = new AssetViewerViewModel();
             DataContext = m_ViewModel;
 
-            var styleSelector = 
-               Resources[CustomRowStyleSelector.STYLE_SELECTOR] 
-                  as CustomRowStyleSelector;
-            if (styleSelector != null)
-            {
-               styleSelector.Parent = this;
-            }
+            //var styleSelector = 
+            //   Resources[CustomRowStyleSelector.STYLE_SELECTOR] 
+            //      as CustomRowStyleSelector;
+            //if (styleSelector != null)
+            //{
+            //   styleSelector.Parent = this;
+            //}
          }
       }
 

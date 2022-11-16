@@ -396,7 +396,6 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\hostfxr.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\hostpolicy.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore.dll
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_6.0.1022.47605.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordbi.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscorrc.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\msquic.dll
@@ -475,3 +474,4 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_6.0.1122.52304.dll

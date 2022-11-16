@@ -11,6 +11,7 @@ namespace Edam.Data.Asset
       Unknown = 0,
       Property = 1,
       CodeSet = 2,
+      ExternalReference = 3,
       AuditProperty = 10
    }
 }

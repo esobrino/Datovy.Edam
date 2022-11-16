@@ -16,6 +16,7 @@ using Edam.DataObjects.Models;
 using Edam.Data.Schema.DataDefinitionLanguage;
 using ObjAssets = Edam.DataObjects.Assets;
 using DocumentFormat.OpenXml.Wordprocessing;
+using Edam.Data.Assets.AssetSchema;
 
 namespace Edam.Data.Schema.ImportExport
 {
@@ -169,6 +170,27 @@ namespace Edam.Data.Schema.ImportExport
 
       #endregion
 
+      public void UpdateEntityProperty(ElementPropertyInfo property)
+      {
+         if (property != null && 
+            !String.IsNullOrWhiteSpace(property.PropertyValue))
+         {
+            ritem.Annotation.Clear();
+            ritem.AddAnnotation(property.PropertyValue);
+         }
+      }
+
+      public void UpdateEntityProperty(ElementPropertyInfo property,
+         AssetElementInfo<IAsset> item)
+      {
+         if (property != null &&
+            !String.IsNullOrWhiteSpace(property.PropertyValue))
+         {
+            item.Kind = DataElementKind.ExternalReference;
+            item.AddAnnotation(property.PropertyValue);
+         }
+      }
+
       public static AssetElementInfo<IAsset> PrepareTypeDefinition(
          string schemaName, string tableName, string tableOriginalName,
          string domain, string dataOwnerId,NamespaceInfo ns)
@@ -298,10 +320,15 @@ namespace Edam.Data.Schema.ImportExport
             Tags = item.Tags == null ? String.Empty : item.Tags
          };
 
+         a.Annotation.Clear();
          if (!String.IsNullOrWhiteSpace(item.ColumnDescription))
          {
-            a.Annotation.Clear();
             a.AddAnnotation(item.ColumnDescription);
+         }
+         else
+         {
+            a.AddAnnotation(Text.Convert.ToProperCase(
+               a.ElementQualifiedName.OriginalName));
          }
 
          a.QualifiedTypeNames.Add(typeQName);
@@ -326,6 +353,7 @@ namespace Edam.Data.Schema.ImportExport
          bool useItemType = false, bool isRootDocument = false)
       {
          var eitem = ToAsset(ritem, item, ns, useItemType, isRootDocument);
+
          eitem.DataOwnerId = dataOwnerId;
          eitem.Root = ns.NamePath.Root;
          eitem.Domain = item.TableSchema;
@@ -335,8 +363,6 @@ namespace Edam.Data.Schema.ImportExport
          eitem.Namespace = ns.Uri.OriginalString;
          eitem.Namespaces = new NamespaceList();
          eitem.Namespaces.AddRange(asset.Namespaces);
-         eitem.AddAnnotation(Text.Convert.ToProperCase(
-            eitem.ElementQualifiedName.OriginalName));
          eitem.IsNillable = !item.IsPrimaryKey;
 
          if (item.IsIdentity)

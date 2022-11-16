@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
    <UserControl.Resources>
-      <local:CustomRowStyleSelector x:Key="styleselector"/>
+      <local:ElementTypeRowConverter x:Key="ElementTypeConverter"/>
       <Style x:Key="typeStyle" TargetType="dg:DataGrid">
          <Setter Property="Background" Value="#F2F2FF" />
       </Style>
@@ -47,7 +47,7 @@
             </Button>
          </StackPanel>
 
-         <dg:DataGrid x:ConnectionId='2'                                        RowStyle="{StaticResource styleselector}"
+         <dg:DataGrid x:ConnectionId='2'                                        
             AutoGenerateColumns="False" RowBackground="#F6F6F6" AlternatingRowBackground="White">
             <dg:DataGrid.Columns>
                <dg:DataGridTextColumn Header="" Width="SizeToCells" Binding="{Binding OrdinalNo}" />

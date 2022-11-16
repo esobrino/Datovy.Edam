@@ -15,6 +15,7 @@ using Edam.Data.AssetManagement;
 using Edam.DataObjects.Models;
 using Edam.Data.Schema.DataDefinitionLanguage;
 using ObjAssets = Edam.DataObjects.Assets;
+using Edam.Data.Assets.AssetSchema;
 
 namespace Edam.Data.Schema.ImportExport
 {
@@ -42,7 +43,8 @@ namespace Edam.Data.Schema.ImportExport
          return null;
       }
 
-      public List<AssetData> ToAssetData(List<DdlImportItemInfo> items,
+      public List<AssetData> ToAssetData(
+         AssetProperties assetProperties, List<DdlImportItemInfo> items,
          NamespaceList namespaces, string rootName)
       {
          if (items == null || items.Count == 0)
@@ -60,12 +62,25 @@ namespace Edam.Data.Schema.ImportExport
             new SortedDictionary<string, DdlAsset>();
 
          DdlAsset dasset = null, previousAsset = null;
+
+         ElementPropertyInfo xproperty;
+         ElementPropertyInfo entityProperty;
+
          int resourceCount = 0;
          int schemaCount = 1;
 
          foreach (var item in items)
          {
             item.OrdinalNo = ++resourceCount;
+
+            entityProperty = assetProperties.Find(
+               item.TableSchema, item.TableName, String.Empty,
+               ElementPropertyType.Description);
+
+            // is element mapped to an external property?
+            xproperty = assetProperties.Find(
+               item.TableSchema, item.TableName, item.ColumnName,
+               ElementPropertyType.ExternalReference);
 
             if (!dassets.TryGetValue(item.TableSchema, out dasset))
             {
@@ -90,11 +105,20 @@ namespace Edam.Data.Schema.ImportExport
                previousAsset.PrepareAdditionalColumns();
                dasset.PrepareTableDefinition(item, item.TableName);
                dasset.originalTableName = item.TableName;
+
+               if (entityProperty != null)
+               {
+                  dasset.UpdateEntityProperty(entityProperty);
+               }
                //continue;
             }
 
             // prepare/add table column definition
-            dasset.PrepareColumnDefinition(item);
+            var celement = dasset.PrepareColumnDefinition(item);
+            if (xproperty != null)
+            {
+               dasset.UpdateEntityProperty(xproperty, celement);
+            }
          }
 
          if (dasset != null)
@@ -227,6 +251,13 @@ namespace Edam.Data.Schema.ImportExport
            arguments.UriList, UriResourceType.xlsx);
          foreach (var fname in uriList)
          {
+            var docList = ExcelDocumentReader.ReadDocument(
+               fname, "Documentation");
+            AssetProperties doc = docList.Success ?
+               AssetProperties.GetInstance(docList.Data) : 
+                  new AssetProperties(
+                     new List<ElementPropertyInfo>());
+
             var results = ExcelDocumentReader.ReadDocument(
                fname, arguments.Domain.DomainId);
             if (results.Success)
@@ -253,7 +284,7 @@ namespace Edam.Data.Schema.ImportExport
                rows.RemoveAt(0);
 
                // prepare Asset Data definitions (one per schema)
-               var assets = ToAssetData(rows, namespaces,
+               var assets = ToAssetData(doc, rows, namespaces,
                   arguments.RootElementName);
 
                if (assets != null)
