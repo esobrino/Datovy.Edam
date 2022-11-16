@@ -286,6 +286,14 @@ namespace Edam.Data.AssetManagement.Resources
          return results;
       }
 
+      /// <summary>
+      /// Save assets collection.
+      /// </summary>
+      /// <param name="assets"></param>
+      /// <param name="ns"></param>
+      /// <param name="domainName"></param>
+      /// <param name="type"></param>
+      /// <returns></returns>
       public Diagnostics.IResultsLog Save(
          List<AssetDataElement> assets, NamespaceInfo ns, string domainName,
          AssetType type)

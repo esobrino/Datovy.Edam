@@ -40,6 +40,125 @@ USE [$(DatabaseName)];
 
 
 GO
+PRINT N'Creating User [KifDbReader]...';
+
+
+GO
+CREATE USER [KifDbReader] FOR LOGIN [KifDbReader];
+
+
+GO
+PRINT N'Creating User [KifDbWriter]...';
+
+
+GO
+CREATE USER [KifDbWriter] FOR LOGIN [KifDbWriter];
+
+
+GO
+PRINT N'Creating User [KifReader]...';
+
+
+GO
+CREATE USER [KifReader] FOR LOGIN [KifReader];
+
+
+GO
+PRINT N'Creating User [KifReportReader]...';
+
+
+GO
+CREATE USER [KifReportReader] FOR LOGIN [KifReportReader];
+
+
+GO
+PRINT N'Creating Role Membership <unnamed>...';
+
+
+GO
+EXECUTE sp_addrolemember @rolename = N'db_datareader', @membername = N'KifDbReader';
+
+
+GO
+PRINT N'Creating Role Membership <unnamed>...';
+
+
+GO
+EXECUTE sp_addrolemember @rolename = N'db_datareader', @membername = N'KifDbWriter';
+
+
+GO
+PRINT N'Creating Role Membership <unnamed>...';
+
+
+GO
+EXECUTE sp_addrolemember @rolename = N'db_datawriter', @membername = N'KifDbWriter';
+
+
+GO
+PRINT N'Creating Schema [B2B]...';
+
+
+GO
+CREATE SCHEMA [B2B]
+    AUTHORIZATION [dbo];
+
+
+GO
+PRINT N'Creating Schema [Common]...';
+
+
+GO
+CREATE SCHEMA [Common]
+    AUTHORIZATION [dbo];
+
+
+GO
+PRINT N'Creating Schema [Data]...';
+
+
+GO
+CREATE SCHEMA [Data]
+    AUTHORIZATION [dbo];
+
+
+GO
+PRINT N'Creating Schema [Helper]...';
+
+
+GO
+CREATE SCHEMA [Helper]
+    AUTHORIZATION [dbo];
+
+
+GO
+PRINT N'Creating Schema [IdBase]...';
+
+
+GO
+CREATE SCHEMA [IdBase]
+    AUTHORIZATION [dbo];
+
+
+GO
+PRINT N'Creating Schema [Object]...';
+
+
+GO
+CREATE SCHEMA [Object]
+    AUTHORIZATION [dbo];
+
+
+GO
+PRINT N'Creating Schema [Reference]...';
+
+
+GO
+CREATE SCHEMA [Reference]
+    AUTHORIZATION [dbo];
+
+
+GO
 PRINT N'Creating Master Key Master Key...';
 
 
@@ -66,20 +185,6 @@ CREATE SYMMETRIC KEY [KifSymKey]
     AUTHORIZATION [dbo]
     WITH ALGORITHM = AES_256
     ENCRYPTION BY CERTIFICATE [kifCert];
-
-
-GO
-PRINT N'Creating User-Defined Table Type [Reference].[ReferenceDataElementCollectionItem]...';
-
-
-GO
-CREATE TYPE [Reference].[ReferenceDataElementCollectionItem] AS TABLE (
-    [SerialNo]  BIGINT        NOT NULL,
-    [Name]      VARCHAR (128) NULL,
-    [ValueType] SMALLINT      NULL,
-    [KeyType]   SMALLINT      NULL,
-    [ValueText] VARCHAR (128) NULL,
-    PRIMARY KEY CLUSTERED ([SerialNo] ASC));
 
 
 GO
@@ -113,20 +218,17 @@ CREATE TYPE [Reference].[ReferencePolicyValueItem] AS TABLE (
 
 
 GO
-PRINT N'Creating Table [B2B].[ExchangeCode]...';
+PRINT N'Creating User-Defined Table Type [Reference].[ReferenceDataElementCollectionItem]...';
 
 
 GO
-CREATE TABLE [B2B].[ExchangeCode] (
-    [DataOwnerID]        VARCHAR (20)  NULL,
-    [CodeID]             VARCHAR (40)  NOT NULL,
-    [Description]        VARCHAR (128) NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [CreatedDateTime]    DATETIME2 (7) NOT NULL,
-    [LastUpdateDateTime] DATETIME2 (7) NOT NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([CodeID] ASC)
-);
+CREATE TYPE [Reference].[ReferenceDataElementCollectionItem] AS TABLE (
+    [SerialNo]  BIGINT        NOT NULL,
+    [Name]      VARCHAR (128) NULL,
+    [ValueType] SMALLINT      NULL,
+    [KeyType]   SMALLINT      NULL,
+    [ValueText] VARCHAR (128) NULL,
+    PRIMARY KEY CLUSTERED ([SerialNo] ASC));
 
 
 GO
@@ -166,6 +268,23 @@ CREATE TABLE [B2B].[ExchangeDefinition] (
 
 
 GO
+PRINT N'Creating Table [B2B].[ExchangeCode]...';
+
+
+GO
+CREATE TABLE [B2B].[ExchangeCode] (
+    [DataOwnerID]        VARCHAR (20)  NULL,
+    [CodeID]             VARCHAR (40)  NOT NULL,
+    [Description]        VARCHAR (128) NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [CreatedDateTime]    DATETIME2 (7) NOT NULL,
+    [LastUpdateDateTime] DATETIME2 (7) NOT NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([CodeID] ASC)
+);
+
+
+GO
 PRINT N'Creating Table [Data].[DataAssetGroupType]...';
 
 
@@ -179,45 +298,6 @@ CREATE TABLE [Data].[DataAssetGroupType] (
     [UpdateSessionID]    VARCHAR (40)  NULL,
     [RecordStatusCode]   CHAR (1)      NOT NULL,
     PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataAssociationType]...';
-
-
-GO
-CREATE TABLE [Data].[DataAssociationType] (
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    [IdNo]               INT           NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataBatch]...';
-
-
-GO
-CREATE TABLE [Data].[DataBatch] (
-    [BatchNo]          INT          IDENTITY (1, 1) NOT NULL,
-    [BatchId]          VARCHAR (40) NOT NULL,
-    [DomainNo]         INT          NOT NULL,
-    [GroupId]          VARCHAR (40) NULL,
-    [SequenceNo]       INT          NULL,
-    [VersionId]        VARCHAR (20) NULL,
-    [CreatedDate]      DATETIME     NOT NULL,
-    [LastUpdateDate]   DATETIME     NOT NULL,
-    [OrganizationId]   VARCHAR (20) NOT NULL,
-    [DataOwnerId]      VARCHAR (20) NOT NULL,
-    [UpdateSessionID]  VARCHAR (40) NULL,
-    [RecordStatusCode] CHAR (1)     NOT NULL,
-    PRIMARY KEY CLUSTERED ([BatchId] ASC)
 );
 
 
@@ -246,21 +326,54 @@ CREATE TABLE [Data].[DataCode] (
 
 
 GO
-PRINT N'Creating Table [Data].[DataCodeElement]...';
+PRINT N'Creating Table [Data].[DataKeyType]...';
 
 
 GO
-CREATE TABLE [Data].[DataCodeElement] (
-    [IdNo]             BIGINT        IDENTITY (1, 1) NOT NULL,
-    [CodeSetNo]        BIGINT        NOT NULL,
-    [ElementNo]        INT           NULL,
-    [ElementPath]      VARCHAR (512) NOT NULL,
+CREATE TABLE [Data].[DataKeyType] (
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    [IdNo]               INT           NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataCodeSetBatch]...';
+
+
+GO
+CREATE TABLE [Data].[DataCodeSetBatch] (
     [OrganizationId]   VARCHAR (20)  NULL,
-    [DataOwnerId]      VARCHAR (20)  NULL,
+    [DomainNo]         INT           NOT NULL,
+    [CodeSetNo]        BIGINT        NULL,
+    [BatchNo]          INT           IDENTITY (1, 1) NOT NULL,
+    [BatchId]          VARCHAR (40)  NOT NULL,
     [CreatedDate]      DATETIME2 (7) NOT NULL,
     [LastUpdateDate]   DATETIME2 (7) NOT NULL,
     [UpdateSessionID]  VARCHAR (40)  NULL,
     [RecordStatusCode] CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([BatchNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataKind]...';
+
+
+GO
+CREATE TABLE [Data].[DataKind] (
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
     PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
@@ -288,21 +401,129 @@ CREATE TABLE [Data].[DataCodeSet] (
 
 
 GO
-PRINT N'Creating Table [Data].[DataCodeSetBatch]...';
+PRINT N'Creating Table [Data].[DataNote]...';
 
 
 GO
-CREATE TABLE [Data].[DataCodeSetBatch] (
-    [OrganizationId]   VARCHAR (20)  NULL,
-    [DomainNo]         INT           NOT NULL,
-    [CodeSetNo]        BIGINT        NULL,
-    [BatchNo]          INT           IDENTITY (1, 1) NOT NULL,
-    [BatchId]          VARCHAR (40)  NOT NULL,
-    [CreatedDate]      DATETIME2 (7) NOT NULL,
+CREATE TABLE [Data].[DataNote] (
+    [CreatedDate]      DATETIME      NOT NULL,
     [LastUpdateDate]   DATETIME2 (7) NOT NULL,
+    [OrganizationId]   VARCHAR (20)  NOT NULL,
+    [AgentId]          VARCHAR (20)  NOT NULL,
+    [ReferenceId]      VARCHAR (20)  NOT NULL,
+    [NoteNo]           INT           IDENTITY (1, 1) NOT NULL,
+    [NoteText]         VARCHAR (MAX) NOT NULL,
+    [NoteTypeNo]       INT           NOT NULL,
     [UpdateSessionID]  VARCHAR (40)  NULL,
     [RecordStatusCode] CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([BatchNo] ASC)
+    PRIMARY KEY CLUSTERED ([NoteNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataBatch]...';
+
+
+GO
+CREATE TABLE [Data].[DataBatch] (
+    [BatchNo]          INT          IDENTITY (1, 1) NOT NULL,
+    [BatchId]          VARCHAR (40) NOT NULL,
+    [DomainNo]         INT          NOT NULL,
+    [GroupId]          VARCHAR (40) NULL,
+    [SequenceNo]       INT          NULL,
+    [VersionId]        VARCHAR (20) NULL,
+    [CreatedDate]      DATETIME     NOT NULL,
+    [LastUpdateDate]   DATETIME     NOT NULL,
+    [OrganizationId]   VARCHAR (20) NOT NULL,
+    [DataOwnerId]      VARCHAR (20) NOT NULL,
+    [UpdateSessionID]  VARCHAR (40) NULL,
+    [RecordStatusCode] CHAR (1)     NOT NULL,
+    PRIMARY KEY CLUSTERED ([BatchId] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataNoteType]...';
+
+
+GO
+CREATE TABLE [Data].[DataNoteType] (
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    [IdNo]               INT           NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataReferenceStatus]...';
+
+
+GO
+CREATE TABLE [Data].[DataReferenceStatus] (
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    [IdNo]               INT           NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataDomainType]...';
+
+
+GO
+CREATE TABLE [Data].[DataDomainType] (
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataAssociationType]...';
+
+
+GO
+CREATE TABLE [Data].[DataAssociationType] (
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    [IdNo]               INT           NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataReferenceType]...';
+
+
+GO
+CREATE TABLE [Data].[DataReferenceType] (
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    [IdNo]               INT           NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
 
@@ -324,62 +545,55 @@ CREATE TABLE [Data].[DataConstraintType] (
 
 
 GO
-PRINT N'Creating Table [Data].[DataDictionary]...';
+PRINT N'Creating Table [Data].[DataGroupType]...';
 
 
 GO
-CREATE TABLE [Data].[DataDictionary] (
-    [CreatedDate]      DATETIME       NOT NULL,
-    [LastUpdateDate]   DATETIME2 (7)  NOT NULL,
-    [DictionaryNo]     INT            IDENTITY (1, 1) NOT NULL,
-    [OrganizationId]   VARCHAR (20)   NOT NULL,
-    [DataOwnerId]      VARCHAR (20)   NOT NULL,
-    [Name]             VARCHAR (128)  NULL,
-    [RootURI]          VARCHAR (2048) NOT NULL,
-    [UpdateSessionID]  VARCHAR (40)   NULL,
-    [RecordStatusCode] CHAR (1)       NOT NULL,
-    PRIMARY KEY CLUSTERED ([DictionaryNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataDomain]...';
-
-
-GO
-CREATE TABLE [Data].[DataDomain] (
-    [CreatedDate]      DATETIME2 (7)  NOT NULL,
-    [LastUpdateDate]   DATETIME2 (7)  NOT NULL,
-    [OrganizationId]   VARCHAR (20)   NOT NULL,
-    [DataOwnerId]      VARCHAR (20)   NOT NULL,
-    [TypeNo]           SMALLINT       NOT NULL,
-    [Prefix]           VARCHAR (20)   NOT NULL,
-    [Root]             VARCHAR (1024) NOT NULL,
-    [Domain]           VARCHAR (2048) NULL,
-    [DomainNo]         INT            IDENTITY (1, 1) NOT NULL,
-    [DomainID]         VARCHAR (20)   NULL,
-    [DomainURI]        VARCHAR (2048) NOT NULL,
-    [DomainName]       VARCHAR (256)  NOT NULL,
-    [Description]      VARCHAR (MAX)  NOT NULL,
-    [UpdateSessionID]  VARCHAR (40)   NULL,
-    [RecordStatusCode] CHAR (1)       NOT NULL,
-    PRIMARY KEY CLUSTERED ([DomainNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataDomainType]...';
-
-
-GO
-CREATE TABLE [Data].[DataDomainType] (
+CREATE TABLE [Data].[DataGroupType] (
     [CreatedDate]        DATETIME2 (7) NOT NULL,
     [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    [IdNo]               SMALLINT      NOT NULL,
+    [IdNo]               INT           NOT NULL,
     [Description]        VARCHAR (40)  NOT NULL,
     [SpanishDescription] VARCHAR (40)  NOT NULL,
     [UpdateSessionID]    VARCHAR (40)  NULL,
     [RecordStatusCode]   CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataElementType]...';
+
+
+GO
+CREATE TABLE [Data].[DataElementType] (
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    [IdNo]               INT           NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataCodeElement]...';
+
+
+GO
+CREATE TABLE [Data].[DataCodeElement] (
+    [IdNo]             BIGINT        IDENTITY (1, 1) NOT NULL,
+    [CodeSetNo]        BIGINT        NOT NULL,
+    [ElementNo]        INT           NULL,
+    [ElementPath]      VARCHAR (512) NOT NULL,
+    [OrganizationId]   VARCHAR (20)  NULL,
+    [DataOwnerId]      VARCHAR (20)  NULL,
+    [CreatedDate]      DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]   DATETIME2 (7) NOT NULL,
+    [UpdateSessionID]  VARCHAR (40)  NULL,
+    [RecordStatusCode] CHAR (1)      NOT NULL,
     PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
@@ -447,189 +661,6 @@ CREATE TABLE [Data].[DataElement] (
 
 
 GO
-PRINT N'Creating Table [Data].[DataElementType]...';
-
-
-GO
-CREATE TABLE [Data].[DataElementType] (
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    [IdNo]               INT           NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataGroup]...';
-
-
-GO
-CREATE TABLE [Data].[DataGroup] (
-    [CreatedDate]      DATETIME       NOT NULL,
-    [LastUpdateDate]   DATETIME2 (7)  NOT NULL,
-    [GroupNo]          INT            IDENTITY (1, 1) NOT NULL,
-    [GroupId]          VARCHAR (20)   NULL,
-    [GroupTypeNo]      INT            NOT NULL,
-    [AlternateID]      VARCHAR (40)   NULL,
-    [GroupURI]         VARCHAR (2048) NOT NULL,
-    [Path]             VARCHAR (2048) NULL,
-    [Name]             VARCHAR (256)  NULL,
-    [Description]      VARCHAR (1024) NULL,
-    [StatusNo]         SMALLINT       NOT NULL,
-    [UpdateSessionID]  VARCHAR (40)   NULL,
-    [RecordStatusCode] CHAR (1)       NOT NULL,
-    PRIMARY KEY CLUSTERED ([GroupNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataGroupType]...';
-
-
-GO
-CREATE TABLE [Data].[DataGroupType] (
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    [IdNo]               INT           NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataKeyType]...';
-
-
-GO
-CREATE TABLE [Data].[DataKeyType] (
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    [IdNo]               INT           NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataKind]...';
-
-
-GO
-CREATE TABLE [Data].[DataKind] (
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataNote]...';
-
-
-GO
-CREATE TABLE [Data].[DataNote] (
-    [CreatedDate]      DATETIME      NOT NULL,
-    [LastUpdateDate]   DATETIME2 (7) NOT NULL,
-    [OrganizationId]   VARCHAR (20)  NOT NULL,
-    [AgentId]          VARCHAR (20)  NOT NULL,
-    [ReferenceId]      VARCHAR (20)  NOT NULL,
-    [NoteNo]           INT           IDENTITY (1, 1) NOT NULL,
-    [NoteText]         VARCHAR (MAX) NOT NULL,
-    [NoteTypeNo]       INT           NOT NULL,
-    [UpdateSessionID]  VARCHAR (40)  NULL,
-    [RecordStatusCode] CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([NoteNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataNoteType]...';
-
-
-GO
-CREATE TABLE [Data].[DataNoteType] (
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    [IdNo]               INT           NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataReferenceObject]...';
-
-
-GO
-CREATE TABLE [Data].[DataReferenceObject] (
-    [CreatedDate]      DATETIME       NOT NULL,
-    [LastUpdateDate]   DATETIME2 (7)  NOT NULL,
-    [ReferenceDate]    DATETIME       NOT NULL,
-    [ReferenceId]      VARCHAR (20)   NOT NULL,
-    [ReferenceTypeNo]  INT            NOT NULL,
-    [AliasId]          VARCHAR (20)   NULL,
-    [AlternateId]      VARCHAR (40)   NULL,
-    [Description]      VARCHAR (1024) NULL,
-    [StatusNo]         INT            NOT NULL,
-    [UpdateSessionId]  VARCHAR (40)   NULL,
-    [RecordStatusCode] CHAR (1)       NOT NULL,
-    PRIMARY KEY CLUSTERED ([ReferenceId] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataReferenceStatus]...';
-
-
-GO
-CREATE TABLE [Data].[DataReferenceStatus] (
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    [IdNo]               INT           NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Data].[DataReferenceType]...';
-
-
-GO
-CREATE TABLE [Data].[DataReferenceType] (
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    [IdNo]               INT           NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
 PRINT N'Creating Table [Data].[DataTerm]...';
 
 
@@ -660,16 +691,133 @@ CREATE TABLE [Data].[DataTerm] (
 
 
 GO
-PRINT N'Creating Table [IdBase].[IdBaseCounters]...';
+PRINT N'Creating Table [Data].[DataDomain]...';
 
 
 GO
-CREATE TABLE [IdBase].[IdBaseCounters] (
-    [IdNo]        INT          NOT NULL,
-    [IdString]    VARCHAR (20) NOT NULL,
-    [Description] VARCHAR (40) NOT NULL,
-    [IdCount]     INT          NOT NULL,
+CREATE TABLE [Data].[DataDomain] (
+    [CreatedDate]      DATETIME2 (7)  NOT NULL,
+    [LastUpdateDate]   DATETIME2 (7)  NOT NULL,
+    [OrganizationId]   VARCHAR (20)   NOT NULL,
+    [DataOwnerId]      VARCHAR (20)   NOT NULL,
+    [TypeNo]           SMALLINT       NOT NULL,
+    [Prefix]           VARCHAR (20)   NOT NULL,
+    [Root]             VARCHAR (1024) NOT NULL,
+    [Domain]           VARCHAR (2048) NULL,
+    [DomainNo]         INT            IDENTITY (1, 1) NOT NULL,
+    [DomainID]         VARCHAR (20)   NULL,
+    [DomainURI]        VARCHAR (2048) NOT NULL,
+    [DomainName]       VARCHAR (256)  NOT NULL,
+    [Description]      VARCHAR (MAX)  NOT NULL,
+    [UpdateSessionID]  VARCHAR (40)   NULL,
+    [RecordStatusCode] CHAR (1)       NOT NULL,
+    PRIMARY KEY CLUSTERED ([DomainNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataGroup]...';
+
+
+GO
+CREATE TABLE [Data].[DataGroup] (
+    [CreatedDate]      DATETIME       NOT NULL,
+    [LastUpdateDate]   DATETIME2 (7)  NOT NULL,
+    [GroupNo]          INT            IDENTITY (1, 1) NOT NULL,
+    [GroupId]          VARCHAR (20)   NULL,
+    [GroupTypeNo]      INT            NOT NULL,
+    [AlternateID]      VARCHAR (40)   NULL,
+    [GroupURI]         VARCHAR (2048) NOT NULL,
+    [Path]             VARCHAR (2048) NULL,
+    [Name]             VARCHAR (256)  NULL,
+    [Description]      VARCHAR (1024) NULL,
+    [StatusNo]         SMALLINT       NOT NULL,
+    [UpdateSessionID]  VARCHAR (40)   NULL,
+    [RecordStatusCode] CHAR (1)       NOT NULL,
+    PRIMARY KEY CLUSTERED ([GroupNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataDictionary]...';
+
+
+GO
+CREATE TABLE [Data].[DataDictionary] (
+    [CreatedDate]      DATETIME       NOT NULL,
+    [LastUpdateDate]   DATETIME2 (7)  NOT NULL,
+    [DictionaryNo]     INT            IDENTITY (1, 1) NOT NULL,
+    [OrganizationId]   VARCHAR (20)   NOT NULL,
+    [DataOwnerId]      VARCHAR (20)   NOT NULL,
+    [Name]             VARCHAR (128)  NULL,
+    [RootURI]          VARCHAR (2048) NOT NULL,
+    [UpdateSessionID]  VARCHAR (40)   NULL,
+    [RecordStatusCode] CHAR (1)       NOT NULL,
+    PRIMARY KEY CLUSTERED ([DictionaryNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Data].[DataReferenceObject]...';
+
+
+GO
+CREATE TABLE [Data].[DataReferenceObject] (
+    [CreatedDate]      DATETIME       NOT NULL,
+    [LastUpdateDate]   DATETIME2 (7)  NOT NULL,
+    [ReferenceDate]    DATETIME       NOT NULL,
+    [ReferenceId]      VARCHAR (20)   NOT NULL,
+    [ReferenceTypeNo]  INT            NOT NULL,
+    [AliasId]          VARCHAR (20)   NULL,
+    [AlternateId]      VARCHAR (40)   NULL,
+    [Description]      VARCHAR (1024) NULL,
+    [StatusNo]         INT            NOT NULL,
+    [UpdateSessionId]  VARCHAR (40)   NULL,
+    [RecordStatusCode] CHAR (1)       NOT NULL,
+    PRIMARY KEY CLUSTERED ([ReferenceId] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [IdBase].[IdBaseTypeExtensions]...';
+
+
+GO
+CREATE TABLE [IdBase].[IdBaseTypeExtensions] (
+    [TypeNo]      SMALLINT NOT NULL,
+    [ExtensionNo] SMALLINT NOT NULL,
+    CONSTRAINT [pk_ibte00] PRIMARY KEY CLUSTERED ([TypeNo] ASC, [ExtensionNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [IdBase].[IdBaseGroupMembers]...';
+
+
+GO
+CREATE TABLE [IdBase].[IdBaseGroupMembers] (
+    [IdNo]    INT      NOT NULL,
+    [GroupNo] SMALLINT NOT NULL,
+    [TypeNo]  SMALLINT NOT NULL,
     PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [IdBase].[IdBaseTypes]...';
+
+
+GO
+CREATE TABLE [IdBase].[IdBaseTypes] (
+    [TypeNo]             SMALLINT      NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (20)  NOT NULL,
+    [Length]             INT           NOT NULL,
+    [Template]           VARCHAR (128) NULL,
+    [Required]           BIT           NOT NULL,
+    [TableName]          VARCHAR (40)  NULL,
+    [TypeName]           VARCHAR (40)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([TypeNo] ASC)
 );
 
 
@@ -691,32 +839,15 @@ CREATE TABLE [IdBase].[IdBaseExtensions] (
 
 
 GO
-PRINT N'Creating Table [IdBase].[IdBaseGroupMembers]...';
+PRINT N'Creating Table [IdBase].[IdBaseCounters]...';
 
 
 GO
-CREATE TABLE [IdBase].[IdBaseGroupMembers] (
-    [IdNo]    INT      NOT NULL,
-    [GroupNo] SMALLINT NOT NULL,
-    [TypeNo]  SMALLINT NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [IdBase].[IdBaseGroups]...';
-
-
-GO
-CREATE TABLE [IdBase].[IdBaseGroups] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+CREATE TABLE [IdBase].[IdBaseCounters] (
+    [IdNo]        INT          NOT NULL,
+    [IdString]    VARCHAR (20) NOT NULL,
+    [Description] VARCHAR (40) NOT NULL,
+    [IdCount]     INT          NOT NULL,
     PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
@@ -742,6 +873,24 @@ CREATE TABLE [IdBase].[IdBasePrefixCounters] (
 
 
 GO
+PRINT N'Creating Table [IdBase].[IdBaseGroups]...';
+
+
+GO
+CREATE TABLE [IdBase].[IdBaseGroups] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
 PRINT N'Creating Table [IdBase].[IdBaseStatus]...';
 
 
@@ -760,32 +909,57 @@ CREATE TABLE [IdBase].[IdBaseStatus] (
 
 
 GO
-PRINT N'Creating Table [IdBase].[IdBaseTypeExtensions]...';
+PRINT N'Creating Table [Object].[ObjectLanguages]...';
 
 
 GO
-CREATE TABLE [IdBase].[IdBaseTypeExtensions] (
-    [TypeNo]      SMALLINT NOT NULL,
-    [ExtensionNo] SMALLINT NOT NULL,
-    CONSTRAINT [pk_ibte00] PRIMARY KEY CLUSTERED ([TypeNo] ASC, [ExtensionNo] ASC)
+CREATE TABLE [Object].[ObjectLanguages] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (60)  NOT NULL,
+    [SpanishDescription] VARCHAR (60)  NOT NULL,
+    [CultureCode]        CHAR (6)      NOT NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
 
 GO
-PRINT N'Creating Table [IdBase].[IdBaseTypes]...';
+PRINT N'Creating Table [Object].[ObjectSizes]...';
 
 
 GO
-CREATE TABLE [IdBase].[IdBaseTypes] (
-    [TypeNo]             SMALLINT      NOT NULL,
+CREATE TABLE [Object].[ObjectSizes] (
+    [IdNo]               SMALLINT      NOT NULL,
     [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (20)  NOT NULL,
-    [Length]             INT           NOT NULL,
-    [Template]           VARCHAR (128) NULL,
-    [Required]           BIT           NOT NULL,
-    [TableName]          VARCHAR (40)  NULL,
-    [TypeName]           VARCHAR (40)  NOT NULL,
-    PRIMARY KEY CLUSTERED ([TypeNo] ASC)
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Object].[ObjectStatus]...';
+
+
+GO
+CREATE TABLE [Object].[ObjectStatus] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
 
@@ -826,121 +1000,11 @@ CREATE TABLE [Object].[ObjectCheckables] (
 
 
 GO
-PRINT N'Creating Table [Object].[ObjectColors]...';
-
-
-GO
-CREATE TABLE [Object].[ObjectColors] (
-    [IdNo]               INT           NOT NULL,
-    [Color]              CHAR (9)      NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Object].[ObjectConditions]...';
-
-
-GO
-CREATE TABLE [Object].[ObjectConditions] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Object].[ObjectKeywordTypes]...';
-
-
-GO
-CREATE TABLE [Object].[ObjectKeywordTypes] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Object].[ObjectLanguages]...';
-
-
-GO
-CREATE TABLE [Object].[ObjectLanguages] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (60)  NOT NULL,
-    [SpanishDescription] VARCHAR (60)  NOT NULL,
-    [CultureCode]        CHAR (6)      NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Object].[ObjectRelevance]...';
-
-
-GO
-CREATE TABLE [Object].[ObjectRelevance] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (60)  NOT NULL,
-    [SpanishDescription] VARCHAR (60)  NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
 PRINT N'Creating Table [Object].[ObjectRequirables]...';
 
 
 GO
 CREATE TABLE [Object].[ObjectRequirables] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Object].[ObjectScopes]...';
-
-
-GO
-CREATE TABLE [Object].[ObjectScopes] (
     [IdNo]               SMALLINT      NOT NULL,
     [Description]        VARCHAR (40)  NOT NULL,
     [SpanishDescription] VARCHAR (40)  NOT NULL,
@@ -972,60 +1036,6 @@ CREATE TABLE [Object].[ObjectSeverity] (
 
 
 GO
-PRINT N'Creating Table [Object].[ObjectSizes]...';
-
-
-GO
-CREATE TABLE [Object].[ObjectSizes] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Object].[ObjectStates]...';
-
-
-GO
-CREATE TABLE [Object].[ObjectStates] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Object].[ObjectStatus]...';
-
-
-GO
-CREATE TABLE [Object].[ObjectStatus] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (40)  NOT NULL,
-    [SpanishDescription] VARCHAR (40)  NOT NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
 PRINT N'Creating Table [Object].[ObjectTypes]...';
 
 
@@ -1034,6 +1044,43 @@ CREATE TABLE [Object].[ObjectTypes] (
     [IdNo]               SMALLINT      NOT NULL,
     [Description]        VARCHAR (60)  NOT NULL,
     [SpanishDescription] VARCHAR (60)  NOT NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Object].[ObjectScopes]...';
+
+
+GO
+CREATE TABLE [Object].[ObjectScopes] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Object].[ObjectColors]...';
+
+
+GO
+CREATE TABLE [Object].[ObjectColors] (
+    [IdNo]               INT           NOT NULL,
+    [Color]              CHAR (9)      NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
     [DataOwnerId]        VARCHAR (20)  NULL,
     [UpdateSessionID]    VARCHAR (40)  NULL,
     [RecordStatusCode]   CHAR (1)      NOT NULL,
@@ -1079,17 +1126,14 @@ CREATE TABLE [Object].[ObjectValueTypes] (
 
 
 GO
-PRINT N'Creating Table [Reference].[ReferenceBaseTypes]...';
+PRINT N'Creating Table [Object].[ObjectKeywordTypes]...';
 
 
 GO
-CREATE TABLE [Reference].[ReferenceBaseTypes] (
+CREATE TABLE [Object].[ObjectKeywordTypes] (
     [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (80)  NOT NULL,
-    [SpanishDescription] VARCHAR (80)  NOT NULL,
-    [ForceComposedName]  BIT           NOT NULL,
-    [ApplyToIndividual]  BIT           NOT NULL,
-    [CategoryId]         VARCHAR (128) NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
     [DataOwnerId]        VARCHAR (20)  NULL,
     [UpdateSessionID]    VARCHAR (40)  NULL,
     [RecordStatusCode]   CHAR (1)      NOT NULL,
@@ -1100,145 +1144,74 @@ CREATE TABLE [Reference].[ReferenceBaseTypes] (
 
 
 GO
-PRINT N'Creating Table [Reference].[ReferenceDataEditGroup]...';
+PRINT N'Creating Table [Object].[ObjectStates]...';
 
 
 GO
-CREATE TABLE [Reference].[ReferenceDataEditGroup] (
-    [CreatedDate]    DATETIME2 (7) NOT NULL,
-    [LastUpdateDate] DATETIME2 (7) NOT NULL,
-    [OrganizationId] VARCHAR (20)  NULL,
-    [GroupNo]        BIGINT        NOT NULL,
-    [GroupName]      VARCHAR (80)  NULL,
-    [ScopeNo]        SMALLINT      NULL,
-    [StatusNo]       SMALLINT      NULL,
-    [LinkData]       VARCHAR (MAX) NULL,
-    PRIMARY KEY CLUSTERED ([GroupNo] ASC)
+CREATE TABLE [Object].[ObjectStates] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
 
 GO
-PRINT N'Creating Table [Reference].[ReferenceDataEditGroupTemplate]...';
+PRINT N'Creating Table [Object].[ObjectConditions]...';
 
 
 GO
-CREATE TABLE [Reference].[ReferenceDataEditGroupTemplate] (
-    [CreatedDate]    DATETIME2 (7) NOT NULL,
-    [LastUpdateDate] DATETIME2 (7) NOT NULL,
-    [OrganizationId] VARCHAR (20)  NOT NULL,
-    [ReferenceId]    VARCHAR (20)  NOT NULL,
-    [GroupNo]        BIGINT        NOT NULL,
-    [TemplateNo]     BIGINT        NOT NULL,
-    CONSTRAINT [pk_ReferenceDataEditGroupTemplate] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [GroupNo] ASC, [TemplateNo] ASC)
+CREATE TABLE [Object].[ObjectConditions] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (40)  NOT NULL,
+    [SpanishDescription] VARCHAR (40)  NOT NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
 
 GO
-PRINT N'Creating Table [Reference].[ReferenceDataEditTemplate]...';
+PRINT N'Creating Table [Object].[ObjectRelevance]...';
 
 
 GO
-CREATE TABLE [Reference].[ReferenceDataEditTemplate] (
-    [CreatedDate]       DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]    DATETIME2 (7) NOT NULL,
-    [OrganizationId]    VARCHAR (20)  NOT NULL,
-    [TemplateNo]        BIGINT        NOT NULL,
-    [TemplateVersionId] VARCHAR (20)  NULL,
-    [ResourceName]      VARCHAR (128) NOT NULL,
-    [TemplateDefaultNo] BIGINT        NULL,
-    [TemplateTypeNo]    SMALLINT      NULL,
-    [TemplateData]      VARCHAR (MAX) NULL,
-    [MapData]           VARCHAR (MAX) NULL,
-    [GroupData]         VARCHAR (MAX) NULL,
-    [Title]             VARCHAR (128) NOT NULL,
-    [GroupNo]           BIGINT        NOT NULL,
-    [ScopeNo]           SMALLINT      NULL,
-    [StatusNo]          SMALLINT      NULL,
-    [PostUpdateScript]  VARCHAR (MAX) NULL,
-    PRIMARY KEY CLUSTERED ([TemplateNo] ASC)
+CREATE TABLE [Object].[ObjectRelevance] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (60)  NOT NULL,
+    [SpanishDescription] VARCHAR (60)  NOT NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
 
 GO
-PRINT N'Creating Index [Reference].[ReferenceDataEditTemplate].[ReferenceDataEditTemplateByName]...';
+PRINT N'Creating Table [Reference].[ReferenceTraceTypes]...';
 
 
 GO
-CREATE UNIQUE NONCLUSTERED INDEX [ReferenceDataEditTemplateByName]
-    ON [Reference].[ReferenceDataEditTemplate]([ResourceName] ASC);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferenceDevices]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferenceDevices] (
-    [CreatedDate]    DATETIME     NOT NULL,
-    [OrganizationId] VARCHAR (20) NOT NULL,
-    [ReferenceId]    VARCHAR (20) NOT NULL,
-    [DeviceId]       VARCHAR (60) NOT NULL,
-    [Alias]          VARCHAR (80) NULL,
-    [LastUpdate]     DATETIME     NOT NULL
-);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferenceList]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferenceList] (
-    [CreatedDate]      DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]   DATETIME2 (7) NOT NULL,
-    [OrganizationId]   VARCHAR (20)  NOT NULL,
-    [GroupId]          VARCHAR (40)  NULL,
-    [IdNo]             SMALLINT      NOT NULL,
-    [Name]             VARCHAR (80)  NOT NULL,
-    [StatusNo]         SMALLINT      NOT NULL,
-    [DataOwnerId]      VARCHAR (20)  NULL,
-    [UpdateSessionID]  VARCHAR (40)  NULL,
-    [RecordStatusCode] CHAR (1)      NOT NULL,
-    CONSTRAINT [pk_ReferenceList] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferenceListGroup]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferenceListGroup] (
-    [CreatedDate]      DATETIME2 (7) NOT NULL,
-    [OrganizationId]   VARCHAR (20)  NOT NULL,
-    [GroupNo]          SMALLINT      NOT NULL,
-    [ListNo]           SMALLINT      NOT NULL,
-    [Name]             VARCHAR (80)  NOT NULL,
-    [SequenceNo]       SMALLINT      NOT NULL,
-    [StatusNo]         SMALLINT      NOT NULL,
-    [DataOwnerId]      VARCHAR (20)  NULL,
-    [UpdateSessionID]  VARCHAR (40)  NULL,
-    [RecordStatusCode] CHAR (1)      NOT NULL,
-    [LastUpdateDate]   DATETIME2 (7) NOT NULL,
-    CONSTRAINT [pk_ReferenceListGroup] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [GroupNo] ASC, [ListNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferenceListGroupItem]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferenceListGroupItem] (
-    [CreatedDate]    DATETIME2 (7) NOT NULL,
-    [LastUpdateDate] DATETIME2 (7) NOT NULL,
-    [OrganizationId] VARCHAR (20)  NOT NULL,
-    [ListNo]         SMALLINT      NOT NULL,
-    [GroupNo]        SMALLINT      NOT NULL,
-    [ReferenceId]    VARCHAR (20)  NOT NULL,
-    [ReferenceDate]  DATETIME2 (7) NULL,
-    [Comment]        VARCHAR (80)  NULL,
-    CONSTRAINT [pk_ReferenceListGroupItemPK] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [ReferenceId] ASC, [ListNo] ASC)
+CREATE TABLE [Reference].[ReferenceTraceTypes] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (60)  NULL,
+    [SpanishDescription] VARCHAR (60)  NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
 );
 
 
@@ -1281,146 +1254,6 @@ PRINT N'Creating Index [Reference].[ReferenceObjects].[ux_ReferenceObjectAlterna
 GO
 CREATE UNIQUE NONCLUSTERED INDEX [ux_ReferenceObjectAlternateId]
     ON [Reference].[ReferenceObjects]([OrganizationId] ASC, [ReferenceId] ASC, [AlternateId] ASC);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferenceOrganizationPreferences]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferenceOrganizationPreferences] (
-    [CreatedDate]             DATETIME      NOT NULL,
-    [OrganizationId]          VARCHAR (20)  NOT NULL,
-    [ReferenceId]             VARCHAR (20)  NOT NULL,
-    [CreatedBy]               VARCHAR (20)  NOT NULL,
-    [DefaultLanguageNo]       SMALLINT      NOT NULL,
-    [DefaultCountryCode]      CHAR (2)      NOT NULL,
-    [DefaultPostalCode]       VARCHAR (20)  NOT NULL,
-    [DefaultStateCode]        CHAR (2)      NOT NULL,
-    [DefaultRegionCode]       CHAR (4)      NOT NULL,
-    [DefaultRegionText]       VARCHAR (40)  NOT NULL,
-    [DefaultProvinceCode]     CHAR (4)      NOT NULL,
-    [DefaultProvinceText]     VARCHAR (40)  NOT NULL,
-    [DefaultMunicipalityCode] CHAR (10)     NOT NULL,
-    [DefaultMunicipalityText] VARCHAR (40)  NOT NULL,
-    [DefaultCityCode]         CHAR (10)     NOT NULL,
-    [DefaultCityText]         VARCHAR (40)  NOT NULL,
-    [ServiceGlAccountID]      VARCHAR (30)  NOT NULL,
-    [PreferencesBag]          VARCHAR (MAX) NULL,
-    PRIMARY KEY CLUSTERED ([OrganizationId] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferencePolicies]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferencePolicies] (
-    [CreatedDate]    DATETIME       NOT NULL,
-    [OrganizationId] VARCHAR (20)   NOT NULL,
-    [ReferenceId]    VARCHAR (20)   NOT NULL,
-    [GroupNo]        SMALLINT       NOT NULL,
-    [TypeNo]         SMALLINT       NOT NULL,
-    [Value]          VARCHAR (1024) NOT NULL
-);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferencePolicyGroups]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferencePolicyGroups] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (60)  NULL,
-    [SpanishDescription] VARCHAR (60)  NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferencePolicyTypes]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferencePolicyTypes] (
-    [IdNo]               SMALLINT       NOT NULL,
-    [GroupNo]            SMALLINT       NOT NULL,
-    [ValueTypeNo]        SMALLINT       NOT NULL,
-    [Value]              VARCHAR (1024) NOT NULL,
-    [Description]        VARCHAR (80)   NULL,
-    [SpanishDescription] VARCHAR (80)   NULL,
-    [DataOwnerId]        VARCHAR (20)   NULL,
-    [UpdateSessionID]    VARCHAR (40)   NULL,
-    [RecordStatusCode]   CHAR (1)       NOT NULL,
-    [CreatedDate]        DATETIME2 (7)  NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7)  NOT NULL,
-    CONSTRAINT [pk_ReferencePolicyType] PRIMARY KEY CLUSTERED ([IdNo] ASC, [GroupNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Index [Reference].[ReferencePolicyTypes].[ux_ReferencePolicyType]...';
-
-
-GO
-CREATE UNIQUE NONCLUSTERED INDEX [ux_ReferencePolicyType]
-    ON [Reference].[ReferencePolicyTypes]([IdNo] ASC);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferencePreference]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferencePreference] (
-    [CreatedDate]    DATETIME      NULL,
-    [OrganizationId] VARCHAR (20)  NOT NULL,
-    [ReferenceId]    VARCHAR (20)  NOT NULL,
-    [PreferencesBag] VARCHAR (MAX) NULL,
-    CONSTRAINT [pk_ReferencePreference] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [ReferenceId] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferenceTraceLog]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferenceTraceLog] (
-    [CreatedDate]    DATETIME     NOT NULL,
-    [TraceDate]      DATETIME     NOT NULL,
-    [SessionId]      VARCHAR (40) NULL,
-    [TraceNo]        BIGINT       IDENTITY (1, 1) NOT NULL,
-    [TypeNo]         SMALLINT     NOT NULL,
-    [OrganizationId] VARCHAR (20) NOT NULL,
-    [ReferenceId]    VARCHAR (20) NOT NULL,
-    PRIMARY KEY CLUSTERED ([TraceNo] ASC)
-);
-
-
-GO
-PRINT N'Creating Table [Reference].[ReferenceTraceTypes]...';
-
-
-GO
-CREATE TABLE [Reference].[ReferenceTraceTypes] (
-    [IdNo]               SMALLINT      NOT NULL,
-    [Description]        VARCHAR (60)  NULL,
-    [SpanishDescription] VARCHAR (60)  NULL,
-    [DataOwnerId]        VARCHAR (20)  NULL,
-    [UpdateSessionID]    VARCHAR (40)  NULL,
-    [RecordStatusCode]   CHAR (1)      NOT NULL,
-    [CreatedDate]        DATETIME2 (7) NOT NULL,
-    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
-    PRIMARY KEY CLUSTERED ([IdNo] ASC)
-);
 
 
 GO
@@ -1473,30 +1306,289 @@ CREATE TABLE [Reference].[ReferenceTypesGroups] (
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [B2B].[ExchangeCode]...';
+PRINT N'Creating Table [Reference].[ReferenceBaseTypes]...';
 
 
 GO
-ALTER TABLE [B2B].[ExchangeCode]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDateTime];
+CREATE TABLE [Reference].[ReferenceBaseTypes] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (80)  NOT NULL,
+    [SpanishDescription] VARCHAR (80)  NOT NULL,
+    [ForceComposedName]  BIT           NOT NULL,
+    [ApplyToIndividual]  BIT           NOT NULL,
+    [CategoryId]         VARCHAR (128) NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [B2B].[ExchangeCode]...';
+PRINT N'Creating Table [Reference].[ReferenceOrganizationPreferences]...';
 
 
 GO
-ALTER TABLE [B2B].[ExchangeCode]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDateTime];
+CREATE TABLE [Reference].[ReferenceOrganizationPreferences] (
+    [CreatedDate]             DATETIME      NOT NULL,
+    [OrganizationId]          VARCHAR (20)  NOT NULL,
+    [ReferenceId]             VARCHAR (20)  NOT NULL,
+    [CreatedBy]               VARCHAR (20)  NOT NULL,
+    [DefaultLanguageNo]       SMALLINT      NOT NULL,
+    [DefaultCountryCode]      CHAR (2)      NOT NULL,
+    [DefaultPostalCode]       VARCHAR (20)  NOT NULL,
+    [DefaultStateCode]        CHAR (2)      NOT NULL,
+    [DefaultRegionCode]       CHAR (4)      NOT NULL,
+    [DefaultRegionText]       VARCHAR (40)  NOT NULL,
+    [DefaultProvinceCode]     CHAR (4)      NOT NULL,
+    [DefaultProvinceText]     VARCHAR (40)  NOT NULL,
+    [DefaultMunicipalityCode] CHAR (10)     NOT NULL,
+    [DefaultMunicipalityText] VARCHAR (40)  NOT NULL,
+    [DefaultCityCode]         CHAR (10)     NOT NULL,
+    [DefaultCityText]         VARCHAR (40)  NOT NULL,
+    [ServiceGlAccountID]      VARCHAR (30)  NOT NULL,
+    [PreferencesBag]          VARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([OrganizationId] ASC)
+);
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [B2B].[ExchangeCode]...';
+PRINT N'Creating Table [Reference].[ReferenceDataEditGroupTemplate]...';
 
 
 GO
-ALTER TABLE [B2B].[ExchangeCode]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
+CREATE TABLE [Reference].[ReferenceDataEditGroupTemplate] (
+    [CreatedDate]    DATETIME2 (7) NOT NULL,
+    [LastUpdateDate] DATETIME2 (7) NOT NULL,
+    [OrganizationId] VARCHAR (20)  NOT NULL,
+    [ReferenceId]    VARCHAR (20)  NOT NULL,
+    [GroupNo]        BIGINT        NOT NULL,
+    [TemplateNo]     BIGINT        NOT NULL,
+    CONSTRAINT [pk_ReferenceDataEditGroupTemplate] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [GroupNo] ASC, [TemplateNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferencePolicies]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferencePolicies] (
+    [CreatedDate]    DATETIME       NOT NULL,
+    [OrganizationId] VARCHAR (20)   NOT NULL,
+    [ReferenceId]    VARCHAR (20)   NOT NULL,
+    [GroupNo]        SMALLINT       NOT NULL,
+    [TypeNo]         SMALLINT       NOT NULL,
+    [Value]          VARCHAR (1024) NOT NULL
+);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferenceDataEditTemplate]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferenceDataEditTemplate] (
+    [CreatedDate]       DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]    DATETIME2 (7) NOT NULL,
+    [OrganizationId]    VARCHAR (20)  NOT NULL,
+    [TemplateNo]        BIGINT        NOT NULL,
+    [TemplateVersionId] VARCHAR (20)  NULL,
+    [ResourceName]      VARCHAR (128) NOT NULL,
+    [TemplateDefaultNo] BIGINT        NULL,
+    [TemplateTypeNo]    SMALLINT      NULL,
+    [TemplateData]      VARCHAR (MAX) NULL,
+    [MapData]           VARCHAR (MAX) NULL,
+    [GroupData]         VARCHAR (MAX) NULL,
+    [Title]             VARCHAR (128) NOT NULL,
+    [GroupNo]           BIGINT        NOT NULL,
+    [ScopeNo]           SMALLINT      NULL,
+    [StatusNo]          SMALLINT      NULL,
+    [PostUpdateScript]  VARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([TemplateNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Index [Reference].[ReferenceDataEditTemplate].[ReferenceDataEditTemplateByName]...';
+
+
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [ReferenceDataEditTemplateByName]
+    ON [Reference].[ReferenceDataEditTemplate]([ResourceName] ASC);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferencePolicyTypes]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferencePolicyTypes] (
+    [IdNo]               SMALLINT       NOT NULL,
+    [GroupNo]            SMALLINT       NOT NULL,
+    [ValueTypeNo]        SMALLINT       NOT NULL,
+    [Value]              VARCHAR (1024) NOT NULL,
+    [Description]        VARCHAR (80)   NULL,
+    [SpanishDescription] VARCHAR (80)   NULL,
+    [DataOwnerId]        VARCHAR (20)   NULL,
+    [UpdateSessionID]    VARCHAR (40)   NULL,
+    [RecordStatusCode]   CHAR (1)       NOT NULL,
+    [CreatedDate]        DATETIME2 (7)  NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7)  NOT NULL,
+    CONSTRAINT [pk_ReferencePolicyType] PRIMARY KEY CLUSTERED ([IdNo] ASC, [GroupNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Index [Reference].[ReferencePolicyTypes].[ux_ReferencePolicyType]...';
+
+
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [ux_ReferencePolicyType]
+    ON [Reference].[ReferencePolicyTypes]([IdNo] ASC);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferencePolicyGroups]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferencePolicyGroups] (
+    [IdNo]               SMALLINT      NOT NULL,
+    [Description]        VARCHAR (60)  NULL,
+    [SpanishDescription] VARCHAR (60)  NULL,
+    [DataOwnerId]        VARCHAR (20)  NULL,
+    [UpdateSessionID]    VARCHAR (40)  NULL,
+    [RecordStatusCode]   CHAR (1)      NOT NULL,
+    [CreatedDate]        DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]     DATETIME2 (7) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferenceDataEditGroup]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferenceDataEditGroup] (
+    [CreatedDate]    DATETIME2 (7) NOT NULL,
+    [LastUpdateDate] DATETIME2 (7) NOT NULL,
+    [OrganizationId] VARCHAR (20)  NULL,
+    [GroupNo]        BIGINT        NOT NULL,
+    [GroupName]      VARCHAR (80)  NULL,
+    [ScopeNo]        SMALLINT      NULL,
+    [StatusNo]       SMALLINT      NULL,
+    [LinkData]       VARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([GroupNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferenceTraceLog]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferenceTraceLog] (
+    [CreatedDate]    DATETIME     NOT NULL,
+    [TraceDate]      DATETIME     NOT NULL,
+    [SessionId]      VARCHAR (40) NULL,
+    [TraceNo]        BIGINT       IDENTITY (1, 1) NOT NULL,
+    [TypeNo]         SMALLINT     NOT NULL,
+    [OrganizationId] VARCHAR (20) NOT NULL,
+    [ReferenceId]    VARCHAR (20) NOT NULL,
+    PRIMARY KEY CLUSTERED ([TraceNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferenceListGroupItem]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferenceListGroupItem] (
+    [CreatedDate]    DATETIME2 (7) NOT NULL,
+    [LastUpdateDate] DATETIME2 (7) NOT NULL,
+    [OrganizationId] VARCHAR (20)  NOT NULL,
+    [ListNo]         SMALLINT      NOT NULL,
+    [GroupNo]        SMALLINT      NOT NULL,
+    [ReferenceId]    VARCHAR (20)  NOT NULL,
+    [ReferenceDate]  DATETIME2 (7) NULL,
+    [Comment]        VARCHAR (80)  NULL,
+    CONSTRAINT [pk_ReferenceListGroupItemPK] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [ReferenceId] ASC, [ListNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferenceListGroup]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferenceListGroup] (
+    [CreatedDate]      DATETIME2 (7) NOT NULL,
+    [OrganizationId]   VARCHAR (20)  NOT NULL,
+    [GroupNo]          SMALLINT      NOT NULL,
+    [ListNo]           SMALLINT      NOT NULL,
+    [Name]             VARCHAR (80)  NOT NULL,
+    [SequenceNo]       SMALLINT      NOT NULL,
+    [StatusNo]         SMALLINT      NOT NULL,
+    [DataOwnerId]      VARCHAR (20)  NULL,
+    [UpdateSessionID]  VARCHAR (40)  NULL,
+    [RecordStatusCode] CHAR (1)      NOT NULL,
+    [LastUpdateDate]   DATETIME2 (7) NOT NULL,
+    CONSTRAINT [pk_ReferenceListGroup] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [GroupNo] ASC, [ListNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferenceList]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferenceList] (
+    [CreatedDate]      DATETIME2 (7) NOT NULL,
+    [LastUpdateDate]   DATETIME2 (7) NOT NULL,
+    [OrganizationId]   VARCHAR (20)  NOT NULL,
+    [GroupId]          VARCHAR (40)  NULL,
+    [IdNo]             SMALLINT      NOT NULL,
+    [Name]             VARCHAR (80)  NOT NULL,
+    [StatusNo]         SMALLINT      NOT NULL,
+    [DataOwnerId]      VARCHAR (20)  NULL,
+    [UpdateSessionID]  VARCHAR (40)  NULL,
+    [RecordStatusCode] CHAR (1)      NOT NULL,
+    CONSTRAINT [pk_ReferenceList] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [IdNo] ASC)
+);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferenceDevices]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferenceDevices] (
+    [CreatedDate]    DATETIME     NOT NULL,
+    [OrganizationId] VARCHAR (20) NOT NULL,
+    [ReferenceId]    VARCHAR (20) NOT NULL,
+    [DeviceId]       VARCHAR (60) NOT NULL,
+    [Alias]          VARCHAR (80) NULL,
+    [LastUpdate]     DATETIME     NOT NULL
+);
+
+
+GO
+PRINT N'Creating Table [Reference].[ReferencePreference]...';
+
+
+GO
+CREATE TABLE [Reference].[ReferencePreference] (
+    [CreatedDate]    DATETIME      NULL,
+    [OrganizationId] VARCHAR (20)  NOT NULL,
+    [ReferenceId]    VARCHAR (20)  NOT NULL,
+    [PreferencesBag] VARCHAR (MAX) NULL,
+    CONSTRAINT [pk_ReferencePreference] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [ReferenceId] ASC)
+);
 
 
 GO
@@ -1527,83 +1619,56 @@ ALTER TABLE [B2B].[ExchangeDefinition]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssetGroupType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [B2B].[ExchangeCode]...';
 
 
 GO
-ALTER TABLE [Data].[DataAssetGroupType]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+ALTER TABLE [B2B].[ExchangeCode]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDateTime];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssetGroupType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [B2B].[ExchangeCode]...';
 
 
 GO
-ALTER TABLE [Data].[DataAssetGroupType]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+ALTER TABLE [B2B].[ExchangeCode]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDateTime];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssetGroupType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [B2B].[ExchangeCode]...';
 
 
 GO
-ALTER TABLE [Data].[DataAssetGroupType]
+ALTER TABLE [B2B].[ExchangeCode]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssociationType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssetGroupType]...';
 
 
 GO
-ALTER TABLE [Data].[DataAssociationType]
+ALTER TABLE [Data].[DataAssetGroupType]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssociationType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssetGroupType]...';
 
 
 GO
-ALTER TABLE [Data].[DataAssociationType]
+ALTER TABLE [Data].[DataAssetGroupType]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssociationType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssetGroupType]...';
 
 
 GO
-ALTER TABLE [Data].[DataAssociationType]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataBatch]...';
-
-
-GO
-ALTER TABLE [Data].[DataBatch]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataBatch]...';
-
-
-GO
-ALTER TABLE [Data].[DataBatch]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataBatch]...';
-
-
-GO
-ALTER TABLE [Data].[DataBatch]
+ALTER TABLE [Data].[DataAssetGroupType]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
@@ -1635,56 +1700,29 @@ ALTER TABLE [Data].[DataCode]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeElement]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKeyType]...';
 
 
 GO
-ALTER TABLE [Data].[DataCodeElement]
+ALTER TABLE [Data].[DataKeyType]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeElement]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKeyType]...';
 
 
 GO
-ALTER TABLE [Data].[DataCodeElement]
+ALTER TABLE [Data].[DataKeyType]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeElement]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKeyType]...';
 
 
 GO
-ALTER TABLE [Data].[DataCodeElement]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeSet]...';
-
-
-GO
-ALTER TABLE [Data].[DataCodeSet]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeSet]...';
-
-
-GO
-ALTER TABLE [Data].[DataCodeSet]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeSet]...';
-
-
-GO
-ALTER TABLE [Data].[DataCodeSet]
+ALTER TABLE [Data].[DataKeyType]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
@@ -1716,92 +1754,173 @@ ALTER TABLE [Data].[DataCodeSetBatch]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataConstraintType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKind]...';
 
 
 GO
-ALTER TABLE [Data].[DataConstraintType]
+ALTER TABLE [Data].[DataKind]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataConstraintType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKind]...';
 
 
 GO
-ALTER TABLE [Data].[DataConstraintType]
+ALTER TABLE [Data].[DataKind]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataConstraintType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKind]...';
 
 
 GO
-ALTER TABLE [Data].[DataConstraintType]
+ALTER TABLE [Data].[DataKind]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDictionary]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeSet]...';
 
 
 GO
-ALTER TABLE [Data].[DataDictionary]
+ALTER TABLE [Data].[DataCodeSet]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeSet]...';
+
+
+GO
+ALTER TABLE [Data].[DataCodeSet]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeSet]...';
+
+
+GO
+ALTER TABLE [Data].[DataCodeSet]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNote]...';
+
+
+GO
+ALTER TABLE [Data].[DataNote]
     ADD DEFAULT (getdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDictionary]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNote]...';
 
 
 GO
-ALTER TABLE [Data].[DataDictionary]
+ALTER TABLE [Data].[DataNote]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDictionary]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNote]...';
 
 
 GO
-ALTER TABLE [Data].[DataDictionary]
+ALTER TABLE [Data].[DataNote]
+    ADD DEFAULT ((0)) FOR [NoteTypeNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNote]...';
+
+
+GO
+ALTER TABLE [Data].[DataNote]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDomain]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataBatch]...';
 
 
 GO
-ALTER TABLE [Data].[DataDomain]
+ALTER TABLE [Data].[DataBatch]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDomain]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataBatch]...';
 
 
 GO
-ALTER TABLE [Data].[DataDomain]
+ALTER TABLE [Data].[DataBatch]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDomain]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataBatch]...';
 
 
 GO
-ALTER TABLE [Data].[DataDomain]
-    ADD DEFAULT ((0)) FOR [TypeNo];
+ALTER TABLE [Data].[DataBatch]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDomain]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNoteType]...';
 
 
 GO
-ALTER TABLE [Data].[DataDomain]
+ALTER TABLE [Data].[DataNoteType]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNoteType]...';
+
+
+GO
+ALTER TABLE [Data].[DataNoteType]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNoteType]...';
+
+
+GO
+ALTER TABLE [Data].[DataNoteType]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceStatus]...';
+
+
+GO
+ALTER TABLE [Data].[DataReferenceStatus]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceStatus]...';
+
+
+GO
+ALTER TABLE [Data].[DataReferenceStatus]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceStatus]...';
+
+
+GO
+ALTER TABLE [Data].[DataReferenceStatus]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
@@ -1829,6 +1948,168 @@ PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDomainType
 
 GO
 ALTER TABLE [Data].[DataDomainType]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssociationType]...';
+
+
+GO
+ALTER TABLE [Data].[DataAssociationType]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssociationType]...';
+
+
+GO
+ALTER TABLE [Data].[DataAssociationType]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataAssociationType]...';
+
+
+GO
+ALTER TABLE [Data].[DataAssociationType]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceType]...';
+
+
+GO
+ALTER TABLE [Data].[DataReferenceType]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceType]...';
+
+
+GO
+ALTER TABLE [Data].[DataReferenceType]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceType]...';
+
+
+GO
+ALTER TABLE [Data].[DataReferenceType]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataConstraintType]...';
+
+
+GO
+ALTER TABLE [Data].[DataConstraintType]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataConstraintType]...';
+
+
+GO
+ALTER TABLE [Data].[DataConstraintType]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataConstraintType]...';
+
+
+GO
+ALTER TABLE [Data].[DataConstraintType]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataGroupType]...';
+
+
+GO
+ALTER TABLE [Data].[DataGroupType]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataGroupType]...';
+
+
+GO
+ALTER TABLE [Data].[DataGroupType]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataGroupType]...';
+
+
+GO
+ALTER TABLE [Data].[DataGroupType]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataElementType]...';
+
+
+GO
+ALTER TABLE [Data].[DataElementType]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataElementType]...';
+
+
+GO
+ALTER TABLE [Data].[DataElementType]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataElementType]...';
+
+
+GO
+ALTER TABLE [Data].[DataElementType]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeElement]...';
+
+
+GO
+ALTER TABLE [Data].[DataCodeElement]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeElement]...';
+
+
+GO
+ALTER TABLE [Data].[DataCodeElement]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataCodeElement]...';
+
+
+GO
+ALTER TABLE [Data].[DataCodeElement]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
@@ -1977,29 +2258,83 @@ ALTER TABLE [Data].[DataElement]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataElementType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
 
 
 GO
-ALTER TABLE [Data].[DataElementType]
+ALTER TABLE [Data].[DataTerm]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataElementType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
 
 
 GO
-ALTER TABLE [Data].[DataElementType]
+ALTER TABLE [Data].[DataTerm]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataElementType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
 
 
 GO
-ALTER TABLE [Data].[DataElementType]
+ALTER TABLE [Data].[DataTerm]
+    ADD DEFAULT (getutcdate()) FOR [ReferenceDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
+
+
+GO
+ALTER TABLE [Data].[DataTerm]
+    ADD DEFAULT ((0)) FOR [StatusNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
+
+
+GO
+ALTER TABLE [Data].[DataTerm]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDomain]...';
+
+
+GO
+ALTER TABLE [Data].[DataDomain]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDomain]...';
+
+
+GO
+ALTER TABLE [Data].[DataDomain]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDomain]...';
+
+
+GO
+ALTER TABLE [Data].[DataDomain]
+    ADD DEFAULT ((0)) FOR [TypeNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDomain]...';
+
+
+GO
+ALTER TABLE [Data].[DataDomain]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
@@ -2049,146 +2384,29 @@ ALTER TABLE [Data].[DataGroup]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataGroupType]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDictionary]...';
 
 
 GO
-ALTER TABLE [Data].[DataGroupType]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataGroupType]...';
-
-
-GO
-ALTER TABLE [Data].[DataGroupType]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataGroupType]...';
-
-
-GO
-ALTER TABLE [Data].[DataGroupType]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKeyType]...';
-
-
-GO
-ALTER TABLE [Data].[DataKeyType]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKeyType]...';
-
-
-GO
-ALTER TABLE [Data].[DataKeyType]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKeyType]...';
-
-
-GO
-ALTER TABLE [Data].[DataKeyType]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKind]...';
-
-
-GO
-ALTER TABLE [Data].[DataKind]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKind]...';
-
-
-GO
-ALTER TABLE [Data].[DataKind]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataKind]...';
-
-
-GO
-ALTER TABLE [Data].[DataKind]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNote]...';
-
-
-GO
-ALTER TABLE [Data].[DataNote]
+ALTER TABLE [Data].[DataDictionary]
     ADD DEFAULT (getdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNote]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDictionary]...';
 
 
 GO
-ALTER TABLE [Data].[DataNote]
+ALTER TABLE [Data].[DataDictionary]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNote]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataDictionary]...';
 
 
 GO
-ALTER TABLE [Data].[DataNote]
-    ADD DEFAULT ((0)) FOR [NoteTypeNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNote]...';
-
-
-GO
-ALTER TABLE [Data].[DataNote]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNoteType]...';
-
-
-GO
-ALTER TABLE [Data].[DataNoteType]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNoteType]...';
-
-
-GO
-ALTER TABLE [Data].[DataNoteType]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataNoteType]...';
-
-
-GO
-ALTER TABLE [Data].[DataNoteType]
+ALTER TABLE [Data].[DataDictionary]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
@@ -2235,123 +2453,6 @@ PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceO
 GO
 ALTER TABLE [Data].[DataReferenceObject]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceStatus]...';
-
-
-GO
-ALTER TABLE [Data].[DataReferenceStatus]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceStatus]...';
-
-
-GO
-ALTER TABLE [Data].[DataReferenceStatus]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceStatus]...';
-
-
-GO
-ALTER TABLE [Data].[DataReferenceStatus]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceType]...';
-
-
-GO
-ALTER TABLE [Data].[DataReferenceType]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceType]...';
-
-
-GO
-ALTER TABLE [Data].[DataReferenceType]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataReferenceType]...';
-
-
-GO
-ALTER TABLE [Data].[DataReferenceType]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
-
-
-GO
-ALTER TABLE [Data].[DataTerm]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
-
-
-GO
-ALTER TABLE [Data].[DataTerm]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
-
-
-GO
-ALTER TABLE [Data].[DataTerm]
-    ADD DEFAULT (getutcdate()) FOR [ReferenceDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
-
-
-GO
-ALTER TABLE [Data].[DataTerm]
-    ADD DEFAULT ((0)) FOR [StatusNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Data].[DataTerm]...';
-
-
-GO
-ALTER TABLE [Data].[DataTerm]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseExtensions]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBaseExtensions]
-    ADD DEFAULT ((0)) FOR [Required];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseExtensions]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBaseExtensions]
-    ADD DEFAULT ('System.String') FOR [TypeName];
 
 
 GO
@@ -2370,87 +2471,6 @@ PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseGroupM
 GO
 ALTER TABLE [IdBase].[IdBaseGroupMembers]
     ADD DEFAULT ((0)) FOR [TypeNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseGroups]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBaseGroups]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseGroups]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBaseGroups]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseGroups]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBaseGroups]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBasePrefixCounters]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBasePrefixCounters]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBasePrefixCounters]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBasePrefixCounters]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBasePrefixCounters]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBasePrefixCounters]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseStatus]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBaseStatus]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseStatus]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBaseStatus]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseStatus]...';
-
-
-GO
-ALTER TABLE [IdBase].[IdBaseStatus]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
@@ -2481,137 +2501,101 @@ ALTER TABLE [IdBase].[IdBaseTypes]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectApplicables]...';
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseExtensions]...';
 
 
 GO
-ALTER TABLE [Object].[ObjectApplicables]
+ALTER TABLE [IdBase].[IdBaseExtensions]
+    ADD DEFAULT ((0)) FOR [Required];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseExtensions]...';
+
+
+GO
+ALTER TABLE [IdBase].[IdBaseExtensions]
+    ADD DEFAULT ('System.String') FOR [TypeName];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBasePrefixCounters]...';
+
+
+GO
+ALTER TABLE [IdBase].[IdBasePrefixCounters]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectApplicables]...';
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBasePrefixCounters]...';
 
 
 GO
-ALTER TABLE [Object].[ObjectApplicables]
+ALTER TABLE [IdBase].[IdBasePrefixCounters]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectApplicables]...';
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBasePrefixCounters]...';
 
 
 GO
-ALTER TABLE [Object].[ObjectApplicables]
+ALTER TABLE [IdBase].[IdBasePrefixCounters]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectCheckables]...';
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseGroups]...';
 
 
 GO
-ALTER TABLE [Object].[ObjectCheckables]
+ALTER TABLE [IdBase].[IdBaseGroups]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectCheckables]...';
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseGroups]...';
 
 
 GO
-ALTER TABLE [Object].[ObjectCheckables]
+ALTER TABLE [IdBase].[IdBaseGroups]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectCheckables]...';
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseGroups]...';
 
 
 GO
-ALTER TABLE [Object].[ObjectCheckables]
+ALTER TABLE [IdBase].[IdBaseGroups]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectColors]...';
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseStatus]...';
 
 
 GO
-ALTER TABLE [Object].[ObjectColors]
+ALTER TABLE [IdBase].[IdBaseStatus]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectColors]...';
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseStatus]...';
 
 
 GO
-ALTER TABLE [Object].[ObjectColors]
+ALTER TABLE [IdBase].[IdBaseStatus]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectColors]...';
+PRINT N'Creating Default Constraint unnamed constraint on [IdBase].[IdBaseStatus]...';
 
 
 GO
-ALTER TABLE [Object].[ObjectColors]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectConditions]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectConditions]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectConditions]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectConditions]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectConditions]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectConditions]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectKeywordTypes]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectKeywordTypes]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectKeywordTypes]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectKeywordTypes]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectKeywordTypes]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectKeywordTypes]
+ALTER TABLE [IdBase].[IdBaseStatus]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
@@ -2652,114 +2636,6 @@ ALTER TABLE [Object].[ObjectLanguages]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRelevance]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectRelevance]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRelevance]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectRelevance]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRelevance]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectRelevance]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRequirables]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectRequirables]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRequirables]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectRequirables]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRequirables]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectRequirables]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectScopes]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectScopes]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectScopes]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectScopes]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectScopes]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectScopes]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectSeverity]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectSeverity]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectSeverity]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectSeverity]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectSeverity]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectSeverity]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
 PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectSizes]...';
 
 
@@ -2783,33 +2659,6 @@ PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectSizes]
 
 GO
 ALTER TABLE [Object].[ObjectSizes]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectStates]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectStates]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectStates]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectStates]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectStates]...';
-
-
-GO
-ALTER TABLE [Object].[ObjectStates]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
@@ -2841,6 +2690,114 @@ ALTER TABLE [Object].[ObjectStatus]
 
 
 GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectApplicables]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectApplicables]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectApplicables]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectApplicables]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectApplicables]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectApplicables]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectCheckables]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectCheckables]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectCheckables]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectCheckables]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectCheckables]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectCheckables]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRequirables]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectRequirables]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRequirables]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectRequirables]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRequirables]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectRequirables]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectSeverity]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectSeverity]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectSeverity]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectSeverity]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectSeverity]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectSeverity]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
 PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectTypes]...';
 
 
@@ -2864,6 +2821,60 @@ PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectTypes]
 
 GO
 ALTER TABLE [Object].[ObjectTypes]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectScopes]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectScopes]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectScopes]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectScopes]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectScopes]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectScopes]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectColors]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectColors]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectColors]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectColors]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectColors]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectColors]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
@@ -2922,290 +2933,137 @@ ALTER TABLE [Object].[ObjectValueTypes]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectKeywordTypes]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceBaseTypes]
-    ADD DEFAULT ((0)) FOR [ForceComposedName];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceBaseTypes]
-    ADD DEFAULT ((0)) FOR [ApplyToIndividual];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceBaseTypes]
+ALTER TABLE [Object].[ObjectKeywordTypes]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectKeywordTypes]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceBaseTypes]
+ALTER TABLE [Object].[ObjectKeywordTypes]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectKeywordTypes]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceBaseTypes]
+ALTER TABLE [Object].[ObjectKeywordTypes]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroup]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectStates]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceDataEditGroup]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroup]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditGroup]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroup]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditGroup]
-    ADD DEFAULT ((1)) FOR [ScopeNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroup]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditGroup]
-    ADD DEFAULT ((1)) FOR [StatusNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroupTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroupTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate]
-    ADD DEFAULT ('v1r0') FOR [TemplateVersionId];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate]
-    ADD DEFAULT ((20)) FOR [TemplateTypeNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate]
-    ADD DEFAULT ((0)) FOR [GroupNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate]
-    ADD DEFAULT ((1)) FOR [ScopeNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate]
-    ADD DEFAULT ((1)) FOR [StatusNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDevices]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDevices]
-    ADD DEFAULT (getdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDevices]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDevices]
-    ADD DEFAULT ('COMMONS') FOR [OrganizationId];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDevices]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDevices]
-    ADD DEFAULT (getdate()) FOR [LastUpdate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceList]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceList]
-    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceList]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceList]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceList]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceList]
-    ADD DEFAULT ((1)) FOR [StatusNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceList]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceList]
+ALTER TABLE [Object].[ObjectStates]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectStates]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceListGroup]
+ALTER TABLE [Object].[ObjectStates]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectStates]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceListGroup]
-    ADD DEFAULT ((0)) FOR [SequenceNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceListGroup]
-    ADD DEFAULT ((1)) FOR [StatusNo];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceListGroup]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceListGroup]
+ALTER TABLE [Object].[ObjectStates]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroupItem]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectConditions]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceListGroupItem]
+ALTER TABLE [Object].[ObjectConditions]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectConditions]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectConditions]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroupItem]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectConditions]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceListGroupItem]
+ALTER TABLE [Object].[ObjectConditions]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRelevance]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectRelevance]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRelevance]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectRelevance]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Object].[ObjectRelevance]...';
+
+
+GO
+ALTER TABLE [Object].[ObjectRelevance]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTraceTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTraceTypes]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTraceTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTraceTypes]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTraceTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTraceTypes]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
@@ -3288,6 +3146,105 @@ PRINT N'Creating Default Constraint unnamed constraint on [Reference].[Reference
 GO
 ALTER TABLE [Reference].[ReferenceObjects]
     ADD DEFAULT ((0)) FOR [StatusNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTypes]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTypes]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTypes]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypesGroups]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTypesGroups]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypesGroups]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTypesGroups]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypesGroups]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTypesGroups]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceBaseTypes]
+    ADD DEFAULT ((0)) FOR [ForceComposedName];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceBaseTypes]
+    ADD DEFAULT ((0)) FOR [ApplyToIndividual];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceBaseTypes]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceBaseTypes]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceBaseTypes]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceBaseTypes]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
@@ -3426,6 +3383,24 @@ ALTER TABLE [Reference].[ReferenceOrganizationPreferences]
 
 
 GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroupTemplate]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroupTemplate]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
 PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePolicies]...';
 
 
@@ -3462,30 +3437,66 @@ ALTER TABLE [Reference].[ReferencePolicies]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePolicyGroups]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferencePolicyGroups]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePolicyGroups]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferencePolicyGroups]
+ALTER TABLE [Reference].[ReferenceDataEditTemplate]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePolicyGroups]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferencePolicyGroups]
+ALTER TABLE [Reference].[ReferenceDataEditTemplate]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditTemplate]
+    ADD DEFAULT ('v1r0') FOR [TemplateVersionId];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditTemplate]
+    ADD DEFAULT ((20)) FOR [TemplateTypeNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditTemplate]
+    ADD DEFAULT ((0)) FOR [GroupNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditTemplate]
+    ADD DEFAULT ((1)) FOR [ScopeNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditTemplate]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditTemplate]
+    ADD DEFAULT ((1)) FOR [StatusNo];
 
 
 GO
@@ -3543,21 +3554,66 @@ ALTER TABLE [Reference].[ReferencePolicyTypes]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePreference]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePolicyGroups]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferencePreference]
-    ADD DEFAULT (getdate()) FOR [CreatedDate];
+ALTER TABLE [Reference].[ReferencePolicyGroups]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePreference]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePolicyGroups]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferencePreference]
-    ADD DEFAULT ('COMMONS') FOR [OrganizationId];
+ALTER TABLE [Reference].[ReferencePolicyGroups]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePolicyGroups]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferencePolicyGroups]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroup]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroup]
+    ADD DEFAULT (getutcdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroup]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroup]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroup]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroup]
+    ADD DEFAULT ((1)) FOR [ScopeNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDataEditGroup]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroup]
+    ADD DEFAULT ((1)) FOR [StatusNo];
 
 
 GO
@@ -3597,84 +3653,147 @@ ALTER TABLE [Reference].[ReferenceTraceLog]
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTraceTypes]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroupItem]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceTraceTypes]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTraceTypes]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceTraceTypes]
+ALTER TABLE [Reference].[ReferenceListGroupItem]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTraceTypes]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroupItem]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceTraceTypes]
+ALTER TABLE [Reference].[ReferenceListGroupItem]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypes]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceTypes]
-    ADD DEFAULT ('A') FOR [RecordStatusCode];
-
-
-GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypes]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceTypes]
+ALTER TABLE [Reference].[ReferenceListGroup]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypes]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceTypes]
-    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+ALTER TABLE [Reference].[ReferenceListGroup]
+    ADD DEFAULT ((0)) FOR [SequenceNo];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypesGroups]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceTypesGroups]
+ALTER TABLE [Reference].[ReferenceListGroup]
+    ADD DEFAULT ((1)) FOR [StatusNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceListGroup]
     ADD DEFAULT ('A') FOR [RecordStatusCode];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypesGroups]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceListGroup]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceTypesGroups]
+ALTER TABLE [Reference].[ReferenceListGroup]
+    ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceList]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceList]
     ADD DEFAULT (getutcdate()) FOR [CreatedDate];
 
 
 GO
-PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceTypesGroups]...';
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceList]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceTypesGroups]
+ALTER TABLE [Reference].[ReferenceList]
     ADD DEFAULT (getutcdate()) FOR [LastUpdateDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceList]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceList]
+    ADD DEFAULT ((1)) FOR [StatusNo];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceList]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceList]
+    ADD DEFAULT ('A') FOR [RecordStatusCode];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDevices]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDevices]
+    ADD DEFAULT (getdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDevices]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDevices]
+    ADD DEFAULT ('COMMONS') FOR [OrganizationId];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferenceDevices]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDevices]
+    ADD DEFAULT (getdate()) FOR [LastUpdate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePreference]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferencePreference]
+    ADD DEFAULT (getdate()) FOR [CreatedDate];
+
+
+GO
+PRINT N'Creating Default Constraint unnamed constraint on [Reference].[ReferencePreference]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferencePreference]
+    ADD DEFAULT ('COMMONS') FOR [OrganizationId];
 
 
 GO
@@ -3683,34 +3802,6 @@ PRINT N'Creating Sequence [Common].[IdBaseCounter]...';
 
 GO
 CREATE SEQUENCE [Common].[IdBaseCounter]
-    AS INT
-    INCREMENT BY 1
-    MINVALUE 0
-    MAXVALUE 999999
-    CYCLE
-    CACHE 15;
-
-
-GO
-PRINT N'Creating Sequence [Common].[IdBasePersonCounter]...';
-
-
-GO
-CREATE SEQUENCE [Common].[IdBasePersonCounter]
-    AS INT
-    INCREMENT BY 1
-    MINVALUE 0
-    MAXVALUE 999999
-    CYCLE
-    CACHE 15;
-
-
-GO
-PRINT N'Creating Sequence [Common].[IdBaseReferenceCounter]...';
-
-
-GO
-CREATE SEQUENCE [Common].[IdBaseReferenceCounter]
     AS INT
     INCREMENT BY 1
     MINVALUE 0
@@ -3734,11 +3825,39 @@ CREATE SEQUENCE [Common].[IdBaseSessionCounter]
 
 
 GO
+PRINT N'Creating Sequence [Common].[IdBaseReferenceCounter]...';
+
+
+GO
+CREATE SEQUENCE [Common].[IdBaseReferenceCounter]
+    AS INT
+    INCREMENT BY 1
+    MINVALUE 0
+    MAXVALUE 999999
+    CYCLE
+    CACHE 15;
+
+
+GO
 PRINT N'Creating Sequence [Common].[IdBaseSubmissionCounter]...';
 
 
 GO
 CREATE SEQUENCE [Common].[IdBaseSubmissionCounter]
+    AS INT
+    INCREMENT BY 1
+    MINVALUE 0
+    MAXVALUE 999999
+    CYCLE
+    CACHE 15;
+
+
+GO
+PRINT N'Creating Sequence [Common].[IdBasePersonCounter]...';
+
+
+GO
+CREATE SEQUENCE [Common].[IdBasePersonCounter]
     AS INT
     INCREMENT BY 1
     MINVALUE 0
@@ -3757,21 +3876,57 @@ ALTER TABLE [B2B].[ExchangeDefinition] WITH NOCHECK
 
 
 GO
-PRINT N'Creating Foreign Key [Data].[fk_DataBatchDomain]...';
-
-
-GO
-ALTER TABLE [Data].[DataBatch] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataBatchDomain] FOREIGN KEY ([DomainNo]) REFERENCES [Data].[DataDomain] ([DomainNo]);
-
-
-GO
 PRINT N'Creating Foreign Key [Data].[fk_DataCodeNo]...';
 
 
 GO
 ALTER TABLE [Data].[DataCode] WITH NOCHECK
     ADD CONSTRAINT [fk_DataCodeNo] FOREIGN KEY ([CodeSetNo]) REFERENCES [Data].[DataCodeSet] ([CodeSetNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Data].[fk_DataCodeSetBatch]...';
+
+
+GO
+ALTER TABLE [Data].[DataCodeSetBatch] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataCodeSetBatch] FOREIGN KEY ([CodeSetNo]) REFERENCES [Data].[DataCodeSet] ([CodeSetNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Data].[fk_DataCodeSetDomain]...';
+
+
+GO
+ALTER TABLE [Data].[DataCodeSet] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataCodeSetDomain] FOREIGN KEY ([DomainNo]) REFERENCES [Data].[DataDomain] ([DomainNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Data].[fk_DataNoteReference]...';
+
+
+GO
+ALTER TABLE [Data].[DataNote] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataNoteReference] FOREIGN KEY ([ReferenceId]) REFERENCES [Data].[DataReferenceObject] ([ReferenceId]);
+
+
+GO
+PRINT N'Creating Foreign Key [Data].[fk_DataNoteType]...';
+
+
+GO
+ALTER TABLE [Data].[DataNote] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataNoteType] FOREIGN KEY ([NoteTypeNo]) REFERENCES [Data].[DataNoteType] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Data].[fk_DataBatchDomain]...';
+
+
+GO
+ALTER TABLE [Data].[DataBatch] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataBatchDomain] FOREIGN KEY ([DomainNo]) REFERENCES [Data].[DataDomain] ([DomainNo]);
 
 
 GO
@@ -3790,33 +3945,6 @@ PRINT N'Creating Foreign Key [Data].[fk_DataCodeElementNo]...';
 GO
 ALTER TABLE [Data].[DataCodeElement] WITH NOCHECK
     ADD CONSTRAINT [fk_DataCodeElementNo] FOREIGN KEY ([ElementNo]) REFERENCES [Data].[DataElement] ([ElementNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Data].[fk_DataCodeSetDomain]...';
-
-
-GO
-ALTER TABLE [Data].[DataCodeSet] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataCodeSetDomain] FOREIGN KEY ([DomainNo]) REFERENCES [Data].[DataDomain] ([DomainNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Data].[fk_DataCodeSetBatch]...';
-
-
-GO
-ALTER TABLE [Data].[DataCodeSetBatch] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataCodeSetBatch] FOREIGN KEY ([CodeSetNo]) REFERENCES [Data].[DataCodeSet] ([CodeSetNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Data].[fk_DataDomainType]...';
-
-
-GO
-ALTER TABLE [Data].[DataDomain] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataDomainType] FOREIGN KEY ([TypeNo]) REFERENCES [Data].[DataDomainType] ([IdNo]);
 
 
 GO
@@ -3892,60 +4020,6 @@ ALTER TABLE [Data].[DataElement] WITH NOCHECK
 
 
 GO
-PRINT N'Creating Foreign Key [Data].[fk_DataAssetGroupType]...';
-
-
-GO
-ALTER TABLE [Data].[DataGroup] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataAssetGroupType] FOREIGN KEY ([GroupTypeNo]) REFERENCES [Data].[DataAssetGroupType] ([IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Data].[fk_DataGroupStatus]...';
-
-
-GO
-ALTER TABLE [Data].[DataGroup] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataGroupStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Data].[fk_DataNoteReference]...';
-
-
-GO
-ALTER TABLE [Data].[DataNote] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataNoteReference] FOREIGN KEY ([ReferenceId]) REFERENCES [Data].[DataReferenceObject] ([ReferenceId]);
-
-
-GO
-PRINT N'Creating Foreign Key [Data].[fk_DataNoteType]...';
-
-
-GO
-ALTER TABLE [Data].[DataNote] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataNoteType] FOREIGN KEY ([NoteTypeNo]) REFERENCES [Data].[DataNoteType] ([IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Data].[fk_DataReferenceObjectType]...';
-
-
-GO
-ALTER TABLE [Data].[DataReferenceObject] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataReferenceObjectType] FOREIGN KEY ([ReferenceTypeNo]) REFERENCES [Data].[DataReferenceType] ([IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Data].[fk_DataReferenceStatus]...';
-
-
-GO
-ALTER TABLE [Data].[DataReferenceObject] WITH NOCHECK
-    ADD CONSTRAINT [fk_DataReferenceStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Data].[DataReferenceStatus] ([IdNo]);
-
-
-GO
 PRINT N'Creating Foreign Key [Data].[fk_DataTermDomainUri]...';
 
 
@@ -3973,21 +4047,48 @@ ALTER TABLE [Data].[DataTerm] WITH NOCHECK
 
 
 GO
-PRINT N'Creating Foreign Key [IdBase].[fk_ibgm00]...';
+PRINT N'Creating Foreign Key [Data].[fk_DataDomainType]...';
 
 
 GO
-ALTER TABLE [IdBase].[IdBaseGroupMembers] WITH NOCHECK
-    ADD CONSTRAINT [fk_ibgm00] FOREIGN KEY ([GroupNo]) REFERENCES [IdBase].[IdBaseGroups] ([IdNo]);
+ALTER TABLE [Data].[DataDomain] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataDomainType] FOREIGN KEY ([TypeNo]) REFERENCES [Data].[DataDomainType] ([IdNo]);
 
 
 GO
-PRINT N'Creating Foreign Key [IdBase].[fk_ibgm01]...';
+PRINT N'Creating Foreign Key [Data].[fk_DataAssetGroupType]...';
 
 
 GO
-ALTER TABLE [IdBase].[IdBaseGroupMembers] WITH NOCHECK
-    ADD CONSTRAINT [fk_ibgm01] FOREIGN KEY ([TypeNo]) REFERENCES [IdBase].[IdBaseTypes] ([TypeNo]);
+ALTER TABLE [Data].[DataGroup] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataAssetGroupType] FOREIGN KEY ([GroupTypeNo]) REFERENCES [Data].[DataAssetGroupType] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Data].[fk_DataGroupStatus]...';
+
+
+GO
+ALTER TABLE [Data].[DataGroup] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataGroupStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Data].[fk_DataReferenceObjectType]...';
+
+
+GO
+ALTER TABLE [Data].[DataReferenceObject] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataReferenceObjectType] FOREIGN KEY ([ReferenceTypeNo]) REFERENCES [Data].[DataReferenceType] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Data].[fk_DataReferenceStatus]...';
+
+
+GO
+ALTER TABLE [Data].[DataReferenceObject] WITH NOCHECK
+    ADD CONSTRAINT [fk_DataReferenceStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Data].[DataReferenceStatus] ([IdNo]);
 
 
 GO
@@ -4009,120 +4110,21 @@ ALTER TABLE [IdBase].[IdBaseTypeExtensions] WITH NOCHECK
 
 
 GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditGroupScope]...';
+PRINT N'Creating Foreign Key [IdBase].[fk_ibgm00]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceDataEditGroup] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceDataEditGroupScope] FOREIGN KEY ([ScopeNo]) REFERENCES [Object].[ObjectScopes] ([IdNo]);
+ALTER TABLE [IdBase].[IdBaseGroupMembers] WITH NOCHECK
+    ADD CONSTRAINT [fk_ibgm00] FOREIGN KEY ([GroupNo]) REFERENCES [IdBase].[IdBaseGroups] ([IdNo]);
 
 
 GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditGroupStatus]...';
+PRINT N'Creating Foreign Key [IdBase].[fk_ibgm01]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceDataEditGroup] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceDataEditGroupStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditGroup]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceDataEditGroup] FOREIGN KEY ([GroupNo]) REFERENCES [Reference].[ReferenceDataEditGroup] ([GroupNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditGroupOrganization]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceDataEditGroupOrganization] FOREIGN KEY ([OrganizationId], [ReferenceId]) REFERENCES [Reference].[ReferenceObjects] ([OrganizationId], [ReferenceId]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditTemplate]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceDataEditTemplate] FOREIGN KEY ([TemplateNo]) REFERENCES [Reference].[ReferenceDataEditTemplate] ([TemplateNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditTemplateGroup]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceDataEditTemplateGroup] FOREIGN KEY ([GroupNo]) REFERENCES [Reference].[ReferenceDataEditGroup] ([GroupNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditTemplateScope]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceDataEditTemplateScope] FOREIGN KEY ([ScopeNo]) REFERENCES [Object].[ObjectScopes] ([IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditTemplateStatus]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceDataEditTemplateStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDevicesReference]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceDevices] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceDevicesReference] FOREIGN KEY ([OrganizationId], [ReferenceId]) REFERENCES [Reference].[ReferenceObjects] ([OrganizationId], [ReferenceId]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceListStatus]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceList] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceListStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceListGroupNo]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceListGroup] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceListGroupNo] FOREIGN KEY ([OrganizationId], [GroupNo]) REFERENCES [Reference].[ReferenceList] ([OrganizationId], [IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceListGroupStatus]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceListGroup] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceListGroupStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
-
-
-GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceListGroupItemGroup]...';
-
-
-GO
-ALTER TABLE [Reference].[ReferenceListGroupItem] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceListGroupItemGroup] FOREIGN KEY ([OrganizationId], [GroupNo], [ListNo]) REFERENCES [Reference].[ReferenceListGroup] ([OrganizationId], [GroupNo], [ListNo]);
+ALTER TABLE [IdBase].[IdBaseGroupMembers] WITH NOCHECK
+    ADD CONSTRAINT [fk_ibgm01] FOREIGN KEY ([TypeNo]) REFERENCES [IdBase].[IdBaseTypes] ([TypeNo]);
 
 
 GO
@@ -4153,6 +4155,24 @@ ALTER TABLE [Reference].[ReferenceObjects] WITH NOCHECK
 
 
 GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceTypesGroupMemberIdNo]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTypesGroupMembers] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceTypesGroupMemberIdNo] FOREIGN KEY ([IdNo]) REFERENCES [Reference].[ReferenceTypesGroups] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceTypesGroupMemberTypeNo]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceTypesGroupMembers] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceTypesGroupMemberTypeNo] FOREIGN KEY ([TypeNo]) REFERENCES [Reference].[ReferenceBaseTypes] ([IdNo]);
+
+
+GO
 PRINT N'Creating Foreign Key [Reference].[fk_ReferenceOrganizationPreferenceEntityId]...';
 
 
@@ -4177,6 +4197,33 @@ PRINT N'Creating Foreign Key [Reference].[fk_ReferenceOrganizationPreferencesLan
 GO
 ALTER TABLE [Reference].[ReferenceOrganizationPreferences] WITH NOCHECK
     ADD CONSTRAINT [fk_ReferenceOrganizationPreferencesLanguage] FOREIGN KEY ([DefaultLanguageNo]) REFERENCES [Object].[ObjectLanguages] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditGroup]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceDataEditGroup] FOREIGN KEY ([GroupNo]) REFERENCES [Reference].[ReferenceDataEditGroup] ([GroupNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditGroupOrganization]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceDataEditGroupOrganization] FOREIGN KEY ([OrganizationId], [ReferenceId]) REFERENCES [Reference].[ReferenceObjects] ([OrganizationId], [ReferenceId]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditTemplate]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceDataEditTemplate] FOREIGN KEY ([TemplateNo]) REFERENCES [Reference].[ReferenceDataEditTemplate] ([TemplateNo]);
 
 
 GO
@@ -4207,6 +4254,33 @@ ALTER TABLE [Reference].[ReferencePolicies] WITH NOCHECK
 
 
 GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditTemplateGroup]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceDataEditTemplateGroup] FOREIGN KEY ([GroupNo]) REFERENCES [Reference].[ReferenceDataEditGroup] ([GroupNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditTemplateScope]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceDataEditTemplateScope] FOREIGN KEY ([ScopeNo]) REFERENCES [Object].[ObjectScopes] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditTemplateStatus]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceDataEditTemplateStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
+
+
+GO
 PRINT N'Creating Foreign Key [Reference].[fk_ReferencePolicyTypeGroup]...';
 
 
@@ -4222,6 +4296,24 @@ PRINT N'Creating Foreign Key [Reference].[fk_ReferencePolicyTypeValueType]...';
 GO
 ALTER TABLE [Reference].[ReferencePolicyTypes] WITH NOCHECK
     ADD CONSTRAINT [fk_ReferencePolicyTypeValueType] FOREIGN KEY ([ValueTypeNo]) REFERENCES [Object].[ObjectValueTypes] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditGroupScope]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroup] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceDataEditGroupScope] FOREIGN KEY ([ScopeNo]) REFERENCES [Object].[ObjectScopes] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDataEditGroupStatus]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDataEditGroup] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceDataEditGroupStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
 
 
 GO
@@ -4243,21 +4335,48 @@ ALTER TABLE [Reference].[ReferenceTraceLog] WITH NOCHECK
 
 
 GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceTypesGroupMemberIdNo]...';
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceListGroupItemGroup]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceTypesGroupMembers] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceTypesGroupMemberIdNo] FOREIGN KEY ([IdNo]) REFERENCES [Reference].[ReferenceTypesGroups] ([IdNo]);
+ALTER TABLE [Reference].[ReferenceListGroupItem] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceListGroupItemGroup] FOREIGN KEY ([OrganizationId], [GroupNo], [ListNo]) REFERENCES [Reference].[ReferenceListGroup] ([OrganizationId], [GroupNo], [ListNo]);
 
 
 GO
-PRINT N'Creating Foreign Key [Reference].[fk_ReferenceTypesGroupMemberTypeNo]...';
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceListGroupNo]...';
 
 
 GO
-ALTER TABLE [Reference].[ReferenceTypesGroupMembers] WITH NOCHECK
-    ADD CONSTRAINT [fk_ReferenceTypesGroupMemberTypeNo] FOREIGN KEY ([TypeNo]) REFERENCES [Reference].[ReferenceBaseTypes] ([IdNo]);
+ALTER TABLE [Reference].[ReferenceListGroup] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceListGroupNo] FOREIGN KEY ([OrganizationId], [GroupNo]) REFERENCES [Reference].[ReferenceList] ([OrganizationId], [IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceListGroupStatus]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceListGroup] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceListGroupStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceListStatus]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceList] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceListStatus] FOREIGN KEY ([StatusNo]) REFERENCES [Object].[ObjectStatus] ([IdNo]);
+
+
+GO
+PRINT N'Creating Foreign Key [Reference].[fk_ReferenceDevicesReference]...';
+
+
+GO
+ALTER TABLE [Reference].[ReferenceDevices] WITH NOCHECK
+    ADD CONSTRAINT [fk_ReferenceDevicesReference] FOREIGN KEY ([OrganizationId], [ReferenceId]) REFERENCES [Reference].[ReferenceObjects] ([OrganizationId], [ReferenceId]);
 
 
 GO
@@ -4321,6 +4440,36 @@ BEGIN
    SET @OutId = @PrefixId + @currYear + @currMonth + @currDay +
       @currHour + @currMins + @new
    RETURN @OutId
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Function [Helper].[HelperGetLanguageNo]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE FUNCTION Helper.HelperGetLanguageNo(
+   @Language VARCHAR(40))
+RETURNS SMALLINT
+AS
+BEGIN
+   DECLARE @langNo SMALLINT
+   SET @Language = lower(@Language)
+   IF @Language = 'spa' or @Language = 'esp' or @Language = 'es-PR' or
+      @Language = 'es' or @Language = 'español'
+      SET @langNo = 0
+   ELSE
+      SET @langNo = 1
+   RETURN @langNo
 END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
@@ -4638,36 +4787,6 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Function [Helper].[HelperGetLanguageNo]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE FUNCTION Helper.HelperGetLanguageNo(
-   @Language VARCHAR(40))
-RETURNS SMALLINT
-AS
-BEGIN
-   DECLARE @langNo SMALLINT
-   SET @Language = lower(@Language)
-   IF @Language = 'spa' or @Language = 'esp' or @Language = 'es-PR' or
-      @Language = 'es' or @Language = 'español'
-      SET @langNo = 0
-   ELSE
-      SET @langNo = 1
-   RETURN @langNo
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
 PRINT N'Creating Function [IdBase].[IdBaseGroupMembersList]...';
 
 
@@ -4706,44 +4825,6 @@ RETURN
      JOIN IdBase.IdBaseTypes t
        ON t.TypeNo = m.TypeNo
 )
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [B2B].[ExchangeCodeInsertUpdate]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE [B2B].[ExchangeCodeInsertUpdate]
-   @SessionId   VARCHAR(40),
-   @DataOwnerId VARCHAR(20),
-   @CodeId      VARCHAR(20),
-   @Description VARCHAR(128)
-AS
-BEGIN
-   SET NOCOUNT ON
-   IF NOT EXISTS(SELECT * FROM B2B.ExchangeCode
-                  WHERE CodeId = @CodeId)
-   BEGIN
-      INSERT INTO B2B.ExchangeCode (CodeId, Description, DataOwnerId, UpdateSessionId)
-      SELECT @CodeID, @Description, @DataOwnerId, @SessionId
-   END
-   ELSE
-   BEGIN
-      UPDATE B2B.ExchangeCode
-         SET Description = @Description
-       WHERE CodeId = @CodeId
-         AND DataOwnerId = @DataOwnerId
-   END
-END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
@@ -4857,6 +4938,44 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
+PRINT N'Creating Procedure [B2B].[ExchangeCodeInsertUpdate]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE [B2B].[ExchangeCodeInsertUpdate]
+   @SessionId   VARCHAR(40),
+   @DataOwnerId VARCHAR(20),
+   @CodeId      VARCHAR(20),
+   @Description VARCHAR(128)
+AS
+BEGIN
+   SET NOCOUNT ON
+   IF NOT EXISTS(SELECT * FROM B2B.ExchangeCode
+                  WHERE CodeId = @CodeId)
+   BEGIN
+      INSERT INTO B2B.ExchangeCode (CodeId, Description, DataOwnerId, UpdateSessionId)
+      SELECT @CodeID, @Description, @DataOwnerId, @SessionId
+   END
+   ELSE
+   BEGIN
+      UPDATE B2B.ExchangeCode
+         SET Description = @Description
+       WHERE CodeId = @CodeId
+         AND DataOwnerId = @DataOwnerId
+   END
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
 PRINT N'Creating Procedure [Data].[DataBatchUpsert]...';
 
 
@@ -4913,254 +5032,6 @@ BEGIN
        WHERE BatchId = @BatchId
    END
 END
-GO
-PRINT N'Creating Procedure [Data].[DataCodeGet]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Data.DataCodeGet
-   @SessionId        VARCHAR(40) = NULL,
-   @OrganizationId   VARCHAR(20),
-   @CodeSetNo        BIGINT,
-   @OptionNo         INT = 1
-WITH EXECUTE AS 'KifDbReader'
-AS
-BEGIN
-   SET NOCOUNT ON
-   SELECT OrganizationId,
-          CodeSetNo,
-          IdNo,
-          CodeId,
-          AlternateId,
-          VersionId,
-          Description,
-          CategoryId,
-          DataOwnerId,
-          RecordStatusCode
-     FROM Data.DataCode
-    WHERE OrganizationId = @OrganizationId
-      AND CodeSetNo = @CodeSetNo
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Data].[DataCodeSetGet]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Data.DataCodeSetGet
-   @SessionId        VARCHAR(40) = NULL,
-   @OrganizationId   VARCHAR(20),
-   @CodeSetUri       VARCHAR(2048),
-   @OptionNo         INT = 1
-WITH EXECUTE AS 'KifDbReader'
-AS
-BEGIN
-   SET NOCOUNT ON
-   SELECT OrganizationId,
-          DomainNo,
-          CodeSetNo,
-          CodeSetUri,
-          CodeSetName,
-          VersionId,
-          DataOwnerId,
-          RecordStatusCode
-     FROM Data.DataCodeSet
-    WHERE OrganizationId = @OrganizationId
-      AND (@OptionNo = 1
-       OR  CodeSetUri like '%' + @CodeSetUri + '%')
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Data].[DataCodeSetUpsert]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Data.DataCodeSetUpsert
-   @SessionId        VARCHAR(40) = NULL,
-   @OrganizationId   VARCHAR(20),
-   @DomainNo         INTEGER,
-   @CodeSetUri       VARCHAR(2048),
-   @CodeSetNo        BIGINT,
-   @CodeSetId        VARCHAR(20),
-   @CodeSetName      VARCHAR(128),
-   @VersionId        VARCHAR(20),
-   @DataOwnerId      VARCHAR(20),
-   @OutCodeSetNo     BIGINT OUTPUT
-WITH EXECUTE AS 'KifDbWriter'
-AS
-BEGIN
-   SET NOCOUNT ON
-   IF NOT EXISTS(SELECT * FROM Data.DataCodeSet WHERE CodeSetNo = @CodeSetNo)
-   BEGIN
-      INSERT INTO Data.DataCodeSet (
-         OrganizationId,   DomainNo,         CodeSetNo,
-         CodeSetUri,       CodeSetName,      VersionId,
-         DataOwnerId,      UpdateSessionId,  CodeSetId)
-      VALUES (
-         @OrganizationId, @DomainNo,        @CodeSetNo,
-         @CodeSetUri,     @CodeSetName,     @VersionId,
-         @DataOwnerId,    @SessionId,       @CodeSetId)
-      SET @OutCodeSetNo = @@IDENTITY
-   END
-   ELSE
-   BEGIN
-      UPDATE Data.DataCodeSet
-         SET CodeSetUri = @CodeSetUri,
-             CodeSetName = @CodeSetName,
-             CodeSetId = @CodeSetId,
-             VersionId = @VersionId,
-             UpdateSessionId = @SessionId
-       WHERE OrganizationId = @OrganizationId
-         AND CodeSetNo = @CodeSetNo
-         AND DomainNo = @DomainNo
-      SET @OutCodeSetNo = @CodeSetNo
-   END
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Data].[DataCodeUpsert]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Data.DataCodeUpsert
-   @SessionId        VARCHAR(40) = NULL,
-   @OrganizationId   VARCHAR(20),
-   @CodeSetNo        BIGINT,
-   @IdNo             BIGINT,
-   @CodeId           VARCHAR(40),
-   @AlternateId      VARCHAR(80),
-   @VersionId        VARCHAR(20),
-   @Description      VARCHAR(512),
-   @CategoryId       VARCHAR(20),
-   @DataOwnerId      VARCHAR(20),
-   @OutIdNo          BIGINT OUTPUT
-WITH EXECUTE AS 'KifDbWriter'
-AS
-BEGIN
-   SET NOCOUNT ON
-   IF NOT EXISTS(SELECT * 
-                   FROM Data.DataCode 
-                  WHERE CodeSetNo = @CodeSetNo
-                    AND IdNo = @IdNo)
-   BEGIN
-      INSERT INTO Data.DataCode (
-         OrganizationId,   CodeSetNo,     CodeId,
-         AlternateId,      VersionId,     Description,
-         CategoryId,       DataOwnerId,   UpdateSessionId)
-      VALUES (
-         @OrganizationId, @CodeSetNo,    @CodeId,
-         @AlternateId,    @VersionId,    @Description,
-         @CategoryId,     @DataOwnerId,  @SessionId)
-      SET @OutIdNo = @@IDENTITY
-   END
-   ELSE
-   BEGIN
-      UPDATE Data.DataCode
-         SET AlternateId = @AlternateId,
-             VersionId = @VersionId,
-             Description = @Description,
-             CategoryId = @CategoryId,
-             DataOwnerId = @DataOwnerId
-       WHERE OrganizationId = @OrganizationId
-         AND CodeSetNo = @CodeSetNo
-         AND IdNo = @IdNo
-      SET @OutIdNo = @IdNo
-   END
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Data].[DataReferenceDomainGet]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Data.DataReferenceDomainGet
-   @SessionId       VARCHAR(40) = NULL,
-   @OrganizationId  VARCHAR(20),
-   @Root            VARCHAR(1024) = '',
-   @DomainUri       VARCHAR(2048),
-   @OptionNo        SMALLINT = 0 
-AS
-BEGIN
-   SET NOCOUNT ON
-   
-   IF @Root is null
-      SET @Root = ''
-   IF @DomainUri is null
-      SET @DomainUri = ''
-
-   SELECT CreatedDate,
-          LastUpdateDate,
-          OrganizationId,
-          DataOwnerId,
-          Prefix,
-          Root,
-          TypeNo,
-          Domain,
-          DomainNo,
-          DomainID,
-          DomainURI,
-          DomainName,
-          Description,
-          UpdateSessionID,
-          RecordStatusCode
-     FROM Data.DataDomain
-    WHERE OrganizationId = @OrganizationId
-      AND (@Root = ''
-       OR  Root = @Root)
-      AND (@DomainUri = ''
-       OR   DomainUri like '%' + @DomainUri + '%')
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
 GO
 PRINT N'Creating Procedure [Data].[DataReferenceElementGet]...';
 
@@ -5250,62 +5121,6 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [Data].[DataReferenceObjectNew]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Data.DataReferenceObjectNew
-   @SessionId       VARCHAR(40) = NULL,
-   @ReferenceId     VARCHAR(20) = NULL, -- if null, create it here
-   @ReferenceDate   DATETIME2 = NULL,
-   @ReferenceTypeNo SMALLINT = NULL,
-   @AliasId         VARCHAR(20) = NULL,
-   @AlternateId     VARCHAR(40) = NULL,
-   @Description     VARCHAR(1024) = NULL,
-   @StatusNo        SMALLINT = NULL,
-   @OutReferenceId  VARCHAR(20) OUTPUT
-AS
-BEGIN
-   SET NOCOUNT ON
-   IF @ReferenceDate is null
-      SET @ReferenceDate = getutcdate()
-   IF @ReferenceTypeNo is null
-      SET @ReferenceTypeNo = 0
-   IF @StatusNo is null
-      SET @StatusNo = 0
-   IF @ReferenceId = ''
-			   SET @ReferenceId = null
-						
-   IF @ReferenceId is null
-      SET @OutReferenceId = (
-         [Common].[IdBaseGetNewPrefixedYmdhmSequence]('RF',
-            next value for Common.IdBaseReferenceCounter))
-   ELSE
-      SET @OutReferenceId = @ReferenceId
-
-   INSERT INTO Data.DataReferenceObject
-      ( ReferenceDate,    ReferenceTypeNo,
-        AlternateId,      Description,
-        StatusNo,         UpdateSessionId,
-        ReferenceId,      AliasId)
-   VALUES
-      (@ReferenceDate,   @ReferenceTypeNo,
-       @AlternateId,     @Description,
-       @StatusNo,        @SessionId,
-       @OutReferenceId,  @AliasId)
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
 PRINT N'Creating Procedure [Data].[DataReferenceTermGet]...';
 
 
@@ -5370,7 +5185,7 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [Data].[DataTermUpsert]...';
+PRINT N'Creating Procedure [Data].[DataReferenceDomainGet]...';
 
 
 GO
@@ -5381,83 +5196,102 @@ SET QUOTED_IDENTIFIER OFF;
 
 GO
 
-CREATE PROCEDURE Data.DataTermUpsert
+CREATE PROCEDURE Data.DataReferenceDomainGet
+   @SessionId       VARCHAR(40) = NULL,
+   @OrganizationId  VARCHAR(20),
+   @Root            VARCHAR(1024) = '',
+   @DomainUri       VARCHAR(2048),
+   @OptionNo        SMALLINT = 0 
+AS
+BEGIN
+   SET NOCOUNT ON
+   
+   IF @Root is null
+      SET @Root = ''
+   IF @DomainUri is null
+      SET @DomainUri = ''
+
+   SELECT CreatedDate,
+          LastUpdateDate,
+          OrganizationId,
+          DataOwnerId,
+          Prefix,
+          Root,
+          TypeNo,
+          Domain,
+          DomainNo,
+          DomainID,
+          DomainURI,
+          DomainName,
+          Description,
+          UpdateSessionID,
+          RecordStatusCode
+     FROM Data.DataDomain
+    WHERE OrganizationId = @OrganizationId
+      AND (@Root = ''
+       OR  Root = @Root)
+      AND (@DomainUri = ''
+       OR   DomainUri like '%' + @DomainUri + '%')
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Data].[DataCodeUpsert]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE Data.DataCodeUpsert
    @SessionId        VARCHAR(40) = NULL,
    @OrganizationId   VARCHAR(20),
+   @CodeSetNo        BIGINT,
+   @IdNo             BIGINT,
+   @CodeId           VARCHAR(40),
+   @AlternateId      VARCHAR(80),
+   @VersionId        VARCHAR(20),
+   @Description      VARCHAR(512),
+   @CategoryId       VARCHAR(20),
    @DataOwnerId      VARCHAR(20),
-
-   -- reference object info
-   @ReferenceDate    DATETIME2 = NULL,
-   @ReferenceTypeNo  SMALLINT = NULL,
-   @AliasId          VARCHAR(20) = NULL,
-   @AlternateId      VARCHAR(40) = NULL,
-   @Description      VARCHAR(MAX) = NULL,
-   @StatusNo         SMALLINT = NULL,
-
-   -- term info
-   @ExpiredDate      DATETIME2 = NULL,
-   @DomainNo         INTEGER = NULL,
-   @TermId           VARCHAR(20) = NULL,
-   @TermURI          VARCHAR(1024),
-   @TermName         VARCHAR(80),
-   @ConfidenceScore  DECIMAL(6,5) = NULL,
-   @OutTermId        VARCHAR(20) OUTPUT
+   @OutIdNo          BIGINT OUTPUT
 WITH EXECUTE AS 'KifDbWriter'
 AS
 BEGIN
    SET NOCOUNT ON
-   SET @OutTermId = @TermId
-   
-   IF @AliasId is null
-      SET @AliasId = 'OBJ'
-   IF @ReferenceDate is null
-      SET @ReferenceDate = getutcdate()
-   IF @ReferenceTypeNo is null
-      SET @ReferenceTypeNo = 20  -- Term
-   IF @StatusNo is null
-      SET @StatusNo = 1          -- active
-   IF @DomainNo is null
-      SET @DomainNo = (SELECT DomainNo FROM Data.DataDomain WHERE DomainName = 'Unknown')
-
-   IF @OutTermId is null
+   IF NOT EXISTS(SELECT * 
+                   FROM Data.DataCode 
+                  WHERE CodeSetNo = @CodeSetNo
+                    AND IdNo = @IdNo)
    BEGIN
-      DECLARE @desc VARCHAR(1024) = 'Reference (' + @TermName + ')'
-      EXEC Data.DataReferenceObjectNew @SessionId = @SessionId, @ReferenceDate = @ReferenceDate,
-         @ReferenceTypeNo = @ReferenceTypeNo, @AliasId = @AliasId, @AlternateId = @AlternateId,
-         @Description = @desc, @StatusNo = @StatusNo, @OutReferenceId = @OutTermId OUTPUT
-   END
-
-   IF @TermId is null
-   BEGIN
-      INSERT INTO Data.DataTerm
-         ( ReferenceDate,    OrganizationId,   DataOwnerId,
-           ExpiredDate,      TermId,
-           TermURI,          TermName,         Description,
-           ConfidenceScore,  StatusNo)
-      VALUES
-         (@ReferenceDate,   @OrganizationId,  @DataOwnerId,
-          @ExpiredDate,     @OutTermId,
-          @TermURI,         @TermName,        @Description,
-          @ConfidenceScore, @StatusNo)
+      INSERT INTO Data.DataCode (
+         OrganizationId,   CodeSetNo,     CodeId,
+         AlternateId,      VersionId,     Description,
+         CategoryId,       DataOwnerId,   UpdateSessionId)
+      VALUES (
+         @OrganizationId, @CodeSetNo,    @CodeId,
+         @AlternateId,    @VersionId,    @Description,
+         @CategoryId,     @DataOwnerId,  @SessionId)
+      SET @OutIdNo = @@IDENTITY
    END
    ELSE
    BEGIN
-      UPDATE Data.DataTerm
-         SET ReferenceDate   = case when @ReferenceDate is null
-                               then ReferenceDate else @ReferenceDate end,
-             ExpiredDate     = case when @ExpiredDate is null
-                               then ExpiredDate else @ExpiredDate end,
-             TermURI         = case when @TermURI is null
-                               then TermURI else @TermURI end,
-             TermName        = case when @TermName is null
-                               then TermName else @TermName end,
-             Description     = case when @Description is null
-                               then Description else @Description end,
-             ConfidenceScore = case when @ConfidenceScore is null
-                               then ConfidenceScore else @ConfidenceScore end,
-             StatusNo        = case when @StatusNo is null
-                               then StatusNo else @StatusNo end
-       WHERE TermId = @OutTermId
+      UPDATE Data.DataCode
+         SET AlternateId = @AlternateId,
+             VersionId = @VersionId,
+             Description = @Description,
+             CategoryId = @CategoryId,
+             DataOwnerId = @DataOwnerId
+       WHERE OrganizationId = @OrganizationId
+         AND CodeSetNo = @CodeSetNo
+         AND IdNo = @IdNo
+      SET @OutIdNo = @IdNo
    END
 END
 GO
@@ -5465,7 +5299,7 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [Helper].[HelperDiagnosticsCodeAdd]...';
+PRINT N'Creating Procedure [Data].[DataCodeGet]...';
 
 
 GO
@@ -5476,35 +5310,186 @@ SET QUOTED_IDENTIFIER OFF;
 
 GO
 
-CREATE PROCEDURE Helper.HelperDiagnosticsCodeAdd
-   @SeverityNo  SMALLINT = 1,
-   @CodeNo      INTEGER,
-   @CategoryNo  SMALLINT,
-   @MessageText VARCHAR(1024),
-   @SpanishText VARCHAR(1024) = NULL
+CREATE PROCEDURE Data.DataCodeGet
+   @SessionId        VARCHAR(40) = NULL,
+   @OrganizationId   VARCHAR(20),
+   @CodeSetNo        BIGINT,
+   @OptionNo         INT = 1
+WITH EXECUTE AS 'KifDbReader'
 AS
 BEGIN
    SET NOCOUNT ON
-   IF @SpanishText is null or @SpanishText = ''
-      SET @SpanishText = @MessageText
-   IF @SeverityNo is null or @SeverityNo = 0
-      SET @SeverityNo = 1
-   IF EXISTS(SELECT * FROM Diagnostic.DiagnosticCodes
-              WHERE CodeNo = @CodeNo)
-      RETURN
-   INSERT INTO Diagnostic.DiagnosticCodes
-      ( CodeNo,       SeverityNo,          CategoryNo,
-        Description,  SpanishDescription)
+   SELECT OrganizationId,
+          CodeSetNo,
+          IdNo,
+          CodeId,
+          AlternateId,
+          VersionId,
+          Description,
+          CategoryId,
+          DataOwnerId,
+          RecordStatusCode
+     FROM Data.DataCode
+    WHERE OrganizationId = @OrganizationId
+      AND CodeSetNo = @CodeSetNo
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Data].[DataCodeSetUpsert]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE Data.DataCodeSetUpsert
+   @SessionId        VARCHAR(40) = NULL,
+   @OrganizationId   VARCHAR(20),
+   @DomainNo         INTEGER,
+   @CodeSetUri       VARCHAR(2048),
+   @CodeSetNo        BIGINT,
+   @CodeSetId        VARCHAR(20),
+   @CodeSetName      VARCHAR(128),
+   @VersionId        VARCHAR(20),
+   @DataOwnerId      VARCHAR(20),
+   @OutCodeSetNo     BIGINT OUTPUT
+WITH EXECUTE AS 'KifDbWriter'
+AS
+BEGIN
+   SET NOCOUNT ON
+   IF NOT EXISTS(SELECT * FROM Data.DataCodeSet WHERE CodeSetNo = @CodeSetNo)
+   BEGIN
+      INSERT INTO Data.DataCodeSet (
+         OrganizationId,   DomainNo,         CodeSetNo,
+         CodeSetUri,       CodeSetName,      VersionId,
+         DataOwnerId,      UpdateSessionId,  CodeSetId)
+      VALUES (
+         @OrganizationId, @DomainNo,        @CodeSetNo,
+         @CodeSetUri,     @CodeSetName,     @VersionId,
+         @DataOwnerId,    @SessionId,       @CodeSetId)
+      SET @OutCodeSetNo = @@IDENTITY
+   END
+   ELSE
+   BEGIN
+      UPDATE Data.DataCodeSet
+         SET CodeSetUri = @CodeSetUri,
+             CodeSetName = @CodeSetName,
+             CodeSetId = @CodeSetId,
+             VersionId = @VersionId,
+             UpdateSessionId = @SessionId
+       WHERE OrganizationId = @OrganizationId
+         AND CodeSetNo = @CodeSetNo
+         AND DomainNo = @DomainNo
+      SET @OutCodeSetNo = @CodeSetNo
+   END
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Data].[DataCodeSetGet]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE Data.DataCodeSetGet
+   @SessionId        VARCHAR(40) = NULL,
+   @OrganizationId   VARCHAR(20),
+   @CodeSetUri       VARCHAR(2048),
+   @OptionNo         INT = 1
+WITH EXECUTE AS 'KifDbReader'
+AS
+BEGIN
+   SET NOCOUNT ON
+   SELECT OrganizationId,
+          DomainNo,
+          CodeSetNo,
+          CodeSetUri,
+          CodeSetName,
+          VersionId,
+          DataOwnerId,
+          RecordStatusCode
+     FROM Data.DataCodeSet
+    WHERE OrganizationId = @OrganizationId
+      AND (@OptionNo = 1
+       OR  CodeSetUri like '%' + @CodeSetUri + '%')
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Data].[DataReferenceObjectNew]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE Data.DataReferenceObjectNew
+   @SessionId       VARCHAR(40) = NULL,
+   @ReferenceId     VARCHAR(20) = NULL, -- if null, create it here
+   @ReferenceDate   DATETIME2 = NULL,
+   @ReferenceTypeNo SMALLINT = NULL,
+   @AliasId         VARCHAR(20) = NULL,
+   @AlternateId     VARCHAR(40) = NULL,
+   @Description     VARCHAR(1024) = NULL,
+   @StatusNo        SMALLINT = NULL,
+   @OutReferenceId  VARCHAR(20) OUTPUT
+AS
+BEGIN
+   SET NOCOUNT ON
+   IF @ReferenceDate is null
+      SET @ReferenceDate = getutcdate()
+   IF @ReferenceTypeNo is null
+      SET @ReferenceTypeNo = 0
+   IF @StatusNo is null
+      SET @StatusNo = 0
+   IF @ReferenceId = ''
+			   SET @ReferenceId = null
+						
+   IF @ReferenceId is null
+      SET @OutReferenceId = (
+         [Common].[IdBaseGetNewPrefixedYmdhmSequence]('RF',
+            next value for Common.IdBaseReferenceCounter))
+   ELSE
+      SET @OutReferenceId = @ReferenceId
+
+   INSERT INTO Data.DataReferenceObject
+      ( ReferenceDate,    ReferenceTypeNo,
+        AlternateId,      Description,
+        StatusNo,         UpdateSessionId,
+        ReferenceId,      AliasId)
    VALUES
-      (@CodeNo,      @SeverityNo,         @CategoryNo,
-       @MessageText, @SpanishText)
+      (@ReferenceDate,   @ReferenceTypeNo,
+       @AlternateId,     @Description,
+       @StatusNo,        @SessionId,
+       @OutReferenceId,  @AliasId)
 END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [Helper].[HelperDropConstraint]...';
+PRINT N'Creating Procedure [Data].[DataReferenceGet]...';
 
 
 GO
@@ -5515,23 +5500,43 @@ SET QUOTED_IDENTIFIER OFF;
 
 GO
 
--- -----------------------------------------------------------------------------
--- Provide a method to drop a constraint without writting and hidding any silly 
--- needed T-SQL code
-
-CREATE PROCEDURE Helper.HelperDropConstraint
-   @TableName NVARCHAR(80),
-   @ConstraintName NVARCHAR(80)
+CREATE PROCEDURE Data.DataReferenceGet
+   @SessionId       VARCHAR(40) = NULL,
+   @OrganizationId  VARCHAR(20),
+   @Root            VARCHAR(1024),
+   @DomainUri       VARCHAR(2048),
+   @TermName        VARCHAR(1024),
+   @OptionNo        SMALLINT = 0 
+WITH EXECUTE AS 'KifDbReader'
 AS
 BEGIN
-   IF EXISTS (
-      SELECT * FROM dbo.sysobjects
-      WHERE name = @ConstraintName)
+   SET NOCOUNT ON
+   IF @OptionNo = 0
    BEGIN
-      DECLARE @DropCommand VARCHAR(250)
-      SET @DropCommand = 'ALTER TABLE ' +
-         rtrim(@TableName) + ' DROP CONSTRAINT ' + @ConstraintName
-      EXEC (@DropCommand)
+      EXEC Data.DataReferenceDomainGet @SessionId = @SessionId, 
+         @OrganizationId = @OrganizationId, @Root = null, @DomainUri = @DomainUri
+      EXEC Data.DataReferenceTermGet @SessionId = @SessionId, 
+         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri, @TermName = @TermName
+      EXEC Data.DataReferenceElementGet @SessionId = @SessionId, 
+         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri
+   END
+   ELSE
+   IF @OptionNo = 1
+   BEGIN
+      EXEC Data.DataReferenceDomainGet @SessionId = @SessionId, 
+         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri
+   END
+   ELSE
+   IF @OptionNo = 2
+   BEGIN
+      EXEC Data.DataReferenceElementGet @SessionId = @SessionId, 
+         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri
+   END
+   ELSE
+   IF @OptionNo = 3
+   BEGIN
+      EXEC Data.DataReferenceTermGet @SessionId = @SessionId, 
+         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri, @TermName = @TermName
    END
 END
 GO
@@ -5539,41 +5544,7 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [Helper].[HelperDropFunction]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
--- -----------------------------------------------------------------------------
--- Provide a method to drop a function without writting and hidding any silly 
--- needed T-SQL code
--- drop procedure Helper.HelperDropFunction
-
-CREATE PROCEDURE Helper.HelperDropFunction
-   @FunctionName NVARCHAR(80)
-AS
-BEGIN
-   IF  EXISTS (SELECT * FROM sys.objects
-        WHERE object_id = OBJECT_ID(@FunctionName)
-          AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-   BEGIN
-      DECLARE @DropCommand VARCHAR(128)
-      SET @DropCommand = 'DROP FUNCTION ' + @FunctionName
-      EXEC (@DropCommand)
-   END
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Helper].[HelperDropProcedure]...';
+PRINT N'Creating Procedure [Helper].[HelperDropView]...';
 
 
 GO
@@ -5586,76 +5557,17 @@ GO
 
 -- -----------------------------------------------------------------------------
 
-CREATE PROCEDURE Helper.HelperDropProcedure
+CREATE PROCEDURE Helper.HelperDropView
    @ProcedureName NVARCHAR(80)
 AS
 BEGIN
    IF EXISTS (
       SELECT * FROM dbo.sysobjects
       WHERE id = object_id(@ProcedureName) 
-        AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+        AND OBJECTPROPERTY(id, N'IsView') = 1)
    BEGIN
       DECLARE @DropCommand VARCHAR(128)
-      SET @DropCommand = 'DROP PROCEDURE ' + @ProcedureName
-      EXEC (@DropCommand)
-   END
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Helper].[HelperDropSchema]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Helper.HelperDropSchema
-   @SchemaName NVARCHAR(80)
-AS
-BEGIN
-   IF EXISTS (
-      SELECT * FROM sys.schemas WHERE name = @SchemaName)
-   BEGIN
-      DECLARE @DropCommand VARCHAR(128)
-      SET @DropCommand = 'DROP SCHEMA ' + @SchemaName
-      EXEC (@DropCommand)
-   END
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Helper].[HelperDropSequence]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
--- -----------------------------------------------------------------------------
-
-CREATE PROCEDURE Helper.HelperDropSequence
-   @SequenceName NVARCHAR(80)
-AS
-BEGIN
-   IF EXISTS (
-      SELECT * FROM dbo.sysobjects
-      WHERE id = object_id(@SequenceName)  AND xtype = 'SO')
-   BEGIN
-      DECLARE @DropCommand VARCHAR(128)
-      SET @DropCommand = 'DROP SEQUENCE ' + @SequenceName
+      SET @DropCommand = 'DROP VIEW ' + @ProcedureName
       EXEC (@DropCommand)
    END
 END
@@ -5686,6 +5598,40 @@ BEGIN
    BEGIN
       DECLARE @DropCommand VARCHAR(128)
       SET @DropCommand = 'DROP SERVICE [' + @ServiceName + ']'
+      EXEC (@DropCommand)
+   END
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Helper].[HelperDropServiceQueue]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+-- -----------------------------------------------------------------------------
+
+CREATE PROCEDURE Helper.HelperDropServiceQueue
+   @Schema    NVARCHAR(80),
+   @QueueName NVARCHAR(80)
+AS
+BEGIN
+   IF EXISTS (
+      SELECT * FROM sys.service_queues WHERE name = @QueueName)
+   BEGIN
+      DECLARE @DropCommand VARCHAR(128)
+      IF @Schema = ''
+         SET @DropCommand = 'DROP QUEUE [' + @QueueName + ']'
+      ELSE
+         SET @DropCommand = 'DROP QUEUE [' + @Schema + '].[' + @QueueName + ']'
       EXEC (@DropCommand)
    END
 END
@@ -5755,7 +5701,7 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [Helper].[HelperDropServiceQueue]...';
+PRINT N'Creating Procedure [Helper].[HelperDropSchema]...';
 
 
 GO
@@ -5766,21 +5712,15 @@ SET QUOTED_IDENTIFIER OFF;
 
 GO
 
--- -----------------------------------------------------------------------------
-
-CREATE PROCEDURE Helper.HelperDropServiceQueue
-   @Schema    NVARCHAR(80),
-   @QueueName NVARCHAR(80)
+CREATE PROCEDURE Helper.HelperDropSchema
+   @SchemaName NVARCHAR(80)
 AS
 BEGIN
    IF EXISTS (
-      SELECT * FROM sys.service_queues WHERE name = @QueueName)
+      SELECT * FROM sys.schemas WHERE name = @SchemaName)
    BEGIN
       DECLARE @DropCommand VARCHAR(128)
-      IF @Schema = ''
-         SET @DropCommand = 'DROP QUEUE [' + @QueueName + ']'
-      ELSE
-         SET @DropCommand = 'DROP QUEUE [' + @Schema + '].[' + @QueueName + ']'
+      SET @DropCommand = 'DROP SCHEMA ' + @SchemaName
       EXEC (@DropCommand)
    END
 END
@@ -5789,7 +5729,7 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [Helper].[HelperDropTable]...';
+PRINT N'Creating Procedure [Helper].[HelperDiagnosticsCodeAdd]...';
 
 
 GO
@@ -5800,97 +5740,28 @@ SET QUOTED_IDENTIFIER OFF;
 
 GO
 
--- -----------------------------------------------------------------------------
--- Provide a method to drop a table without writting and hidding any silly 
--- needed T-SQL code
-
-CREATE PROCEDURE Helper.HelperDropTable
-   @TableName NVARCHAR(80)
+CREATE PROCEDURE Helper.HelperDiagnosticsCodeAdd
+   @SeverityNo  SMALLINT = 1,
+   @CodeNo      INTEGER,
+   @CategoryNo  SMALLINT,
+   @MessageText VARCHAR(1024),
+   @SpanishText VARCHAR(1024) = NULL
 AS
 BEGIN
-   IF EXISTS (
-      SELECT * FROM dbo.sysobjects
-      WHERE id = object_id(@TableName) 
-        AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-   BEGIN
-      DECLARE @DropCommand VARCHAR(128)
-      SET @DropCommand = 'DROP TABLE ' + @TableName
-      EXEC (@DropCommand)
-   END
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Helper].[HelperDropType]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
--- -----------------------------------------------------------------------------
--- Provide a method to drop a type without writting and hidding any silly 
--- needed T-SQL code
-
-CREATE PROCEDURE Helper.HelperDropType
-   @TypeName NVARCHAR(80)
-AS
-BEGIN
-   DECLARE @name VARCHAR(80),
-           @indx SMALLINT
-   SET @indx = CHARINDEX('.',@TypeName,1)
-   IF @indx > 0
-      SET @name = SUBSTRING(@TypeName,@indx+1,LEN(@TypeName)-@indx)
-   ELSE
-      SET @name = @TypeName
-   -- SELECT @indx, @name
-
-   IF EXISTS (
-      SELECT * FROM dbo.systypes
-      WHERE name = @name)
-   BEGIN
-      DECLARE @DropCommand VARCHAR(128)
-      SET @DropCommand = 'DROP TYPE ' + @TypeName
-      EXEC (@DropCommand)
-   END
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Helper].[HelperDropView]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
--- -----------------------------------------------------------------------------
-
-CREATE PROCEDURE Helper.HelperDropView
-   @ProcedureName NVARCHAR(80)
-AS
-BEGIN
-   IF EXISTS (
-      SELECT * FROM dbo.sysobjects
-      WHERE id = object_id(@ProcedureName) 
-        AND OBJECTPROPERTY(id, N'IsView') = 1)
-   BEGIN
-      DECLARE @DropCommand VARCHAR(128)
-      SET @DropCommand = 'DROP VIEW ' + @ProcedureName
-      EXEC (@DropCommand)
-   END
+   SET NOCOUNT ON
+   IF @SpanishText is null or @SpanishText = ''
+      SET @SpanishText = @MessageText
+   IF @SeverityNo is null or @SeverityNo = 0
+      SET @SeverityNo = 1
+   IF EXISTS(SELECT * FROM Diagnostic.DiagnosticCodes
+              WHERE CodeNo = @CodeNo)
+      RETURN
+   INSERT INTO Diagnostic.DiagnosticCodes
+      ( CodeNo,       SeverityNo,          CategoryNo,
+        Description,  SpanishDescription)
+   VALUES
+      (@CodeNo,      @SeverityNo,         @CategoryNo,
+       @MessageText, @SpanishText)
 END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
@@ -6008,6 +5879,76 @@ BEGIN
    --UPDATE IdBase.Counters
    --   SET IdCount = (SELECT isnull(max(ProfileNo),0) + 1 FROM Inventory.EquipmentProfiles)
    -- WHERE IdNo = 40
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Helper].[HelperSchemaSetAccess]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+-- exec Helper.HelperSchemaDropObjects 'Kifv1','',0
+-- exec Helper.HelperSchemaDropObjects 'Kifv1','',1
+
+-- -----------------------------------------------------------------------------
+-- EXEC Helper.HelperDropProcedure 'Helper.HelperSchemaSetAccess'
+
+CREATE PROCEDURE Helper.HelperSchemaSetAccess
+   @SchemaName      VARCHAR(80),
+   @Option          CHAR(1),
+   @ObjName         VARCHAR(80),
+   @ViewerRoleName  VARCHAR(80) = '',
+   @EntryRoleName   VARCHAR(80) = '',
+   @EditorRoleName  VARCHAR(80) = '',
+   @ObjType         VARCHAR(80) = '',
+   @TestOnly        BIT = 0
+AS
+BEGIN
+   DECLARE @cmd     VARCHAR(128),
+           @header  VARCHAR(80),
+           @opt     CHAR(1)
+   SET @header = 'GRANT EXECUTE ON '
+
+   IF @Option = 'E'
+      SET @opt = 'F'
+   ELSE
+      SET @opt = @Option
+
+   IF @ViewerRoleName <> '' AND @opt = 'F'
+   BEGIN
+      SET @cmd = @header + @SchemaName + '.' + @ObjName+' TO '+@ViewerRoleName
+      IF @TestOnly = 0
+         EXECUTE(@cmd)
+      ELSE
+         PRINT @cmd + ' -- DONE ('+@Option+': '+@ObjType+')'
+   END
+
+   IF @EntryRoleName <> '' AND (@opt = 'F' OR @opt = 'M')
+   BEGIN
+      SET @cmd = @header + @SchemaName + '.' + @ObjName+' TO '+@EntryRoleName
+      IF @TestOnly = 0
+         EXECUTE(@cmd)
+      ELSE
+         PRINT @cmd + ' -- DONE ('+@Option+': '+@ObjType+')'
+   END
+
+   IF @EditorRoleName <> '' AND (@opt = 'F' OR @opt = 'M' OR @opt = 'D')
+   BEGIN
+      SET @cmd = @header + @SchemaName + '.' + @ObjName+' TO '+@EditorRoleName
+      IF @TestOnly = 0
+         EXECUTE(@cmd)
+      ELSE
+         PRINT @cmd + ' -- DONE ('+@Option+': '+@ObjType+')'
+   END
 END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
@@ -6167,105 +6108,6 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [Helper].[HelperSchemaSetAccess]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
--- exec Helper.HelperSchemaDropObjects 'Kifv1','',0
--- exec Helper.HelperSchemaDropObjects 'Kifv1','',1
-
--- -----------------------------------------------------------------------------
--- EXEC Helper.HelperDropProcedure 'Helper.HelperSchemaSetAccess'
-
-CREATE PROCEDURE Helper.HelperSchemaSetAccess
-   @SchemaName      VARCHAR(80),
-   @Option          CHAR(1),
-   @ObjName         VARCHAR(80),
-   @ViewerRoleName  VARCHAR(80) = '',
-   @EntryRoleName   VARCHAR(80) = '',
-   @EditorRoleName  VARCHAR(80) = '',
-   @ObjType         VARCHAR(80) = '',
-   @TestOnly        BIT = 0
-AS
-BEGIN
-   DECLARE @cmd     VARCHAR(128),
-           @header  VARCHAR(80),
-           @opt     CHAR(1)
-   SET @header = 'GRANT EXECUTE ON '
-
-   IF @Option = 'E'
-      SET @opt = 'F'
-   ELSE
-      SET @opt = @Option
-
-   IF @ViewerRoleName <> '' AND @opt = 'F'
-   BEGIN
-      SET @cmd = @header + @SchemaName + '.' + @ObjName+' TO '+@ViewerRoleName
-      IF @TestOnly = 0
-         EXECUTE(@cmd)
-      ELSE
-         PRINT @cmd + ' -- DONE ('+@Option+': '+@ObjType+')'
-   END
-
-   IF @EntryRoleName <> '' AND (@opt = 'F' OR @opt = 'M')
-   BEGIN
-      SET @cmd = @header + @SchemaName + '.' + @ObjName+' TO '+@EntryRoleName
-      IF @TestOnly = 0
-         EXECUTE(@cmd)
-      ELSE
-         PRINT @cmd + ' -- DONE ('+@Option+': '+@ObjType+')'
-   END
-
-   IF @EditorRoleName <> '' AND (@opt = 'F' OR @opt = 'M' OR @opt = 'D')
-   BEGIN
-      SET @cmd = @header + @SchemaName + '.' + @ObjName+' TO '+@EditorRoleName
-      IF @TestOnly = 0
-         EXECUTE(@cmd)
-      ELSE
-         PRINT @cmd + ' -- DONE ('+@Option+': '+@ObjType+')'
-   END
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Helper].[HelperSchemaSetExecuteToAll]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Helper.HelperSchemaSetExecuteToAll
-   @SchemaName      VARCHAR(80) = '',
-   @ObjectName      VARCHAR(80) = '',
-   @ViewerRoleName  VARCHAR(80) = 'kifDataViewerRole',
-   @EntryRoleName   VARCHAR(80) = 'kifDataEntryRole',
-   @EditorRoleName  VARCHAR(80) = 'kifDataEditorRole',
-   @TestOnly        BIT = 0
-AS
-BEGIN
-   EXEC Helper.HelperSchemaSetAccess
-      @SchemaName, 'E', @ObjectName,
-      @ViewerRoleName,@EntryRoleName,@EditorRoleName, 'PROCEDURE', @TestOnly
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
 PRINT N'Creating Procedure [Helper].[HelperSchemaTablesSetAccess]...';
 
 
@@ -6406,7 +6248,7 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [IdBase].[IdBaseGetNewBaseNo]...';
+PRINT N'Creating Procedure [Helper].[HelperDropConstraint]...';
 
 
 GO
@@ -6417,58 +6259,31 @@ SET QUOTED_IDENTIFIER OFF;
 
 GO
 
-CREATE PROCEDURE IdBase.IdBaseGetNewBaseNo
-   @CounterIdNo     INTEGER,
-   @NumberOfEntries INTEGER,
-   @NewIdNo         INTEGER OUTPUT
--- WITH EXECUTE AS 'kifEntry'
+-- -----------------------------------------------------------------------------
+-- Provide a method to drop a constraint without writting and hidding any silly 
+-- needed T-SQL code
+
+CREATE PROCEDURE Helper.HelperDropConstraint
+   @TableName NVARCHAR(80),
+   @ConstraintName NVARCHAR(80)
 AS
 BEGIN
-   SET NOCOUNT ON
-   IF @NumberOfEntries <= 0
-      SET @NumberOfEntries = 1
-
-   SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
-   BEGIN TRANSACTION
-
-   DECLARE @cnt    INTEGER,
-           @newcnt INTEGER
-
-   SELECT @cnt = IdCount FROM IdBase.IdBaseCounters
-    WHERE IdNo = @CounterIdNo
-
-   IF (@@ERROR <> 0)
+   IF EXISTS (
+      SELECT * FROM dbo.sysobjects
+      WHERE name = @ConstraintName)
    BEGIN
-      ROLLBACK TRAN
-      SET TRANSACTION ISOLATION LEVEL READ COMMITTED
-      RETURN -9991
+      DECLARE @DropCommand VARCHAR(250)
+      SET @DropCommand = 'ALTER TABLE ' +
+         rtrim(@TableName) + ' DROP CONSTRAINT ' + @ConstraintName
+      EXEC (@DropCommand)
    END
-
-   SET @newcnt = @cnt + @NumberOfEntries
-
-   UPDATE IdBase.IdBaseCounters SET IdCount = @newcnt
-    WHERE IdNo = @CounterIdNo
-
-   IF (@@ERROR <> 0)
-   BEGIN
-      ROLLBACK TRAN
-      SET TRANSACTION ISOLATION LEVEL READ COMMITTED
-      RETURN -9992
-   END
-
-   -- commit transaction
-
-   COMMIT TRANSACTION
-   SET TRANSACTION ISOLATION LEVEL READ COMMITTED
-
-   SET @NewIdNo = @cnt
-END  -- end of IdBase.IdBaseGetNewBaseNo
+END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
-PRINT N'Creating Procedure [IdBase].[IdBaseGetNewNo]...';
+PRINT N'Creating Procedure [Helper].[HelperDropType]...';
 
 
 GO
@@ -6479,47 +6294,162 @@ SET QUOTED_IDENTIFIER OFF;
 
 GO
 
-CREATE PROCEDURE IdBase.IdBaseGetNewNo
-   @CounterIdNo INTEGER,
-   @NewIdNo     INTEGER OUTPUT
--- WITH EXECUTE AS 'kifEntry'
+-- -----------------------------------------------------------------------------
+-- Provide a method to drop a type without writting and hidding any silly 
+-- needed T-SQL code
+
+CREATE PROCEDURE Helper.HelperDropType
+   @TypeName NVARCHAR(80)
 AS
 BEGIN
-   SET NOCOUNT ON
-   SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
-   BEGIN TRANSACTION
+   DECLARE @name VARCHAR(80),
+           @indx SMALLINT
+   SET @indx = CHARINDEX('.',@TypeName,1)
+   IF @indx > 0
+      SET @name = SUBSTRING(@TypeName,@indx+1,LEN(@TypeName)-@indx)
+   ELSE
+      SET @name = @TypeName
+   -- SELECT @indx, @name
 
-   DECLARE @cnt    INTEGER,
-           @newcnt INTEGER
-
-   SELECT @cnt = IdCount FROM IdBase.IdBaseCounters
-    WHERE IdNo = @CounterIdNo
-
-   IF (@@ERROR <> 0)
+   IF EXISTS (
+      SELECT * FROM dbo.systypes
+      WHERE name = @name)
    BEGIN
-      ROLLBACK TRAN
-      SET TRANSACTION ISOLATION LEVEL READ COMMITTED
-      RETURN -9991
+      DECLARE @DropCommand VARCHAR(128)
+      SET @DropCommand = 'DROP TYPE ' + @TypeName
+      EXEC (@DropCommand)
    END
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
-   SET @newcnt = @cnt + 1
 
-   UPDATE IdBase.IdBaseCounters SET IdCount = @newcnt
-    WHERE IdNo = @CounterIdNo
+GO
+PRINT N'Creating Procedure [Helper].[HelperDropFunction]...';
 
-   IF (@@ERROR <> 0)
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+-- -----------------------------------------------------------------------------
+-- Provide a method to drop a function without writting and hidding any silly 
+-- needed T-SQL code
+-- drop procedure Helper.HelperDropFunction
+
+CREATE PROCEDURE Helper.HelperDropFunction
+   @FunctionName NVARCHAR(80)
+AS
+BEGIN
+   IF  EXISTS (SELECT * FROM sys.objects
+        WHERE object_id = OBJECT_ID(@FunctionName)
+          AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
    BEGIN
-      ROLLBACK TRAN
-      SET TRANSACTION ISOLATION LEVEL READ COMMITTED
-      RETURN -9992
+      DECLARE @DropCommand VARCHAR(128)
+      SET @DropCommand = 'DROP FUNCTION ' + @FunctionName
+      EXEC (@DropCommand)
    END
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
-   -- commit transaction
 
-   COMMIT TRANSACTION
-   SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+GO
+PRINT N'Creating Procedure [Helper].[HelperDropTable]...';
 
-   SET @NewIdNo = @cnt
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+-- -----------------------------------------------------------------------------
+-- Provide a method to drop a table without writting and hidding any silly 
+-- needed T-SQL code
+
+CREATE PROCEDURE Helper.HelperDropTable
+   @TableName NVARCHAR(80)
+AS
+BEGIN
+   IF EXISTS (
+      SELECT * FROM dbo.sysobjects
+      WHERE id = object_id(@TableName) 
+        AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+   BEGIN
+      DECLARE @DropCommand VARCHAR(128)
+      SET @DropCommand = 'DROP TABLE ' + @TableName
+      EXEC (@DropCommand)
+   END
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Helper].[HelperDropProcedure]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+-- -----------------------------------------------------------------------------
+
+CREATE PROCEDURE Helper.HelperDropProcedure
+   @ProcedureName NVARCHAR(80)
+AS
+BEGIN
+   IF EXISTS (
+      SELECT * FROM dbo.sysobjects
+      WHERE id = object_id(@ProcedureName) 
+        AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+   BEGIN
+      DECLARE @DropCommand VARCHAR(128)
+      SET @DropCommand = 'DROP PROCEDURE ' + @ProcedureName
+      EXEC (@DropCommand)
+   END
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Helper].[HelperDropSequence]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+-- -----------------------------------------------------------------------------
+
+CREATE PROCEDURE Helper.HelperDropSequence
+   @SequenceName NVARCHAR(80)
+AS
+BEGIN
+   IF EXISTS (
+      SELECT * FROM dbo.sysobjects
+      WHERE id = object_id(@SequenceName)  AND xtype = 'SO')
+   BEGIN
+      DECLARE @DropCommand VARCHAR(128)
+      SET @DropCommand = 'DROP SEQUENCE ' + @SequenceName
+      EXEC (@DropCommand)
+   END
 END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
@@ -6649,6 +6579,126 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
+PRINT N'Creating Procedure [IdBase].[IdBaseGetNewBaseNo]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE IdBase.IdBaseGetNewBaseNo
+   @CounterIdNo     INTEGER,
+   @NumberOfEntries INTEGER,
+   @NewIdNo         INTEGER OUTPUT
+-- WITH EXECUTE AS 'kifEntry'
+AS
+BEGIN
+   SET NOCOUNT ON
+   IF @NumberOfEntries <= 0
+      SET @NumberOfEntries = 1
+
+   SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+   BEGIN TRANSACTION
+
+   DECLARE @cnt    INTEGER,
+           @newcnt INTEGER
+
+   SELECT @cnt = IdCount FROM IdBase.IdBaseCounters
+    WHERE IdNo = @CounterIdNo
+
+   IF (@@ERROR <> 0)
+   BEGIN
+      ROLLBACK TRAN
+      SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+      RETURN -9991
+   END
+
+   SET @newcnt = @cnt + @NumberOfEntries
+
+   UPDATE IdBase.IdBaseCounters SET IdCount = @newcnt
+    WHERE IdNo = @CounterIdNo
+
+   IF (@@ERROR <> 0)
+   BEGIN
+      ROLLBACK TRAN
+      SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+      RETURN -9992
+   END
+
+   -- commit transaction
+
+   COMMIT TRANSACTION
+   SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+   SET @NewIdNo = @cnt
+END  -- end of IdBase.IdBaseGetNewBaseNo
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [IdBase].[IdBaseGetNewNo]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE IdBase.IdBaseGetNewNo
+   @CounterIdNo INTEGER,
+   @NewIdNo     INTEGER OUTPUT
+-- WITH EXECUTE AS 'kifEntry'
+AS
+BEGIN
+   SET NOCOUNT ON
+   SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+   BEGIN TRANSACTION
+
+   DECLARE @cnt    INTEGER,
+           @newcnt INTEGER
+
+   SELECT @cnt = IdCount FROM IdBase.IdBaseCounters
+    WHERE IdNo = @CounterIdNo
+
+   IF (@@ERROR <> 0)
+   BEGIN
+      ROLLBACK TRAN
+      SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+      RETURN -9991
+   END
+
+   SET @newcnt = @cnt + 1
+
+   UPDATE IdBase.IdBaseCounters SET IdCount = @newcnt
+    WHERE IdNo = @CounterIdNo
+
+   IF (@@ERROR <> 0)
+   BEGIN
+      ROLLBACK TRAN
+      SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+      RETURN -9992
+   END
+
+   -- commit transaction
+
+   COMMIT TRANSACTION
+   SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+   SET @NewIdNo = @cnt
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
 PRINT N'Creating Procedure [IdBase].[IdBaseGroupMembersGetRecords]...';
 
 
@@ -6679,6 +6729,74 @@ BEGIN
      FROM IdBase.IdBaseGroupMembersList(@LanguageNo)
     ORDER BY GroupDescription,
              TypeDescription
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Reference].[ReferenceDataRecordGet]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE Reference.ReferenceDataRecordGet
+   @SessionId           VARCHAR(40),
+   @OrganizationId      VARCHAR(20),
+   @OperationType       SMALLINT,
+   @ReferenceObjectName VARCHAR(128),
+   @Items               Reference.ReferenceDataElementCollectionItem READONLY
+WITH EXECUTE AS 'KifDbReader'
+AS
+BEGIN
+   SET NOCOUNT ON
+   --DECLARE @diagrval INTEGER
+   --EXEC @diagrval = Application.ApplicationSessionValidate @SessionId, @OrganizationId, 
+   --   '', 'Reference.ReferenceDataRecordGet'
+   --IF @diagrval <> 0
+   --   RETURN @diagrval
+   IF @OperationType not in (20)
+      RETURN -112 -- Invalid Reference Data Operation
+
+   -- prepare query
+   DECLARE @totalRecord INTEGER = (SELECT count(*) FROM @Items),
+           @count       INTEGER = 0,
+           @field       VARCHAR(128),
+           @type        SMALLINT,
+           @key         SMALLINT,
+           @value       VARCHAR(128),
+           @cols        NVARCHAR(MAX) = '',
+           @wer         NVARCHAR(1024) = '',
+           @qry         NVARCHAR(MAX) = ''
+
+   WHILE @count < @totalRecord
+   BEGIN
+      SELECT @field = Name,
+             @type  = ValueType,
+             @key   = KeyType,
+             @value = ValueText
+        FROM @Items
+       WHERE SerialNo = @count
+
+      IF @field = 'OrganizationId'
+         SET @wer = @wer + case when len(@wer) = 0 then ' WHERE ' else ' AND ' end
+                  + QUOTENAME(@field) + ' = ''' + @OrganizationId + ''''
+      SET @cols = @cols + case when len(@cols) = 0 then '' else ',' end
+                + QUOTENAME(@field)
+
+      SET @count = @count + 1
+   END
+   DECLARE @result INTEGER
+   SET @qry = 'SELECT ' + @cols + ' FROM ' +
+            + String.StringQuotedShemaTable(@ReferenceObjectName) + @wer
+   EXEC(@qry)
+   --SELECT @qry
 END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
@@ -6759,233 +6877,6 @@ BEGIN
             + String.StringQuotedShemaTable(@ReferenceObjectName) 
             + ' ' + @params + case when len(@params) = 0 then '' else ',' end
 			+ @optional
-   EXEC(@qry)
-   --SELECT @qry
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Reference].[ReferenceDataRecordExists]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Reference.ReferenceDataRecordExists
-   @SessionId           VARCHAR(40),
-   @OrganizationId      VARCHAR(20),
-   @OperationType       SMALLINT,
-   @ReferenceObjectName VARCHAR(128),
-   @CheckRecord         BIT = 0,
-   @Items               Reference.ReferenceDataElementCollectionItem READONLY
-WITH EXECUTE AS 'KifDbReader'
-AS
-BEGIN
-   SET NOCOUNT ON
-   --DECLARE @diagrval INTEGER
-   --EXEC @diagrval = Application.ApplicationSessionValidate @SessionId, @OrganizationId, 
-   --   '', 'Reference.ReferenceDataRecordExists'
-   --IF @diagrval <> 0
-   --   RETURN @diagrval
-   IF @OperationType not in (20)
-      RETURN -112 -- Invalid Reference Data Operation
-
-   -- prepare query
-   DECLARE @totalRecord INTEGER = (SELECT count(*) FROM @Items),
-           @count       INTEGER = 0,
-           @field       VARCHAR(128),
-           @type        SMALLINT,
-           @key         SMALLINT,
-           @value       VARCHAR(128),
-           @conds       VARCHAR(1024) = '',
-           @qry         NVARCHAR(MAX) = ''
-
-   WHILE @count < @totalRecord
-   BEGIN
-      SELECT @field = Name,
-             @type  = ValueType,
-             @key   = KeyType,
-             @value = ValueText
-        FROM @Items
-       WHERE SerialNo = @count
-      IF @key = 1 or @CheckRecord = 1
-      BEGIN
-         IF @field = 'OrganizationId'
-            SET @value = @OrganizationId
-         SET @conds = @conds + 
-            case when @conds = '' then '' else ' AND ' end + 
-            QUOTENAME(@field) + '=' + String.StringQuotedValue(@value,@type)
-      END
-      SET @count = @count + 1
-   END
-   DECLARE @result INTEGER
-   SET @qry = 'SET @result='
-   SET @qry = @qry +'(case when EXISTS(SELECT * FROM ' + 
-      String.StringQuotedShemaTable(@ReferenceObjectName) + ' WHERE (' +
-      @conds + ')) then 1 else 0 end)'
-   EXEC sp_executesql @qry, N'@result INTEGER OUTPUT', @result OUTPUT
-   --SELECT @qry
-   RETURN @result
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Reference].[ReferenceDataRecordGet]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Reference.ReferenceDataRecordGet
-   @SessionId           VARCHAR(40),
-   @OrganizationId      VARCHAR(20),
-   @OperationType       SMALLINT,
-   @ReferenceObjectName VARCHAR(128),
-   @Items               Reference.ReferenceDataElementCollectionItem READONLY
-WITH EXECUTE AS 'KifDbReader'
-AS
-BEGIN
-   SET NOCOUNT ON
-   --DECLARE @diagrval INTEGER
-   --EXEC @diagrval = Application.ApplicationSessionValidate @SessionId, @OrganizationId, 
-   --   '', 'Reference.ReferenceDataRecordGet'
-   --IF @diagrval <> 0
-   --   RETURN @diagrval
-   IF @OperationType not in (20)
-      RETURN -112 -- Invalid Reference Data Operation
-
-   -- prepare query
-   DECLARE @totalRecord INTEGER = (SELECT count(*) FROM @Items),
-           @count       INTEGER = 0,
-           @field       VARCHAR(128),
-           @type        SMALLINT,
-           @key         SMALLINT,
-           @value       VARCHAR(128),
-           @cols        NVARCHAR(MAX) = '',
-           @wer         NVARCHAR(1024) = '',
-           @qry         NVARCHAR(MAX) = ''
-
-   WHILE @count < @totalRecord
-   BEGIN
-      SELECT @field = Name,
-             @type  = ValueType,
-             @key   = KeyType,
-             @value = ValueText
-        FROM @Items
-       WHERE SerialNo = @count
-
-      IF @field = 'OrganizationId'
-         SET @wer = @wer + case when len(@wer) = 0 then ' WHERE ' else ' AND ' end
-                  + QUOTENAME(@field) + ' = ''' + @OrganizationId + ''''
-      SET @cols = @cols + case when len(@cols) = 0 then '' else ',' end
-                + QUOTENAME(@field)
-
-      SET @count = @count + 1
-   END
-   DECLARE @result INTEGER
-   SET @qry = 'SELECT ' + @cols + ' FROM ' +
-            + String.StringQuotedShemaTable(@ReferenceObjectName) + @wer
-   EXEC(@qry)
-   --SELECT @qry
-END
-GO
-SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
-
-
-GO
-PRINT N'Creating Procedure [Reference].[ReferenceDataRecordInsert]...';
-
-
-GO
-SET ANSI_NULLS ON;
-
-SET QUOTED_IDENTIFIER OFF;
-
-
-GO
-
-CREATE PROCEDURE Reference.ReferenceDataRecordInsert
-   @SessionId           VARCHAR(40),
-   @OrganizationId      VARCHAR(20),
-   @OperationType       SMALLINT,
-   @ReferenceObjectName VARCHAR(128),
-   @Items               Reference.ReferenceDataElementCollectionItem READONLY
-WITH EXECUTE AS 'KifDbWriter'
-AS
-BEGIN
-   SET NOCOUNT ON
-   --DECLARE @diagrval INTEGER
-   --EXEC @diagrval = Application.ApplicationSessionValidate @SessionId, @OrganizationId, 
-   --   '', 'Reference.ReferenceDataRecordInsert'
-   --IF @diagrval <> 0
-   --   RETURN @diagrval
-   IF @OperationType not in (20)
-      RETURN -112 -- Invalid Reference Data Operation
-
-   -- prepare query
-   DECLARE @totalRecord INTEGER = (SELECT count(*) FROM @Items),
-           @count       INTEGER = 0,
-           @field       VARCHAR(128),
-           @type        SMALLINT,
-           @key         SMALLINT,
-           @value       VARCHAR(128),
-           @cols        NVARCHAR(MAX) = '',
-           @vals        NVARCHAR(MAX) = '',
-           @qry         NVARCHAR(MAX) = ''
-
-   WHILE @count < @totalRecord
-   BEGIN
-      SELECT @field = Name,
-             @type  = ValueType,
-             @key   = KeyType,
-             @value = ValueText
-        FROM @Items
-       WHERE SerialNo = @count
-       
-      IF @field = 'OrganizationId'
-      BEGIN
-         SET @key = 1
-         SET @value = @OrganizationId
-      END
-
-      -- A-active; I-Inactive; D-deleted; P-permanent-deleted, S-seald
-      IF @field = 'RecordStatusCode' and (@value is null or @value = '' or
-         @value not in ('A','I','D','X','S'))
-         SET @value = 'A'
-
-      SET @cols = @cols + case when len(@cols) = 0 then '' else ',' end
-                + QUOTENAME(@field)
-      SET @vals = @vals + case when len(@vals) = 0 then '' else ',' end
-                + String.StringQuotedValue(@value,@type)
-
-      SET @count = @count + 1
-   END
-
-   -- add Update Session ID...
-   SET @cols = @cols + case when len(@cols) = 0 then '' else ',' end
-             + QUOTENAME('UpdateSessionID')
-   SET @vals = @vals + case when len(@vals) = 0 then '' else ',' end
-             + '''' + @SessionId + ''''
-
-   -- prepare and execute query
-   DECLARE @result INTEGER
-   SET @qry = 'INSERT INTO ' 
-            + String.StringQuotedShemaTable(@ReferenceObjectName) 
-            + ' (' + @cols + ') VALUES (' + @vals + ')'
    EXEC(@qry)
    --SELECT @qry
 END
@@ -7179,6 +7070,165 @@ BEGIN
             + ' WHERE ' + @wer
    EXEC(@qry)
    --SELECT @qry
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Reference].[ReferenceDataRecordInsert]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE Reference.ReferenceDataRecordInsert
+   @SessionId           VARCHAR(40),
+   @OrganizationId      VARCHAR(20),
+   @OperationType       SMALLINT,
+   @ReferenceObjectName VARCHAR(128),
+   @Items               Reference.ReferenceDataElementCollectionItem READONLY
+WITH EXECUTE AS 'KifDbWriter'
+AS
+BEGIN
+   SET NOCOUNT ON
+   --DECLARE @diagrval INTEGER
+   --EXEC @diagrval = Application.ApplicationSessionValidate @SessionId, @OrganizationId, 
+   --   '', 'Reference.ReferenceDataRecordInsert'
+   --IF @diagrval <> 0
+   --   RETURN @diagrval
+   IF @OperationType not in (20)
+      RETURN -112 -- Invalid Reference Data Operation
+
+   -- prepare query
+   DECLARE @totalRecord INTEGER = (SELECT count(*) FROM @Items),
+           @count       INTEGER = 0,
+           @field       VARCHAR(128),
+           @type        SMALLINT,
+           @key         SMALLINT,
+           @value       VARCHAR(128),
+           @cols        NVARCHAR(MAX) = '',
+           @vals        NVARCHAR(MAX) = '',
+           @qry         NVARCHAR(MAX) = ''
+
+   WHILE @count < @totalRecord
+   BEGIN
+      SELECT @field = Name,
+             @type  = ValueType,
+             @key   = KeyType,
+             @value = ValueText
+        FROM @Items
+       WHERE SerialNo = @count
+       
+      IF @field = 'OrganizationId'
+      BEGIN
+         SET @key = 1
+         SET @value = @OrganizationId
+      END
+
+      -- A-active; I-Inactive; D-deleted; P-permanent-deleted, S-seald
+      IF @field = 'RecordStatusCode' and (@value is null or @value = '' or
+         @value not in ('A','I','D','X','S'))
+         SET @value = 'A'
+
+      SET @cols = @cols + case when len(@cols) = 0 then '' else ',' end
+                + QUOTENAME(@field)
+      SET @vals = @vals + case when len(@vals) = 0 then '' else ',' end
+                + String.StringQuotedValue(@value,@type)
+
+      SET @count = @count + 1
+   END
+
+   -- add Update Session ID...
+   SET @cols = @cols + case when len(@cols) = 0 then '' else ',' end
+             + QUOTENAME('UpdateSessionID')
+   SET @vals = @vals + case when len(@vals) = 0 then '' else ',' end
+             + '''' + @SessionId + ''''
+
+   -- prepare and execute query
+   DECLARE @result INTEGER
+   SET @qry = 'INSERT INTO ' 
+            + String.StringQuotedShemaTable(@ReferenceObjectName) 
+            + ' (' + @cols + ') VALUES (' + @vals + ')'
+   EXEC(@qry)
+   --SELECT @qry
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Reference].[ReferenceDataRecordExists]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE Reference.ReferenceDataRecordExists
+   @SessionId           VARCHAR(40),
+   @OrganizationId      VARCHAR(20),
+   @OperationType       SMALLINT,
+   @ReferenceObjectName VARCHAR(128),
+   @CheckRecord         BIT = 0,
+   @Items               Reference.ReferenceDataElementCollectionItem READONLY
+WITH EXECUTE AS 'KifDbReader'
+AS
+BEGIN
+   SET NOCOUNT ON
+   --DECLARE @diagrval INTEGER
+   --EXEC @diagrval = Application.ApplicationSessionValidate @SessionId, @OrganizationId, 
+   --   '', 'Reference.ReferenceDataRecordExists'
+   --IF @diagrval <> 0
+   --   RETURN @diagrval
+   IF @OperationType not in (20)
+      RETURN -112 -- Invalid Reference Data Operation
+
+   -- prepare query
+   DECLARE @totalRecord INTEGER = (SELECT count(*) FROM @Items),
+           @count       INTEGER = 0,
+           @field       VARCHAR(128),
+           @type        SMALLINT,
+           @key         SMALLINT,
+           @value       VARCHAR(128),
+           @conds       VARCHAR(1024) = '',
+           @qry         NVARCHAR(MAX) = ''
+
+   WHILE @count < @totalRecord
+   BEGIN
+      SELECT @field = Name,
+             @type  = ValueType,
+             @key   = KeyType,
+             @value = ValueText
+        FROM @Items
+       WHERE SerialNo = @count
+      IF @key = 1 or @CheckRecord = 1
+      BEGIN
+         IF @field = 'OrganizationId'
+            SET @value = @OrganizationId
+         SET @conds = @conds + 
+            case when @conds = '' then '' else ' AND ' end + 
+            QUOTENAME(@field) + '=' + String.StringQuotedValue(@value,@type)
+      END
+      SET @count = @count + 1
+   END
+   DECLARE @result INTEGER
+   SET @qry = 'SET @result='
+   SET @qry = @qry +'(case when EXISTS(SELECT * FROM ' + 
+      String.StringQuotedShemaTable(@ReferenceObjectName) + ' WHERE (' +
+      @conds + ')) then 1 else 0 end)'
+   EXEC sp_executesql @qry, N'@result INTEGER OUTPUT', @result OUTPUT
+   --SELECT @qry
+   RETURN @result
 END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
@@ -7439,281 +7489,7 @@ BEGIN
    END
 END
 GO
-PRINT N'Creating Procedure [Data].[DataElementUpsert]...';
-
-
-GO
-
-CREATE PROCEDURE Data.DataElementUpsert
-   @SessionId        VARCHAR(40) = NULL,
-   @OrganizationId   VARCHAR(20),
-   @DataOwnerId      VARCHAR(20),
-   @ReferenceDate    DATETIME = null,
-   @DomainUri        VARCHAR(80),
-   @DomainUriPrefix  VARCHAR(20),
-   @DomainName       VARCHAR(20),
-	 
-   @ExpiredDate      DATETIME = null,
-   @AssetNo          INTEGER = null,
-   @AssetTypeNo      INTEGER = null,
-
-   @Root             VARCHAR(1024) = null,
-   @Domain           VARCHAR(2048) = null,
-   @Type             VARCHAR(256) = null,
-   @Element          VARCHAR(256) = null,
-   @ElementNo        INTEGER,
-   @ParentNo         INTEGER,
-   @ElementId        VARCHAR(20) = null,
-   @TypeNo           INTEGER = 0,
-   @ElementURI       VARCHAR(2048) = null,
-   @ElementName      VARCHAR(80) = null,
-   @ElementType      VARCHAR(20),
-   @ElementDataType  VARCHAR(1024),
-   @ElementPath      VARCHAR(MAX),
-   @Description      VARCHAR(MAX) = null,
-   @ElementSequenceID   VARCHAR(128) = null,
-   @ElementTypeNo       INTEGER = 0,
-   @ElementGroupNo      INTEGER = 0,
-   @ElementConstraintNo INTEGER = 0,
-   @ElementKeyTypeNo    INTEGER = 0,
-   @AutoGeneratedTypeNo INTEGER = 0,
-   @StatusNo         INTEGER = 0,
-   @ValueTypeNo      SMALLINT = 0,
-   @MinLength        INTEGER = 0,
-   @MaxLength        INTEGER = 0,
-   @MinOccurrence    INTEGER = 0,
-   @MaxOccurrence    INTEGER = 0,
-   @Nillable         BIT = 0,
-   @DefaultValue     VARCHAR(128) = null,
-   @FixedValue       VARCHAR(128) = null,
-   @SampleValue      VARCHAR(128) = null,
-   @PropertiesBagText          VARCHAR(MAX) = null,
-   @ProcessInstructionsBagText VARCHAR(MAX) = null,
-   @SchemaText       VARCHAR(MAX) = null,
-   @OrdinalNo        INTEGER = 0,
-   @SequenceID       VARCHAR(20) = null,
-   @VersionID        VARCHAR(20) = null,
-   @BatchID          VARCHAR(40) = null,
-
-   @ConstraintsText  VARCHAR(MAX) = null,
-   @KindNo           SMALLINT = 0,
-   @Tags             VARCHAR(128) = null,
-
-   @OriginalName     VARCHAR(128) = null,
-   @OriginalDataType VARCHAR(128) = null,
-	 
-   @OutAssetNo       INTEGER OUTPUT,
-   @OutElementNo     INTEGER OUTPUT,
-   @OutElementId     VARCHAR(20) OUTPUT
-WITH EXECUTE AS 'KifDbWriter'
-AS
-BEGIN
-   SET NOCOUNT ON
-			
-   IF @OrganizationId = ''    or @Root = ''    or @Domain = ''	  	or @ElementUri = '' or
-      @OrganizationId is null or @Root is null or @Domain is null	or @Type is null	or @ElementUri is null
-   BEGIN
-      RAISERROR (50001,18,1)
-   END			
-			
-   SET @OutElementId = @ElementId
-   SET @OutElementNo = @ElementNo
-   
-   DECLARE @referenceTypeNo SMALLINT,
-           @aliasId         VARCHAR(20) = NULL,
-           @alternateId     VARCHAR(40) = NULL,
-           @domainNo        INTEGER,
-           @outDid          VARCHAR(20),
-           @outDno          VARCHAR(20)
-
-   -- register domain if it does not exists, or just fetch ID's
-   EXEC Data.DataDomainUpsert
-      @SessionId       = @SessionId,
-      @OrganizationId  = @OrganizationId,
-      @DomainNo        = @AssetNo,
-      @DomainId        = null,
-      @DataOwnerId     = @DataOwnerId,
-      @ReferenceDate   = @ReferenceDate,
-      @DomainUri       = @DomainUri,
-      @DomainUriPrefix = @DomainUriPrefix,
-      @Root            = @Root,
-      @Domain          = 'asset',
-      @DomainName      = @DomainName,
-      @TypeNo          = @AssetTypeNo,
-      @Description     = null,
-      @OptionNo        = 1,  -- return with output vars if exists
-      @OutDomainID     = @outDid OUTPUT,
-      @OutDomainNo     = @outDno OUTPUT
-			
-   SET @domainNo = @outDno
-   SET @OutAssetNo = @outDno
-
-   IF @AliasId is null
-      SET @AliasId = 'OBJ'
-   IF @ReferenceDate is null
-      SET @ReferenceDate = getutcdate()
-   IF @referenceTypeNo is null
-      SET @referenceTypeNo = 40  -- Element
-   IF @StatusNo is null
-      SET @StatusNo = 1          -- active
-   IF @OutElementId = ''
-      SET @OutElementId = null
-
-   -- check that the record don't exists...
-   DECLARE @eid VARCHAR(20),
-           @eno INTEGER
-
-   SELECT @eid = ElementId,
-          @eno = ElementNo
-     FROM Data.DataElement
-    WHERE (OrganizationId = @OrganizationId
-      AND  Root = @Root
-      AND  Domain = @Domain
-      AND  Type = @Type
-      AND  Element = @Element
-      AND  VersionId = @VersionID
-      AND  ElementUri = @ElementUri)
-       OR (ElementNo = @ElementNo
-       OR  ElementId = @ElementId)
-							
-   SET @OutElementId = @eid
-   SET @OutElementNo = @eno
-
-   -- register object as needed
-   IF @OutElementId is null
-   BEGIN
-      DECLARE @desc VARCHAR(1024) = 'Reference (' + @ElementName + ')'
-      EXEC Data.DataReferenceObjectNew @SessionId = @SessionId, @ReferenceDate = @ReferenceDate,
-         @ReferenceTypeNo = @ReferenceTypeNo, @AliasId = @aliasId, @AlternateId = @alternateId,
-         @Description = @desc, @StatusNo = @StatusNo, @OutReferenceId = @OutElementId OUTPUT
-   END
-			
-   -- insert or update data element record
-   IF @OutElementNo is NULL
-   BEGIN
-      INSERT INTO Data.DataElement (
-         ReferenceDate,    OrganizationId,    ExpiredDate,
-         Root,             Domain,            Type,
-         Element,          ElementId,         TypeNo,
-         ElementUri,       ElementName,       ElementType,
-         ElementDataType,  ElementPath,       Description,
-         ElementTypeNo,    StatusNo,          ValueTypeNo,
-         MinLength,        MaxLength,         MinOccurrence,
-         MaxOccurrence,    Nillable,          DefaultValue,
-         FixedValue,       SampleValue,       DataOwnerId,
-         PropertiesBagText,SchemaText,        SequenceId,
-         VersionId,        UpdateSessionId,   ElementConstraintNo,
-         ElementGroupNo,   ElementKeyTypeNo,  AssetNo,
-         ParentNo,         ElementSequenceID, AutoGeneratedTypeNo,
-         OrdinalNo,        BatchID,           ProcessInstructionsBagText,
-         KindNo,           ConstraintsText,   Tags,
-         OriginalName,     OriginalDataType,  DomainNo)
-      VALUES  (
-         @ReferenceDate,   @OrganizationId,   @ExpiredDate,
-         @Root,            @Domain,           @Type,
-         @Element,         @OutElementId,     @TypeNo,
-         @ElementUri,      @ElementName,      @ElementType,
-         @ElementDataType, @ElementPath,      @Description,
-         @ElementTypeNo,   @StatusNo,         @ValueTypeNo,
-         @MinLength,       @MaxLength,        @MinOccurrence,
-         @MaxOccurrence,   @Nillable,         @DefaultValue,
-         @FixedValue,      @SampleValue,      @DataOwnerId,
-         @PropertiesBagText,@SchemaText,       @SequenceId,
-         @VersionId,       @SessionId,        @ElementConstraintNo,
-         @ElementGroupNo,  @ElementKeyTypeNo, @domainNo,
-         @ParentNo,        @ElementSequenceID,@AutoGeneratedTypeNo,
-         @OrdinalNo,       @BatchID,          @ProcessInstructionsBagText,
-         @KindNo,          @ConstraintsText,  @Tags,
-         @OriginalName,    @OriginalDataType, @domainNo)
-      SET @OutElementNo = @@IDENTITY
-   END
-   ELSE
-   -- Update a record only, if something had changed
-   IF NOT EXISTS(
-      SELECT * 
-        FROM Data.DataElement
-       WHERE AssetNo = @domainNo
-         AND ReferenceDate = @ReferenceDate
-         AND ExpiredDate = @ExpiredDate
-         AND ElementName = @ElementName
-         AND ElementType = @ElementType
-         AND ElementDataType = @ElementDataType
-         AND ElementPath = @ElementPath
-         AND Description = @Description
-         AND ElementTypeNo = @ElementTypeNo
-         AND ElementGroupNo = @ElementGroupNo
-         AND ElementConstraintNo = @ElementConstraintNo
-         AND ElementKeyTypeNo = @ElementDataType
-         AND StatusNo = @StatusNo
-         AND ValueTypeNo = @ValueTypeNo
-         AND MinLength = @MinLength
-         AND MaxLength = @MaxLength
-         AND MinOccurrence = @MinOccurrence
-         AND MaxOccurrence = @MaxOccurrence
-         AND Nillable = @Nillable
-         AND DefaultValue = @DefaultValue
-         AND FixedValue = @FixedValue
-         AND SampleValue = @SampleValue
-         AND PropertiesBagText = @PropertiesBagText
-         AND ProcessInstructionsBagText = @ProcessInstructionsBagText
-         AND SchemaText = @SchemaText
-         AND SequenceId = @SequenceId
-         AND VersionId = @VersionId
-         AND OrganizationId = @OrganizationId
-         AND ElementNo = @ElementNo
-         AND ElementId = @OutElementId
-         AND KindNo = @KindNo
-         AND Tags = @Tags
-         AND ConstraintsText = @ConstraintsText
-         AND OriginalName = @OriginalName
-         AND OriginalDataType = @OriginalDataType)
-   BEGIN
-      UPDATE Data.DataElement
-         SET ReferenceDate = @ReferenceDate,
-             ExpiredDate = @ExpiredDate,
-             ElementName = @ElementName,
-             ElementType = @ElementType,
-             ElementDataType = @ElementDataType,
-             ElementPath = @ElementPath,
-             Description = @Description,
-             ElementTypeNo = @ElementTypeNo,
-             ElementGroupNo = @ElementGroupNo,
-             ElementConstraintNo = @ElementConstraintNo,
-             ElementKeyTypeNo = @ElementKeyTypeNo,
-             StatusNo = @StatusNo,
-             ValueTypeNo = @ValueTypeNo,
-             MinLength = @MinLength,
-             MaxLength = @MaxLength,
-             MinOccurrence = @MinOccurrence,
-             MaxOccurrence = @MaxOccurrence,
-             Nillable = @Nillable,
-             DefaultValue = @DefaultValue,
-             FixedValue = @FixedValue,
-             SampleValue = @SampleValue,
-             PropertiesBagText = @PropertiesBagText,
-             ProcessInstructionsBagText = @ProcessInstructionsBagText,
-             SchemaText = @SchemaText,
-             SequenceId = @SequenceId,
-             VersionId = @VersionId,
-             UpdateSessionId = @SessionId,
-             OrdinalNo = @OrdinalNo,
-             ParentNo = @ParentNo,
-             ElementSequenceID = @ElementSequenceID,
-             AutoGeneratedTypeNo = @AutoGeneratedTypeNo,
-             LastUpdateDate = getutcdate(),
-             KindNo = @KindNo,
-             Tags = @Tags,
-             ConstraintsText = @ConstraintsText,
-             OriginalName = @OriginalName,
-             OriginalDataType = @OriginalDataType
-       WHERE OrganizationId = @OrganizationId
-         AND AssetNo = @AssetNo
-         AND ElementNo = @ElementNo
-         AND ElementId = @OutElementId
-   END
-END
-GO
-PRINT N'Creating Procedure [Data].[DataReferenceGet]...';
+PRINT N'Creating Procedure [Data].[DataTermUpsert]...';
 
 
 GO
@@ -7724,44 +7500,113 @@ SET QUOTED_IDENTIFIER OFF;
 
 GO
 
-CREATE PROCEDURE Data.DataReferenceGet
-   @SessionId       VARCHAR(40) = NULL,
-   @OrganizationId  VARCHAR(20),
-   @Root            VARCHAR(1024),
-   @DomainUri       VARCHAR(2048),
-   @TermName        VARCHAR(1024),
-   @OptionNo        SMALLINT = 0 
-WITH EXECUTE AS 'KifDbReader'
+CREATE PROCEDURE Data.DataTermUpsert
+   @SessionId        VARCHAR(40) = NULL,
+   @OrganizationId   VARCHAR(20),
+   @DataOwnerId      VARCHAR(20),
+
+   -- reference object info
+   @ReferenceDate    DATETIME2 = NULL,
+   @ReferenceTypeNo  SMALLINT = NULL,
+   @AliasId          VARCHAR(20) = NULL,
+   @AlternateId      VARCHAR(40) = NULL,
+   @Description      VARCHAR(MAX) = NULL,
+   @StatusNo         SMALLINT = NULL,
+
+   -- term info
+   @ExpiredDate      DATETIME2 = NULL,
+   @DomainNo         INTEGER = NULL,
+   @TermId           VARCHAR(20) = NULL,
+   @TermURI          VARCHAR(1024),
+   @TermName         VARCHAR(80),
+   @ConfidenceScore  DECIMAL(6,5) = NULL,
+   @OutTermId        VARCHAR(20) OUTPUT
+WITH EXECUTE AS 'KifDbWriter'
 AS
 BEGIN
    SET NOCOUNT ON
-   IF @OptionNo = 0
+   SET @OutTermId = @TermId
+   
+   IF @AliasId is null
+      SET @AliasId = 'OBJ'
+   IF @ReferenceDate is null
+      SET @ReferenceDate = getutcdate()
+   IF @ReferenceTypeNo is null
+      SET @ReferenceTypeNo = 20  -- Term
+   IF @StatusNo is null
+      SET @StatusNo = 1          -- active
+   IF @DomainNo is null
+      SET @DomainNo = (SELECT DomainNo FROM Data.DataDomain WHERE DomainName = 'Unknown')
+
+   IF @OutTermId is null
    BEGIN
-      EXEC Data.DataReferenceDomainGet @SessionId = @SessionId, 
-         @OrganizationId = @OrganizationId, @Root = null, @DomainUri = @DomainUri
-      EXEC Data.DataReferenceTermGet @SessionId = @SessionId, 
-         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri, @TermName = @TermName
-      EXEC Data.DataReferenceElementGet @SessionId = @SessionId, 
-         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri
+      DECLARE @desc VARCHAR(1024) = 'Reference (' + @TermName + ')'
+      EXEC Data.DataReferenceObjectNew @SessionId = @SessionId, @ReferenceDate = @ReferenceDate,
+         @ReferenceTypeNo = @ReferenceTypeNo, @AliasId = @AliasId, @AlternateId = @AlternateId,
+         @Description = @desc, @StatusNo = @StatusNo, @OutReferenceId = @OutTermId OUTPUT
+   END
+
+   IF @TermId is null
+   BEGIN
+      INSERT INTO Data.DataTerm
+         ( ReferenceDate,    OrganizationId,   DataOwnerId,
+           ExpiredDate,      TermId,
+           TermURI,          TermName,         Description,
+           ConfidenceScore,  StatusNo)
+      VALUES
+         (@ReferenceDate,   @OrganizationId,  @DataOwnerId,
+          @ExpiredDate,     @OutTermId,
+          @TermURI,         @TermName,        @Description,
+          @ConfidenceScore, @StatusNo)
    END
    ELSE
-   IF @OptionNo = 1
    BEGIN
-      EXEC Data.DataReferenceDomainGet @SessionId = @SessionId, 
-         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri
+      UPDATE Data.DataTerm
+         SET ReferenceDate   = case when @ReferenceDate is null
+                               then ReferenceDate else @ReferenceDate end,
+             ExpiredDate     = case when @ExpiredDate is null
+                               then ExpiredDate else @ExpiredDate end,
+             TermURI         = case when @TermURI is null
+                               then TermURI else @TermURI end,
+             TermName        = case when @TermName is null
+                               then TermName else @TermName end,
+             Description     = case when @Description is null
+                               then Description else @Description end,
+             ConfidenceScore = case when @ConfidenceScore is null
+                               then ConfidenceScore else @ConfidenceScore end,
+             StatusNo        = case when @StatusNo is null
+                               then StatusNo else @StatusNo end
+       WHERE TermId = @OutTermId
    END
-   ELSE
-   IF @OptionNo = 2
-   BEGIN
-      EXEC Data.DataReferenceElementGet @SessionId = @SessionId, 
-         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri
-   END
-   ELSE
-   IF @OptionNo = 3
-   BEGIN
-      EXEC Data.DataReferenceTermGet @SessionId = @SessionId, 
-         @OrganizationId = @OrganizationId, @Root = @Root, @DomainUri = @DomainUri, @TermName = @TermName
-   END
+END
+GO
+SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
+
+
+GO
+PRINT N'Creating Procedure [Helper].[HelperSchemaSetExecuteToAll]...';
+
+
+GO
+SET ANSI_NULLS ON;
+
+SET QUOTED_IDENTIFIER OFF;
+
+
+GO
+
+CREATE PROCEDURE Helper.HelperSchemaSetExecuteToAll
+   @SchemaName      VARCHAR(80) = '',
+   @ObjectName      VARCHAR(80) = '',
+   @ViewerRoleName  VARCHAR(80) = 'kifDataViewerRole',
+   @EntryRoleName   VARCHAR(80) = 'kifDataEntryRole',
+   @EditorRoleName  VARCHAR(80) = 'kifDataEditorRole',
+   @TestOnly        BIT = 0
+AS
+BEGIN
+   EXEC Helper.HelperSchemaSetAccess
+      @SchemaName, 'E', @ObjectName,
+      @ViewerRoleName,@EntryRoleName,@EditorRoleName, 'PROCEDURE', @TestOnly
 END
 GO
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
@@ -8123,6 +7968,312 @@ SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 
 
 GO
+PRINT N'Creating Procedure [Data].[DataElementUpsert]...';
+
+
+GO
+
+CREATE PROCEDURE Data.DataElementUpsert
+   @SessionId        VARCHAR(40) = NULL,
+   @OrganizationId   VARCHAR(20),
+   @DataOwnerId      VARCHAR(20),
+   @ReferenceDate    DATETIME = null,
+   @DomainUri        VARCHAR(80),
+   @DomainUriPrefix  VARCHAR(20),
+   @DomainName       VARCHAR(20),
+	 
+   @ExpiredDate      DATETIME = null,
+   @AssetNo          INTEGER = null,
+   @AssetTypeNo      INTEGER = null,
+
+   @Root             VARCHAR(1024) = null,
+   @Domain           VARCHAR(2048) = null,
+   @Type             VARCHAR(256) = null,
+   @Element          VARCHAR(256) = null,
+   @ElementNo        INTEGER,
+   @ParentNo         INTEGER,
+   @ElementId        VARCHAR(20) = null,
+   @TypeNo           INTEGER = 0,
+   @ElementURI       VARCHAR(2048) = null,
+   @ElementName      VARCHAR(80) = null,
+   @ElementType      VARCHAR(20),
+   @ElementDataType  VARCHAR(1024),
+   @ElementPath      VARCHAR(MAX),
+   @Description      VARCHAR(MAX) = null,
+   @ElementSequenceID   VARCHAR(128) = null,
+   @ElementTypeNo       INTEGER = 0,
+   @ElementGroupNo      INTEGER = 0,
+   @ElementConstraintNo INTEGER = 0,
+   @ElementKeyTypeNo    INTEGER = 0,
+   @AutoGeneratedTypeNo INTEGER = 0,
+   @StatusNo         INTEGER = 0,
+   @ValueTypeNo      SMALLINT = 0,
+   @MinLength        INTEGER = 0,
+   @MaxLength        INTEGER = 0,
+   @MinOccurrence    INTEGER = 0,
+   @MaxOccurrence    INTEGER = 0,
+   @Nillable         BIT = 0,
+   @DefaultValue     VARCHAR(128) = null,
+   @FixedValue       VARCHAR(128) = null,
+   @SampleValue      VARCHAR(128) = null,
+   @PropertiesBagText          VARCHAR(MAX) = null,
+   @ProcessInstructionsBagText VARCHAR(MAX) = null,
+   @SchemaText       VARCHAR(MAX) = null,
+   @OrdinalNo        INTEGER = 0,
+   @SequenceID       VARCHAR(20) = null,
+   @VersionID        VARCHAR(20) = null,
+   @BatchID          VARCHAR(40) = null,
+
+   @ConstraintsText  VARCHAR(MAX) = null,
+   @KindNo           SMALLINT = 0,
+   @Tags             VARCHAR(128) = null,
+
+   @OriginalName     VARCHAR(128) = null,
+   @OriginalDataType VARCHAR(128) = null,
+	 
+   @OutAssetNo       INTEGER OUTPUT,
+   @OutElementNo     INTEGER OUTPUT,
+   @OutElementId     VARCHAR(20) OUTPUT
+WITH EXECUTE AS 'KifDbWriter'
+AS
+BEGIN
+   SET NOCOUNT ON
+			
+   IF @OrganizationId = ''    or @Root = ''    or @Domain = ''	  	or @ElementUri = '' or
+      @OrganizationId is null or @Root is null or @Domain is null	or @Type is null	or @ElementUri is null
+   BEGIN
+      RAISERROR (50001,18,1)
+   END			
+			
+   SET @OutElementId = @ElementId
+   SET @OutElementNo = @ElementNo
+   
+   DECLARE @referenceTypeNo SMALLINT,
+           @aliasId         VARCHAR(20) = NULL,
+           @alternateId     VARCHAR(40) = NULL,
+           @domainNo        INTEGER,
+           @outDid          VARCHAR(20),
+           @outDno          VARCHAR(20)
+
+   -- register domain if it does not exists, or just fetch ID's
+   EXEC Data.DataDomainUpsert
+      @SessionId       = @SessionId,
+      @OrganizationId  = @OrganizationId,
+      @DomainNo        = @AssetNo,
+      @DomainId        = null,
+      @DataOwnerId     = @DataOwnerId,
+      @ReferenceDate   = @ReferenceDate,
+      @DomainUri       = @DomainUri,
+      @DomainUriPrefix = @DomainUriPrefix,
+      @Root            = @Root,
+      @Domain          = 'asset',
+      @DomainName      = @DomainName,
+      @TypeNo          = @AssetTypeNo,
+      @Description     = null,
+      @OptionNo        = 1,  -- return with output vars if exists
+      @OutDomainID     = @outDid OUTPUT,
+      @OutDomainNo     = @outDno OUTPUT
+			
+   SET @domainNo = @outDno
+   SET @OutAssetNo = @outDno
+
+   IF @AliasId is null
+      SET @AliasId = 'OBJ'
+   IF @ReferenceDate is null
+      SET @ReferenceDate = getutcdate()
+   IF @referenceTypeNo is null
+      SET @referenceTypeNo = 40  -- Element
+   IF @StatusNo is null
+      SET @StatusNo = 1          -- active
+   IF @OutElementId = ''
+      SET @OutElementId = null
+
+   -- check that the record don't exists...
+   DECLARE @eid VARCHAR(20),
+           @eno INTEGER
+
+   SELECT @eid = ElementId,
+          @eno = ElementNo
+     FROM Data.DataElement
+    WHERE (OrganizationId = @OrganizationId
+      AND  Root = @Root
+      AND  Domain = @Domain
+      AND  Type = @Type
+      AND  Element = @Element
+      AND  VersionId = @VersionID
+      AND  ElementUri = @ElementUri)
+       OR (ElementNo = @ElementNo
+       OR  ElementId = @ElementId)
+							
+   SET @OutElementId = @eid
+   SET @OutElementNo = @eno
+
+   -- register object as needed
+   IF @OutElementId is null
+   BEGIN
+      DECLARE @desc VARCHAR(1024) = 'Reference (' + @ElementName + ')'
+      EXEC Data.DataReferenceObjectNew @SessionId = @SessionId, @ReferenceDate = @ReferenceDate,
+         @ReferenceTypeNo = @ReferenceTypeNo, @AliasId = @aliasId, @AlternateId = @alternateId,
+         @Description = @desc, @StatusNo = @StatusNo, @OutReferenceId = @OutElementId OUTPUT
+   END
+			
+   -- insert or update data element record
+   IF @OutElementNo is NULL
+   BEGIN
+      INSERT INTO Data.DataElement (
+         ReferenceDate,    OrganizationId,    ExpiredDate,
+         Root,             Domain,            Type,
+         Element,          ElementId,         TypeNo,
+         ElementUri,       ElementName,       ElementType,
+         ElementDataType,  ElementPath,       Description,
+         ElementTypeNo,    StatusNo,          ValueTypeNo,
+         MinLength,        MaxLength,         MinOccurrence,
+         MaxOccurrence,    Nillable,          DefaultValue,
+         FixedValue,       SampleValue,       DataOwnerId,
+         PropertiesBagText,SchemaText,        SequenceId,
+         VersionId,        UpdateSessionId,   ElementConstraintNo,
+         ElementGroupNo,   ElementKeyTypeNo,  AssetNo,
+         ParentNo,         ElementSequenceID, AutoGeneratedTypeNo,
+         OrdinalNo,        BatchID,           ProcessInstructionsBagText,
+         KindNo,           ConstraintsText,   Tags,
+         OriginalName,     OriginalDataType,  DomainNo)
+      VALUES  (
+         @ReferenceDate,   @OrganizationId,   @ExpiredDate,
+         @Root,            @Domain,           @Type,
+         @Element,         @OutElementId,     @TypeNo,
+         @ElementUri,      @ElementName,      @ElementType,
+         @ElementDataType, @ElementPath,      @Description,
+         @ElementTypeNo,   @StatusNo,         @ValueTypeNo,
+         @MinLength,       @MaxLength,        @MinOccurrence,
+         @MaxOccurrence,   @Nillable,         @DefaultValue,
+         @FixedValue,      @SampleValue,      @DataOwnerId,
+         @PropertiesBagText,@SchemaText,       @SequenceId,
+         @VersionId,       @SessionId,        @ElementConstraintNo,
+         @ElementGroupNo,  @ElementKeyTypeNo, @domainNo,
+         @ParentNo,        @ElementSequenceID,@AutoGeneratedTypeNo,
+         @OrdinalNo,       @BatchID,          @ProcessInstructionsBagText,
+         @KindNo,          @ConstraintsText,  @Tags,
+         @OriginalName,    @OriginalDataType, @domainNo)
+      SET @OutElementNo = @@IDENTITY
+   END
+   ELSE
+   -- Update a record only, if something had changed
+   IF NOT EXISTS(
+      SELECT * 
+        FROM Data.DataElement
+       WHERE AssetNo = @domainNo
+         AND ReferenceDate = @ReferenceDate
+         AND ExpiredDate = @ExpiredDate
+         AND ElementName = @ElementName
+         AND ElementType = @ElementType
+         AND ElementDataType = @ElementDataType
+         AND ElementPath = @ElementPath
+         AND Description = @Description
+         AND ElementTypeNo = @ElementTypeNo
+         AND ElementGroupNo = @ElementGroupNo
+         AND ElementConstraintNo = @ElementConstraintNo
+         AND ElementKeyTypeNo = @ElementDataType
+         AND StatusNo = @StatusNo
+         AND ValueTypeNo = @ValueTypeNo
+         AND MinLength = @MinLength
+         AND MaxLength = @MaxLength
+         AND MinOccurrence = @MinOccurrence
+         AND MaxOccurrence = @MaxOccurrence
+         AND Nillable = @Nillable
+         AND DefaultValue = @DefaultValue
+         AND FixedValue = @FixedValue
+         AND SampleValue = @SampleValue
+         AND PropertiesBagText = @PropertiesBagText
+         AND ProcessInstructionsBagText = @ProcessInstructionsBagText
+         AND SchemaText = @SchemaText
+         AND SequenceId = @SequenceId
+         AND VersionId = @VersionId
+         AND OrganizationId = @OrganizationId
+         AND ElementNo = @ElementNo
+         AND ElementId = @OutElementId
+         AND KindNo = @KindNo
+         AND Tags = @Tags
+         AND ConstraintsText = @ConstraintsText
+         AND OriginalName = @OriginalName
+         AND OriginalDataType = @OriginalDataType)
+   BEGIN
+      UPDATE Data.DataElement
+         SET ReferenceDate = @ReferenceDate,
+             ExpiredDate = @ExpiredDate,
+             ElementName = @ElementName,
+             ElementType = @ElementType,
+             ElementDataType = @ElementDataType,
+             ElementPath = @ElementPath,
+             Description = @Description,
+             ElementTypeNo = @ElementTypeNo,
+             ElementGroupNo = @ElementGroupNo,
+             ElementConstraintNo = @ElementConstraintNo,
+             ElementKeyTypeNo = @ElementKeyTypeNo,
+             StatusNo = @StatusNo,
+             ValueTypeNo = @ValueTypeNo,
+             MinLength = @MinLength,
+             MaxLength = @MaxLength,
+             MinOccurrence = @MinOccurrence,
+             MaxOccurrence = @MaxOccurrence,
+             Nillable = @Nillable,
+             DefaultValue = @DefaultValue,
+             FixedValue = @FixedValue,
+             SampleValue = @SampleValue,
+             PropertiesBagText = @PropertiesBagText,
+             ProcessInstructionsBagText = @ProcessInstructionsBagText,
+             SchemaText = @SchemaText,
+             SequenceId = @SequenceId,
+             VersionId = @VersionId,
+             UpdateSessionId = @SessionId,
+             OrdinalNo = @OrdinalNo,
+             ParentNo = @ParentNo,
+             ElementSequenceID = @ElementSequenceID,
+             AutoGeneratedTypeNo = @AutoGeneratedTypeNo,
+             LastUpdateDate = getutcdate(),
+             KindNo = @KindNo,
+             Tags = @Tags,
+             ConstraintsText = @ConstraintsText,
+             OriginalName = @OriginalName,
+             OriginalDataType = @OriginalDataType
+       WHERE OrganizationId = @OrganizationId
+         AND AssetNo = @AssetNo
+         AND ElementNo = @ElementNo
+         AND ElementId = @OutElementId
+   END
+END
+GO
+PRINT N'Creating Permission Permission...';
+
+
+GO
+GRANT CONNECT TO [KifDbReader];
+
+
+GO
+PRINT N'Creating Permission Permission...';
+
+
+GO
+GRANT CONNECT TO [KifDbWriter];
+
+
+GO
+PRINT N'Creating Permission Permission...';
+
+
+GO
+GRANT CONNECT TO [KifReader];
+
+
+GO
+PRINT N'Creating Permission Permission...';
+
+
+GO
+GRANT CONNECT TO [KifReportReader];
+
+
+GO
 PRINT N'Checking existing data against newly created constraints';
 
 
@@ -8133,19 +8284,21 @@ USE [$(DatabaseName)];
 GO
 ALTER TABLE [B2B].[ExchangeDefinition] WITH CHECK CHECK CONSTRAINT [fk_ExchangeDefinitionCodeExchangeID];
 
-ALTER TABLE [Data].[DataBatch] WITH CHECK CHECK CONSTRAINT [fk_DataBatchDomain];
-
 ALTER TABLE [Data].[DataCode] WITH CHECK CHECK CONSTRAINT [fk_DataCodeNo];
+
+ALTER TABLE [Data].[DataCodeSetBatch] WITH CHECK CHECK CONSTRAINT [fk_DataCodeSetBatch];
+
+ALTER TABLE [Data].[DataCodeSet] WITH CHECK CHECK CONSTRAINT [fk_DataCodeSetDomain];
+
+ALTER TABLE [Data].[DataNote] WITH CHECK CHECK CONSTRAINT [fk_DataNoteReference];
+
+ALTER TABLE [Data].[DataNote] WITH CHECK CHECK CONSTRAINT [fk_DataNoteType];
+
+ALTER TABLE [Data].[DataBatch] WITH CHECK CHECK CONSTRAINT [fk_DataBatchDomain];
 
 ALTER TABLE [Data].[DataCodeElement] WITH CHECK CHECK CONSTRAINT [fk_DataCodeElementCodeSet];
 
 ALTER TABLE [Data].[DataCodeElement] WITH CHECK CHECK CONSTRAINT [fk_DataCodeElementNo];
-
-ALTER TABLE [Data].[DataCodeSet] WITH CHECK CHECK CONSTRAINT [fk_DataCodeSetDomain];
-
-ALTER TABLE [Data].[DataCodeSetBatch] WITH CHECK CHECK CONSTRAINT [fk_DataCodeSetBatch];
-
-ALTER TABLE [Data].[DataDomain] WITH CHECK CHECK CONSTRAINT [fk_DataDomainType];
 
 ALTER TABLE [Data].[DataElement] WITH CHECK CHECK CONSTRAINT [fk_DataElementConstraintType];
 
@@ -8163,57 +8316,29 @@ ALTER TABLE [Data].[DataElement] WITH CHECK CHECK CONSTRAINT [fk_DataElementStat
 
 ALTER TABLE [Data].[DataElement] WITH CHECK CHECK CONSTRAINT [fk_DataElementValueType];
 
-ALTER TABLE [Data].[DataGroup] WITH CHECK CHECK CONSTRAINT [fk_DataAssetGroupType];
-
-ALTER TABLE [Data].[DataGroup] WITH CHECK CHECK CONSTRAINT [fk_DataGroupStatus];
-
-ALTER TABLE [Data].[DataNote] WITH CHECK CHECK CONSTRAINT [fk_DataNoteReference];
-
-ALTER TABLE [Data].[DataNote] WITH CHECK CHECK CONSTRAINT [fk_DataNoteType];
-
-ALTER TABLE [Data].[DataReferenceObject] WITH CHECK CHECK CONSTRAINT [fk_DataReferenceObjectType];
-
-ALTER TABLE [Data].[DataReferenceObject] WITH CHECK CHECK CONSTRAINT [fk_DataReferenceStatus];
-
 ALTER TABLE [Data].[DataTerm] WITH CHECK CHECK CONSTRAINT [fk_DataTermDomainUri];
 
 ALTER TABLE [Data].[DataTerm] WITH CHECK CHECK CONSTRAINT [fk_DataTermEntity];
 
 ALTER TABLE [Data].[DataTerm] WITH CHECK CHECK CONSTRAINT [fk_DataTermStatus];
 
-ALTER TABLE [IdBase].[IdBaseGroupMembers] WITH CHECK CHECK CONSTRAINT [fk_ibgm00];
+ALTER TABLE [Data].[DataDomain] WITH CHECK CHECK CONSTRAINT [fk_DataDomainType];
 
-ALTER TABLE [IdBase].[IdBaseGroupMembers] WITH CHECK CHECK CONSTRAINT [fk_ibgm01];
+ALTER TABLE [Data].[DataGroup] WITH CHECK CHECK CONSTRAINT [fk_DataAssetGroupType];
+
+ALTER TABLE [Data].[DataGroup] WITH CHECK CHECK CONSTRAINT [fk_DataGroupStatus];
+
+ALTER TABLE [Data].[DataReferenceObject] WITH CHECK CHECK CONSTRAINT [fk_DataReferenceObjectType];
+
+ALTER TABLE [Data].[DataReferenceObject] WITH CHECK CHECK CONSTRAINT [fk_DataReferenceStatus];
 
 ALTER TABLE [IdBase].[IdBaseTypeExtensions] WITH CHECK CHECK CONSTRAINT [fk_ibte01];
 
 ALTER TABLE [IdBase].[IdBaseTypeExtensions] WITH CHECK CHECK CONSTRAINT [fk_ibte02];
 
-ALTER TABLE [Reference].[ReferenceDataEditGroup] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditGroupScope];
+ALTER TABLE [IdBase].[IdBaseGroupMembers] WITH CHECK CHECK CONSTRAINT [fk_ibgm00];
 
-ALTER TABLE [Reference].[ReferenceDataEditGroup] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditGroupStatus];
-
-ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditGroup];
-
-ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditGroupOrganization];
-
-ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditTemplate];
-
-ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditTemplateGroup];
-
-ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditTemplateScope];
-
-ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditTemplateStatus];
-
-ALTER TABLE [Reference].[ReferenceDevices] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDevicesReference];
-
-ALTER TABLE [Reference].[ReferenceList] WITH CHECK CHECK CONSTRAINT [fk_ReferenceListStatus];
-
-ALTER TABLE [Reference].[ReferenceListGroup] WITH CHECK CHECK CONSTRAINT [fk_ReferenceListGroupNo];
-
-ALTER TABLE [Reference].[ReferenceListGroup] WITH CHECK CHECK CONSTRAINT [fk_ReferenceListGroupStatus];
-
-ALTER TABLE [Reference].[ReferenceListGroupItem] WITH CHECK CHECK CONSTRAINT [fk_ReferenceListGroupItemGroup];
+ALTER TABLE [IdBase].[IdBaseGroupMembers] WITH CHECK CHECK CONSTRAINT [fk_ibgm01];
 
 ALTER TABLE [Reference].[ReferenceObjects] WITH CHECK CHECK CONSTRAINT [fk_ReferenceObjectStatus];
 
@@ -8221,11 +8346,21 @@ ALTER TABLE [Reference].[ReferenceObjects] WITH CHECK CHECK CONSTRAINT [fk_Refer
 
 ALTER TABLE [Reference].[ReferenceObjects] WITH CHECK CHECK CONSTRAINT [fk_ReferenceObjectTypeNoEntityTypeNo];
 
+ALTER TABLE [Reference].[ReferenceTypesGroupMembers] WITH CHECK CHECK CONSTRAINT [fk_ReferenceTypesGroupMemberIdNo];
+
+ALTER TABLE [Reference].[ReferenceTypesGroupMembers] WITH CHECK CHECK CONSTRAINT [fk_ReferenceTypesGroupMemberTypeNo];
+
 ALTER TABLE [Reference].[ReferenceOrganizationPreferences] WITH CHECK CHECK CONSTRAINT [fk_ReferenceOrganizationPreferenceEntityId];
 
 ALTER TABLE [Reference].[ReferenceOrganizationPreferences] WITH CHECK CHECK CONSTRAINT [fk_ReferenceOrganizationPreferenceOrganization];
 
 ALTER TABLE [Reference].[ReferenceOrganizationPreferences] WITH CHECK CHECK CONSTRAINT [fk_ReferenceOrganizationPreferencesLanguage];
+
+ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditGroup];
+
+ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditGroupOrganization];
+
+ALTER TABLE [Reference].[ReferenceDataEditGroupTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditTemplate];
 
 ALTER TABLE [Reference].[ReferencePolicies] WITH CHECK CHECK CONSTRAINT [fk_ReferencePoliciesGroup];
 
@@ -8233,17 +8368,33 @@ ALTER TABLE [Reference].[ReferencePolicies] WITH CHECK CHECK CONSTRAINT [fk_Refe
 
 ALTER TABLE [Reference].[ReferencePolicies] WITH CHECK CHECK CONSTRAINT [fk_ReferencePoliciesType];
 
+ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditTemplateGroup];
+
+ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditTemplateScope];
+
+ALTER TABLE [Reference].[ReferenceDataEditTemplate] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditTemplateStatus];
+
 ALTER TABLE [Reference].[ReferencePolicyTypes] WITH CHECK CHECK CONSTRAINT [fk_ReferencePolicyTypeGroup];
 
 ALTER TABLE [Reference].[ReferencePolicyTypes] WITH CHECK CHECK CONSTRAINT [fk_ReferencePolicyTypeValueType];
+
+ALTER TABLE [Reference].[ReferenceDataEditGroup] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditGroupScope];
+
+ALTER TABLE [Reference].[ReferenceDataEditGroup] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDataEditGroupStatus];
 
 ALTER TABLE [Reference].[ReferenceTraceLog] WITH CHECK CHECK CONSTRAINT [fk_ReferenceTraceLog];
 
 ALTER TABLE [Reference].[ReferenceTraceLog] WITH CHECK CHECK CONSTRAINT [fk_ReferenceTraceLogType];
 
-ALTER TABLE [Reference].[ReferenceTypesGroupMembers] WITH CHECK CHECK CONSTRAINT [fk_ReferenceTypesGroupMemberIdNo];
+ALTER TABLE [Reference].[ReferenceListGroupItem] WITH CHECK CHECK CONSTRAINT [fk_ReferenceListGroupItemGroup];
 
-ALTER TABLE [Reference].[ReferenceTypesGroupMembers] WITH CHECK CHECK CONSTRAINT [fk_ReferenceTypesGroupMemberTypeNo];
+ALTER TABLE [Reference].[ReferenceListGroup] WITH CHECK CHECK CONSTRAINT [fk_ReferenceListGroupNo];
+
+ALTER TABLE [Reference].[ReferenceListGroup] WITH CHECK CHECK CONSTRAINT [fk_ReferenceListGroupStatus];
+
+ALTER TABLE [Reference].[ReferenceList] WITH CHECK CHECK CONSTRAINT [fk_ReferenceListStatus];
+
+ALTER TABLE [Reference].[ReferenceDevices] WITH CHECK CHECK CONSTRAINT [fk_ReferenceDevicesReference];
 
 
 GO

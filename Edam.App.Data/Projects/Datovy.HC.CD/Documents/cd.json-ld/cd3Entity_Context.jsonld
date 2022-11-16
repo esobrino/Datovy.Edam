@@ -1,0 +1,19 @@
+{
+  "@context": {
+      "cd3": "http://www.datovy.com/hc/cd/Generic/#",
+      "entity_ID": "cd3:Entity_ID",
+      "type_ID": "cd3:Type_ID",
+      "description": "cd3:Description",
+      "tenant_ID": "cd3:Tenant_ID",
+      "data_Owner_ID": "cd3:Data_Owner_ID",
+      "agency_Reporting_ID": "cd3:Agency_Reporting_ID",
+      "sequence_Number": "cd3:Sequence_Number",
+      "effective_DateTime": "cd3:Effective_DateTime",
+      "effective_End_DateTime": "cd3:Effective_End_DateTime",
+      "version_Number": "cd3:Version_Number",
+      "created_DateTime": "cd3:Created_DateTime",
+      "updated_DateTime": "cd3:Updated_DateTime",
+      "record_Status_Code_ID": "cd3:Record_Status_Code_ID",
+      "session_Updated_ID": "cd3:Session_Updated_ID"
+   }
+}

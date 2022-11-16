@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Management" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Type_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Description" type="cd7:string" />
+  <xs:element name="Category_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Category ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="CodeSet_Name" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Code Set Name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Tenant_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Tenant ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Data_Owner_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Data Owner ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Agency_Reporting_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Agency Reporting ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sequence_Number" type="cd7:integer">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Sequence Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Effective Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_End_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Effective End Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Version_Number" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Version Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Created_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Created Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Updated_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Updated Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Record_Status_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Record Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Session_Updated_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Session Updated ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Referral_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Referral_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Referral ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Alternate_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Alternate ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Referral_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Referral Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Case ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Profile_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Profile ID
+External reference to (Surveillance) Profile</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Provider_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Provider ID
+External reference to (Provider) Provider</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Activity_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Activity ID
+External reference to (Action) Activity</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Status_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Status_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Status Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Referral_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Referral_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Referral_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Profile_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Provider_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Activity_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Flag_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Duration" type="cd7:string" />
+  <xs:element name="Near_Complete_Duration" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Near Complete Duration</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Case_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Duration" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Near_Complete_Duration" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Priority_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Disposition_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Disposition ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Disposition_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Disposition Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Disposition_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Disposition_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Disposition_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Officer_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Officer ID
+External reference to (Entity) Officer</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Subject_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Subject ID
+External reference to (Entity) Person</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Organization_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Organization ID
+External reference to (Entity) Organization</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Probable_Reason_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Probable Reason Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Detection_Method_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Detection Method Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Priority_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Priority Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Person_Age" type="cd7:integer">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Person Age</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Person_Age_Unit_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Person/Patient age unit at time of case investigation</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Class_Status_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Class Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Case_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Subject_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Provider_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Disposition_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Probable_Reason_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Detection_Method_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Profile_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Priority_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Person_Age" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Person_Age_Unit_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Class_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Flag_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Flag ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Value" type="cd7:string" />
+  <xs:complexType name="Flag_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Value" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Unit_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Status_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Assignment_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Assignment ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Assigned_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Assigned Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Manager_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Manager ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Concept_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Concept ID
+External reference to (Generic) Element</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Contact ID
+External reference to (Entity) Contact</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Assignment_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Assignment_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Assigned_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Manager_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Referral_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Concept_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Subject_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Priority_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Assignment_Link_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Assignment Link ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Assignment_Link_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Assignment_Link_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Assignment_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Detection_Method_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Probable_Reason_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Request_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Request ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Request_Date" type="cd7:date">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Request Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Service_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Service Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Item_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Item ID
+External reference to (Article) Item</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Request_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Request_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Request_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Service_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Referral_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Provider_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Activity_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Item_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Service_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Note_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Note_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Note ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note_Type_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Note Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note_Text" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Note Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Note Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Author_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Author ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Author_Role_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Author Role ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Author_Name" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Author Name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Note_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Note_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Note_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Note_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Note_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Author_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Author_Role_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Author_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tags" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Provided to set a comma delimited list of Privacy, Security or other data Tags such as GDPR, HIPAA, PII or other.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Media_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tags" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Media_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Media ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Category_Text" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Category Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Status_Code" type="cd7:integer">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Status Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Url_Text" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Url Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Size_In_Bytes" type="cd7:integer">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Size In Bytes</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Media_Data" type="cd7:varbinary">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Media Data</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Scope_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Scope Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Content_Type_Code_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Content Type Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Content_Type_Text" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Content Type Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Default_Indicator" type="cd7:boolean">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Default Indicator</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Serial_No" type="cd7:long">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Serial No</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reference_Date_Type_ID" type="cd7:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Reference Date Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reference_DateTime" type="cd7:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Reference Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Media_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Media_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Category_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_Code" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Url_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Size_In_Bytes" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Media_Data" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Scope_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Content_Type_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Content_Type_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Default_Indicator" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Serial_No" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Reference_Date_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Reference_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Referral_Type" type="cd7:Referral_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Referral Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Referral" type="cd7:Referral_" />
+  <xs:element name="Flag_Code" type="cd7:Flag_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Flag Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Type" type="cd7:Case_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Case Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Priority_Code" type="cd7:Priority_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Priority Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Disposition" type="cd7:Disposition_" />
+  <xs:element name="Case" type="cd7:Case_" />
+  <xs:element name="Flag" type="cd7:Flag_" />
+  <xs:element name="Unit_Code" type="cd7:Unit_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Unit Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Assignment" type="cd7:Assignment_" />
+  <xs:element name="Assignment_Link" type="cd7:Assignment_Link_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Assignment Link</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Detection_Method_Code" type="cd7:Detection_Method_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Detection Method Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Probable_Reason_Code" type="cd7:Probable_Reason_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Probable Reason Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Request" type="cd7:Request_" />
+  <xs:element name="Service_Code" type="cd7:Service_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Service Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note_Type" type="cd7:Note_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Note Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note" type="cd7:Note_" />
+  <xs:element name="Media_Type" type="cd7:Media_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Management/">Media Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Media" type="cd7:Media_" />
+  <xs:complexType name="Management_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Referral_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Referral" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Flag_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Case_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Priority_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Disposition" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Case" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Flag" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Unit_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Status_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Assignment" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Assignment_Link" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Detection_Method_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Probable_Reason_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Request" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Service_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Note_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Note" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Media_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd7:Media" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

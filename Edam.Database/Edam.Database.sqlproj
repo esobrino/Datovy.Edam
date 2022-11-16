@@ -141,6 +141,9 @@
     <Folder Include="B2B\Stored Procedures\" />
     <Folder Include="Reference\User Defined Types\" />
     <Folder Include="Common\Sequences\" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Sql-Scripts" />
+    <Folder Include="Scripts\PowerScripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Object\Tables\ObjectLanguages.sql">
@@ -605,5 +608,12 @@
     <Build Include="Common\Sequences\IdBaseCounter.sql" />
     <Build Include="Security\Permissions.sql" />
     <Build Include="Security\KifMasterKey.sql" />
+    <None Include="Scripts\PowerScripts\rdb.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Sql-Scripts\00010 - Objects Resources.sql" />
+    <None Include="Scripts\Sql-Scripts\00020 - Reference Resources.sql" />
+    <None Include="Scripts\Sql-Scripts\00030 - IdBase Resources.sql" />
+    <None Include="Scripts\Sql-Scripts\00040 - Data Registry Resources.sql" />
   </ItemGroup>
 </Project>

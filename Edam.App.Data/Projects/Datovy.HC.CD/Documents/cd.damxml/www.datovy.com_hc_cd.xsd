@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Action" namespace="http://www.datovy.com/hc/cd/Action" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Application" namespace="http://www.datovy.com/hc/cd/Application" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Article" namespace="http://www.datovy.com/hc/cd/Article" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Clinical" namespace="http://www.datovy.com/hc/cd/Clinical" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Entity" namespace="http://www.datovy.com/hc/cd/Entity" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Epidemiology" namespace="http://www.datovy.com/hc/cd/Epidemiology" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Generic" namespace="http://www.datovy.com/hc/cd/Generic" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Geography" namespace="http://www.datovy.com/hc/cd/Geography" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Management" namespace="http://www.datovy.com/hc/cd/Management" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Message" namespace="http://www.datovy.com/hc/cd/Message" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Provider" namespace="http://www.datovy.com/hc/cd/Provider" />
+  <xs:import schemaLocation="./www.datovy.com_hc_cd_Surveillance" namespace="http://www.datovy.com/hc/cd/Surveillance" />
+  <xs:complexType name="Disease_Surveillance_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd6:Action" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Application" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd9:Article" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd1:Clinical" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Entity" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd12:Epidemiology" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Generic" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd4:Geography" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd7:Management" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd10:Message" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd11:Provider" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Surveillance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Disease_Surveillance_Document" type="cd:Disease_Surveillance_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/cd/">Disease Surveillance Document</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>

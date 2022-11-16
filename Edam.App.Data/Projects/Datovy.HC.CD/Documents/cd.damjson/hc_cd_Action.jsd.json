@@ -1,0 +1,1417 @@
+{
+   "$schema": "http://json-schema.org//schema#",
+   "$id": "http://edd.schema.org/www.datovy.com_hc_cd_Action",
+   "type": "object",
+   "definitions": {
+      "cd6:Media_": {
+         "title": "cd6:Media_",
+         "description": "A document, image, or other digital artifacts that describe or define something",
+         "properties": {
+            "cd6:Activity_ID": {
+               "$ref": "#/properties/cd6:Activity_ID"
+            },
+            "cd6:Event_ID": {
+               "$ref": "#/properties/cd6:Event_ID"
+            },
+            "cd6:Media_ID": {
+               "$ref": "#/properties/cd6:Media_ID"
+            },
+            "cd6:Alternate_ID": {
+               "$ref": "#/properties/cd6:Alternate_ID"
+            },
+            "cd6:Type_ID": {
+               "$ref": "#/properties/cd6:Type_ID"
+            },
+            "cd6:Category_Text": {
+               "$ref": "#/properties/cd6:Category_Text"
+            },
+            "cd6:Status_Code": {
+               "$ref": "#/properties/cd6:Status_Code"
+            },
+            "cd6:Url_Text": {
+               "$ref": "#/properties/cd6:Url_Text"
+            },
+            "cd6:Size_In_Bytes": {
+               "$ref": "#/properties/cd6:Size_In_Bytes"
+            },
+            "cd6:Media_Data": {
+               "$ref": "#/properties/cd6:Media_Data"
+            },
+            "cd6:Scope_Code_ID": {
+               "$ref": "#/properties/cd6:Scope_Code_ID"
+            },
+            "cd6:Content_Type_Code_ID": {
+               "$ref": "#/properties/cd6:Content_Type_Code_ID"
+            },
+            "cd6:Content_Type_Text": {
+               "$ref": "#/properties/cd6:Content_Type_Text"
+            },
+            "cd6:Default_Indicator": {
+               "$ref": "#/properties/cd6:Default_Indicator"
+            },
+            "cd6:Serial_No": {
+               "$ref": "#/properties/cd6:Serial_No"
+            },
+            "cd6:Status_Code_ID": {
+               "$ref": "#/properties/cd6:Status_Code_ID"
+            },
+            "cd6:Status_DateTime": {
+               "$ref": "#/properties/cd6:Status_DateTime"
+            },
+            "cd6:Reference_Date_Type_ID": {
+               "$ref": "#/properties/cd6:Reference_Date_Type_ID"
+            },
+            "cd6:Reference_DateTime": {
+               "$ref": "#/properties/cd6:Reference_DateTime"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Role_Code_": {
+         "title": "cd6:Role_Code_",
+         "description": "Identify and describe an actor part in a activity or event",
+         "properties": {
+            "cd6:Code_ID": {
+               "$ref": "#/properties/cd6:Code_ID"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Category_ID": {
+               "$ref": "#/properties/cd6:Category_ID"
+            },
+            "cd6:CodeSet_Name": {
+               "$ref": "#/properties/cd6:CodeSet_Name"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Party_Type_": {
+         "title": "cd6:Party_Type_",
+         "description": "Identify an Organization, Person, or Thing associated with an Action, Activity, or Event",
+         "properties": {
+            "cd6:Code_ID": {
+               "$ref": "#/properties/cd6:Code_ID"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Category_ID": {
+               "$ref": "#/properties/cd6:Category_ID"
+            },
+            "cd6:CodeSet_Name": {
+               "$ref": "#/properties/cd6:CodeSet_Name"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Party_": {
+         "title": "cd6:Party_",
+         "description": "Identify an Organization, Person, or Thing associated with an Action, Activity, or Event",
+         "properties": {
+            "cd6:Party_ID": {
+               "$ref": "#/properties/cd6:Party_ID"
+            },
+            "cd6:Type_ID": {
+               "$ref": "#/properties/cd6:Type_ID"
+            },
+            "cd6:Identification_ID": {
+               "$ref": "#/properties/cd6:Identification_ID"
+            },
+            "cd6:Role_Code_ID": {
+               "$ref": "#/properties/cd6:Role_Code_ID"
+            },
+            "cd6:Duration": {
+               "$ref": "#/properties/cd6:Duration"
+            },
+            "cd6:Activity_ID": {
+               "$ref": "#/properties/cd6:Activity_ID"
+            },
+            "cd6:Organization_ID": {
+               "$ref": "#/properties/cd6:Organization_ID"
+            },
+            "cd6:Contact_ID": {
+               "$ref": "#/properties/cd6:Contact_ID"
+            },
+            "cd6:Person_ID": {
+               "$ref": "#/properties/cd6:Person_ID"
+            },
+            "cd6:Status_Code_ID": {
+               "$ref": "#/properties/cd6:Status_Code_ID"
+            },
+            "cd6:Status_DateTime": {
+               "$ref": "#/properties/cd6:Status_DateTime"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Activity_": {
+         "title": "cd6:Activity_",
+         "description": "A single or set of related actions, events, or process steps",
+         "properties": {
+            "cd6:Activity_ID": {
+               "$ref": "#/properties/cd6:Activity_ID"
+            },
+            "cd6:Alternate_ID": {
+               "$ref": "#/properties/cd6:Alternate_ID"
+            },
+            "cd6:Type_ID": {
+               "$ref": "#/properties/cd6:Type_ID"
+            },
+            "cd6:Disposition_ID": {
+               "$ref": "#/properties/cd6:Disposition_ID"
+            },
+            "cd6:Name": {
+               "$ref": "#/properties/cd6:Name"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Priority_Code_ID": {
+               "$ref": "#/properties/cd6:Priority_Code_ID"
+            },
+            "cd6:Reason_Code_ID": {
+               "$ref": "#/properties/cd6:Reason_Code_ID"
+            },
+            "cd6:Scheduled_DateTime": {
+               "$ref": "#/properties/cd6:Scheduled_DateTime"
+            },
+            "cd6:Started_DateTime": {
+               "$ref": "#/properties/cd6:Started_DateTime"
+            },
+            "cd6:Ended_DateTime": {
+               "$ref": "#/properties/cd6:Ended_DateTime"
+            },
+            "cd6:Status_Code_ID": {
+               "$ref": "#/properties/cd6:Status_Code_ID"
+            },
+            "cd6:Status_DateTime": {
+               "$ref": "#/properties/cd6:Status_DateTime"
+            },
+            "cd6:Case_ID": {
+               "$ref": "#/properties/cd6:Case_ID"
+            },
+            "cd6:Location_ID": {
+               "$ref": "#/properties/cd6:Location_ID"
+            },
+            "cd6:Contact_ID": {
+               "$ref": "#/properties/cd6:Contact_ID"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Schedule_Event_": {
+         "title": "cd6:Schedule_Event_",
+         "description": "Define details about an action, activity or event that happend or is planned",
+         "properties": {
+            "cd6:Schedule_Event_ID": {
+               "$ref": "#/properties/cd6:Schedule_Event_ID"
+            },
+            "cd6:Type_ID": {
+               "$ref": "#/properties/cd6:Type_ID"
+            },
+            "cd6:Activity_ID": {
+               "$ref": "#/properties/cd6:Activity_ID"
+            },
+            "cd6:Disposition_ID": {
+               "$ref": "#/properties/cd6:Disposition_ID"
+            },
+            "cd6:Name": {
+               "$ref": "#/properties/cd6:Name"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Priority_Code_ID": {
+               "$ref": "#/properties/cd6:Priority_Code_ID"
+            },
+            "cd6:Reason_Code_ID": {
+               "$ref": "#/properties/cd6:Reason_Code_ID"
+            },
+            "cd6:Scheduled_DateTime": {
+               "$ref": "#/properties/cd6:Scheduled_DateTime"
+            },
+            "cd6:Started_DateTime": {
+               "$ref": "#/properties/cd6:Started_DateTime"
+            },
+            "cd6:Ended_DateTime": {
+               "$ref": "#/properties/cd6:Ended_DateTime"
+            },
+            "cd6:Status_Code_ID": {
+               "$ref": "#/properties/cd6:Status_Code_ID"
+            },
+            "cd6:Status_DateTime": {
+               "$ref": "#/properties/cd6:Status_DateTime"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Note_Type_": {
+         "title": "cd6:Note_Type_",
+         "description": "Identify and describe the kind of note or comment",
+         "properties": {
+            "cd6:Type_ID": {
+               "$ref": "#/properties/cd6:Type_ID"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Category_ID": {
+               "$ref": "#/properties/cd6:Category_ID"
+            },
+            "cd6:CodeSet_Name": {
+               "$ref": "#/properties/cd6:CodeSet_Name"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Note_": {
+         "title": "cd6:Note_",
+         "description": "A statement, comment, or remark defining a thing or providing additional information",
+         "properties": {
+            "cd6:Note_ID": {
+               "$ref": "#/properties/cd6:Note_ID"
+            },
+            "cd6:Note_Type_ID": {
+               "$ref": "#/properties/cd6:Note_Type_ID"
+            },
+            "cd6:Note_Text": {
+               "$ref": "#/properties/cd6:Note_Text"
+            },
+            "cd6:Note_DateTime": {
+               "$ref": "#/properties/cd6:Note_DateTime"
+            },
+            "cd6:Author_ID": {
+               "$ref": "#/properties/cd6:Author_ID"
+            },
+            "cd6:Author_Role_ID": {
+               "$ref": "#/properties/cd6:Author_Role_ID"
+            },
+            "cd6:Author_Name": {
+               "$ref": "#/properties/cd6:Author_Name"
+            },
+            "cd6:Status_Code_ID": {
+               "$ref": "#/properties/cd6:Status_Code_ID"
+            },
+            "cd6:Status_DateTime": {
+               "$ref": "#/properties/cd6:Status_DateTime"
+            },
+            "cd6:Activity_ID": {
+               "$ref": "#/properties/cd6:Activity_ID"
+            },
+            "cd6:Event_ID": {
+               "$ref": "#/properties/cd6:Event_ID"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Media_Type_": {
+         "title": "cd6:Media_Type_",
+         "description": "Identify and describe the kind of media",
+         "properties": {
+            "cd6:Type_ID": {
+               "$ref": "#/properties/cd6:Type_ID"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Category_ID": {
+               "$ref": "#/properties/cd6:Category_ID"
+            },
+            "cd6:Tags": {
+               "$ref": "#/properties/cd6:Tags"
+            },
+            "cd6:CodeSet_Name": {
+               "$ref": "#/properties/cd6:CodeSet_Name"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Disposition_Code_": {
+         "title": "cd6:Disposition_Code_",
+         "description": "The code that identify the kind of disposition",
+         "properties": {
+            "cd6:Code_ID": {
+               "$ref": "#/properties/cd6:Code_ID"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Category_ID": {
+               "$ref": "#/properties/cd6:Category_ID"
+            },
+            "cd6:CodeSet_Name": {
+               "$ref": "#/properties/cd6:CodeSet_Name"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Event_": {
+         "title": "cd6:Event_",
+         "description": "A instance of an action withing an activity, incident, or a process",
+         "properties": {
+            "cd6:Event_ID": {
+               "$ref": "#/properties/cd6:Event_ID"
+            },
+            "cd6:Alternate_ID": {
+               "$ref": "#/properties/cd6:Alternate_ID"
+            },
+            "cd6:Activity_ID": {
+               "$ref": "#/properties/cd6:Activity_ID"
+            },
+            "cd6:EventType_ID": {
+               "$ref": "#/properties/cd6:EventType_ID"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Organization_ID": {
+               "$ref": "#/properties/cd6:Organization_ID"
+            },
+            "cd6:Person_ID": {
+               "$ref": "#/properties/cd6:Person_ID"
+            },
+            "cd6:Scheduled_DateTime": {
+               "$ref": "#/properties/cd6:Scheduled_DateTime"
+            },
+            "cd6:Started_DateTime": {
+               "$ref": "#/properties/cd6:Started_DateTime"
+            },
+            "cd6:Ended_DateTime": {
+               "$ref": "#/properties/cd6:Ended_DateTime"
+            },
+            "cd6:Status_Code_ID": {
+               "$ref": "#/properties/cd6:Status_Code_ID"
+            },
+            "cd6:Status_DateTime": {
+               "$ref": "#/properties/cd6:Status_DateTime"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Activity_Type_": {
+         "title": "cd6:Activity_Type_",
+         "description": "Identify and describe the kind of activity",
+         "properties": {
+            "cd6:Type_ID": {
+               "$ref": "#/properties/cd6:Type_ID"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Category_ID": {
+               "$ref": "#/properties/cd6:Category_ID"
+            },
+            "cd6:CodeSet_Name": {
+               "$ref": "#/properties/cd6:CodeSet_Name"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Reason_Code_": {
+         "title": "cd6:Reason_Code_",
+         "description": "Identify and describe the cause, explanation, or justification for an action or event",
+         "properties": {
+            "cd6:Code_ID": {
+               "$ref": "#/properties/cd6:Code_ID"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Category_ID": {
+               "$ref": "#/properties/cd6:Category_ID"
+            },
+            "cd6:CodeSet_Name": {
+               "$ref": "#/properties/cd6:CodeSet_Name"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Priority_Code_": {
+         "title": "cd6:Priority_Code_",
+         "description": "Identify and describe the precedence or importance of something",
+         "properties": {
+            "cd6:Code_ID": {
+               "$ref": "#/properties/cd6:Code_ID"
+            },
+            "cd6:Description": {
+               "$ref": "#/properties/cd6:Description"
+            },
+            "cd6:Category_ID": {
+               "$ref": "#/properties/cd6:Category_ID"
+            },
+            "cd6:CodeSet_Name": {
+               "$ref": "#/properties/cd6:CodeSet_Name"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Disposition_": {
+         "title": "cd6:Disposition_",
+         "description": "A result or outcome that is the product of handoing, processing, or finalizing something",
+         "properties": {
+            "cd6:Disposition_ID": {
+               "$ref": "#/properties/cd6:Disposition_ID"
+            },
+            "cd6:Code_ID": {
+               "$ref": "#/properties/cd6:Code_ID"
+            },
+            "cd6:Status_Code_ID": {
+               "$ref": "#/properties/cd6:Status_Code_ID"
+            },
+            "cd6:Status_DateTime": {
+               "$ref": "#/properties/cd6:Status_DateTime"
+            },
+            "cd6:Tenant_ID": {
+               "$ref": "#/properties/cd6:Tenant_ID"
+            },
+            "cd6:Data_Owner_ID": {
+               "$ref": "#/properties/cd6:Data_Owner_ID"
+            },
+            "cd6:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd6:Agency_Reporting_ID"
+            },
+            "cd6:Sequence_Number": {
+               "$ref": "#/properties/cd6:Sequence_Number"
+            },
+            "cd6:Effective_DateTime": {
+               "$ref": "#/properties/cd6:Effective_DateTime"
+            },
+            "cd6:Effective_End_DateTime": {
+               "$ref": "#/properties/cd6:Effective_End_DateTime"
+            },
+            "cd6:Version_Number": {
+               "$ref": "#/properties/cd6:Version_Number"
+            },
+            "cd6:Created_DateTime": {
+               "$ref": "#/properties/cd6:Created_DateTime"
+            },
+            "cd6:Updated_DateTime": {
+               "$ref": "#/properties/cd6:Updated_DateTime"
+            },
+            "cd6:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd6:Record_Status_Code_ID"
+            },
+            "cd6:Session_Updated_ID": {
+               "$ref": "#/properties/cd6:Session_Updated_ID"
+            }
+         }
+      },
+      "cd6:Action_": {
+         "title": "cd6:Action_",
+         "description": "Action ",
+         "properties": {
+            "cd6:Media": {
+               "$ref": "#/properties/cd6:Media"
+            },
+            "cd6:Role_Code": {
+               "$ref": "#/properties/cd6:Role_Code"
+            },
+            "cd6:Party_Type": {
+               "$ref": "#/properties/cd6:Party_Type"
+            },
+            "cd6:Party": {
+               "$ref": "#/properties/cd6:Party"
+            },
+            "cd6:Activity": {
+               "$ref": "#/properties/cd6:Activity"
+            },
+            "cd6:Schedule_Event": {
+               "$ref": "#/properties/cd6:Schedule_Event"
+            },
+            "cd6:Note_Type": {
+               "$ref": "#/properties/cd6:Note_Type"
+            },
+            "cd6:Note": {
+               "$ref": "#/properties/cd6:Note"
+            },
+            "cd6:Media_Type": {
+               "$ref": "#/properties/cd6:Media_Type"
+            },
+            "cd6:Disposition_Code": {
+               "$ref": "#/properties/cd6:Disposition_Code"
+            },
+            "cd6:Event": {
+               "$ref": "#/properties/cd6:Event"
+            },
+            "cd6:Activity_Type": {
+               "$ref": "#/properties/cd6:Activity_Type"
+            },
+            "cd6:Reason_Code": {
+               "$ref": "#/properties/cd6:Reason_Code"
+            },
+            "cd6:Priority_Code": {
+               "$ref": "#/properties/cd6:Priority_Code"
+            },
+            "cd6:Disposition": {
+               "$ref": "#/properties/cd6:Disposition"
+            }
+         }
+      }
+   },
+   "properties": {
+      "cd6:Activity_ID": {
+         "description": "Activity ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Event_ID": {
+         "description": "Event ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Media_ID": {
+         "description": "Media ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Alternate_ID": {
+         "description": "Alternate ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Type_ID": {
+         "description": "Type ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Category_Text": {
+         "description": "Category Text",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Status_Code": {
+         "description": "Status Code",
+         "type": "array",
+         "items": { "type": "integer" }
+      },
+      "cd6:Url_Text": {
+         "description": "Url Text",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Size_In_Bytes": {
+         "description": "Size In Bytes",
+         "type": "array",
+         "items": { "type": "integer" }
+      },
+      "cd6:Media_Data": {
+         "description": "Media Data",
+      },
+      "cd6:Scope_Code_ID": {
+         "description": "Scope Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Content_Type_Code_ID": {
+         "description": "Content Type Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Content_Type_Text": {
+         "description": "Content Type Text",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Default_Indicator": {
+         "description": "Default Indicator",
+         "type": "array",
+         "items": { "type": "boolean" }
+      },
+      "cd6:Serial_No": {
+         "description": "Serial No",
+         "type": "array",
+         "items": { "type": "long" }
+      },
+      "cd6:Status_Code_ID": {
+         "description": "Status Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Status_DateTime": {
+         "description": "Status Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Reference_Date_Type_ID": {
+         "description": "Reference Date Type ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Reference_DateTime": {
+         "description": "Reference Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Tenant_ID": {
+         "description": "Tenant ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Data_Owner_ID": {
+         "description": "Data Owner ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Agency_Reporting_ID": {
+         "description": "Agency Reporting ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Sequence_Number": {
+         "description": "Sequence Number",
+         "type": "array",
+         "items": { "type": "integer" }
+      },
+      "cd6:Effective_DateTime": {
+         "description": "Effective Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Effective_End_DateTime": {
+         "description": "Effective End Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Version_Number": {
+         "description": "Version Number",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Created_DateTime": {
+         "description": "Created Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Updated_DateTime": {
+         "description": "Updated Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Record_Status_Code_ID": {
+         "description": "Record Status Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Session_Updated_ID": {
+         "description": "Session Updated ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Code_ID": {
+         "description": "Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Description": {
+         "description": "Description",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Category_ID": {
+         "description": "Category ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:CodeSet_Name": {
+         "description": "Code Set Name",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Party_ID": {
+         "description": "Party ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Identification_ID": {
+         "description": "Identification ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Role_Code_ID": {
+         "description": "Role Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Duration": {
+         "description": "Duration",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Organization_ID": {
+         "description": "Organization ID
+An external reference to an (Entity) Organization",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Contact_ID": {
+         "description": "Contact ID
+An external reference to an (Entity) Contact",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Person_ID": {
+         "description": "Person ID
+An external reference to a (Entity) Person",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Disposition_ID": {
+         "description": "Disposition ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Name": {
+         "description": "Name",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Priority_Code_ID": {
+         "description": "Priority Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Reason_Code_ID": {
+         "description": "Reason Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Scheduled_DateTime": {
+         "description": "Scheduled Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Started_DateTime": {
+         "description": "Started Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Ended_DateTime": {
+         "description": "Ended Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Case_ID": {
+         "description": "Case ID
+An external reference to a (Management) Case",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Location_ID": {
+         "description": "Location ID
+An external reference to a (Geography) Location",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Schedule_Event_ID": {
+         "description": "Schedule Event ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Note_ID": {
+         "description": "Note ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Note_Type_ID": {
+         "description": "Note Type ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Note_Text": {
+         "description": "Note Text",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Note_DateTime": {
+         "description": "Note Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd6:Author_ID": {
+         "description": "Author ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Author_Role_ID": {
+         "description": "Author Role ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Author_Name": {
+         "description": "Author Name",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Tags": {
+         "description": "Provided to set a comma delimited list of Privacy, Security or other data Tags such as GDPR, HIPAA, PII or other.",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:EventType_ID": {
+         "description": "Event Type ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd6:Media": {
+         "description": "Media",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Media_"
+         }
+      },
+      "cd6:Role_Code": {
+         "description": "Role Code",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Role_Code_"
+         }
+      },
+      "cd6:Party_Type": {
+         "description": "Party Type",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Party_Type_"
+         }
+      },
+      "cd6:Party": {
+         "description": "Party",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Party_"
+         }
+      },
+      "cd6:Activity": {
+         "description": "Activity",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Activity_"
+         }
+      },
+      "cd6:Schedule_Event": {
+         "description": "Schedule Event",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Schedule_Event_"
+         }
+      },
+      "cd6:Note_Type": {
+         "description": "Note Type",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Note_Type_"
+         }
+      },
+      "cd6:Note": {
+         "description": "Note",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Note_"
+         }
+      },
+      "cd6:Media_Type": {
+         "description": "Media Type",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Media_Type_"
+         }
+      },
+      "cd6:Disposition_Code": {
+         "description": "Disposition Code",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Disposition_Code_"
+         }
+      },
+      "cd6:Event": {
+         "description": "Event",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Event_"
+         }
+      },
+      "cd6:Activity_Type": {
+         "description": "Activity Type",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Activity_Type_"
+         }
+      },
+      "cd6:Reason_Code": {
+         "description": "Reason Code",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Reason_Code_"
+         }
+      },
+      "cd6:Priority_Code": {
+         "description": "Priority Code",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Priority_Code_"
+         }
+      },
+      "cd6:Disposition": {
+         "description": "Disposition",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Disposition_"
+         }
+      },
+      "cd6:Action": {
+         "description": "Action",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd6:Action_"
+         }
+      }
+   }
+}

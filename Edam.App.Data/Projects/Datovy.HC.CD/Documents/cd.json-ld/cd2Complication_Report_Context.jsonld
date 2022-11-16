@@ -1,0 +1,33 @@
+{
+  "@context": {
+      "cd2": "http://www.datovy.com/hc/cd/Surveillance/#",
+      "complication_Report_ID": "cd2:Complication_Report_ID",
+      "report_Date": "cd2:Report_Date",
+      "permanent_Flag_ID": "cd2:Permanent_Flag_ID",
+      "travel_Time_Last": "cd2:Travel_Time_Last",
+      "travel_Time_Unit_Code_ID": "cd2:Travel_Time_Unit_Code_ID",
+      "travel_Country_Code_ID": "cd2:Travel_Country_Code_ID",
+      "travel_Returned_Date": "cd2:Travel_Returned_Date",
+      "import_Status_Flag_ID": "cd2:Import_Status_Flag_ID",
+      "exposure_Source_Code_ID": "cd2:Exposure_Source_Code_ID",
+      "detection_Method_Code_ID": "cd2:Detection_Method_Code_ID",
+      "patient_Address_City_Code_ID": "cd2:Patient_Address_City_Code_ID",
+      "investigation_Status_Code_ID": "cd2:Investigation_Status_Code_ID",
+      "transmission_Setting_Code_ID": "cd2:Transmission_Setting_Code_ID",
+      "age_Setting_Verified_Flag_ID": "cd2:Age_Setting_Verified_Flag_ID",
+      "epidemiology_Linked_Flag_ID": "cd2:Epidemiology_Linked_Flag_ID",
+      "case_ID": "cd2:Case_ID",
+      "subject_ID": "cd2:Subject_ID",
+      "tenant_ID": "cd2:Tenant_ID",
+      "data_Owner_ID": "cd2:Data_Owner_ID",
+      "agency_Reporting_ID": "cd2:Agency_Reporting_ID",
+      "sequence_Number": "cd2:Sequence_Number",
+      "effective_DateTime": "cd2:Effective_DateTime",
+      "effective_End_DateTime": "cd2:Effective_End_DateTime",
+      "version_Number": "cd2:Version_Number",
+      "created_DateTime": "cd2:Created_DateTime",
+      "updated_DateTime": "cd2:Updated_DateTime",
+      "record_Status_Code_ID": "cd2:Record_Status_Code_ID",
+      "session_Updated_ID": "cd2:Session_Updated_ID"
+   }
+}

@@ -1,0 +1,22 @@
+{
+  "@context": {
+      "cd7": "http://www.datovy.com/hc/cd/Management/#",
+      "disposition_ID": "cd7:Disposition_ID",
+      "code_ID": "cd7:Code_ID",
+      "disposition_DateTime": "cd7:Disposition_DateTime",
+      "status_Code_ID": "cd7:Status_Code_ID",
+      "status_DateTime": "cd7:Status_DateTime",
+      "case_ID": "cd7:Case_ID",
+      "tenant_ID": "cd7:Tenant_ID",
+      "data_Owner_ID": "cd7:Data_Owner_ID",
+      "agency_Reporting_ID": "cd7:Agency_Reporting_ID",
+      "sequence_Number": "cd7:Sequence_Number",
+      "effective_DateTime": "cd7:Effective_DateTime",
+      "effective_End_DateTime": "cd7:Effective_End_DateTime",
+      "version_Number": "cd7:Version_Number",
+      "created_DateTime": "cd7:Created_DateTime",
+      "updated_DateTime": "cd7:Updated_DateTime",
+      "record_Status_Code_ID": "cd7:Record_Status_Code_ID",
+      "session_Updated_ID": "cd7:Session_Updated_ID"
+   }
+}

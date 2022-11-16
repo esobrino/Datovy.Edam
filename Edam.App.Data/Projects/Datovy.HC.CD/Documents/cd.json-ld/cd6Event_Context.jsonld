@@ -1,0 +1,28 @@
+{
+  "@context": {
+      "cd6": "http://www.datovy.com/hc/cd/Action/#",
+      "event_ID": "cd6:Event_ID",
+      "alternate_ID": "cd6:Alternate_ID",
+      "activity_ID": "cd6:Activity_ID",
+      "eventType_ID": "cd6:EventType_ID",
+      "description": "cd6:Description",
+      "organization_ID": "cd6:Organization_ID",
+      "person_ID": "cd6:Person_ID",
+      "scheduled_DateTime": "cd6:Scheduled_DateTime",
+      "started_DateTime": "cd6:Started_DateTime",
+      "ended_DateTime": "cd6:Ended_DateTime",
+      "status_Code_ID": "cd6:Status_Code_ID",
+      "status_DateTime": "cd6:Status_DateTime",
+      "tenant_ID": "cd6:Tenant_ID",
+      "data_Owner_ID": "cd6:Data_Owner_ID",
+      "agency_Reporting_ID": "cd6:Agency_Reporting_ID",
+      "sequence_Number": "cd6:Sequence_Number",
+      "effective_DateTime": "cd6:Effective_DateTime",
+      "effective_End_DateTime": "cd6:Effective_End_DateTime",
+      "version_Number": "cd6:Version_Number",
+      "created_DateTime": "cd6:Created_DateTime",
+      "updated_DateTime": "cd6:Updated_DateTime",
+      "record_Status_Code_ID": "cd6:Record_Status_Code_ID",
+      "session_Updated_ID": "cd6:Session_Updated_ID"
+   }
+}

@@ -25,7 +25,12 @@ namespace Edam.Data.Asset
 
       public String FullName
       {
-         get { return (Root + "_" + Domain).Replace("/","_"); }
+         get 
+         { 
+            return (Root + "_" + Domain).Replace("/","_") + 
+               (String.IsNullOrWhiteSpace(Schema) ? 
+                  String.Empty : "_" + Schema); 
+         }
       }
 
       public NamespacePath(Uri uri)

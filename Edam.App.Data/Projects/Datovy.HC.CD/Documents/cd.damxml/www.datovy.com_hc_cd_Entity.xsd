@@ -1,0 +1,1716 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Type_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Description" type="cd5:string" />
+  <xs:element name="Category_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Category ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="CodeSet_Name" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Code Set Name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Tenant_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Tenant ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Data_Owner_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Data Owner ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Agency_Reporting_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Agency Reporting ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sequence_Number" type="cd5:integer">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Sequence Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Effective Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_End_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Effective End Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Version_Number" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Version Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Created_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Created Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Updated_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Updated Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Record_Status_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Record Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Session_Updated_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Session Updated ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Person_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contact_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Contact ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Alternate_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Alternate ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Name" type="cd5:string" />
+  <xs:element name="Sex_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Sex Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Phone_Number" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Phone Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Email_Addresss" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Email Addresss</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Risk_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Risk Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Priority_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Priority Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Jurisdiction_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">have the information for the jurisdiction -- jurisdiction table will be required.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Status_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Status_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Status Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Person_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Person ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Organization_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Organization ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Officer_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Officer ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Contact_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sex_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Phone_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Email_Addresss" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Risk_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Priority_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Jurisdiction_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Number_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Number ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="URL" type="cd5:string" />
+  <xs:complexType name="Organization_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Number_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:URL" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person_Death_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Person Death ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Source_Text" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Source Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Death_Date" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Death Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Death_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Death Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Death_Date_Text" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Death Date Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Cause_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Cause Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Person_Death_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_Death_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Source_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Death_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Death_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Death_Date_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Cause_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person_Flag_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Person Flag ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Flag_Value" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">'Y'</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Person_Flag_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Flag_Value" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Location_Link_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Location Link ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Location_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Location ID
+External reference for (Geography) Location</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Location_Link_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Location_Link_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Location_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Identification_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Identification ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Identification_Number" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Identification Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Class_Code" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Class Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Enacted_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Enacted Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Expiration_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Expiration Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Identification_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Identification_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Identification_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Class_Code" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Jurisdiction_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Enacted_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Expiration_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Communication_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Communication ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Device_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Phone, Fax</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Device_Usage_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Work, Home, Office</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Phone_Country_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Phone Country Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Phone_Area_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Phone Area Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Extension" type="cd5:string" />
+  <xs:complexType name="Communication_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Communication_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Device_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Device_Usage_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Phone_Country_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Phone_Area_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Phone_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Extension" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Organization_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Officer_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Registry_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Registry ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Officer_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Registry_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tags" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Provided to set a comma delimited list of Privacy, Security or other data Tags such as GDPR, HIPAA, PII or other.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Device_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tags" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contact_Emergency_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Contact Emergency ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Contact_Emergency_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_Emergency_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sex_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Phone_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Email_Addresss" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Contact_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Identification_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tags" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Sexual_Orientation_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Gender_Identity_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Employment_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Employment_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Employment ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Employer_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Employer ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Employee_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Employee ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Industry_Text" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Industry Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Industry_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Industry Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Occupation_Text" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Occupation Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Occupation_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Occupation Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Start_Date" type="cd5:date">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Start Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Ended_Date" type="cd5:date">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Ended Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Employment_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Employment_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Employer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Employee_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Industry_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Industry_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Occupation_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Occupation_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Start_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Ended_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Entity_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Sex_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Ethnicity_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Race_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Name_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Name ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Name_Type_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">A name type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Name_Given" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">A given name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Name_Middle" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">A middle name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Name_Family" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">A family name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Name_Prefix_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">A name prefix</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Name_Suffix_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">A name suffix</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Name_Full" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">A person or entity full name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Name_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Given" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Middle" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Family" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Prefix_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Suffix_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Full" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Name_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Note_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Note_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Note ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note_Type_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Note Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note_Text" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Note Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Note Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Author_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Author ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Author_Role_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Author Role ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Author_Name" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Author Name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Note_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Note_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Note_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Note_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Note_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Author_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Author_Role_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Author_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Media_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tags" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Media_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Media ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Category_Text" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Category Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Status_Code" type="cd5:integer">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Status Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Url_Text" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Url Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Size_In_Bytes" type="cd5:integer">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Size In Bytes</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Media_Data" type="cd5:varbinary">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Media Data</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Scope_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Scope Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Content_Type_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Content Type Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Content_Type_Text" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Content Type Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Media_Default_Indicator" type="cd5:boolean">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Media Default Indicator</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Serial_No" type="cd5:long">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Serial No</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reference_Date_Type_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Reference Date Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reference_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Reference Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Media_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Media_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Url_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Size_In_Bytes" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Media_Data" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Scope_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Content_Type_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Content_Type_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Media_Default_Indicator" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Serial_No" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Reference_Date_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Reference_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Item_Link_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Item Link ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Item_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Item ID
+External reference for (Management) Case</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Item_Link_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Item_Link_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Item_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Flag_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="URI_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">URI ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Absolute_URI" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Absolute URI</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Category_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Category Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Uri_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:URI_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Absolute_URI" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Uri_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tags" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Status_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Industry_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Occupation_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Marital_Status_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Indicator_Flag_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Affiliation_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Affiliation ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Entity_Name" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Entity Name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Affiliated_Flag_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Affiliated Flag ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Enrolled_Flag_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Enrolled Flag ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Enrolled_Date" type="cd5:date">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Enrolled Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Affiliation_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Affiliation_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Entity_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Affiliated_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Enrolled_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Enrolled_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Religion_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Birth_DateTime" type="cd5:dateTime">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Birth Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Birth_Date" type="cd5:date">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Birth Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Birth_Date_Text" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Birth Date Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Birth_Location_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Birth Location ID
+Birth Location ID is a reference to a location detailed elsewhere</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Birth_Weight" type="cd5:integer">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Birth weight (in grams)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sex_Birth_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Sex at Birth: Male, Female, Other, Unknown</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Gender_Identity_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">The person identifies the Identity as</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sexual_Orientation_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Sexual Orientation Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Height" type="cd5:integer" />
+  <xs:element name="Height_Unit_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Height Unit Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Weight" type="cd5:integer" />
+  <xs:element name="Weight_Unit_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Weight Unit Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Ethnicity_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Ethnicity Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Race_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Race Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Language_Primary_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Language Primary ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Language_Secondary_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Language Secondary ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Education_Level_Highest_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Education Level Highest Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Religion_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Religion Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Marital_Status_Date" type="cd5:date">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Marital Status Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Marital_Status_Code_ID" type="cd5:string">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Marital Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Person_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Person_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Birth_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Birth_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Birth_Date_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Birth_Location_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Birth_Weight" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Given" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Middle" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Family" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Prefix_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Suffix_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Name_Full" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sex_Birth_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sex_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Gender_Identity_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sexual_Orientation_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Height" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Height_Unit_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Weight" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Weight_Unit_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Ethnicity_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Race_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Language_Primary_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Language_Secondary_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Education_Level_Highest_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Religion_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Marital_Status_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Marital_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person_Type" type="cd5:Person_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Person Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact" type="cd5:Contact_" />
+  <xs:element name="Organization" type="cd5:Organization_" />
+  <xs:element name="Person_Death" type="cd5:Person_Death_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Person Death</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Person_Flag" type="cd5:Person_Flag_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Person Flag</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Location_Link" type="cd5:Location_Link_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Location Link</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Identification" type="cd5:Identification_" />
+  <xs:element name="Communication" type="cd5:Communication_" />
+  <xs:element name="Organization_Type" type="cd5:Organization_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Organization Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Officer_Type" type="cd5:Officer_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Officer Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Officer" type="cd5:Officer_" />
+  <xs:element name="Device_Type" type="cd5:Device_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Device Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_Emergency" type="cd5:Contact_Emergency_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Contact Emergency</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_Type" type="cd5:Contact_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Contact Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Identification_Type" type="cd5:Identification_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Identification Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sexual_Orientation_Code" type="cd5:Sexual_Orientation_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Sexual Orientation Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Gender_Identity_Code" type="cd5:Gender_Identity_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Gender Identity Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Employment_Type" type="cd5:Employment_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Employment Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Employment" type="cd5:Employment_" />
+  <xs:element name="Entity_Type" type="cd5:Entity_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Entity Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sex_Code" type="cd5:Sex_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Sex Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Ethnicity_Code" type="cd5:Ethnicity_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Ethnicity Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Race_Code" type="cd5:Race_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Race Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Name_Type" type="cd5:Name_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Name Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note_Type" type="cd5:Note_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Note Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Note" type="cd5:Note_" />
+  <xs:element name="Media_Type" type="cd5:Media_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Media Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Media" type="cd5:Media_" />
+  <xs:element name="Item_Link" type="cd5:Item_Link_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Item Link</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Flag_Code" type="cd5:Flag_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Flag Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Uri" type="cd5:Uri_" />
+  <xs:element name="Uri_Type" type="cd5:Uri_Type_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Uri Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Industry_Code" type="cd5:Industry_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Industry Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Occupation_Code" type="cd5:Occupation_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Occupation Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Marital_Status_Code" type="cd5:Marital_Status_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Marital Status Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Indicator_Flag_Code" type="cd5:Indicator_Flag_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Indicator Flag Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Affiliation" type="cd5:Affiliation_" />
+  <xs:element name="Religion_Code" type="cd5:Religion_Code_">
+    <xs:annotation>
+      <xs:documentation source="http://hc/Entity/">Religion Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Person" type="cd5:Person_" />
+  <xs:complexType name="Entity_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Person_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Contact" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Organization" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Person_Death" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Person_Flag" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Location_Link" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Identification" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Communication" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Organization_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Officer_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Officer" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Device_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Contact_Emergency" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Contact_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Identification_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Sexual_Orientation_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Gender_Identity_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Employment_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Employment" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Entity_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Sex_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Ethnicity_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Race_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Name" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Name_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Note_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Note" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Media_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Media" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Item_Link" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Flag_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Uri" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Uri_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Status_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Industry_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Occupation_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Marital_Status_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Indicator_Flag_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Affiliation" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Religion_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd5:Person" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

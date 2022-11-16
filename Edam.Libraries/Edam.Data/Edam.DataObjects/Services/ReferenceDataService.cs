@@ -38,6 +38,11 @@ namespace Edam.DataObjects.Services
       UpdateDomainHandler(string sessionId, string organizationId, 
          DataDomain domain);
 
+   public delegate Task<RequestResponseInfo<string>>
+      UpdateBatchHandler(string sessionId, string organizationId,
+         string dataOwnerId, string batchId, string domainUri, string versionId,
+         string groupId);
+
    public class ReferenceDataService
    {
 
@@ -50,6 +55,7 @@ namespace Edam.DataObjects.Services
       public UpdateElementHandler UpdateElementData { get; set; }
       public GetDomainHandler GetDomainData { get; set; }
       public UpdateDomainHandler UpdateDomainData { get; set; }
+      public UpdateBatchHandler UpdateBatchData { get; set; }
 
       #region -- 4.00 - Get All (Remote)
 
@@ -291,6 +297,46 @@ namespace Edam.DataObjects.Services
       }
 
       #endregion
+      #region -- 4.00 - Insert - Update Domain (Local)
+
+      public static async Task<RequestResponseInfo<string>>
+         UpdateBatchDataLocal(
+            string sessionId, string organizationId,
+            string dataOwnerId, string batchId, string domainUri,
+            string versionId, string groupId)
+      {
+         if (String.IsNullOrWhiteSpace(organizationId))
+         {
+            organizationId = Session.OrganizationId;
+         }
+         if (String.IsNullOrWhiteSpace(sessionId))
+         {
+            sessionId = Session.SessionId;
+         }
+         if (String.IsNullOrWhiteSpace(dataOwnerId))
+         {
+            dataOwnerId = Session.OrganizationId;
+         }
+
+         IResultsLog results = await Task.Run(() =>
+         {
+            IResultsLog r = DataBatchRecord.BatchInsertUpdate(
+               sessionId, organizationId, dataOwnerId, batchId, domainUri,
+               versionId, groupId);
+            return r;
+         });
+
+         RequestResponseInfo<string> response =
+            new RequestResponseInfo<string>();
+
+         response.Results.Copy(results);
+         response.ResponseData = results.Success ?
+            results.DataObject.ToString() : String.Empty;
+
+         return response;
+      }
+
+      #endregion
       #region -- 4.00 - Reference Data Service (entries)
 
       /// <summary>
@@ -313,6 +359,7 @@ namespace Edam.DataObjects.Services
             s.UpdateElementData = ReferenceDataService.UpdateElementDataRemote;
             s.GetDomainData = ReferenceDataService.GetDomainDataLocal;
             s.UpdateDomainData = ReferenceDataService.UpdateDomainDataLocal;
+            s.UpdateBatchData = ReferenceDataService.UpdateBatchDataLocal;
          }
          else
          {
@@ -320,6 +367,7 @@ namespace Edam.DataObjects.Services
             s.UpdateElementData = ReferenceDataService.UpdateElementDataLocal;
             s.GetDomainData = ReferenceDataService.GetDomainDataLocal;
             s.UpdateDomainData = ReferenceDataService.UpdateDomainDataLocal;
+            s.UpdateBatchData = ReferenceDataService.UpdateBatchDataLocal;
          }
          return s;
       }
