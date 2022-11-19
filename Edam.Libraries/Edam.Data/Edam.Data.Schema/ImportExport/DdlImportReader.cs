@@ -117,7 +117,7 @@ namespace Edam.Data.Schema.ImportExport
             var celement = dasset.PrepareColumnDefinition(item);
             if (xproperty != null)
             {
-               dasset.UpdateEntityProperty(xproperty, celement);
+               DdlAsset.UpdateEntityProperty(xproperty, celement);
             }
          }
 

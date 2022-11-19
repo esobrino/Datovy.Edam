@@ -199,7 +199,7 @@ namespace Edam.Data.AssetManagement.Resources
       }
 
       #endregion
-      #region -- Database Access, Get, Save, ...
+      #region -- Database Access Get
 
       public async Task<DataReferenceFetchResult> GetDataAsync(
          string organizationId, string root, string elementName,
@@ -285,6 +285,28 @@ namespace Edam.Data.AssetManagement.Resources
          }
          return results;
       }
+
+      #endregion
+      #region -- Database Access Batch
+
+      /// <summary>
+      /// Insert or Update a batch request...
+      /// </summary>
+      /// <param name="batchId"></param>
+      /// <param name="domainUri"></param>
+      /// <param name="versionId"></param>
+      /// <param name="groupId"></param>
+      /// <returns></returns>
+      public async Task<ResultsLog<string>> BatchUpsert(
+         string batchId, string domainUri, string versionId, string groupId)
+      {
+         var task = await m_DataService.UpdateBatchData(
+            null, null, null, batchId, domainUri, versionId, groupId);
+         return results;
+      }
+
+      #endregion
+      #region -- Database Access Save 
 
       /// <summary>
       /// Save assets collection.

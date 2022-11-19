@@ -180,14 +180,18 @@ namespace Edam.Data.Schema.ImportExport
          }
       }
 
-      public void UpdateEntityProperty(ElementPropertyInfo property,
+      public static void UpdateEntityProperty(ElementPropertyInfo property,
          AssetElementInfo<IAsset> item)
       {
          if (property != null &&
             !String.IsNullOrWhiteSpace(property.PropertyValue))
          {
             item.Kind = DataElementKind.ExternalReference;
-            item.AddAnnotation(property.PropertyValue);
+            string text = item.Annotation.Count > 0 ?
+               item.AnnotationText : String.Empty;
+
+            item.Annotation.Clear();
+            item.AddAnnotation(text + "... " + property.PropertyValue);
          }
       }
 

@@ -23,6 +23,14 @@ namespace Edam.DataObjects.Assets
          {
             sessionId = Session.SessionId;
          }
+         if (string.IsNullOrWhiteSpace(organizationId))
+         {
+            organizationId = Session.OrganizationId;
+         }
+         if (string.IsNullOrWhiteSpace(dataOwnerId))
+         {
+            dataOwnerId = Session.OrganizationId;
+         }
 
          DataProvider provider = DataProvider.CreateProcedure(
             "Data.DataBatchUpsert",
