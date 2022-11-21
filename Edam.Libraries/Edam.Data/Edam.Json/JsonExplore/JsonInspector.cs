@@ -82,13 +82,13 @@ namespace Edam.Json.JsonExplore
       /// </summary>
       /// <param name="items">list of XML instance files</param>
       /// <returns></returns>
-      public static List<AssetUseCase> PrepareUseCases(List<string> items)
+      private List<AssetUseCase> PrepareUseCases(List<string> items)
       {
          List<AssetUseCase> cases = new List<AssetUseCase>();
          foreach (var i in items)
          {
             var jsonText = System.IO.File.ReadAllText(i);
-            var uc = new JsonHelper.JsonAssetUseCase(jsonText);
+            var uc = new JsonHelper.JsonAssetUseCase(m_Arguments, jsonText);
             if (uc.Success)
                cases.Add(uc.UseCase);
          }

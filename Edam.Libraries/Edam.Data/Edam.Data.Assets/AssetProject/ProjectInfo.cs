@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Edam.Data.AssetProject
 {
+
    public class ProjectInfo
    {
+
       public string Name { get; set; }
+      public string VersionId { get; set; }
 
    }
 

@@ -1,13 +1,15 @@
-﻿using Edam.Application;
-using Edam.Data.AssetManagement;
-using Edam.Data;
-using Edam.DataObjects.ReferenceData;
-using Edam.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+// -----------------------------------------------------------------------------
+using Edam.Application;
+using Edam.Data.AssetManagement;
+using Edam.Data;
+using Edam.DataObjects.ReferenceData;
+using Edam.Diagnostics;
 
 namespace Edam.DataObjects.Assets
 {
@@ -51,7 +53,7 @@ namespace Edam.DataObjects.Assets
             p.AddWithValue("@DomainUri", domainUri, 2048);
             p.AddWithValue("@VersionId", versionId, 20);
             p.AddWithValue("@GroupId", groupId, 20);
-            var r0 = p.AddWithValue("@OutBatchId", outBatchId, 20, true);
+            var r0 = p.AddWithValue("@OutBatchId", outBatchId, 40, true);
 
             if (provider.Exec())
             {

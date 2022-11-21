@@ -18,7 +18,7 @@ namespace Edam.B2b.Edi
    public class EdiAsset
    {
       private List<PropertyInfo> m_Properties;
-      public EdiAsset()
+      public EdiAsset(AssetConsoleArgumentsInfo arguments)
       {
          BaseDefinitionInfo d = new BaseDefinitionInfo();
          m_Properties = d.GetType().GetProperties().ToList<PropertyInfo>();
@@ -277,10 +277,11 @@ namespace Edam.B2b.Edi
       }
 
       private static AssetDataElementList? PrepareDocument(
-         EntryList entries, NamespaceInfo ns)
+         EntryList entries, AssetConsoleArgumentsInfo arguments)
       {
          // get root element name
-         string rootName = Convert.ToTitleCase(ns.Uri.Segments.Last());
+         string rootName = Convert.ToTitleCase(
+            arguments.Namespace.Uri.Segments.Last());
 
          // add submission document root type
          ExchangeDefinitionInfo entry = new();
@@ -289,7 +290,7 @@ namespace Edam.B2b.Edi
          entry.EntityElementName = entry.SegmentCode;
 
          // prepare the document
-         EntryList doc = new EntryList(ns);
+         EntryList doc = new EntryList(arguments.Namespace);
 
          AssetDataElement root = doc.Add(
             String.Empty, entry.SegmentCode, entry, false, false);
@@ -326,7 +327,7 @@ namespace Edam.B2b.Edi
                   // add a new asset type to structure
                   // TODO: replace hardcoded string
                   AssetDataElement nasset = doc.PrepareEntity(
-                     String.Empty, eName, eName, "object", ns);
+                     String.Empty, eName, eName, "object", arguments.Namespace);
                   eitem.Elements.Add(nasset);
                   doc.Elements.Add(eitem);
 
@@ -362,7 +363,8 @@ namespace Edam.B2b.Edi
          }
 
          // build assets list to be returned
-         AssetDataElementList elements = new();
+         AssetDataElementList elements = new(arguments.Namespace, 
+            AssetType.Schema, arguments.Project.VersionId);
          foreach(var item in entries.Elements)
          {
             elements.AddRange(item.Elements);
@@ -393,10 +395,10 @@ namespace Edam.B2b.Edi
       /// <param name="ns"></param>
       /// <returns></returns>
       public static AssetDataElementList? ToAssets(
-         List<List<string>> list, NamespaceInfo ns)
+         List<List<string>> list, AssetConsoleArgumentsInfo arguments)
       {
          List<string> entities = new List<string>();
-         EntryList entries = new EntryList(ns);
+         EntryList entries = new EntryList(arguments.Namespace);
 
          List<string>? headers = 
             list == null || list.Count <= 1 ? null : list[0];
@@ -407,7 +409,7 @@ namespace Edam.B2b.Edi
 
          // add all segments...
          ExchangeDefinitionInfo entry = new ExchangeDefinitionInfo();
-         EdiAsset a = new EdiAsset();
+         EdiAsset a = new EdiAsset(arguments);
          for(var i = 1; i < list.Count; i++)
          {
             entry = a.GetItem(list[i]);
@@ -418,7 +420,7 @@ namespace Edam.B2b.Edi
             entries.Add("", entry.EntityElementName, entry);
          }
 
-         return PrepareDocument(entries, ns);
+         return PrepareDocument(entries, arguments);
       }
    }
 

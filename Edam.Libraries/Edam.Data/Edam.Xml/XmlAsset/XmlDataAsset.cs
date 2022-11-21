@@ -31,6 +31,16 @@ namespace Edam.Xml.XmlAsset
          }
       }
 
+      public XmlDataAsset(AssetDataElementList list) : base(list)
+      {
+
+      }
+      public XmlDataAsset(NamespaceInfo ns, AssetType type, 
+         string versionId) : base(ns, type, versionId)
+      {
+
+      }
+
       #region -- Instance Element Support
 
       public XmlElementInfo AddElement(InstanceElement element)

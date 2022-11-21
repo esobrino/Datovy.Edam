@@ -46,6 +46,13 @@ namespace Edam.Data.AssetConsole
       }
 
       [JsonIgnore]
+      public String ProjectVersionId
+      {
+         get { return Project.VersionId; }
+         set { Project.VersionId = value; }
+      }
+
+      [JsonIgnore]
       public String RecordId
       {
          get { return Process.RecordId; }
@@ -399,14 +406,15 @@ namespace Edam.Data.AssetConsole
 
       public void Add(AssetDataElementList items)
       {
-         AssetData data = new AssetData();
+         AssetData data = new AssetData(items);
          data.Items = items;
          AssetDataItems.Add(data);
       }
 
-      public List<AssetData> AssetDataMerge()
+      public List<AssetData> AssetDataMerge(AssetType type)
       {
-         var assets = AssetData.Merge(AssetDataItems, Namespace);
+         var assets = AssetData.Merge(AssetDataItems, Namespace, type,
+            Project.VersionId);
          AssetDataItems.Clear();
          AssetDataItems.Add(assets);
          return AssetDataItems;

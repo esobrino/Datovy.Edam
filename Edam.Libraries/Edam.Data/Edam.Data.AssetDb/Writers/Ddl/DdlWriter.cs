@@ -51,7 +51,7 @@ namespace Edam.Data.AssetManagement.Writers.Ddl
 
          // add catalog based on the root URI...
          String root = context.Namespace.Prefix;
-         CatalogInfo cat = new CatalogInfo
+         CatalogInfo cat = new CatalogInfo(context.ProjectVersionId)
          {
             Namespace = new NamespaceInfo(root, context.Namespace.Uri),
             Name = root

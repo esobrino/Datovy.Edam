@@ -24,7 +24,7 @@ namespace Edam.Data.Schema.SchemaObject
       public string NamespaceAlias { get; set; }
 
       public void Add(List<SchemaResource> items, 
-         List<SchemaResourceConstraint> constraints)
+         List<SchemaResourceConstraint> constraints, string versionId)
       {
          if (Catalogs == null)
             Catalogs = new List<CatalogInfo>();
@@ -42,11 +42,11 @@ namespace Edam.Data.Schema.SchemaObject
                cat = Catalogs.Find((x) => { return x.Name == i.CatalogName; });
                if (cat == null)
                {
-                  cat = new CatalogInfo
-                  {
-                     Name = i.CatalogName,
-                     Constraints = constraints
-                  };
+                  cat = new CatalogInfo(versionId);
+
+                  cat.Name = i.CatalogName;
+                  cat.Constraints = constraints;
+                  cat.VersionId = versionId; 
                   Catalogs.Add(cat);
                }
             }

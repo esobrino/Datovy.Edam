@@ -286,7 +286,7 @@ namespace Edam.Xml.XmlExplore
             throw new ArgumentNullException("asset");
          }
 
-         _Asset = assets ?? new XmlDataAsset();
+         _Asset = assets;
          _ProcessInstanceTree = AssetProcessInstanceTree;
          _ProcessElement = AssetProcessElement;
 

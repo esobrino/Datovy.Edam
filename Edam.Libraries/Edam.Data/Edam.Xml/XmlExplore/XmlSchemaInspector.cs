@@ -10,6 +10,7 @@ using Edam.Data.Asset;
 using Edam.Data.AssetManagement;
 using Edam.Data.AssetSchema;
 using Edam.DataObjects.DataCodes;
+using Edam.Data.AssetConsole;
 
 namespace Edam.Xml.XmlExplore
 {
@@ -39,10 +40,17 @@ namespace Edam.Xml.XmlExplore
          set { m_AttributeUsesIndicator = value; }
       }
 
+      private AssetConsoleArgumentsInfo m_Arguments;
+      public AssetConsoleArgumentsInfo Arguments
+      {
+         get { return m_Arguments; }
+      }
+
       #endregion
       #region -- Constructor / Destructor
 
-      public XmlSchemaInspector(XmlSchemaSet schemaSet)
+      public XmlSchemaInspector(
+         AssetConsoleArgumentsInfo arguments, XmlSchemaSet schemaSet)
       {
          if (schemaSet == null || schemaSet.Count == 0)
             throw new Exception(
@@ -50,7 +58,8 @@ namespace Edam.Xml.XmlExplore
          m_SchemaSet = schemaSet;
          schemaSet.ValidationEventHandler +=
             new ValidationEventHandler(ValidationCallBack);
-         Asset = new AssetData();
+         Asset = new AssetData(arguments.Namespace, AssetType.Schema, 
+            arguments.ProjectVersionId);
       }
 
       #endregion

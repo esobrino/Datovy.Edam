@@ -19,7 +19,7 @@ namespace Edam.Data.AssetSchema
    public interface IResourceData
    {
       IResultsLog Save(
-         List<AssetDataElement> assets, NamespaceInfo ns, string domainName,
+         AssetDataElementList assets, NamespaceInfo ns, string domainName,
          AssetType type);
    }
 
@@ -120,7 +120,7 @@ namespace Edam.Data.AssetSchema
       public string CatalogName { get; set; }
       public string SchemaName { get; set; }
 
-      private AssetDataElementList m_Items = new AssetDataElementList();
+      private AssetDataElementList m_Items;
       public AssetDataElementList Items
       {
          get { return m_Items; }
@@ -179,20 +179,29 @@ namespace Edam.Data.AssetSchema
          {
             return m_DefaultNamespace ?? GetDefaultNamespace(); 
          }
+         set { m_DefaultNamespace = value; }
       }
+
+      public string VersionId { get; set; }
 
       #endregion
       #region -- 1.5 - Constructure / Destructure
 
-      public AssetData()
+      public AssetData(NamespaceInfo ns, AssetType type, string versionId)
       {
+         m_Items = new AssetDataElementList(ns, type, versionId);
          m_UseCaseColumns = new AssetColumnInfo();
+         DefaultNamespace = ns;
+         VersionId = versionId;
       }
 
       public AssetData(AssetDataElementList items)
       {
+         m_Items = new AssetDataElementList(items);
          m_Items = items;
          m_UseCaseColumns = new AssetColumnInfo();
+         m_DefaultNamespace = items.Namespace;
+         VersionId = items.VersionId;
       }
 
       #endregion
@@ -354,10 +363,10 @@ namespace Edam.Data.AssetSchema
       /// <returns></returns>
       public static AssetData Merge(List<AssetData> assets, string name, 
          string catalogName, string schemaName, string description, 
-         string title, NamespaceInfo ns)
+         string title, NamespaceInfo ns, AssetType type, string versionId)
       {
          NamespaceList nsList = new NamespaceList();
-         AssetData asset = new AssetData();
+         AssetData asset = new AssetData(ns, type, versionId);
          foreach(var a in assets)
          {
             asset.Items.AddRange(a.Items);
@@ -384,7 +393,8 @@ namespace Edam.Data.AssetSchema
       /// </summary>
       /// <param name="items"></param>
       /// <returns></returns>
-      public static AssetData Merge(List<AssetData> items, NamespaceInfo ns)
+      public static AssetData Merge(List<AssetData> items, NamespaceInfo ns,
+         AssetType type, string versionId)
       {
          if (items.Count == 1)
          {
@@ -392,7 +402,7 @@ namespace Edam.Data.AssetSchema
          }
 
          // merge assets and namespaces
-         AssetData a = new AssetData();
+         AssetData a = new AssetData(ns, type, versionId);
          foreach (var i in items)
          {
             NamespaceInfo.Merge(a.Namespaces, i.Namespaces);
@@ -573,7 +583,7 @@ namespace Edam.Data.AssetSchema
       {
          // prepare items list...
          int elementCount = 0;
-         AssetDataElementList itms = new AssetDataElementList();
+         AssetDataElementList itms = new AssetDataElementList(items);
 
          foreach (var i in items)
          {
@@ -615,9 +625,10 @@ namespace Edam.Data.AssetSchema
       /// <param name="items"></param>
       /// <returns></returns>
       public static AssetDataElementList ToDataElement(
-         List<DataElement> items)
+         List<DataElement> items, NamespaceInfo ns, AssetType type,
+         string versionId)
       {
-         AssetDataElementList l = new AssetDataElementList();
+         AssetDataElementList l = new AssetDataElementList(ns, type, versionId);
          foreach (var i in items)
          {
             l.Add(i.DeepCopy());

@@ -13,6 +13,8 @@ using Edam.Data.AssetSchema;
 using Edam.Data.AssetConsole;
 using Edam.DataObjects.Assets;
 using Edam.DataObjects.Services;
+using Edam.DataObjects.Requests;
+using static SQLite.SQLite3;
 
 namespace Edam.Data.AssetManagement.Resources
 {
@@ -55,6 +57,8 @@ namespace Edam.Data.AssetManagement.Resources
       public List<DataDomain> DbDomains { get; set; }
       public List<DataTerm> DbTerms { get; set; }
       public AssetDataElementList DbElements { get; set; }
+
+      public string VersionId { get; set; }
 
       /// <summary>
       /// The base context provide the ability to work through a Use Case 
@@ -160,8 +164,9 @@ namespace Edam.Data.AssetManagement.Resources
       /// <param name="uriExtension">optional uri extension</param>
       public ResourceContext(String prefix,
          Uri rootDomainUri, String organizationDomain, String uriExtension,
-         List<AssetData> assets, Boolean fetchData = true)
+         List<AssetData> assets, string versionId, Boolean fetchData = true)
       {
+         VersionId = versionId;
          m_DefaultNamespace = new NamespaceInfo(prefix, rootDomainUri);
          m_RootDomainTag = m_DefaultNamespace;
          m_OrganizationDomainId = 
@@ -297,11 +302,24 @@ namespace Edam.Data.AssetManagement.Resources
       /// <param name="versionId"></param>
       /// <param name="groupId"></param>
       /// <returns></returns>
-      public async Task<ResultsLog<string>> BatchUpsert(
+      public ResultsLog<string> BatchInsertUpdate(
          string batchId, string domainUri, string versionId, string groupId)
       {
-         var task = await m_DataService.UpdateBatchData(
+         ResultsLog<string> results = new ResultsLog<string>();
+         var t = m_DataService.UpdateBatchData(
             null, null, null, batchId, domainUri, versionId, groupId);
+         t.Wait();
+
+         if (t.Status == TaskStatus.RanToCompletion)
+         {
+            if (t.Result != null)
+            {
+               results.Copy(t.Result.Results);
+               results.Data = t.Result.ResponseData;
+            }
+         }
+         t.Dispose();
+
          return results;
       }
 
@@ -317,20 +335,33 @@ namespace Edam.Data.AssetManagement.Resources
       /// <param name="type"></param>
       /// <returns></returns>
       public Diagnostics.IResultsLog Save(
-         List<AssetDataElement> assets, NamespaceInfo ns, string domainName,
+         AssetDataElementList assets, NamespaceInfo ns, string domainName,
          AssetType type)
       {
+         string groupId = type.ToString();
+         Task<RequestResponseInfo<string>> t = null;
          Diagnostics.IResultsLog results = new Diagnostics.ResultLog();
          try
          {
-            string batchId = Guid.NewGuid().ToString();
+            string batchId = null;
+            ResultsLog<string> bresults = BatchInsertUpdate(
+               null, ns.NamePath.DomainUri, assets.VersionId, groupId);
             int cnt = 0;
+
+            if (bresults.Success)
+            {
+               batchId = bresults.Data;
+            }
+            else
+            {
+               return bresults;
+            }
 
             foreach (var i in assets)
             {
                i.BatchId = batchId;
                i.SequenceId = (cnt + 1).ToString();
-               var t = m_DataService.UpdateElementData(
+               t = m_DataService.UpdateElementData(
                   Session.SessionId, Session.OrganizationId,
                   ns.Prefix, ns.NamePath.DomainUri, domainName, i, batchId,
                   (int)type);
@@ -343,19 +374,29 @@ namespace Edam.Data.AssetManagement.Resources
                   }
                   cnt++;
                }
-               t.Dispose();
             }
+
+            bresults = BatchInsertUpdate(
+               bresults.Data, ns.NamePath.DomainUri, assets.VersionId, groupId);
+
             results.Succeeded();
          }
          catch (Exception ex)
          {
             results.Failed(ex.Message);
          }
+         finally
+         {
+            if (t != null)
+            {
+               t.Dispose();
+            }
+         }
          return results;
       }
 
       public async Task<Diagnostics.IResultsLog> SaveAsync(
-         List<AssetDataElement> assets, NamespaceInfo ns, string domainName,
+         AssetDataElementList assets, NamespaceInfo ns, string domainName,
          AssetType type)
       {
          var results = await Task<Diagnostics.IResultsLog>.Run(
@@ -371,7 +412,7 @@ namespace Edam.Data.AssetManagement.Resources
       /// <param name="domainName"></param>
       /// <returns></returns>
       public static async Task<Diagnostics.IResultsLog> SaveAssetAsync(
-         List<AssetDataElement> asset, NamespaceInfo ns, string domainName,
+         AssetDataElementList asset, NamespaceInfo ns, string domainName,
          AssetType type)
       {
          ResourceContext context = new ResourceContext();
@@ -473,7 +514,9 @@ namespace Edam.Data.AssetManagement.Resources
          //   SetNamespace(i);
          //}
          var l = types.ToList();
-         AssetDataElementList list = new AssetDataElementList();
+         AssetDataElementList list = 
+            new AssetDataElementList(
+               DefaultNamespace, AssetType.Schema, VersionId);
          list.AddRange(l);
          return list;
       }
@@ -521,7 +564,8 @@ namespace Edam.Data.AssetManagement.Resources
          }
 
          var l = types.ToList();
-         AssetDataElementList list = new AssetDataElementList();
+         AssetDataElementList list = new AssetDataElementList(
+            DefaultNamespace, AssetType.Schema, VersionId);
          list.AddRange(l);
          return list;
       }
@@ -1189,6 +1233,7 @@ namespace Edam.Data.AssetManagement.Resources
          //m_DefaultNamespace = data.DefaultNamespace;
          m_UriExtension = String.Empty;
          TypeNameSuffix = Helpers.ConfigurationHelper.TYPE_NAME_SUFFIX;
+         VersionId = data.Items.VersionId;
 
          m_Namespaces = data.Namespaces;
          if (DefaultNamespace == null)
@@ -1198,7 +1243,8 @@ namespace Edam.Data.AssetManagement.Resources
 
          DbDomains = new List<DataDomain>();
          DbTerms = new List<DataTerm>();
-         DbElements = new AssetDataElementList();
+         DbElements = new AssetDataElementList(
+            DefaultNamespace, AssetType.Schema, VersionId);
          foreach (var n in data.Namespaces)
          {
             DbDomains.Add(new DataDomain(n));
@@ -1220,7 +1266,8 @@ namespace Edam.Data.AssetManagement.Resources
          }
          if (assets[0].Items == null)
          {
-            assets[0].Items = new AssetDataElementList();
+            assets[0].Items = new AssetDataElementList(
+               DefaultNamespace, AssetType.Schema, VersionId);
          }
          PrepareContext(assets[0]);
       }
@@ -1244,10 +1291,11 @@ namespace Edam.Data.AssetManagement.Resources
 
          return new ResourceContext(
             arguments.Namespace.Prefix, ddeUri, orgDomain, extension, 
-            arguments.AssetDataItems, false);
+            arguments.AssetDataItems, arguments.Project.VersionId, false);
       }
 
-      public static ResourceContext GetContext(List<AssetData> assets)
+      public static ResourceContext GetContext(
+         List<AssetData> assets, string versionId)
       {
          if (assets == null || assets.Count == 0)
          {
@@ -1255,7 +1303,8 @@ namespace Edam.Data.AssetManagement.Resources
          }
          if (assets[0].Items == null)
          {
-            assets[0].Items = new AssetDataElementList();
+            assets[0].Items = new AssetDataElementList(
+               assets[0].DefaultNamespace, AssetType.Schema, versionId);
          }
 
          var cntx = new ResourceContext(assets[0]);

@@ -10,6 +10,19 @@ namespace Edam.Json.JsonSchemaReader
    public class JsonSchemaSet
    {
       private List<JsonSchema> m_Schemas = new List<JsonSchema>();
+
+      private NamespaceInfo m_Namespace;
+      public NamespaceInfo Namespace
+      {
+         get { return m_Namespace; }
+      }
+
+      private string m_VersionId;
+      public string VersionId
+      {
+         get { return m_VersionId; }
+      }
+
       private NamespaceList m_Namespaces;
       public NamespaceList Namespaces
       {

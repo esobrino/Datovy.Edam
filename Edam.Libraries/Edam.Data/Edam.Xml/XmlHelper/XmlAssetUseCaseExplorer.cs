@@ -11,6 +11,7 @@ using Edam.Data.AssetManagement;
 using Edam.Data.AssetSchema;
 using Edam.Data.Asset;
 using Edam.Diagnostics;
+using Edam.Data.AssetConsole;
 
 namespace Edam.Xml.XmlHelper
 {
@@ -21,7 +22,7 @@ namespace Edam.Xml.XmlHelper
       private const string AM_USE_CASE = "amusecase";
       private const string NAME = "name";
 
-      private readonly AssetUseCase m_UseCase = new AssetUseCase();
+      private readonly AssetUseCase m_UseCase;
 
       private XmlDocument m_Document;
       private readonly XmlAsset.XmlAssetItemInfo m_Asset;
@@ -44,15 +45,18 @@ namespace Edam.Xml.XmlHelper
          get { return m_UseCase; }
       }
 
-      public XmlAssetUseCase(string xmlText, NamespaceInfo defaultNamespace)
+      public XmlAssetUseCase(
+         string xmlText, AssetConsoleArgumentsInfo arguments)
       {
+         m_UseCase = new AssetUseCase(
+            arguments.Namespace, arguments.Project.VersionId);
          if (String.IsNullOrWhiteSpace(xmlText))
             throw new Exception(CLASS_NAME + ": expected a document " +
                "a null or empty string was given.");
 
-         m_DefaultNamespace = defaultNamespace;
+         m_DefaultNamespace = arguments.Namespace;
          m_Asset = new XmlAsset.XmlAssetItemInfo(
-            m_UseCase.Items, defaultNamespace);
+            m_UseCase.Items, arguments.Namespace);
          m_Document = new XmlDocument();
          m_Document.LoadXml(xmlText);
          ToDataElements();

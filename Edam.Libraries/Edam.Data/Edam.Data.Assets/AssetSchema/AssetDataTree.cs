@@ -201,7 +201,9 @@ namespace Edam.Data.AssetSchema
          if (type != null)
          {
             var ichildren = AssetDataElementList.GetChildren(
-               m_Items, type.Root, element.ElementName);
+               m_Items, type.Root, element.ElementName, 
+               element.GetElementNamespace(), AssetType.Schema,
+               element.VersionId);
             if (ichildren != null)
             {
                foreach (var child in ichildren)
@@ -223,7 +225,8 @@ namespace Edam.Data.AssetSchema
          string elementName = element.ElementType == ElementType.element ?
             element.DataType : element.ElementName;
          var children = AssetDataElementList.GetChildren(
-            m_Items, element.Root, elementName);
+            m_Items, element.Root, elementName, element.GetElementNamespace(),
+            AssetType.Schema, element.VersionId);
          foreach(var child in children)
          {
             var tchild = GetItem(child);

@@ -23,6 +23,12 @@ namespace Edam.Data.Schema.ImportExport
    public class DdlImportReader : IDataAssets
    {
       private DataTextMap m_Mapper;
+      private AssetConsoleArgumentsInfo m_Arguments;
+
+      private string m_VersionId
+      {
+         get { return m_Arguments.Project.VersionId; }
+      }
 
       public List<string> GetFileList(AssetConsoleArgumentsInfo arguments)
       {
@@ -90,7 +96,7 @@ namespace Edam.Data.Schema.ImportExport
                }
 
                dasset = new DdlAsset(header, namespaces, ns, m_Mapper,
-                  item.TableSchema, schemaCount);
+                  item.TableSchema, m_VersionId, schemaCount);
                dasset.asset.CatalogName = item.TableCatalog;
                previousAsset = dasset;
 
@@ -136,7 +142,8 @@ namespace Edam.Data.Schema.ImportExport
 
          // merge assets...
          AssetData assetData = AssetData.Merge(assets, header.TableCatalog,
-            header.TableCatalog, "schemaName", "description", "title", ns);
+            header.TableCatalog, "schemaName", "description", "title", ns,
+            AssetType.Schema, m_VersionId);
 
          // prepare catalog document...
          var documentItems = PrepareCatalogDocument(header, dassets, ns);
@@ -151,7 +158,7 @@ namespace Edam.Data.Schema.ImportExport
          return assets;
       }
 
-      public static AssetDataElementList PrepareCatalogDocument(
+      private AssetDataElementList PrepareCatalogDocument(
          DdlImportItemInfo header,
          SortedDictionary<string, DdlAsset> asset, NamespaceInfo ns)
       {
@@ -161,7 +168,8 @@ namespace Edam.Data.Schema.ImportExport
             String.Empty : appSettings.GetTypePostfix();
 
          // prepare root element
-         AssetDataElementList documentList = new AssetDataElementList();
+         AssetDataElementList documentList =
+            new AssetDataElementList(ns, AssetType.Schema, m_VersionId);
 
          // add document type
          string rootElementName = header.TableCatalog + typePostfix;
@@ -169,7 +177,8 @@ namespace Edam.Data.Schema.ImportExport
             String.Empty, rootElementName, header.TableCatalog, ns.Prefix,
             Session.OrganizationId, ns);
          documentList.Add(documentSchema);
-         AssetDataElementList list = new AssetDataElementList();
+         AssetDataElementList list = 
+            new AssetDataElementList(ns, AssetType.Schema, m_VersionId);
 
          // prepare type that include all registered schemas... add child types
          foreach (var schema in asset.Values)
@@ -205,7 +214,7 @@ namespace Edam.Data.Schema.ImportExport
 
          // prepare root and document elements...
          DdlAsset rootAsset = new DdlAsset(
-            header, null, ns, null, null, 0);
+            header, null, ns, null, null, m_VersionId, 0);
 
          // add schema type
          string cName = header.TableCatalog + typePostfix;
@@ -239,6 +248,8 @@ namespace Edam.Data.Schema.ImportExport
 
       public IResultsLog ToAsset(AssetConsoleArgumentsInfo arguments)
       {
+         m_Arguments = arguments;
+
          IResultsLog resultsLog = new ResultLog();
 
          List<DdlImportItemInfo> rows = new List<DdlImportItemInfo>();

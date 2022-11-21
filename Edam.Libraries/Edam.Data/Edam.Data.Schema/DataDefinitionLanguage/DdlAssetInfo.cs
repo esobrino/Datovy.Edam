@@ -28,9 +28,10 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
       public AssetData Assets { get; set; }
       public NamespaceList Namespaces { get; set; }
 
-      public DdlAssetInfo()
+      public DdlAssetInfo(NamespaceInfo ns, AssetType type, string versionId) 
+         : base(versionId)
       {
-         Assets = new AssetData();
+         Assets = new AssetData(ns, type, versionId);
          Namespaces = new NamespaceList();
       }
 

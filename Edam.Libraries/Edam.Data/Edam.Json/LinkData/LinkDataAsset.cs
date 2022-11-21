@@ -141,7 +141,8 @@ namespace Edam.Json.LinkData
             foreach(var uc in a.UseCases)
             {
                List<AssetData> ucAsset = new List<AssetData>();
-               AssetData ad = new AssetData();
+               AssetData ad = new AssetData(arguments.Namespace, 
+                  AssetType.Instance, arguments.ProjectVersionId);
                ad.Items = uc.Items;
                ad.Namespaces = uc.Namespaces;
                ucAsset.Add(ad);

@@ -20,9 +20,16 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
    public class DdlSchemaInstance
    {
       public static readonly string CLASS_NAME = "DdlSchemaInstance";
-   
-      public DdlSchemaInstance()
+
+      private AssetConsoleArgumentsInfo m_Arguments;
+      public AssetConsoleArgumentsInfo Arguments
       {
+         get { return m_Arguments; }
+      }
+
+      public DdlSchemaInstance(AssetConsoleArgumentsInfo arguments)
+      {
+         m_Arguments = arguments;
       }
 
       /// <summary>
@@ -63,7 +70,8 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
          DdlSchemaSet set, NamespaceList namespaces, string rootName,
          bool prepareTemplates = false)
       {
-         DdlAssetInfo dassets = new DdlAssetInfo();
+         DdlAssetInfo dassets = new DdlAssetInfo(set.Arguments.Namespace,
+            AssetType.Schema, set.Arguments.Project.VersionId);
 
          var cats = set.Catalogs as List<SchemaObject.CatalogInfo>;
          dassets.Assets.Name = cats[0].Name;
@@ -275,7 +283,8 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
             new ResultsLog<DdlSchemaSet>();
          try
          {
-            var d = SchemaReader.GetCatalogs(arguments.ConnectionString);
+            var d = SchemaReader.GetCatalogs(arguments.ConnectionString,
+               arguments.ProjectVersionId);
             if (d.Success)
             {
                results.Data = new DdlSchemaSet(d.Data, arguments);

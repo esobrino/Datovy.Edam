@@ -9,6 +9,7 @@ using Edam.Json.JsonSchemaReader;
 using Edam.Data.AssetSchema;
 using Edam.Diagnostics;
 using System.ComponentModel.DataAnnotations;
+using Edam.Data.AssetConsole;
 
 namespace Edam.Json.JsonHelper
 {
@@ -18,8 +19,9 @@ namespace Edam.Json.JsonHelper
       private const string CLASS_NAME = "JsonExplore";
 
       private JObject m_Document;
-      private readonly AssetUseCase m_UseCase = new AssetUseCase();
-      private readonly JsonAssetItemInfo m_Asset = new JsonAssetItemInfo();
+      private AssetConsoleArgumentsInfo m_Arguments;
+      private readonly AssetUseCase m_UseCase;
+      private readonly JsonAssetItemInfo m_Asset;
       private readonly ResultLog m_Results = new ResultLog();
 
       public bool Success
@@ -37,12 +39,17 @@ namespace Edam.Json.JsonHelper
          get { return m_UseCase; }
       }
 
-      public JsonAssetUseCase(string jsonText)
+      public JsonAssetUseCase(
+         AssetConsoleArgumentsInfo arguments, string jsonText)
       {
+         m_Asset = new JsonAssetItemInfo(
+            arguments.Namespace, arguments.ProjectVersionId);
          m_Document = JObject.Parse(jsonText, new JsonLoadSettings() { 
             CommentHandling = CommentHandling.Load
          });
          ToDataElements();
+         m_UseCase = new AssetUseCase(
+            m_Arguments.Namespace, m_Arguments.Project.VersionId);
       }
 
       private List<Object> GetArrayData(JToken node)

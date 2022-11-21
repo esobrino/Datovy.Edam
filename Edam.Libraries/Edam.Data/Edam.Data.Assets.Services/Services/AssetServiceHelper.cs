@@ -211,7 +211,8 @@ namespace Edam.Data.AssetConsole.Services
       {
          ResultsLog<EventCode> results = new ResultsLog<EventCode>();
          var assets = AssetData.Merge(
-            arguments.AssetDataItems, arguments.Namespace);
+            arguments.AssetDataItems, arguments.Namespace, AssetType.Instance,
+            arguments.Project.VersionId);
          AssetData.ToDataElement(assets.Items);
          arguments.AssetDataItems.Clear();
          arguments.AssetDataItems.Add(assets);
@@ -231,7 +232,7 @@ namespace Edam.Data.AssetConsole.Services
       public static IResultsLog AssetsToGsql(AssetConsoleArgumentsInfo arguments)
       {
          ResultsLog<EventCode> results = new ResultsLog<EventCode>();
-         arguments.AssetDataMerge();
+         arguments.AssetDataMerge(AssetType.Schema);
          GsqlWriter.WriteSchema(arguments);
          results.Succeeded();
          return results;
@@ -248,7 +249,8 @@ namespace Edam.Data.AssetConsole.Services
       public static IResultsLog ToDb(AssetConsoleArgumentsInfo arguments)
       {
          var assets = AssetData.Merge(
-            arguments.AssetDataItems, arguments.Namespace);
+            arguments.AssetDataItems, arguments.Namespace, AssetType.Instance,
+            arguments.Project.VersionId);
          ResourceContext context = ResourceContext.GetContext(arguments);
          var results = AssetData.ToDatabase(context,
             assets.Items, arguments.Namespace, arguments.Process.Name,
@@ -260,7 +262,8 @@ namespace Edam.Data.AssetConsole.Services
       {
          AssetData assets = XmlInspector.ToAssetList(arguments);
          var massets = AssetData.Merge(
-            arguments.AssetDataItems, arguments.Namespace);
+            arguments.AssetDataItems, arguments.Namespace, AssetType.Schema, 
+            arguments.Project.VersionId);
          ResourceContext context = ResourceContext.GetContext(arguments);
          var results = AssetData.ToDatabase(context,
             massets.Items, arguments.Namespace, arguments.Process.Name,
@@ -272,7 +275,7 @@ namespace Edam.Data.AssetConsole.Services
       {
          ResultsLog<EventCode> results = new ResultsLog<EventCode>();
          ResourceContext context = ResourceContext.GetContext(
-            arguments.AssetDataItems);
+            arguments.AssetDataItems, arguments.Project.VersionId);
          XsdWriter.WriteSchema(context, arguments, null);
          results.Succeeded();
          return results;
@@ -339,7 +342,9 @@ namespace Edam.Data.AssetConsole.Services
          if (arguments.AssetDataItems.Count > 0)
          {
             var report = arguments.AssetDataItems[0].ReconcileUseCases();
-            AssetDataElementList l = new AssetDataElementList();
+            AssetDataElementList l = new AssetDataElementList(
+               arguments.Namespace, AssetType.UseCase,
+               arguments.Project.VersionId);
             foreach(var i in report.UseCasesMergedItems[0].UseCase.Items)
             {
                AssetDataElement.CompleteElementUpdate(i);
@@ -347,7 +352,7 @@ namespace Edam.Data.AssetConsole.Services
             }
 
             ResourceContext context = ResourceContext.GetContext(
-               arguments.AssetDataItems);
+               arguments.AssetDataItems, arguments.Project.VersionId);
 
             XsdWriter.WriteSchema(context, arguments, l);
          }
@@ -488,7 +493,8 @@ namespace Edam.Data.AssetConsole.Services
          }
 
          AssetData asset = AssetData.Merge(
-            arguments.AssetDataItems, arguments.Namespace);
+            arguments.AssetDataItems, arguments.Namespace, AssetType.Schema,
+            arguments.Project.VersionId);
 
          if (arguments.OutputFile.Extension == "xsd")
          {

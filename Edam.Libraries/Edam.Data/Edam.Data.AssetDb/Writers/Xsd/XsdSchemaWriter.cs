@@ -198,7 +198,8 @@ namespace Edam.Data.AssetManagement.Writers.Xsd
          AssetDataElementList assets, Resources.ResourceContext context)
       {
          List<AssetData> adata = new List<AssetData>();
-         var d = new AssetData();
+         var d = new AssetData(
+            assets.Namespace, AssetType.Schema, assets.VersionId);
          d.Items = assets;
          adata.Add(d);
 
@@ -207,7 +208,7 @@ namespace Edam.Data.AssetManagement.Writers.Xsd
          var cntxt = new Resources.ResourceContext(
             context.DefaultNamespace.Prefix, context.DefaultNamespace.Uri,
             context.OrganizationDomainId, context.UriExtension,
-            adata);
+            adata, assets.VersionId);
          cntxt.SetContext(adata);
 
          // first prepare the Use Case target Schema

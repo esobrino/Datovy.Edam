@@ -250,7 +250,7 @@ namespace Edam.WinUI.Controls.DataModels
       /// <param name="type">target Asset Type</param>
       public static async void SaveAsset(AssetData data, AssetType type)
       {
-         List<AssetDataElement> items = data.Items;
+         AssetDataElementList items = data.Items;
 
          // save each Use-Case individually...
          IResultsLog results;

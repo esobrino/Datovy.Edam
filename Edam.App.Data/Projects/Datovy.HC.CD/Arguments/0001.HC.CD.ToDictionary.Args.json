@@ -13,6 +13,10 @@
       "Extension": "",
       "RootElementName": "cd:Disease_Surveillance_Document"
    },
+   "Project": {
+	   "Name": "Communicable Diseases Database",
+	   "VersionId": "v1r0"
+   },
    "Process": {
       "RecordId": null,
       "Name": "Datovy.HC.CD.ToAssets",

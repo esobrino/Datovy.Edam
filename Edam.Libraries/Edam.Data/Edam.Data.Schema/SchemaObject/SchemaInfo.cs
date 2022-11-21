@@ -129,12 +129,14 @@ namespace Edam.Data.Schema.SchemaObject
    public class SchemaInfo
    {
       public NamespaceInfo Namespace { get; set; }
+      public string VersionId { get; set; }
       public string Name { get; set; }
       public List<ResourceInfo> Items { get;set;}
 
-      public SchemaInfo()
+      public SchemaInfo(string versionId)
       {
-         Items = new List<ResourceInfo>();
+          Items = new List<ResourceInfo>();
+          VersionId = versionId;
       }
 
       public ResourceInfo Add(string tableName)
@@ -155,14 +157,16 @@ namespace Edam.Data.Schema.SchemaObject
    public class CatalogInfo
    {
       public NamespaceInfo Namespace { get; set; }
+      public string VersionId { get; set; }
       public string Name { get; set; }
       public List<SchemaInfo> Schemas { get; set; }
       public List<SchemaResourceConstraint> Constraints { get; set; }
 
-      public CatalogInfo()
+      public CatalogInfo(string versionId)
       {
          Schemas = new List<SchemaInfo>();
          Namespace = new NamespaceInfo("ddl", "http://www.Edam.com/ddl");
+         VersionId = versionId;
       }
 
       public SchemaInfo Add(string schemaName)
@@ -170,10 +174,7 @@ namespace Edam.Data.Schema.SchemaObject
          var s = Schemas.Find((x) => { return x.Name == schemaName; });
          if (s != null)
             return s;
-         s = new SchemaInfo
-         {
-            Name = schemaName
-         };
+         s = new SchemaInfo(VersionId);
          Schemas.Add(s);
          return s;
       }
@@ -187,11 +188,7 @@ namespace Edam.Data.Schema.SchemaObject
             {
                return null;
             }
-            var s = new SchemaInfo
-            {
-               Namespace = ns,
-               Name = ns.NamePath.Schema
-            };
+            var s = new SchemaInfo(VersionId);
             Schemas.Add(s);
             return s;
          }

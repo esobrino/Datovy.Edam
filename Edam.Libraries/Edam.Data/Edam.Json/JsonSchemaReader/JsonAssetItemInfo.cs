@@ -23,17 +23,20 @@ namespace Edam.Json.JsonSchemaReader
       public List<JsonComplexType> Definitions { get; set; }
       public List<JsonPropertyInfo> Properties { get; set; }
 
+      public string VesionId { get; set; }
+
       public List<AssetDataElement> Items
       {
          get { return m_Assets; }
       }
 
-      public JsonAssetItemInfo()
+      public JsonAssetItemInfo(NamespaceInfo ns, string versionId)
       {
-         Assets = new AssetData();
+         Assets = new AssetData(ns, AssetType.Schema, versionId);
          m_Assets = new List<AssetDataElement>();
          Namespaces = new NamespaceList();
-         DefaultNamespace = new NamespaceInfo();
+         DefaultNamespace = ns;
+         VesionId = versionId;
       }
 
       public void SetDefaultNamespace(NamespaceInfo ns)

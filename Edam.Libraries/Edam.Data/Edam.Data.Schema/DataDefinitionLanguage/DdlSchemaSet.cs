@@ -55,6 +55,17 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
 
       public ElementTransform DefaultElementTransform { get; set; }
 
+      private AssetConsoleArgumentsInfo m_Arguments;
+      public AssetConsoleArgumentsInfo Arguments
+      {
+         get { return m_Arguments; }
+      }
+
+      public DdlSchemaSet(AssetConsoleArgumentsInfo arguments)
+      {
+         m_Arguments = arguments;
+      }
+
       #endregion
       #region -- Constructor
 

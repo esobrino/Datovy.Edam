@@ -47,6 +47,7 @@ namespace Edam.Data.Schema
       private DataProvider m_Provider;
       private DataTable m_Tables;
       private DataTable m_Indexes;
+      public string VersionId { get; set; }
 
       public SchemaReader(String connectionString)
       {
@@ -83,7 +84,8 @@ namespace Edam.Data.Schema
       /// <param name="list"></param>
       /// <returns></returns>
       public static Diagnostics.ResultsLog<SchemaObject.SchemaSet> GetCatalogs(
-         string connectionString, List<SchemaObject.CatalogInfo> list = null)
+         string connectionString, string versionId,
+         List<SchemaObject.CatalogInfo> list = null)
       {
          //_ = list ?? new List<SchemaObject.CatalogInfo>();
          Diagnostics.ResultsLog<SchemaObject.SchemaSet> results = 
@@ -96,7 +98,7 @@ namespace Edam.Data.Schema
             var i = r.GetIndexes(t);
             var k = r.GetForeignKeys();
             var h = new SchemaObject.SchemaSet();
-            h.Add(t, k);
+            h.Add(t, k, versionId);
             results.Data = h;
             results.Succeeded();
          }

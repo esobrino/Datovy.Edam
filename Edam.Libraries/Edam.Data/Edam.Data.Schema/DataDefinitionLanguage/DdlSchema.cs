@@ -634,7 +634,8 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
          foreach (var resource in m_Schema.Items)
          {
             var l = resource.Resources.ToList<AssetDataElement>();
-            AssetDataElementList list = new AssetDataElementList();
+            AssetDataElementList list = new AssetDataElementList(
+               m_Schema.Namespace, AssetType.Schema, m_Schema.VersionId);
             list.AddRange(l);
 
             // TODO: further investigate this...

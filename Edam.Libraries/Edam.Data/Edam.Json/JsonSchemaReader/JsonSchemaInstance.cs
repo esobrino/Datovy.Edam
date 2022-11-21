@@ -69,7 +69,8 @@ namespace Edam.Json.JsonSchemaReader
       public static AssetData ToDataAsset(
          JsonSchemaSet set, NamespaceList namespaces)
       {
-         JsonAssetItemInfo jassets = new JsonAssetItemInfo();
+         JsonAssetItemInfo jassets = 
+            new JsonAssetItemInfo(set.Namespace, set.VersionId);
 
          foreach (var citem in set.Schemas)
          {

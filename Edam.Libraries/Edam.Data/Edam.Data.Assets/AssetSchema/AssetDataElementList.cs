@@ -21,6 +21,25 @@ namespace Edam.Data.AssetSchema
          get { return m_Types; }
       }
 
+      public NamespaceInfo Namespace { get; set; }
+      public AssetType AssetType { get; set; }
+      public string VersionId { get; set; }
+
+      public AssetDataElementList(
+         NamespaceInfo ns, AssetType type, string versionId)
+      {
+         Namespace = ns;
+         AssetType = type;
+         VersionId = versionId;
+      }
+
+      public AssetDataElementList(AssetDataElementList asset)
+      {
+         Namespace = asset.Namespace;
+         AssetType = asset.AssetType;
+         VersionId = asset.VersionId;
+      }
+
       /// <summary>
       /// Given two elements, merge them as needed... with emphasis on the 
       /// PK and foreign key constraints.
@@ -88,7 +107,8 @@ namespace Edam.Data.AssetSchema
       }
 
       public static AssetDataElementList GetChildren(
-         List<AssetDataElement> elements, string root, string entityName)
+         List<AssetDataElement> elements, string root, string entityName,
+         NamespaceInfo ns, AssetType type, string versionId)
       {
          var items = from c in elements
                      where c.Root == root &&
@@ -96,7 +116,8 @@ namespace Edam.Data.AssetSchema
                      select c as AssetDataElement;
 
          var l = items.ToList();
-         AssetDataElementList list = new AssetDataElementList();
+         AssetDataElementList list =
+            new AssetDataElementList(ns, type, versionId);
          list.AddRange(l);
          return list;
       }
@@ -106,7 +127,8 @@ namespace Edam.Data.AssetSchema
          string entityName)
       {
          return GetChildren(
-            (List<AssetDataElement>) elements, root, entityName);
+            (List<AssetDataElement>) elements, root, entityName,
+            elements.Namespace, elements.AssetType, elements.VersionId);
       }
 
       public static Uri GetNamespace(AssetDataElement element)
@@ -149,7 +171,7 @@ namespace Edam.Data.AssetSchema
                      select c;
 
          var l = types.ToList();
-         AssetDataElementList list = new AssetDataElementList();
+         AssetDataElementList list = new AssetDataElementList(items);
          list.AddRange(l);
          return list;
       }
@@ -164,7 +186,7 @@ namespace Edam.Data.AssetSchema
                      select c;
 
          var l = types.ToList();
-         AssetDataElementList list = new AssetDataElementList();
+         AssetDataElementList list = new AssetDataElementList(items);
          list.AddRange(l);
          return list;
       }
@@ -180,7 +202,7 @@ namespace Edam.Data.AssetSchema
                      select c;
 
          var l = types.ToList();
-         AssetDataElementList list = new AssetDataElementList();
+         AssetDataElementList list = new AssetDataElementList(items);
          list.AddRange(l);
          return list;
       }

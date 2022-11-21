@@ -33,7 +33,8 @@ namespace Edam.Json.JsonExplore
          m_SchemaSet = schemaSet;
          //schemaSet.ValidationEventHandler +=
          //   new ValidationEventHandler(ValidationCallBack);
-         Asset = new AssetData();
+         Asset = new AssetData(schemaSet.Namespace, AssetType.Schema, 
+            schemaSet.VersionId);
       }
 
       #endregion

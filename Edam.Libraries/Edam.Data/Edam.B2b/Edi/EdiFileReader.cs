@@ -9,6 +9,7 @@ using Edam.Data.AssetConsole;
 using Edam.Xml.OpenXml;
 using Edam.DataObjects.Services;
 using Edam.Data.Asset;
+using Edam.Data.AssetSchema;
 using Edam.Application;
 using Edam.Diagnostics;
 
@@ -69,11 +70,13 @@ namespace Edam.B2b
             return results;
          }
 
-         Data.AssetSchema.AssetData adata = new Data.AssetSchema.AssetData();
+         Data.AssetSchema.AssetData adata = new Data.AssetSchema.AssetData(
+            arguments.Namespace, AssetType.Schema, 
+            arguments.Project.VersionId);
          adata.SetDefaultNamespace(arguments.Namespace);
          arguments.AssetDataItems.Add(adata);
          arguments.AssetDataItems[0].Items =
-            Edi.EdiAsset.ToAssets(results.Data, arguments.Namespace);
+            Edi.EdiAsset.ToAssets(results.Data, arguments);
          ResultLog dbResults = new ResultLog();
          dbResults.Succeeded();
          return dbResults;

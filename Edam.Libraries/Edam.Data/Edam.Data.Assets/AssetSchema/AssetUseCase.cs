@@ -21,10 +21,10 @@ namespace Edam.Data.AssetSchema
       public AssetProcess Instructions { get; set; }
       public AssetComment Comments { get; set; }
 
-      public AssetUseCase()
+      public AssetUseCase(NamespaceInfo ns, string versionId)
       {
          Namespaces = new NamespaceList();
-         Items = new AssetDataElementList();
+         Items = new AssetDataElementList(ns, AssetType.UseCase, versionId);
          Instructions = new AssetProcess();
          Comments = new AssetComment();
       }

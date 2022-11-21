@@ -4,6 +4,7 @@ INSERT INTO Data.DataKind (IdNo, Description, SpanishDescription) VALUES
    (  0, ' ', ' '),
    (  1, 'Property', 'Propiedad'),
    (  2, 'CodeSet', 'Codigos'),
+   (  3, 'External Reference', 'Referencia Externa'),
    (  10, 'AuditProperty', 'Auditable')
 GO
 

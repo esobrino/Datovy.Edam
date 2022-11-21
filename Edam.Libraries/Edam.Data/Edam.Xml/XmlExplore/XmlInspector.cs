@@ -24,7 +24,12 @@ namespace Edam.Xml.XmlExplore
    {
 
       private XmlSchemaSet m_SchemaSet = new XmlSchemaSet();
+
       private AssetConsoleArgumentsInfo m_Arguments;
+      public AssetConsoleArgumentsInfo Arguments
+      {
+         get { return m_Arguments; }
+      }
 
       public bool ToAssets
       {
@@ -75,7 +80,7 @@ namespace Edam.Xml.XmlExplore
          m_Arguments.UseCases =
             PrepareUseCases(UriResourceInfo.GetUriList(
                m_Arguments.UriList, UriResourceType.xml),
-               m_Arguments.Namespace);
+               m_Arguments);
 
          return m_SchemaSet;
       }
@@ -102,7 +107,8 @@ namespace Edam.Xml.XmlExplore
       {
          if (m_SchemaSet.Count == 0)
             return null;
-         XmlSchemaInspector r = new XmlSchemaInspector(m_SchemaSet);
+         XmlSchemaInspector r = 
+            new XmlSchemaInspector(m_Arguments, m_SchemaSet);
          r.DefaultNamespace = m_Arguments.Namespace;
          r.Inspect();
          return ToOutput(r.Asset, toOutput);
@@ -143,7 +149,9 @@ namespace Edam.Xml.XmlExplore
          // if toAssets is true...  Write XSD definitions to target extention
          if (ToAssets)
          {
-            Xml.XmlAsset.XmlDataAsset asset = new XmlAsset.XmlDataAsset();
+            Xml.XmlAsset.XmlDataAsset asset = new XmlAsset.XmlDataAsset(
+               Arguments.Namespace, AssetType.Schema, Arguments. 
+               ProjectVersionId);
             crawler.WriteXmlAsset(asset);
             ToOutput(asset, true);
          }
@@ -178,13 +186,13 @@ namespace Edam.Xml.XmlExplore
       /// <param name="items">list of XML instance files</param>
       /// <returns></returns>
       public static List<AssetUseCase> PrepareUseCases(List<string> items,
-         NamespaceInfo defaultNamespace)
+         AssetConsoleArgumentsInfo arguments)
       {
          List<AssetUseCase> cases = new List<AssetUseCase>();
          foreach (var i in items)
          {
             var xmlText = System.IO.File.ReadAllText(i);
-            var uc = new XmlHelper.XmlAssetUseCase(xmlText, defaultNamespace);
+            var uc = new XmlHelper.XmlAssetUseCase(xmlText, arguments);
             if (uc.Success)
                cases.Add(uc.UseCase);
          }

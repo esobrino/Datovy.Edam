@@ -24,7 +24,7 @@ namespace Edam.Data.Schema.ImportExport
    public class DdlAsset
    {
 
-      public AssetData asset { get; set; } = new AssetData();
+      public AssetData asset { get; set; }
       public string tableName = null;
       public string originalTableName = null;
       private DataTextMap m_TextMapper { get; set; }
@@ -51,8 +51,10 @@ namespace Edam.Data.Schema.ImportExport
 
       public DdlAsset(DdlImportItemInfo header, NamespaceList namespaces,
          NamespaceInfo ns, DataTextMap mapper, string schemaName, 
-         int schemaCount = 0)
+         string versionId, int schemaCount = 0)
       {
+         asset = new AssetData(ns, AssetType.Schema, versionId);
+
          asset.Name = header.TableCatalog;
          asset.Title = Edam.Text.Convert.ToProperCase(header.TableCatalog);
          asset.Description = asset.Title;

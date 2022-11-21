@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Data",
+    "\\Data\\Stored Procedures",
+    "\\Scripts",
+    "\\Scripts\\Sql-Scripts"
   ],
+  "SelectedNode": "\\Scripts\\Sql-Scripts\\00040 - Data Registry Resources.sql",
   "PreviewInSolutionExplorer": false
 }
