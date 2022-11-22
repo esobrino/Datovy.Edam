@@ -1,0 +1,20 @@
+{
+  "@context": {
+      "cd6": "http://www.datovy.com/hc/cd/Action/#",
+      "media": "cd6:Media",
+      "role_Code": "cd6:Role_Code",
+      "party_Type": "cd6:Party_Type",
+      "party": "cd6:Party",
+      "activity": "cd6:Activity",
+      "schedule_Event": "cd6:Schedule_Event",
+      "note_Type": "cd6:Note_Type",
+      "note": "cd6:Note",
+      "media_Type": "cd6:Media_Type",
+      "disposition_Code": "cd6:Disposition_Code",
+      "event": "cd6:Event",
+      "activity_Type": "cd6:Activity_Type",
+      "reason_Code": "cd6:Reason_Code",
+      "priority_Code": "cd6:Priority_Code",
+      "disposition": "cd6:Disposition"
+   }
+}

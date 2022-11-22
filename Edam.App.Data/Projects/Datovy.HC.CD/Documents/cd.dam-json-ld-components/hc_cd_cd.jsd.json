@@ -1,0 +1,101 @@
+{
+   "components": {
+      "schemas": {
+         "cdDisease_Surveillance_": {
+            "title": "cd:Disease_Surveillance_",
+            "description": "Disease Surveillance ",
+            "properties": {
+               "action": {
+                  "description": "Action",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Action.jsd.json#/components/schemas/cd6Action_"
+                  }
+               },
+               "application": {
+                  "description": "Application",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Application.jsd.json#/components/schemas/cd8Application_"
+                  }
+               },
+               "article": {
+                  "description": "Article",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Article.jsd.json#/components/schemas/cd9Article_"
+                  }
+               },
+               "clinical": {
+                  "description": "Clinical",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Clinical.jsd.json#/components/schemas/cd1Clinical_"
+                  }
+               },
+               "entity": {
+                  "description": "Entity",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Entity.jsd.json#/components/schemas/cd5Entity_"
+                  }
+               },
+               "epidemiology": {
+                  "description": "Epidemiology",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Epidemiology.jsd.json#/components/schemas/cd12Epidemiology_"
+                  }
+               },
+               "generic": {
+                  "description": "Generic",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Generic.jsd.json#/components/schemas/cd3Generic_"
+                  }
+               },
+               "geography": {
+                  "description": "Geography",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Geography.jsd.json#/components/schemas/cd4Geography_"
+                  }
+               },
+               "management": {
+                  "description": "Management",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Management.jsd.json#/components/schemas/cd7Management_"
+                  }
+               },
+               "message": {
+                  "description": "Message",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Message.jsd.json#/components/schemas/cd10Message_"
+                  }
+               },
+               "provider": {
+                  "description": "Provider",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Provider.jsd.json#/components/schemas/cd11Provider_"
+                  }
+               },
+               "surveillance": {
+                  "description": "Surveillance",
+                  "type": "array",
+                  "items": {
+                     "$ref": "hc_cd_Surveillance.jsd.json#/components/schemas/cd2Surveillance_"
+                  }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd:Disease_Surveillance_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cdDisease_Surveillance_Context.jsonld"
+               }
+            }
+         }
+}
+}
+}

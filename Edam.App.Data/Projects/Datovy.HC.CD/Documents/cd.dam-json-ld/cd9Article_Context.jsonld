@@ -1,0 +1,7 @@
+{
+  "@context": {
+      "cd9": "http://www.datovy.com/hc/cd/Article/#",
+      "item": "cd9:Item",
+      "item_Type": "cd9:Item_Type"
+   }
+}

@@ -1,0 +1,27 @@
+{
+  "@context": {
+      "cd12": "http://www.datovy.com/hc/cd/Epidemiology/#",
+      "note_ID": "cd12:Note_ID",
+      "note_Type_ID": "cd12:Note_Type_ID",
+      "note_Text": "cd12:Note_Text",
+      "note_DateTime": "cd12:Note_DateTime",
+      "author_ID": "cd12:Author_ID",
+      "author_Role_ID": "cd12:Author_Role_ID",
+      "author_Name": "cd12:Author_Name",
+      "status_Code_ID": "cd12:Status_Code_ID",
+      "status_DateTime": "cd12:Status_DateTime",
+      "lab_Result_ID": "cd12:Lab_Result_ID",
+      "specimen_ID": "cd12:Specimen_ID",
+      "tenant_ID": "cd12:Tenant_ID",
+      "data_Owner_ID": "cd12:Data_Owner_ID",
+      "agency_Reporting_ID": "cd12:Agency_Reporting_ID",
+      "sequence_Number": "cd12:Sequence_Number",
+      "effective_DateTime": "cd12:Effective_DateTime",
+      "effective_End_DateTime": "cd12:Effective_End_DateTime",
+      "version_Number": "cd12:Version_Number",
+      "created_DateTime": "cd12:Created_DateTime",
+      "updated_DateTime": "cd12:Updated_DateTime",
+      "record_Status_Code_ID": "cd12:Record_Status_Code_ID",
+      "session_Updated_ID": "cd12:Session_Updated_ID"
+   }
+}

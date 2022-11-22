@@ -1,0 +1,10 @@
+{
+  "@context": {
+      "cd3": "http://www.datovy.com/hc/cd/Generic/#",
+      "entity_Type": "cd3:Entity_Type",
+      "entity": "cd3:Entity",
+      "element_Value_Type": "cd3:Element_Value_Type",
+      "element_Value": "cd3:Element_Value",
+      "element": "cd3:Element"
+   }
+}

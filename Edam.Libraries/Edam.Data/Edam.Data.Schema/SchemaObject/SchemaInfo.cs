@@ -188,8 +188,12 @@ namespace Edam.Data.Schema.SchemaObject
             {
                return null;
             }
-            var s = new SchemaInfo(VersionId);
-            Schemas.Add(s);
+                var s = new SchemaInfo(VersionId)
+                {
+                    Name = ns.NamePath.Schema,
+                    Namespace = ns
+                };
+                Schemas.Add(s);
             return s;
          }
          return i;

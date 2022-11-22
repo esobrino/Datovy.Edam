@@ -1,0 +1,24 @@
+{
+  "@context": {
+      "cd8": "http://www.datovy.com/hc/cd/Application/#",
+      "session_ID": "cd8:Session_ID",
+      "session_Type_ID": "cd8:Session_Type_ID",
+      "session_DateTime": "cd8:Session_DateTime",
+      "referral_ID": "cd8:Referral_ID",
+      "case_ID": "cd8:Case_ID",
+      "officer_ID": "cd8:Officer_ID",
+      "contact_ID": "cd8:Contact_ID",
+      "token_ID": "cd8:Token_ID",
+      "tenant_ID": "cd8:Tenant_ID",
+      "data_Owner_ID": "cd8:Data_Owner_ID",
+      "agency_Reporting_ID": "cd8:Agency_Reporting_ID",
+      "sequence_Number": "cd8:Sequence_Number",
+      "effective_DateTime": "cd8:Effective_DateTime",
+      "effective_End_DateTime": "cd8:Effective_End_DateTime",
+      "version_Number": "cd8:Version_Number",
+      "created_DateTime": "cd8:Created_DateTime",
+      "updated_DateTime": "cd8:Updated_DateTime",
+      "record_Status_Code_ID": "cd8:Record_Status_Code_ID",
+      "session_Updated_ID": "cd8:Session_Updated_ID"
+   }
+}

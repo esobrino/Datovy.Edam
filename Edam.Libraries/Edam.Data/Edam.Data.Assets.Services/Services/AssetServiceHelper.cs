@@ -369,7 +369,7 @@ namespace Edam.Data.AssetConsole.Services
          FileInfo outFile = new FileInfo
          {
             Path = arguments.OutputFile.Path,
-            Name = "JSON_Components",
+            Name = arguments.UriPrefix + "." + "dam-json-ld-components",
             Extension = "jsd.json"
          };
 

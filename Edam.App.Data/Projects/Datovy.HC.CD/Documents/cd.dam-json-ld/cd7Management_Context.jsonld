@@ -1,0 +1,25 @@
+{
+  "@context": {
+      "cd7": "http://www.datovy.com/hc/cd/Management/#",
+      "referral_Type": "cd7:Referral_Type",
+      "referral": "cd7:Referral",
+      "flag_Code": "cd7:Flag_Code",
+      "case_Type": "cd7:Case_Type",
+      "priority_Code": "cd7:Priority_Code",
+      "disposition": "cd7:Disposition",
+      "case": "cd7:Case",
+      "flag": "cd7:Flag",
+      "unit_Code": "cd7:Unit_Code",
+      "status_Code": "cd7:Status_Code",
+      "assignment": "cd7:Assignment",
+      "assignment_Link": "cd7:Assignment_Link",
+      "detection_Method_Code": "cd7:Detection_Method_Code",
+      "probable_Reason_Code": "cd7:Probable_Reason_Code",
+      "request": "cd7:Request",
+      "service_Code": "cd7:Service_Code",
+      "note_Type": "cd7:Note_Type",
+      "note": "cd7:Note",
+      "media_Type": "cd7:Media_Type",
+      "media": "cd7:Media"
+   }
+}

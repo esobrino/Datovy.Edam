@@ -1,0 +1,21 @@
+{
+  "@context": {
+      "cd4": "http://www.datovy.com/hc/cd/Geography/#",
+      "type_ID": "cd4:Type_ID",
+      "description": "cd4:Description",
+      "category_ID": "cd4:Category_ID",
+      "tags": "cd4:Tags",
+      "codeSet_Name": "cd4:CodeSet_Name",
+      "tenant_ID": "cd4:Tenant_ID",
+      "data_Owner_ID": "cd4:Data_Owner_ID",
+      "agency_Reporting_ID": "cd4:Agency_Reporting_ID",
+      "sequence_Number": "cd4:Sequence_Number",
+      "effective_DateTime": "cd4:Effective_DateTime",
+      "effective_End_DateTime": "cd4:Effective_End_DateTime",
+      "version_Number": "cd4:Version_Number",
+      "created_DateTime": "cd4:Created_DateTime",
+      "updated_DateTime": "cd4:Updated_DateTime",
+      "record_Status_Code_ID": "cd4:Record_Status_Code_ID",
+      "session_Updated_ID": "cd4:Session_Updated_ID"
+   }
+}

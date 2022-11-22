@@ -1,0 +1,271 @@
+{
+   "$schema": "http://json-schema.org//schema#",
+   "$id": "http://edd.schema.org/www.datovy.com_hc_cd_Provider",
+   "type": "object",
+   "definitions": {
+      "cd11:Provider_Code_": {
+         "title": "cd11:Provider_Code_",
+         "description": "The Healthcare Provider Taxonomy code set divides health care providers into hierarchical groupings by type, classification, and specialization, and assigns a code to each grouping",
+         "properties": {
+            "cd11:Code_ID": {
+               "$ref": "#/properties/cd11:Code_ID"
+            },
+            "cd11:Description": {
+               "$ref": "#/properties/cd11:Description"
+            },
+            "cd11:Category_ID": {
+               "$ref": "#/properties/cd11:Category_ID"
+            },
+            "cd11:CodeSet_Name": {
+               "$ref": "#/properties/cd11:CodeSet_Name"
+            },
+            "cd11:Tenant_ID": {
+               "$ref": "#/properties/cd11:Tenant_ID"
+            },
+            "cd11:Data_Owner_ID": {
+               "$ref": "#/properties/cd11:Data_Owner_ID"
+            },
+            "cd11:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd11:Agency_Reporting_ID"
+            },
+            "cd11:Sequence_Number": {
+               "$ref": "#/properties/cd11:Sequence_Number"
+            },
+            "cd11:Effective_DateTime": {
+               "$ref": "#/properties/cd11:Effective_DateTime"
+            },
+            "cd11:Effective_End_DateTime": {
+               "$ref": "#/properties/cd11:Effective_End_DateTime"
+            },
+            "cd11:Version_Number": {
+               "$ref": "#/properties/cd11:Version_Number"
+            },
+            "cd11:Created_DateTime": {
+               "$ref": "#/properties/cd11:Created_DateTime"
+            },
+            "cd11:Updated_DateTime": {
+               "$ref": "#/properties/cd11:Updated_DateTime"
+            },
+            "cd11:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd11:Record_Status_Code_ID"
+            },
+            "cd11:Session_Updated_ID": {
+               "$ref": "#/properties/cd11:Session_Updated_ID"
+            }
+         }
+      },
+      "cd11:Provider_Reference_": {
+         "title": "cd11:Provider_Reference_",
+         "description": "A reference to a provider or entity",
+         "properties": {
+            "cd11:Provider_Reference_ID": {
+               "$ref": "#/properties/cd11:Provider_Reference_ID"
+            },
+            "cd11:Alternate_ID": {
+               "$ref": "#/properties/cd11:Alternate_ID"
+            },
+            "cd11:Provider_Code_ID": {
+               "$ref": "#/properties/cd11:Provider_Code_ID"
+            },
+            "cd11:Person_ID": {
+               "$ref": "#/properties/cd11:Person_ID"
+            },
+            "cd11:Organization_ID": {
+               "$ref": "#/properties/cd11:Organization_ID"
+            },
+            "cd11:Name_ID": {
+               "$ref": "#/properties/cd11:Name_ID"
+            },
+            "cd11:Status_Code_ID": {
+               "$ref": "#/properties/cd11:Status_Code_ID"
+            },
+            "cd11:Status_DateTime": {
+               "$ref": "#/properties/cd11:Status_DateTime"
+            },
+            "cd11:Tenant_ID": {
+               "$ref": "#/properties/cd11:Tenant_ID"
+            },
+            "cd11:Data_Owner_ID": {
+               "$ref": "#/properties/cd11:Data_Owner_ID"
+            },
+            "cd11:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd11:Agency_Reporting_ID"
+            },
+            "cd11:Sequence_Number": {
+               "$ref": "#/properties/cd11:Sequence_Number"
+            },
+            "cd11:Effective_DateTime": {
+               "$ref": "#/properties/cd11:Effective_DateTime"
+            },
+            "cd11:Effective_End_DateTime": {
+               "$ref": "#/properties/cd11:Effective_End_DateTime"
+            },
+            "cd11:Version_Number": {
+               "$ref": "#/properties/cd11:Version_Number"
+            },
+            "cd11:Created_DateTime": {
+               "$ref": "#/properties/cd11:Created_DateTime"
+            },
+            "cd11:Updated_DateTime": {
+               "$ref": "#/properties/cd11:Updated_DateTime"
+            },
+            "cd11:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd11:Record_Status_Code_ID"
+            },
+            "cd11:Session_Updated_ID": {
+               "$ref": "#/properties/cd11:Session_Updated_ID"
+            }
+         }
+      },
+      "cd11:Provider_": {
+         "title": "cd11:Provider_",
+         "description": "Provider ",
+         "properties": {
+            "cd11:Provider_Code": {
+               "$ref": "#/properties/cd11:Provider_Code"
+            },
+            "cd11:Provider_Reference": {
+               "$ref": "#/properties/cd11:Provider_Reference"
+            }
+         }
+      }
+   },
+   "properties": {
+      "cd11:Code_ID": {
+         "description": "Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Description": {
+         "description": "Description",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Category_ID": {
+         "description": "Category ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:CodeSet_Name": {
+         "description": "Code Set Name",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Tenant_ID": {
+         "description": "Tenant ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Data_Owner_ID": {
+         "description": "Data Owner ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Agency_Reporting_ID": {
+         "description": "Agency Reporting ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Sequence_Number": {
+         "description": "Sequence Number",
+         "type": "array",
+         "items": { "type": "integer" }
+      },
+      "cd11:Effective_DateTime": {
+         "description": "Effective Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd11:Effective_End_DateTime": {
+         "description": "Effective End Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd11:Version_Number": {
+         "description": "Version Number",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Created_DateTime": {
+         "description": "Created Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd11:Updated_DateTime": {
+         "description": "Updated Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd11:Record_Status_Code_ID": {
+         "description": "Record Status Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Session_Updated_ID": {
+         "description": "Session Updated ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Provider_Reference_ID": {
+         "description": "Provider Reference ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Alternate_ID": {
+         "description": "Alternate ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Provider_Code_ID": {
+         "description": "Provider Code",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Person_ID": {
+         "description": "Person ID... External reference to (Entity) Person",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Organization_ID": {
+         "description": "Organization ID... External reference to (Entity) Organization",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Name_ID": {
+         "description": "Name ID... External reference to (Entity) Name",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Status_Code_ID": {
+         "description": "Status Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd11:Status_DateTime": {
+         "description": "Status Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd11:Provider_Code": {
+         "description": "Provider Code",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd11:Provider_Code_"
+         }
+      },
+      "cd11:Provider_Reference": {
+         "description": "Provider Reference",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd11:Provider_Reference_"
+         }
+      },
+      "cd11:Provider": {
+         "description": "Provider",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd11:Provider_"
+         }
+      }
+   }
+}

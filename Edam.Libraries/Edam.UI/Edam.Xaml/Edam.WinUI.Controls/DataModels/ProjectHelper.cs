@@ -90,37 +90,37 @@ namespace Edam.WinUI.Controls.DataModels
          {
             case AssetConsoleProcedure.AssetsToOpenXml:
                file.Extension = InOut.FileExtension.OPEN_XML;
-               defaultName = "dictionary";
+               defaultName = "dam-dictionary";
                fileName = defaultName;
                extension = InOut.FileExtension.OPEN_XML;
                break;
             case AssetConsoleProcedure.AssetsToJsd:
-               defaultName = "damjson";
+               defaultName = "dam-json";
                fileName = defaultName;
                extension = InOut.FileExtension.JSD;
                args.Procedure = AssetConsoleProcedure.AssetsToJsd;
                break;
             case AssetConsoleProcedure.AssetsToJld:
-               defaultName = "json-ld";
+               defaultName = "dam-json-ld";
                fileName = defaultName;
                extension = InOut.FileExtension.JSONLD;
                args.Procedure = AssetConsoleProcedure.AssetsToJld;
                break;
             case AssetConsoleProcedure.AssetsToGql:
-               defaultName = "damgql";
+               defaultName = "dam-gql";
                fileName = defaultName;
                extension = InOut.FileExtension.GQL;
                args.Procedure = AssetConsoleProcedure.AssetsToGql;
                break;
             case AssetConsoleProcedure.AssetsToDdl:
-               defaultName = "damddl";
+               defaultName = "dam-ddl";
                fileName = defaultName;
                extension = InOut.FileExtension.DDL;
                args.Procedure = AssetConsoleProcedure.AssetsToDdl;
                break;
             case AssetConsoleProcedure.AssetsToXsd:
             case AssetConsoleProcedure.ToXsd:
-               defaultName = "damxml";
+               defaultName = "dam-xml";
                fileName = defaultName;
                extension = InOut.FileExtension.XSD;
                break;

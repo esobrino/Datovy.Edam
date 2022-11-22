@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-11-21T20:21:06.319</Modified>
+      <Modified>2022-11-22T19:59:20.960</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-11-21T20:21:05.927</Modified>
+      <Modified>2022-11-22T19:59:20.517</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.runtimeconfig.json">
       <PackagePath>Edam.WinUI.runtimeconfig.json</PackagePath>
@@ -1259,7 +1259,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.Assets.Services\bin\Debug\net6.0\Edam.Data.Asset.Services.dll">
       <PackagePath>Edam.Data.Asset.Services.dll</PackagePath>
-      <Modified>2022-11-20T23:17:51.955</Modified>
+      <Modified>2022-11-22T19:09:31.269</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\bin\Debug\net6.0\Edam.Data.AssetDb.dll">
       <PackagePath>Edam.Data.AssetDb.dll</PackagePath>
@@ -1271,7 +1271,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.Schema\bin\Debug\net6.0\Edam.Data.Schema.dll">
       <PackagePath>Edam.Data.Schema.dll</PackagePath>
-      <Modified>2022-11-20T23:17:51.272</Modified>
+      <Modified>2022-11-22T19:59:02.062</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.Templates\bin\Debug\net6.0\Edam.Data.Templates.dll">
       <PackagePath>Edam.Data.Templates.dll</PackagePath>
@@ -1311,19 +1311,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Debug\net6.0-windows10.0.19041.0\Edam.WinUI.Controls.dll">
       <PackagePath>Edam.WinUI.Controls.dll</PackagePath>
-      <Modified>2022-11-20T23:18:03.464</Modified>
+      <Modified>2022-11-22T19:02:54.054</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.Xml.dll">
       <PackagePath>Edam.Xml.dll</PackagePath>
       <Modified>2022-11-20T23:14:02.911</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Debug\net6.0-windows10.0.19041.0\Edam.UI.pri">
-      <PackagePath>Edam.UI.pri</PackagePath>
-      <Modified>2022-11-15T21:24:16.686</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI.DataModel\bin\Debug\net6.0-windows10.0.19041.0\Edam.UI.DataModel.pri">
       <PackagePath>Edam.UI.DataModel.pri</PackagePath>
       <Modified>2022-11-15T21:24:19.471</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Debug\net6.0-windows10.0.19041.0\Edam.UI.pri">
+      <PackagePath>Edam.UI.pri</PackagePath>
+      <Modified>2022-11-15T21:24:16.686</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Debug\net6.0-windows10.0.19041.0\Edam.WinUI.Controls.pri">
       <PackagePath>Edam.WinUI.Controls.pri</PackagePath>
@@ -1331,191 +1331,191 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\AboutControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\AboutControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.417</Modified>
+      <Modified>2022-11-22T19:59:14.536</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Accounts\AccountLoginControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Accounts\AccountLoginControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.418</Modified>
+      <Modified>2022-11-22T19:59:14.536</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Accounts\AccountPinLoginControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Accounts\AccountPinLoginControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.418</Modified>
+      <Modified>2022-11-22T19:59:14.536</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Activities\ActivityPeriodRatingGridControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Activities\ActivityPeriodRatingGridControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.418</Modified>
+      <Modified>2022-11-22T19:59:14.536</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Activities\ParticipantRatingControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Activities\ParticipantRatingControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.418</Modified>
+      <Modified>2022-11-22T19:59:14.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Activities\PeriodControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Activities\PeriodControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.418</Modified>
+      <Modified>2022-11-22T19:59:14.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Activities\ProgramControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Activities\ProgramControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.418</Modified>
+      <Modified>2022-11-22T19:59:14.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetDataElementGridControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetDataElementGridControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.418</Modified>
+      <Modified>2022-11-22T19:59:14.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetDataTreeControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetDataTreeControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.419</Modified>
+      <Modified>2022-11-22T19:59:14.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetDataTreeViewerControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetDataTreeViewerControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.419</Modified>
+      <Modified>2022-11-22T19:59:14.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetMapItemControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetMapItemControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.419</Modified>
+      <Modified>2022-11-22T19:59:14.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetMapPanelControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetMapPanelControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.419</Modified>
+      <Modified>2022-11-22T19:59:14.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetMapPlayControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetMapPlayControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.419</Modified>
+      <Modified>2022-11-22T19:59:14.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetMapViewerControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetMapViewerControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.419</Modified>
+      <Modified>2022-11-22T19:59:14.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetSidePanelControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetSidePanelControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.419</Modified>
+      <Modified>2022-11-22T19:59:14.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetUseCaseGridControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetUseCaseGridControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.419</Modified>
+      <Modified>2022-11-22T19:59:14.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Assets\AssetViewerControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetViewerControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.419</Modified>
+      <Modified>2022-11-22T19:59:14.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Booklets\BookletCodeCellControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Booklets\BookletCodeCellControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.420</Modified>
+      <Modified>2022-11-22T19:59:14.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Booklets\BookletPanelControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Booklets\BookletPanelControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.420</Modified>
+      <Modified>2022-11-22T19:59:14.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Booklets\BookletTextCellControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Booklets\BookletTextCellControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.420</Modified>
+      <Modified>2022-11-22T19:59:14.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Booklets\FramePanelControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Booklets\FramePanelControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.420</Modified>
+      <Modified>2022-11-22T19:59:14.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Editors\CodeEditorControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Editors\CodeEditorControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.420</Modified>
+      <Modified>2022-11-22T19:59:14.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Entities\EntityFollowUpGridControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Entities\EntityFollowUpGridControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.420</Modified>
+      <Modified>2022-11-22T19:59:14.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Entities\EntityFollowUpViewControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Entities\EntityFollowUpViewControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.408</Modified>
+      <Modified>2022-11-22T19:59:14.526</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Entities\EntityGroupControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Entities\EntityGroupControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.420</Modified>
+      <Modified>2022-11-22T19:59:14.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Entities\ParticipantListViewControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Entities\ParticipantListViewControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.421</Modified>
+      <Modified>2022-11-22T19:59:14.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Entities\PersonBaseEditorControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Entities\PersonBaseEditorControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.421</Modified>
+      <Modified>2022-11-22T19:59:14.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Home\DashboardControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Home\DashboardControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.421</Modified>
+      <Modified>2022-11-22T19:59:14.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Navigation\NavigationControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Navigation\NavigationControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.421</Modified>
+      <Modified>2022-11-22T19:59:14.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Notes\NotesViewEditControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Notes\NotesViewEditControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.421</Modified>
+      <Modified>2022-11-22T19:59:14.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Projects\ProjectFileEditorControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Projects\ProjectFileEditorControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.421</Modified>
+      <Modified>2022-11-22T19:59:14.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Projects\ProjectSidePanelControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Projects\ProjectSidePanelControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.421</Modified>
+      <Modified>2022-11-22T19:59:14.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Projects\ProjectViewerControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Projects\ProjectViewerControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.422</Modified>
+      <Modified>2022-11-22T19:59:14.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataDomainControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataDomainControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.422</Modified>
+      <Modified>2022-11-22T19:59:14.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataDomainEditorControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataDomainEditorControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.422</Modified>
+      <Modified>2022-11-22T19:59:14.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataDomainGridControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataDomainGridControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.422</Modified>
+      <Modified>2022-11-22T19:59:14.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataEditorControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataEditorControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.422</Modified>
+      <Modified>2022-11-22T19:59:14.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataFormControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataFormControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.422</Modified>
+      <Modified>2022-11-22T19:59:14.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataFormStackControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataFormStackControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.422</Modified>
+      <Modified>2022-11-22T19:59:14.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataGridControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataGridControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.422</Modified>
+      <Modified>2022-11-22T19:59:14.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataValidationContentDialog.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataValidationContentDialog.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.423</Modified>
+      <Modified>2022-11-22T19:59:14.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceLists\ReferenceListGroupEditControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListGroupEditControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.423</Modified>
+      <Modified>2022-11-22T19:59:14.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\ReferenceLists\ReferenceListViewControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListViewControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.423</Modified>
+      <Modified>2022-11-22T19:59:14.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Utilities\KeyPadControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Utilities\KeyPadControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.423</Modified>
+      <Modified>2022-11-22T19:59:14.543</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Utilities\TextButtonControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Utilities\TextButtonControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.423</Modified>
+      <Modified>2022-11-22T19:59:14.543</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Utilities\TextEditorControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Utilities\TextEditorControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.423</Modified>
+      <Modified>2022-11-22T19:59:14.543</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Web\WebBrowserControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Web\WebBrowserControl.xbf</PackagePath>
-      <Modified>2022-11-21T20:21:00.423</Modified>
+      <Modified>2022-11-22T19:59:14.543</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\DataTemplates\Domain.Record.Form.json">
       <PackagePath>Edam.WinUI.Controls\DataTemplates\Domain.Record.Form.json</PackagePath>

@@ -1,0 +1,23 @@
+{
+  "@context": {
+      "cd1": "http://www.datovy.com/hc/cd/Clinical/#",
+      "complication_ID": "cd1:Complication_ID",
+      "complication_Code_ID": "cd1:Complication_Code_ID",
+      "complication_Flag_ID": "cd1:Complication_Flag_ID",
+      "acquired_DateTime": "cd1:Acquired_DateTime",
+      "recorded_DateTime": "cd1:Recorded_DateTime",
+      "case_ID": "cd1:Case_ID",
+      "subject_ID": "cd1:Subject_ID",
+      "tenant_ID": "cd1:Tenant_ID",
+      "data_Owner_ID": "cd1:Data_Owner_ID",
+      "agency_Reporting_ID": "cd1:Agency_Reporting_ID",
+      "sequence_Number": "cd1:Sequence_Number",
+      "effective_DateTime": "cd1:Effective_DateTime",
+      "effective_End_DateTime": "cd1:Effective_End_DateTime",
+      "version_Number": "cd1:Version_Number",
+      "created_DateTime": "cd1:Created_DateTime",
+      "updated_DateTime": "cd1:Updated_DateTime",
+      "record_Status_Code_ID": "cd1:Record_Status_Code_ID",
+      "session_Updated_ID": "cd1:Session_Updated_ID"
+   }
+}
