@@ -11,6 +11,7 @@ using Edam.Data.AssetProject;
 using Edam.InOut;
 using Edam.WinUI.Controls.ViewModels;
 using System.Collections.ObjectModel;
+using Edam.Data.Asset;
 
 namespace Edam.WinUI.Controls.DataModels
 {
@@ -35,6 +36,11 @@ namespace Edam.WinUI.Controls.DataModels
       public string NameFull
       {
          get { return Item.NameFull; }
+      }
+
+      public NamespaceInfo Namespace
+      {
+         get { return CurrentArguments.Namespace; }
       }
 
       public ObservableCollection<ProjectItem> Children { get; set; }

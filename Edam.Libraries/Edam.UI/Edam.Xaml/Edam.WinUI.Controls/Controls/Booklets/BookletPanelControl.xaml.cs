@@ -47,7 +47,10 @@ namespace Edam.WinUI.Controls.Booklets
       {
          this.InitializeComponent();
          DataContext = m_ViewModel;
-         m_ViewModel.Book.ListView = BookletList;
+         if (m_ViewModel != null && m_ViewModel.Book != null)
+         {
+            m_ViewModel.Book.ListView = BookletList;
+         }
       }
 
       public void SetMapContext(DataMapContext context)

@@ -83,6 +83,7 @@ namespace Edam.Data.Schema.SchemaObject
 
    public class ResourceInfo: ObjectInfo<ElementInfo>
    {
+      public AssetDataElement Entity { get; set; } = null;
       public static readonly string IS_NULLABLE = "yes";
       private List<AssetDataElement> m_Items;
       public int OrdinalNo { get; set; }

@@ -19,8 +19,22 @@ namespace Edam.WinUI.Controls.DataModels
    {
 
       public ListView ListView { get; set; }
-      public BookInfo Book { get; set; } = new BookInfo();
+      private BookInfo m_Book;
+      public BookInfo Book
+      {
+         get { return m_Book; }
+      }
       public BookletInfo CurrentBooklet { get; set; } = new BookletInfo();
+
+      public BookModel(BookInfo book)
+      {
+         if (book == null)
+         {
+            throw new Exception(
+               "Expected an instance of a BookInfo null was found");
+         }
+         m_Book = book;
+      }
 
       public BookletCellInfo AddControl(
          BookViewModel model, BookletCellType cellType)

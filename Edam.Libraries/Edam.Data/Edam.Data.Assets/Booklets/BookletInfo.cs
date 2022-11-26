@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 // -----------------------------------------------------------------------------
 using Edam.Serialization;
 using Newtonsoft.Json;
+using Edam.TextParse;
+using Edam.Data.Asset;
 
 namespace Edam.Data.Booklets
 {
@@ -55,6 +58,9 @@ namespace Edam.Data.Booklets
       Phython = 22
    }
 
+   /// <summary>
+   /// Booklet Cell details.
+   /// </summary>
    public class BookletCellInfo
    {
       public string ParentBookletId { get; set; }
@@ -72,10 +78,21 @@ namespace Edam.Data.Booklets
 
       public string Text { get; set; }
 
+      /// <summary>
+      /// an instance of a UI control that is used to hold text or code.
+      /// </summary>
       [JsonIgnore]
       public IBookCellView Instance { get; set; }
    }
 
+   /// <summary>
+   /// A Boolket is used to manage information about a collection of cells.
+   /// </summary>
+   /// <remarks>
+   /// A booklet is defined by a collection of cells whose purpose is to
+   /// document, define, or describe a mapping, transformation or an element.
+   /// Code cells can be executed based on the underlying language.
+   /// </remarks>
    public class BookletInfo
    {
       public string BookletId { get; set; } = Guid.NewGuid().ToString();
@@ -105,15 +122,41 @@ namespace Edam.Data.Booklets
       BookletInfo Booklet { get; set; }
    }
 
+   /// <summary>
+   /// A Book details is used to hold information about a collection of 
+   /// booklets.
+   /// </summary>
    public class BookInfo
    {
+      public string BookId { get; set; } = Guid.NewGuid().ToString();
       public string Name { get; set; }
       public List<BookletInfo> Items { get; set; } = new List<BookletInfo>();
+
+      private NamespaceInfo m_Namespace = null;
+      public NamespaceInfo Namespace
+      {
+         get { return m_Namespace; }
+         set
+         {
+            m_Namespace = value;
+         }
+      }
+
+      public BookInfo(NamespaceInfo ns)
+      {
+         if (ns == null && !ns.IsWellFormedUriString)
+         {
+            throw new Exception(
+               "BookInfo constructure expects a valid namespace");
+         }
+         m_Namespace = ns;
+      }
 
       public BookletInfo Find(string bookletId)
       {
          return Items.Find((x) => x.BookletId == bookletId);
       }
+
    }
 
 }

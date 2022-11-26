@@ -25,7 +25,7 @@ namespace Edam.WinUI.Controls.ViewModels
 
       public DataMapContext Context { get; set; }
 
-      public AssetMapUseCase UseCase
+      public AssetUseCaseMap UseCase
       {
          get { return Context.UseCase; }
       }

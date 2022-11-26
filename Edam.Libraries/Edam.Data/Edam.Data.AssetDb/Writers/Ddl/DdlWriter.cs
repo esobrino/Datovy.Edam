@@ -104,6 +104,7 @@ namespace Edam.Data.AssetManagement.Writers.Ddl
                   resourceSchema = schm;
                   resource = new ResourceInfo
                   {
+                     Entity = i,
                      Name = i.OriginalName,
                      Namespace = nspace
                   };

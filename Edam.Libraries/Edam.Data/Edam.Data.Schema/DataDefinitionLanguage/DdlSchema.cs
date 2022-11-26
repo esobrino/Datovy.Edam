@@ -10,6 +10,7 @@ using Edam.Data.Schema.SchemaObject;
 using Edam.Data.AssetManagement;
 using Edam.Data.AssetManagement.Resources;
 using Edam.Data.AssetSchema;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace Edam.Data.Schema.DataDefinitionLanguage
 {
@@ -75,7 +76,20 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
          get { return m_Schema.Items; }
       }
 
+      /// <summary>
+      /// Ddl code buffer...
+      /// </summary>
       private StringBuilder m_OutText = new StringBuilder();
+
+      /// <summary>
+      /// Documentation buffer...
+      /// </summary>
+      private StringBuilder m_OutProperties = new StringBuilder();
+      public string OutPropertiesText
+      {
+         get { return m_OutProperties.ToString();}
+      }
+
       private Edam.Text.IndentText m_Indent = new Text.IndentText();
 
       public Edam.Text.IndentText Indent
@@ -160,7 +174,46 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
       }
 
       #endregion
-      #region -- Outuput Element : Column definition
+      #region -- Output Annotation
+
+      /// <summary>
+      /// Output annotation / as an extended property - value.
+      /// </summary>
+      /// <param name="builder">text buffer for annotations</param>
+      /// <param name="schemaName">schema name</param>
+      /// <param name="entityName">entity name</param>
+      /// <param name="elementName">element name</param>
+      /// <param name="propertyName">property name</param>
+      /// <param name="annotationText">annotation text (value)</param>
+      private void OutputAnnotation(StringBuilder builder,
+         string schemaName, string entityName, string elementName,
+         string propertyName, string annotationText)
+      {
+         bool hasElement = !String.IsNullOrWhiteSpace(elementName);
+
+         builder.AppendLine(m_Indent.Identation +
+            "EXECUTE sp_addextendedproperty");
+         builder.AppendLine(m_Indent.Identation +
+            "   @name = '" + propertyName +
+            "', @value = '" + annotationText + "',");
+         builder.AppendLine(m_Indent.Identation +
+            "   @level0type = N'SCHEMA',   @level0name = N'" + 
+            schemaName + "',");
+         builder.AppendLine(m_Indent.Identation +
+            "   @level1type = N'TABLE',    @level1name = N'" + 
+            entityName + "'" + (hasElement ? "," : ";"));
+
+         if (hasElement)
+         {
+            builder.AppendLine(m_Indent.Identation +
+               "   @level2type = N'COLUMN',   @level2name = N'" +
+               elementName + "';");
+         }
+         builder.AppendLine();
+      }
+
+      #endregion
+      #region -- Output Element : Column definition
 
       /// <summary>
       /// Get type text declaration.
@@ -654,6 +707,37 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
                foreach (var obj in objects)
                {
                   PrepareObjectOutput(obj, resource.Namespace);
+               }
+            }
+         }
+      }
+
+      public void PrepareAnnotations()
+      {
+         // TODO: replace hardcoded values...
+         foreach (var resource in m_Schema.Items)
+         {
+            OutputAnnotation(m_OutProperties, resource.Entity.Domain, 
+               resource.Name, null, "Description", 
+               resource.Entity.AnnotationText);
+            foreach(var item in resource.Items)
+            {
+               OutputAnnotation(m_OutProperties, resource.Entity.Domain,
+                  resource.Name, item.Name, "Description",
+                  item.Element.AnnotationText);
+
+               if (item.Element.Kind == DataElementKind.ExternalReference)
+               {
+                  OutputAnnotation(m_OutProperties, resource.Entity.Domain,
+                     resource.Name, item.Name, "X_Reference",
+                     item.Element.AnnotationText);
+               }
+
+               if (String.IsNullOrWhiteSpace(item.Element.Tags))
+               {
+                  OutputAnnotation(m_OutProperties, resource.Entity.Domain,
+                     resource.Name, item.Name, "Privacy",
+                     item.Element.Tags);
                }
             }
          }

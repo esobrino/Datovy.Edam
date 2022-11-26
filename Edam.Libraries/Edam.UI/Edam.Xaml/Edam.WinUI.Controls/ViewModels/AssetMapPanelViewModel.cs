@@ -22,7 +22,7 @@ namespace Edam.WinUI.Controls.ViewModels
    {
 
       private bool m_DataContextRegistered = false;
-      private DataMapContext m_Context = new DataMapContext();
+      private DataMapContext m_Context;
       public DataMapContext Context
       {
          get { return m_Context; }
@@ -60,7 +60,8 @@ namespace Edam.WinUI.Controls.ViewModels
          get { return m_Context.UseCase.Name; }
          set
          {
-            if (m_Context.UseCase.Name != value)
+            if (m_Context != null && 
+               m_Context.UseCase.Name != value)
             {
                m_Context.UseCase.Name = value;
                OnPropertyChanged(nameof(UseCaseName));

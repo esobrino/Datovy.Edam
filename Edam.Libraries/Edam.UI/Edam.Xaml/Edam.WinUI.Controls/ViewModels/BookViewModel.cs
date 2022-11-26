@@ -25,7 +25,7 @@ namespace Edam.WinUI.Controls.ViewModels
    public class BookViewModel : ObservableObject
    {
 
-      public BookModel Book { get; set; } = new BookModel();
+      public BookModel Book { get; set; }
       public NotificationEvent ManageEvent { get; set; }
       public string JsonInstanceSample { get; set; } = String.Empty;
 

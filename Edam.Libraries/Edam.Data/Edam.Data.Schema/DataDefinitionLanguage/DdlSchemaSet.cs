@@ -177,6 +177,7 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
          foreach(var s in m_Schemas)
          {
             s.PrepareOutput(m_DataTextMap);
+            s.PrepareAnnotations();
          }
       }
 
@@ -189,7 +190,13 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
             if (String.IsNullOrWhiteSpace(outText))
                continue;
             m_Writer.Write(fname, outText);
+            m_Writer.Write(fname + "_properties", s.OutPropertiesText);
          }
+      }
+
+      public void GenerateDocumentation()
+      {
+
       }
 
       #endregion

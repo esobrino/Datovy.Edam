@@ -146,6 +146,15 @@ namespace Edam.Data.Asset
          get { return m_Uri.Host == W3C_HOST; }
       }
 
+      public Boolean IsWellFormedUriString
+      {
+         get
+         {
+            return Uri.IsWellFormedUriString(
+               m_Uri.AbsoluteUri, UriKind.Absolute);
+         }
+      }
+
       public void Initialize(
          String prefix, Uri uri, String organizationDomainId, String extension)
       {

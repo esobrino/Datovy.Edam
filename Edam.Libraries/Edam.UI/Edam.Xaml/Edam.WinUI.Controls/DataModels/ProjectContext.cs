@@ -13,6 +13,7 @@ using Edam.WinUI.Controls.ViewModels;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Edam.Data.AssetConsole.Services;
 using Edam.Data.Asset.Services;
+using Edam.Data.Asset;
 
 namespace Edam.WinUI.Controls.DataModels
 {
@@ -45,6 +46,11 @@ namespace Edam.WinUI.Controls.DataModels
       public static ProjectItem CurrentProject
       {
          get { return m_CurrentProject; }
+      }
+
+      public static NamespaceInfo CurrentNamespace
+      {
+         get { return CurrentProject.Namespace; }
       }
 
       public static AssetConsoleArgumentsInfo GetArguments()

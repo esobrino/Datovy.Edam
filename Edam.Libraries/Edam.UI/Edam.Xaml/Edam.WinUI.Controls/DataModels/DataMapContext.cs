@@ -17,6 +17,7 @@ using Windows.Devices.Bluetooth.Advertisement;
 using Edam.Data.Assets.AssetConsole;
 using DocumentFormat.OpenXml.Office2019.Drawing.Model3D;
 using Microsoft.UI.Xaml.Input;
+using Edam.Data.Asset;
 
 namespace Edam.WinUI.Controls.DataModels
 {
@@ -67,16 +68,30 @@ namespace Edam.WinUI.Controls.DataModels
          }
       }
 
-      public AssetMapUseCase UseCase { get; set; }
+      public AssetUseCaseMap m_UseCase { get; set; }
+      public AssetUseCaseMap UseCase
+      {
+         get { return m_UseCase; }
+      }
 
       public DataInstance Source { get; set; }
       public DataInstance Target { get; set; }
 
       public DataTreeEvent ManageNotification { get; set; }
 
-      public DataMapContext()
+      public DataMapContext(NamespaceInfo ns)
       {
-         UseCase = new AssetMapUseCase();
+         m_UseCase = new AssetUseCaseMap(ns);
+      }
+
+      public bool IsSameContext(NamespaceInfo ns)
+      {
+         if (Source == null)
+         {
+            return false;
+         }
+         return Source.Arguments.Namespace.Uri.AbsolutePath ==
+            ns.Uri.AbsolutePath;
       }
 
       public void SetKeyEventData(KeyEventData data)

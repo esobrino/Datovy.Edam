@@ -5,6 +5,7 @@ using System.Text;
 using Edam.Data.AssetManagement.Resources;
 using Edam.Data.AssetSchema;
 using Edam.Data.AssetManagement;
+using Edam.Data.Asset;
 
 namespace Edam.Data.Asset
 {
@@ -68,6 +69,8 @@ namespace Edam.Data.Asset
       DataTypeInfo TypeElement { get; set; }
       string TypeEntityName { get; set; }
       DataTextElementInfo MapElement { get; set; }
+
+      DataElementKind Kind { get; set; }
 
       AssetDataElement DeepCopy();
    }

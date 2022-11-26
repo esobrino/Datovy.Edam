@@ -164,21 +164,31 @@ namespace Edam.WinUI.Controls.ViewModels
          // prepare and send notification that Map Viewing is selected
          if (NotifyEvent != null)
          {
-            NotificationArgs args = new NotificationArgs();
+            // create a new data map context if needed...
+            DataMapContext context = DataTreeControl.ViewModel.MapContext;
+            if (context == null ||
+               DataTreeControl.ViewModel.MapContext.IsSameContext(
+                  ProjectContext.Arguments.Namespace))
+            {
+               DataInstance source = new DataInstance();
+               source.Arguments = ProjectContext.Arguments;
+               source.Instance = DataTreeControl;
 
-            DataInstance source = new DataInstance();
-            source.Arguments = ProjectContext.Arguments;
-            source.Instance = DataTreeControl;
+               context = new DataMapContext(source.Arguments.Namespace)
+               {
+                  Source = source,
+                  Target = new DataInstance()
+               };
 
-            DataMapContext context = new DataMapContext();
-            context.Source = source;
-            context.Target = new DataInstance();
+               DataTreeControl.ViewModel.MapContext = context;
+            }
 
-            DataTreeControl.ViewModel.MapContext = context;
-
-            args.EventData = context;
-            args.MessageText = option.ToString();
-            args.Type = NotificationType.AssetViewerChanged;
+            NotificationArgs args = new NotificationArgs
+            {
+               EventData = context,
+               MessageText = option.ToString(),
+               Type = NotificationType.AssetViewerChanged
+            };
 
             NotifyEvent(this, args);
          }
