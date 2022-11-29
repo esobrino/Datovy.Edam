@@ -23,7 +23,7 @@ namespace Edam.WinUI.Controls.ViewModels
 
       #region -- 1.00 - Properties and Fields
 
-      public DataMapContext Context { get; set; }
+      public DataUseCaseMapContext Context { get; set; }
 
       public AssetUseCaseMap UseCase
       {
@@ -115,7 +115,7 @@ namespace Edam.WinUI.Controls.ViewModels
          MapItemList = new ObservableCollection<AssetDataMapItem>();
       }
 
-      public void SetContext(DataMapContext context)
+      public void SetContext(DataUseCaseMapContext context)
       {
          Context = context;
          Context.Source.ManageNotification = ManageSourceEvent;

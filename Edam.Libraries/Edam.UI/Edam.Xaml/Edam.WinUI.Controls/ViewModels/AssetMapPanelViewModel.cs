@@ -22,8 +22,8 @@ namespace Edam.WinUI.Controls.ViewModels
    {
 
       private bool m_DataContextRegistered = false;
-      private DataMapContext m_Context;
-      public DataMapContext Context
+      private DataUseCaseMapContext m_Context;
+      public DataUseCaseMapContext Context
       {
          get { return m_Context; }
          set
@@ -36,7 +36,10 @@ namespace Edam.WinUI.Controls.ViewModels
             else if (!m_DataContextRegistered)
             {
                m_DataContextRegistered = true;
-               m_Context.ManageNotification += ManageNotification;
+               if (m_Context == null)
+               {
+                  m_Context.ManageNotification += ManageNotification;
+               }
             }
          }
       }
@@ -82,6 +85,11 @@ namespace Edam.WinUI.Controls.ViewModels
             AddToVisibility = m_Context.IsControlKeyPressed ?
                Visibility.Visible : Visibility.Collapsed;
          }
+      }
+
+      public void SaveUseCase()
+      {
+
       }
 
    }

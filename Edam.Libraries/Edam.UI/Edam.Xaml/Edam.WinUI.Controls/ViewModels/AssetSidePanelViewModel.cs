@@ -161,11 +161,12 @@ namespace Edam.WinUI.Controls.ViewModels
             SetSidePanelVisible(false);
          }
 
-         // prepare and send notification that Map Viewing is selected
+         // prepare and notify that (Use Case) Map Viewing is selected
+         // notification should be managed by AssetMapViewerControl
          if (NotifyEvent != null)
          {
             // create a new data map context if needed...
-            DataMapContext context = DataTreeControl.ViewModel.MapContext;
+            DataUseCaseMapContext context = DataTreeControl.ViewModel.MapContext;
             if (context == null ||
                DataTreeControl.ViewModel.MapContext.IsSameContext(
                   ProjectContext.Arguments.Namespace))
@@ -174,7 +175,7 @@ namespace Edam.WinUI.Controls.ViewModels
                source.Arguments = ProjectContext.Arguments;
                source.Instance = DataTreeControl;
 
-               context = new DataMapContext(source.Arguments.Namespace)
+               context = new DataUseCaseMapContext(source.Arguments.Namespace)
                {
                   Source = source,
                   Target = new DataInstance()

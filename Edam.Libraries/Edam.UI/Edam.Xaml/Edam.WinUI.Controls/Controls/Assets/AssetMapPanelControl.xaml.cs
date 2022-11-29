@@ -38,10 +38,19 @@ namespace Edam.WinUI.Controls.Assets
          DataContext = m_ViewModel;
       }
 
-      public void SetContext(DataMapContext context)
+      /// <summary>
+      /// Set / Update mapping context specifying its Target...
+      /// </summary>
+      /// <param name="context"></param>
+      public void SetContext(DataUseCaseMapContext context)
       {
          m_ViewModel.Context = context;
          MapItemControl.SetContext(context);
+      }
+
+      private void UseCaseSave_Click(object sender, RoutedEventArgs e)
+      {
+         m_ViewModel.SaveUseCase();
       }
 
    }

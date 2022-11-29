@@ -74,7 +74,7 @@ namespace Edam.WinUI.Controls.Assets
 
       }
 
-      public void SetMapContext(DataMapContext context)
+      public void SetMapContext(DataUseCaseMapContext context)
       {
          m_ViewModel.SetDataMapContext(context);
          SetText();

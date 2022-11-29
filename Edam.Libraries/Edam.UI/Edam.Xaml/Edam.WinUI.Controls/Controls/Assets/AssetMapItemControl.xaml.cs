@@ -37,7 +37,7 @@ namespace Edam.WinUI.Controls.Assets
          DataContext = m_ViewModel;
       }
 
-      public void SetContext(DataMapContext context)
+      public void SetContext(DataUseCaseMapContext context)
       {
          m_ViewModel.SetContext(context);
       }

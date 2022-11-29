@@ -88,7 +88,7 @@
                      IsAddTabButtonVisible="False" TabWidthMode="SizeToContent"
                      >
          <TabView.TabItems>
-            <TabViewItem Header="Booklets">
+            <TabViewItem Header="Booklet">
                <nb:BookletPanelControl  
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                </nb:BookletPanelControl>

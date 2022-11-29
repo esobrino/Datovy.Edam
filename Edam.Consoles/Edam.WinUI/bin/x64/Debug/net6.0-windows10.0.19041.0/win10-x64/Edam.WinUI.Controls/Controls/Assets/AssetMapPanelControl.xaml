@@ -30,7 +30,9 @@
          <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="Use Case" VerticalAlignment="Center" Margin="8,0" />
             <TextBox x:ConnectionId='3' PlaceholderText="Name"                                                    Margin="0,5" MinWidth="260" />
-            <FontIcon x:ConnectionId='4' Margin="20,0"                                                             
+            <AppBarButton x:ConnectionId='4' Icon="Save" LabelPosition="Collapsed" Padding="0" Width="40" Foreground="Navy"
+                                                    />
+            <FontIcon x:ConnectionId='5' Margin="20,0"                                                             
                       ToolTipService.ToolTip="Double-Tapped items will be added to selected Map-Item"
                       Foreground="#4f4f4f" FontFamily="Segoe MDL2 Assets" Glyph="&#xECC8;" HorizontalAlignment="Right"/>
 

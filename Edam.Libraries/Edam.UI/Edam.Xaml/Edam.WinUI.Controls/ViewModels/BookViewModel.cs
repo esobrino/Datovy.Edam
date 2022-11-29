@@ -29,8 +29,8 @@ namespace Edam.WinUI.Controls.ViewModels
       public NotificationEvent ManageEvent { get; set; }
       public string JsonInstanceSample { get; set; } = String.Empty;
 
-      private DataMapContext m_DataMapContext;
-      public DataMapContext DataMapContext
+      private DataUseCaseMapContext m_DataMapContext;
+      public DataUseCaseMapContext DataMapContext
       {
          get { return m_DataMapContext; }
       }
@@ -40,7 +40,7 @@ namespace Edam.WinUI.Controls.ViewModels
          var blet = Book.FindBooklet(bookletId);
       }
 
-      public void SetMapContext(DataMapContext context)
+      public void SetMapContext(DataUseCaseMapContext context)
       {
          m_DataMapContext = context;
       }

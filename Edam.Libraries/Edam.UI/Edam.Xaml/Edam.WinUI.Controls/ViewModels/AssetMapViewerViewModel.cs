@@ -22,40 +22,23 @@ namespace Edam.WinUI.Controls.ViewModels
    public class AssetMapViewerModel : ObservableObject
    {
 
-      private DataMapContext m_MapContext = null;
-      public DataMapContext MapContext
+      private DataUseCaseMapContext m_MapContext = null;
+      public DataUseCaseMapContext MapContext
       {
          get { return m_MapContext; }
       }
 
-      public DataMapContext SetUpMapping(DataMapContext context)
+      /// <summary>
+      /// Setup Mapping given a MapItem that was configured in Arguments
+      /// specifying source (A) and through the Parent Process Name
+      /// fetch the details about the target.
+      /// </summary>
+      /// <param name="context">use case map context</param>
+      /// <returns>if target was found the context is returned</returns>
+      public DataUseCaseMapContext SetUpMapping(DataUseCaseMapContext context)
       {
          m_MapContext = context;
-
-         var l = context.Source.Arguments.Process.MapItem;
-         if (l == null || l.Count == 0)
-         {
-            return null;
-         }
-
-         DataMapItemInfo item = null;
-         foreach(var m in l)
-         {
-            if (m.Type == DataMapItemType.Target)
-            {
-               item = m;
-               break;
-            }
-         }
-         if (item == null)
-         {
-            return null;
-         }
-
-         var args = ProjectContext.GetArgumentsByProcessName(
-            item.ParentProcessName);
-         context.Target.Arguments = args;
-         return context;
+         return DataUseCaseMapContext.SetUpMapping(context);
       }
 
    }

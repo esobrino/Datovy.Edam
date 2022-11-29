@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +18,22 @@ namespace Edam.Data.AssetSchema
 {
 
    /// <summary>
-   /// 
+   /// Asset Use Case Map
    /// </summary>
    public class AssetUseCaseMap
    {
+
+      #region -- 1.00 - Fields and properties definitions
+
       public string UseCaseId { get; set; } = Guid.NewGuid().ToString();
       public string Name { get; set; }
+      public string VersionId { get; set; }
+
+      public string ProjectName { get; set; }
+      public string ProjectVersionId { get; set; }
+
+      public string SourceUriText { get; set; }
+      public string TargetUriText { get; set; }
 
       public List<AssetDataMapItem> Items { get; set; } =
          new List<AssetDataMapItem>();
@@ -50,27 +59,20 @@ namespace Edam.Data.AssetSchema
       [JsonIgnore]
       public AssetDataMapItem SelectedMapItem { get; set; } = null;
 
+      #endregion
+      #region -- 1.50 - Constructure
+
       public AssetUseCaseMap(NamespaceInfo ns)
       {
          m_Book = new BookInfo(ns);
       }
 
+      #endregion
+      #region -- 4.00 - Search and Find support
+
       public AssetDataMapItem Find(string itemId)
       {
          return Items.Find((x) => x.MapItemId == itemId);
-      }
-
-      public AssetDataMapItem Add(AssetDataElement element)
-      {
-         var i = Find(element.ElementPath);
-         if (i == null)
-         {
-            AssetDataMapItem item = new AssetDataMapItem();
-            item.ItemPath = element.ElementPath;
-            Items.Add(item);
-            i = item;
-         }
-         return i;
       }
 
       /// <summary>
@@ -118,6 +120,22 @@ namespace Edam.Data.AssetSchema
          return i;
       }
 
+      #endregion
+      #region -- 4.00 - Add Map Item management
+
+      public AssetDataMapItem Add(AssetDataElement element)
+      {
+         var i = Find(element.ElementPath);
+         if (i == null)
+         {
+            AssetDataMapItem item = new AssetDataMapItem();
+            item.ItemPath = element.ElementPath;
+            Items.Add(item);
+            i = item;
+         }
+         return i;
+      }
+
       public void Add(DataMapItemType type, MapElementItemInfo item)
       {
          var l = type == DataMapItemType.Source ?
@@ -129,6 +147,9 @@ namespace Edam.Data.AssetSchema
          }
       }
 
+      #endregion
+      #region -- 4.00 - Delete map item management
+
       public void Delete(DataMapItemType type, MapElementItemInfo item)
       {
          var l = type == DataMapItemType.Source ?
@@ -139,6 +160,9 @@ namespace Edam.Data.AssetSchema
             l.Remove(i);
          }
       }
+
+      #endregion
+      #region -- 4.00 - File and serialization support
 
       /// <summary>
       /// Read Use Case from file...
@@ -166,6 +190,8 @@ namespace Edam.Data.AssetSchema
             util.JsonSerializer.Serialize<AssetUseCaseMap>(useCase);
          System.IO.File.WriteAllText(jsonText, filePath);
       }
+
+      #endregion
 
    }
 

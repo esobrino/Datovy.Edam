@@ -53,7 +53,7 @@ namespace Edam.WinUI.Controls.Booklets
          }
       }
 
-      public void SetMapContext(DataMapContext context)
+      public void SetMapContext(DataUseCaseMapContext context)
       {
          ViewModel.SetMapContext(context);
       }

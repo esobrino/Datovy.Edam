@@ -41,7 +41,7 @@ namespace Edam.WinUI.Controls.Assets
             return;
          }
 
-         DataMapContext context = args.EventData as DataMapContext;
+         DataUseCaseMapContext context = args.EventData as DataUseCaseMapContext;
          if (context == null)
          {
             return;

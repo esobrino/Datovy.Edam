@@ -22,6 +22,10 @@ using Edam.WinUI.Controls.Common;
 namespace Edam.WinUI.Controls.Assets
 {
 
+   /// <summary>
+   /// Map Viewer provide support to define mappings, definitions, instructions,
+   /// or transformations within a Book/Booklet format.
+   /// </summary>
    public sealed partial class AssetMapViewerControl : UserControl
    {
 
@@ -37,6 +41,15 @@ namespace Edam.WinUI.Controls.Assets
          DataContext = m_ViewModel;
       }
 
+      /// <summary>
+      /// Manage Map Viewing prividing a map context.
+      /// </summary>
+      /// <remarks>
+      /// See AssetSidePanelControl view-model notification.
+      /// </remarks>
+      /// <param name="sender">notification sender</param>
+      /// <param name="args">notification arguments whose EventData should had
+      /// an object specifying the data Map Context</param>
       public void ManageNotification(
          object sender, NotificationArgs args)
       {
@@ -45,7 +58,8 @@ namespace Edam.WinUI.Controls.Assets
             return;
          }
 
-         DataMapContext context = args.EventData as DataMapContext;
+         DataUseCaseMapContext context =
+            args.EventData as DataUseCaseMapContext;
          if (context == null)
          {
             return;
@@ -57,6 +71,11 @@ namespace Edam.WinUI.Controls.Assets
          MapPanelControl.SetContext(context);
       }
 
+      /// <summary>
+      /// Tab selection changed
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
       private void TabViewer_SelectionChanged(
          object sender, SelectionChangedEventArgs e)
       {

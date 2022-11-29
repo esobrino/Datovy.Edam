@@ -20,13 +20,13 @@ namespace Edam.WinUI.Controls.ViewModels
 
    public class AssetDataTreeViewerViewModel : ObservableObject
    {
-      private DataMapContext m_Context;
-      public DataMapContext Context
+      private DataUseCaseMapContext m_Context;
+      public DataUseCaseMapContext Context
       {
          get { return m_Context; }
       }
 
-      public void SetContext(DataMapContext context)
+      public void SetContext(DataUseCaseMapContext context)
       {
          m_Context = context;
       }
