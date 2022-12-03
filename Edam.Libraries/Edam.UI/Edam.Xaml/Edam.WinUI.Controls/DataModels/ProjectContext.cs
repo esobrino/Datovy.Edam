@@ -48,6 +48,11 @@ namespace Edam.WinUI.Controls.DataModels
          get { return m_CurrentProject; }
       }
 
+      public static string ProjectFolderPath
+      {
+         get { return m_CurrentProject.GetProjectFolder(); }
+      }
+
       public static NamespaceInfo CurrentNamespace
       {
          get { return CurrentProject.Namespace; }

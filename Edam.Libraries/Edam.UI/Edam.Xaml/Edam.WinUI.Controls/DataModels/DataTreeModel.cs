@@ -126,6 +126,55 @@ namespace Edam.WinUI.Controls.DataModels
                Item.IsVisited = value;
                OnPropertyChanged(nameof(IsVisited));
                SetVisitedColor(value);
+               VisitedCount = value ? 1 : 0;
+            }
+         }
+      }
+
+      private Visibility m_VisitedVisibility;
+      public Visibility VisitedVisibility
+      {
+         get { return m_VisitedVisibility; }
+         set
+         {
+            if (m_VisitedVisibility != value)
+            {
+               m_VisitedVisibility = value;
+               OnPropertyChanged(nameof(VisitedVisibility));
+            }
+         }
+      }
+
+      private int m_VisitedCount;
+      public int VisitedCount
+      {
+         get { return m_VisitedCount; }
+         set
+         {
+            if (m_VisitedCount != value)
+            {
+               m_VisitedCount = value;
+               OnPropertyChanged(nameof(VisitedCount));
+               VisitedVisibility = value > 0 ? 
+                  Visibility.Visible : Visibility.Collapsed;
+               VisitedCountText = value.ToString();
+            }
+         }
+      }
+
+      private string m_VisitedCountText;
+      public string VisitedCountText
+      {
+         get
+         {
+            return m_VisitedCountText;
+         }
+         set
+         {
+            if (m_VisitedCountText != value)
+            {
+               m_VisitedCountText = value;
+               OnPropertyChanged(nameof(VisitedCountText));
             }
          }
       }
@@ -141,6 +190,8 @@ namespace Edam.WinUI.Controls.DataModels
       public DataTreeModel()
       {
          SetVisitedColor();
+         IsVisited = false;
+         VisitedCount = 0;
       }
 
       public void SetVisitedColor(bool visited = false)
@@ -149,6 +200,65 @@ namespace Edam.WinUI.Controls.DataModels
             m_BlackColor : m_LightGrayColor;
          TextWeight = visited ?
             FontWeights.Bold : FontWeights.Normal;
+      }
+
+      /// <summary>
+      /// Clear all visited nodes...
+      /// </summary>
+      /// <param name="node"></param>
+      public static void ClearVisited(DataTreeModel node)
+      {
+         node.IsVisited = false;
+         foreach(var c in node.Children)
+         {
+            c.IsVisited = false;
+         }
+      }
+
+      /// <summary>
+      /// Set Visited Count...
+      /// </summary>
+      /// <param name="node"></param>
+      public static void SetVisitedCount(DataTreeModel node)
+      {
+         if (node.Children == null)
+         {
+            if (node.IsVisited)
+            {
+               node.VisitedCount = 1;
+            }
+         }
+
+         foreach (var c in node.Children)
+         {
+            if (c.IsVisited)
+            {
+               node.VisitedCount++;
+            }
+         }
+      }
+
+      /// <summary>
+      /// Find a node that supportes the element with the given path.
+      /// </summary>
+      /// <param name="node"></param>
+      /// <param name="elementPath"></param>
+      /// <returns></returns>
+      public static DataTreeModel Find(DataTreeModel node, string elementPath)
+      {
+         if (node.Item.ElementFullPath == elementPath)
+         {
+            return node;
+         }
+         foreach(DataTreeModel child in node.Children)
+         {
+            var item = Find(child, elementPath);
+            if (item != null)
+            {
+               return item;
+            }
+         }
+         return null;
       }
 
       #region -- 4.00 - Prepare Data Tree Model

@@ -4,7 +4,11 @@
   <ItemGroup />
   <ItemGroup />
   <ItemGroup />
-  <ItemGroup />
+  <ItemGroup>
+    <Page Update="Controls\Utilities\FolderViewControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\Assets\AssetMapItemControl.xaml">
       <SubType>Designer</SubType>

@@ -26,13 +26,15 @@ namespace Edam.UI.App
             public string OrganizationId { get; set; }
          }
 
-         public string ConsolePath { get; set; }
          public DefaultsInfo Defaults = new DefaultsInfo();
-
+         public string ConsolePath { get; set; }
+         public List<UriItemInfo> UriList { get; set; } = 
+            new List<UriItemInfo>();
       }
 
-      public SchemaInfo Schema = new SchemaInfo();
       public AppInfo App = new AppInfo();
+      public SchemaInfo Schema = new SchemaInfo();
+
    }
 
 }

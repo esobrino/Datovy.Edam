@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 namespace Edam.Data.Asset
 {
 
+   [DataContract, Serializable]
    public class NamespacePath
    {
       public const String DEFAULT_VERSION_ID = "v1r0";
@@ -33,7 +34,7 @@ namespace Edam.Data.Asset
          }
       }
 
-      public NamespacePath(Uri uri)
+      public void SetUri(Uri uri)
       {
          if (uri == null)
          {
@@ -100,7 +101,7 @@ namespace Edam.Data.Asset
 
    }
 
-   [DataContract]
+   [DataContract, Serializable]
    public class NamespaceInfo
    {
       public const String HTTP_ROOT = "http://";
@@ -121,7 +122,8 @@ namespace Edam.Data.Asset
          set
          {
             m_Uri = value;
-            NamePath = new NamespacePath(value);
+            NamePath = new NamespacePath();
+            NamePath.SetUri(value);
          }
       }
       public string UriText

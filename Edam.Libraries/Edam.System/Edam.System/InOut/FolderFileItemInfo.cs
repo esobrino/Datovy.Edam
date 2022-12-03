@@ -123,7 +123,6 @@ namespace Edam.InOut
       public FolderInfo(string folderPath, FolderFileItemInfo parent) : 
          base(folderPath, parent)
       {
-
       }
    }
 

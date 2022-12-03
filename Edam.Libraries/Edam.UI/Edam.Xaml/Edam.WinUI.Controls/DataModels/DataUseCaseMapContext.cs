@@ -57,6 +57,14 @@ namespace Edam.WinUI.Controls.DataModels
    public class DataUseCaseMapContext
    {
 
+      #region -- 1.00 - Properties, and Fields declaration
+
+      private string m_ContextId = Guid.NewGuid().ToString();
+      public string ContextId
+      {
+         get { return m_ContextId; }
+      }
+
       private KeyEventData m_KeyEventData;
       public KeyEventData KeyEventData
       {
@@ -71,10 +79,11 @@ namespace Edam.WinUI.Controls.DataModels
          }
       }
 
-      public AssetUseCaseMap m_UseCase { get; set; }
+      public AssetUseCaseMap m_UseCase;
       public AssetUseCaseMap UseCase
       {
          get { return m_UseCase; }
+         set { m_UseCase = value; }
       }
 
       public DataInstance Source { get; set; }
@@ -82,9 +91,86 @@ namespace Edam.WinUI.Controls.DataModels
 
       public DataTreeEvent ManageNotification { get; set; }
 
-      public DataUseCaseMapContext(NamespaceInfo ns)
+      public DataUseCaseMapContext()
       {
-         m_UseCase = new AssetUseCaseMap(ns);
+         m_UseCase = new AssetUseCaseMap();
+      }
+
+      #endregion
+      #region -- 4.00 - Manage Context 
+
+      /// <summary>
+      /// Create context...
+      /// </summary>
+      /// <param name="context">previous context (optional) use null if unknown
+      /// </param>
+      /// <param name="source">source UI control instance</param>
+      /// <param name="arguments">current arguments</param>
+      public static DataUseCaseMapContext CreateContext(
+         DataUseCaseMapContext context,
+         Object source, AssetConsoleArgumentsInfo arguments)
+      {
+         DataUseCaseMapContext newContext = null;
+
+         // the source UI instance is always be the same regardless of context
+         if (source == null)
+         {
+            if (context != null && context.Source != null)
+            {
+               source = context.Source.Instance;
+            }
+         }
+
+         // create context... if needed.
+         if (context == null ||
+            context.Source.Arguments.NamespaceUri != arguments.NamespaceUri)
+         {
+            // try to find Use Case...
+            var useCase = AssetUseCaseMap.FromUriVersion(
+               arguments.NamespaceUri, context == null ? 
+                  null : context.UseCase.Name, arguments.ProjectVersionId);
+
+            // Use Case was not found in storage
+            DataInstance sourceInstance = new DataInstance
+            {
+               Arguments = ProjectContext.Arguments,
+               Instance = source
+            };
+
+            newContext = new DataUseCaseMapContext()
+            {
+               Source = sourceInstance,
+               Target = new DataInstance()
+            };
+            newContext.UseCase.SetNamespace(arguments.Namespace);
+
+            if (useCase != null)
+            {
+               newContext.UseCase = useCase;
+            }
+
+            newContext.UseCase.Project = arguments.Project;
+            newContext.UseCase.SourceUriText = arguments.NamespaceUri;
+         }
+         else
+         {
+            newContext = context;
+         }
+
+         return newContext;
+      }
+
+      /// <summary>
+      /// Based on current project arguments, setup use case...
+      /// </summary>
+      /// <param name="arguments"></param>
+      public DataUseCaseMapContext SetupUseCase(
+         AssetConsoleArgumentsInfo arguments)
+      {
+         // init context if current project is not in context...
+         var context = CreateContext(this, Source.Instance, Source.Arguments);
+
+         return context;
       }
 
       /// <summary>
@@ -101,6 +187,8 @@ namespace Edam.WinUI.Controls.DataModels
          return Source.Arguments.Namespace.Uri.AbsolutePath ==
             ns.Uri.AbsolutePath;
       }
+
+      #endregion
 
       /// <summary>
       /// Notify a Key pressed event.

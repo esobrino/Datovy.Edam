@@ -142,9 +142,14 @@ namespace Edam.Data.Booklets
          }
       }
 
+      public BookInfo()
+      {
+
+      }
+
       public BookInfo(NamespaceInfo ns)
       {
-         if (ns == null && !ns.IsWellFormedUriString)
+         if (ns == null || !ns.IsWellFormedUriString)
          {
             throw new Exception(
                "BookInfo constructure expects a valid namespace");

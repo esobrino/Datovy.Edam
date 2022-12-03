@@ -1,7 +1,8 @@
 ﻿using Edam.Data.Asset;
 using Edam.Data.Assets.AssetConsole;
 using Edam.Data.Booklets;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;

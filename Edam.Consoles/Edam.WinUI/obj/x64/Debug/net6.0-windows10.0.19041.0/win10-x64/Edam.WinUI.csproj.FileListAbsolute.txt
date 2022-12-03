@@ -475,3 +475,5 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_6.0.1122.52304.dll
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\FolderViewControl.xbf
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\FolderViewControl.xaml

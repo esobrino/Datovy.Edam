@@ -29,22 +29,25 @@
 
          <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="Use Case" VerticalAlignment="Center" Margin="8,0" />
-            <TextBox PlaceholderText="Name" Text="{x:Bind ViewModel.UseCaseName, Mode=TwoWay}" Margin="0,5" MinWidth="260" />
-            <AppBarButton Icon="Save" LabelPosition="Collapsed" Padding="0" Width="40" Foreground="Navy"
+            <TextBox x:Name="UseCaseNameBox" PlaceholderText="Name" 
+                     Text="{x:Bind ViewModel.UseCaseName, Mode=TwoWay}" 
+                     Margin="0,5" MinWidth="260" />
+            <AppBarButton Icon="Save" LabelPosition="Collapsed" Padding="0" 
+                          Width="40" Foreground="Navy"
                           Click="UseCaseSave_Click" />
             <FontIcon Margin="20,0" Visibility="{x:Bind ViewModel.AddToVisibility, Mode=TwoWay}"
                       ToolTipService.ToolTip="Double-Tapped items will be added to selected Map-Item"
-                      Foreground="#4f4f4f" FontFamily="Segoe MDL2 Assets" Glyph="&#xECC8;" HorizontalAlignment="Right"/>
-
+                      Foreground="#4f4f4f" FontFamily="Segoe MDL2 Assets" 
+                      Glyph="&#xECC8;" HorizontalAlignment="Right"/>
          </StackPanel>
 
          <Grid Grid.Row="1" Background="#F2F7F7" 
                BorderBrush="#E9E9E9" BorderThickness="0, 1, 0, 0">
             <local:AssetMapItemControl x:Name="MapItemControl"/>
          </Grid>
-         
+
       </Grid>
-      
+
       <!--<ctk:GridSplitter Background="{ThemeResource SystemControlBackgroundBaseLowBrush}"
             GripperCursor="SizeWestEast" Grid.Column="0" Grid.Row="1" Height="Auto" 
             ResizeBehavior="BasedOnAlignment" ResizeDirection="Auto">

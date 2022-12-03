@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 // -----------------------------------------------------------------------------
 using Edam.Data.AssetConsole;
@@ -12,7 +13,6 @@ using Edam.InOut;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
 using Edam.WinUI.Controls.DataModels;
-using System.Collections.ObjectModel;
 using Edam.Data.Assets.AssetConsole;
 
 namespace Edam.WinUI.Controls.ViewModels

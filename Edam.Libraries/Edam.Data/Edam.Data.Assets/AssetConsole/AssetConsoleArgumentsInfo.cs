@@ -400,7 +400,10 @@ namespace Edam.Data.AssetConsole
       public NamespaceInfo GetNamespace()
       {
          if (Namespace.NamePath == null)
-            Namespace.NamePath = new NamespacePath(Namespace.Uri);
+         {
+            Namespace.NamePath = new NamespacePath();
+            Namespace.NamePath.SetUri(Namespace.Uri);
+         }
          return Namespace;
       }
 

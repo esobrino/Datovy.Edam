@@ -16,48 +16,53 @@
 
    <Grid>
       <Grid.ColumnDefinitions>
-         <ColumnDefinition Width="*" />
+         <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
+         <RowDefinition Height="Auto"/>
          <RowDefinition Height="Auto"/>
          <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
       
       <CommandBar Grid.Column="0" Grid.Row="0" Margin="14,0,0,0" HorizontalAlignment="Left" Padding="0" Height="40">
-         <AppBarButton x:ConnectionId='13'                              
+         <AppBarButton x:ConnectionId='14'                              
                        Background="Transparent" BorderThickness="0" FontSize="18" FontWeight="Bold"
                        ToolTipService.ToolTip="Refresh Projects List" Content="PROJECTS" Height="64"/>
-         <AppBarButton x:ConnectionId='14'                          Background="Transparent" BorderThickness="0" Width="26"
+         <AppBarButton x:ConnectionId='15'                          Background="Transparent" BorderThickness="0" Width="26"
                        ToolTipService.ToolTip="Add New Project" Icon="Add" Height="64" />
       </CommandBar>
-      
-      <TreeView x:ConnectionId='2' ScrollViewer.VerticalScrollMode="Auto" Grid.Column="0" Grid.Row="1" Margin="0"
+
+      <ComboBox x:ConnectionId='2' Grid.Column="0" Grid.Row="1"                                                       
+                                                                              ToolTipService.ToolTip="Select Projects Location"
+               DisplayMemberPath="Name" Margin="8,0,0,0" />
+
+      <TreeView x:ConnectionId='3' ScrollViewer.VerticalScrollMode="Auto" Grid.Column="0" Grid.Row="2" Margin="0"
                x:Name="TreeView" Background="#F9F9F9" VerticalAlignment="Stretch" Padding="0"
                                                                               
                SelectionMode="Single">
             <TreeView.ItemTemplate>
                <DataTemplate                                >
-                  <TreeViewItem x:ConnectionId='4' Padding="0,0,10,0"                                              
+                  <TreeViewItem x:ConnectionId='5' Padding="0,0,10,0"                                              
                                                                  
                                                                                >
                      <TreeViewItem.ContextFlyout>
                         <MenuFlyout>
-                           <MenuFlyoutItem x:ConnectionId='5' Text="Edit" Icon="Edit"                            />
-                           <MenuFlyoutItem x:ConnectionId='6' Text="Copy" Icon="Copy"                            />
-                           <MenuFlyoutItem x:ConnectionId='7' Text="Add Items" Icon="Add"                            />
+                           <MenuFlyoutItem x:ConnectionId='6' Text="Edit" Icon="Edit"                            />
+                           <MenuFlyoutItem x:ConnectionId='7' Text="Copy" Icon="Copy"                            />
+                           <MenuFlyoutItem x:ConnectionId='8' Text="Add Items" Icon="Add"                            />
                            <MenuFlyoutSeparator/>
-                           <MenuFlyoutItem x:ConnectionId='8' Text="Delete" Icon="Delete"                              />
+                           <MenuFlyoutItem x:ConnectionId='9' Text="Delete" Icon="Delete"                              />
                         </MenuFlyout>
                      </TreeViewItem.ContextFlyout>
                      <StackPanel>
-                        <StackPanel x:ConnectionId='9' Orientation="Horizontal" 
+                        <StackPanel x:ConnectionId='10' Orientation="Horizontal" 
                                                                                      >
-                           <FontIcon x:ConnectionId='11' FontFamily="Segoe MDL2 Assets"                          
+                           <FontIcon x:ConnectionId='12' FontFamily="Segoe MDL2 Assets"                          
                                                                                 />
-                           <TextBlock x:ConnectionId='12' x:Name="ItemText" Margin="6,0,0,0"                              
+                           <TextBlock x:ConnectionId='13' x:Name="ItemText" Margin="6,0,0,0"                              
                                                                                                                       />
                         </StackPanel>
-                        <TextBox x:ConnectionId='10' x:Name="ItemTextEdit"                                          
+                        <TextBox x:ConnectionId='11' x:Name="ItemTextEdit"                                          
                                                                                                                         />
                      </StackPanel>
                   </TreeViewItem>

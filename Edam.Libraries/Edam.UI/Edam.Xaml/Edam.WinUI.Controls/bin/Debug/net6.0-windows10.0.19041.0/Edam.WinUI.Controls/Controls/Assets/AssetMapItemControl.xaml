@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:dt="using:Edam.Data.AssetSchema"
+    xmlns:fv="using:Edam.WinUI.Controls.Utilities"
     mc:Ignorable="d">
 
    <Grid Background="#EFEFEF">
@@ -22,7 +23,7 @@
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                                   
                                               >
-         <ListView x:ConnectionId='3' HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         <ListView x:ConnectionId='4' HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                                                      
                                                                           >
             <ListView.ItemTemplate>
@@ -38,13 +39,13 @@
                         <RowDefinition Height="*"/>
                      </Grid.RowDefinitions>
 
-                     <ListView x:ConnectionId='6' Grid.Row="0" Grid.Column="0"
+                     <ListView x:ConnectionId='7' Grid.Row="0" Grid.Column="0"
                                                                              
                             ItemsSource="{Binding SourceElement, Mode=TwoWay}"
                             x:Name="SourceControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>
-                              <MenuFlyoutItem x:ConnectionId='10' Text="Delete" ToolTipService.ToolTip="Select Item then Delete" Icon="Delete"                               />
+                              <MenuFlyoutItem x:ConnectionId='11' Text="Delete" ToolTipService.ToolTip="Select Item then Delete" Icon="Delete"                               />
                            </MenuFlyout>
                         </ListView.ContextFlyout>
                         <ListView.ItemTemplate>
@@ -59,13 +60,13 @@
                      <FontIcon Grid.Row="0" Grid.Column="1" Margin="20,0"
                             Foreground="#4f4f4f" FontFamily="Segoe MDL2 Assets" Glyph="&#xF0AF;"/>
 
-                     <ListView x:ConnectionId='7' Grid.Row="0" Grid.Column="2" 
+                     <ListView x:ConnectionId='8' Grid.Row="0" Grid.Column="2" 
                                                                              
                             ItemsSource="{Binding TargetElement, Mode=TwoWay}"
                             x:Name="TargetControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>
-                              <MenuFlyoutItem x:ConnectionId='8' Text="Delete" Icon="Delete"                               />
+                              <MenuFlyoutItem x:ConnectionId='9' Text="Delete" Icon="Delete"                               />
                            </MenuFlyout>
                         </ListView.ContextFlyout>
                         <ListView.ItemTemplate>
@@ -88,6 +89,10 @@
                      IsAddTabButtonVisible="False" TabWidthMode="SizeToContent"
                      >
          <TabView.TabItems>
+            <TabViewItem Header="Use Cases">
+               <fv:FolderViewControl x:ConnectionId='3' x:Name="FolderViewer" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </TabViewItem>
             <TabViewItem Header="Booklet">
                <nb:BookletPanelControl  
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

@@ -88,7 +88,7 @@ namespace Edam.Data.AssetProject
          {
             Directory.SetCurrentDirectory(
                String.IsNullOrWhiteSpace(projectsPath) ?
-                  GetProjectsPath() : projectsPath);
+                  GetProjectsPath() : projectsPath + PROJECTS + "/");
             results.Data = Directory.GetCurrentDirectory();
             results.Succeeded();
          }

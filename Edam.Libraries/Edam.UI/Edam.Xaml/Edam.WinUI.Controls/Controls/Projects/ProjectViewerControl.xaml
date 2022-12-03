@@ -26,11 +26,11 @@
       </StackPanel>
 
       <Grid Grid.Column="0" Grid.Row="1" Background="#F9F9F9" CornerRadius="8" Margin="0,1,0,0">
-         <ctk:DockPanel VerticalAlignment="Stretch">
-            <local:ProjectSidePanelControl x:Name="TreeViewSidePanel"
-            VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="{x:Bind m_ViewModel.ShowProjectSidePanel, Mode=TwoWay}" />
+         <ctk:DockPanel>
+            <local:ProjectSidePanelControl HorizontalAlignment="Stretch" x:Name="TreeViewSidePanel"
+               Visibility="{x:Bind m_ViewModel.ShowProjectSidePanel, Mode=TwoWay}" />
             <asset:AssetSidePanelControl HorizontalAlignment="Stretch" x:Name="AssetViewSidePanel" 
-            VerticalAlignment="Stretch" Visibility="{x:Bind m_ViewModel.ShowAssetSidePanel, Mode=TwoWay}"/>
+               Visibility="{x:Bind m_ViewModel.ShowAssetSidePanel, Mode=TwoWay}"/>
          </ctk:DockPanel>
       </Grid>
 

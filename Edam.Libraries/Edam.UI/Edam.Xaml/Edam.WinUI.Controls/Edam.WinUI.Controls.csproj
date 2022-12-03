@@ -33,6 +33,7 @@
     <None Remove="Controls\ReferenceData\ReferenceDataDomainControl.xaml" />
     <None Remove="Controls\ReferenceData\ReferenceDataDomainEditorControl.xaml" />
     <None Remove="Controls\ReferenceData\ReferenceDataDomainGridControl.xaml" />
+    <None Remove="Controls\Utilities\FolderViewControl.xaml" />
     <None Remove="Controls\Utilities\TextEditorControl.xaml" />
     <None Remove="DataTemplates\Domain.Record.Form.json" />
     <None Remove="DataTemplates\Project.NewProject.Dialog.json" />
@@ -173,6 +174,12 @@
 
   <ItemGroup>
     <Resource Remove="Controls\Assets\AssetDataTreeControl.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Controls\Utilities\FolderViewControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>

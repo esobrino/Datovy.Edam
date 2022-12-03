@@ -166,27 +166,14 @@ namespace Edam.WinUI.Controls.ViewModels
          if (NotifyEvent != null)
          {
             // create a new data map context if needed...
-            DataUseCaseMapContext context = DataTreeControl.ViewModel.MapContext;
-            if (context == null ||
-               DataTreeControl.ViewModel.MapContext.IsSameContext(
-                  ProjectContext.Arguments.Namespace))
-            {
-               DataInstance source = new DataInstance();
-               source.Arguments = ProjectContext.Arguments;
-               source.Instance = DataTreeControl;
-
-               context = new DataUseCaseMapContext(source.Arguments.Namespace)
-               {
-                  Source = source,
-                  Target = new DataInstance()
-               };
-
-               DataTreeControl.ViewModel.MapContext = context;
-            }
+            DataTreeControl.ViewModel.MapContext = 
+               DataUseCaseMapContext.CreateContext(
+                  DataTreeControl.ViewModel.MapContext, 
+                  DataTreeControl, ProjectContext.Arguments);
 
             NotificationArgs args = new NotificationArgs
             {
-               EventData = context,
+               EventData = DataTreeControl.ViewModel.MapContext,
                MessageText = option.ToString(),
                Type = NotificationType.AssetViewerChanged
             };

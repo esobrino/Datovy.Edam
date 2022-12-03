@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 // -----------------------------------------------------------------------------
 using Edam.Data.Asset;
 using Edam.Data.Assets.AssetConsole;
+using Edam.Data.AssetProject;
 using Edam.Data.AssetSchema;
 using Edam.Data.Booklets;
 
 using util = Edam.Serialization;
+using System.Xml.Linq;
 
 namespace Edam.Data.AssetSchema
 {
@@ -26,14 +28,19 @@ namespace Edam.Data.AssetSchema
       #region -- 1.00 - Fields and properties definitions
 
       public string UseCaseId { get; set; } = Guid.NewGuid().ToString();
+      public string NameId { get; set; }
       public string Name { get; set; }
       public string VersionId { get; set; }
 
-      public string ProjectName { get; set; }
-      public string ProjectVersionId { get; set; }
+      public ProjectInfo Project { get; set; } = new ProjectInfo();
 
       public string SourceUriText { get; set; }
       public string TargetUriText { get; set; }
+
+      public string TenantId { get; set; }
+      public DateTimeOffset CreatedDate { get; set; } = DateTimeOffset.UtcNow;
+      public DateTimeOffset UpdatedDate { get; set; } = DateTimeOffset.UtcNow;
+
 
       public List<AssetDataMapItem> Items { get; set; } =
          new List<AssetDataMapItem>();
@@ -44,15 +51,14 @@ namespace Edam.Data.AssetSchema
          get { return m_Book; }
       }
 
+      private NamespaceInfo m_Namespace { get; set; }
       public NamespaceInfo Namespace
       {
-         get { return m_Book != null ? m_Book.Namespace : null; }
+         get { return m_Namespace; }
          set
          {
-            if (m_Book != null)
-            {
-               m_Book.Namespace = value;
-            }
+            m_Namespace = value;
+            m_Book.Namespace = value;
          }
       }
 
@@ -62,9 +68,18 @@ namespace Edam.Data.AssetSchema
       #endregion
       #region -- 1.50 - Constructure
 
-      public AssetUseCaseMap(NamespaceInfo ns)
+      public AssetUseCaseMap()
       {
-         m_Book = new BookInfo(ns);
+         m_Book = new BookInfo();
+      }
+
+      #endregion
+      #region -- 4.00 - Support Methods
+
+      public void SetNamespace(NamespaceInfo ns)
+      {
+         Namespace = ns;
+         m_Book.Namespace = ns;
       }
 
       #endregion
@@ -165,9 +180,29 @@ namespace Edam.Data.AssetSchema
       #region -- 4.00 - File and serialization support
 
       /// <summary>
+      /// Get file name based on given URI and version id.
+      /// </summary>
+      /// <param name="uriText">URI text</param>
+      /// <param name="name">use case name</param>
+      /// <param name="versionId">version ID</param>
+      /// <returns>file name is returned</returns>
+      public static string GetFileName(
+         string uriText, string name, string versionId)
+      {
+         string fname = name;
+         if (String.IsNullOrWhiteSpace(name))
+         {
+            fname = uriText.Replace("http://", String.Empty).Replace(".", "_").
+               Replace('/', '_');
+         }
+         return fname + (String.IsNullOrWhiteSpace(versionId) ?
+            String.Empty : "_" + versionId) + ".json";
+      }
+
+      /// <summary>
       /// Read Use Case from file...
       /// </summary>
-      /// <param name="filePath">file path</param>
+      /// <param name="filePath">partial file path</param>
       /// <returns>instance of AssetMapUseCase is returned</returns>
       public static AssetUseCaseMap FromFile(string filePath)
       {
@@ -175,8 +210,27 @@ namespace Edam.Data.AssetSchema
          {
             return null;
          }
+
+         JsonSerializerOptions? options = new()
+         {
+            ReferenceHandler = ReferenceHandler.Preserve,
+            WriteIndented = true
+         };
+
          string jsonText = System.IO.File.ReadAllText(filePath);
-         return util.JsonSerializer.Deserialize<AssetUseCaseMap>(jsonText);
+         return JsonSerializer.Deserialize<AssetUseCaseMap>(jsonText);
+      }
+
+      /// <summary>
+      /// Fetch the use case matching with given URI and version Id.
+      /// </summary>
+      /// <param name="uriText"></param>
+      /// <param name="versionId"></param>
+      /// <returns></returns>
+      public static AssetUseCaseMap FromUriVersion(
+         string uriText, string name, string versionId)
+      {
+         return FromFile(GetFileName(uriText, name, versionId));
       }
 
       /// <summary>
@@ -184,11 +238,27 @@ namespace Edam.Data.AssetSchema
       /// </summary>
       /// <param name="useCase">use case to write</param>
       /// <param name="filePath">file path</param>
-      public static void ToFile(AssetUseCaseMap useCase, string filePath)
+      public static void ToFile(AssetUseCaseMap useCase, string folderPath,
+         string filePath)
       {
+         AssetUseCaseLog.OpenFolder(folderPath);
+
+         JsonSerializerOptions? options = new()
+         {            
+            ReferenceHandler = ReferenceHandler.Preserve,
+            WriteIndented = true
+         };
+
          string jsonText =
-            util.JsonSerializer.Serialize<AssetUseCaseMap>(useCase);
-         System.IO.File.WriteAllText(jsonText, filePath);
+            JsonSerializer.Serialize<AssetUseCaseMap>(useCase);
+         System.IO.File.WriteAllText(folderPath + filePath, jsonText);
+      }
+
+      public static void ToFile(AssetUseCaseMap useCase, string folderPath,
+         string uriText, string versionId)
+      {
+         ToFile(useCase, folderPath, GetFileName(
+            uriText, useCase.Name, versionId));
       }
 
       #endregion

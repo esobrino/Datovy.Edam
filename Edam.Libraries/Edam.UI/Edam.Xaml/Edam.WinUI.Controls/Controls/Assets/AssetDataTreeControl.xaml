@@ -42,6 +42,10 @@
                                 Foreground="{x:Bind TextBrush, Mode=TwoWay}"
                                 FontWeight="{x:Bind TextWeight, Mode=TwoWay}"
                                 ToolTipService.ToolTip="{x:Bind ElementFullPath, Mode=TwoWay}"/>
+
+                     <TextBlock Text="{x:Bind VisitedCountText, Mode=TwoWay}" Margin="5,0,2,0"
+                                Visibility="{x:Bind VisitedVisibility, Mode=TwoWay}"/>
+                     
                   </StackPanel>
                </StackPanel>
             </TreeViewItem>

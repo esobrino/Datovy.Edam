@@ -16,9 +16,10 @@
 
    <Grid>
       <Grid.ColumnDefinitions>
-         <ColumnDefinition Width="*" />
+         <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
+         <RowDefinition Height="Auto"/>
          <RowDefinition Height="Auto"/>
          <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
@@ -30,8 +31,12 @@
          <AppBarButton Click="ProjectAdd_Click" Background="Transparent" BorderThickness="0" Width="26"
                        ToolTipService.ToolTip="Add New Project" Icon="Add" Height="64" />
       </CommandBar>
-      
-      <TreeView ScrollViewer.VerticalScrollMode="Auto" Grid.Column="0" Grid.Row="1" Margin="0"
+
+      <ComboBox Grid.Column="0" Grid.Row="1" ItemsSource="{x:Bind ViewModel.UriItems, Mode=TwoWay}"
+               SelectedItem="{x:Bind ViewModel.SelectedUriItem, Mode=TwoWay}" ToolTipService.ToolTip="Select Projects Location"
+               DisplayMemberPath="Name" Margin="8,0,0,0" />
+
+      <TreeView ScrollViewer.VerticalScrollMode="Auto" Grid.Column="0" Grid.Row="2" Margin="0"
                x:Name="TreeView" Background="#F9F9F9" VerticalAlignment="Stretch" Padding="0"
                ItemsSource="{x:Bind ViewModel.TreeView.Children, Mode=TwoWay}"
                SelectionMode="Single">

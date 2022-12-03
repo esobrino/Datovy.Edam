@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:dt="using:Edam.Data.AssetSchema"
+    xmlns:fv="using:Edam.WinUI.Controls.Utilities"
     mc:Ignorable="d">
 
    <Grid Background="#EFEFEF">
@@ -88,6 +89,10 @@
                      IsAddTabButtonVisible="False" TabWidthMode="SizeToContent"
                      >
          <TabView.TabItems>
+            <TabViewItem Header="Use Cases">
+               <fv:FolderViewControl x:Name="FolderViewer" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </TabViewItem>
             <TabViewItem Header="Booklet">
                <nb:BookletPanelControl  
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

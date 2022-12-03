@@ -42,6 +42,10 @@
                                                                             
                                                                              
                                                                                               />
+
+                     <TextBlock x:ConnectionId='9'                                               Margin="5,0,2,0"
+                                                                                    />
+                     
                   </StackPanel>
                </StackPanel>
             </TreeViewItem>

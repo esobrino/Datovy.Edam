@@ -20,6 +20,7 @@ using Edam.Data.AssetSchema;
 using Edam.WinUI.Controls.DataModels;
 using Edam.WinUI.Controls.Common;
 using Edam.Data.Assets.AssetConsole;
+using Edam.Application;
 
 namespace Edam.WinUI.Controls.Assets
 {
@@ -70,6 +71,12 @@ namespace Edam.WinUI.Controls.Assets
             if (tree != null)
             {
                TreeView.SetDataTree(tree);
+            }
+            else
+            {
+               Session.ShowMessageBox("Tree Preparation",
+                  "Failed to find root element or other issue. " +
+                  "Check Arguments RootElementName and try again.");
             }
             ViewModel.AssetDataChanged(dataItem);
          }

@@ -25,7 +25,7 @@ namespace Edam.UI.App
       public const string DOCUMENT_POSTFIX = "_Document";
       public const string EDAM_SETTINGS_FILENAME_KEY = "EdamSettingsFileName";
 
-      public AppSettings()
+      static AppSettings()
       {
          FromJson();
       }
@@ -78,6 +78,20 @@ namespace Edam.UI.App
          string fname = app.AppSettings.GetSectionString(
             EDAM_SETTINGS_FILENAME_KEY);
          return GetConsolePath() + fname;
+      }
+
+      /// <summary>
+      /// Get URI list for all entries of given type.
+      /// </summary>
+      /// <param name="type">URI type to search</param>
+      /// <returns>uri list of given type is returned</returns>
+      public static List<UriItemInfo> GetUriList(UriType type)
+      {
+         if (EdamSettings.App.UriList == null)
+         {
+            return new List<UriItemInfo>();
+         }
+         return EdamSettings.App.UriList.FindAll((x) => x.Type == type);
       }
 
       /// <summary>

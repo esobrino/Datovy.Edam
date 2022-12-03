@@ -53,9 +53,9 @@ namespace Edam.Data.AssetSchema
       /// Get a relative path for the use cases
       /// </summary>
       /// <returns>path is returned</returns>
-      public static string GetUseCasesPath()
+      public static string GetUseCasesFolderName()
       {
-         return "./" + USE_CASES_FOLDER + "/";
+         return USE_CASES_FOLDER + "/";
       }
 
       /// <summary>
@@ -63,14 +63,13 @@ namespace Edam.Data.AssetSchema
       /// </summary>
       /// <returns>directory info or folder name is returned.  An execption will
       /// be generated if can't create the direcoty if it is missing</returns>
-      public static object OpenFolder()
+      public static object OpenFolder(string folderPath)
       {
-         string folderName = GetUseCasesPath();
-         if (!Directory.Exists(folderName))
+         if (!Directory.Exists(folderPath))
          {
-            return Directory.CreateDirectory(folderName);
+            return Directory.CreateDirectory(folderPath);
          }
-         return folderName;
+         return folderPath;
       }
 
       /// <summary>
@@ -80,7 +79,7 @@ namespace Edam.Data.AssetSchema
       /// <returns></returns>
       public static AssetUseCaseLog FromFile(string filePath)
       {
-         string path = GetUseCasesPath() + filePath;
+         string path = GetUseCasesFolderName() + filePath;
          if (!File.Exists(path))
          {
             return new AssetUseCaseLog();
@@ -104,9 +103,10 @@ namespace Edam.Data.AssetSchema
       /// </summary>
       /// <param name="filePath"></param>
       /// <param name="log"></param>
-      public static void ToFile(string filePath, AssetUseCaseLog log)
+      public static void ToFile(string folderPath, string filePath, 
+         AssetUseCaseLog log)
       {
-         OpenFolder();
+         OpenFolder(folderPath);
 
          // make sure there is a corresponding log item in the log
          var litem = log.Find(log.CurrentItem.ProjectName);

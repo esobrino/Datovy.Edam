@@ -28,7 +28,9 @@ namespace Edam.WinUI.Controls.Common
       AddItem = 110,
       SaveItem = 111,
       RemoveItem = 112,
-      ExecuteItem = 115
+      ExecuteItem = 115,
+
+      ItemSelected = 200
    }
 
    public class NotificationArgs : EventArgs

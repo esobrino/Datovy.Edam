@@ -43,6 +43,7 @@ Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataGridControl.xbf
 Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataValidationContentDialog.xbf
 Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListGroupEditControl.xbf
 Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListViewControl.xbf
+Edam.WinUI.Controls\Controls\Utilities\FolderViewControl.xbf
 Edam.WinUI.Controls\Controls\Utilities\KeyPadControl.xbf
 Edam.WinUI.Controls\Controls\Utilities\TextButtonControl.xbf
 Edam.WinUI.Controls\Controls\Utilities\TextEditorControl.xbf

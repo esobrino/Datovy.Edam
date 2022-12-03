@@ -1,0 +1,92 @@
+{
+	"UseCaseId": "5c7813ac-5c2f-47e9-9d21-72fea1528380",
+	"NameId": null,
+	"Name": "UC.01",
+	"VersionId": null,
+	"Project": {
+		"Name": "Communicable Diseases Database",
+		"VersionId": "v1r0"
+	},
+	"SourceUriText": "http://www.datovy.com/hc/cd",
+	"TargetUriText": null,
+	"TenantId": null,
+	"CreatedDate": "2022-12-03T22:13:35.5905413+00:00",
+	"UpdatedDate": "2022-12-03T22:13:35.5905421+00:00",
+	"Items": [
+		{
+			"SourceElement": [
+				{
+					"Path": "cd6:Action/cd6:Media_/cd6:Activity_ID",
+					"Namespace": null,
+					"Name": "cd6:Activity_ID",
+					"QualifiedName": null,
+					"Annotation": null
+				}
+			],
+			"TargetElement": [],
+			"MapItemId": "9e318389-6558-4cd7-9a2c-3d8f135d038d",
+			"ItemPath": "cd6:Action/cd6:Media_/cd6:Activity_ID",
+			"Description": "",
+			"Instructions": "",
+			"Expresions": []
+		},
+		{
+			"SourceElement": [
+				{
+					"Path": "cd6:Action/cd6:Media_/cd6:Alternate_ID",
+					"Namespace": null,
+					"Name": "cd6:Alternate_ID",
+					"QualifiedName": null,
+					"Annotation": null
+				}
+			],
+			"TargetElement": [],
+			"MapItemId": "902a39c0-e791-4a06-87e4-01e24ea00fd1",
+			"ItemPath": "cd6:Action/cd6:Media_/cd6:Alternate_ID",
+			"Description": "",
+			"Instructions": "",
+			"Expresions": []
+		}
+	],
+	"Book": {
+		"BookId": "05cb0fdc-c0ba-46c4-bcfc-0fa5c98704c3",
+		"Name": null,
+		"Items": [],
+		"Namespace": {
+			"OrganizationDomainId": "datovy.hc.cd",
+			"Prefix": "cd",
+			"Uri": "http://www.datovy.com/hc/cd",
+			"UriText": "http://www.datovy.com/hc/cd",
+			"Extension": "",
+			"RootElementName": "cd:Disease_Surveillance_Document",
+			"NamePath": {
+				"Root": "hc",
+				"Domain": "cd",
+				"Schema": "cd",
+				"VersionId": "v1r0",
+				"DomainUri": "http://www.datovy.com/hc/cd",
+				"FullName": "hc_cd_cd"
+			},
+			"IsW3CSchema": false,
+			"IsWellFormedUriString": true
+		}
+	},
+	"Namespace": {
+		"OrganizationDomainId": "datovy.hc.cd",
+		"Prefix": "cd",
+		"Uri": "http://www.datovy.com/hc/cd",
+		"UriText": "http://www.datovy.com/hc/cd",
+		"Extension": "",
+		"RootElementName": "cd:Disease_Surveillance_Document",
+		"NamePath": {
+			"Root": "hc",
+			"Domain": "cd",
+			"Schema": "cd",
+			"VersionId": "v1r0",
+			"DomainUri": "http://www.datovy.com/hc/cd",
+			"FullName": "hc_cd_cd"
+		},
+		"IsW3CSchema": false,
+		"IsWellFormedUriString": true
+	}
+}

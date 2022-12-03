@@ -16,10 +16,14 @@ using Windows.ApplicationModel.DataTransfer;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
+using Edam.Application;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Data.AssetSchema;
 using Edam.WinUI.Controls.DataModels;
+using Edam.WinUI.Controls.Dialogs;
 using DocumentFormat.OpenXml.Wordprocessing;
+using Edam.WinUI.Controls.Common;
+using Edam.InOut;
 
 namespace Edam.WinUI.Controls.Assets
 {
@@ -36,6 +40,20 @@ namespace Edam.WinUI.Controls.Assets
       {
          this.InitializeComponent();
          DataContext = m_ViewModel;
+
+         MapItemControl.SetSelectionChangedEvent(ManageNotification);
+      }
+
+      public void ManageNotification(object sender, NotificationArgs args)
+      {
+         if (args.Type == NotificationType.ItemSelected)
+         {
+            UseCaseNameBox.Text = args.MessageText;
+            ViewModel.SaveVisibility =
+               String.IsNullOrWhiteSpace(UseCaseNameBox.Text) ? 
+                  Visibility.Collapsed : Visibility.Visible;
+            ViewModel.SetContext(args.EventData as FileDetailInfo);
+         }
       }
 
       /// <summary>
@@ -48,9 +66,23 @@ namespace Edam.WinUI.Controls.Assets
          MapItemControl.SetContext(context);
       }
 
+      /// <summary>
+      /// Use Case Save...
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
       private void UseCaseSave_Click(object sender, RoutedEventArgs e)
       {
+         if (String.IsNullOrWhiteSpace(UseCaseNameBox.Text))
+         {
+            Session.ShowMessageBox("Use Case Name Needed",
+               "Please provide a Use Case Name, then retry", null, 
+               Edam.Application.MessageBoxType.Done);
+            return;
+         }
+         ViewModel.Context.UseCase.Name = UseCaseNameBox.Text;
          m_ViewModel.SaveUseCase();
+         MapItemControl.NotifyUseCaseSaved();
       }
 
    }

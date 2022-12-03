@@ -17,6 +17,7 @@ using Edam.DataObjects.Models;
 using Edam.WinUI.Controls.Dialogs;
 using Edam.Data.AssetProject;
 using Edam.Data.AssetSchema;
+using Edam.UI.App;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
@@ -43,6 +44,35 @@ namespace Edam.WinUI.Controls.ViewModels
       private const string PROJECT_DIALOG_NEW = "Project.NewProject.Dialog";
 
       public bool AllowItemEditing { get; set; }
+
+      private ObservableCollection<UriItemInfo> m_UriItems;
+      public ObservableCollection<UriItemInfo> UriItems
+      {
+         get { return m_UriItems; }
+         set
+         {
+            if (m_UriItems != value)
+            {
+               m_UriItems = value;
+               OnPropertyChanged(nameof(m_UriItems));
+            }
+         }
+      }
+
+      private UriItemInfo m_SelectedUriItem;
+      public UriItemInfo SelectedUriItem
+      {
+         get { return m_SelectedUriItem; }
+         set
+         {
+            if (value != m_SelectedUriItem)
+            {
+               m_SelectedUriItem = value;
+               OnPropertyChanged(nameof(m_SelectedUriItem));
+               FetchProjectFolderInfo();
+            }
+         }
+      }
 
       private string m_SelectedItemName;
       public string SelectedItemName
@@ -222,14 +252,32 @@ namespace Edam.WinUI.Controls.ViewModels
 
       public ProjectViewerViewModel()
       {
+         PrepareUriItems();
          AllowItemEditing = false;
-         FetchProjectFolderInfo();
          SidePanelTab = TAB_FILE;
          SetAssetViewerVisibility(Visibility.Visible);
+
+         if (UriItems.Count > 0)
+         {
+            SelectedUriItem = UriItems.First();
+         }
+         //FetchProjectFolderInfo();
       }
 
       #endregion
       #region -- 4.00 - Support methods...
+
+      private void PrepareUriItems()
+      {
+         ObservableCollection<UriItemInfo> l = 
+            new ObservableCollection<UriItemInfo>();
+         var items = AppSettings.GetUriList(UriType.ConsolePath);
+         foreach(var i in items)
+         {
+            l.Add(i);
+         }
+         UriItems = l;
+      }
 
       public void SetAssetViewerVisibility(Visibility? visibility)
       {
@@ -291,7 +339,9 @@ namespace Edam.WinUI.Controls.ViewModels
 
       public void FetchProjectFolderInfo()
       {
-         FolderFileItemInfo ffinfo = prjs.Project.GetProjectItems();
+         var item = SelectedUriItem;
+         FolderFileItemInfo ffinfo = prjs.Project.GetProjectItems(
+            SelectedUriItem == null ? null : SelectedUriItem.UriText);
          TreeView = ProjectDataModel.ToObservable(ffinfo);
       }
 

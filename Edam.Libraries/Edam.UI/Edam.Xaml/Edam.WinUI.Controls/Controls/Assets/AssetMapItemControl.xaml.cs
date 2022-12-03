@@ -19,6 +19,9 @@ using Edam.WinUI.Controls.ViewModels;
 using Edam.WinUI.Controls.DataModels;
 using Edam.Data.Assets.AssetConsole;
 using Edam.Data.AssetSchema;
+using Edam.WinUI.Controls.DataModels;
+using Edam.WinUI.Controls.Common;
+using System.Runtime.CompilerServices;
 
 namespace Edam.WinUI.Controls.Assets
 {
@@ -39,7 +42,14 @@ namespace Edam.WinUI.Controls.Assets
 
       public void SetContext(DataUseCaseMapContext context)
       {
-         m_ViewModel.SetContext(context);
+         if (context != null || 
+            context.ContextId != m_ViewModel.Context.ContextId)
+         {
+            m_ViewModel.SetContext(context);
+            FolderViewer.ViewModel.GetFolderFiles(
+               ProjectContext.ProjectFolderPath + "/" +
+               AssetUseCaseLog.GetUseCasesFolderName());
+         }
       }
 
       private void SourceDeleteItem_Click(object sender, RoutedEventArgs e)
@@ -83,6 +93,20 @@ namespace Edam.WinUI.Controls.Assets
                e.AddedItems[0] as MapElementItemInfo;
          }
       }
+
+      public void SetSelectionChangedEvent(NotificationEvent notificationEvent)
+      {
+         if (FolderViewer.SelectionChangedEvent == null)
+         {
+            FolderViewer.SelectionChangedEvent += notificationEvent;
+         }
+      }
+
+      public void NotifyUseCaseSaved()
+      {
+         FolderViewer.ViewModel.RefreshFolderFiles();
+      }
+
    }
 
 }

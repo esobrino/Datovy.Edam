@@ -3,10 +3,22 @@
       "edam": "http://www.datovy.com/edam/settings"
    },
    "App": {
-      "ConsolePath": "c:/prjs/Datovy.Edam/Edam.App.Data/",
       "Defaults": {
-         "OrganizationId": ""
-      }
+         "OrganizationId": "Datovy"
+      },
+      "ConsolePath": "c:/prjs/Datovy.Edam/Edam.App.Data/",
+	  "UriList": [
+	     {
+			"Name": "Default",
+			"Type": "ConsolePath",
+			"UriText": "c:/prjs/Datovy.Edam/Edam.App.Data/"
+		 },
+	     {
+			"Name": "AM.Console",
+			"Type": "ConsolePath",
+			"UriText": "c:/prjs/AppData/Edam.AM.Console/"
+		 }
+	  ]
    },
    "Schema": {
       "Defaults": {

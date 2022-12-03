@@ -292,7 +292,10 @@ namespace Edam.Data.Schema.ImportExport
                }
 
                // remove header row
-               rows.RemoveAt(0);
+               if (rows.Count > 0)
+               {
+                  rows.RemoveAt(0);
+               }
 
                // prepare Asset Data definitions (one per schema)
                var assets = ToAssetData(doc, rows, namespaces,
