@@ -23,7 +23,7 @@
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                                   
                                               >
-         <ListView x:ConnectionId='4' HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+         <ListView x:ConnectionId='5' HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                                                      
                                                                           >
             <ListView.ItemTemplate>
@@ -39,13 +39,14 @@
                         <RowDefinition Height="*"/>
                      </Grid.RowDefinitions>
 
-                     <ListView x:ConnectionId='7' Grid.Row="0" Grid.Column="0"
+                     <ListView x:ConnectionId='8' Grid.Row="0" Grid.Column="0"
                                                                              
+                            
                             ItemsSource="{Binding SourceElement, Mode=TwoWay}"
                             x:Name="SourceControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>
-                              <MenuFlyoutItem x:ConnectionId='11' Text="Delete" ToolTipService.ToolTip="Select Item then Delete" Icon="Delete"                               />
+                              <MenuFlyoutItem x:ConnectionId='12' Text="Delete" ToolTipService.ToolTip="Select Item then Delete" Icon="Delete"                               />
                            </MenuFlyout>
                         </ListView.ContextFlyout>
                         <ListView.ItemTemplate>
@@ -60,13 +61,13 @@
                      <FontIcon Grid.Row="0" Grid.Column="1" Margin="20,0"
                             Foreground="#4f4f4f" FontFamily="Segoe MDL2 Assets" Glyph="&#xF0AF;"/>
 
-                     <ListView x:ConnectionId='8' Grid.Row="0" Grid.Column="2" 
+                     <ListView x:ConnectionId='9' Grid.Row="0" Grid.Column="2" 
                                                                              
                             ItemsSource="{Binding TargetElement, Mode=TwoWay}"
                             x:Name="TargetControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>
-                              <MenuFlyoutItem x:ConnectionId='9' Text="Delete" Icon="Delete"                               />
+                              <MenuFlyoutItem x:ConnectionId='10' Text="Delete" Icon="Delete"                               />
                            </MenuFlyout>
                         </ListView.ContextFlyout>
                         <ListView.ItemTemplate>
@@ -90,15 +91,15 @@
                      >
          <TabView.TabItems>
             <TabViewItem Header="Use Cases">
-               <fv:FolderViewControl x:ConnectionId='3' x:Name="FolderViewer" 
+               <fv:FolderViewControl x:ConnectionId='4' x:Name="FolderViewer" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </TabViewItem>
             <TabViewItem Header="Booklet">
-               <nb:BookletPanelControl  
+               <nb:BookletPanelControl x:ConnectionId='3' x:Name="BookletPanel"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                </nb:BookletPanelControl>
             </TabViewItem>
-            <TabViewItem Header="Documentation">
+            <!--<TabViewItem Header="Documentation">
                <StackPanel>
 
                </StackPanel>
@@ -107,10 +108,10 @@
                <StackPanel>
 
                </StackPanel>
-            </TabViewItem>
+            </TabViewItem>-->
          </TabView.TabItems>
       </TabView>
-      
+
    </Grid>
 </UserControl>
 

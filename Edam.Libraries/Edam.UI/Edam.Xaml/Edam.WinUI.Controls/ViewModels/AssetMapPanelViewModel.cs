@@ -15,6 +15,7 @@ using Edam.WinUI.Controls.DataModels;
 using System.Collections.ObjectModel;
 using Microsoft.UI.Xaml;
 using Edam.WinUI.Controls.Common;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
@@ -113,69 +114,6 @@ namespace Edam.WinUI.Controls.ViewModels
             AddToVisibility = m_Context.IsControlKeyPressed ?
                Visibility.Visible : Visibility.Collapsed;
          }
-      }
-
-      /// <summary>
-      /// Refresh Tree given a Use Case going through all nodes and finding all
-      /// mapped items.
-      /// </summary>
-      /// <param name="map">use case map information</param>
-      /// <param name="tree">data tree model</param>
-      public void RefreshTree(
-         AssetUseCaseMap map, DataTreeModel tree, bool isSource = false)
-      {
-         List<MapElementItemInfo> list;
-         foreach (var item in map.Items)
-         {
-            list = isSource ? item.SourceElement : item.TargetElement;
-            foreach(var itemElement in list)
-            {
-               var node = DataTreeModel.Find(tree, itemElement.Path);
-               if (node != null)
-               {
-                  node.IsVisited = true;
-               }
-            }
-         }
-      }
-
-      /// <summary>
-      /// Given file or resource details set context.
-      /// </summary>
-      /// <param name="fileDetails">file detaqils</param>
-      public void SetContext(FileDetailInfo fileDetails)
-      {
-         if (fileDetails == null)
-         {
-            return;
-         }
-
-         Context.UseCase = AssetUseCaseMap.FromFile(fileDetails.Path);
-
-         DataTreeModel.ClearVisited(Context.Source.TreeModel);
-         DataTreeModel.ClearVisited(Context.Target.TreeModel);
-
-         RefreshTree(Context.UseCase, Context.Source.TreeModel, true);
-         RefreshTree(Context.UseCase, Context.Target.TreeModel);
-
-         DataTreeModel.SetVisitedCount(Context.Source.TreeModel);
-         DataTreeModel.SetVisitedCount(Context.Target.TreeModel);
-      }
-
-      public void SaveUseCase()
-      {
-         // make sure we are in current project use case environement context
-         var context = Context.SetupUseCase(
-            ProjectContext.CurrentProject.CurrentArguments);
-         Context = context;
-         if (String.IsNullOrWhiteSpace(context.UseCase.Name))
-         {
-            context.UseCase.Name = "UC_" + Guid.NewGuid().ToString();
-         }
-         string pfolder = ProjectContext.ProjectFolderPath + "/" +
-            AssetUseCaseLog.GetUseCasesFolderName();
-         AssetUseCaseMap.ToFile(context.UseCase, pfolder,
-            context.UseCase.SourceUriText, context.UseCase.VersionId);
       }
 
    }

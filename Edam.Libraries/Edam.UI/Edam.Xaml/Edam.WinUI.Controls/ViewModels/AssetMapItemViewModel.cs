@@ -89,6 +89,8 @@ namespace Edam.WinUI.Controls.ViewModels
             {
                m_SourceSelectedItem = value;
                OnPropertyChanged(nameof(SourceSelectedItem));
+               Context.SelectedSourceItem = value;
+               Context.CurrentItem = value;
             }
          }
       }
@@ -103,6 +105,8 @@ namespace Edam.WinUI.Controls.ViewModels
             {
                m_TargetSelectedItem = value;
                OnPropertyChanged(nameof(TargetSelectedItem));
+               Context.SelectedTargetItem = value;
+               Context.CurrentItem = value;
             }
          }
       }
@@ -246,13 +250,14 @@ namespace Edam.WinUI.Controls.ViewModels
       /// </summary>
       /// <param name="type">type identify to be source or target</param>
       /// <param name="args">Data Tree event arguments</param>
-      private void Add(DataMapItemType type, DataTreeEventArgs args)
+      private MapElementItemInfo Add(
+         DataMapItemType type, DataTreeEventArgs args)
       {
          // get tree item
          var item = args.DataItem as DataTreeModel;
          if (item == null)
          {
-            return;
+            return null;
          }
 
          // determine if need to add to current element list or find it...
@@ -270,17 +275,26 @@ namespace Edam.WinUI.Controls.ViewModels
          var i = Find(list, item);
          if (i != null)
          {
-            return;
+            return i;
          }
+
          item.IsVisited = true;
          var e = GetElementItem(
             item.Item.Element.ElementName,
             item.Item.Element.ElementPath);
+
          e.TreeItem = item;
+         e.MapItemId = CurrentMapItem.MapItemId;
+
+         e.Namespace.Prefix = item.Item.Element.ElementQualifiedName.Prefix;
+         e.Namespace.UriText = item.Item.Element.NamespaceText;
+
          list.Add(e);
 
          UseCase.Add(type, e);
          Setup(MapItemList);
+
+         return e;
       }
 
       /// <summary>
@@ -288,22 +302,38 @@ namespace Edam.WinUI.Controls.ViewModels
       /// </summary>
       /// <param name="type">type identify to be source or target</param>
       /// <param name="args">Data Tree event arguments</param>
-      private void ItemSelected(DataMapItemType type, DataTreeEventArgs args)
+      private MapElementItemInfo ItemSelected(
+         DataMapItemType type, DataTreeEventArgs args)
       {
          if (args.KeyEventData.IsControlKeyPressed)
          {
-            Add(type, args);
-            return;
+            return Add(type, args);
          }
 
          // get tree item
          var item = args.DataItem as DataTreeModel;
          if (item == null)
          {
-            return;
+            return null;
          }
+
+         // the following may return a collection of items that match with given
+         // element-full-path since it may be part of multiple mapping groups.
          var flist = UseCase.SelectItem(type, item.ElementFullPath);
          Setup(flist);
+
+         // from the possible multiple mapping groups always return the top one
+         // since the user can select individual nodes and work with those later
+         if (flist != null && flist.Count != 0)
+         {
+            var list = type == DataMapItemType.Source ? 
+               flist[0].SourceElement : flist[0].TargetElement;
+            if (list != null)
+            {
+               return list[0];
+            }
+         }
+         return null;
       }
 
       #endregion
@@ -311,26 +341,32 @@ namespace Edam.WinUI.Controls.ViewModels
 
       public void ManageSourceEvent(object sender, DataTreeEventArgs args)
       {
+         MapElementItemInfo item;
          if (args.Type == DataTreeEventType.DoubleTapped)
          {
-            Add(DataMapItemType.Source, args);
+            item = Add(DataMapItemType.Source, args);
          }
          else
          {
-            ItemSelected(DataMapItemType.Source, args);
+            item = ItemSelected(DataMapItemType.Source, args);
          }
+         Context.SelectedSourceItem = item;
+         Context.CurrentItem = item;
       }
 
       public void ManageTargetEvent(object sender, DataTreeEventArgs args)
       {
+         MapElementItemInfo item;
          if (args.Type == DataTreeEventType.DoubleTapped)
          {
-            Add(DataMapItemType.Target, args);
+            item = Add(DataMapItemType.Target, args);
          }
          else
          {
-            ItemSelected(DataMapItemType.Target, args);
+            item = ItemSelected(DataMapItemType.Target, args);
          }
+         Context.SelectedTargetItem = item;
+         Context.CurrentItem = item;
       }
 
       #endregion

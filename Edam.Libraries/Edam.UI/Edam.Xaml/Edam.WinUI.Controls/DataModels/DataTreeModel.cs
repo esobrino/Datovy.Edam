@@ -157,7 +157,7 @@ namespace Edam.WinUI.Controls.DataModels
                OnPropertyChanged(nameof(VisitedCount));
                VisitedVisibility = value > 0 ? 
                   Visibility.Visible : Visibility.Collapsed;
-               VisitedCountText = value.ToString();
+               VisitedCountText = "( " + value.ToString() + " )";
             }
          }
       }
@@ -209,9 +209,14 @@ namespace Edam.WinUI.Controls.DataModels
       public static void ClearVisited(DataTreeModel node)
       {
          node.IsVisited = false;
+         node.VisitedCount = 0;
+         node.VisitedCountText = String.Empty;
          foreach(var c in node.Children)
          {
+            ClearVisited(c);
             c.IsVisited = false;
+            c.VisitedCount = 0;
+            c.VisitedCountText = String.Empty;
          }
       }
 
@@ -219,7 +224,7 @@ namespace Edam.WinUI.Controls.DataModels
       /// Set Visited Count...
       /// </summary>
       /// <param name="node"></param>
-      public static void SetVisitedCount(DataTreeModel node)
+      public static int SetVisitedCount(DataTreeModel node)
       {
          if (node.Children == null)
          {
@@ -229,13 +234,21 @@ namespace Edam.WinUI.Controls.DataModels
             }
          }
 
+         int count = 0;
+         int visitedCount = 0;
          foreach (var c in node.Children)
          {
             if (c.IsVisited)
             {
                node.VisitedCount++;
+               count++;
             }
+            int cnt = SetVisitedCount(c);
+            c.VisitedCount = cnt;
+            visitedCount += cnt;
          }
+         node.VisitedCount = count + visitedCount;
+         return count;
       }
 
       /// <summary>
@@ -263,6 +276,11 @@ namespace Edam.WinUI.Controls.DataModels
 
       #region -- 4.00 - Prepare Data Tree Model
 
+      /// <summary>
+      /// Prepare model using given DataTreeModel...
+      /// </summary>
+      /// <param name="item"></param>
+      /// <returns></returns>
       private static DataTreeModel PrepareModel(DataTreeModel item)
       {
          int count = 0;

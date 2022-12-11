@@ -52,7 +52,8 @@ namespace Edam.WinUI.Controls.Assets
             ViewModel.SaveVisibility =
                String.IsNullOrWhiteSpace(UseCaseNameBox.Text) ? 
                   Visibility.Collapsed : Visibility.Visible;
-            ViewModel.SetContext(args.EventData as FileDetailInfo);
+            ViewModel.Context.SetUseCaseContext(
+               args.EventData as FileDetailInfo, new BookViewModel());
          }
       }
 
@@ -81,7 +82,8 @@ namespace Edam.WinUI.Controls.Assets
             return;
          }
          ViewModel.Context.UseCase.Name = UseCaseNameBox.Text;
-         m_ViewModel.SaveUseCase();
+         ViewModel.Context = 
+            DataUseCaseMapContext.SaveUseCase(ViewModel.Context);
          MapItemControl.NotifyUseCaseSaved();
       }
 

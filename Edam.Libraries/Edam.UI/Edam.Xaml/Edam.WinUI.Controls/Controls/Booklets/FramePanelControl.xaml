@@ -31,12 +31,12 @@
                       FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;" 
                       PointerPressed="RemoveItemClicked" />
          </StackPanel>
-         <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="Add"
+         <!--<StackPanel Orientation="Horizontal" ToolTipService.ToolTip="Add"
                      ToolTipService.Placement="Bottom" x:Name="AddButton">
             <FontIcon Margin="2,5,2,0" Foreground="#4f4f4f" FontSize="12"
                       FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"
                       PointerPressed="AddItemClicked" />
-         </StackPanel>
+         </StackPanel>-->
       </StackPanel>
 
       <ContentPresenter Grid.Row="0" Grid.Column="0" BorderBrush="LightBlue" BorderThickness="1"

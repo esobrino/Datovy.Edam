@@ -424,9 +424,9 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
 
          builder.AppendLine(m_Indent.Identation +
             "CONSTRAINT pk_" + resourceName.Replace(".", "_") +
-            " PRIMARY KEY ([" +
+            " PRIMARY KEY (" +
                (String.IsNullOrWhiteSpace(keyList) ?
-                  String.Empty : keyList) + "])" + tail);
+                  String.Empty : keyList) + ")" + tail);
       }
 
       private string GetKeyList(StringBuilder builder, 
@@ -438,7 +438,7 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
             foreach (var k in keys)
             {
                keyList += (keyList == null ? "" : ",")
-                  + k.ElementQualifiedName.OriginalName;
+                  + "[" + k.ElementQualifiedName.OriginalName + "]";
             }
          }
 
@@ -733,7 +733,7 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
                      item.Element.AnnotationText);
                }
 
-               if (String.IsNullOrWhiteSpace(item.Element.Tags))
+               if (!String.IsNullOrWhiteSpace(item.Element.Tags))
                {
                   OutputAnnotation(m_OutProperties, resource.Entity.Domain,
                      resource.Name, item.Name, "Privacy",

@@ -19,6 +19,7 @@ using Windows.Foundation.Collections;
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 using Edam.WinUI.Controls.ViewModels;
 using Edam.WinUI.Controls.DataModels;
+using Edam.WinUI.Controls.Common;
 
 namespace Edam.WinUI.Controls.Booklets
 {
@@ -47,15 +48,42 @@ namespace Edam.WinUI.Controls.Booklets
       {
          this.InitializeComponent();
          DataContext = m_ViewModel;
-         if (m_ViewModel != null && m_ViewModel.Book != null)
+         m_ViewModel.ManageEvent = ManageNotification;
+      }
+
+      /// <summary>
+      /// Capture events comming from child controls associated with this
+      /// BookViewModel...
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="args">event arguments</param>
+      public void ManageNotification(object sender, NotificationArgs args)
+      {
+         if (args.Type == NotificationType.AddItem)
          {
-            m_ViewModel.Book.ListView = BookletList;
+            if (args.MessageText == "TEXT")
+            {
+               m_ViewModel.AddTextCell();
+            }
+            else
+            {
+               m_ViewModel.AddCodeCell();
+            }
+         }
+         else if (args.Type == NotificationType.RemoveItem)
+         {
+            m_ViewModel.DeleteCell(args.EventData);
+         }
+         else if (args.Type == NotificationType.ExecuteItem)
+         {
+
          }
       }
 
-      public void SetMapContext(DataUseCaseMapContext context)
+      public void SetContext(DataUseCaseMapContext context)
       {
-         ViewModel.SetMapContext(context);
+         context.BookletViewList = BookletList;
+         ViewModel.SetContext(context);
       }
 
       private void AddCodeCell_Click(object sender, RoutedEventArgs e)

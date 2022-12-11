@@ -377,6 +377,7 @@ namespace Edam.Data.AssetSchema
 
             // setup tail...
             tail = (state.AdditionalProperties != null ||
+               (state.Keys == null || state.Keys.Count == 0) ||
                c < ccnt || state.Keys.Count > 0) ? "," : String.Empty;
             c++;
 

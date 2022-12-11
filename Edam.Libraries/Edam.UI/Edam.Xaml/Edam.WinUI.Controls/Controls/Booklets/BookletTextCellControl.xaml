@@ -11,6 +11,7 @@
    <local:FramePanelControl x:Name="PanelControl"
       HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
       <TextBox TextWrapping="Wrap" x:Name="TextInputPanel"
+             Text="{x:Bind m_ViewModel.CellText, Mode=TwoWay}"
              AcceptsReturn="True"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
              ScrollViewer.VerticalScrollBarVisibility="Auto"

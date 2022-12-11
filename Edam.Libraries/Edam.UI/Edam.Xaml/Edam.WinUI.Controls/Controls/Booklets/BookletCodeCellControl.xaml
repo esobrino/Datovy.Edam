@@ -11,6 +11,7 @@
       HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
       <StackPanel Background="#F6F6F6">
          <TextBox TextWrapping="Wrap" x:Name="CodeInputPanel"
+             Text="x:Bind "
              AcceptsReturn="True" HorizontalAlignment="Stretch"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
              ScrollViewer.VerticalScrollBarVisibility="Auto"

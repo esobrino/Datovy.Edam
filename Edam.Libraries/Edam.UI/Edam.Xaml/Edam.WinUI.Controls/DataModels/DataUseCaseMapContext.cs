@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using Windows.Devices.Bluetooth.Advertisement;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Controls;
+using Newtonsoft.Json.Serialization;
 
 // -----------------------------------------------------------------------------
 using Edam.Data.AssetConsole;
@@ -12,11 +17,8 @@ using Edam.InOut;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
 using Edam.WinUI.Controls.DataModels;
-using System.Collections.ObjectModel;
-using Windows.Devices.Bluetooth.Advertisement;
 using Edam.Data.Assets.AssetConsole;
 using DocumentFormat.OpenXml.Office2019.Drawing.Model3D;
-using Microsoft.UI.Xaml.Input;
 using Edam.Data.Asset;
 
 namespace Edam.WinUI.Controls.DataModels
@@ -90,6 +92,13 @@ namespace Edam.WinUI.Controls.DataModels
       public DataInstance Target { get; set; }
 
       public DataTreeEvent ManageNotification { get; set; }
+
+      public BookViewModel BookModel { get; set; }
+      public ListView BookletViewList { get; set; }
+
+      public MapElementItemInfo CurrentItem { get; set; }
+      public MapElementItemInfo SelectedSourceItem { get; set; }
+      public MapElementItemInfo SelectedTargetItem { get; set; }
 
       public DataUseCaseMapContext()
       {
@@ -215,6 +224,97 @@ namespace Edam.WinUI.Controls.DataModels
       {
          SetKeyEventData(new KeyEventData(e));
       }
+
+      #region -- 4.00 - Setup Use Case
+
+      /// <summary>
+      /// Refresh Tree given a Use Case going through all nodes and finding all
+      /// mapped items.
+      /// </summary>
+      /// <param name="map">use case map information</param>
+      /// <param name="tree">data tree model</param>
+      public void RefreshTree(
+         AssetUseCaseMap map, DataTreeModel tree, bool isSource = false)
+      {
+         List<MapElementItemInfo> list;
+         foreach (var item in map.Items)
+         {
+            list = isSource ? item.SourceElement : item.TargetElement;
+            foreach (var itemElement in list)
+            {
+               var node = DataTreeModel.Find(tree, itemElement.Path);
+               if (node != null)
+               {
+                  node.IsVisited = true;
+               }
+            }
+         }
+      }
+
+      /// <summary>
+      /// Given a Use Case file path information or URI or resource details 
+      /// set context.
+      /// </summary>
+      /// <param name="fileDetails">file detaqils</param>
+      public void SetUseCaseContext(
+         FileDetailInfo fileDetails, BookViewModel model)
+      {
+         BookModel = model ?? new BookViewModel();
+
+         if (fileDetails == null)
+         {
+            return;
+         }
+
+         UseCase = AssetUseCaseMap.FromFile(fileDetails.Path);
+
+         // update tree controls with use case information
+         DataTreeModel.ClearVisited(Source.TreeModel);
+         DataTreeModel.ClearVisited(Target.TreeModel);
+
+         RefreshTree(UseCase, Source.TreeModel, true);
+         RefreshTree(UseCase, Target.TreeModel);
+
+         DataTreeModel.SetVisitedCount(Source.TreeModel);
+         DataTreeModel.SetVisitedCount(Target.TreeModel);
+
+         // set use case book - booklets
+         foreach (var booklet in UseCase.Book.Items)
+         {
+            foreach (var cell in booklet.Items)
+            {
+               BookModel.Model.AddControl(
+                  BookModel, cell.CellType, cell.ReferenceId, cell);
+            }
+         }
+      }
+
+      /// <summary>
+      /// Save Use Case
+      /// </summary>
+      /// <param name="currentContext"></param>
+      /// <returns></returns>
+      public static DataUseCaseMapContext SaveUseCase(
+         DataUseCaseMapContext currentContext)
+      {
+         // make sure we are in current project use case environement context
+         var context = currentContext.SetupUseCase(
+            ProjectContext.CurrentProject.CurrentArguments);
+
+         if (String.IsNullOrWhiteSpace(context.UseCase.Name))
+         {
+            context.UseCase.Name = "UC_" + Guid.NewGuid().ToString();
+         }
+
+         string pfolder = ProjectContext.ProjectFolderPath + "/" +
+            AssetUseCaseLog.GetUseCasesFolderName();
+         AssetUseCaseMap.ToFile(context.UseCase, pfolder,
+            context.UseCase.SourceUriText, context.UseCase.VersionId);
+
+         return context;
+      }
+
+      #endregion
 
       /// <summary>
       /// Setup Mapping given a MapItem that was configured in Arguments

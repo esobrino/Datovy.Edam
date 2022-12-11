@@ -50,6 +50,16 @@ namespace Edam.WinUI.Controls.Booklets
          this.InitializeComponent();
       }
 
+      public BookletCellInfo GetCell()
+      {
+         return ViewModel.Cell;
+      }
+
+      public void SetCell(BookletCellInfo cell)
+      {
+         ViewModel.Cell = cell;
+      }
+
       public string GetInputText()
       {
          return CodeInputPanel.Text;

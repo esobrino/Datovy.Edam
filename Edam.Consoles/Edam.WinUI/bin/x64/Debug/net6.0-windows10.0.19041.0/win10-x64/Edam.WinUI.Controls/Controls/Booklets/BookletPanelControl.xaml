@@ -21,23 +21,23 @@
       <StackPanel Grid.Row="0" Grid.Column="0" Margin="10,0"
                   HorizontalAlignment="Stretch" Orientation="Horizontal" MinHeight="25"
                   BorderBrush="#E0E0E0" BorderThickness="0,0,0,1">
-         <TextBox BorderThickness="0" PlaceholderText="Enter Booklet Title here"
+         <!--<TextBox BorderThickness="0" PlaceholderText="Enter Booklet Title here"
                   Background="Transparent" VerticalAlignment="Center" />
          <AppBarButton Icon="Save" LabelPosition="Collapsed" Padding="0" Width="40"
                        Foreground="Navy"/>
-         <AppBarSeparator />
+         <AppBarSeparator />-->
          <AppBarButton Icon="Add" LabelPosition="Collapsed" Padding="0" Width="40"
                        ToolTipService.ToolTip="Add Cell">
             <AppBarButton.Flyout>
                <MenuBarItemFlyout>
-                  <MenuFlyoutItem x:ConnectionId='6' Text="Code Cell"                           />
-                  <MenuFlyoutItem x:ConnectionId='7' Text="Text Cell"                          />
+                  <MenuFlyoutItem x:ConnectionId='5' Text="Code Cell"                           />
+                  <MenuFlyoutItem x:ConnectionId='6' Text="Text Cell"                          />
                </MenuBarItemFlyout>
             </AppBarButton.Flyout>
          </AppBarButton>
-         <AppBarButton x:ConnectionId='5' Icon="Cancel" LabelPosition="Collapsed" Padding="0" Width="40"
-                                                ToolTipService.ToolTip="Remove Cell"
-                       Foreground="Brown"/>
+         <!--<AppBarButton Icon="Cancel" LabelPosition="Collapsed" Padding="0" Width="40"
+                       Click="DeleteCell_Click" ToolTipService.ToolTip="Remove Cell"
+                       Foreground="Brown"/>-->
       </StackPanel>
 
       <ScrollViewer Grid.Row="1" Grid.Column="0">

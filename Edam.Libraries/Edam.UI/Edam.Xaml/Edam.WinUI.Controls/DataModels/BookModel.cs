@@ -24,7 +24,7 @@ namespace Edam.WinUI.Controls.DataModels
       {
          get { return m_Book; }
       }
-      public BookletInfo CurrentBooklet { get; set; } = new BookletInfo();
+      public BookletInfo SelectedBooklet { get; set; } = new BookletInfo();
 
       public BookModel(BookInfo book)
       {
@@ -37,19 +37,22 @@ namespace Edam.WinUI.Controls.DataModels
       }
 
       public BookletCellInfo AddControl(
-         BookViewModel model, BookletCellType cellType)
+         BookViewModel model, BookletCellType cellType, string referenceId,
+         BookletCellInfo bookletCell = null)
       {
-         BookletCellInfo cell = new BookletCellInfo
+         BookletCellInfo cell = bookletCell ?? new BookletCellInfo
          {
-            ParentBookletId = CurrentBooklet.BookletId,
+            BookletId = SelectedBooklet.BookletId,
             CellType = cellType,
+            ReferenceId = referenceId,
             TextType = cellType == BookletCellType.Text ?
                BookletTextType.Markdown : BookletTextType.JSONata
          };
 
-         CurrentBooklet.SelectedCell = cell;
+         SelectedBooklet.SelectedCell = cell;
+         SelectedBooklet.Items.Add(cell);
 
-         IBookCellView control;
+         IBookCellView control = null;
          switch(cellType)
          {
             case BookletCellType.Code:
@@ -59,6 +62,7 @@ namespace Edam.WinUI.Controls.DataModels
                   Tag = cell
                };
                cctrl.FramePanel.Tag = cell;
+               cctrl.SetCell(cell);
                control = cctrl;
                break;
             case BookletCellType.Text:
@@ -69,6 +73,7 @@ namespace Edam.WinUI.Controls.DataModels
                   Tag = cell
                };
                tctrl.FramePanel.Tag = cell;
+               tctrl.SetCell(cell);
                control = tctrl;
                break;
          }
@@ -78,6 +83,14 @@ namespace Edam.WinUI.Controls.DataModels
             ListView.Items.Add(control);
             cell.Instance = control;
          }
+
+         var itm = Book.Items.Find(
+            (x) => x.BookletId == SelectedBooklet.BookletId);
+         if (itm == null)
+         {
+            Book.Items.Add(SelectedBooklet);
+         }
+
          return cell;
       }
 

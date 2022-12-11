@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+//using System.Text.Json;
+//using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 // -----------------------------------------------------------------------------
 using Edam.Data.Asset;
@@ -71,6 +73,7 @@ namespace Edam.Data.AssetSchema
       public AssetUseCaseMap()
       {
          m_Book = new BookInfo();
+         m_Book.Namespace = Namespace;
       }
 
       #endregion
@@ -211,14 +214,19 @@ namespace Edam.Data.AssetSchema
             return null;
          }
 
-         JsonSerializerOptions? options = new()
-         {
-            ReferenceHandler = ReferenceHandler.Preserve,
-            WriteIndented = true
-         };
+         //JsonSerializerOptions? options = new()
+         //{
+         //   ReferenceHandler = ReferenceHandler.Preserve,
+         //   WriteIndented = true
+         //};
+         //JsonSerializerOptions options = new JsonSerializerOptions
+         //{ 
+         //   PropertyNameCaseInsensitive = true,
+         //   PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+         //};
 
          string jsonText = System.IO.File.ReadAllText(filePath);
-         return JsonSerializer.Deserialize<AssetUseCaseMap>(jsonText);
+         return JsonConvert.DeserializeObject<AssetUseCaseMap>(jsonText);
       }
 
       /// <summary>
@@ -243,14 +251,14 @@ namespace Edam.Data.AssetSchema
       {
          AssetUseCaseLog.OpenFolder(folderPath);
 
-         JsonSerializerOptions? options = new()
-         {            
-            ReferenceHandler = ReferenceHandler.Preserve,
-            WriteIndented = true
-         };
+         //JsonSerializerOptions? options = new()
+         //{            
+         //   ReferenceHandler = ReferenceHandler.Preserve,
+         //   WriteIndented = true
+         //};
 
          string jsonText =
-            JsonSerializer.Serialize<AssetUseCaseMap>(useCase);
+            JsonConvert.SerializeObject(useCase);
          System.IO.File.WriteAllText(folderPath + filePath, jsonText);
       }
 

@@ -25,37 +25,93 @@ namespace Edam.WinUI.Controls.ViewModels
    public class BookViewModel : ObservableObject
    {
 
-      public BookModel Book { get; set; }
+      public BookModel Model { get; set; }
       public NotificationEvent ManageEvent { get; set; }
       public string JsonInstanceSample { get; set; } = String.Empty;
 
-      private DataUseCaseMapContext m_DataMapContext;
-      public DataUseCaseMapContext DataMapContext
+      private DataUseCaseMapContext m_Context;
+      public DataUseCaseMapContext Context
       {
-         get { return m_DataMapContext; }
+         get { return m_Context; }
+      }
+
+      public BookletCellInfo Cell { get; set; }
+
+      public string CellText
+      {
+         get
+         {
+            return Cell != null ? Cell.Text : string.Empty;
+         }
+         set
+         {
+            Cell.Text = value;
+         }
+      }
+
+      public BookletCellInfo GetCell()
+      {
+         return Cell;
+      }
+
+      public void SetCell(BookletCellInfo cell)
+      {
+         Cell = cell;
       }
 
       public void FindBooklet(string bookletId)
       {
-         var blet = Book.FindBooklet(bookletId);
+         var blet = Model.FindBooklet(bookletId);
       }
 
-      public void SetMapContext(DataUseCaseMapContext context)
+      public void SetContext(DataUseCaseMapContext context)
       {
-         m_DataMapContext = context;
+         m_Context = context;
       }
 
+      /// <summary>
+      /// Add cell of given type.
+      /// </summary>
+      /// <param name="type">Text or Code cell type</param>
+      public void AddCell(BookletCellType type)
+      {
+         if (Model == null || Model.Book != Context.UseCase.Book)
+         {
+            Model = new BookModel(Context.UseCase.Book);
+            Model.ListView = Context.BookletViewList;
+            Context.BookModel = this;
+         }
+         var cell = Model.AddControl(
+            this, type, Context.CurrentItem.ItemId);
+      }
+
+      /// <summary>
+      /// If the cell has already been defined call this method instead...
+      /// </summary>
+      /// <param name="cell">Booklet Cell</param>
+      public void AddCell(BookletCellInfo cell)
+      {
+         Model.AddControl(
+            this, cell.CellType, cell.ReferenceId, cell);
+      }
+
+      /// <summary>
+      /// Add a Text cell.
+      /// </summary>
       public void AddTextCell()
       {
-         var cell = Book.AddControl(this, BookletCellType.Text);
+         AddCell(BookletCellType.Text);
       }
 
+      /// <summary>
+      /// Add a Code cell.
+      /// </summary>
       public void AddCodeCell()
       {
-         var cell = Book.AddControl(this, BookletCellType.Code);
+         AddCell(BookletCellType.Code);
       }
 
-      public void DeleteCell()
+      public void DeleteCell(object item = null)
       {
 
       }
@@ -67,7 +123,7 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             NotificationArgs args = new NotificationArgs();
             args.Type = type;
-            args.EventData = data ?? Book;
+            args.EventData = data ?? Model;
             args.MessageText = messageText;
             ManageEvent(this, args);
          }
@@ -79,8 +135,8 @@ namespace Edam.WinUI.Controls.ViewModels
          if (cellView != null)
          {
             string cellText = cellView.GetInputText();
-            JsonInstanceSample = DataMapContext == null ? 
-               String.Empty : DataMapContext.Source.JsonInstanceSample;
+            JsonInstanceSample = Context == null ? 
+               String.Empty : Context.Source.JsonInstanceSample;
 
             if (string.IsNullOrEmpty(cellText) && 
                string.IsNullOrEmpty(JsonInstanceSample))

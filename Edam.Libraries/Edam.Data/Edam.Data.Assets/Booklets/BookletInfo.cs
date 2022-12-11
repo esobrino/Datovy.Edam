@@ -5,12 +5,13 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Serialization;
 
 // -----------------------------------------------------------------------------
 using Edam.Serialization;
-using Newtonsoft.Json;
 using Edam.TextParse;
 using Edam.Data.Asset;
+using Newtonsoft.Json;
 
 namespace Edam.Data.Booklets
 {
@@ -29,6 +30,9 @@ namespace Edam.Data.Booklets
 
    public interface IBookCellView
    {
+      BookletCellInfo GetCell();
+      void SetCell(BookletCellInfo cell);
+
       string GetInputText();
       string GetOutputText();
 
@@ -63,8 +67,9 @@ namespace Edam.Data.Booklets
    /// </summary>
    public class BookletCellInfo
    {
-      public string ParentBookletId { get; set; }
+      public string BookletId { get; set; }
       public string CellId { get; set; } = Guid.NewGuid().ToString();
+      public string ReferenceId { get; set; }
 
       /// <summary>
       /// Cell Type that could be: Text or Code.
@@ -147,15 +152,15 @@ namespace Edam.Data.Booklets
 
       }
 
-      public BookInfo(NamespaceInfo ns)
-      {
-         if (ns == null || !ns.IsWellFormedUriString)
-         {
-            throw new Exception(
-               "BookInfo constructure expects a valid namespace");
-         }
-         m_Namespace = ns;
-      }
+      //public BookInfo(NamespaceInfo ns)
+      //{
+      //   if (ns == null || !ns.IsWellFormedUriString)
+      //   {
+      //      throw new Exception(
+      //         "BookInfo constructure expects a valid namespace");
+      //   }
+      //   m_Namespace = ns;
+      //}
 
       public BookletInfo Find(string bookletId)
       {

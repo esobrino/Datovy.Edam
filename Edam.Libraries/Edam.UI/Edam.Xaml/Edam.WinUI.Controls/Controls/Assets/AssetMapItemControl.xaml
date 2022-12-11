@@ -41,6 +41,7 @@
 
                      <ListView Grid.Row="0" Grid.Column="0"
                             SelectionChanged="SourceControl_SelectionChanged"
+                            
                             ItemsSource="{Binding SourceElement, Mode=TwoWay}"
                             x:Name="SourceControl">
                         <ListView.ContextFlyout>
@@ -94,11 +95,11 @@
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </TabViewItem>
             <TabViewItem Header="Booklet">
-               <nb:BookletPanelControl  
+               <nb:BookletPanelControl x:Name="BookletPanel"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                </nb:BookletPanelControl>
             </TabViewItem>
-            <TabViewItem Header="Documentation">
+            <!--<TabViewItem Header="Documentation">
                <StackPanel>
 
                </StackPanel>
@@ -107,9 +108,9 @@
                <StackPanel>
 
                </StackPanel>
-            </TabViewItem>
+            </TabViewItem>-->
          </TabView.TabItems>
       </TabView>
-      
+
    </Grid>
 </UserControl>

@@ -34,7 +34,9 @@ namespace Edam.Data.AssetSchema
 
    public class MapElementItemInfo
    {
-      public MapNamespaceInfo Namespace { get; set; }
+      public string MapItemId { get; set; }
+      public string ItemId { get; set; } = Guid.NewGuid().ToString();
+      public MapNamespaceInfo Namespace { get; set; } = new MapNamespaceInfo();
 
       [JsonIgnore]
       public object TreeItem { get; set; }
@@ -71,6 +73,7 @@ namespace Edam.Data.AssetSchema
          Description = String.Empty;
          Instructions = String.Empty;
       }
+
    }
 
 }

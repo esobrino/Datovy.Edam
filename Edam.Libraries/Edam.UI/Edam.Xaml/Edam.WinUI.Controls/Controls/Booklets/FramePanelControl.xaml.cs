@@ -78,7 +78,7 @@ namespace Edam.WinUI.Controls.Booklets
       {
          BookletCellInfo cell = Tag as BookletCellInfo;
          ViewModel.NotifyEvent(
-            Common.NotificationType.AddItem, String.Empty, cell);
+            Common.NotificationType.AddItem, "TEXT", cell);
       }
 
    }

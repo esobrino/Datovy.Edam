@@ -1,0 +1,236 @@
+{
+	"UseCaseId": "269eb23b-7a12-422d-a01e-cbf4130d3bc8",
+	"NameId": null,
+	"Name": "UC.001",
+	"VersionId": null,
+	"Project": {
+		"Name": "Communicable Diseases Database",
+		"VersionId": "v1r0"
+	},
+	"SourceUriText": "http://www.datovy.com/hc/cd",
+	"TargetUriText": null,
+	"TenantId": null,
+	"CreatedDate": "2022-12-10T20:25:02.5076759+00:00",
+	"UpdatedDate": "2022-12-10T20:25:02.5076766+00:00",
+	"Items": [
+		{
+			"MapItemId": "3dc4ed59-d60f-4931-b5bb-779378d9ecc6",
+			"ItemPath": "cd6:Action/cd6:Media_/cd6:Activity_ID",
+			"SourceElement": [
+				{
+					"MapItemId": "3dc4ed59-d60f-4931-b5bb-779378d9ecc6",
+					"ItemId": "e0a7d779-588c-451c-a06d-9618374fd3d7",
+					"Namespace": {
+						"Prefix": "cd6",
+						"UriText": "http://www.datovy.com/hc/cd/Action"
+					},
+					"Name": "cd6:Activity_ID",
+					"Path": "cd6:Action/cd6:Media_/cd6:Activity_ID",
+					"QualifiedName": null,
+					"Annotation": null
+				}
+			],
+			"TargetElement": [],
+			"Description": "",
+			"Instructions": "",
+			"Expresions": []
+		},
+		{
+			"MapItemId": "e27d775a-cd82-4dcf-a9fe-50b40f03163a",
+			"ItemPath": "cd6:Action/cd6:Media_/cd6:Media_ID",
+			"SourceElement": [
+				{
+					"MapItemId": "e27d775a-cd82-4dcf-a9fe-50b40f03163a",
+					"ItemId": "8ce8bf46-f70f-46f1-9942-72ed78cfeeba",
+					"Namespace": {
+						"Prefix": "cd6",
+						"UriText": "http://www.datovy.com/hc/cd/Action"
+					},
+					"Name": "cd6:Media_ID",
+					"Path": "cd6:Action/cd6:Media_/cd6:Media_ID",
+					"QualifiedName": null,
+					"Annotation": null
+				}
+			],
+			"TargetElement": [],
+			"Description": "",
+			"Instructions": "",
+			"Expresions": []
+		},
+		{
+			"MapItemId": "607668c7-d1e3-4042-8a9d-82fdae60ef36",
+			"ItemPath": "cd6:Action/cd6:Media_/cd6:Alternate_ID",
+			"SourceElement": [
+				{
+					"MapItemId": "607668c7-d1e3-4042-8a9d-82fdae60ef36",
+					"ItemId": "808414be-5bc0-46bd-a482-a4673de35b85",
+					"Namespace": {
+						"Prefix": "cd6",
+						"UriText": "http://www.datovy.com/hc/cd/Action"
+					},
+					"Name": "cd6:Alternate_ID",
+					"Path": "cd6:Action/cd6:Media_/cd6:Alternate_ID",
+					"QualifiedName": null,
+					"Annotation": null
+				}
+			],
+			"TargetElement": [],
+			"Description": "",
+			"Instructions": "",
+			"Expresions": []
+		},
+		{
+			"MapItemId": "90f77b29-ad8e-431f-98f4-b86cf6df9d38",
+			"ItemPath": "cd6:Action/cd6:Media_/cd6:Serial_No",
+			"SourceElement": [
+				{
+					"MapItemId": "90f77b29-ad8e-431f-98f4-b86cf6df9d38",
+					"ItemId": "50c78774-c3aa-47d3-bcab-1e09fafdde1b",
+					"Namespace": {
+						"Prefix": "cd6",
+						"UriText": "http://www.datovy.com/hc/cd/Action"
+					},
+					"Name": "cd6:Serial_No",
+					"Path": "cd6:Action/cd6:Media_/cd6:Serial_No",
+					"QualifiedName": null,
+					"Annotation": null
+				}
+			],
+			"TargetElement": [],
+			"Description": "",
+			"Instructions": "",
+			"Expresions": []
+		},
+		{
+			"MapItemId": "409afe21-19da-4456-a489-1e9bbc0d3113",
+			"ItemPath": "cd6:Action/cd6:Media_/cd6:Status_Code_ID",
+			"SourceElement": [
+				{
+					"MapItemId": "409afe21-19da-4456-a489-1e9bbc0d3113",
+					"ItemId": "20b93524-e5d9-449e-b7e4-6de1fc33bd19",
+					"Namespace": {
+						"Prefix": "cd6",
+						"UriText": "http://www.datovy.com/hc/cd/Action"
+					},
+					"Name": "cd6:Status_Code_ID",
+					"Path": "cd6:Action/cd6:Media_/cd6:Status_Code_ID",
+					"QualifiedName": null,
+					"Annotation": null
+				}
+			],
+			"TargetElement": [],
+			"Description": "",
+			"Instructions": "",
+			"Expresions": []
+		},
+		{
+			"MapItemId": "a9f9f817-9031-4be4-b84b-eb6ed86620a3",
+			"ItemPath": "cd6:Action_/cd6:Media",
+			"SourceElement": [
+				{
+					"MapItemId": "a9f9f817-9031-4be4-b84b-eb6ed86620a3",
+					"ItemId": "9ba02e0f-a525-49bb-a3b3-bcb31f9f763c",
+					"Namespace": {
+						"Prefix": "cd6",
+						"UriText": "http://www.datovy.com/hc/cd/Action"
+					},
+					"Name": "cd6:Media",
+					"Path": "cd6:Action_/cd6:Media",
+					"QualifiedName": null,
+					"Annotation": null
+				}
+			],
+			"TargetElement": [],
+			"Description": "",
+			"Instructions": "",
+			"Expresions": []
+		},
+		{
+			"MapItemId": "adacb4d1-019d-4bdb-8e72-1ca9fe826390",
+			"ItemPath": "cd6:Action/cd6:Media_/cd6:Size_In_Bytes",
+			"SourceElement": [
+				{
+					"MapItemId": "adacb4d1-019d-4bdb-8e72-1ca9fe826390",
+					"ItemId": "940d770a-e218-4ce2-a1d9-efce4599c65b",
+					"Namespace": {
+						"Prefix": "cd6",
+						"UriText": "http://www.datovy.com/hc/cd/Action"
+					},
+					"Name": "cd6:Size_In_Bytes",
+					"Path": "cd6:Action/cd6:Media_/cd6:Size_In_Bytes",
+					"QualifiedName": null,
+					"Annotation": null
+				}
+			],
+			"TargetElement": [],
+			"Description": "",
+			"Instructions": "",
+			"Expresions": []
+		}
+	],
+	"Book": {
+		"BookId": "f65ae199-2cb3-4fda-842c-ff938bc07470",
+		"Name": null,
+		"Items": [
+			{
+				"BookletId": "ef9735fc-d1fa-4823-a0fa-82734e166bd3",
+				"Name": null,
+				"ReferenceId": null,
+				"Items": [
+					{
+						"BookletId": "ef9735fc-d1fa-4823-a0fa-82734e166bd3",
+						"CellId": "0710ba5f-8c17-40cf-8842-1be9d51dcdc2",
+						"ReferenceId": "50c78774-c3aa-47d3-bcab-1e09fafdde1b",
+						"CellType": 2,
+						"TextType": 3,
+						"Text": null
+					},
+					{
+						"BookletId": "ef9735fc-d1fa-4823-a0fa-82734e166bd3",
+						"CellId": "9698198f-b7f9-4010-bb11-35b83048e05b",
+						"ReferenceId": "50c78774-c3aa-47d3-bcab-1e09fafdde1b",
+						"CellType": 1,
+						"TextType": 21,
+						"Text": null
+					}
+				]
+			}
+		],
+		"Namespace": {
+			"OrganizationDomainId": "datovy.hc.cd",
+			"Prefix": "cd",
+			"Uri": "http://www.datovy.com/hc/cd",
+			"UriText": "http://www.datovy.com/hc/cd",
+			"Extension": "",
+			"RootElementName": "cd:Disease_Surveillance_Document",
+			"NamePath": {
+				"Root": "hc",
+				"Domain": "cd",
+				"Schema": "cd",
+				"VersionId": "v1r0",
+				"DomainUri": "http://www.datovy.com/hc/cd",
+				"FullName": "hc_cd_cd"
+			},
+			"IsW3CSchema": false,
+			"IsWellFormedUriString": true
+		}
+	},
+	"Namespace": {
+		"OrganizationDomainId": "datovy.hc.cd",
+		"Prefix": "cd",
+		"Uri": "http://www.datovy.com/hc/cd",
+		"UriText": "http://www.datovy.com/hc/cd",
+		"Extension": "",
+		"RootElementName": "cd:Disease_Surveillance_Document",
+		"NamePath": {
+			"Root": "hc",
+			"Domain": "cd",
+			"Schema": "cd",
+			"VersionId": "v1r0",
+			"DomainUri": "http://www.datovy.com/hc/cd",
+			"FullName": "hc_cd_cd"
+		},
+		"IsW3CSchema": false,
+		"IsWellFormedUriString": true
+	}
+}

@@ -22,6 +22,7 @@ using Edam.Data.AssetSchema;
 using Edam.WinUI.Controls.DataModels;
 using Edam.WinUI.Controls.Common;
 using System.Runtime.CompilerServices;
+using Edam.WinUI.Controls.Booklets;
 
 namespace Edam.WinUI.Controls.Assets
 {
@@ -49,6 +50,7 @@ namespace Edam.WinUI.Controls.Assets
             FolderViewer.ViewModel.GetFolderFiles(
                ProjectContext.ProjectFolderPath + "/" +
                AssetUseCaseLog.GetUseCasesFolderName());
+            BookletPanel.SetContext(context);
          }
       }
 
@@ -98,7 +100,7 @@ namespace Edam.WinUI.Controls.Assets
       {
          if (FolderViewer.SelectionChangedEvent == null)
          {
-            FolderViewer.SelectionChangedEvent += notificationEvent;
+            FolderViewer.SelectionChangedEvent = notificationEvent;
          }
       }
 
