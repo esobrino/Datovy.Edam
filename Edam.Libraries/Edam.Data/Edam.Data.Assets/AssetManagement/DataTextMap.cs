@@ -59,7 +59,6 @@ namespace Edam.Data.AssetManagement
          return DataTextMap.FromFile(arguments.TextMapFolderPath + DDL_MAP_FILE);
       }
 
-
       /// <summary>
       /// Map Text based on given direction.
       /// </summary>

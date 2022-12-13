@@ -54,6 +54,11 @@ namespace Edam.WinUI.Controls.Assets
          }
       }
 
+      public ListView GetListView()
+      {
+         return BookletPanel.GetListView();
+      }
+
       private void SourceDeleteItem_Click(object sender, RoutedEventArgs e)
       {
          m_ViewModel.DeleteItem(DataMapItemType.Source);
@@ -82,7 +87,7 @@ namespace Edam.WinUI.Controls.Assets
          if (e.AddedItems.Count > 0)
          {
             ViewModel.SourceSelectedItem = 
-               e.AddedItems[0] as MapElementItemInfo;
+               e.AddedItems[0] as MapItemInfo;
          }
       }
 
@@ -92,7 +97,7 @@ namespace Edam.WinUI.Controls.Assets
          if (e.AddedItems.Count > 0)
          {
             ViewModel.TargetSelectedItem =
-               e.AddedItems[0] as MapElementItemInfo;
+               e.AddedItems[0] as MapItemInfo;
          }
       }
 

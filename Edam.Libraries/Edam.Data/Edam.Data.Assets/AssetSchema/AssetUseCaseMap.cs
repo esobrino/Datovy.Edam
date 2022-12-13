@@ -154,7 +154,7 @@ namespace Edam.Data.AssetSchema
          return i;
       }
 
-      public void Add(DataMapItemType type, MapElementItemInfo item)
+      public void Add(DataMapItemType type, MapItemInfo item)
       {
          var l = type == DataMapItemType.Source ?
             SelectedMapItem.SourceElement : SelectedMapItem.TargetElement;
@@ -168,7 +168,7 @@ namespace Edam.Data.AssetSchema
       #endregion
       #region -- 4.00 - Delete map item management
 
-      public void Delete(DataMapItemType type, MapElementItemInfo item)
+      public void Delete(DataMapItemType type, MapItemInfo item)
       {
          var l = type == DataMapItemType.Source ?
             SelectedMapItem.SourceElement : SelectedMapItem.TargetElement;

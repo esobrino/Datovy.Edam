@@ -44,6 +44,11 @@ namespace Edam.WinUI.Controls.Assets
          MapItemControl.SetSelectionChangedEvent(ManageNotification);
       }
 
+      /// <summary>
+      /// Manage Use Case Items selected notification...
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="args"></param>
       public void ManageNotification(object sender, NotificationArgs args)
       {
          if (args.Type == NotificationType.ItemSelected)
@@ -52,8 +57,15 @@ namespace Edam.WinUI.Controls.Assets
             ViewModel.SaveVisibility =
                String.IsNullOrWhiteSpace(UseCaseNameBox.Text) ? 
                   Visibility.Collapsed : Visibility.Visible;
+
+            // prepare Book View Model...
+            var bookModel = new BookViewModel();
+            bookModel.Model = new BookModel(ViewModel.Context.UseCase.Book);
+            bookModel.Model.ListView = MapItemControl.GetListView();
+
+            // Setup selected  use case context...
             ViewModel.Context.SetUseCaseContext(
-               args.EventData as FileDetailInfo, new BookViewModel());
+               args.EventData as FileDetailInfo, bookModel);
          }
       }
 

@@ -35,6 +35,7 @@ namespace Edam.WinUI.Controls.Booklets
             m_ViewModel = value;
             DataContext = value;
             PanelControl.ViewModel = value;
+            m_ViewModel.BaseControl = this;
          }
       }
 
@@ -44,6 +45,10 @@ namespace Edam.WinUI.Controls.Booklets
       }
 
       public BookletInfo Booklet { get; set; } = new BookletInfo();
+      public object Instance
+      {
+         get { return this; }
+      }
 
       public BookletCodeCellControl()
       {
@@ -52,12 +57,12 @@ namespace Edam.WinUI.Controls.Booklets
 
       public BookletCellInfo GetCell()
       {
-         return ViewModel.Cell;
+         return Tag as BookletCellInfo;
       }
 
       public void SetCell(BookletCellInfo cell)
       {
-         ViewModel.Cell = cell;
+         ViewModel.SetCell(cell);
       }
 
       public string GetInputText()
@@ -78,6 +83,15 @@ namespace Edam.WinUI.Controls.Booklets
       public void SetOutputText(string text)
       {
          CodeOutputPanel.Text = text;
+      }
+
+      private void StackPanel_GotFocus(object sender, RoutedEventArgs e)
+      {
+         BookletCellInfo cell = this.Tag as BookletCellInfo;
+         if (cell != null)
+         {
+            ViewModel.SetCell(cell);
+         }
       }
 
    }

@@ -654,6 +654,18 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
          return state.Objects;
       }
 
+      /// <summary>
+      /// Output Create Schema statements.
+      /// </summary>
+      /// <param name="schemaName">schema name</param>
+      public void OutputCreateSchema(string schemaName)
+      {
+         m_OutText.AppendLine(LINE_COMMENT_START + " " + schemaName);
+         m_OutText.AppendLine("CREATE SCHEMA [" + schemaName + "]");
+         m_OutText.AppendLine("GO");
+         m_OutText.AppendLine(String.Empty);
+      }
+
       #endregion
       #region -- Prepare, Get Output
 
@@ -683,7 +695,9 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
 
          m_OutText = new StringBuilder();
          m_Indent.Clear();
-         m_OutText.AppendLine(LINE_COMMENT_START + " " + m_Schema.Name);
+
+         OutputCreateSchema(m_Schema.Name);
+
          foreach (var resource in m_Schema.Items)
          {
             var l = resource.Resources.ToList<AssetDataElement>();

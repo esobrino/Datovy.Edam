@@ -51,6 +51,11 @@ namespace Edam.WinUI.Controls.Booklets
          m_ViewModel.ManageEvent = ManageNotification;
       }
 
+      public ListView GetListView()
+      {
+         return BookletList;
+      }
+
       /// <summary>
       /// Capture events comming from child controls associated with this
       /// BookViewModel...
@@ -99,6 +104,12 @@ namespace Edam.WinUI.Controls.Booklets
       private void DeleteCell_Click(object sender, RoutedEventArgs e)
       {
          m_ViewModel.DeleteCell();
+      }
+
+      private void BookletList_SelectionChanged(
+         object sender, SelectionChangedEventArgs e)
+      {
+
       }
 
    }

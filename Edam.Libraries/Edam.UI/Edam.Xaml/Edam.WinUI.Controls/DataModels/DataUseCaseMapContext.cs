@@ -20,6 +20,8 @@ using Edam.WinUI.Controls.DataModels;
 using Edam.Data.Assets.AssetConsole;
 using DocumentFormat.OpenXml.Office2019.Drawing.Model3D;
 using Edam.Data.Asset;
+using DocumentFormat.OpenXml.Wordprocessing;
+using DocumentFormat.OpenXml.EMMA;
 
 namespace Edam.WinUI.Controls.DataModels
 {
@@ -96,9 +98,16 @@ namespace Edam.WinUI.Controls.DataModels
       public BookViewModel BookModel { get; set; }
       public ListView BookletViewList { get; set; }
 
-      public MapElementItemInfo CurrentItem { get; set; }
-      public MapElementItemInfo SelectedSourceItem { get; set; }
-      public MapElementItemInfo SelectedTargetItem { get; set; }
+      /// <summary>
+      /// Selected Map Item Info / details
+      /// </summary>
+      public MapItemInfo SelectedItem { get; set; }
+
+      public MapItemInfo SelectedSourceItem { get; set; }
+      public MapItemInfo SelectedTargetItem { get; set; }
+
+      #endregion
+      #region -- 1.50 - Constructure
 
       public DataUseCaseMapContext()
       {
@@ -198,6 +207,7 @@ namespace Edam.WinUI.Controls.DataModels
       }
 
       #endregion
+      #region -- 4.00 - Key Event Support
 
       /// <summary>
       /// Notify a Key pressed event.
@@ -225,6 +235,58 @@ namespace Edam.WinUI.Controls.DataModels
          SetKeyEventData(new KeyEventData(e));
       }
 
+      #endregion
+      #region -- 4.00 - Tree (Source or Target) ItemSelected Support
+
+      /// <summary>
+      /// An item in a view tree has been selected.
+      /// </summary>
+      /// <remarks>
+      /// See the AssetMapItemViewMode for details.
+      /// </remarks>
+      /// <param name="type">identify if it is the source or target tree</param>
+      /// <param name="item">the item that has been selected</param>
+      public void SetSelectedMapItem(
+         DataMapItemType type, MapItemInfo item)
+      {
+         switch(type)
+         {
+            case DataMapItemType.Source:
+               SelectedSourceItem = item;
+               break;
+            case DataMapItemType.Target:
+               SelectedTargetItem = item;
+               break;
+            default:
+               break;
+         }
+
+         SelectedItem = item;
+
+         // clear existing Book/Booklet items and add those for selected item
+         BookModel.Model.ClearAll();
+
+         // try to find matching item.ItemId == Booklet...ReferenceId item
+         foreach (var booklet in UseCase.Book.Items)
+         {
+            foreach (var cell in booklet.Items)
+            {
+               if (cell.ReferenceId == item.ItemId)
+               {
+                  var bookModel = new BookViewModel();
+                  bookModel.Model = new BookModel(UseCase.Book);
+                  bookModel.Model.ListView = BookModel.Model.ListView;
+
+                  var ctrlCell = BookModel.Model.AddControl(
+                     bookModel, cell.CellType, cell.ReferenceId, cell);
+
+                  bookModel.BaseControl = ctrlCell.Instance as UserControl;
+               }
+            }
+         }
+      }
+
+      #endregion
       #region -- 4.00 - Setup Use Case
 
       /// <summary>
@@ -236,7 +298,7 @@ namespace Edam.WinUI.Controls.DataModels
       public void RefreshTree(
          AssetUseCaseMap map, DataTreeModel tree, bool isSource = false)
       {
-         List<MapElementItemInfo> list;
+         List<MapItemInfo> list;
          foreach (var item in map.Items)
          {
             list = isSource ? item.SourceElement : item.TargetElement;
@@ -259,7 +321,7 @@ namespace Edam.WinUI.Controls.DataModels
       public void SetUseCaseContext(
          FileDetailInfo fileDetails, BookViewModel model)
       {
-         BookModel = model ?? new BookViewModel();
+         BookModel = model;
 
          if (fileDetails == null)
          {
@@ -277,16 +339,6 @@ namespace Edam.WinUI.Controls.DataModels
 
          DataTreeModel.SetVisitedCount(Source.TreeModel);
          DataTreeModel.SetVisitedCount(Target.TreeModel);
-
-         // set use case book - booklets
-         foreach (var booklet in UseCase.Book.Items)
-         {
-            foreach (var cell in booklet.Items)
-            {
-               BookModel.Model.AddControl(
-                  BookModel, cell.CellType, cell.ReferenceId, cell);
-            }
-         }
       }
 
       /// <summary>
@@ -315,6 +367,7 @@ namespace Edam.WinUI.Controls.DataModels
       }
 
       #endregion
+      #region -- 4.00 - Setup A and B Trees mapping resources...
 
       /// <summary>
       /// Setup Mapping given a MapItem that was configured in Arguments
@@ -384,6 +437,8 @@ namespace Edam.WinUI.Controls.DataModels
          context.Target.Arguments = args;
          return context;
       }
+
+      #endregion
 
    }
 

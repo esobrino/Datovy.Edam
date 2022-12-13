@@ -1,15 +1,16 @@
-﻿using Edam.Data.Asset;
-using Edam.Data.Assets.AssetConsole;
-using Edam.Data.Booklets;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
+// -----------------------------------------------------------------------------
 using util = Edam.Serialization;
+using Edam.Data.Asset;
+using Edam.Data.Assets.AssetConsole;
+using Edam.Data.Booklets;
 
 namespace Edam.Data.AssetSchema
 {
@@ -32,7 +33,7 @@ namespace Edam.Data.AssetSchema
       public string UriText { get; set; }
    }
 
-   public class MapElementItemInfo
+   public class MapItemInfo
    {
       public string MapItemId { get; set; }
       public string ItemId { get; set; } = Guid.NewGuid().ToString();
@@ -57,8 +58,8 @@ namespace Edam.Data.AssetSchema
 
       public string ItemPath { get; set; }
 
-      public List<MapElementItemInfo> SourceElement { get; set; }
-      public List<MapElementItemInfo> TargetElement { get; set; }
+      public List<MapItemInfo> SourceElement { get; set; }
+      public List<MapItemInfo> TargetElement { get; set; }
 
       public string Description { get; set; }
       public string Instructions { get; set; }
@@ -67,8 +68,8 @@ namespace Edam.Data.AssetSchema
 
       public AssetDataMapItem()
       {
-         SourceElement = new List<MapElementItemInfo>();
-         TargetElement = new List<MapElementItemInfo>();
+         SourceElement = new List<MapItemInfo>();
+         TargetElement = new List<MapItemInfo>();
          Expresions = new List<MapExpressionInfo>();
          Description = String.Empty;
          Instructions = String.Empty;

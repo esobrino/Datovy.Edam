@@ -38,6 +38,8 @@ namespace Edam.Data.Booklets
 
       void SetInputText(string text);
       void SetOutputText(string text);
+
+      object Instance { get; }
    }
 
    delegate void ProcessCellEvent(object sender, ProcessCellArgs args);

@@ -79,8 +79,8 @@ namespace Edam.WinUI.Controls.ViewModels
          }
       }
 
-      private MapElementItemInfo m_SourceSelectedItem;
-      public MapElementItemInfo SourceSelectedItem
+      private MapItemInfo m_SourceSelectedItem;
+      public MapItemInfo SourceSelectedItem
       {
          get { return m_SourceSelectedItem; }
          set
@@ -90,13 +90,13 @@ namespace Edam.WinUI.Controls.ViewModels
                m_SourceSelectedItem = value;
                OnPropertyChanged(nameof(SourceSelectedItem));
                Context.SelectedSourceItem = value;
-               Context.CurrentItem = value;
+               Context.SelectedItem = value;
             }
          }
       }
 
-      private MapElementItemInfo m_TargetSelectedItem;
-      public MapElementItemInfo TargetSelectedItem
+      private MapItemInfo m_TargetSelectedItem;
+      public MapItemInfo TargetSelectedItem
       {
          get { return m_TargetSelectedItem; }
          set
@@ -106,7 +106,7 @@ namespace Edam.WinUI.Controls.ViewModels
                m_TargetSelectedItem = value;
                OnPropertyChanged(nameof(TargetSelectedItem));
                Context.SelectedTargetItem = value;
-               Context.CurrentItem = value;
+               Context.SelectedItem = value;
             }
          }
       }
@@ -129,9 +129,9 @@ namespace Edam.WinUI.Controls.ViewModels
       #endregion
       #region -- 4.00 - Get/Setup Map Items
 
-      private MapElementItemInfo GetElementItem(string name, string path)
+      private MapItemInfo GetElementItem(string name, string path)
       {
-         MapElementItemInfo e = new MapElementItemInfo();
+         MapItemInfo e = new MapItemInfo();
          e.Name = name;
          e.Path = path;
          return e;
@@ -214,8 +214,8 @@ namespace Edam.WinUI.Controls.ViewModels
       #endregion
       #region -- 4.00 - Find Map Items
 
-      private static MapElementItemInfo Find(
-         List<MapElementItemInfo> list,
+      private static MapItemInfo Find(
+         List<MapItemInfo> list,
          DataTreeModel item)
       {
          foreach (var i in list)
@@ -228,9 +228,9 @@ namespace Edam.WinUI.Controls.ViewModels
          return null;
       }
 
-      private static MapElementItemInfo Find(
-         List<MapElementItemInfo> list,
-         MapElementItemInfo item)
+      private static MapItemInfo Find(
+         List<MapItemInfo> list,
+         MapItemInfo item)
       {
          foreach (var i in list)
          {
@@ -250,7 +250,7 @@ namespace Edam.WinUI.Controls.ViewModels
       /// </summary>
       /// <param name="type">type identify to be source or target</param>
       /// <param name="args">Data Tree event arguments</param>
-      private MapElementItemInfo Add(
+      private MapItemInfo Add(
          DataMapItemType type, DataTreeEventArgs args)
       {
          // get tree item
@@ -267,7 +267,7 @@ namespace Edam.WinUI.Controls.ViewModels
          }
 
          // identify the list
-         List<MapElementItemInfo> list = type == DataMapItemType.Source ?
+         List<MapItemInfo> list = type == DataMapItemType.Source ?
                CurrentMapItem.SourceElement :
                CurrentMapItem.TargetElement;
 
@@ -302,7 +302,7 @@ namespace Edam.WinUI.Controls.ViewModels
       /// </summary>
       /// <param name="type">type identify to be source or target</param>
       /// <param name="args">Data Tree event arguments</param>
-      private MapElementItemInfo ItemSelected(
+      private MapItemInfo ItemSelected(
          DataMapItemType type, DataTreeEventArgs args)
       {
          if (args.KeyEventData.IsControlKeyPressed)
@@ -337,11 +337,16 @@ namespace Edam.WinUI.Controls.ViewModels
       }
 
       #endregion
-      #region -- 4.00 - Manage Source/Target Events
+      #region -- 4.00 - Manage Source/Target Events - Tree item selected
 
+      /// <summary>
+      /// Manage Source Event - Tree Item has been selected
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="args"></param>
       public void ManageSourceEvent(object sender, DataTreeEventArgs args)
       {
-         MapElementItemInfo item;
+         MapItemInfo item;
          if (args.Type == DataTreeEventType.DoubleTapped)
          {
             item = Add(DataMapItemType.Source, args);
@@ -350,13 +355,21 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             item = ItemSelected(DataMapItemType.Source, args);
          }
-         Context.SelectedSourceItem = item;
-         Context.CurrentItem = item;
+
+         if (item != null)
+         {
+            Context.SetSelectedMapItem(DataMapItemType.Source, item);
+         }
       }
 
+      /// <summary>
+      /// Manage Target Event - Tree Item has been selected
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="args"></param>
       public void ManageTargetEvent(object sender, DataTreeEventArgs args)
       {
-         MapElementItemInfo item;
+         MapItemInfo item;
          if (args.Type == DataTreeEventType.DoubleTapped)
          {
             item = Add(DataMapItemType.Target, args);
@@ -365,8 +378,7 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             item = ItemSelected(DataMapItemType.Target, args);
          }
-         Context.SelectedTargetItem = item;
-         Context.CurrentItem = item;
+         Context.SetSelectedMapItem(DataMapItemType.Target, item);
       }
 
       #endregion
@@ -374,8 +386,8 @@ namespace Edam.WinUI.Controls.ViewModels
 
       private void Delete(
          DataMapItemType type,
-         List<MapElementItemInfo> list,
-         MapElementItemInfo item)
+         List<MapItemInfo> list,
+         MapItemInfo item)
       {
          if (item == null)
          {

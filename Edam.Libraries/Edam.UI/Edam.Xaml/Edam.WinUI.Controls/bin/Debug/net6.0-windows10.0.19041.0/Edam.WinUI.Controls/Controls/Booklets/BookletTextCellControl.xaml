@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
    <local:FramePanelControl x:ConnectionId='2' x:Name="PanelControl"
-      HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"                                 >
       <TextBox x:ConnectionId='3' TextWrapping="Wrap" x:Name="TextInputPanel"
                                                               
              AcceptsReturn="True"

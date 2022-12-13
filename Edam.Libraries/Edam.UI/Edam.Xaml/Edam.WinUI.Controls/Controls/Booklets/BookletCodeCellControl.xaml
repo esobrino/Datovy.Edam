@@ -9,9 +9,9 @@
 
    <local:FramePanelControl x:Name="PanelControl"
       HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-      <StackPanel Background="#F6F6F6">
+      <StackPanel Background="#F6F6F6" GotFocus="StackPanel_GotFocus">
          <TextBox TextWrapping="Wrap" x:Name="CodeInputPanel"
-             Text="x:Bind "
+             Text="{x:Bind m_ViewModel.CellText, Mode=TwoWay}"
              AcceptsReturn="True" HorizontalAlignment="Stretch"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
              ScrollViewer.VerticalScrollBarVisibility="Auto"

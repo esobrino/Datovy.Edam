@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
    <local:FramePanelControl x:Name="PanelControl"
-      HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" GotFocus="PanelControl_GotFocus">
       <TextBox TextWrapping="Wrap" x:Name="TextInputPanel"
              Text="{x:Bind m_ViewModel.CellText, Mode=TwoWay}"
              AcceptsReturn="True"

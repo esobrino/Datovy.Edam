@@ -18,6 +18,7 @@ using Edam.Json.JsonDataTree;
 using Edam.WinUI.Controls.Common;
 using Edam.WinUI.Controls.Booklets;
 using Edam.Data.Booklets;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
@@ -28,6 +29,21 @@ namespace Edam.WinUI.Controls.ViewModels
       public BookModel Model { get; set; }
       public NotificationEvent ManageEvent { get; set; }
       public string JsonInstanceSample { get; set; } = String.Empty;
+
+      private UserControl m_BaseControl;
+      public UserControl BaseControl
+      {
+         get { return m_BaseControl; }
+         set
+         {
+            BookletCellInfo cell = value.Tag as BookletCellInfo;
+            if (cell != null)
+            {
+               SetCell(cell);
+            }
+            m_BaseControl = value;
+         }
+      }
 
       private DataUseCaseMapContext m_Context;
       public DataUseCaseMapContext Context
@@ -82,7 +98,7 @@ namespace Edam.WinUI.Controls.ViewModels
             Context.BookModel = this;
          }
          var cell = Model.AddControl(
-            this, type, Context.CurrentItem.ItemId);
+            this, type, Context.SelectedItem.ItemId);
       }
 
       /// <summary>

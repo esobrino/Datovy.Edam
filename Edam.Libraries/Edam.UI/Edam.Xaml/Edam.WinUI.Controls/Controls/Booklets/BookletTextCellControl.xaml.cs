@@ -44,6 +44,10 @@ namespace Edam.WinUI.Controls.Booklets
       }
 
       public BookletInfo Booklet { get; set; } = new BookletInfo();
+      public object Instance
+      {
+         get { return this; }
+      }
 
       public BookletTextCellControl()
       {
@@ -54,7 +58,7 @@ namespace Edam.WinUI.Controls.Booklets
 
       public BookletCellInfo GetCell()
       {
-         return ViewModel.GetCell();
+         return Tag as BookletCellInfo;
       }
 
       public void SetCell(BookletCellInfo cell)
@@ -82,6 +86,15 @@ namespace Edam.WinUI.Controls.Booklets
          
       }
 
-   }
+      private void PanelControl_GotFocus(object sender, RoutedEventArgs e)
+      {
+         BookletCellInfo cell = this.Tag as BookletCellInfo;
+         if (cell != null)
+         {
+            ViewModel.SetCell(cell);
+         }
+      }
+
+    }
 
 }
