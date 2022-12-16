@@ -18,6 +18,7 @@
     <None Remove="Controls\Assets\AssetMapItemControl.xaml" />
     <None Remove="Controls\Assets\AssetMapPanelControl.xaml" />
     <None Remove="Controls\Assets\AssetMapPlayControl.xaml" />
+    <None Remove="Controls\Assets\AssetMapSidePanelControl.xaml" />
     <None Remove="Controls\Assets\AssetMapViewerControl.xaml" />
     <None Remove="Controls\Assets\AssetSidePanelControl.xaml" />
     <None Remove="Controls\Assets\AssetUseCaseGridControl.xaml" />
@@ -174,6 +175,12 @@
 
   <ItemGroup>
     <Resource Remove="Controls\Assets\AssetDataTreeControl.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Controls\Assets\AssetMapSidePanelControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>

@@ -59,13 +59,7 @@ namespace Edam.WinUI.Controls.Assets
                   Visibility.Collapsed : Visibility.Visible;
 
             // prepare Book View Model...
-            var bookModel = new BookViewModel();
-            bookModel.Model = new BookModel(ViewModel.Context.UseCase.Book);
-            bookModel.Model.ListView = MapItemControl.GetListView();
-
-            // Setup selected  use case context...
-            ViewModel.Context.SetUseCaseContext(
-               args.EventData as FileDetailInfo, bookModel);
+            ViewModel.PrepareBook(args.EventData as FileDetailInfo);
          }
       }
 
@@ -73,7 +67,7 @@ namespace Edam.WinUI.Controls.Assets
       /// Set / Update mapping context specifying its Target...
       /// </summary>
       /// <param name="context"></param>
-      public void SetContext(DataUseCaseMapContext context)
+      public void SetContext(DataMapContext context)
       {
          m_ViewModel.Context = context;
          MapItemControl.SetContext(context);
@@ -95,7 +89,7 @@ namespace Edam.WinUI.Controls.Assets
          }
          ViewModel.Context.UseCase.Name = UseCaseNameBox.Text;
          ViewModel.Context = 
-            DataUseCaseMapContext.SaveUseCase(ViewModel.Context);
+            DataMapContext.SaveUseCase(ViewModel.Context);
          MapItemControl.NotifyUseCaseSaved();
       }
 

@@ -154,7 +154,7 @@ namespace Edam.WinUI.Controls.Booklets
                     }
                 }
             }
-            private void Update_m_ViewModel(global::Edam.WinUI.Controls.ViewModels.BookViewModel obj, int phase)
+            private void Update_m_ViewModel(global::Edam.WinUI.Controls.ViewModels.CellViewModel obj, int phase)
             {
                 this.bindingsTracking.UpdateChildListeners_m_ViewModel(obj);
                 if (obj != null)
@@ -227,7 +227,7 @@ namespace Edam.WinUI.Controls.Booklets
                     if (bindings != null)
                     {
                         string propName = e.PropertyName;
-                        global::Edam.WinUI.Controls.ViewModels.BookViewModel obj = sender as global::Edam.WinUI.Controls.ViewModels.BookViewModel;
+                        global::Edam.WinUI.Controls.ViewModels.CellViewModel obj = sender as global::Edam.WinUI.Controls.ViewModels.CellViewModel;
                         if (global::System.String.IsNullOrEmpty(propName))
                         {
                             if (obj != null)
@@ -253,8 +253,8 @@ namespace Edam.WinUI.Controls.Booklets
                         }
                     }
                 }
-                private global::Edam.WinUI.Controls.ViewModels.BookViewModel cache_m_ViewModel = null;
-                public void UpdateChildListeners_m_ViewModel(global::Edam.WinUI.Controls.ViewModels.BookViewModel obj)
+                private global::Edam.WinUI.Controls.ViewModels.CellViewModel cache_m_ViewModel = null;
+                public void UpdateChildListeners_m_ViewModel(global::Edam.WinUI.Controls.ViewModels.CellViewModel obj)
                 {
                     if (obj != cache_m_ViewModel)
                     {

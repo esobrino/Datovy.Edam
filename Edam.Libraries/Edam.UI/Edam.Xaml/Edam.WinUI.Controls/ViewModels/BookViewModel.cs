@@ -30,49 +30,10 @@ namespace Edam.WinUI.Controls.ViewModels
       public NotificationEvent ManageEvent { get; set; }
       public string JsonInstanceSample { get; set; } = String.Empty;
 
-      private UserControl m_BaseControl;
-      public UserControl BaseControl
-      {
-         get { return m_BaseControl; }
-         set
-         {
-            BookletCellInfo cell = value.Tag as BookletCellInfo;
-            if (cell != null)
-            {
-               SetCell(cell);
-            }
-            m_BaseControl = value;
-         }
-      }
-
-      private DataUseCaseMapContext m_Context;
-      public DataUseCaseMapContext Context
+      private DataMapContext m_Context;
+      public DataMapContext Context
       {
          get { return m_Context; }
-      }
-
-      public BookletCellInfo Cell { get; set; }
-
-      public string CellText
-      {
-         get
-         {
-            return Cell != null ? Cell.Text : string.Empty;
-         }
-         set
-         {
-            Cell.Text = value;
-         }
-      }
-
-      public BookletCellInfo GetCell()
-      {
-         return Cell;
-      }
-
-      public void SetCell(BookletCellInfo cell)
-      {
-         Cell = cell;
       }
 
       public void FindBooklet(string bookletId)
@@ -80,9 +41,17 @@ namespace Edam.WinUI.Controls.ViewModels
          var blet = Model.FindBooklet(bookletId);
       }
 
-      public void SetContext(DataUseCaseMapContext context)
+      /// <summary>
+      /// Set context.
+      /// </summary>
+      /// <param name="context"></param>
+      public void SetContext(DataMapContext context)
       {
          m_Context = context;
+         if (Model == null)
+         {
+            Model = new BookModel(context);
+         }
       }
 
       /// <summary>
@@ -93,8 +62,7 @@ namespace Edam.WinUI.Controls.ViewModels
       {
          if (Model == null || Model.Book != Context.UseCase.Book)
          {
-            Model = new BookModel(Context.UseCase.Book);
-            Model.ListView = Context.BookletViewList;
+            Model = new BookModel(Context);
             Context.BookModel = this;
          }
          var cell = Model.AddControl(

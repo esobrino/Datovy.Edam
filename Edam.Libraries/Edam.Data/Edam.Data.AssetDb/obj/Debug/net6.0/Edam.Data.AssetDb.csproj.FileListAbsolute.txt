@@ -1,8 +1,3 @@
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.csproj.AssemblyReference.cache
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.GeneratedMSBuildEditorConfig.editorconfig
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.AssemblyInfoInputs.cache
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.AssemblyInfo.cs
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.csproj.CoreCompileInputs.cache
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\bin\Debug\net6.0\Edam.Data.AssetDb.deps.json
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\bin\Debug\net6.0\Edam.Data.AssetDb.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\bin\Debug\net6.0\Edam.Data.AssetDb.pdb
@@ -24,6 +19,11 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\bin\Debug\net6.0\
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\bin\Debug\net6.0\Edam.Xml.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\bin\Debug\net6.0\Edam.Data.Templates.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\bin\Debug\net6.0\Edam.Net.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.csproj.AssemblyReference.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.GeneratedMSBuildEditorConfig.editorconfig
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.AssemblyInfoInputs.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.AssemblyInfo.cs
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.csproj.CoreCompileInputs.cache
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.csproj.CopyComplete
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\refint\Edam.Data.AssetDb.dll

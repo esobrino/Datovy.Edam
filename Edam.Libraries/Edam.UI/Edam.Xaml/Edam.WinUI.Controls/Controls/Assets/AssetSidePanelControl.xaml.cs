@@ -27,15 +27,15 @@ namespace Edam.WinUI.Controls.Assets
 
    public sealed partial class AssetSidePanelControl : UserControl
    {
-      private AssetSidePanelViewModel m_ViewModel;
-      public AssetSidePanelViewModel ViewModel
+      private MapSidePanelViewModel m_ViewModel;
+      public MapSidePanelViewModel ViewModel
       {
          get { return m_ViewModel; }
       }
       public AssetSidePanelControl()
       {
          this.InitializeComponent();
-         m_ViewModel = new AssetSidePanelViewModel();
+         m_ViewModel = new MapSidePanelViewModel();
          DataContext = m_ViewModel;
          m_ViewModel.DataTreeControl = TreeView;
       }
@@ -47,7 +47,7 @@ namespace Edam.WinUI.Controls.Assets
             return;
          }
 
-         DataUseCaseMapContext context = args.EventData as DataUseCaseMapContext;
+         DataMapContext context = args.EventData as DataMapContext;
          if (context == null)
          {
             return;

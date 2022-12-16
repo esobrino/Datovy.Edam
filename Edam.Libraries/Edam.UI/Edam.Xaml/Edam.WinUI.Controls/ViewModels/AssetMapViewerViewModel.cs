@@ -22,8 +22,8 @@ namespace Edam.WinUI.Controls.ViewModels
    public class AssetMapViewerModel : ObservableObject
    {
 
-      private DataUseCaseMapContext m_MapContext = null;
-      public DataUseCaseMapContext MapContext
+      private DataMapContext m_MapContext = null;
+      public DataMapContext MapContext
       {
          get { return m_MapContext; }
       }
@@ -35,10 +35,10 @@ namespace Edam.WinUI.Controls.ViewModels
       /// </summary>
       /// <param name="context">use case map context</param>
       /// <returns>if target was found the context is returned</returns>
-      public DataUseCaseMapContext SetUpMapping(DataUseCaseMapContext context)
+      public DataMapContext SetUpMapping(DataMapContext context)
       {
          m_MapContext = context;
-         return DataUseCaseMapContext.SetUpMapping(context);
+         return DataMapContext.SetUpMapping(context);
       }
 
    }

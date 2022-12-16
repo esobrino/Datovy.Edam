@@ -14,6 +14,7 @@ using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
 using Edam.WinUI.Controls.DataModels;
 using Edam.Data.Assets.AssetConsole;
+using Edam.WinUI.Controls.Assets;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
@@ -23,7 +24,8 @@ namespace Edam.WinUI.Controls.ViewModels
 
       #region -- 1.00 - Properties and Fields
 
-      public DataUseCaseMapContext Context { get; set; }
+      public AssetMapItemControl ParentControl { get; set; }
+      public DataMapContext Context { get; set; }
 
       public AssetUseCaseMap UseCase
       {
@@ -119,7 +121,7 @@ namespace Edam.WinUI.Controls.ViewModels
          MapItemList = new ObservableCollection<AssetDataMapItem>();
       }
 
-      public void SetContext(DataUseCaseMapContext context)
+      public void SetContext(DataMapContext context)
       {
          Context = context;
          Context.Source.ManageNotification = ManageSourceEvent;
@@ -359,6 +361,11 @@ namespace Edam.WinUI.Controls.ViewModels
          if (item != null)
          {
             Context.SetSelectedMapItem(DataMapItemType.Source, item);
+            ParentControl.BookletChanged(sender, args);
+         }
+         else if (Context.BookModel != null)
+         {
+            Context.BookModel.Model.ClearAll();
          }
       }
 

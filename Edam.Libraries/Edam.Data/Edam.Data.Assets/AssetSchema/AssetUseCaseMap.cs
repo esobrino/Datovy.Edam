@@ -32,6 +32,7 @@ namespace Edam.Data.AssetSchema
       public string UseCaseId { get; set; } = Guid.NewGuid().ToString();
       public string NameId { get; set; }
       public string Name { get; set; }
+      public string Description { get; set; }
       public string VersionId { get; set; }
 
       public ProjectInfo Project { get; set; } = new ProjectInfo();

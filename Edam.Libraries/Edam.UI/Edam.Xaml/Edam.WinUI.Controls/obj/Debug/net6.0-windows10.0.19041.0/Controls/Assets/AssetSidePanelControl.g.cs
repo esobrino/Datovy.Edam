@@ -442,7 +442,7 @@ namespace Edam.WinUI.Controls.Assets
                     }
                 }
             }
-            private void Update_ViewModel(global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel obj, int phase)
+            private void Update_ViewModel(global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel obj, int phase)
             {
                 this.bindingsTracking.UpdateChildListeners_ViewModel(obj);
                 if (obj != null)
@@ -508,7 +508,7 @@ namespace Edam.WinUI.Controls.Assets
                     }
                 }
             }
-            private void Update_m_ViewModel(global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel obj, int phase)
+            private void Update_m_ViewModel(global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel obj, int phase)
             {
                 this.bindingsTracking.UpdateChildListeners_m_ViewModel(obj);
                 if (obj != null)
@@ -691,7 +691,7 @@ namespace Edam.WinUI.Controls.Assets
                     if (bindings != null)
                     {
                         string propName = e.PropertyName;
-                        global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel obj = sender as global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel;
+                        global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel obj = sender as global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel;
                         if (global::System.String.IsNullOrEmpty(propName))
                         {
                             if (obj != null)
@@ -744,8 +744,8 @@ namespace Edam.WinUI.Controls.Assets
                         }
                     }
                 }
-                private global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel cache_ViewModel = null;
-                public void UpdateChildListeners_ViewModel(global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel obj)
+                private global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel cache_ViewModel = null;
+                public void UpdateChildListeners_ViewModel(global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel obj)
                 {
                     if (obj != cache_ViewModel)
                     {
@@ -825,7 +825,7 @@ namespace Edam.WinUI.Controls.Assets
                     if (bindings != null)
                     {
                         string propName = e.PropertyName;
-                        global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel obj = sender as global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel;
+                        global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel obj = sender as global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel;
                         if (global::System.String.IsNullOrEmpty(propName))
                         {
                             if (obj != null)
@@ -851,8 +851,8 @@ namespace Edam.WinUI.Controls.Assets
                         }
                     }
                 }
-                private global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel cache_m_ViewModel = null;
-                public void UpdateChildListeners_m_ViewModel(global::Edam.WinUI.Controls.ViewModels.AssetSidePanelViewModel obj)
+                private global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel cache_m_ViewModel = null;
+                public void UpdateChildListeners_m_ViewModel(global::Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel obj)
                 {
                     if (obj != cache_m_ViewModel)
                     {

@@ -333,8 +333,13 @@ namespace Edam.Data.AssetSchema
                continue;
             }
             AssetDataTreeItem titem = tree.GetItem(root);
-            titem.SetTitle(rootElement);
+
+            // remove trailing namespace prefix...
+            var ename = rootElement.Split(':');
+            titem.SetTitle(ename.Length > 1 ? ename[1] : ename[0]);
+
             tree.SetRoot(titem);
+
             tree.PrepareTree(titem, null);
             break;
          }

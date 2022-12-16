@@ -24,12 +24,12 @@ namespace Edam.WinUI.Controls.ViewModels
    public class AssetMapPlayViewModel : ObservableObject
    {
 
-      private DataUseCaseMapContext m_Context;
-      public DataUseCaseMapContext Context
+      private DataMapContext m_Context;
+      public DataMapContext Context
       {
          get { return m_Context; }
       }
-      public void SetDataMapContext(DataUseCaseMapContext context)
+      public void SetDataMapContext(DataMapContext context)
       {
          m_Context = context;
       }

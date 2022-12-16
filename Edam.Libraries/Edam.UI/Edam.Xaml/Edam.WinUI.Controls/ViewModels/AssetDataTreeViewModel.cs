@@ -77,8 +77,8 @@ namespace Edam.WinUI.Controls.ViewModels
          get { return m_MapType; }
       }
 
-      public DataUseCaseMapContext m_MapContext = null;
-      public DataUseCaseMapContext MapContext
+      public DataMapContext m_MapContext = null;
+      public DataMapContext MapContext
       {
          get { return m_MapContext; }
          set 
@@ -107,7 +107,7 @@ namespace Edam.WinUI.Controls.ViewModels
          return inst.JsonText;
       }
 
-      public void SetMapContext(DataUseCaseMapContext context, DataMapItemType type)
+      public void SetMapContext(DataMapContext context, DataMapItemType type)
       {
          m_MapType = type;
          m_MapContext = context;

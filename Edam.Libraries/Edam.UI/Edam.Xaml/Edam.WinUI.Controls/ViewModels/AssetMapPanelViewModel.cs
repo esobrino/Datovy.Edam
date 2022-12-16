@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using Microsoft.UI.Xaml;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 // -----------------------------------------------------------------------------
 using Edam.Data.AssetConsole;
@@ -12,10 +15,8 @@ using Edam.InOut;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
 using Edam.WinUI.Controls.DataModels;
-using System.Collections.ObjectModel;
-using Microsoft.UI.Xaml;
 using Edam.WinUI.Controls.Common;
-using DocumentFormat.OpenXml.Spreadsheet;
+using Edam.DataObjects.ViewModels;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
@@ -24,13 +25,13 @@ namespace Edam.WinUI.Controls.ViewModels
    {
 
       private bool m_DataContextRegistered = false;
-      private DataUseCaseMapContext m_Context;
-      public DataUseCaseMapContext Context
+      private DataMapContext m_Context;
+      public DataMapContext Context
       {
          get { return m_Context; }
          set
          {
-            m_Context = DataUseCaseMapContext.CreateContext(
+            m_Context = DataMapContext.CreateContext(
                value, null, ProjectContext.Arguments);
             if (value == null)
             {
@@ -114,6 +115,23 @@ namespace Edam.WinUI.Controls.ViewModels
             AddToVisibility = m_Context.IsControlKeyPressed ?
                Visibility.Visible : Visibility.Collapsed;
          }
+      }
+
+      /// <summary>
+      /// Prepare Book and related resources / support.
+      /// </summary>
+      /// <param name="fileDetails"></param>
+      public void PrepareBook(FileDetailInfo fileDetails)
+      {
+         // prepare Book View Model...
+         if (Context.BookModel == null)
+         {
+            Context.BookModel = new BookViewModel();
+            Context.BookModel.Model = new BookModel(Context);
+         }
+
+         // Setup selected  use case context...
+         Context.SetUseCaseContext(fileDetails, Context.BookModel);
       }
 
    }

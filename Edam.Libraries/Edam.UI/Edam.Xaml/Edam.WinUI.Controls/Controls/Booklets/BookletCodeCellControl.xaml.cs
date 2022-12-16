@@ -26,15 +26,15 @@ namespace Edam.WinUI.Controls.Booklets
       IBooklet, IBookCellView
    {
 
-      private BookViewModel m_ViewModel;
-      public BookViewModel ViewModel
+      private CellViewModel m_ViewModel;
+      public CellViewModel ViewModel
       {
          get { return m_ViewModel; }
          set
          {
             m_ViewModel = value;
             DataContext = value;
-            PanelControl.ViewModel = value;
+            PanelControl.ViewModel = value.ViewModel;
             m_ViewModel.BaseControl = this;
          }
       }

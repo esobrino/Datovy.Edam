@@ -104,6 +104,7 @@ namespace Edam.Data.Booklets
    {
       public string BookletId { get; set; } = Guid.NewGuid().ToString();
       public string Name { get; set; }
+      public string Description { get; set; }
 
       /// <summary>
       /// Identify the related reference-object with its ID whose value may be
@@ -137,7 +138,12 @@ namespace Edam.Data.Booklets
    {
       public string BookId { get; set; } = Guid.NewGuid().ToString();
       public string Name { get; set; }
+      public string Description { get; set; }
+
       public List<BookletInfo> Items { get; set; } = new List<BookletInfo>();
+
+      [JsonIgnore]
+      public BookletInfo SelectedBooklet { get; set; }
 
       private NamespaceInfo m_Namespace = null;
       public NamespaceInfo Namespace

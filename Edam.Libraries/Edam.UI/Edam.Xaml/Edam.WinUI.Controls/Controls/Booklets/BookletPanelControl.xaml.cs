@@ -85,10 +85,16 @@ namespace Edam.WinUI.Controls.Booklets
          }
       }
 
-      public void SetContext(DataUseCaseMapContext context)
+      public void ManageNotification(object sender, DataTreeEventArgs args)
+      {
+         MapSidePanel.ViewModel.ManageNotification(sender, args);
+      }
+
+      public void SetContext(DataMapContext context)
       {
          context.BookletViewList = BookletList;
          ViewModel.SetContext(context);
+         MapSidePanel.ViewModel.Context = context;
       }
 
       private void AddCodeCell_Click(object sender, RoutedEventArgs e)

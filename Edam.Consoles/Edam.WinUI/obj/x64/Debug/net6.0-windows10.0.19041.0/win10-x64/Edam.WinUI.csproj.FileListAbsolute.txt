@@ -11,6 +11,7 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapItemControl.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapPanelControl.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapPlayControl.xbf
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapSidePanelControl.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapViewerControl.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetSidePanelControl.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetUseCaseGridControl.xbf
@@ -41,6 +42,7 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataValidationContentDialog.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListGroupEditControl.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListViewControl.xbf
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\FolderViewControl.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\KeyPadControl.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\TextButtonControl.xbf
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\TextEditorControl.xbf
@@ -58,6 +60,7 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapItemControl.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapPanelControl.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapPlayControl.xaml
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapSidePanelControl.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetMapViewerControl.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetSidePanelControl.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Assets\AssetUseCaseGridControl.xaml
@@ -88,6 +91,7 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataValidationContentDialog.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListGroupEditControl.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListViewControl.xaml
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\FolderViewControl.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\KeyPadControl.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\TextButtonControl.xaml
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\TextEditorControl.xaml
@@ -396,6 +400,7 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\hostfxr.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\hostpolicy.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore.dll
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_6.0.1222.56807.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordbi.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscorrc.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\msquic.dll
@@ -425,15 +430,15 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Data.Templates.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.DataObjects.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Json.pdb
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.UI.DataModel.pdb
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.UI.DataModel.pri
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Data.Assets.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.UI.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.UI.pri
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Net.pdb
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.UI.DataModel.pdb
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.UI.DataModel.pri
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Data.AssetDb.pdb
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Data.Assets.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Data.Schema.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Gsql.pdb
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Net.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Xml.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls.pri
@@ -474,6 +479,3 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_6.0.1122.52304.dll
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\FolderViewControl.xbf
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Controls\Controls\Utilities\FolderViewControl.xaml

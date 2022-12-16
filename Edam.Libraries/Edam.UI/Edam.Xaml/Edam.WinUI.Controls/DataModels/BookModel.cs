@@ -10,6 +10,8 @@ using Microsoft.UI.Xaml.Controls;
 using Edam.Data.Booklets;
 using Edam.WinUI.Controls.Booklets;
 using Edam.WinUI.Controls.ViewModels;
+using Edam.Helpers;
+using System.Collections.ObjectModel;
 
 namespace Edam.WinUI.Controls.DataModels
 {
@@ -18,13 +20,15 @@ namespace Edam.WinUI.Controls.DataModels
    /// This class manage the inner Book and provide helpers to manage UI 
    /// resources and controls.
    /// </summary>
-   public class BookModel
+   public class BookModel : ObservableObject
    {
 
       #region -- 1.00 - Properties and Fields declarations
 
+      private DataMapContext m_Context;
+
       /// <summary>
-      /// ListView show all added booklets and (code and text) cells...
+      /// Items show all added booklets and (code and text) cells...
       /// </summary>
       public ListView ListView { get; set; }
 
@@ -33,19 +37,29 @@ namespace Edam.WinUI.Controls.DataModels
       {
          get { return m_Book; }
       }
-      public BookletInfo SelectedBooklet { get; set; } = new BookletInfo();
+
+      public BookletInfo SelectedBooklet
+      {
+         get { return Book.SelectedBooklet; }
+         set 
+         { 
+            Book.SelectedBooklet = value;
+         }
+      }
 
       #endregion
       #region -- 1.50 - Constructure
 
-      public BookModel(BookInfo book)
+      public BookModel(DataMapContext context)
       {
-         if (book == null)
+         if (context.UseCase.Book == null)
          {
             throw new Exception(
                "Expected an instance of a BookInfo null was found");
          }
-         m_Book = book;
+         m_Book = context.UseCase.Book;
+         m_Context = context;
+         ListView = context.BookletViewList;
       }
 
       #endregion
@@ -68,11 +82,11 @@ namespace Edam.WinUI.Controls.DataModels
       public void ClearAll()
       {
          ListView.Items.Clear();
-         foreach(var booklet in Book.Items)
-         {
-            booklet.Items.Clear();
-         }
-         Book.Items.Clear();
+         //foreach(var booklet in Book.Items)
+         //{
+         //   booklet.Items.Clear();
+         //}
+         //Book.Items.Clear();
       }
 
       /// <summary>
@@ -97,7 +111,14 @@ namespace Edam.WinUI.Controls.DataModels
          };
 
          SelectedBooklet.SelectedCell = cell;
-         SelectedBooklet.Items.Add(cell);
+
+         if (bookletCell == null)
+         {
+            SelectedBooklet.Items.Add(cell);
+         }
+
+         CellViewModel cellModel = new CellViewModel();
+         cellModel.ViewModel = model;
 
          IBookCellView control = null;
          switch(cellType)
@@ -105,23 +126,25 @@ namespace Edam.WinUI.Controls.DataModels
             case BookletCellType.Code:
                var cctrl = new BookletCodeCellControl
                {
-                  ViewModel = model,
+                  ViewModel = cellModel,
                   Tag = cell
                };
                cctrl.FramePanel.Tag = cell;
                cctrl.SetCell(cell);
                control = cctrl;
+               cellModel.BaseControl = cctrl;
                break;
             case BookletCellType.Text:
             default:
                var tctrl = new BookletTextCellControl
                {
-                  ViewModel = model,
+                  ViewModel = cellModel,
                   Tag = cell
                };
                tctrl.FramePanel.Tag = cell;
                tctrl.SetCell(cell);
                control = tctrl;
+               cellModel.BaseControl = tctrl;
                break;
          }
 

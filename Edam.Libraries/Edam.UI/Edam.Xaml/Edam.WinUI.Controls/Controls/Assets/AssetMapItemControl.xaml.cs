@@ -23,6 +23,7 @@ using Edam.WinUI.Controls.DataModels;
 using Edam.WinUI.Controls.Common;
 using System.Runtime.CompilerServices;
 using Edam.WinUI.Controls.Booklets;
+using Edam.Data.Booklets;
 
 namespace Edam.WinUI.Controls.Assets
 {
@@ -39,9 +40,15 @@ namespace Edam.WinUI.Controls.Assets
       {
          this.InitializeComponent();
          DataContext = m_ViewModel;
+         ViewModel.ParentControl = this;
       }
 
-      public void SetContext(DataUseCaseMapContext context)
+      public void BookletChanged(object sender, DataTreeEventArgs args)
+      {
+         BookletPanel.ManageNotification(sender, args);
+      }
+
+      public void SetContext(DataMapContext context)
       {
          if (context != null || 
             context.ContextId != m_ViewModel.Context.ContextId)

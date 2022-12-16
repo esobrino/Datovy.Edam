@@ -3,7 +3,11 @@
   <PropertyGroup />
   <ItemGroup />
   <ItemGroup />
-  <ItemGroup />
+  <ItemGroup>
+    <Page Update="Controls\Assets\AssetMapSidePanelControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\Utilities\FolderViewControl.xaml">
       <SubType>Designer</SubType>
