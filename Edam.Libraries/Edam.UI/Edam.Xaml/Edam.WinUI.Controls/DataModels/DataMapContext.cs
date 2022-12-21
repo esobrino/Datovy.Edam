@@ -23,6 +23,7 @@ using Edam.Data.Asset;
 using DocumentFormat.OpenXml.Wordprocessing;
 using DocumentFormat.OpenXml.EMMA;
 using Edam.Data.Booklets;
+using System.Data.SqlClient;
 
 namespace Edam.WinUI.Controls.DataModels
 {
@@ -59,7 +60,7 @@ namespace Edam.WinUI.Controls.DataModels
    /// <summary>
    /// Data Use Case Map Context to identify left (A) and right (B) sources.
    /// </summary>
-   public class DataMapContext
+   public class DataMapContext : ObservableObject
    {
 
       #region -- 1.00 - Properties, and Fields declaration
@@ -100,6 +101,40 @@ namespace Edam.WinUI.Controls.DataModels
       public ListView BookletViewList { get; set; }
 
       /// <summary>
+      /// Source (Map) Items
+      /// </summary>
+      private ObservableCollection<MapItemInfo> m_SourceItems;
+      public ObservableCollection<MapItemInfo> SourceItems
+      {
+         get { return m_SourceItems; }
+         set
+         {
+            if (m_SourceItems != value)
+            {
+               m_SourceItems = value;
+               OnPropertyChanged(nameof(SourceItems));
+            }
+         }
+      }
+
+      /// <summary>
+      /// Target (Map) Items
+      /// </summary>
+      private ObservableCollection<MapItemInfo> m_TargetItems;
+      public ObservableCollection<MapItemInfo> TargetItems
+      {
+         get { return m_TargetItems; }
+         set
+         {
+            if (m_TargetItems != value)
+            {
+               m_TargetItems = value;
+               OnPropertyChanged(nameof(TargetItems));
+            }
+         }
+      }
+
+      /// <summary>
       /// Selected Map Item Info / details
       /// </summary>
       public MapItemInfo SelectedItem { get; set; }
@@ -113,6 +148,8 @@ namespace Edam.WinUI.Controls.DataModels
       public DataMapContext()
       {
          m_UseCase = new AssetUseCaseMap();
+         SourceItems = new ObservableCollection<MapItemInfo>();
+         TargetItems = new ObservableCollection<MapItemInfo>();
       }
 
       #endregion
@@ -240,6 +277,19 @@ namespace Edam.WinUI.Controls.DataModels
       #region -- 4.00 - Tree (Source or Target) ItemSelected Support
 
       /// <summary>
+      /// Refresh the (Map) Items lists...
+      /// </summary>
+      public void RefreshMapItems(
+         ObservableCollection<MapItemInfo> items, List<MapItemInfo> source)
+      {
+         items.Clear();
+         foreach(var sitem in source)
+         {
+            items.Add(sitem);
+         }
+      }
+
+      /// <summary>
       /// An item in a view tree has been selected.
       /// </summary>
       /// <remarks>
@@ -250,19 +300,28 @@ namespace Edam.WinUI.Controls.DataModels
       public void SetSelectedMapItem(
          DataMapItemType type, MapItemInfo item)
       {
+         ObservableCollection<MapItemInfo> items = null;
+         List<MapItemInfo> mapItems = null;
          switch(type)
          {
             case DataMapItemType.Source:
                SelectedSourceItem = item;
+               mapItems = UseCase.SelectedMapItem.SourceElement;
+               items = SourceItems;
                break;
             case DataMapItemType.Target:
                SelectedTargetItem = item;
+               mapItems = UseCase.SelectedMapItem.TargetElement;
+               items = TargetItems;
                break;
             default:
                break;
          }
 
          SelectedItem = item;
+
+         // refresh side panel Map Source and Target Items
+         RefreshMapItems(items, mapItems);
 
          // clear existing Book/Booklet items and add those for selected item
          BookModel.Model.ClearAll();
