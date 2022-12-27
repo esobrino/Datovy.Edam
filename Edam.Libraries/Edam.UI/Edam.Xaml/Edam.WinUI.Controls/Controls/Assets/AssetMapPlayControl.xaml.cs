@@ -55,7 +55,8 @@ namespace Edam.WinUI.Controls.Assets
          var results = m_ViewModel.ExecuteRequest(jsonData, request);
          if (results.Success)
          {
-            ResponseEditorControl.ViewModel.SetEditorText(results.Data, "json");
+            ResponseEditorControl.ViewModel.SetEditorText(
+               results.DataObject.ToString(), "json");
          }
       }
 

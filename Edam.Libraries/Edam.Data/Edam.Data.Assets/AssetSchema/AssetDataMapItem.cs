@@ -47,6 +47,8 @@ namespace Edam.Data.AssetSchema
 
       public string Name { get; set; }
       public string Path { get; set; }
+      public string DisplayPath { get; set; }
+      public string DisplayFullPath { get; set; }
       public string QualifiedName { get; set; }
 
       public MapAnnotationInfo Annotation { get; set; }

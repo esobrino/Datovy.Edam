@@ -13,6 +13,7 @@
           "CommunityToolkit.WinUI.UI.Controls.Primitives": "7.1.2",
           "Edam.B2b": "1.0.0",
           "Edam.Data.Asset.Services": "1.0.0",
+          "Edam.Data.AssetMapping": "1.0.0",
           "Edam.Data.Templates": "1.0.0",
           "Edam.DataObjects": "1.0.0",
           "Edam.Json": "1.0.0",
@@ -1449,6 +1450,16 @@
           "Edam.Data.AssetDb.dll": {}
         }
       },
+      "Edam.Data.AssetMapping/1.0.0": {
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Json": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "runtime": {
+          "Edam.Data.AssetMapping.dll": {}
+        }
+      },
       "Edam.Data.Assets/1.0.0": {
         "dependencies": {
           "Edam.System": "1.0.0"
@@ -2487,6 +2498,11 @@
       "sha512": ""
     },
     "Edam.Data.AssetDb/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Edam.Data.AssetMapping/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

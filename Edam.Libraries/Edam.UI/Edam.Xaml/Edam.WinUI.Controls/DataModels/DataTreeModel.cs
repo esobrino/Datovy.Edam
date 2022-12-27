@@ -56,6 +56,16 @@ namespace Edam.WinUI.Controls.DataModels
          }
       }
 
+      public AssetDataTree DataTree { get; set; }
+      public string RootName
+      {
+         get
+         {
+            return DataTree == null ? String.Empty :
+               DataTree.RootNamePath.FirstItem.Name;
+         }
+      }
+
       public AssetDataTreeItem Item { get; set; }
 
       public string LinkText
@@ -75,8 +85,11 @@ namespace Edam.WinUI.Controls.DataModels
 
       public string ElementFullPath
       {
-         get { return (String.IsNullOrWhiteSpace(Item.LinkText) ?
-               String.Empty : Item.LinkText + " ") + Item.ElementFullPath; }
+         get
+         { 
+            return (String.IsNullOrWhiteSpace(Item.LinkText) ?
+               String.Empty : Item.LinkText + " ") + Item.ElementFullPath; 
+         }
          set
          {
             //if (Item.ElementFullPath != value)
@@ -308,7 +321,7 @@ namespace Edam.WinUI.Controls.DataModels
             {
                colorKey = StringToBrushConverter.AssociationBrush;
             }
-            //else if (c.Type == ItemType.Folder && count == 0)
+            //else if (c.Type == ItemType.Folder && count == 0)f
             //{
             //   colorKey = StringToBrushConverter.RootBrush;
             //}
@@ -335,6 +348,7 @@ namespace Edam.WinUI.Controls.DataModels
          DataTreeModel r = new DataTreeModel
          {
             Item = tree.Root,
+            DataTree = tree,
             TextVisibility = Visibility.Visible
          };
          return PrepareModel(r);

@@ -40,8 +40,7 @@
                      </Grid.RowDefinitions>
 
                      <ListView x:ConnectionId='8' Grid.Row="0" Grid.Column="0"
-                                                                             
-                            
+                                                                                                         
                             ItemsSource="{Binding SourceElement, Mode=TwoWay}"
                             x:Name="SourceControl">
                         <ListView.ContextFlyout>
@@ -52,7 +51,7 @@
                         <ListView.ItemTemplate>
                            <DataTemplate>
                               <Border BorderThickness="0,0,0,1" BorderBrush="LightGray" Padding="0,4" Margin="0,0,0,4">
-                                 <TextBlock TextWrapping="WrapWholeWords" Text="{Binding Path}"/>
+                                 <TextBlock TextWrapping="WrapWholeWords" Text="{Binding DisplayPath}"/>
                               </Border>
                            </DataTemplate>
                         </ListView.ItemTemplate>
@@ -73,7 +72,7 @@
                         <ListView.ItemTemplate>
                            <DataTemplate>
                               <Border BorderThickness="0,0,0,1" BorderBrush="LightGray" Padding="0,4" Margin="0,0,0,4">
-                                 <TextBlock TextWrapping="WrapWholeWords" Text="{Binding Path}"/>
+                                 <TextBlock TextWrapping="WrapWholeWords" Text="{Binding DisplayPath}"/>
                               </Border>
                            </DataTemplate>
                         </ListView.ItemTemplate>

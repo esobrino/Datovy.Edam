@@ -47,7 +47,7 @@
                   <ListView ItemsSource="{x:Bind ViewModel.Context.SourceItems, Mode=TwoWay}">
                      <ListView.ItemTemplate>
                         <DataTemplate>
-                           <TextBlock Text="{Binding Path}" />
+                           <TextBlock Text="{Binding DisplayFullPath}" />
                         </DataTemplate>
                      </ListView.ItemTemplate>
                   </ListView>
@@ -65,7 +65,7 @@
                   <ListView ItemsSource="{x:Bind ViewModel.Context.TargetItems, Mode=TwoWay}">
                      <ListView.ItemTemplate>
                         <DataTemplate>
-                           <TextBlock Text="{Binding Path}" />
+                           <TextBlock Text="{Binding DisplayFullPath}" />
                         </DataTemplate>
                      </ListView.ItemTemplate>
                   </ListView>

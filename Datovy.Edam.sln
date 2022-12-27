@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.WinUI.Controls", "Edam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.WinUI", "Edam.Consoles\Edam.WinUI\Edam.WinUI.csproj", "{110A518A-5EAA-4EAA-9692-17D0C4504897}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edam.Data.AssetMapping", "Edam.Libraries\Edam.Data\Edam.Data.AssetMapping\Edam.Data.AssetMapping.csproj", "{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -355,6 +357,22 @@ Global
 		{110A518A-5EAA-4EAA-9692-17D0C4504897}.Release|x86.ActiveCfg = Release|x86
 		{110A518A-5EAA-4EAA-9692-17D0C4504897}.Release|x86.Build.0 = Release|x86
 		{110A518A-5EAA-4EAA-9692-17D0C4504897}.Release|x86.Deploy.0 = Release|x86
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Debug|arm64.Build.0 = Debug|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Debug|x64.Build.0 = Debug|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Debug|x86.Build.0 = Debug|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Release|arm64.ActiveCfg = Release|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Release|arm64.Build.0 = Release|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Release|x64.ActiveCfg = Release|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Release|x64.Build.0 = Release|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Release|x86.ActiveCfg = Release|Any CPU
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -380,6 +398,7 @@ Global
 		{4B00E1F6-3180-4B11-ABC4-7848AB37850A} = {57D6178F-C05D-4CA2-988E-EB5E299DCCA8}
 		{3B9790C9-98A2-474E-9CF3-8AC8449942A9} = {57D6178F-C05D-4CA2-988E-EB5E299DCCA8}
 		{B87882AE-3CB0-488A-B14B-295098B2CE80} = {57D6178F-C05D-4CA2-988E-EB5E299DCCA8}
+		{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B} = {4792D713-3864-42DE-8DCA-F0DD3006C9B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D19BF1CF-946C-4A08-A01C-49F0869E9455}

@@ -58,6 +58,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Edam.Data\Edam.B2b\Edam.B2b.csproj" />
+    <ProjectReference Include="..\..\..\Edam.Data\Edam.Data.AssetMapping\Edam.Data.AssetMapping.csproj" />
     <ProjectReference Include="..\..\..\Edam.Data\Edam.Data.Assets.Services\Edam.Data.Asset.Services.csproj" />
     <ProjectReference Include="..\..\..\Edam.Data\Edam.Data.Templates\Edam.Data.Templates.csproj" />
     <ProjectReference Include="..\..\..\Edam.Data\Edam.DataObjects\Edam.DataObjects.csproj" />

@@ -34,9 +34,9 @@ namespace Edam.WinUI.Controls.ViewModels
          m_Context = context;
       }
 
-      public ResultsLog<string> ExecuteRequest(string jsonText, string query)
+      public IResultsLog ExecuteRequest(string jsonText, string query)
       {
-         return JsonQuery.Execute(jsonText, query);
+         return Context.LanguageInstance.Execute(jsonText, query);
       }
 
    }

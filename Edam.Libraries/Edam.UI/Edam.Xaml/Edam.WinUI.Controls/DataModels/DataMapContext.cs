@@ -12,7 +12,7 @@ using Newtonsoft.Json.Serialization;
 // -----------------------------------------------------------------------------
 using Edam.Data.AssetConsole;
 using Edam.Data.AssetSchema;
-using Edam.Data.AssetProject;
+using Edam.Data.AssetMapping;
 using Edam.InOut;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
@@ -141,6 +141,9 @@ namespace Edam.WinUI.Controls.DataModels
 
       public MapItemInfo SelectedSourceItem { get; set; }
       public MapItemInfo SelectedTargetItem { get; set; }
+
+      public IMapLanguageInfo LanguageInstance { get; set; } =
+         MapLanguageHelper.GetInstance();
 
       #endregion
       #region -- 1.50 - Constructure
@@ -277,14 +280,38 @@ namespace Edam.WinUI.Controls.DataModels
       #region -- 4.00 - Tree (Source or Target) ItemSelected Support
 
       /// <summary>
+      /// Get Map Item
+      /// </summary>
+      /// <param name="instance">source or target instance</param>
+      /// <param name="name">item name</param>
+      /// <param name="path">item path</param>
+      /// <returns>instance of MapItemInfo is returned</returns>
+      public MapItemInfo GetMapItem(
+         DataInstance instance, string name, string path, 
+         MapItemInfo item = null)
+      {
+         MapItemInfo e = item ?? new MapItemInfo();
+         e.Name = name;
+         e.Path = path;
+         string dpath = LanguageInstance.GetPath(path);
+         e.DisplayPath = dpath;
+         e.DisplayFullPath = LanguageInstance.Join(
+            instance.TreeModel.RootName, dpath);
+         return e;
+      }
+
+      /// <summary>
       /// Refresh the (Map) Items lists...
       /// </summary>
       public void RefreshMapItems(
-         ObservableCollection<MapItemInfo> items, List<MapItemInfo> source)
+         ObservableCollection<MapItemInfo> items, List<MapItemInfo> source,
+         DataInstance instance)
       {
          items.Clear();
          foreach(var sitem in source)
          {
+            GetMapItem(instance, sitem.Name, sitem.Path, sitem);
+            sitem.DisplayPath = LanguageInstance.GetPath(sitem.Path);
             items.Add(sitem);
          }
       }
@@ -302,17 +329,20 @@ namespace Edam.WinUI.Controls.DataModels
       {
          ObservableCollection<MapItemInfo> items = null;
          List<MapItemInfo> mapItems = null;
+         DataInstance instance = null;
          switch(type)
          {
             case DataMapItemType.Source:
                SelectedSourceItem = item;
                mapItems = UseCase.SelectedMapItem.SourceElement;
                items = SourceItems;
+               instance = Source;
                break;
             case DataMapItemType.Target:
                SelectedTargetItem = item;
                mapItems = UseCase.SelectedMapItem.TargetElement;
                items = TargetItems;
+               instance = Target;
                break;
             default:
                break;
@@ -321,7 +351,7 @@ namespace Edam.WinUI.Controls.DataModels
          SelectedItem = item;
 
          // refresh side panel Map Source and Target Items
-         RefreshMapItems(items, mapItems);
+         RefreshMapItems(items, mapItems, instance);
 
          // clear existing Book/Booklet items and add those for selected item
          BookModel.Model.ClearAll();

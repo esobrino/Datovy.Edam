@@ -2332,6 +2332,21 @@
           "bin/placeholder/Edam.Data.AssetDb.dll": {}
         }
       },
+      "Edam.Data.AssetMapping/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Json": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.AssetMapping.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.AssetMapping.dll": {}
+        }
+      },
       "Edam.Data.Assets/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4947,6 +4962,21 @@
         },
         "runtime": {
           "bin/placeholder/Edam.Data.AssetDb.dll": {}
+        }
+      },
+      "Edam.Data.AssetMapping/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Json": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.AssetMapping.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.AssetMapping.dll": {}
         }
       },
       "Edam.Data.Assets/1.0.0": {
@@ -7566,6 +7596,21 @@
           "bin/placeholder/Edam.Data.AssetDb.dll": {}
         }
       },
+      "Edam.Data.AssetMapping/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Json": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.AssetMapping.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.AssetMapping.dll": {}
+        }
+      },
       "Edam.Data.Assets/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -10181,6 +10226,21 @@
         },
         "runtime": {
           "bin/placeholder/Edam.Data.AssetDb.dll": {}
+        }
+      },
+      "Edam.Data.AssetMapping/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Json": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.AssetMapping.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.AssetMapping.dll": {}
         }
       },
       "Edam.Data.Assets/1.0.0": {
@@ -16467,6 +16527,11 @@
       "path": "../../../Edam.Data/Edam.Data.AssetDb/Edam.Data.AssetDb.csproj",
       "msbuildProject": "../../../Edam.Data/Edam.Data.AssetDb/Edam.Data.AssetDb.csproj"
     },
+    "Edam.Data.AssetMapping/1.0.0": {
+      "type": "project",
+      "path": "../../../Edam.Data/Edam.Data.AssetMapping/Edam.Data.AssetMapping.csproj",
+      "msbuildProject": "../../../Edam.Data/Edam.Data.AssetMapping/Edam.Data.AssetMapping.csproj"
+    },
     "Edam.Data.Assets/1.0.0": {
       "type": "project",
       "path": "../../../Edam.Data/Edam.Data.Assets/Edam.Data.Assets.csproj",
@@ -16530,6 +16595,7 @@
       "CommunityToolkit.WinUI.UI.Controls.Primitives >= 7.1.2",
       "Edam.B2b >= 1.0.0",
       "Edam.Data.Asset.Services >= 1.0.0",
+      "Edam.Data.AssetMapping >= 1.0.0",
       "Edam.Data.Templates >= 1.0.0",
       "Edam.DataObjects >= 1.0.0",
       "Edam.Json >= 1.0.0",
@@ -16575,6 +16641,9 @@
           "projectReferences": {
             "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.B2b\\Edam.B2b.csproj": {
               "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.B2b\\Edam.B2b.csproj"
+            },
+            "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.AssetMapping\\Edam.Data.AssetMapping.csproj": {
+              "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.AssetMapping\\Edam.Data.AssetMapping.csproj"
             },
             "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets.Services\\Edam.Data.Asset.Services.csproj": {
               "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets.Services\\Edam.Data.Asset.Services.csproj"

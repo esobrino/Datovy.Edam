@@ -15,6 +15,7 @@ using Edam.Helpers;
 using Edam.WinUI.Controls.DataModels;
 using Edam.Data.Assets.AssetConsole;
 using Edam.WinUI.Controls.Assets;
+using Edam.Data.Asset;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
@@ -131,12 +132,10 @@ namespace Edam.WinUI.Controls.ViewModels
       #endregion
       #region -- 4.00 - Get/Setup Map Items
 
-      private MapItemInfo GetElementItem(string name, string path)
+      private MapItemInfo GetElementItem(
+         string name, string path, NamespaceInfo ns, DataInstance instance)
       {
-         MapItemInfo e = new MapItemInfo();
-         e.Name = name;
-         e.Path = path;
-         return e;
+         return Context.GetMapItem(instance, name, path);
       }
 
       /// <summary>
@@ -283,7 +282,10 @@ namespace Edam.WinUI.Controls.ViewModels
          item.IsVisited = true;
          var e = GetElementItem(
             item.Item.Element.ElementName,
-            item.Item.Element.ElementPath);
+            item.Item.Element.ElementPath,
+            item.Item.Element.GetElementNamespace(),
+            type == DataMapItemType.Source ? 
+               args.Context.Source : args.Context.Target);
 
          e.TreeItem = item;
          e.MapItemId = CurrentMapItem.MapItemId;

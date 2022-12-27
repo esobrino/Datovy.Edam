@@ -143,10 +143,16 @@ namespace Edam.Data.AssetSchema
       private AssetDataElementList m_Items;
       private AssetDataTreeItem m_Root = null;
       private int m_MaxDepthCount = 0;
+      private NamePath m_RootNamePath;
 
       public AssetDataTreeItem Root
       {
          get { return m_Root; }
+      }
+
+      public NamePath RootNamePath
+      {
+         get { return m_RootNamePath; }
       }
 
       private AssetDataNameUriRegistry m_Registry = null;
@@ -174,9 +180,10 @@ namespace Edam.Data.AssetSchema
       #endregion
       #region -- 4.00 - Data Tree Model Preparation Support Methods
 
-      public void SetRoot(AssetDataTreeItem root)
+      public void SetRoot(AssetDataTreeItem root, string rootFullName)
       {
          m_Root = root;
+         m_RootNamePath = NamePath.Parse(rootFullName);
       }
 
       public AssetDataTreeItem GetItem(AssetDataElement element)
@@ -338,7 +345,7 @@ namespace Edam.Data.AssetSchema
             var ename = rootElement.Split(':');
             titem.SetTitle(ename.Length > 1 ? ename[1] : ename[0]);
 
-            tree.SetRoot(titem);
+            tree.SetRoot(titem, rootElement);
 
             tree.PrepareTree(titem, null);
             break;
@@ -358,7 +365,7 @@ namespace Edam.Data.AssetSchema
          };
          tree.SetTitle(troot);
          troot.Children.Add(tree.Root);
-         tree.SetRoot(troot);
+         tree.SetRoot(troot, rootElement);
 
          return tree;
       }
