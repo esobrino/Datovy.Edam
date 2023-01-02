@@ -311,7 +311,6 @@ namespace Edam.WinUI.Controls.DataModels
          foreach(var sitem in source)
          {
             GetMapItem(instance, sitem.Name, sitem.Path, sitem);
-            sitem.DisplayPath = LanguageInstance.GetPath(sitem.Path);
             items.Add(sitem);
          }
       }
@@ -369,13 +368,16 @@ namespace Edam.WinUI.Controls.DataModels
             for (var c = 0; c < ccount; c++)
             {
                var cell = booklet.Items[c];
-               if (cell.ReferenceId == item.ItemId)
+               foreach(var mapItem in mapItems)
                {
-                  UseCase.Book.SelectedBooklet = booklet;
-                  BookModel.Model.SelectedBooklet = booklet;
+                  if (cell.ReferenceId == mapItem.ItemId)
+                  {
+                     UseCase.Book.SelectedBooklet = booklet;
+                     BookModel.Model.SelectedBooklet = booklet;
 
-                  var ctrlCell = BookModel.Model.AddControl(
-                     BookModel, cell.CellType, cell.ReferenceId, cell);
+                     var ctrlCell = BookModel.Model.AddControl(
+                        BookModel, cell.CellType, cell.ReferenceId, cell);
+                  }
                }
             }
          }

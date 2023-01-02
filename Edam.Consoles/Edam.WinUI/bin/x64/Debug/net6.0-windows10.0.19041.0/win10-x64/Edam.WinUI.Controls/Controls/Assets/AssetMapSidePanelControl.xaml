@@ -29,8 +29,8 @@
             <Expander.Content>
                <Grid>
                   <StackPanel Orientation="Vertical">
-                     <TextBox x:ConnectionId='11' Header="Name"                                                    Margin="0,0,0,8" />
-                     <TextBox x:ConnectionId='12' Header="Description"                                                          
+                     <TextBox x:ConnectionId='13' Header="Name"                                                    Margin="0,0,0,8" />
+                     <TextBox x:ConnectionId='14' Header="Description"                                                          
                               AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                   </StackPanel>
                </Grid>
@@ -44,10 +44,10 @@
             </Expander.Header>
             <Expander.Content>
                <Grid>
-                  <ListView x:ConnectionId='9'                                                                  >
+                  <ListView x:ConnectionId='11'                                                                  >
                      <ListView.ItemTemplate>
                         <DataTemplate>
-                           <TextBlock Text="{Binding DisplayPath}" />
+                           <TextBlock Text="{Binding DisplayFullPath}" />
                         </DataTemplate>
                      </ListView.ItemTemplate>
                   </ListView>
@@ -62,13 +62,30 @@
             </Expander.Header>
             <Expander.Content>
                <Grid>
-                  <ListView x:ConnectionId='7'                                                                  >
+                  <ListView x:ConnectionId='9'                                                                  >
                      <ListView.ItemTemplate>
                         <DataTemplate>
-                           <TextBlock Text="{Binding DisplayPath}" />
+                           <TextBlock Text="{Binding DisplayFullPath}" />
                         </DataTemplate>
                      </ListView.ItemTemplate>
                   </ListView>
+               </Grid>
+            </Expander.Content>
+         </Expander>
+
+         <Expander IsExpanded="True" HorizontalAlignment="Stretch"
+                   HorizontalContentAlignment="Stretch">
+            <Expander.Header>
+               <TextBlock Text="Map Item" />
+            </Expander.Header>
+            <Expander.Content>
+               <Grid>
+                  <StackPanel Orientation="Vertical">
+                     <TextBox x:ConnectionId='7' Header="Description"                                                                   
+                              AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                     <TextBox x:ConnectionId='8' Header="Instructions"                                                                    
+                              AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                  </StackPanel>
                </Grid>
             </Expander.Content>
          </Expander>

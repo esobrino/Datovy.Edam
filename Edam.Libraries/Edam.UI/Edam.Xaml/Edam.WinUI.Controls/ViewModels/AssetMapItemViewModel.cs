@@ -65,6 +65,8 @@ namespace Edam.WinUI.Controls.ViewModels
                {
                   CurrentMapItem = value;
                }
+
+               ManageSelectedMapItem(value);
             }
          }
       }
@@ -340,6 +342,32 @@ namespace Edam.WinUI.Controls.ViewModels
          return null;
       }
 
+      /// <summary>
+      /// Rebuild Book/Booklet items related to the selected map-item.
+      /// </summary>
+      /// <param name="type">source or destination</param>
+      /// <param name="item">map-item</param>
+      private void ManageSelectedMapItem(
+         DataMapItemType type, MapItemInfo item, DataTreeEventArgs args)
+      {
+         if (item != null)
+         {
+            Context.SetSelectedMapItem(type, item);
+         }
+         ParentControl.BookletChanged(this, args);
+      }
+
+      /// <summary>
+      /// Rebuild Book/Booklet items related to the selected map-item.
+      /// </summary>
+      /// <param name="item">asset map item</param>
+      private void ManageSelectedMapItem(AssetDataMapItem item)
+      {
+         ManageSelectedMapItem(
+            DataMapItemType.Source, 
+            item == null ? null : item.SourceElement[0], null);
+      }
+
       #endregion
       #region -- 4.00 - Manage Source/Target Events - Tree item selected
 
@@ -353,19 +381,13 @@ namespace Edam.WinUI.Controls.ViewModels
          MapItemInfo item;
          if (args.Type == DataTreeEventType.DoubleTapped)
          {
-            item = Add(DataMapItemType.Source, args);
-         }
-         else
-         {
-            item = ItemSelected(DataMapItemType.Source, args);
+            Add(DataMapItemType.Source, args);
          }
 
-         if (item != null)
-         {
-            Context.SetSelectedMapItem(DataMapItemType.Source, item);
-            ParentControl.BookletChanged(sender, args);
-         }
-         else if (Context.BookModel != null)
+         item = ItemSelected(DataMapItemType.Source, args);
+
+         ManageSelectedMapItem(DataMapItemType.Source, item, args);
+         if (Context.BookModel != null)
          {
             Context.BookModel.Model.ClearAll();
          }

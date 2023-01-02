@@ -41,7 +41,7 @@
 
                      <ListView x:ConnectionId='8' Grid.Row="0" Grid.Column="0"
                                                                                                          
-                            ItemsSource="{Binding SourceElement, Mode=TwoWay}"
+                            ItemsSource="{Binding SourceElement}"
                             x:Name="SourceControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>
@@ -62,7 +62,7 @@
 
                      <ListView x:ConnectionId='9' Grid.Row="0" Grid.Column="2" 
                                                                              
-                            ItemsSource="{Binding TargetElement, Mode=TwoWay}"
+                            ItemsSource="{Binding TargetElement}"
                             x:Name="TargetControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>

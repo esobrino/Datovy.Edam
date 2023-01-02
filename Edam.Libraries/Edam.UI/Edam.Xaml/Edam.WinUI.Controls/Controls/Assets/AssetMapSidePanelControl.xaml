@@ -76,6 +76,23 @@
          <Expander IsExpanded="True" HorizontalAlignment="Stretch"
                    HorizontalContentAlignment="Stretch">
             <Expander.Header>
+               <TextBlock Text="Map Item" />
+            </Expander.Header>
+            <Expander.Content>
+               <Grid>
+                  <StackPanel Orientation="Vertical">
+                     <TextBox Header="Description" Text="{x:Bind ViewModel.SelectedMapItem.Description, Mode=TwoWay}"
+                              AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                     <TextBox Header="Instructions" Text="{x:Bind ViewModel.SelectedMapItem.Instructions, Mode=TwoWay}"
+                              AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                  </StackPanel>
+               </Grid>
+            </Expander.Content>
+         </Expander>
+
+         <Expander IsExpanded="True" HorizontalAlignment="Stretch"
+                   HorizontalContentAlignment="Stretch">
+            <Expander.Header>
                <TextBlock Text="Booklet" />
             </Expander.Header>
             <Expander.Content>

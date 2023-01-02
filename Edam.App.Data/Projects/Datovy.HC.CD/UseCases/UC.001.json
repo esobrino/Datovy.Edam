@@ -27,6 +27,8 @@
 					},
 					"Name": "cd6:Activity_ID",
 					"Path": "cd6:Action/cd6:Media_/cd6:Activity_ID",
+					"DisplayPath": "Action.Media_.Activity_ID",
+					"DisplayFullPath": "Disease_Surveillance_Document.Action.Media_.Activity_ID",
 					"QualifiedName": null,
 					"Annotation": null
 				}
@@ -49,6 +51,8 @@
 					},
 					"Name": "cd6:Media_ID",
 					"Path": "cd6:Action/cd6:Media_/cd6:Media_ID",
+					"DisplayPath": "Action.Media_.Media_ID",
+					"DisplayFullPath": "Disease_Surveillance_Document.Action.Media_.Media_ID",
 					"QualifiedName": null,
 					"Annotation": null
 				}
@@ -71,6 +75,8 @@
 					},
 					"Name": "cd6:Alternate_ID",
 					"Path": "cd6:Action/cd6:Media_/cd6:Alternate_ID",
+					"DisplayPath": "Action.Media_.Alternate_ID",
+					"DisplayFullPath": "Disease_Surveillance_Document.Action.Media_.Alternate_ID",
 					"QualifiedName": null,
 					"Annotation": null
 				}
@@ -93,6 +99,8 @@
 					},
 					"Name": "cd6:Serial_No",
 					"Path": "cd6:Action/cd6:Media_/cd6:Serial_No",
+					"DisplayPath": "Action.Media_.Serial_No",
+					"DisplayFullPath": "Disease_Surveillance_Document.Action.Media_.Serial_No",
 					"QualifiedName": null,
 					"Annotation": null
 				}
@@ -115,6 +123,8 @@
 					},
 					"Name": "cd6:Status_Code_ID",
 					"Path": "cd6:Action/cd6:Media_/cd6:Status_Code_ID",
+					"DisplayPath": "Action.Media_.Status_Code_ID",
+					"DisplayFullPath": "Disease_Surveillance_Document.Action.Media_.Status_Code_ID",
 					"QualifiedName": null,
 					"Annotation": null
 				}
@@ -137,6 +147,8 @@
 					},
 					"Name": "cd6:Media",
 					"Path": "cd6:Action_/cd6:Media",
+					"DisplayPath": null,
+					"DisplayFullPath": null,
 					"QualifiedName": null,
 					"Annotation": null
 				}
@@ -159,6 +171,8 @@
 					},
 					"Name": "cd6:Size_In_Bytes",
 					"Path": "cd6:Action/cd6:Media_/cd6:Size_In_Bytes",
+					"DisplayPath": "Action.Media_.Size_In_Bytes",
+					"DisplayFullPath": "Disease_Surveillance_Document.Action.Media_.Size_In_Bytes",
 					"QualifiedName": null,
 					"Annotation": null
 				}
@@ -181,6 +195,8 @@
 					},
 					"Name": "cd6:Tenant_ID",
 					"Path": "cd6:Action/cd6:Media_/cd6:Tenant_ID",
+					"DisplayPath": "Action.Media_.Tenant_ID",
+					"DisplayFullPath": "Disease_Surveillance_Document.Action.Media_.Tenant_ID",
 					"QualifiedName": null,
 					"Annotation": null
 				},
@@ -193,13 +209,15 @@
 					},
 					"Name": "cd6:Data_Owner_ID",
 					"Path": "cd6:Action/cd6:Media_/cd6:Data_Owner_ID",
+					"DisplayPath": "Action.Media_.Data_Owner_ID",
+					"DisplayFullPath": "Disease_Surveillance_Document.Action.Media_.Data_Owner_ID",
 					"QualifiedName": null,
 					"Annotation": null
 				}
 			],
 			"TargetElement": [],
-			"Description": "",
-			"Instructions": "",
+			"Description": "THIS IS A MAP-ITEM DESCRIPTION",
+			"Instructions": "THESE ARE THE MAP-ITEM DESCRIPTIONS",
 			"Expresions": []
 		}
 	],

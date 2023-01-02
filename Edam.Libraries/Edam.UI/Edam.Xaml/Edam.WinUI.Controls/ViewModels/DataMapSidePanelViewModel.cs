@@ -60,6 +60,23 @@ namespace Edam.WinUI.Controls.ViewModels
          }
       }
 
+      private AssetDataMapItem m_SelectedMapItem;
+      public AssetDataMapItem SelectedMapItem
+      {
+         get
+         {
+            return m_SelectedMapItem; 
+         }
+         set
+         {
+            if (m_SelectedMapItem != value)
+            {
+               m_SelectedMapItem = value;
+               OnPropertyChanged(nameof(SelectedMapItem));
+            }
+         }
+      }
+
       private BookletInfo m_SelectedBooklet;
       public BookletInfo SelectedBooklet
       {
@@ -104,7 +121,7 @@ namespace Edam.WinUI.Controls.ViewModels
 
       public DataMapSidePanelViewModel()
       {
-         SelectedChevron = ChevronOpen;
+         SelectedChevron = ChevronClose;
          PanelVisibility = Visibility.Collapsed;
       }
 
@@ -123,14 +140,14 @@ namespace Edam.WinUI.Controls.ViewModels
       /// <param name="args"></param>
       public void ManageNotification(object sender, DataTreeEventArgs args)
       {
-         MapItemInfo item;
-         if (args.Type == DataTreeEventType.DoubleTapped)
+         if (args != null && args.Type == DataTreeEventType.DoubleTapped)
          {
             //item = Add(DataMapItemType.Source, args);
          }
          else
          {
             SelectedBooklet = Context.BookModel.Model.SelectedBooklet;
+            SelectedMapItem = UseCase.SelectedMapItem;
             //item = ItemSelected(DataMapItemType.Source, args);
          }
       }

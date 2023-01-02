@@ -41,7 +41,7 @@
 
                      <ListView Grid.Row="0" Grid.Column="0"
                             SelectionChanged="SourceControl_SelectionChanged"                            
-                            ItemsSource="{Binding SourceElement, Mode=TwoWay}"
+                            ItemsSource="{Binding SourceElement}"
                             x:Name="SourceControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>
@@ -62,7 +62,7 @@
 
                      <ListView Grid.Row="0" Grid.Column="2" 
                             SelectionChanged="TargetControl_SelectionChanged"
-                            ItemsSource="{Binding TargetElement, Mode=TwoWay}"
+                            ItemsSource="{Binding TargetElement}"
                             x:Name="TargetControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>
