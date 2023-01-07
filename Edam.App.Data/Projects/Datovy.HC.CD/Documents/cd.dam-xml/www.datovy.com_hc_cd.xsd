@@ -30,7 +30,7 @@
   </xs:complexType>
   <xs:element name="Disease_Surveillance_Document" type="cd:Disease_Surveillance_">
     <xs:annotation>
-      <xs:documentation source="http://hc/cd/">Disease Surveillance Document</xs:documentation>
+      <xs:documentation>Disease Surveillance Document</xs:documentation>
     </xs:annotation>
   </xs:element>
 </xs:schema>

@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="utf-16"?>
 <xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Type_ID" type="cd5:string">
+  <xs:element name="Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Type ID</xs:documentation>
+      <xs:documentation>Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Description" type="cd5:string" />
-  <xs:element name="Category_ID" type="cd5:string">
+  <xs:element name="Description" type="xs:string" />
+  <xs:element name="Category_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Category ID</xs:documentation>
+      <xs:documentation>Category ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="CodeSet_Name" type="cd5:string">
+  <xs:element name="CodeSet_Name" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Code Set Name</xs:documentation>
+      <xs:documentation>Code Set Name</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Tenant_ID" type="cd5:string">
+  <xs:element name="Tenant_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Tenant ID</xs:documentation>
+      <xs:documentation>Tenant ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Data_Owner_ID" type="cd5:string">
+  <xs:element name="Data_Owner_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Data Owner ID</xs:documentation>
+      <xs:documentation>Data Owner ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Agency_Reporting_ID" type="cd5:string">
+  <xs:element name="Agency_Reporting_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Agency Reporting ID</xs:documentation>
+      <xs:documentation>Agency Reporting ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sequence_Number" type="cd5:integer">
+  <xs:element name="Sequence_Number" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Sequence Number</xs:documentation>
+      <xs:documentation>Sequence Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_DateTime" type="cd5:dateTime">
+  <xs:element name="Effective_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Effective Date Time</xs:documentation>
+      <xs:documentation>Effective Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_End_DateTime" type="cd5:dateTime">
+  <xs:element name="Effective_End_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Effective End Date Time</xs:documentation>
+      <xs:documentation>Effective End Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Version_Number" type="cd5:string">
+  <xs:element name="Version_Number" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Version Number</xs:documentation>
+      <xs:documentation>Version Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Created_DateTime" type="cd5:dateTime">
+  <xs:element name="Created_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Created Date Time</xs:documentation>
+      <xs:documentation>Created Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Updated_DateTime" type="cd5:dateTime">
+  <xs:element name="Updated_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Updated Date Time</xs:documentation>
+      <xs:documentation>Updated Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Record_Status_Code_ID" type="cd5:string">
+  <xs:element name="Record_Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Record Status Code ID</xs:documentation>
+      <xs:documentation>Record Status Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Session_Updated_ID" type="cd5:string">
+  <xs:element name="Session_Updated_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Session Updated ID</xs:documentation>
+      <xs:documentation>Session Updated ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Person_Type_">
@@ -90,70 +90,70 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Contact_ID" type="cd5:string">
+  <xs:element name="Contact_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Contact ID</xs:documentation>
+      <xs:documentation>Contact ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Alternate_ID" type="cd5:string">
+  <xs:element name="Alternate_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Alternate ID</xs:documentation>
+      <xs:documentation>Alternate ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Name" type="cd5:string" />
-  <xs:element name="Sex_Code_ID" type="cd5:string">
+  <xs:element name="Name" type="xs:string" />
+  <xs:element name="Sex_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Sex Code ID</xs:documentation>
+      <xs:documentation>Sex Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Phone_Number" type="cd5:string">
+  <xs:element name="Phone_Number" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Phone Number</xs:documentation>
+      <xs:documentation>Phone Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Email_Addresss" type="cd5:string">
+  <xs:element name="Email_Addresss" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Email Addresss</xs:documentation>
+      <xs:documentation>Email Addresss</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Risk_Code_ID" type="cd5:string">
+  <xs:element name="Risk_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Risk Code ID</xs:documentation>
+      <xs:documentation>Risk Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Priority_Code_ID" type="cd5:string">
+  <xs:element name="Priority_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Priority Code ID</xs:documentation>
+      <xs:documentation>Priority Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Jurisdiction_Code_ID" type="cd5:string">
+  <xs:element name="Jurisdiction_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">have the information for the jurisdiction -- jurisdiction table will be required.</xs:documentation>
+      <xs:documentation>have the information for the jurisdiction -- jurisdiction table will be required.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Status_Code_ID" type="cd5:string">
+  <xs:element name="Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Status Code ID</xs:documentation>
+      <xs:documentation>Status Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Status_DateTime" type="cd5:dateTime">
+  <xs:element name="Status_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Status Date Time</xs:documentation>
+      <xs:documentation>Status Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Person_ID" type="cd5:string">
+  <xs:element name="Person_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Person ID</xs:documentation>
+      <xs:documentation>Person ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Organization_ID" type="cd5:string">
+  <xs:element name="Organization_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Organization ID</xs:documentation>
+      <xs:documentation>Organization ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Officer_ID" type="cd5:string">
+  <xs:element name="Officer_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Officer ID</xs:documentation>
+      <xs:documentation>Officer ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Contact_">
@@ -187,12 +187,12 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Number_ID" type="cd5:string">
+  <xs:element name="Number_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Number ID</xs:documentation>
+      <xs:documentation>Number ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="URL" type="cd5:string" />
+  <xs:element name="URL" type="xs:string" />
   <xs:complexType name="Organization_">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Organization_ID" />
@@ -217,34 +217,34 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Person_Death_ID" type="cd5:string">
+  <xs:element name="Person_Death_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Person Death ID</xs:documentation>
+      <xs:documentation>Person Death ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Source_Text" type="cd5:string">
+  <xs:element name="Source_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Source Text</xs:documentation>
+      <xs:documentation>Source Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Death_Date" type="cd5:dateTime">
+  <xs:element name="Death_Date" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Death Date</xs:documentation>
+      <xs:documentation>Death Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Death_DateTime" type="cd5:dateTime">
+  <xs:element name="Death_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Death Date Time</xs:documentation>
+      <xs:documentation>Death Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Death_Date_Text" type="cd5:string">
+  <xs:element name="Death_Date_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Death Date Text</xs:documentation>
+      <xs:documentation>Death Date Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Cause_Code_ID" type="cd5:string">
+  <xs:element name="Cause_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Cause Code ID</xs:documentation>
+      <xs:documentation>Cause Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Person_Death_">
@@ -271,19 +271,19 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Person_Flag_ID" type="cd5:string">
+  <xs:element name="Person_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Person Flag ID</xs:documentation>
+      <xs:documentation>Person Flag ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Code_ID" type="cd5:string">
+  <xs:element name="Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Code ID</xs:documentation>
+      <xs:documentation>Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Flag_Value" type="cd5:string">
+  <xs:element name="Flag_Value" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">'Y'</xs:documentation>
+      <xs:documentation>'Y'</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Person_Flag_">
@@ -308,14 +308,14 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Location_Link_ID" type="cd5:string">
+  <xs:element name="Location_Link_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Location Link ID</xs:documentation>
+      <xs:documentation>Location Link ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Location_ID" type="cd5:string">
+  <xs:element name="Location_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Location ID... External reference for (Geography) Location</xs:documentation>
+      <xs:documentation>Location ID... External reference for (Geography) Location</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Location_Link_">
@@ -339,29 +339,29 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Identification_ID" type="cd5:string">
+  <xs:element name="Identification_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Identification ID</xs:documentation>
+      <xs:documentation>Identification ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Identification_Number" type="cd5:string">
+  <xs:element name="Identification_Number" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Identification Number</xs:documentation>
+      <xs:documentation>Identification Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Class_Code" type="cd5:string">
+  <xs:element name="Class_Code" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Class Code</xs:documentation>
+      <xs:documentation>Class Code</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Enacted_DateTime" type="cd5:dateTime">
+  <xs:element name="Enacted_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Enacted Date Time</xs:documentation>
+      <xs:documentation>Enacted Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Expiration_DateTime" type="cd5:dateTime">
+  <xs:element name="Expiration_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Expiration Date Time</xs:documentation>
+      <xs:documentation>Expiration Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Identification_">
@@ -392,32 +392,32 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Communication_ID" type="cd5:string">
+  <xs:element name="Communication_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Communication ID</xs:documentation>
+      <xs:documentation>Communication ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Device_Code_ID" type="cd5:string">
+  <xs:element name="Device_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Phone, Fax</xs:documentation>
+      <xs:documentation>Phone, Fax</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Device_Usage_Code_ID" type="cd5:string">
+  <xs:element name="Device_Usage_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Work, Home, Office</xs:documentation>
+      <xs:documentation>Work, Home, Office</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Phone_Country_Code_ID" type="cd5:string">
+  <xs:element name="Phone_Country_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Phone Country Code ID</xs:documentation>
+      <xs:documentation>Phone Country Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Phone_Area_Code_ID" type="cd5:string">
+  <xs:element name="Phone_Area_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Phone Area Code ID</xs:documentation>
+      <xs:documentation>Phone Area Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Extension" type="cd5:string" />
+  <xs:element name="Extension" type="xs:string" />
   <xs:complexType name="Communication_">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Communication_ID" />
@@ -484,9 +484,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Registry_ID" type="cd5:string">
+  <xs:element name="Registry_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Registry ID</xs:documentation>
+      <xs:documentation>Registry ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Officer_">
@@ -514,9 +514,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Tags" type="cd5:string">
+  <xs:element name="Tags" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Provided to set a comma delimited list of Privacy, Security or other data Tags such as GDPR, HIPAA, PII or other.</xs:documentation>
+      <xs:documentation>Provided to set a comma delimited list of Privacy, Security or other data Tags such as GDPR, HIPAA, PII or other.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Device_Type_">
@@ -539,9 +539,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Contact_Emergency_ID" type="cd5:string">
+  <xs:element name="Contact_Emergency_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Contact Emergency ID</xs:documentation>
+      <xs:documentation>Contact Emergency ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Contact_Emergency_">
@@ -664,49 +664,49 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Employment_ID" type="cd5:string">
+  <xs:element name="Employment_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Employment ID</xs:documentation>
+      <xs:documentation>Employment ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Employer_ID" type="cd5:string">
+  <xs:element name="Employer_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Employer ID</xs:documentation>
+      <xs:documentation>Employer ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Employee_ID" type="cd5:string">
+  <xs:element name="Employee_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Employee ID</xs:documentation>
+      <xs:documentation>Employee ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Industry_Text" type="cd5:string">
+  <xs:element name="Industry_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Industry Text</xs:documentation>
+      <xs:documentation>Industry Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Industry_Code_ID" type="cd5:string">
+  <xs:element name="Industry_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Industry Code ID</xs:documentation>
+      <xs:documentation>Industry Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Occupation_Text" type="cd5:string">
+  <xs:element name="Occupation_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Occupation Text</xs:documentation>
+      <xs:documentation>Occupation Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Occupation_Code_ID" type="cd5:string">
+  <xs:element name="Occupation_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Occupation Code ID</xs:documentation>
+      <xs:documentation>Occupation Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Start_Date" type="cd5:date">
+  <xs:element name="Start_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Start Date</xs:documentation>
+      <xs:documentation>Start Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Ended_Date" type="cd5:date">
+  <xs:element name="Ended_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Ended Date</xs:documentation>
+      <xs:documentation>Ended Date</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Employment_">
@@ -814,44 +814,44 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Name_ID" type="cd5:string">
+  <xs:element name="Name_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Name ID</xs:documentation>
+      <xs:documentation>Name ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Name_Type_ID" type="cd5:string">
+  <xs:element name="Name_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">A name type</xs:documentation>
+      <xs:documentation>A name type</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Name_Given" type="cd5:string">
+  <xs:element name="Name_Given" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">A given name</xs:documentation>
+      <xs:documentation>A given name</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Name_Middle" type="cd5:string">
+  <xs:element name="Name_Middle" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">A middle name</xs:documentation>
+      <xs:documentation>A middle name</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Name_Family" type="cd5:string">
+  <xs:element name="Name_Family" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">A family name</xs:documentation>
+      <xs:documentation>A family name</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Name_Prefix_Code_ID" type="cd5:string">
+  <xs:element name="Name_Prefix_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">A name prefix</xs:documentation>
+      <xs:documentation>A name prefix</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Name_Suffix_Code_ID" type="cd5:string">
+  <xs:element name="Name_Suffix_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">A name suffix</xs:documentation>
+      <xs:documentation>A name suffix</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Name_Full" type="cd5:string">
+  <xs:element name="Name_Full" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">A person or entity full name</xs:documentation>
+      <xs:documentation>A person or entity full name</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Name_">
@@ -916,39 +916,39 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Note_ID" type="cd5:string">
+  <xs:element name="Note_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Note ID</xs:documentation>
+      <xs:documentation>Note ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Note_Type_ID" type="cd5:string">
+  <xs:element name="Note_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Note Type ID</xs:documentation>
+      <xs:documentation>Note Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Note_Text" type="cd5:string">
+  <xs:element name="Note_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Note Text</xs:documentation>
+      <xs:documentation>Note Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Note_DateTime" type="cd5:dateTime">
+  <xs:element name="Note_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Note Date Time</xs:documentation>
+      <xs:documentation>Note Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Author_ID" type="cd5:string">
+  <xs:element name="Author_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Author ID</xs:documentation>
+      <xs:documentation>Author ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Author_Role_ID" type="cd5:string">
+  <xs:element name="Author_Role_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Author Role ID</xs:documentation>
+      <xs:documentation>Author Role ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Author_Name" type="cd5:string">
+  <xs:element name="Author_Name" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Author Name</xs:documentation>
+      <xs:documentation>Author Name</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Note_">
@@ -999,69 +999,69 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Media_ID" type="cd5:string">
+  <xs:element name="Media_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Media ID</xs:documentation>
+      <xs:documentation>Media ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Category_Text" type="cd5:string">
+  <xs:element name="Category_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Category Text</xs:documentation>
+      <xs:documentation>Category Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Status_Code" type="cd5:integer">
+  <xs:element name="Status_Code" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Status Code</xs:documentation>
+      <xs:documentation>Status Code</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Url_Text" type="cd5:string">
+  <xs:element name="Url_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Url Text</xs:documentation>
+      <xs:documentation>Url Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Size_In_Bytes" type="cd5:integer">
+  <xs:element name="Size_In_Bytes" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Size In Bytes</xs:documentation>
+      <xs:documentation>Size In Bytes</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Media_Data" type="cd5:varbinary">
+  <xs:element name="Media_Data" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Media Data</xs:documentation>
+      <xs:documentation>Media Data</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Scope_Code_ID" type="cd5:string">
+  <xs:element name="Scope_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Scope Code ID</xs:documentation>
+      <xs:documentation>Scope Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Content_Type_Code_ID" type="cd5:string">
+  <xs:element name="Content_Type_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Content Type Code ID</xs:documentation>
+      <xs:documentation>Content Type Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Content_Type_Text" type="cd5:string">
+  <xs:element name="Content_Type_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Content Type Text</xs:documentation>
+      <xs:documentation>Content Type Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Media_Default_Indicator" type="cd5:boolean">
+  <xs:element name="Media_Default_Indicator" type="xs:boolean">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Media Default Indicator</xs:documentation>
+      <xs:documentation>Media Default Indicator</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Serial_No" type="cd5:long">
+  <xs:element name="Serial_No" type="xs:long">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Serial No</xs:documentation>
+      <xs:documentation>Serial No</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reference_Date_Type_ID" type="cd5:string">
+  <xs:element name="Reference_Date_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Reference Date Type ID</xs:documentation>
+      <xs:documentation>Reference Date Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reference_DateTime" type="cd5:dateTime">
+  <xs:element name="Reference_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Reference Date Time</xs:documentation>
+      <xs:documentation>Reference Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Media_">
@@ -1100,14 +1100,14 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Item_Link_ID" type="cd5:string">
+  <xs:element name="Item_Link_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Item Link ID</xs:documentation>
+      <xs:documentation>Item Link ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Item_ID" type="cd5:string">
+  <xs:element name="Item_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Item ID... External reference for (Management) Case</xs:documentation>
+      <xs:documentation>Item ID... External reference for (Management) Case</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Item_Link_">
@@ -1150,19 +1150,19 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="URI_ID" type="cd5:string">
+  <xs:element name="URI_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">URI ID</xs:documentation>
+      <xs:documentation>URI ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Absolute_URI" type="cd5:string">
+  <xs:element name="Absolute_URI" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Absolute URI</xs:documentation>
+      <xs:documentation>Absolute URI</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Category_Code_ID" type="cd5:string">
+  <xs:element name="Category_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Category Code ID</xs:documentation>
+      <xs:documentation>Category Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Uri_">
@@ -1306,29 +1306,29 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Affiliation_ID" type="cd5:string">
+  <xs:element name="Affiliation_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Affiliation ID</xs:documentation>
+      <xs:documentation>Affiliation ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Entity_Name" type="cd5:string">
+  <xs:element name="Entity_Name" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Entity Name</xs:documentation>
+      <xs:documentation>Entity Name</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Affiliated_Flag_ID" type="cd5:string">
+  <xs:element name="Affiliated_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Affiliated Flag ID</xs:documentation>
+      <xs:documentation>Affiliated Flag ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Enrolled_Flag_ID" type="cd5:string">
+  <xs:element name="Enrolled_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Enrolled Flag ID</xs:documentation>
+      <xs:documentation>Enrolled Flag ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Enrolled_Date" type="cd5:date">
+  <xs:element name="Enrolled_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Enrolled Date</xs:documentation>
+      <xs:documentation>Enrolled Date</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Affiliation_">
@@ -1374,96 +1374,96 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd5:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Birth_DateTime" type="cd5:dateTime">
+  <xs:element name="Birth_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Birth Date Time</xs:documentation>
+      <xs:documentation>Birth Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Birth_Date" type="cd5:date">
+  <xs:element name="Birth_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Birth Date</xs:documentation>
+      <xs:documentation>Birth Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Birth_Date_Text" type="cd5:string">
+  <xs:element name="Birth_Date_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Birth Date Text</xs:documentation>
+      <xs:documentation>Birth Date Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Birth_Location_ID" type="cd5:string">
+  <xs:element name="Birth_Location_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Birth Location ID... Birth Location ID is a reference to a location detailed elsewhere</xs:documentation>
+      <xs:documentation>Birth Location ID... Birth Location ID is a reference to a location detailed elsewhere</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Birth_Weight" type="cd5:integer">
+  <xs:element name="Birth_Weight" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Birth weight (in grams)</xs:documentation>
+      <xs:documentation>Birth weight (in grams)</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sex_Birth_Code_ID" type="cd5:string">
+  <xs:element name="Sex_Birth_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Sex at Birth: Male, Female, Other, Unknown</xs:documentation>
+      <xs:documentation>Sex at Birth: Male, Female, Other, Unknown</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Gender_Identity_Code_ID" type="cd5:string">
+  <xs:element name="Gender_Identity_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">The person identifies the Identity as</xs:documentation>
+      <xs:documentation>The person identifies the Identity as</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sexual_Orientation_Code_ID" type="cd5:string">
+  <xs:element name="Sexual_Orientation_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Sexual Orientation Code ID</xs:documentation>
+      <xs:documentation>Sexual Orientation Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Height" type="cd5:integer" />
-  <xs:element name="Height_Unit_Code_ID" type="cd5:string">
+  <xs:element name="Height" type="xs:integer" />
+  <xs:element name="Height_Unit_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Height Unit Code ID</xs:documentation>
+      <xs:documentation>Height Unit Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Weight" type="cd5:integer" />
-  <xs:element name="Weight_Unit_Code_ID" type="cd5:string">
+  <xs:element name="Weight" type="xs:integer" />
+  <xs:element name="Weight_Unit_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Weight Unit Code ID</xs:documentation>
+      <xs:documentation>Weight Unit Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Ethnicity_Code_ID" type="cd5:string">
+  <xs:element name="Ethnicity_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Ethnicity Code ID</xs:documentation>
+      <xs:documentation>Ethnicity Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Race_Code_ID" type="cd5:string">
+  <xs:element name="Race_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Race Code ID</xs:documentation>
+      <xs:documentation>Race Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Language_Primary_ID" type="cd5:string">
+  <xs:element name="Language_Primary_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Language Primary ID</xs:documentation>
+      <xs:documentation>Language Primary ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Language_Secondary_ID" type="cd5:string">
+  <xs:element name="Language_Secondary_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Language Secondary ID</xs:documentation>
+      <xs:documentation>Language Secondary ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Education_Level_Highest_Code_ID" type="cd5:string">
+  <xs:element name="Education_Level_Highest_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Education Level Highest Code ID</xs:documentation>
+      <xs:documentation>Education Level Highest Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Religion_Code_ID" type="cd5:string">
+  <xs:element name="Religion_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Religion Code ID</xs:documentation>
+      <xs:documentation>Religion Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Marital_Status_Date" type="cd5:date">
+  <xs:element name="Marital_Status_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Marital Status Date</xs:documentation>
+      <xs:documentation>Marital Status Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Marital_Status_Code_ID" type="cd5:string">
+  <xs:element name="Marital_Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Marital Status Code ID</xs:documentation>
+      <xs:documentation>Marital Status Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Person_">
@@ -1516,152 +1516,152 @@
   </xs:complexType>
   <xs:element name="Person_Type" type="cd5:Person_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Person Type</xs:documentation>
+      <xs:documentation>Person Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Contact" type="cd5:Contact_" />
   <xs:element name="Organization" type="cd5:Organization_" />
   <xs:element name="Person_Death" type="cd5:Person_Death_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Person Death</xs:documentation>
+      <xs:documentation>Person Death</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Person_Flag" type="cd5:Person_Flag_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Person Flag</xs:documentation>
+      <xs:documentation>Person Flag</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Location_Link" type="cd5:Location_Link_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Location Link</xs:documentation>
+      <xs:documentation>Location Link</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Identification" type="cd5:Identification_" />
   <xs:element name="Communication" type="cd5:Communication_" />
   <xs:element name="Organization_Type" type="cd5:Organization_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Organization Type</xs:documentation>
+      <xs:documentation>Organization Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Officer_Type" type="cd5:Officer_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Officer Type</xs:documentation>
+      <xs:documentation>Officer Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Officer" type="cd5:Officer_" />
   <xs:element name="Device_Type" type="cd5:Device_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Device Type</xs:documentation>
+      <xs:documentation>Device Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Contact_Emergency" type="cd5:Contact_Emergency_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Contact Emergency</xs:documentation>
+      <xs:documentation>Contact Emergency</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Contact_Type" type="cd5:Contact_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Contact Type</xs:documentation>
+      <xs:documentation>Contact Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Identification_Type" type="cd5:Identification_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Identification Type</xs:documentation>
+      <xs:documentation>Identification Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Sexual_Orientation_Code" type="cd5:Sexual_Orientation_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Sexual Orientation Code</xs:documentation>
+      <xs:documentation>Sexual Orientation Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Gender_Identity_Code" type="cd5:Gender_Identity_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Gender Identity Code</xs:documentation>
+      <xs:documentation>Gender Identity Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Employment_Type" type="cd5:Employment_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Employment Type</xs:documentation>
+      <xs:documentation>Employment Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Employment" type="cd5:Employment_" />
   <xs:element name="Entity_Type" type="cd5:Entity_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Entity Type</xs:documentation>
+      <xs:documentation>Entity Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Sex_Code" type="cd5:Sex_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Sex Code</xs:documentation>
+      <xs:documentation>Sex Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Ethnicity_Code" type="cd5:Ethnicity_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Ethnicity Code</xs:documentation>
+      <xs:documentation>Ethnicity Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Race_Code" type="cd5:Race_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Race Code</xs:documentation>
+      <xs:documentation>Race Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Name_Type" type="cd5:Name_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Name Type</xs:documentation>
+      <xs:documentation>Name Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Note_Type" type="cd5:Note_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Note Type</xs:documentation>
+      <xs:documentation>Note Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Note" type="cd5:Note_" />
   <xs:element name="Media_Type" type="cd5:Media_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Media Type</xs:documentation>
+      <xs:documentation>Media Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Media" type="cd5:Media_" />
   <xs:element name="Item_Link" type="cd5:Item_Link_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Item Link</xs:documentation>
+      <xs:documentation>Item Link</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Flag_Code" type="cd5:Flag_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Flag Code</xs:documentation>
+      <xs:documentation>Flag Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Uri" type="cd5:Uri_" />
   <xs:element name="Uri_Type" type="cd5:Uri_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Uri Type</xs:documentation>
+      <xs:documentation>Uri Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Industry_Code" type="cd5:Industry_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Industry Code</xs:documentation>
+      <xs:documentation>Industry Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Occupation_Code" type="cd5:Occupation_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Occupation Code</xs:documentation>
+      <xs:documentation>Occupation Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Marital_Status_Code" type="cd5:Marital_Status_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Marital Status Code</xs:documentation>
+      <xs:documentation>Marital Status Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Indicator_Flag_Code" type="cd5:Indicator_Flag_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Indicator Flag Code</xs:documentation>
+      <xs:documentation>Indicator Flag Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Affiliation" type="cd5:Affiliation_" />
   <xs:element name="Religion_Code" type="cd5:Religion_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Entity/">Religion Code</xs:documentation>
+      <xs:documentation>Religion Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Person" type="cd5:Person_" />

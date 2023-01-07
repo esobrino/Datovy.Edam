@@ -83,10 +83,10 @@ namespace Edam.Xml.Xsd
          String srcText = String.IsNullOrWhiteSpace(resourceId) ? String.Empty :
             "http://" + resourceId;
          XmlSchemaAnnotation a = new XmlSchemaAnnotation();
-         XmlSchemaDocumentation d = new XmlSchemaDocumentation
-         {
-            Source = srcText
-         };
+         XmlSchemaDocumentation d = new XmlSchemaDocumentation();
+         //{
+         //   Source = srcText
+         //};
          a.Items.Add(d);
          d.Markup = TextToNodeArray(description ?? String.Empty);
          return a;
@@ -118,6 +118,11 @@ namespace Edam.Xml.Xsd
          if (qname == null)
          {
             var fns = Namespaces.Find((x) => x.Prefix == name.Prefix);
+            if (fns == null && (name.Prefix == NamespaceInfo.W3C_PREFIX || 
+               name.Prefix == NamespaceInfo.W3C_PREFIX_XSD))
+            {
+               fns = new NamespaceInfo(name.Prefix, NamespaceInfo.W3C_URI);
+            }
             string uriText = fns == null ? ns.Uri.OriginalString :
                fns.Uri.OriginalString;
             qname = GetQualifiedName(name.OriginalName,

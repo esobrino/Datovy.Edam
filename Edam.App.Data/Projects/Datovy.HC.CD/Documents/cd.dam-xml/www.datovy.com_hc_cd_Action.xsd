@@ -1,153 +1,153 @@
 <?xml version="1.0" encoding="utf-16"?>
 <xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Action" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Activity_ID" type="cd6:string">
+  <xs:element name="Activity_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Activity ID</xs:documentation>
+      <xs:documentation>Activity ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Event_ID" type="cd6:string">
+  <xs:element name="Event_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Event ID</xs:documentation>
+      <xs:documentation>Event ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Media_ID" type="cd6:string">
+  <xs:element name="Media_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Media ID</xs:documentation>
+      <xs:documentation>Media ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Alternate_ID" type="cd6:string">
+  <xs:element name="Alternate_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Alternate ID</xs:documentation>
+      <xs:documentation>Alternate ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Type_ID" type="cd6:string">
+  <xs:element name="Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Type ID</xs:documentation>
+      <xs:documentation>Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Category_Text" type="cd6:string">
+  <xs:element name="Category_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Category Text</xs:documentation>
+      <xs:documentation>Category Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Status_Code" type="cd6:integer">
+  <xs:element name="Status_Code" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Status Code</xs:documentation>
+      <xs:documentation>Status Code</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Url_Text" type="cd6:string">
+  <xs:element name="Url_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Url Text</xs:documentation>
+      <xs:documentation>Url Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Size_In_Bytes" type="cd6:integer">
+  <xs:element name="Size_In_Bytes" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Size In Bytes</xs:documentation>
+      <xs:documentation>Size In Bytes</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Media_Data" type="cd6:varbinary">
+  <xs:element name="Media_Data" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Media Data</xs:documentation>
+      <xs:documentation>Media Data</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Scope_Code_ID" type="cd6:string">
+  <xs:element name="Scope_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Scope Code ID</xs:documentation>
+      <xs:documentation>Scope Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Content_Type_Code_ID" type="cd6:string">
+  <xs:element name="Content_Type_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Content Type Code ID</xs:documentation>
+      <xs:documentation>Content Type Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Content_Type_Text" type="cd6:string">
+  <xs:element name="Content_Type_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Content Type Text</xs:documentation>
+      <xs:documentation>Content Type Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Default_Indicator" type="cd6:boolean">
+  <xs:element name="Default_Indicator" type="xs:boolean">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Default Indicator</xs:documentation>
+      <xs:documentation>Default Indicator</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Serial_No" type="cd6:long">
+  <xs:element name="Serial_No" type="xs:long">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Serial No</xs:documentation>
+      <xs:documentation>Serial No</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Status_Code_ID" type="cd6:string">
+  <xs:element name="Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Status Code ID</xs:documentation>
+      <xs:documentation>Status Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Status_DateTime" type="cd6:dateTime">
+  <xs:element name="Status_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Status Date Time</xs:documentation>
+      <xs:documentation>Status Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reference_Date_Type_ID" type="cd6:string">
+  <xs:element name="Reference_Date_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Reference Date Type ID</xs:documentation>
+      <xs:documentation>Reference Date Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reference_DateTime" type="cd6:dateTime">
+  <xs:element name="Reference_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Reference Date Time</xs:documentation>
+      <xs:documentation>Reference Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Tenant_ID" type="cd6:string">
+  <xs:element name="Tenant_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Tenant ID</xs:documentation>
+      <xs:documentation>Tenant ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Data_Owner_ID" type="cd6:string">
+  <xs:element name="Data_Owner_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Data Owner ID</xs:documentation>
+      <xs:documentation>Data Owner ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Agency_Reporting_ID" type="cd6:string">
+  <xs:element name="Agency_Reporting_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Agency Reporting ID</xs:documentation>
+      <xs:documentation>Agency Reporting ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sequence_Number" type="cd6:integer">
+  <xs:element name="Sequence_Number" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Sequence Number</xs:documentation>
+      <xs:documentation>Sequence Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_DateTime" type="cd6:dateTime">
+  <xs:element name="Effective_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Effective Date Time</xs:documentation>
+      <xs:documentation>Effective Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_End_DateTime" type="cd6:dateTime">
+  <xs:element name="Effective_End_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Effective End Date Time</xs:documentation>
+      <xs:documentation>Effective End Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Version_Number" type="cd6:string">
+  <xs:element name="Version_Number" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Version Number</xs:documentation>
+      <xs:documentation>Version Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Created_DateTime" type="cd6:dateTime">
+  <xs:element name="Created_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Created Date Time</xs:documentation>
+      <xs:documentation>Created Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Updated_DateTime" type="cd6:dateTime">
+  <xs:element name="Updated_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Updated Date Time</xs:documentation>
+      <xs:documentation>Updated Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Record_Status_Code_ID" type="cd6:string">
+  <xs:element name="Record_Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Record Status Code ID</xs:documentation>
+      <xs:documentation>Record Status Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Session_Updated_ID" type="cd6:string">
+  <xs:element name="Session_Updated_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Session Updated ID</xs:documentation>
+      <xs:documentation>Session Updated ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Media_">
@@ -184,20 +184,20 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd6:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Code_ID" type="cd6:string">
+  <xs:element name="Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Code ID</xs:documentation>
+      <xs:documentation>Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Description" type="cd6:string" />
-  <xs:element name="Category_ID" type="cd6:string">
+  <xs:element name="Description" type="xs:string" />
+  <xs:element name="Category_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Category ID</xs:documentation>
+      <xs:documentation>Category ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="CodeSet_Name" type="cd6:string">
+  <xs:element name="CodeSet_Name" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Code Set Name</xs:documentation>
+      <xs:documentation>Code Set Name</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Role_Code_">
@@ -238,35 +238,35 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd6:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Party_ID" type="cd6:string">
+  <xs:element name="Party_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Party ID</xs:documentation>
+      <xs:documentation>Party ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Identification_ID" type="cd6:string">
+  <xs:element name="Identification_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Identification ID</xs:documentation>
+      <xs:documentation>Identification ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Role_Code_ID" type="cd6:string">
+  <xs:element name="Role_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Role Code ID</xs:documentation>
+      <xs:documentation>Role Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Duration" type="cd6:string" />
-  <xs:element name="Organization_ID" type="cd6:string">
+  <xs:element name="Duration" type="xs:string" />
+  <xs:element name="Organization_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Organization ID... An external reference to an (Entity) Organization</xs:documentation>
+      <xs:documentation>Organization ID... An external reference to an (Entity) Organization</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Contact_ID" type="cd6:string">
+  <xs:element name="Contact_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Contact ID... An external reference to an (Entity) Contact</xs:documentation>
+      <xs:documentation>Contact ID... An external reference to an (Entity) Contact</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Person_ID" type="cd6:string">
+  <xs:element name="Person_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Person ID... An external reference to a (Entity) Person</xs:documentation>
+      <xs:documentation>Person ID... An external reference to a (Entity) Person</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Party_">
@@ -295,45 +295,45 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd6:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Disposition_ID" type="cd6:string">
+  <xs:element name="Disposition_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Disposition ID</xs:documentation>
+      <xs:documentation>Disposition ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Name" type="cd6:string" />
-  <xs:element name="Priority_Code_ID" type="cd6:string">
+  <xs:element name="Name" type="xs:string" />
+  <xs:element name="Priority_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Priority Code ID</xs:documentation>
+      <xs:documentation>Priority Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reason_Code_ID" type="cd6:string">
+  <xs:element name="Reason_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Reason Code ID</xs:documentation>
+      <xs:documentation>Reason Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Scheduled_DateTime" type="cd6:dateTime">
+  <xs:element name="Scheduled_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Scheduled Date Time</xs:documentation>
+      <xs:documentation>Scheduled Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Started_DateTime" type="cd6:dateTime">
+  <xs:element name="Started_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Started Date Time</xs:documentation>
+      <xs:documentation>Started Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Ended_DateTime" type="cd6:dateTime">
+  <xs:element name="Ended_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Ended Date Time</xs:documentation>
+      <xs:documentation>Ended Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_ID" type="cd6:string">
+  <xs:element name="Case_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Case ID... An external reference to a (Management) Case</xs:documentation>
+      <xs:documentation>Case ID... An external reference to a (Management) Case</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Location_ID" type="cd6:string">
+  <xs:element name="Location_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Location ID... An external reference to a (Geography) Location</xs:documentation>
+      <xs:documentation>Location ID... An external reference to a (Geography) Location</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Activity_">
@@ -367,9 +367,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd6:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Schedule_Event_ID" type="cd6:string">
+  <xs:element name="Schedule_Event_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Schedule Event ID</xs:documentation>
+      <xs:documentation>Schedule Event ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Schedule_Event_">
@@ -419,39 +419,39 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd6:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Note_ID" type="cd6:string">
+  <xs:element name="Note_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Note ID</xs:documentation>
+      <xs:documentation>Note ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Note_Type_ID" type="cd6:string">
+  <xs:element name="Note_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Note Type ID</xs:documentation>
+      <xs:documentation>Note Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Note_Text" type="cd6:string">
+  <xs:element name="Note_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Note Text</xs:documentation>
+      <xs:documentation>Note Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Note_DateTime" type="cd6:dateTime">
+  <xs:element name="Note_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Note Date Time</xs:documentation>
+      <xs:documentation>Note Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Author_ID" type="cd6:string">
+  <xs:element name="Author_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Author ID</xs:documentation>
+      <xs:documentation>Author ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Author_Role_ID" type="cd6:string">
+  <xs:element name="Author_Role_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Author Role ID</xs:documentation>
+      <xs:documentation>Author Role ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Author_Name" type="cd6:string">
+  <xs:element name="Author_Name" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Author Name</xs:documentation>
+      <xs:documentation>Author Name</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Note_">
@@ -480,9 +480,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd6:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Tags" type="cd6:string">
+  <xs:element name="Tags" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Provided to set a comma delimited list of Privacy, Security or other data Tags such as GDPR, HIPAA, PII or other.</xs:documentation>
+      <xs:documentation>Provided to set a comma delimited list of Privacy, Security or other data Tags such as GDPR, HIPAA, PII or other.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Media_Type_">
@@ -524,9 +524,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd6:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="EventType_ID" type="cd6:string">
+  <xs:element name="EventType_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Event Type ID</xs:documentation>
+      <xs:documentation>Event Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Event_">
@@ -635,51 +635,51 @@
   <xs:element name="Media" type="cd6:Media_" />
   <xs:element name="Role_Code" type="cd6:Role_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Role Code</xs:documentation>
+      <xs:documentation>Role Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Party_Type" type="cd6:Party_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Party Type</xs:documentation>
+      <xs:documentation>Party Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Party" type="cd6:Party_" />
   <xs:element name="Activity" type="cd6:Activity_" />
   <xs:element name="Schedule_Event" type="cd6:Schedule_Event_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Schedule Event</xs:documentation>
+      <xs:documentation>Schedule Event</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Note_Type" type="cd6:Note_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Note Type</xs:documentation>
+      <xs:documentation>Note Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Note" type="cd6:Note_" />
   <xs:element name="Media_Type" type="cd6:Media_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Media Type</xs:documentation>
+      <xs:documentation>Media Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Disposition_Code" type="cd6:Disposition_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Disposition Code</xs:documentation>
+      <xs:documentation>Disposition Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Event" type="cd6:Event_" />
   <xs:element name="Activity_Type" type="cd6:Activity_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Activity Type</xs:documentation>
+      <xs:documentation>Activity Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Reason_Code" type="cd6:Reason_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Reason Code</xs:documentation>
+      <xs:documentation>Reason Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Priority_Code" type="cd6:Priority_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Action/">Priority Code</xs:documentation>
+      <xs:documentation>Priority Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Disposition" type="cd6:Disposition_" />

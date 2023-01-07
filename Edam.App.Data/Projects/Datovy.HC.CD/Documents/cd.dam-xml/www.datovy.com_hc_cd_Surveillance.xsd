@@ -1,143 +1,143 @@
 <?xml version="1.0" encoding="utf-16"?>
 <xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Surveillance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Complication_Report_ID" type="cd2:string">
+  <xs:element name="Complication_Report_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Complication Report ID</xs:documentation>
+      <xs:documentation>Complication Report ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Report_Date" type="cd2:date">
+  <xs:element name="Report_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Report Date</xs:documentation>
+      <xs:documentation>Report Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Permanent_Flag_ID" type="cd2:string">
+  <xs:element name="Permanent_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Permanent Flag ID</xs:documentation>
+      <xs:documentation>Permanent Flag ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Travel_Time_Last" type="cd2:integer">
+  <xs:element name="Travel_Time_Last" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Length of time in the US since the last travel</xs:documentation>
+      <xs:documentation>Length of time in the US since the last travel</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Travel_Time_Unit_Code_ID" type="cd2:string">
+  <xs:element name="Travel_Time_Unit_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Length of Time in the US units </xs:documentation>
+      <xs:documentation>Length of Time in the US units </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Travel_Country_Code_ID" type="cd2:string">
+  <xs:element name="Travel_Country_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">List any international destinations of recent travel</xs:documentation>
+      <xs:documentation>List any international destinations of recent travel</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Travel_Returned_Date" type="cd2:date">
+  <xs:element name="Travel_Returned_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Travel Returned Date</xs:documentation>
+      <xs:documentation>Travel Returned Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Import_Status_Flag_ID" type="cd2:string">
+  <xs:element name="Import_Status_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Did symptom onset occur within 12-25 days of entering the US, following any travel or living outside the US?</xs:documentation>
+      <xs:documentation>Did symptom onset occur within 12-25 days of entering the US, following any travel or living outside the US?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Exposure_Source_Code_ID" type="cd2:string">
+  <xs:element name="Exposure_Source_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Sub-classification of disease or condition acquired in the US</xs:documentation>
+      <xs:documentation>Sub-classification of disease or condition acquired in the US</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Detection_Method_Code_ID" type="cd2:string">
+  <xs:element name="Detection_Method_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Detection Method</xs:documentation>
+      <xs:documentation>Detection Method</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Patient_Address_City_Code_ID" type="cd2:string">
+  <xs:element name="Patient_Address_City_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Patient address city</xs:documentation>
+      <xs:documentation>Patient address city</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Investigation_Status_Code_ID" type="cd2:string">
+  <xs:element name="Investigation_Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case investigation status code</xs:documentation>
+      <xs:documentation>Case investigation status code</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Transmission_Setting_Code_ID" type="cd2:string">
+  <xs:element name="Transmission_Setting_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">What was the transmission setting where the condition was acquired?</xs:documentation>
+      <xs:documentation>What was the transmission setting where the condition was acquired?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Age_Setting_Verified_Flag_ID" type="cd2:string">
+  <xs:element name="Age_Setting_Verified_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Does the age of the case match or make sense for the transmission setting listed (e.g., a subject aged 80 probably would not have a transmission setting of child day care center)?</xs:documentation>
+      <xs:documentation>Does the age of the case match or make sense for the transmission setting listed (e.g., a subject aged 80 probably would not have a transmission setting of child day care center)?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Epidemiology_Linked_Flag_ID" type="cd2:string">
+  <xs:element name="Epidemiology_Linked_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Is this case Epi-Linked to another confirmed or probable case?</xs:documentation>
+      <xs:documentation>Is this case Epi-Linked to another confirmed or probable case?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_ID" type="cd2:string">
+  <xs:element name="Case_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case ID... External reference to (Management) Case</xs:documentation>
+      <xs:documentation>Case ID... External reference to (Management) Case</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Subject_ID" type="cd2:string">
+  <xs:element name="Subject_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Subject ID... External reference to (Entity) Person</xs:documentation>
+      <xs:documentation>Subject ID... External reference to (Entity) Person</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Tenant_ID" type="cd2:string">
+  <xs:element name="Tenant_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Tenant ID</xs:documentation>
+      <xs:documentation>Tenant ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Data_Owner_ID" type="cd2:string">
+  <xs:element name="Data_Owner_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Data Owner ID</xs:documentation>
+      <xs:documentation>Data Owner ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Agency_Reporting_ID" type="cd2:string">
+  <xs:element name="Agency_Reporting_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Agency Reporting ID</xs:documentation>
+      <xs:documentation>Agency Reporting ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sequence_Number" type="cd2:integer">
+  <xs:element name="Sequence_Number" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Sequence Number</xs:documentation>
+      <xs:documentation>Sequence Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_DateTime" type="cd2:dateTime">
+  <xs:element name="Effective_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Effective Date Time</xs:documentation>
+      <xs:documentation>Effective Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_End_DateTime" type="cd2:dateTime">
+  <xs:element name="Effective_End_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Effective End Date Time</xs:documentation>
+      <xs:documentation>Effective End Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Version_Number" type="cd2:string">
+  <xs:element name="Version_Number" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Version Number</xs:documentation>
+      <xs:documentation>Version Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Created_DateTime" type="cd2:dateTime">
+  <xs:element name="Created_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Created Date Time</xs:documentation>
+      <xs:documentation>Created Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Updated_DateTime" type="cd2:dateTime">
+  <xs:element name="Updated_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Updated Date Time</xs:documentation>
+      <xs:documentation>Updated Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Record_Status_Code_ID" type="cd2:string">
+  <xs:element name="Record_Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Record Status Code ID</xs:documentation>
+      <xs:documentation>Record Status Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Session_Updated_ID" type="cd2:string">
+  <xs:element name="Session_Updated_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Session Updated ID</xs:documentation>
+      <xs:documentation>Session Updated ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Complication_Report_">
@@ -172,25 +172,25 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Code_ID" type="cd2:string">
+  <xs:element name="Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Code ID</xs:documentation>
+      <xs:documentation>Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Description" type="cd2:string" />
-  <xs:element name="Category_ID" type="cd2:string">
+  <xs:element name="Description" type="xs:string" />
+  <xs:element name="Category_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Category ID</xs:documentation>
+      <xs:documentation>Category ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="CodeSet_Name" type="cd2:string">
+  <xs:element name="CodeSet_Name" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Code Set Name</xs:documentation>
+      <xs:documentation>Code Set Name</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Notifiable_Indicator" type="cd2:boolean">
+  <xs:element name="Notifiable_Indicator" type="xs:boolean">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Notifiable Indicator</xs:documentation>
+      <xs:documentation>Notifiable Indicator</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Reporting_Criteria_Code_">
@@ -213,9 +213,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Type_ID" type="cd2:string">
+  <xs:element name="Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Type ID</xs:documentation>
+      <xs:documentation>Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Reporting_Source_Type_">
@@ -294,134 +294,134 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Exposure_Report_ID" type="cd2:string">
+  <xs:element name="Exposure_Report_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Exposure Report ID</xs:documentation>
+      <xs:documentation>Exposure Report ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Transmission_Mode_Code_ID" type="cd2:string">
+  <xs:element name="Transmission_Mode_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Code for the mechanism by which disease or condition was acquired by the subject of the investigation.</xs:documentation>
+      <xs:documentation>Code for the mechanism by which disease or condition was acquired by the subject of the investigation.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reporting_State_Code_ID" type="cd2:string">
+  <xs:element name="Reporting_State_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Reporting State Code ID</xs:documentation>
+      <xs:documentation>Reporting State Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reporting_County_Code_ID" type="cd2:string">
+  <xs:element name="Reporting_County_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Reporting County Code ID</xs:documentation>
+      <xs:documentation>Reporting County Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_Class_Status_Code_ID" type="cd2:string">
+  <xs:element name="Case_Class_Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Status of the case/event as suspect, probable, confirmed, or not a case per CSTE/CDC/ surveillance case definitions.</xs:documentation>
+      <xs:documentation>Status of the case/event as suspect, probable, confirmed, or not a case per CSTE/CDC/ surveillance case definitions.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_Outbreak_Flag_ID" type="cd2:string">
+  <xs:element name="Case_Outbreak_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Denotes whether the reported case was associated with an identified outbreak.</xs:documentation>
+      <xs:documentation>Denotes whether the reported case was associated with an identified outbreak.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_Outbreak_Name_Text" type="cd2:string">
+  <xs:element name="Case_Outbreak_Name_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Denotes whether the reported case was associated with an identified outbreak.</xs:documentation>
+      <xs:documentation>Denotes whether the reported case was associated with an identified outbreak.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_Investigation_Start_Date" type="cd2:date">
+  <xs:element name="Case_Investigation_Start_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Investigation Start Date</xs:documentation>
+      <xs:documentation>Case Investigation Start Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_Submitted_First_Date" type="cd2:date">
+  <xs:element name="Case_Submitted_First_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Submitted First Date</xs:documentation>
+      <xs:documentation>Case Submitted First Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_Notified_CDC_Date" type="cd2:date">
+  <xs:element name="Case_Notified_CDC_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Notified CDC Date</xs:documentation>
+      <xs:documentation>Case Notified CDC Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Notify_Immediate_Flag_ID" type="cd2:string">
+  <xs:element name="Notify_Immediate_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Does this case meet the criteria for immediate (extremely urgent or urgent) notification to CDC?</xs:documentation>
+      <xs:documentation>Does this case meet the criteria for immediate (extremely urgent or urgent) notification to CDC?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Notification_Result_Code_ID" type="cd2:string">
+  <xs:element name="Notification_Result_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Status of the notification</xs:documentation>
+      <xs:documentation>Status of the notification</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Jurisdiction_Code_ID" type="cd2:string">
+  <xs:element name="Jurisdiction_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Identifier for the physical site from which the notification is being submitted. Locally defined field.</xs:documentation>
+      <xs:documentation>Identifier for the physical site from which the notification is being submitted. Locally defined field.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reported_Date" type="cd2:date">
+  <xs:element name="Reported_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Reported Date</xs:documentation>
+      <xs:documentation>Reported Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reported_State_Date" type="cd2:date">
+  <xs:element name="Reported_State_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Reported State Date</xs:documentation>
+      <xs:documentation>Reported State Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reported_County_Date" type="cd2:date">
+  <xs:element name="Reported_County_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Reported County Date</xs:documentation>
+      <xs:documentation>Reported County Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reporting_Source_Type_ID" type="cd2:string">
+  <xs:element name="Reporting_Source_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Type of facility or provider associated with the source of information sent to Public Health.</xs:documentation>
+      <xs:documentation>Type of facility or provider associated with the source of information sent to Public Health.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reporting_Source_Zip_Code" type="cd2:string">
+  <xs:element name="Reporting_Source_Zip_Code" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">ZIP Code of the reporting source for this case.</xs:documentation>
+      <xs:documentation>ZIP Code of the reporting source for this case.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reporting_Criteria_Code_ID" type="cd2:string">
+  <xs:element name="Reporting_Criteria_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">For cases meeting the binational criteria, select all the criteria which are met.</xs:documentation>
+      <xs:documentation>For cases meeting the binational criteria, select all the criteria which are met.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reporting_Jurisdiction_Code_ID" type="cd2:string">
+  <xs:element name="Reporting_Jurisdiction_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Reporting Jurisdiction Code ID</xs:documentation>
+      <xs:documentation>Reporting Jurisdiction Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Person_Reporting_Name_Text" type="cd2:string">
+  <xs:element name="Person_Reporting_Name_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Person Reporting Name Text</xs:documentation>
+      <xs:documentation>Person Reporting Name Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Person_Reporting_Phone_Number" type="cd2:string">
+  <xs:element name="Person_Reporting_Phone_Number" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Person Reporting Phone Number</xs:documentation>
+      <xs:documentation>Person Reporting Phone Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Person_Reporting_Email" type="cd2:string">
+  <xs:element name="Person_Reporting_Email" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Person Reporting Email</xs:documentation>
+      <xs:documentation>Person Reporting Email</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Comment_Text" type="cd2:string">
+  <xs:element name="Comment_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Comment Text</xs:documentation>
+      <xs:documentation>Comment Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_Report_ID" type="cd2:string">
+  <xs:element name="Case_Report_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Report ID</xs:documentation>
+      <xs:documentation>Case Report ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Location_ID" type="cd2:string">
+  <xs:element name="Location_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Location ID... External reference to (Geography) Location</xs:documentation>
+      <xs:documentation>Location ID... External reference to (Geography) Location</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Exposure_Report_">
@@ -503,59 +503,59 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Travel_Detail_ID" type="cd2:string">
+  <xs:element name="Travel_Detail_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Travel Detail ID</xs:documentation>
+      <xs:documentation>Travel Detail ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Travel_Parent_ID" type="cd2:string">
+  <xs:element name="Travel_Parent_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Travel Parent ID</xs:documentation>
+      <xs:documentation>Travel Parent ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Purpose_Code_ID" type="cd2:string">
+  <xs:element name="Purpose_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Purpose Code ID</xs:documentation>
+      <xs:documentation>Purpose Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Travel_Number" type="cd2:string">
+  <xs:element name="Travel_Number" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Travel Number</xs:documentation>
+      <xs:documentation>Travel Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="State_Code_ID" type="cd2:string">
+  <xs:element name="State_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">State Code ID</xs:documentation>
+      <xs:documentation>State Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="County_Code_ID" type="cd2:string">
+  <xs:element name="County_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">County Code ID</xs:documentation>
+      <xs:documentation>County Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Country_Code_ID" type="cd2:string">
+  <xs:element name="Country_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Country Code ID</xs:documentation>
+      <xs:documentation>Country Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Origin_ID" type="cd2:string">
+  <xs:element name="Origin_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Origin ID</xs:documentation>
+      <xs:documentation>Origin ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Destination_ID" type="cd2:string">
+  <xs:element name="Destination_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Destination ID</xs:documentation>
+      <xs:documentation>Destination ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Departure_DateTime" type="cd2:dateTime">
+  <xs:element name="Departure_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Departure Date Time</xs:documentation>
+      <xs:documentation>Departure Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Arrival_DateTime" type="cd2:dateTime">
+  <xs:element name="Arrival_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Arrival Date Time</xs:documentation>
+      <xs:documentation>Arrival Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Travel_Detail_">
@@ -587,19 +587,19 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Profile_Condition_ID" type="cd2:string">
+  <xs:element name="Profile_Condition_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Profile Condition ID</xs:documentation>
+      <xs:documentation>Profile Condition ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Profile_ID" type="cd2:string">
+  <xs:element name="Profile_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Profile ID</xs:documentation>
+      <xs:documentation>Profile ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Condition_Code_ID" type="cd2:string">
+  <xs:element name="Condition_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Condition Code ID</xs:documentation>
+      <xs:documentation>Condition Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Profile_Condition_">
@@ -620,24 +620,24 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Profile_Type_ID" type="cd2:string">
+  <xs:element name="Profile_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Profile Type ID</xs:documentation>
+      <xs:documentation>Profile Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Profile_Name" type="cd2:string">
+  <xs:element name="Profile_Name" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Profile Name</xs:documentation>
+      <xs:documentation>Profile Name</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Status_Code_ID" type="cd2:string">
+  <xs:element name="Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Status Code ID</xs:documentation>
+      <xs:documentation>Status Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Status_DateTime" type="cd2:dateTime">
+  <xs:element name="Status_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Status Date Time</xs:documentation>
+      <xs:documentation>Status Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Profile_">
@@ -660,25 +660,25 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Questionnaire_ID" type="cd2:string">
+  <xs:element name="Questionnaire_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Questionnaire ID</xs:documentation>
+      <xs:documentation>Questionnaire ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Questionnaire_No" type="cd2:integer">
+  <xs:element name="Questionnaire_No" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Questionnaire No</xs:documentation>
+      <xs:documentation>Questionnaire No</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Title" type="cd2:string" />
-  <xs:element name="Questionnaire_URL" type="cd2:string">
+  <xs:element name="Title" type="xs:string" />
+  <xs:element name="Questionnaire_URL" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Questionnaire URL</xs:documentation>
+      <xs:documentation>Questionnaire URL</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Questionnaire_Answer_URL" type="cd2:string">
+  <xs:element name="Questionnaire_Answer_URL" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Questionnaire Answer URL</xs:documentation>
+      <xs:documentation>Questionnaire Answer URL</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Assessment_Questionnaire_">
@@ -702,24 +702,24 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Question_ID" type="cd2:string">
+  <xs:element name="Question_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Question ID</xs:documentation>
+      <xs:documentation>Question ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Question_Sequence" type="cd2:integer">
+  <xs:element name="Question_Sequence" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Question Sequence</xs:documentation>
+      <xs:documentation>Question Sequence</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Question_Text" type="cd2:string">
+  <xs:element name="Question_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Question Text</xs:documentation>
+      <xs:documentation>Question Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Answer_Type_ID" type="cd2:string">
+  <xs:element name="Answer_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Base Type Complex Type single-select, multi-select radio button, date-time if calendar, free text, option</xs:documentation>
+      <xs:documentation>Base Type Complex Type single-select, multi-select radio button, date-time if calendar, free text, option</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Assessment_Question_">
@@ -742,17 +742,17 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Answer_ID" type="cd2:string">
+  <xs:element name="Answer_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Answer ID</xs:documentation>
+      <xs:documentation>Answer ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Assessment_ID" type="cd2:string">
+  <xs:element name="Assessment_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Assessment ID</xs:documentation>
+      <xs:documentation>Assessment ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="AnswerValue" type="cd2:string" />
+  <xs:element name="AnswerValue" type="xs:string" />
   <xs:complexType name="Assessment_Answer_">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Answer_ID" />
@@ -772,9 +772,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Alternate_ID" type="cd2:string">
+  <xs:element name="Alternate_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Alternate ID</xs:documentation>
+      <xs:documentation>Alternate ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Assessment_">
@@ -843,114 +843,114 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Illness_Onset_Date" type="cd2:date">
+  <xs:element name="Illness_Onset_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Date of the beginning of the illness.  Reported date of the onset of symptoms of the condition being reported to the public health system.</xs:documentation>
+      <xs:documentation>Date of the beginning of the illness.  Reported date of the onset of symptoms of the condition being reported to the public health system.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Illness_End_Date" type="cd2:date">
+  <xs:element name="Illness_End_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Date at which the disease or condition ends.</xs:documentation>
+      <xs:documentation>Date at which the disease or condition ends.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Illness_Duration" type="cd2:integer">
+  <xs:element name="Illness_Duration" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Length of time this subject had this disease or condition.</xs:documentation>
+      <xs:documentation>Length of time this subject had this disease or condition.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Illness_Duration_Unit_Code_ID" type="cd2:string">
+  <xs:element name="Illness_Duration_Unit_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Unit of time used to describe the length of the illness or condition.</xs:documentation>
+      <xs:documentation>Unit of time used to describe the length of the illness or condition.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Pregnancy_Status_Flag_ID" type="cd2:string">
+  <xs:element name="Pregnancy_Status_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Indicates whether the subject was pregnant at the time of the event.</xs:documentation>
+      <xs:documentation>Indicates whether the subject was pregnant at the time of the event.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Diagnosis_Date" type="cd2:date">
+  <xs:element name="Diagnosis_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Diagnosis Date</xs:documentation>
+      <xs:documentation>Diagnosis Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Hospitalized_Flag_ID" type="cd2:string">
+  <xs:element name="Hospitalized_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Was subject hospitalized because of this event?</xs:documentation>
+      <xs:documentation>Was subject hospitalized because of this event?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Hospital_Stay_InDays" type="cd2:integer">
+  <xs:element name="Hospital_Stay_InDays" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Subject's duration of stay at the hospital for the condition covered by the investigation.</xs:documentation>
+      <xs:documentation>Subject's duration of stay at the hospital for the condition covered by the investigation.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Admission_Date" type="cd2:date">
+  <xs:element name="Admission_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Subject’s most recent admission date to the hospital for the condition covered by the investigation.</xs:documentation>
+      <xs:documentation>Subject’s most recent admission date to the hospital for the condition covered by the investigation.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Discharged_Date" type="cd2:date">
+  <xs:element name="Discharged_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Subject’s most recent discharge date from the hospital for the condition covered by the investigation.</xs:documentation>
+      <xs:documentation>Subject’s most recent discharge date from the hospital for the condition covered by the investigation.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Exposure_Setting_Code_ID" type="cd2:string">
+  <xs:element name="Exposure_Setting_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Place or location where subject may had been exposed to the virus or disease</xs:documentation>
+      <xs:documentation>Place or location where subject may had been exposed to the virus or disease</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Subject_Died_Flag_ID" type="cd2:string">
+  <xs:element name="Subject_Died_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Did the subject die from this illness or complications of this illness?</xs:documentation>
+      <xs:documentation>Did the subject die from this illness or complications of this illness?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Deceased_Date" type="cd2:date">
+  <xs:element name="Deceased_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">If the subject died from this illness or complications associated with this illness, indicate the date of death.</xs:documentation>
+      <xs:documentation>If the subject died from this illness or complications associated with this illness, indicate the date of death.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Deceased_Source_Code_ID" type="cd2:string">
+  <xs:element name="Deceased_Source_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Indication of where the disease/condition was likely acquired.</xs:documentation>
+      <xs:documentation>Indication of where the disease/condition was likely acquired.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Imported_Country_Code_ID" type="cd2:string">
+  <xs:element name="Imported_Country_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">If the disease or condition was imported, indicates the country in which the disease was likely acquired.</xs:documentation>
+      <xs:documentation>If the disease or condition was imported, indicates the country in which the disease was likely acquired.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Imported_State_Code_ID" type="cd2:string">
+  <xs:element name="Imported_State_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">If the disease or condition was imported, indicates the state in which the disease was likely acquired.</xs:documentation>
+      <xs:documentation>If the disease or condition was imported, indicates the state in which the disease was likely acquired.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Imported_City_Code_ID" type="cd2:string">
+  <xs:element name="Imported_City_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">If the disease or condition was imported, indicates the city in which the disease was likely acquired.</xs:documentation>
+      <xs:documentation>If the disease or condition was imported, indicates the city in which the disease was likely acquired.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Imported_County_Code_ID" type="cd2:string">
+  <xs:element name="Imported_County_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">If the disease or condition was imported, contains the county of origin of the disease or condition..</xs:documentation>
+      <xs:documentation>If the disease or condition was imported, contains the county of origin of the disease or condition..</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Age_At_Case" type="cd2:integer">
+  <xs:element name="Age_At_Case" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Subject age at time of case investigation</xs:documentation>
+      <xs:documentation>Subject age at time of case investigation</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Age_Unit_Code_ID" type="cd2:string">
+  <xs:element name="Age_Unit_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Subject age unit at time of case investigation</xs:documentation>
+      <xs:documentation>Subject age unit at time of case investigation</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_State_ID" type="cd2:string">
+  <xs:element name="Case_State_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case State ID</xs:documentation>
+      <xs:documentation>Case State ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_Legacy_ID" type="cd2:string">
+  <xs:element name="Case_Legacy_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Legacy ID</xs:documentation>
+      <xs:documentation>Case Legacy ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Case_Report_">
@@ -1018,9 +1018,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="City_Code_ID" type="cd2:string">
+  <xs:element name="City_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">City Code ID</xs:documentation>
+      <xs:documentation>City Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Exposure_Location_Report_">
@@ -1159,109 +1159,109 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Contact_Report_ID" type="cd2:string">
+  <xs:element name="Contact_Report_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Contact Report ID</xs:documentation>
+      <xs:documentation>Contact Report ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Contacted_Date" type="cd2:date">
+  <xs:element name="Contacted_Date" type="xs:date">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Contacted Date</xs:documentation>
+      <xs:documentation>Contacted Date</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Contact_Type_ID" type="cd2:string">
+  <xs:element name="Contact_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">During the 2-6 weeks prior to the onset of symptoms, type of contact the subject had with a person with confirmed or suspected virus infection?</xs:documentation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, type of contact the subject had with a person with confirmed or suspected virus infection?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Contact_Type_Other_Flag_ID" type="cd2:string">
+  <xs:element name="Contact_Type_Other_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Contact Type Other Flag ID</xs:documentation>
+      <xs:documentation>Contact Type Other Flag ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Contact_Type_Other_Text" type="cd2:string">
+  <xs:element name="Contact_Type_Other_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Contact Type Other Text</xs:documentation>
+      <xs:documentation>Contact Type Other Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Contact_Flag_ID" type="cd2:string">
+  <xs:element name="Contact_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">During the 2-6 weeks prior to the onset of symptoms, answer (Yes, No, Unknown) for each type of contact the subject had with a person with confirmed or suspected virus infection</xs:documentation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, answer (Yes, No, Unknown) for each type of contact the subject had with a person with confirmed or suspected virus infection</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_Linked_Flag_ID" type="cd2:string">
+  <xs:element name="Case_Linked_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">During the 2-6 weeks prior to the onset of symptoms, was the subject in contact with a person with confirmed or suspected virus infection?</xs:documentation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, was the subject in contact with a person with confirmed or suspected virus infection?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Child_Care_Linked_Flag_ID" type="cd2:string">
+  <xs:element name="Child_Care_Linked_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Child Care Linked Flag ID</xs:documentation>
+      <xs:documentation>Child Care Linked Flag ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Child_Care_Case_Flag_ID" type="cd2:string">
+  <xs:element name="Child_Care_Case_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Was there an identified virus case in the childcare facility?</xs:documentation>
+      <xs:documentation>Was there an identified virus case in the childcare facility?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sexual_Preference_Code_ID" type="cd2:string">
+  <xs:element name="Sexual_Preference_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">What is/was the subject's sexual preference?</xs:documentation>
+      <xs:documentation>What is/was the subject's sexual preference?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sexual_Partner_Male_Total" type="cd2:integer">
+  <xs:element name="Sexual_Partner_Male_Total" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Sexual Partner Male Total</xs:documentation>
+      <xs:documentation>Sexual Partner Male Total</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sexual_Partner_Female_Total" type="cd2:integer">
+  <xs:element name="Sexual_Partner_Female_Total" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Sexual Partner Female Total</xs:documentation>
+      <xs:documentation>Sexual Partner Female Total</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Drug_Used_Flag_ID" type="cd2:string">
+  <xs:element name="Drug_Used_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">During the 2-6 weeks prior to the onset of symptoms, did the subject inject drugs not prescribed by a doctor?</xs:documentation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, did the subject inject drugs not prescribed by a doctor?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Drug_Street_Used_Flag_ID" type="cd2:string">
+  <xs:element name="Drug_Street_Used_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">During the 2-6 weeks prior to the onset of symptoms, did the subject use street drugs but not inject?</xs:documentation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, did the subject use street drugs but not inject?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Traveled_Flag_ID" type="cd2:string">
+  <xs:element name="Traveled_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Traveled Flag ID</xs:documentation>
+      <xs:documentation>Traveled Flag ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Outbreak_Source_Flag_ID" type="cd2:string">
+  <xs:element name="Outbreak_Source_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Outbreak Source Flag ID</xs:documentation>
+      <xs:documentation>Outbreak Source Flag ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Outbreak_Foodborne_Flag_ID" type="cd2:string">
+  <xs:element name="Outbreak_Foodborne_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Subject is associated with a foodborne outbreak that is associated with an infected food handler?</xs:documentation>
+      <xs:documentation>Subject is associated with a foodborne outbreak that is associated with an infected food handler?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Outbreak_Food_Item_Text" type="cd2:string">
+  <xs:element name="Outbreak_Food_Item_Text" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Outbreak Food Item Text</xs:documentation>
+      <xs:documentation>Outbreak Food Item Text</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Outbreak_Waterborne_Flag_ID" type="cd2:string">
+  <xs:element name="Outbreak_Waterborne_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Subject is associated with a foodborne outbreak that is associated with an infected food handler?</xs:documentation>
+      <xs:documentation>Subject is associated with a foodborne outbreak that is associated with an infected food handler?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Outbreak_Unidentified_Flag_ID" type="cd2:string">
+  <xs:element name="Outbreak_Unidentified_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Subject is associated with an outbreak that does not have an identified source?</xs:documentation>
+      <xs:documentation>Subject is associated with an outbreak that does not have an identified source?</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Food_Handler_Flag_ID" type="cd2:string">
+  <xs:element name="Food_Handler_Flag_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">During the 2 weeks prior to the onset of symptoms or while ill, was the subject employed as a food handler?</xs:documentation>
+      <xs:documentation>During the 2 weeks prior to the onset of symptoms or while ill, was the subject employed as a food handler?</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Contact_Report_">
@@ -1324,9 +1324,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Viral_Report_ID" type="cd2:string">
+  <xs:element name="Viral_Report_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Viral Report ID</xs:documentation>
+      <xs:documentation>Viral Report ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Viral_Report_">
@@ -1426,164 +1426,164 @@
   </xs:complexType>
   <xs:element name="Complication_Report" type="cd2:Complication_Report_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Complication Report</xs:documentation>
+      <xs:documentation>Complication Report</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Reporting_Criteria_Code" type="cd2:Reporting_Criteria_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Reporting Criteria Code</xs:documentation>
+      <xs:documentation>Reporting Criteria Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Reporting_Source_Type" type="cd2:Reporting_Source_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Reporting Source Type</xs:documentation>
+      <xs:documentation>Reporting Source Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Result_Status_Code" type="cd2:Result_Status_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Result Status Code</xs:documentation>
+      <xs:documentation>Result Status Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Case_Class_Status_Code" type="cd2:Case_Class_Status_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Class Status Code</xs:documentation>
+      <xs:documentation>Case Class Status Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Case_Transmission_Mode_Code" type="cd2:Case_Transmission_Mode_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Transmission Mode Code</xs:documentation>
+      <xs:documentation>Case Transmission Mode Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Exposure_Report" type="cd2:Exposure_Report_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Exposure Report</xs:documentation>
+      <xs:documentation>Exposure Report</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Profile_Type" type="cd2:Profile_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Profile Type</xs:documentation>
+      <xs:documentation>Profile Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Assessment_Type" type="cd2:Assessment_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Assessment Type</xs:documentation>
+      <xs:documentation>Assessment Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Travel_Detail" type="cd2:Travel_Detail_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Travel Detail</xs:documentation>
+      <xs:documentation>Travel Detail</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Profile_Condition" type="cd2:Profile_Condition_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Profile Condition</xs:documentation>
+      <xs:documentation>Profile Condition</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Profile" type="cd2:Profile_" />
   <xs:element name="Assessment_Questionnaire" type="cd2:Assessment_Questionnaire_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Assessment Questionnaire</xs:documentation>
+      <xs:documentation>Assessment Questionnaire</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Assessment_Question" type="cd2:Assessment_Question_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Assessment Question</xs:documentation>
+      <xs:documentation>Assessment Question</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Assessment_Answer" type="cd2:Assessment_Answer_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Assessment Answer</xs:documentation>
+      <xs:documentation>Assessment Answer</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Assessment" type="cd2:Assessment_" />
   <xs:element name="Answer_Type" type="cd2:Answer_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Answer Type</xs:documentation>
+      <xs:documentation>Answer Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Report_Type" type="cd2:Report_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Report Type</xs:documentation>
+      <xs:documentation>Report Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Case_Report" type="cd2:Case_Report_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Report</xs:documentation>
+      <xs:documentation>Case Report</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Travel_Purpose_Code" type="cd2:Travel_Purpose_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Travel Purpose Code</xs:documentation>
+      <xs:documentation>Travel Purpose Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Exposure_Location_Report" type="cd2:Exposure_Location_Report_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Exposure Location Report</xs:documentation>
+      <xs:documentation>Exposure Location Report</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Jurisdiction_Code" type="cd2:Jurisdiction_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Jurisdiction Code</xs:documentation>
+      <xs:documentation>Jurisdiction Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Unit_Code" type="cd2:Unit_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Unit Code</xs:documentation>
+      <xs:documentation>Unit Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Event_Code" type="cd2:Event_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Event Code</xs:documentation>
+      <xs:documentation>Event Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Sexual_Preference_Code" type="cd2:Sexual_Preference_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Sexual Preference Code</xs:documentation>
+      <xs:documentation>Sexual Preference Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Indicator_Flag_Code" type="cd2:Indicator_Flag_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Indicator Flag Code</xs:documentation>
+      <xs:documentation>Indicator Flag Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Contact_Type" type="cd2:Contact_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Contact Type</xs:documentation>
+      <xs:documentation>Contact Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Contact_Report" type="cd2:Contact_Report_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Contact Report</xs:documentation>
+      <xs:documentation>Contact Report</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Exposure_Setting_Code" type="cd2:Exposure_Setting_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Exposure Setting Code</xs:documentation>
+      <xs:documentation>Exposure Setting Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Viral_Report" type="cd2:Viral_Report_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Viral Report</xs:documentation>
+      <xs:documentation>Viral Report</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Transmission_Setting_Code" type="cd2:Transmission_Setting_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Transmission Setting Code</xs:documentation>
+      <xs:documentation>Transmission Setting Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Detection_Method_Code" type="cd2:Detection_Method_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Detection Method Code</xs:documentation>
+      <xs:documentation>Detection Method Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Case_Investigation_Stattus_Code" type="cd2:Case_Investigation_Stattus_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Investigation Stattus Code</xs:documentation>
+      <xs:documentation>Case Investigation Stattus Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Case_Classification_Exposure_Source_Code" type="cd2:Case_Classification_Exposure_Source_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Surveillance/">Case Classification Exposure Source Code</xs:documentation>
+      <xs:documentation>Case Classification Exposure Source Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Surveillance_">

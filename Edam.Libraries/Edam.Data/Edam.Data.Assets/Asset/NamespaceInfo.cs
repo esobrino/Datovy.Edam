@@ -109,6 +109,7 @@ namespace Edam.Data.Asset
       public const String DEFAULT_UNKNOWN_URI = "http://unknown";
       public const String W3C_HOST = "www.w3.org";
       public const String W3C_PREFIX = "xs";
+      public const String W3C_PREFIX_XSD = "xsd";
       public const String W3C_URI = "http://www.w3.org/2001/XMLSchema";
       public const String URN = "urn";
 

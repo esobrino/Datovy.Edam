@@ -1,79 +1,79 @@
 <?xml version="1.0" encoding="utf-16"?>
 <xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Message" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Type_ID" type="cd10:string">
+  <xs:element name="Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Type ID</xs:documentation>
+      <xs:documentation>Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Description" type="cd10:string" />
-  <xs:element name="Local_Type_ID" type="cd10:string">
+  <xs:element name="Description" type="xs:string" />
+  <xs:element name="Local_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Local Type ID</xs:documentation>
+      <xs:documentation>Local Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Regional_Type_ID" type="cd10:string">
+  <xs:element name="Regional_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Regional Type ID</xs:documentation>
+      <xs:documentation>Regional Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Source_ID" type="cd10:string">
+  <xs:element name="Source_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Source ID</xs:documentation>
+      <xs:documentation>Source ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Tenant_ID" type="cd10:string">
+  <xs:element name="Tenant_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Tenant ID</xs:documentation>
+      <xs:documentation>Tenant ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Data_Owner_ID" type="cd10:string">
+  <xs:element name="Data_Owner_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Data Owner ID</xs:documentation>
+      <xs:documentation>Data Owner ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Agency_Reporting_ID" type="cd10:string">
+  <xs:element name="Agency_Reporting_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Agency Reporting ID</xs:documentation>
+      <xs:documentation>Agency Reporting ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sequence_Number" type="cd10:integer">
+  <xs:element name="Sequence_Number" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Sequence Number</xs:documentation>
+      <xs:documentation>Sequence Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_DateTime" type="cd10:dateTime">
+  <xs:element name="Effective_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Effective Date Time</xs:documentation>
+      <xs:documentation>Effective Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_End_DateTime" type="cd10:dateTime">
+  <xs:element name="Effective_End_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Effective End Date Time</xs:documentation>
+      <xs:documentation>Effective End Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Version_Number" type="cd10:string">
+  <xs:element name="Version_Number" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Version Number</xs:documentation>
+      <xs:documentation>Version Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Created_DateTime" type="cd10:dateTime">
+  <xs:element name="Created_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Created Date Time</xs:documentation>
+      <xs:documentation>Created Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Updated_DateTime" type="cd10:dateTime">
+  <xs:element name="Updated_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Updated Date Time</xs:documentation>
+      <xs:documentation>Updated Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Record_Status_Code_ID" type="cd10:string">
+  <xs:element name="Record_Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Record Status Code ID</xs:documentation>
+      <xs:documentation>Record Status Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Session_Updated_ID" type="cd10:string">
+  <xs:element name="Session_Updated_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Session Updated ID</xs:documentation>
+      <xs:documentation>Session Updated ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Content_Type_">
@@ -96,64 +96,64 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd10:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Submission_ID" type="cd10:string">
+  <xs:element name="Submission_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Submission ID</xs:documentation>
+      <xs:documentation>Submission ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Submission_DateTime" type="cd10:dateTime">
+  <xs:element name="Submission_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Submission Date Time</xs:documentation>
+      <xs:documentation>Submission Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Reference_ID" type="cd10:string">
+  <xs:element name="Reference_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Reference ID... External reference to any external Entity</xs:documentation>
+      <xs:documentation>Reference ID... External reference to any external Entity</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Received_DateTime" type="cd10:dateTime">
+  <xs:element name="Received_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Received Date Time</xs:documentation>
+      <xs:documentation>Received Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Message_DateTime" type="cd10:dateTime">
+  <xs:element name="Message_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Message Date Time</xs:documentation>
+      <xs:documentation>Message Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Data_Item_ID" type="cd10:string">
+  <xs:element name="Data_Item_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Data Item ID</xs:documentation>
+      <xs:documentation>Data Item ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Content_Type_ID" type="cd10:string">
+  <xs:element name="Content_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Content Type ID</xs:documentation>
+      <xs:documentation>Content Type ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Content_ID" type="cd10:string">
+  <xs:element name="Content_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Content ID</xs:documentation>
+      <xs:documentation>Content ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Source_Local_ID" type="cd10:string">
+  <xs:element name="Source_Local_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Source Local ID</xs:documentation>
+      <xs:documentation>Source Local ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Message_Data" type="cd10:string">
+  <xs:element name="Message_Data" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Message Data</xs:documentation>
+      <xs:documentation>Message Data</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Message_Count" type="cd10:integer">
+  <xs:element name="Message_Count" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Message Count</xs:documentation>
+      <xs:documentation>Message Count</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Message_Length_InBytes" type="cd10:integer">
+  <xs:element name="Message_Length_InBytes" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Message Length In Bytes</xs:documentation>
+      <xs:documentation>Message Length In Bytes</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Submission_">
@@ -186,7 +186,7 @@
   </xs:complexType>
   <xs:element name="Content_Type" type="cd10:Content_Type_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Message/">Content Type</xs:documentation>
+      <xs:documentation>Content Type</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="Submission" type="cd10:Submission_" />

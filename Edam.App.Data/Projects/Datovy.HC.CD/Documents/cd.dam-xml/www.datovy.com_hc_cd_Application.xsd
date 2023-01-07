@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-16"?>
 <xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Application" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Session_ID" type="cd8:string">
+  <xs:element name="Session_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Session ID</xs:documentation>
+      <xs:documentation>Session ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Session_Type_ID" type="cd8:string">
+  <xs:element name="Session_Type_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Identify and describe the session type</xs:documentation>
+      <xs:documentation>Identify and describe the session type</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Session_DateTime" type="cd8:dateTime">
+  <xs:element name="Session_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Session Date Time</xs:documentation>
+      <xs:documentation>Session Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Referral_ID" type="cd8:string">
+  <xs:element name="Referral_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Referral ID... External reference to a (Surveillance) Referral</xs:documentation>
+      <xs:documentation>Referral ID... External reference to a (Surveillance) Referral</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Case_ID" type="cd8:string">
+  <xs:element name="Case_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Case ID... External reference to a (Management) Case</xs:documentation>
+      <xs:documentation>Case ID... External reference to a (Management) Case</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Officer_ID" type="cd8:string">
+  <xs:element name="Officer_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Officer ID... External reference to a (Entity) Officer</xs:documentation>
+      <xs:documentation>Officer ID... External reference to a (Entity) Officer</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Contact_ID" type="cd8:string">
+  <xs:element name="Contact_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Contact ID... External reference to a (Entity) Contact</xs:documentation>
+      <xs:documentation>Contact ID... External reference to a (Entity) Contact</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Token_ID" type="cd8:string">
+  <xs:element name="Token_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Token ID</xs:documentation>
+      <xs:documentation>Token ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Tenant_ID" type="cd8:string">
+  <xs:element name="Tenant_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Tenant ID</xs:documentation>
+      <xs:documentation>Tenant ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Data_Owner_ID" type="cd8:string">
+  <xs:element name="Data_Owner_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Data Owner ID</xs:documentation>
+      <xs:documentation>Data Owner ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Agency_Reporting_ID" type="cd8:string">
+  <xs:element name="Agency_Reporting_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Agency Reporting ID</xs:documentation>
+      <xs:documentation>Agency Reporting ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Sequence_Number" type="cd8:integer">
+  <xs:element name="Sequence_Number" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Sequence Number</xs:documentation>
+      <xs:documentation>Sequence Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_DateTime" type="cd8:dateTime">
+  <xs:element name="Effective_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Effective Date Time</xs:documentation>
+      <xs:documentation>Effective Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Effective_End_DateTime" type="cd8:dateTime">
+  <xs:element name="Effective_End_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Effective End Date Time</xs:documentation>
+      <xs:documentation>Effective End Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Version_Number" type="cd8:string">
+  <xs:element name="Version_Number" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Version Number</xs:documentation>
+      <xs:documentation>Version Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Created_DateTime" type="cd8:dateTime">
+  <xs:element name="Created_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Created Date Time</xs:documentation>
+      <xs:documentation>Created Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Updated_DateTime" type="cd8:dateTime">
+  <xs:element name="Updated_DateTime" type="xs:dateTime">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Updated Date Time</xs:documentation>
+      <xs:documentation>Updated Date Time</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Record_Status_Code_ID" type="cd8:string">
+  <xs:element name="Record_Status_Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Record Status Code ID</xs:documentation>
+      <xs:documentation>Record Status Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Session_Updated_ID" type="cd8:string">
+  <xs:element name="Session_Updated_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Session Updated ID</xs:documentation>
+      <xs:documentation>Session Updated ID</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Session_">
@@ -118,9 +118,9 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="User_ID" type="cd8:string">
+  <xs:element name="User_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">User ID... External reference to a (Entity) Officer</xs:documentation>
+      <xs:documentation>User ID... External reference to a (Entity) Officer</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Access_Token_">
@@ -140,25 +140,25 @@
       <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Session_Updated_ID" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Code_Number" type="cd8:integer">
+  <xs:element name="Code_Number" type="xs:integer">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Code Number</xs:documentation>
+      <xs:documentation>Code Number</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Code_ID" type="cd8:string">
+  <xs:element name="Code_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Code ID</xs:documentation>
+      <xs:documentation>Code ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Description" type="cd8:string" />
-  <xs:element name="Category_ID" type="cd8:string">
+  <xs:element name="Description" type="xs:string" />
+  <xs:element name="Category_ID" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Category ID</xs:documentation>
+      <xs:documentation>Category ID</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="CodeSet_Name" type="cd8:string">
+  <xs:element name="CodeSet_Name" type="xs:string">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Code Set Name</xs:documentation>
+      <xs:documentation>Code Set Name</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="App_Message_Code_">
@@ -184,12 +184,12 @@
   <xs:element name="Session" type="cd8:Session_" />
   <xs:element name="Access_Token" type="cd8:Access_Token_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">Access Token</xs:documentation>
+      <xs:documentation>Access Token</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="App_Message_Code" type="cd8:App_Message_Code_">
     <xs:annotation>
-      <xs:documentation source="http://hc/Application/">App Message Code</xs:documentation>
+      <xs:documentation>App Message Code</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Application_">

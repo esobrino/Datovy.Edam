@@ -17,6 +17,11 @@
       },
       {
          "Direction": "From",
+         "SourceText": "varbinary",
+         "TargetText": "string"
+      },
+      {
+         "Direction": "From",
          "SourceText": "datetime2",
          "TargetText": "dateTime"
       },
