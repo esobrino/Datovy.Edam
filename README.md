@@ -16,6 +16,11 @@ This December 2022 EDAM is released in GITHUB with a set of limited functionalit
 At the same time of this release Datovy is also providing another contribution to the "Open SourceH community with the release of a database for "Communicable Diseases" or "Disease Surveillance" (DS) with limited and partial support for related CDC messaging.
 The DS database is used in the first release of EDAM as a sample non-trivial collection of data entities and components that show case supported features.
 
+## <span style="color:skyblue">Sample Schemas</span>
+For the "Communicable Diseases" project the EDAM was used to produce sample schemas including DDL, XSD, JSON, and JSON-LD artifacts.  Find those in:
+
+- Datovy.Edam/Edam.App.Data/Projects/Datovy.HC.CD/Documents folder.
+
 ## <span style="color:skyblue;font-weight:bold">EDAM FEATURES</span>
 (See feature list in the Documents/Edam.EU.Documentation.v0.docx)
 
