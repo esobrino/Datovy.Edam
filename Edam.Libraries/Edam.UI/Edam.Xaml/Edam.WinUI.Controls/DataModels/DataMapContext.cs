@@ -381,9 +381,6 @@ namespace Edam.WinUI.Controls.DataModels
                }
             }
          }
-         var itms = BookModel.Model.ListView;
-         BookModel.Model.ListView = null;
-         BookModel.Model.ListView = itms;
       }
 
       #endregion

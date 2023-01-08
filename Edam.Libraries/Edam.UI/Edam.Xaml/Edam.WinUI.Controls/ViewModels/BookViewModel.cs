@@ -65,8 +65,8 @@ namespace Edam.WinUI.Controls.ViewModels
             Model = new BookModel(Context);
             Context.BookModel = this;
          }
-         var cell = Model.AddControl(
-            this, type, Context.SelectedItem.ItemId);
+
+         Model.AddControl(this, type, Context.SelectedItem.ItemId);
       }
 
       /// <summary>
@@ -75,8 +75,7 @@ namespace Edam.WinUI.Controls.ViewModels
       /// <param name="cell">Booklet Cell</param>
       public void AddCell(BookletCellInfo cell)
       {
-         Model.AddControl(
-            this, cell.CellType, cell.ReferenceId, cell);
+         Model.AddControl(this, cell.CellType, cell.ReferenceId, cell);
       }
 
       /// <summary>

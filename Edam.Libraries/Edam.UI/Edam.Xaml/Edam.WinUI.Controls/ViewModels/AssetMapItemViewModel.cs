@@ -387,7 +387,8 @@ namespace Edam.WinUI.Controls.ViewModels
          item = ItemSelected(DataMapItemType.Source, args);
 
          ManageSelectedMapItem(DataMapItemType.Source, item, args);
-         if (Context.BookModel != null)
+         if (Context.BookModel != null && 
+            args.Type != DataTreeEventType.ItemSelected)
          {
             Context.BookModel.Model.ClearAll();
          }

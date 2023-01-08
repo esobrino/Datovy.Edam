@@ -32,6 +32,20 @@ namespace Edam.WinUI.Controls.DataModels
       /// </summary>
       public ListView ListView { get; set; }
 
+      private ObservableCollection<IBookCellView> m_Items;
+      public ObservableCollection<IBookCellView> Items
+      {
+         get { return m_Items; }
+         set
+         {
+            if (m_Items != value)
+            {
+               m_Items = value;
+               OnPropertyChanged(nameof(Items));
+            }
+         }
+      }
+
       private BookInfo m_Book;
       public BookInfo Book
       {
@@ -60,6 +74,7 @@ namespace Edam.WinUI.Controls.DataModels
          m_Book = context.UseCase.Book;
          m_Context = context;
          ListView = context.BookletViewList;
+         Items = new ObservableCollection<IBookCellView>();
       }
 
       #endregion
@@ -81,6 +96,7 @@ namespace Edam.WinUI.Controls.DataModels
       /// </summary>
       public void ClearAll()
       {
+         Items.Clear();
          ListView.Items.Clear();
          //foreach(var booklet in Book.Items)
          //{
@@ -101,6 +117,11 @@ namespace Edam.WinUI.Controls.DataModels
          BookViewModel model, BookletCellType cellType, string referenceId,
          BookletCellInfo bookletCell = null)
       {
+         if (SelectedBooklet == null)
+         {
+            SelectedBooklet = new BookletInfo();
+         }
+
          BookletCellInfo cell = bookletCell ?? new BookletCellInfo
          {
             BookletId = SelectedBooklet.BookletId,
@@ -151,6 +172,7 @@ namespace Edam.WinUI.Controls.DataModels
          if (control != null)
          {
             ListView.Items.Add(control);
+            //Items.Add(control);
             cell.Instance = control;
          }
 
