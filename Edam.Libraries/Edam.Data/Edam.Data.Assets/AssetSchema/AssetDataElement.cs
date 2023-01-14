@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace Edam.Data.AssetSchema
 {
 
-   public class AssetDataElement : DataElement, IDataElement, IAsset
+   public class AssetDataElement : DataElement, IDataElement, IAssetElement
    {
 
       #region -- 1.0 - Properties and Fields
@@ -83,7 +83,7 @@ namespace Edam.Data.AssetSchema
 
       public decimal? Length { get; set; }
 
-      DateTime? IAsset.LastUpdateDate
+      DateTime? IAssetElement.LastUpdateDate
       {
          get => LastUpdateDate;
          set => LastUpdateDate = value ?? DateTime.MinValue;
@@ -294,7 +294,7 @@ namespace Edam.Data.AssetSchema
       /// </summary>
       /// <param name="item">asset item</param>
       /// <returns>the built annotation is returned</returns>
-      public static String GetAnnotattion(IAsset item)
+      public static String GetAnnotattion(IAssetElement item)
       {
          List<String> annotation = item.Annotation;
          if (annotation == null || annotation.Count == 0)
@@ -366,11 +366,11 @@ namespace Edam.Data.AssetSchema
       #endregion
       #region -- 4.0 - To/From Asset Data Element
 
-      public static AssetElementInfo<IAsset> ToAsset(
+      public static AssetElementInfo<IAssetElement> ToAsset(
          NamespaceInfo ns, string name)
       {
          QualifiedNameInfo typeQName = new QualifiedNameInfo("object");
-         AssetElementInfo<IAsset> a = new AssetElementInfo<IAsset>
+         AssetElementInfo<IAssetElement> a = new AssetElementInfo<IAssetElement>
          {
             DataType = AssetDataElement.OBJECT,
             OriginalDataType = AssetDataElement.OBJECT,
@@ -394,7 +394,7 @@ namespace Edam.Data.AssetSchema
       /// </summary>
       /// <param name="element"></param>
       /// <returns></returns>
-      public static IAsset ToAsset(AssetDataElement element)
+      public static IAssetElement ToAsset(AssetDataElement element)
       {
 
          OccuranceInfo occurrance = new AssetManagement.OccuranceInfo(
@@ -438,7 +438,7 @@ namespace Edam.Data.AssetSchema
       /// <param name="ns"></param>
       /// <returns></returns>
       public static AssetDataElement ToDataElement(
-         IAsset asset, NamespaceInfo ns = null)
+         IAssetElement asset, NamespaceInfo ns = null)
       {
          if (asset == null)
             return null;
@@ -599,7 +599,7 @@ namespace Edam.Data.AssetSchema
       /// <param name="versionId"></param>
       /// <returns></returns>
       public static AssetDataElement ToDataElement(
-         AssetConsoleArgumentsInfo arguments, IAsset asset, NamespaceInfo ns,
+         AssetConsoleArgumentsInfo arguments, IAssetElement asset, NamespaceInfo ns,
          int elementCount, string versionId)
       {
          var element = ToDataElement(asset, ns);

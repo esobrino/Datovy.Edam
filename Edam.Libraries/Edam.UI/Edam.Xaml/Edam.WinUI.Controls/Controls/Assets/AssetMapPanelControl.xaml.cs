@@ -93,6 +93,11 @@ namespace Edam.WinUI.Controls.Assets
          MapItemControl.NotifyUseCaseSaved();
       }
 
+      private void UseCaseReport_Click(object sender, RoutedEventArgs e)
+      {
+         DataMapContext.PrepareUseCaseReport(ViewModel.Context);
+      }
+
    }
 
 }

@@ -17,14 +17,15 @@ using Edam.Data.AssetManagement.Helpers;
 using prj = Edam.Data.AssetProject;
 using Edam.Diagnostics;
 using System.Net.Http.Headers;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.Data.AssetConsole
 {
 
-   /// <summary>
-   /// Asset Console Arguments.
-   /// </summary>
-   public class AssetConsoleArgumentsInfo
+    /// <summary>
+    /// Asset Console Arguments.
+    /// </summary>
+    public class AssetConsoleArgumentsInfo
    {
 
       #region -- Fields and Properties Declarations
@@ -32,7 +33,7 @@ namespace Edam.Data.AssetConsole
       private const string CLASS_NAME = "AssetConsoleArgumentsInfo";
 
       [JsonIgnore]
-      public List<AssetSchema.AssetUseCase> UseCases { get; set; }
+      public List<AssetUseCase> UseCases { get; set; }
 
       public prj.ProjectInfo Project { get; set; }
       public ProcessInfo Process { get; set; }

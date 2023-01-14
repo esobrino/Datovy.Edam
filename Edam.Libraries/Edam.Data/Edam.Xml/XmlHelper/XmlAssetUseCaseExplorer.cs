@@ -12,11 +12,12 @@ using Edam.Data.AssetSchema;
 using Edam.Data.Asset;
 using Edam.Diagnostics;
 using Edam.Data.AssetConsole;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.Xml.XmlHelper
 {
 
-   public class XmlAssetUseCase: IDisposable
+    public class XmlAssetUseCase: IDisposable
    {
       private const string CLASS_NAME = "XmlExplore";
       private const string AM_USE_CASE = "amusecase";
@@ -162,7 +163,7 @@ namespace Edam.Xml.XmlHelper
       }
 
       /// <summary>
-      /// 
+      /// Parse Processing Instructions in top of element being examine.
       /// </summary>
       /// <param name="node"></param>
       /// <returns></returns>
@@ -217,9 +218,11 @@ namespace Edam.Xml.XmlHelper
       }
 
       /// <summary>
-      /// 
+      /// Traverse through the XML Document visiting all nodes, managing any 
+      /// provided instructions, mappings, or description while visiting each
+      /// node from the root to bottom...
       /// </summary>
-      /// <returns></returns>
+      /// <returns>return a list of data elements</returns>
       public List<AssetDataElement> ToDataElements()
       {
          string FUNC = CLASS_NAME + "::" + "ToDataElements";

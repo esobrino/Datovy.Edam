@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using util = Edam.Serialization;
 using Edam.Data.Asset;
 using Edam.Data.Assets.AssetConsole;
-using Edam.Data.Booklets;
+using Edam.Data.Books;
 
 namespace Edam.Data.AssetSchema
 {

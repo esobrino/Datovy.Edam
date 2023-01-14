@@ -12,7 +12,7 @@ using Edam.Data.AssetSchema;
 namespace Edam.Json.JsonSchemaReader
 {
 
-   public class JsonPropertyItemInfo : AssetElementInfo<JSchema>, IAsset
+   public class JsonPropertyItemInfo : AssetElementInfo<JSchema>, IAssetElement
    {
       public static readonly String PATH = "Path";
       public static readonly String OCCURS_ZTO_UNBOUNDED = "(0:*)";
@@ -117,10 +117,10 @@ namespace Edam.Json.JsonSchemaReader
          ElementType = Data.Asset.ElementType.element;
       }
 
-      public AssetElementInfo<IAsset> ToAsset()
+      public AssetElementInfo<IAssetElement> ToAsset()
       {
          var me = this;
-         AssetElementInfo<IAsset> a = new AssetElementInfo<IAsset>
+         AssetElementInfo<IAssetElement> a = new AssetElementInfo<IAssetElement>
          {
             Namespaces = me.Namespaces,
             Namespace = String.IsNullOrWhiteSpace(me.Namespace) ?

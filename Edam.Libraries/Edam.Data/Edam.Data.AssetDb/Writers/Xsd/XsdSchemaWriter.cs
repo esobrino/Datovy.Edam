@@ -8,11 +8,12 @@ using Edam.Xml.Xsd;
 using Edam.Data.Asset;
 using Edam.Data.AssetSchema;
 using Edam.Data.AssetManagement;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.Data.AssetManagement.Writers.Xsd
 {
 
-   public class XsdSchemaWriter
+    public class XsdSchemaWriter
    {
 
       readonly Resources.ResourceContext m_Context;

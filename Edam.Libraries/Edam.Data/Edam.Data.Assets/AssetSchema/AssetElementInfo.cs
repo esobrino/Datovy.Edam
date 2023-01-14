@@ -7,7 +7,7 @@ using Edam.Data.Asset;
 namespace Edam.Data.AssetSchema
 {
 
-   public class AssetElementInfo<T> : AssetDataElement, IAsset
+   public class AssetElementInfo<T> : AssetDataElement, IAssetElement
    {
 
       protected T m_ElementInstance;

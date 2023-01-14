@@ -335,6 +335,12 @@ namespace Edam.Data.AssetConsole.Services
          return results;
       }
 
+      /// <summary>
+      /// Prepare Asset Use Cases Subsets - XSD's.
+      /// </summary>
+      /// <param name="arguments">Arguments containing the Asset Data for the
+      /// Use Case subset</param>
+      /// <returns>instance of results log is returned</returns>
       public static IResultsLog UseCaseToFile(
          AssetConsoleArgumentsInfo arguments)
       {
@@ -345,6 +351,7 @@ namespace Edam.Data.AssetConsole.Services
             AssetDataElementList l = new AssetDataElementList(
                arguments.Namespace, AssetType.UseCase,
                arguments.Project.VersionId);
+
             foreach(var i in report.UseCasesMergedItems[0].UseCase.Items)
             {
                AssetDataElement.CompleteElementUpdate(i);

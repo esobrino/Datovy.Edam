@@ -10,11 +10,12 @@ using Edam.Data.AssetSchema;
 using Edam.Diagnostics;
 using System.ComponentModel.DataAnnotations;
 using Edam.Data.AssetConsole;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.Json.JsonHelper
 {
 
-   public class JsonAssetUseCase
+    public class JsonAssetUseCase
    {
       private const string CLASS_NAME = "JsonExplore";
 

@@ -303,7 +303,7 @@ namespace Edam.WinUI.Controls.Assets
                     }
                 }
             }
-            private void Update_ViewModel_SelectedBooklet(global::Edam.Data.Booklets.BookletInfo obj, int phase)
+            private void Update_ViewModel_SelectedBooklet(global::Edam.Data.Books.BookletInfo obj, int phase)
             {
                 if (obj != null)
                 {

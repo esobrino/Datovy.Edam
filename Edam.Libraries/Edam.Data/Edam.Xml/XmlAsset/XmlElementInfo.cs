@@ -12,7 +12,7 @@ using Edam.Data.AssetSchema;
 namespace Edam.Xml.XmlAsset
 {
 
-   public class XmlElementInfo : AssetElementInfo<InstanceElement>, IAsset
+   public class XmlElementInfo : AssetElementInfo<InstanceElement>, IAssetElement
    {
 
       public InstanceElement ElementInstance

@@ -17,7 +17,7 @@ using Windows.Foundation.Collections;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 using Edam.WinUI.Controls.ViewModels;
-using Edam.Data.Booklets;
+using Edam.Data.Books;
 
 namespace Edam.WinUI.Controls.Booklets
 {

@@ -52,11 +52,11 @@ namespace Edam.Data.Schema.SchemaObject
       public bool IsKey { get; set; }
       public bool IsAutoGenerate { get; set; }
 
-      public AssetElementInfo<IAsset> ToAsset(
+      public AssetElementInfo<IAssetElement> ToAsset(
          ResourceInfo parent, NamespaceInfo ns)
       {
          QualifiedNameInfo typeQName = new QualifiedNameInfo(DataType);
-         AssetElementInfo<IAsset> a = new AssetElementInfo<IAsset>
+         AssetElementInfo<IAssetElement> a = new AssetElementInfo<IAssetElement>
          {
             DataType = DataType,
             Namespace = ns.Uri.OriginalString,

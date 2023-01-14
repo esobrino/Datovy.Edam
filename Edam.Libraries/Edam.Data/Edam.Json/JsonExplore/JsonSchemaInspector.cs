@@ -80,7 +80,7 @@ namespace Edam.Json.JsonExplore
       /// <param name="annotation"></param>
       /// <param name="asset"></param>
       public static void AssetSchemaAnnotation(
-         string annotation, IAsset asset)
+         string annotation, IAssetElement asset)
       {
          if (string.IsNullOrWhiteSpace(annotation))
             return;

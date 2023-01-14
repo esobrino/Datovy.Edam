@@ -16,11 +16,12 @@ using Edam.WinUI.Controls.DataModels;
 using Edam.Data.Assets.AssetConsole;
 using Edam.WinUI.Controls.Assets;
 using Edam.Data.Asset;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
 
-   public class AssetMapItemViewModel : ObservableObject
+    public class AssetMapItemViewModel : ObservableObject
    {
 
       #region -- 1.00 - Properties and Fields
@@ -406,11 +407,10 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             item = Add(DataMapItemType.Target, args);
          }
-         else
-         {
-            item = ItemSelected(DataMapItemType.Target, args);
-         }
-         Context.SetSelectedMapItem(DataMapItemType.Target, item);
+         
+         item = ItemSelected(DataMapItemType.Target, args);
+
+         ManageSelectedMapItem(DataMapItemType.Target, item, args);
       }
 
       #endregion

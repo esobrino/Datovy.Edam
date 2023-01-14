@@ -1,0 +1,389 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+//using System.Text.Json;
+//using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
+// -----------------------------------------------------------------------------
+using Edam.Data.Asset;
+using Edam.Data.Assets.AssetConsole;
+using Edam.Data.AssetProject;
+using Edam.Data.Books;
+
+using util = Edam.Serialization;
+using System.Xml.Linq;
+using Edam.Data.AssetSchema;
+using Edam.InOut;
+using Edam.Data.Assets.Books;
+using Edam.Data.AssetConsole;
+
+namespace Edam.Data.AssetUseCases
+{
+
+   /// <summary>
+   /// Asset Use Case Map
+   /// </summary>
+   public class AssetUseCaseMap
+   {
+
+      #region -- 1.00 - Fields and properties definitions
+
+      public string UseCaseId { get; set; } = Guid.NewGuid().ToString();
+      public string NameId { get; set; }
+      public string Name { get; set; }
+      public string Description { get; set; }
+      public string VersionId { get; set; }
+
+      public ProjectInfo Project { get; set; } = new ProjectInfo();
+
+      public string SourceUriText { get; set; }
+      public string TargetUriText { get; set; }
+
+      public string TenantId { get; set; }
+      public DateTimeOffset CreatedDate { get; set; } = DateTimeOffset.UtcNow;
+      public DateTimeOffset UpdatedDate { get; set; } = DateTimeOffset.UtcNow;
+
+      public List<AssetDataMapItem> Items { get; set; } =
+         new List<AssetDataMapItem>();
+
+      private BookInfo m_Book;
+      public BookInfo Book
+      {
+         get { return m_Book; }
+      }
+
+      private NamespaceInfo m_Namespace { get; set; }
+      public NamespaceInfo Namespace
+      {
+         get { return m_Namespace; }
+         set
+         {
+            m_Namespace = value;
+            m_Book.Namespace = value;
+         }
+      }
+
+      [JsonIgnore]
+      public AssetDataMapItem SelectedMapItem { get; set; } = null;
+
+      #endregion
+      #region -- 1.50 - Constructure
+
+      public AssetUseCaseMap()
+      {
+         m_Book = new BookInfo();
+         m_Book.Namespace = Namespace;
+      }
+
+      #endregion
+      #region -- 4.00 - Support Methods
+
+      public void SetNamespace(NamespaceInfo ns)
+      {
+         Namespace = ns;
+         m_Book.Namespace = ns;
+      }
+
+      #endregion
+      #region -- 4.00 - Search and Find support
+
+      public AssetDataMapItem Find(string itemId)
+      {
+         return Items.Find((x) => x.MapItemId == itemId);
+      }
+
+      /// <summary>
+      /// Given an element path return all matching map-items.
+      /// </summary>
+      /// <param name="type">list type (source or target)</param>
+      /// <param name="elementPath">element path to search</param>
+      /// <returns>list of found map-items is returned if any was found
+      /// </returns>
+      public List<AssetDataMapItem> Find(
+         DataMapItemType type, string elementPath)
+      {
+         List<AssetDataMapItem> items = new List<AssetDataMapItem>();
+
+         foreach (var i in Items)
+         {
+            var l = type == DataMapItemType.Source ?
+               i.SourceElement : i.TargetElement;
+            var t = l.Find((x) => x.Path == elementPath);
+            if (t != null)
+            {
+               items.Add(i);
+            }
+         }
+
+         return items;
+      }
+
+      /// <summary>
+      /// Select an Item for a given type (source or target).  If any item was
+      /// found the first on the list will be set as the selected map-item.
+      /// </summary>
+      /// <param name="type">list type (source or target)</param>
+      /// <param name="elementPath">element path to search</param>
+      /// <returns>list of found map-items is returned if any was found
+      /// </returns>
+      public List<AssetDataMapItem> SelectItem(
+         DataMapItemType type, string elementPath)
+      {
+         var i = Find(type, elementPath);
+         if (i.Count > 0)
+         {
+            SelectedMapItem = i[0];
+         }
+         return i;
+      }
+
+      #endregion
+      #region -- 4.00 - Add Map Item management
+
+      public AssetDataMapItem Add(AssetDataElement element)
+      {
+         var i = Find(element.ElementPath);
+         if (i == null)
+         {
+            AssetDataMapItem item = new AssetDataMapItem();
+            item.ItemPath = element.ElementPath;
+            Items.Add(item);
+            i = item;
+         }
+         return i;
+      }
+
+      public void Add(DataMapItemType type, MapItemInfo item)
+      {
+         var l = type == DataMapItemType.Source ?
+            SelectedMapItem.SourceElement : SelectedMapItem.TargetElement;
+         var i = l.Find((x) => x.Path == item.Path);
+         if (i == null)
+         {
+            l.Add(item);
+         }
+      }
+
+      #endregion
+      #region -- 4.00 - Delete map item management
+
+      public void Delete(DataMapItemType type, MapItemInfo item)
+      {
+         var l = type == DataMapItemType.Source ?
+            SelectedMapItem.SourceElement : SelectedMapItem.TargetElement;
+         var i = l.Find((x) => x.Path == item.Path);
+         if (i != null)
+         {
+            l.Remove(i);
+         }
+      }
+
+      #endregion
+      #region -- 4.00 - File and serialization support
+
+      /// <summary>
+      /// Get file name based on given URI and version id.
+      /// </summary>
+      /// <param name="uriText">URI text</param>
+      /// <param name="name">use case name</param>
+      /// <param name="versionId">version ID</param>
+      /// <returns>file name is returned</returns>
+      public static string GetFileName(
+         string uriText, string name, string versionId)
+      {
+         string fname = name;
+         if (string.IsNullOrWhiteSpace(name))
+         {
+            fname = uriText.Replace("http://", string.Empty).Replace(".", "_").
+               Replace('/', '_');
+         }
+         return fname + (string.IsNullOrWhiteSpace(versionId) ?
+            string.Empty : "_" + versionId) + ".json";
+      }
+
+      /// <summary>
+      /// Flatten-out the list of folder-files from a hierarchical list into
+      /// a list of folder-files.
+      /// </summary>
+      /// <param name="folder">folder to inspect and flatten</param>
+      /// <param name="children">the output children list</param>
+      /// <returns>flatten list of children is returned</returns>
+      public static List<FolderFileItemInfo> FromFolder(
+         FolderFileItemInfo folder,
+         List<FolderFileItemInfo> children)
+      {
+         foreach(var f in folder.Children)
+         {
+            if (f.Children.Count > 0)
+            {
+               foreach(var i in f.Children)
+               {
+                  FromFolder(i, children);
+               }
+               continue;
+            }
+            children.Add(f);
+         }
+         return children;
+      }
+
+      /// <summary>
+      /// Flatten-out the list of folder-files from a hierarchical list into
+      /// a list of folder-files.
+      /// </summary>
+      /// <param name="folderPath>folder path</param>
+      /// <returns>flatten list of children is returned</returns>
+      public static List<FolderFileItemInfo> FromFolder(string folderPath)
+      {
+         List<FolderFileItemInfo> children = new List<FolderFileItemInfo>();
+         var folder = FolderFileReader.GetFolderFileInfo(folderPath);
+         FromFolder(folder, children);
+         return children;
+      }
+
+      /// <summary>
+      /// Read Use Case from file...
+      /// </summary>
+      /// <param name="filePath">partial file path</param>
+      /// <returns>instance of AssetMapUseCase is returned</returns>
+      public static AssetUseCaseMap FromFile(string filePath)
+      {
+         if (!System.IO.File.Exists(filePath))
+         {
+            return null;
+         }
+
+         //JsonSerializerOptions? options = new()
+         //{
+         //   ReferenceHandler = ReferenceHandler.Preserve,
+         //   WriteIndented = true
+         //};
+         //JsonSerializerOptions options = new JsonSerializerOptions
+         //{ 
+         //   PropertyNameCaseInsensitive = true,
+         //   PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+         //};
+
+         string jsonText = System.IO.File.ReadAllText(filePath);
+         return JsonConvert.DeserializeObject<AssetUseCaseMap>(jsonText);
+      }
+
+      /// <summary>
+      /// Fetch the use case matching with given URI and version Id.
+      /// </summary>
+      /// <param name="uriText"></param>
+      /// <param name="versionId"></param>
+      /// <returns></returns>
+      public static AssetUseCaseMap FromUriVersion(
+         string uriText, string name, string versionId)
+      {
+         return FromFile(GetFileName(uriText, name, versionId));
+      }
+
+      /// <summary>
+      /// Write Use Case to file...
+      /// </summary>
+      /// <param name="useCase">use case to write</param>
+      /// <param name="filePath">file path</param>
+      public static void ToFile(AssetUseCaseMap useCase, string folderPath,
+         string filePath)
+      {
+         AssetUseCaseLog.OpenFolder(folderPath);
+
+         //JsonSerializerOptions? options = new()
+         //{            
+         //   ReferenceHandler = ReferenceHandler.Preserve,
+         //   WriteIndented = true
+         //};
+
+         string jsonText =
+            JsonConvert.SerializeObject(useCase);
+         System.IO.File.WriteAllText(folderPath + filePath, jsonText);
+      }
+
+      /// <summary>
+      /// Write to a file.
+      /// </summary>
+      /// <param name="useCase">Use Case Map</param>
+      /// <param name="folderPath">folder path</param>
+      /// <param name="uriText">URI</param>
+      /// <param name="versionId">version id</param>
+      public static void ToFile(AssetUseCaseMap useCase, string folderPath,
+         string uriText, string versionId)
+      {
+         ToFile(useCase, folderPath, GetFileName(
+            uriText, useCase.Name, versionId));
+      }
+
+      #endregion
+      #region -- 4.00 - Support for Use Case Reporting from Mappings...
+
+      /// <summary>
+      /// Given an Asset Use Case Map prepare a related Asset Use Case...
+      /// </summary>
+      /// <param name="map">Use Case map to generate Use Case from</param>
+      /// <param name="mapper">mapping information</param>
+      public static AssetUseCase ToAssetUseCase(
+         AssetUseCaseMap map, BookMapper mapper)
+      {
+         BookMapItemList items = BookMapItemList.PrepareList(map, mapper);
+
+         AssetUseCase uc = new AssetUseCase(mapper.Namespace, mapper.VersionId);
+
+         return uc;
+      }
+
+      /// <summary>
+      /// Given a folder path get all the Use Cases and prepare an instance of 
+      /// AssetUseCase per Use Case file.
+      /// </summary>
+      /// <param name="folderPath">folder path name</param>
+      /// <param name="mapper">mapping information</param>
+      public static List<AssetUseCase> ToAssetUseCase(
+         string folderPath, BookMapper mapper)
+      {
+         List<AssetUseCase> useCaseList = new List<AssetUseCase>();
+
+         var files = AssetUseCaseMap.FromFolder(folderPath);
+
+         // prepare a Use Case per 
+         foreach (var i in files)
+         {
+            var uc = AssetUseCaseMap.FromFile(i.Full);
+            mapper.Book = uc.Book;
+
+            useCaseList.Add(ToAssetUseCase(uc, mapper));
+         }
+
+         return useCaseList;
+      }
+
+      /// <summary>
+      /// Given project arguments and a the use case folder path prepare the
+      /// Use Case items.
+      /// </summary>
+      /// <param name="args">project arguments</param>
+      /// <param name="useCaseFolderPath">Use Case folder path</param>
+      /// <returns>instance list of AssetUseCase is returned</returns>
+      public static List<AssetUseCase> ToUseCaseReport(
+         AssetConsoleArgumentsInfo args, string useCaseFolderPath)
+      {
+         if (args.AssetDataItems.Count == 0)
+         {
+            return null;
+         }
+         BookMapper mapper = new BookMapper(
+            args.AssetDataItems[0].Items, args.Namespace,
+            args.ProjectVersionId);
+         return ToAssetUseCase(useCaseFolderPath, mapper);
+      }
+
+      #endregion
+
+   }
+
+}

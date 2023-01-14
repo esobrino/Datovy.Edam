@@ -11,7 +11,7 @@ using Edam.Data.AssetProject;
 using Edam.InOut;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
-using Edam.Data.Booklets;
+using Edam.Data.Books;
 using Microsoft.UI.Xaml.Controls;
 
 namespace Edam.WinUI.Controls.ViewModels

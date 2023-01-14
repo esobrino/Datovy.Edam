@@ -13,14 +13,15 @@ using helper = Edam.Data.AssetConsole.ConsoleHelper.AssetConsoleHelper;
 using Edam.Data.AssetConsole;
 using Edam.Data.AssetSchema;
 using Edam.Data.Asset;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.Xml.XmlExplore
 {
 
-   /// <summary>
-   /// 
-   /// </summary>
-   public class XmlInspector
+    /// <summary>
+    /// 
+    /// </summary>
+    public class XmlInspector
    {
 
       private XmlSchemaSet m_SchemaSet = new XmlSchemaSet();

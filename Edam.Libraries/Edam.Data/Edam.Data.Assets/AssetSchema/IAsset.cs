@@ -5,11 +5,19 @@ using System.Text;
 // -----------------------------------------------------------------------------
 using Edam.Data.Asset;
 using Edam.Data.Assets.Asset;
+using Edam.Diagnostics;
 
 namespace Edam.Data.AssetSchema
 {
 
-   public interface IAsset
+   public interface IResourceData
+   {
+      IResultsLog Save(
+         AssetDataElementList assets, NamespaceInfo ns, string domainName,
+         AssetType type);
+   }
+
+   public interface IAssetElement
    {
       object AssetObject { get; }
       DateTime? LastUpdateDate { get; set; }

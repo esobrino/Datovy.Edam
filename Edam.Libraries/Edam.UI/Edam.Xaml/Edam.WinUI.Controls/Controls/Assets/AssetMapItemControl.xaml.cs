@@ -23,12 +23,13 @@ using Edam.WinUI.Controls.DataModels;
 using Edam.WinUI.Controls.Common;
 using System.Runtime.CompilerServices;
 using Edam.WinUI.Controls.Booklets;
-using Edam.Data.Booklets;
+using Edam.Data.Books;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.WinUI.Controls.Assets
 {
 
-   public sealed partial class AssetMapItemControl : UserControl
+    public sealed partial class AssetMapItemControl : UserControl
    {
       private AssetMapItemViewModel m_ViewModel = new AssetMapItemViewModel();
       public AssetMapItemViewModel ViewModel

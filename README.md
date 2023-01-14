@@ -30,6 +30,11 @@ For the "Communicable Diseases" project the EDAM was used to produce sample sche
 ## <span style="color:skyblue;font-weight:bold">EDAM DATABASE</span>
 The MS-SQL EDAM Database is provided as a separate VS solution withing this project that can be found in "Edam.Database".
 
+## <span style="color:skyblue;font-weight:bold">EDAM USE CASE SUPPORT</span>
+There are too many issues while trying prepare an Asset Data Mapping for a Use Case using Excel that is usually and often done by hand.  EDAM support for Use Cases helps to describe the mappings, processing instructions while directly managing the source and target paths by the Application keeping it consistent with the data components and documents.
+
+Review the Use Case sections in the provided Documentation to get acquainted with Use Case, Mappings, and Reporting support. 
+
 ## <span style="color:skyblue;font-weight:bold">CONTRIBUTING</span>
 We hope that this project is useful for others in search of an open platform for "Enteprise Data Asset Management" for now at a starting point.  With that in mind help us shape the future of this project, we will greatly appreciate any help in any form.
 

@@ -7,15 +7,15 @@ using Edam.InOut;
 using Edam.Application;
 using Edam.Data.Asset;
 using Edam.Data.AssetManagement;
-using Edam.Data.AssetSchema;
 using Edam.DataObjects.DataCodes;
 using Edam.Diagnostics;
 using Edam.Text;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.Data.AssetSchema
 {
 
-   public class AssetReportOptions
+    public class AssetReportOptions
    {
       public bool OnlyUseCaseEntries { get; set; }
       public AssetReportOptions()
@@ -157,7 +157,7 @@ namespace Edam.Data.AssetSchema
       /// </summary>
       /// <param name="builder"></param>
       /// <param name="asset"></param>
-      private static void AppendTableCells(ITableBuilder builder, IAsset asset)
+      private static void AppendTableCells(ITableBuilder builder, IAssetElement asset)
       {
          string etype = asset.ElementType.ToString();
          string value = String.IsNullOrWhiteSpace(asset.DefaultValue) ?
@@ -223,17 +223,17 @@ namespace Edam.Data.AssetSchema
       /// Append Use Cases...
       /// </summary>
       /// <param name="builder"></param>
-      /// <param name="cases"></param>
+      /// <param name="items"></param>
       /// <param name="columns"></param>
       private static void AppendUseCases(ITableBuilder builder,
-         List<AssetUseCaseElement> cases, AssetColumnInfo columns)
+         List<AssetUseCaseElement> items, AssetColumnsInfo columns)
       {
          // add use cases info targeting specific columns already assigned...
-         if (cases != null)
+         if (items != null)
          {
             for (var i = 0; i < columns.Headers.Count; i++)
             {
-               var f = cases.Find((x) => x.Name == columns.Headers[i].Name);
+               var f = items.Find((x) => x.Name == columns.Headers[i].Name);
                if (f == null)
                {
                   // the row data-element is not in this use-case (column)...
@@ -256,7 +256,7 @@ namespace Edam.Data.AssetSchema
       /// <param name="useCaseElement"></param>
       public static void AppendUseCaseProcessingInstructions(
          ITableBuilder builder, AssetDataElement element,
-         AssetColumnInfo columns)
+         AssetColumnsInfo columns)
       {
          if (element.ProcessInstructionsBag == null)
          {
@@ -282,7 +282,7 @@ namespace Edam.Data.AssetSchema
       }
 
       /// <summary>
-      /// 
+      /// Append Use Cases into the related TAB
       /// </summary>
       /// <param name="builder"></param>
       /// <param name="useCasesItems"></param>
@@ -546,7 +546,7 @@ namespace Edam.Data.AssetSchema
       /// <param name="builder"></param>
       /// <param name="columns"></param>
       private static void AppendMainHeader(ITableBuilder builder,
-         AssetColumnInfo columns, string headerText = null)
+         AssetColumnsInfo columns, string headerText = null)
       {
          string header = String.IsNullOrWhiteSpace(headerText) ?
             GetMainHeader() : headerText;
@@ -585,10 +585,10 @@ namespace Edam.Data.AssetSchema
          report.CodeSetItems.Clear();
 
          // write data
-         foreach (var i in report.Assets)
+         foreach (var i in report.Items)
          {
             AppendTableCells(builder, i.Item);
-            AppendUseCases(builder, i.UseCases, report.AssetCustomColumns);
+            AppendUseCases(builder, i.Elements, report.AssetCustomColumns);
             AppendEndOfRow(builder);
 
             if (i.Item.ElementType == ElementType.enumerator)

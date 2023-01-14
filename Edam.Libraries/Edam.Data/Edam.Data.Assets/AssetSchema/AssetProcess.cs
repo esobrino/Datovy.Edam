@@ -41,19 +41,19 @@ namespace Edam.Data.AssetSchema
       public const string NM_MAP_TO = "MapTo";
       public const string TK_USECASE = "usecase";
 
-      private AssetColumnInfo m_Columns { get; set; }
+      private AssetColumnsInfo m_Columns { get; set; }
 
       public AssetProcessInfo CurrentInstruction { get; set; }
       public List<AssetProcessInfo> Items { get; set; }
 
-      public AssetColumnInfo Columns
+      public AssetColumnsInfo Columns
       {
          get => m_Columns;
       }
 
       public AssetProcess()
       {
-         m_Columns = new AssetColumnInfo();
+         m_Columns = new AssetColumnsInfo();
          Items = new List<AssetProcessInfo>();
       }
 

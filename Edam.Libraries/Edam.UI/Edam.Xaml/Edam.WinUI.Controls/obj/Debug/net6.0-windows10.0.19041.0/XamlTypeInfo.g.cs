@@ -310,7 +310,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
             _typeNameTable[134] = "Edam.WinUI.Controls.Booklets.FramePanelControl";
             _typeNameTable[135] = "Edam.WinUI.Controls.Booklets.BookletCodeCellControl";
             _typeNameTable[136] = "Edam.WinUI.Controls.ViewModels.CellViewModel";
-            _typeNameTable[137] = "Edam.Data.Booklets.BookletInfo";
+            _typeNameTable[137] = "Edam.Data.Books.BookletInfo";
             _typeNameTable[138] = "Microsoft.UI.Xaml.Controls.MenuBarItemFlyout";
             _typeNameTable[139] = "Microsoft.UI.Xaml.Controls.MenuFlyout";
             _typeNameTable[140] = "Edam.WinUI.Controls.Booklets.BookletTextCellControl";
@@ -516,7 +516,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
             _typeTable[134] = typeof(global::Edam.WinUI.Controls.Booklets.FramePanelControl);
             _typeTable[135] = typeof(global::Edam.WinUI.Controls.Booklets.BookletCodeCellControl);
             _typeTable[136] = typeof(global::Edam.WinUI.Controls.ViewModels.CellViewModel);
-            _typeTable[137] = typeof(global::Edam.Data.Booklets.BookletInfo);
+            _typeTable[137] = typeof(global::Edam.Data.Books.BookletInfo);
             _typeTable[138] = typeof(global::Microsoft.UI.Xaml.Controls.MenuBarItemFlyout);
             _typeTable[139] = typeof(global::Microsoft.UI.Xaml.Controls.MenuFlyout);
             _typeTable[140] = typeof(global::Edam.WinUI.Controls.Booklets.BookletTextCellControl);
@@ -688,7 +688,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
         private object Activate_134_FramePanelControl() { return new global::Edam.WinUI.Controls.Booklets.FramePanelControl(); }
         private object Activate_135_BookletCodeCellControl() { return new global::Edam.WinUI.Controls.Booklets.BookletCodeCellControl(); }
         private object Activate_136_CellViewModel() { return new global::Edam.WinUI.Controls.ViewModels.CellViewModel(); }
-        private object Activate_137_BookletInfo() { return new global::Edam.Data.Booklets.BookletInfo(); }
+        private object Activate_137_BookletInfo() { return new global::Edam.Data.Books.BookletInfo(); }
         private object Activate_138_MenuBarItemFlyout() { return new global::Microsoft.UI.Xaml.Controls.MenuBarItemFlyout(); }
         private object Activate_140_BookletTextCellControl() { return new global::Edam.WinUI.Controls.Booklets.BookletTextCellControl(); }
         private object Activate_141_WebView2() { return new global::Microsoft.UI.Xaml.Controls.WebView2(); }
@@ -1846,7 +1846,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 137:   //  Edam.Data.Booklets.BookletInfo
+            case 137:   //  Edam.Data.Books.BookletInfo
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
@@ -4189,7 +4189,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
         private void set_193_BookletCodeCellControl_Booklet(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.Booklets.BookletCodeCellControl)instance;
-            that.Booklet = (global::Edam.Data.Booklets.BookletInfo)Value;
+            that.Booklet = (global::Edam.Data.Books.BookletInfo)Value;
         }
         private object get_194_BookletCodeCellControl_Instance(object instance)
         {
@@ -4219,7 +4219,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
         private void set_197_BookletTextCellControl_Booklet(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.Booklets.BookletTextCellControl)instance;
-            that.Booklet = (global::Edam.Data.Booklets.BookletInfo)Value;
+            that.Booklet = (global::Edam.Data.Books.BookletInfo)Value;
         }
         private object get_198_BookletTextCellControl_Instance(object instance)
         {
@@ -6197,7 +6197,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 break;
             case "Edam.WinUI.Controls.Booklets.BookletCodeCellControl.Booklet":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Booklets.BookletCodeCellControl");
-                xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "Booklet", "Edam.Data.Booklets.BookletInfo");
+                xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "Booklet", "Edam.Data.Books.BookletInfo");
                 xamlMember.Getter = get_193_BookletCodeCellControl_Booklet;
                 xamlMember.Setter = set_193_BookletCodeCellControl_Booklet;
                 break;
@@ -6221,7 +6221,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 break;
             case "Edam.WinUI.Controls.Booklets.BookletTextCellControl.Booklet":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Booklets.BookletTextCellControl");
-                xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "Booklet", "Edam.Data.Booklets.BookletInfo");
+                xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "Booklet", "Edam.Data.Books.BookletInfo");
                 xamlMember.Getter = get_197_BookletTextCellControl_Booklet;
                 xamlMember.Setter = set_197_BookletTextCellControl_Booklet;
                 break;

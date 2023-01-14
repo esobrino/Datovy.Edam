@@ -7,7 +7,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 // -----------------------------------------------------------------------------
-using Edam.Data.Booklets;
+using Edam.Data.Books;
 using Edam.WinUI.Controls.Booklets;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;

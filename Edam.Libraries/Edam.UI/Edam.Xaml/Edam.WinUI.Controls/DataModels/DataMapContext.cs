@@ -22,13 +22,14 @@ using DocumentFormat.OpenXml.Office2019.Drawing.Model3D;
 using Edam.Data.Asset;
 using DocumentFormat.OpenXml.Wordprocessing;
 using DocumentFormat.OpenXml.EMMA;
-using Edam.Data.Booklets;
+using Edam.Data.Books;
 using System.Data.SqlClient;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.WinUI.Controls.DataModels
 {
 
-   public enum DataTreeEventType
+    public enum DataTreeEventType
    {
       Unknown = 0,
       ItemSelected = 1,
@@ -439,6 +440,16 @@ namespace Edam.WinUI.Controls.DataModels
       }
 
       /// <summary>
+      /// Get Use Case Folder Path...
+      /// </summary>
+      /// <returns>returns the path</returns>
+      public static string GetUseCaseFolderPath()
+      {
+         return ProjectContext.ProjectFolderPath + "/" +
+            AssetUseCaseLog.GetUseCasesFolderName();
+      }
+
+      /// <summary>
       /// Save Use Case
       /// </summary>
       /// <param name="currentContext"></param>
@@ -455,12 +466,28 @@ namespace Edam.WinUI.Controls.DataModels
             context.UseCase.Name = "UC_" + Guid.NewGuid().ToString();
          }
 
-         string pfolder = ProjectContext.ProjectFolderPath + "/" +
-            AssetUseCaseLog.GetUseCasesFolderName();
+         string pfolder = GetUseCaseFolderPath();
          AssetUseCaseMap.ToFile(context.UseCase, pfolder,
             context.UseCase.SourceUriText, context.UseCase.VersionId);
 
          return context;
+      }
+
+      /// <summary>
+      /// Prepare Use Case Report.
+      /// </summary>
+      /// <param name="currentContext"></param>
+      public static void PrepareUseCaseReport(
+         DataMapContext currentContext)
+      {
+         // make sure we are in current project use case environement context
+         var context = currentContext.SetupUseCase(
+            ProjectContext.CurrentProject.CurrentArguments);
+
+         string pfolder = GetUseCaseFolderPath();
+         var args = ProjectContext.CurrentProject.CurrentArguments;
+
+         AssetUseCaseMap.ToUseCaseReport(args, pfolder);
       }
 
       #endregion

@@ -17,7 +17,7 @@ using Edam.Data.Assets.AssetConsole;
 using Edam.Json.JsonDataTree;
 using Edam.WinUI.Controls.Common;
 using Edam.WinUI.Controls.Booklets;
-using Edam.Data.Booklets;
+using Edam.Data.Books;
 using Microsoft.UI.Xaml.Controls;
 
 namespace Edam.WinUI.Controls.ViewModels

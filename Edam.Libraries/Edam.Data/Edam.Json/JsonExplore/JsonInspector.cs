@@ -9,11 +9,12 @@ using Edam.Data.AssetConsole;
 using Edam.Data.Asset;
 using Edam.Data.AssetSchema;
 using Edam.Json.JsonSchemaReader;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.Json.JsonExplore
 {
 
-   public class JsonInspector
+    public class JsonInspector
    {
       private JsonSchemaSet m_SchemaSet = null;
       private AssetConsoleArgumentsInfo m_Arguments;

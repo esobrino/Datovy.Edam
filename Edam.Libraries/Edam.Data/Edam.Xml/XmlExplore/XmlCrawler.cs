@@ -1512,7 +1512,7 @@ namespace Edam.Xml.XmlExplore
          return item;
       }
 
-      private void SetOccurs(AssetGroupItem group, IAsset asset)
+      private void SetOccurs(AssetGroupItem group, IAssetElement asset)
       {
          if (group == null)
             return;
@@ -1531,7 +1531,7 @@ namespace Edam.Xml.XmlExplore
          //}
       }
 
-      private void AssetAnnotation(InstanceElement element, IAsset asset)
+      private void AssetAnnotation(InstanceElement element, IAssetElement asset)
       {
          //XmlSchemaElement schemaElement =
          //   (XmlSchemaElement)schemaSet.GlobalElements[element.QualifiedName];
@@ -1576,7 +1576,7 @@ namespace Edam.Xml.XmlExplore
       }
 
       private void GetGlobalElementAnnotation(
-         XmlSchemaElement element, IAsset asset)
+         XmlSchemaElement element, IAssetElement asset)
       {
          foreach(XmlSchemaElement i in schemaSet.GlobalElements.Values)
          {
@@ -1590,7 +1590,7 @@ namespace Edam.Xml.XmlExplore
          }
       }
 
-      private void AssetProcessComment(InstanceElement elem, IAsset asset)
+      private void AssetProcessComment(InstanceElement elem, IAssetElement asset)
       {
          AssetAnnotation(elem, asset);
          if (elem.Comment.Length > 0)

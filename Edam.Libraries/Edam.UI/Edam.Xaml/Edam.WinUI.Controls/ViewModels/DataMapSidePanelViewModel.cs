@@ -9,13 +9,14 @@ using Edam.Helpers;
 using Edam.Data.AssetSchema;
 using Microsoft.UI.Xaml;
 using Edam.WinUI.Controls.DataModels;
-using Edam.Data.Booklets;
+using Edam.Data.Books;
 using Edam.Data.Assets.AssetConsole;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
 
-   public class DataMapSidePanelViewModel : ObservableObject
+    public class DataMapSidePanelViewModel : ObservableObject
    {
       private const string ChevronClose = "\xE96F";
       private const string ChevronOpen = "\xE970";

@@ -10,87 +10,11 @@ using Edam.Application;
 using Edam.Data.Asset;
 using Edam.Data.AssetConsole;
 using Edam.Data.AssetManagement;
-using Edam.Data.AssetSchema;
 using Edam.Text;
+using Edam.Data.AssetUseCases;
 
 namespace Edam.Data.AssetSchema
 {
-
-   public interface IResourceData
-   {
-      IResultsLog Save(
-         AssetDataElementList assets, NamespaceInfo ns, string domainName,
-         AssetType type);
-   }
-
-   public class AssetDataItems : List<AssetData>
-   {
-      public AssetDataItems() : base()
-      {
-
-      }
-
-      public static string ToJsonText(string filePath, AssetDataItems items)
-      {
-         return JsonConvert.SerializeObject(items,
-            Formatting.Indented,
-            new JsonSerializerSettings()
-            {
-               ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            }
-         );
-         //return Serialization.Serialize.ToJsonString<AssetDataItems>(items);
-      }
-
-      public static string GetFilePath(AssetConsoleArgumentsInfo arguments)
-      {
-         return "files/" + arguments.ProcedureName + "." +
-            arguments.Namespace.NamePath.VersionId + ".json";
-      }
-
-      public static ResultsLog<AssetDataItems> FromFile(string filePath)
-      {
-         ResultsLog<AssetDataItems> results = new ResultsLog<AssetDataItems>();
-         if (System.IO.File.Exists(filePath))
-         {
-            string jsonText = System.IO.File.ReadAllText(filePath);
-            results.Data =
-               JsonConvert.DeserializeObject<AssetDataItems>(jsonText);
-            results.Succeeded();
-         }
-         else
-         {
-            results.Failed(EventCode.ReferenceNotFound);
-         }
-         return results;
-      }
-
-      public static ResultsLog<AssetDataItems> FromFile(
-         AssetConsoleArgumentsInfo arguments)
-      {
-         string fname = GetFilePath(arguments);
-         return FromFile(fname);
-      }
-
-      public static IResultsLog ToFile(string filePath, AssetDataItems items)
-      {
-         ResultLog resultLog = new ResultLog();
-         string jsonText = ToJsonText(filePath, items);
-         if (!String.IsNullOrWhiteSpace(jsonText))
-         {
-            System.IO.File.WriteAllText(filePath, jsonText);
-         }
-         return resultLog;
-      }
-
-      public static IResultsLog ToFile(AssetConsoleArgumentsInfo arguments)
-      {
-         string fname = GetFilePath(arguments);
-         var resultLog = ToFile(fname, arguments.AssetDataItems);
-         resultLog.Succeeded();
-         return resultLog;
-      }
-   }
 
    /// <summary>
    /// 
@@ -98,20 +22,11 @@ namespace Edam.Data.AssetSchema
    public class AssetData
    {
 
-      #region -- 1.0 - Properties and Fields
+      #region -- 1.00 - Properties and Fields
 
       //private static readonly string CLASS_NAME = "AssetData";
       //private static readonly string COMMA = ",";
       //private static readonly string SEMICOLUMN = ";";
-
-      protected List<AssetUseCase> m_UseCases { get; set; }
-      protected AssetColumnInfo m_UseCaseColumns { get; set; }
-      protected List<AssetUseCaseElement> m_UseCasesMergedItems;
-
-      protected List<NamespaceInfo> m_Namespaces;
-      protected NamespaceInfo m_DefaultNamespace = null;
-
-      public string RootTargetNamespace { get; set; }
 
       public string Title { get; set; }
       public string Name { get; set; }
@@ -120,6 +35,8 @@ namespace Edam.Data.AssetSchema
       public string CatalogName { get; set; }
       public string SchemaName { get; set; }
 
+      public string VersionId { get; set; }
+
       private AssetDataElementList m_Items;
       public AssetDataElementList Items
       {
@@ -127,13 +44,20 @@ namespace Edam.Data.AssetSchema
          set { m_Items = value; }
       }
 
+      #endregion
+      #region -- 1.00 - Properties and Fields for Use Case Management
+
+      protected List<AssetUseCase> m_UseCases { get; set; }
+      protected AssetColumnsInfo m_UseCaseColumns { get; set; }
+      protected List<AssetUseCaseElement> m_UseCasesMergedItems;
+
       public List<AssetUseCase> UseCases
       {
          get { return m_UseCases; }
          set { m_UseCases = value; }
       }
 
-      public AssetColumnInfo UseCaseColumns
+      public AssetColumnsInfo UseCaseColumns
       {
          get { return m_UseCaseColumns; }
          set { m_UseCaseColumns = value; }
@@ -147,6 +71,14 @@ namespace Edam.Data.AssetSchema
             m_UseCasesMergedItems = value;
          }
       }
+
+      #endregion
+      #region -- 1.00 - Properties and Fields for Namespaces Management
+
+      protected List<NamespaceInfo> m_Namespaces;
+      protected NamespaceInfo m_DefaultNamespace = null;
+
+      public string RootTargetNamespace { get; set; }
 
       public List<NamespaceInfo> Namespaces
       {
@@ -182,15 +114,13 @@ namespace Edam.Data.AssetSchema
          set { m_DefaultNamespace = value; }
       }
 
-      public string VersionId { get; set; }
-
       #endregion
-      #region -- 1.5 - Constructure / Destructure
+      #region -- 1.50 - Constructure / Destructure
 
       public AssetData(NamespaceInfo ns, AssetType type, string versionId)
       {
          m_Items = new AssetDataElementList(ns, type, versionId);
-         m_UseCaseColumns = new AssetColumnInfo();
+         m_UseCaseColumns = new AssetColumnsInfo();
          DefaultNamespace = ns;
          VersionId = versionId;
       }
@@ -199,16 +129,17 @@ namespace Edam.Data.AssetSchema
       {
          m_Items = new AssetDataElementList(items);
          m_Items = items;
-         m_UseCaseColumns = new AssetColumnInfo();
+         m_UseCaseColumns = new AssetColumnsInfo();
          m_DefaultNamespace = items.Namespace;
          VersionId = items.VersionId;
       }
 
       #endregion
-      #region -- 4.0 - Support Methods
+      #region -- 4.00 - Support Methods
 
       /// <summary>
-      /// Set Use Case information available in arguments...
+      /// Set Use Case information available in arguments... merging all use 
+      /// cases into a list of AssetUseCaseElement(s).
       /// </summary>
       /// <param name="arguments">required arguments list</param>
       public void SetUseCases(AssetConsoleArgumentsInfo arguments)
@@ -222,7 +153,7 @@ namespace Edam.Data.AssetSchema
       }
 
       #endregion
-      #region -- 4.0 - Namespace Management
+      #region -- 4.00 - Namespace Management
 
       public NamespaceInfo GetDefaultNamespace()
       {
@@ -269,7 +200,7 @@ namespace Edam.Data.AssetSchema
       }
 
       #endregion
-      #region -- 4.0 - Add Assets and Items
+      #region -- 4.00 - Add Assets and Items
 
       /// <summary>
       /// Add a Data Element
@@ -299,38 +230,8 @@ namespace Edam.Data.AssetSchema
             m_UseCasesMergedItems.AddRange(asset.UseCasesMergedItems);
       }
 
-      /// <summary>
-      /// Add Item to given list...
-      /// </summary>
-      /// <param name="items"></param>
-      /// <param name="columns"></param>
-      /// <param name="element"></param>
-      private void AddItem(List<AssetItemUseCase<AssetDataElement>> items,
-         AssetColumnInfo columns, AssetDataElement element)
-      {
-         // manage use cases
-         List<AssetUseCaseElement> uc = null;
-         if (m_UseCasesMergedItems != null)
-         {
-            uc = m_UseCasesMergedItems.FindAll(
-               (x) => x.ElementPath == element.GetFullPath());
-            foreach (var col in uc)
-            {
-               columns.Add(col.Name);
-            }
-         }
-
-         var ai = new AssetItemUseCase<AssetDataElement>
-         {
-            Item = element,
-            UseCases = uc ?? new List<AssetUseCaseElement>()
-         };
-
-         items.Add(ai);
-      }
-
       #endregion
-      #region -- 4.0 - Filter Asset Elements
+      #region -- 4.00 - Filter Asset Elements
 
       /// <summary>
       /// Return the list filtering all stand alone elements not related to a
@@ -348,7 +249,7 @@ namespace Edam.Data.AssetSchema
       }
 
       #endregion
-      #region -- 4.0 - Map, Merge and Reconciliate...
+      #region -- 4.00 - Data Element Map, and Asset Elements Merge...
 
       /// <summary>
       /// Merge asset list/schemas into one.
@@ -469,27 +370,69 @@ namespace Edam.Data.AssetSchema
          MapDataElement(mapper);
       }
 
+      #endregion
+      #region -- 4.00 - Use Case Reconciliation
+
       /// <summary>
-      /// Reconcile Use Cases and return Assets Report information... to be
-      /// used in the output...
+      /// Add Item to given list...  These items are from the Asset and are 
+      /// copied here for later be used in a Use Case items reconciliation 
+      /// process.  Within reconciling relevant Use Case Items will be matched.
+      /// This means that this element may not be part of the Use Case.
+      /// </summary>
+      /// <param name="items">list to add the element/element too</param>
+      /// <param name="columns">list of column headers</param>
+      /// <param name="element">element to be added</param>
+      private void UseCaseItemAdd(
+         List<AssetUseCaseItem<AssetDataElement>> items,
+         AssetColumnsInfo columns, AssetDataElement element)
+      {
+         // add item to Use Cases Merged Items (Asset Items not necessarily part
+         // of or relevant for the Use Case.
+         List<AssetUseCaseElement> elements = null;
+         if (m_UseCasesMergedItems != null)
+         {
+            elements = m_UseCasesMergedItems.FindAll(
+               (x) => x.ElementPath == element.GetFullPath());
+
+            // define all the found... elements column names 
+            foreach (var eItem in elements)
+            {
+               columns.Add(eItem.Name);
+            }
+         }
+
+         var ai = new AssetUseCaseItem<AssetDataElement>
+         {
+            Item = element,
+            Elements = elements ?? new List<AssetUseCaseElement>()
+         };
+
+         items.Add(ai);
+      }
+
+      /// <summary>
+      /// Reconcile Use Cases and return Assets Report information...
       /// </summary>
       /// <returns>output instance of AssetReportInfo</returns>
       public AssetReportInfo ReconcileUseCases()
       {
-         List<AssetItemUseCase<AssetDataElement>> itms =
-            new List<AssetItemUseCase<AssetDataElement>>();
+         List<AssetUseCaseItem<AssetDataElement>> itms =
+            new List<AssetUseCaseItem<AssetDataElement>>();
 
-         AssetColumnInfo columns = new AssetColumnInfo();
+         AssetColumnsInfo columns = new AssetColumnsInfo();
 
+         // make a copy of the Asset Items (elements) these Items may or may not
+         // be included in the Use Case...
          foreach (var i in Items)
          {
-            AddItem(itms, columns, i);
+            UseCaseItemAdd(itms, columns, i);
             foreach (var a in i.Attributes)
             {
-               AddItem(itms, columns, a);
+               UseCaseItemAdd(itms, columns, a);
             }
          }
 
+         // reconcile the Asset Use Cases with the existing Asset Use Cases
          if (m_UseCasesMergedItems != null)
          {
             AssetUseCase.Reconcile(itms, m_UseCases);
@@ -510,7 +453,7 @@ namespace Edam.Data.AssetSchema
          AssetReportInfo report = new AssetReportInfo
          {
             Namespaces = Namespaces,
-            Assets = itms,
+            Items = itms,
             AssetCustomColumns = columns,
             UseCases = m_UseCases ?? new List<AssetUseCase>(),
             UseCaseColumns = m_UseCaseColumns,
@@ -520,7 +463,13 @@ namespace Edam.Data.AssetSchema
          return report;
       }
 
-      public static void ReconsileUseCases(
+      /// <summary>
+      /// Reconcile Use Cases by going through all provided "assets"...
+      /// </summary>
+      /// <param name="assets">Assets to be reconcile with Use Case Items
+      /// </param>
+      /// <param name="useCases">use case to be reconciled</param>
+      public static void ReconcileUseCases(
          List<AssetData> assets, List<AssetUseCase> useCases)
       {
          foreach(var asset in assets)
@@ -538,7 +487,7 @@ namespace Edam.Data.AssetSchema
       }
 
       #endregion
-      #region -- 4.0 - Find Element or Root Element
+      #region -- 4.00 - Find Element or Root Element
 
       public AssetDataElement FindRootElement(string elementName)
       {
@@ -560,7 +509,7 @@ namespace Edam.Data.AssetSchema
       }
 
       #endregion
-      #region -- 4.0 - To, From file, assets and others...
+      #region -- 4.00 - To, From file, assets and others...
 
       /// <summary>
       /// Given file details prepare an Asset Report.

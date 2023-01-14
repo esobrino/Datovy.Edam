@@ -119,7 +119,7 @@ namespace Edam.Xml.XmlExplore
       #region -- Annotations support
 
       public static void AssetSchemaAnnotation(
-         XmlSchemaAnnotation annotation, IAsset asset)
+         XmlSchemaAnnotation annotation, IAssetElement asset)
       {
          if (annotation == null || annotation.Items == null)
             return;

@@ -186,7 +186,7 @@ namespace Edam.WinUI.Controls.DataModels
          List<AssetData> items = pargs == null ?
             null : pargs.AssetDataItems as List<AssetData>;
 
-         AssetData.ReconsileUseCases(items, pargs.UseCases);
+         AssetData.ReconcileUseCases(items, pargs.UseCases);
 
          results.Data = items;
          results.ResultValueObject = items;

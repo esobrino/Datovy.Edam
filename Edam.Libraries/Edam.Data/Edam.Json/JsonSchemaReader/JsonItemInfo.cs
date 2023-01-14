@@ -12,7 +12,7 @@ using Edam.Data.AssetManagement;
 namespace Edam.Json.JsonSchemaReader
 {
 
-   public class JsonItemInfo : AssetElementInfo<JToken>, IAsset
+   public class JsonItemInfo : AssetElementInfo<JToken>, IAssetElement
    {
 
       protected List<JsonItemInfo> m_Children = new List<JsonItemInfo>();
@@ -41,7 +41,7 @@ namespace Edam.Json.JsonSchemaReader
          }
       }
 
-      public static void SetFullPath(AssetElementInfo<IAsset> asset,
+      public static void SetFullPath(AssetElementInfo<IAssetElement> asset,
          JsonAssetItemInfo assets)
       {
 
@@ -122,13 +122,13 @@ namespace Edam.Json.JsonSchemaReader
       /// <param name="ParentEntityName"></param>
       /// <param name="properties"></param>
       /// <returns></returns>
-      public AssetElementInfo<IAsset> ToAsset(String parentEntityName = null,
+      public AssetElementInfo<IAssetElement> ToAsset(String parentEntityName = null,
          JsonAssetItemInfo assets = null)
       {
          var me = this;
          JsonQualifiedNameInfo.CheckQualifiedName(
             ElementQualifiedName, Namespaces);
-         AssetElementInfo<IAsset> a = new AssetElementInfo<IAsset>
+         AssetElementInfo<IAssetElement> a = new AssetElementInfo<IAssetElement>
          {
             Namespaces = me.Namespaces,
             Namespace = String.IsNullOrWhiteSpace(me.Namespace) ?
