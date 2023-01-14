@@ -13,7 +13,7 @@ EDAM offers output that is always verifiable with schema definitions and its out
 This December 2022 EDAM is released in GITHUB with a set of limited functionality but enough to be able to quickly generate documentation, schemas, and other artifacts.  The rest of this document will try to provide a glimpse into EDAM and existing features.  This is not aimed to compete with Commercial offerings and is work in progress therefore expect incomplete functionality and documentation, by-hand configurations or work, bugs to be fixed and other hurdles that will be found while trying to use this product.  We have been users of our own software and we think that those hurdles worth the trouble since we could ease the Business Analysis and Data Architecture by quickly generate useable documentation and artifacts.   Hopefully we could find some additional contributors that could spend time with us and improve this product.
 
 ## <span style="color:skyblue;font-weight:bold">COMMUNICABLE DISEASES</span>
-At the same time of this release Datovy is also providing another contribution to the "Open SourceH community with the release of a database for "Communicable Diseases" or "Disease Surveillance" (DS) with limited and partial support for related CDC messaging.
+At the same time of this release Datovy is also providing another contribution to the "Open Source" community with the release of a database for "Communicable Diseases" or "Disease Surveillance" (DS) with limited and partial support for related CDC messaging.
 The DS database is used in the first release of EDAM as a sample non-trivial collection of data entities and components that show case supported features.
 
 ## <span style="color:skyblue">Sample Schemas</span>
