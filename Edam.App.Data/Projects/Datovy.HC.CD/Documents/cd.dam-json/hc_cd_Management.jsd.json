@@ -1597,6 +1597,8 @@
       },
       "cd7:Media_Data": {
          "description": "Media Data",
+         "type": "array",
+         "items": { "type": "string" }
       },
       "cd7:Scope_Code_ID": {
          "description": "Scope Code ID",

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Edam.Diagnostics;
+using System;
+using System.Collections.Generic;
 using System.Text;
 // -----------------------------------------------------------------------------
 namespace Edam.Text
@@ -13,6 +15,8 @@ namespace Edam.Text
 
       public String Name { get; set; }
       public TableBuilderType Type { get; set; }
+
+      public IResultsLog Results { get; set; } = new ResultLog();
 
       public TableBuilder(string delimiter = null)
       {
@@ -73,6 +77,23 @@ namespace Edam.Text
       {
 
       }
+
+      public void AppendHeader(string columns, uint rowStyle = 5)
+      {
+         throw new NotImplementedException();
+      }
+
+      public void AppendMainHeader(
+         List<string> header, string headerText, uint rowStyle = 5)
+      {
+         throw new NotImplementedException();
+      }
+
+      public void AddColumns(bool hidden = true, int count = 3)
+      {
+         throw new NotImplementedException();
+      }
+
    }
 
 }

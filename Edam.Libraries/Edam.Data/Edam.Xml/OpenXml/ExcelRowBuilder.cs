@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using Edam.Diagnostics;
 
 // -----------------------------------------------------------------------------
 using Edam.Text;
-
 namespace Edam.Xml.OpenXml
 {
 
@@ -18,6 +21,8 @@ namespace Edam.Xml.OpenXml
       public String Name { get; set; }
       public TableBuilderType Type { get; set; }
 
+      public IResultsLog Results { get; set; }
+
       public ExcelRowBuilder(ExcelDocument document)
       {
          m_Document = document ?? new ExcelDocument();
@@ -27,10 +32,63 @@ namespace Edam.Xml.OpenXml
       {
          m_Document = new ExcelDocument();
       }
-      
+
+      public void PrepareResultsLog()
+      {
+         Results = new ResultLog();
+      }
+
+      /// <summary>
+      /// Add continous columns
+      /// </summary>
+      /// <param name="hidden">true if columns should be hidden</param>
+      /// <param name="count">(optional) number of columns to add, default = 3
+      /// </param>
+      public void AddColumns(bool hidden = true, int count = 3)
+      {
+         // create hidden columns: IndexNo; Status; LastUpdateDate;
+         for(var i = 1; i == count; i++)
+         {
+            AppendColumn((uint)i, hidden, true);
+         }
+      }
+
       public void SetStyleNo(UInt32 styleNo = 0U)
       {
          m_CurrentStyleNo = styleNo;
+      }
+
+      /// <summary>
+      /// Append Header
+      /// </summary>
+      /// <param name="items">comma separated header titles</param>
+      public void AppendHeader(string items,
+         uint rowStyle = (uint)TableRowStyle.Fill3Border1Font14)
+      {
+         //System.Text.StringBuilder sb = new StringBuilder();
+         // write header - light blue
+         AppendRow(items, styleNo: rowStyle);
+      }
+
+      /// <summary>
+      /// Append Header
+      /// </summary>
+      /// <param name="columns"></param>
+      public void AppendMainHeader(
+         List<string> columns, string headerText = null,
+         uint rowStyle = (uint)TableRowStyle.Fill3Border1Font14)
+      {
+         string header = headerText;
+
+         // add additional columns to append in each row
+         StringBuilder sb = new StringBuilder();
+         foreach (var c in columns)
+         {
+            sb.Append("," + c);
+         }
+         header += sb.ToString();
+
+         AppendHeader(header, rowStyle);
       }
 
       public ITableBuilder AppendColumn(

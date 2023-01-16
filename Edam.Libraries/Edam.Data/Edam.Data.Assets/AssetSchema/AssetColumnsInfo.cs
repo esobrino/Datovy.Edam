@@ -65,6 +65,20 @@ namespace Edam.Data.AssetSchema
             Add(i.Name);
       }
 
+      /// <summary>
+      /// Get headers as list of strings...
+      /// </summary>
+      /// <returns></returns>
+      public List<string> ToList()
+      {
+         var list = new List<string>();
+         foreach(var i in Headers)
+         {
+            list.Add(i.Name);
+         }
+         return list;
+      }
+
    }
 
 }

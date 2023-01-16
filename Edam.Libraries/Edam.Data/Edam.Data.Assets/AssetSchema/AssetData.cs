@@ -12,14 +12,15 @@ using Edam.Data.AssetConsole;
 using Edam.Data.AssetManagement;
 using Edam.Text;
 using Edam.Data.AssetUseCases;
+using Edam.Data.AssetReport;
 
 namespace Edam.Data.AssetSchema
 {
 
-   /// <summary>
-   /// 
-   /// </summary>
-   public class AssetData
+    /// <summary>
+    /// 
+    /// </summary>
+    public class AssetData
    {
 
       #region -- 1.00 - Properties and Fields
