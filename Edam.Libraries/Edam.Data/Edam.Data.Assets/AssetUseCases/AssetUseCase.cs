@@ -94,13 +94,13 @@ namespace Edam.Data.AssetUseCases
       /// against</param>
       /// <param name="useCases">Use Case identifying Items to reconcile</param>
       public static void Reconcile(
-         List<AssetUseCaseItem<AssetDataElement>> asset,
+         List<AssetDataElement> asset,
          List<AssetUseCase> useCases)
       {
          var types = asset.Where(s =>
-               s.Item.ElementType == ElementType.root ||
-               s.Item.ElementType == ElementType.type)
-            .Select(s => s.Item).ToList();
+               s.ElementType == ElementType.root ||
+               s.ElementType == ElementType.type)
+            .Select(s => s).ToList();
 
          //var properties = assets.Where(
          //   s => s.Item.EntityQualifiedName != null &&
@@ -109,9 +109,9 @@ namespace Edam.Data.AssetUseCases
          //   .Select(s => s.Item).ToList();
          var properties = asset.Where(
             s =>
-               s.Item.ElementType == ElementType.attribute ||
-               s.Item.ElementType == ElementType.element)
-            .Select(s => s.Item).ToList();
+               s.ElementType == ElementType.attribute ||
+               s.ElementType == ElementType.element)
+            .Select(s => s).ToList();
 
          var recon = new AssetUseCaseReconciliator(types, properties);
          recon.Reconcile(useCases);

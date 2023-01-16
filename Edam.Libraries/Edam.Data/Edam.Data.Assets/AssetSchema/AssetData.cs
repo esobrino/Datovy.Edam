@@ -384,7 +384,7 @@ namespace Edam.Data.AssetSchema
       /// <param name="columns">list of column headers</param>
       /// <param name="element">element to be added</param>
       private void UseCaseItemAdd(
-         List<AssetUseCaseItem<AssetDataElement>> items,
+         List<AssetDataElement> items,
          AssetColumnsInfo columns, AssetDataElement element)
       {
          // add item to Use Cases Merged Items (Asset Items not necessarily part
@@ -402,13 +402,7 @@ namespace Edam.Data.AssetSchema
             }
          }
 
-         var ai = new AssetUseCaseItem<AssetDataElement>
-         {
-            Item = element,
-            Elements = elements ?? new List<AssetUseCaseElement>()
-         };
-
-         items.Add(ai);
+         items.Add(element);
       }
 
       /// <summary>
@@ -417,8 +411,8 @@ namespace Edam.Data.AssetSchema
       /// <returns>output instance of AssetReportInfo</returns>
       public AssetReportInfo ReconcileUseCases()
       {
-         List<AssetUseCaseItem<AssetDataElement>> itms =
-            new List<AssetUseCaseItem<AssetDataElement>>();
+         List<AssetDataElement> itms =
+            new List<AssetDataElement>();
 
          AssetColumnsInfo columns = new AssetColumnsInfo();
 

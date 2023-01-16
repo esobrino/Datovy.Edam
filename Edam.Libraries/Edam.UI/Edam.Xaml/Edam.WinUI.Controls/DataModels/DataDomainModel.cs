@@ -136,6 +136,10 @@ namespace Edam.WinUI.Controls.DataModels
 
                // not found, so try to register it...
                DataDomain dmain = results.Data.GetDataDomain();
+               if (dmain.DomainUri == "http://tempuri")
+               {
+                  return;
+               }
                instance.ShowDomainEditor(dmain);
             }
          }

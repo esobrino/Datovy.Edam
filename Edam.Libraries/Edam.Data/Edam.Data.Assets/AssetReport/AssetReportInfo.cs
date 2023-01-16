@@ -20,8 +20,14 @@ namespace Edam.Data.AssetReport
    {
 
       public List<NamespaceInfo> Namespaces { get; set; }
-      public List<AssetUseCaseItem<AssetDataElement>> Items { get; set; }
+
+      // data element to report about
+      public List<AssetDataElement> Items { get; set; }
+
+      // to report on the code sets...
       public List<AssetDataElement> CodeSetItems { get; set; }
+
+      // custom columns to support
       public AssetColumnsInfo AssetCustomColumns { get; set; }
 
       public bool PrepareNamespacesTab { get; set; }

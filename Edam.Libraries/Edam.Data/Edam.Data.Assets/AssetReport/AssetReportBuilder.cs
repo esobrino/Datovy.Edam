@@ -462,14 +462,13 @@ namespace Edam.Data.AssetReport
          // write data
          foreach (var i in report.Items)
          {
-            AppendTableCells(builder, i.Item);
+            AppendTableCells(builder, i);
             string header = GetMainHeader();
-            AssetUseCaseReport.AppendUseCases(builder, i.Elements, report);
             builder.AppendRowCellLast(null);
 
-            if (i.Item.ElementType == ElementType.enumerator)
+            if (i.ElementType == ElementType.enumerator)
             {
-               report.CodeSetItems.Add(i.Item);
+               report.CodeSetItems.Add(i);
             }
          }
       }
@@ -480,8 +479,6 @@ namespace Edam.Data.AssetReport
       /// <param name="file"></param>
       /// <returns></returns>
       public string ToWorkbookFile(FileInfo file, AssetReportInfo report)
-      //List<NamespaceInfo> namespaces, List<AssetItemUseCase<IAsset>> items,
-      //AssetColumnInfo columns, List<AssetUseCaseElement> useCasesItems)
       {
          report.ReportHeader = GetMainHeader();
 
