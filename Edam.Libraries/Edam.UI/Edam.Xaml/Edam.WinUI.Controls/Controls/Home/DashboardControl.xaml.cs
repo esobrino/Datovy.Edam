@@ -13,6 +13,7 @@ using Microsoft.UI.Xaml.Controls;
 using Edam.WinUI.Controls.Projects;
 using Edam.WinUI.Controls.ReferenceLists;
 using Edam.WinUI.Controls.Application;
+using Edam.Data.AssetProject;
 
 namespace Edam.WinUI.Controls.Home
 {
@@ -26,6 +27,7 @@ namespace Edam.WinUI.Controls.Home
       {
          this.InitializeComponent();
 
+         Project.InitializeProject();
          HomeControl.Children.Clear();
          var control = ApplicationHelper.GetHomeControl();
          if (control != null)

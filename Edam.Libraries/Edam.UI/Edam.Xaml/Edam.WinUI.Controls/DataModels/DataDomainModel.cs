@@ -113,7 +113,12 @@ namespace Edam.WinUI.Controls.DataModels
       #endregion
       #region -- 4.00 - Register Domain from Arguments
 
-      public static void RegisterDomain(ProjectItem item, string text)
+      /// <summary>
+      /// Register Domain with given info...
+      /// </summary>
+      /// <param name="item">Project Item to register</param>
+      /// <param name="jsonText">json document as text</param>
+      public static void RegisterDomain(ProjectItem item, string jsonText)
       {
          if (item == null)
          {
@@ -122,7 +127,7 @@ namespace Edam.WinUI.Controls.DataModels
          // now if this is an args json file then register domain
          if (item.Item.IsJson)
          {
-            var results = AssetConsoleArgumentsInfo.TryFromJson(text);
+            var results = AssetConsoleArgumentsInfo.TryFromJson(jsonText);
             if (results.Success)
             {
                var instance = GetInstance();
@@ -197,6 +202,10 @@ namespace Edam.WinUI.Controls.DataModels
       #endregion
       #region -- 4.00 - Domain Add/New Dialog Support Methods
 
+      /// <summary>
+      /// Process domain dialog results...
+      /// </summary>
+      /// <param name="result">results</param>
       private void ProcessDomainDialogResult(IDialogObjectInfo result)
       {
          var rslt = result as Dialogs.IDialogObjectInfo;

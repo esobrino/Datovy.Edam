@@ -343,6 +343,7 @@ namespace Edam.WinUI.Controls.ViewModels
          FolderFileItemInfo ffinfo = prjs.Project.GetProjectItems(
             SelectedUriItem == null ? null : SelectedUriItem.UriText);
          TreeView = ProjectDataModel.ToObservable(ffinfo);
+         Project.SetProjectsPath(item.UriText);
       }
 
       public void ManageResults(IResultsLog results)

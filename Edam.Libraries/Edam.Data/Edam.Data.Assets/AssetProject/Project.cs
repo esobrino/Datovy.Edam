@@ -34,15 +34,18 @@ namespace Edam.Data.AssetProject
          "EditorLanguageMapFileName";
 
       private static bool m_Initialized = false;
+      private static string m_ConsolePath = null;
+      private static string m_ProjectsPath = null;
 
       /// <summary>
       /// Initialize Project...
       /// </summary>
       public static void InitializeProject()
       {
-         string cdir = config.GetAbsolutePath(
+         m_ProjectsPath = AppSettings.GetString(config.ASSET_PROJECTS_PATH);
+         m_ConsolePath = config.GetAbsolutePath(
             AppSettings.GetString(config.ASSET_CONSOLE_PATH));
-         Directory.SetCurrentDirectory(cdir);
+         Directory.SetCurrentDirectory(m_ConsolePath);
          m_Initialized = true;
       }
 
@@ -53,8 +56,11 @@ namespace Edam.Data.AssetProject
       public static string GetProjectsPath(
          bool getRelativePath = false, bool onlyPath = false)
       {
-         string consolePath = config.GetAbsolutePath(
-            AppSettings.GetString(config.ASSET_CONSOLE_PATH));
+         string consolePath = String.IsNullOrWhiteSpace(m_ConsolePath) ?
+            config.GetAbsolutePath(
+               AppSettings.GetString(config.ASSET_CONSOLE_PATH)) :
+            m_ConsolePath;
+
          if (onlyPath)
          {
             return consolePath;
@@ -63,13 +69,21 @@ namespace Edam.Data.AssetProject
       }
 
       /// <summary>
+      /// Select Projects path.
+      /// </summary>
+      /// <param name="folderPath">folder path for projects</param>
+      public static void SetProjectsPath(string folderPath)
+      {
+         m_ConsolePath = folderPath;
+      }
+
+      /// <summary>
       /// Get Projects full Path...
       /// </summary>
       /// <returns></returns>
       public static string GetTextMapPath(bool getRelativePath = false)
       {
-         string consolePath = config.GetAbsolutePath(
-            AppSettings.GetString(config.ASSET_CONSOLE_PATH));
+         string consolePath = GetProjectsPath();
          return (getRelativePath ? "." : consolePath) + TEXT_MAPS + "/";
       }
 
@@ -86,9 +100,12 @@ namespace Edam.Data.AssetProject
          ResultsLog<string> results = new Diagnostics.ResultsLog<string>();
          try
          {
+            string ppath = String.IsNullOrWhiteSpace(projectsPath) ?
+                  GetProjectsPath() : projectsPath;
             Directory.SetCurrentDirectory(
-               String.IsNullOrWhiteSpace(projectsPath) ?
-                  GetProjectsPath() : projectsPath + PROJECTS + "/");
+               ppath.IndexOf(m_ProjectsPath) != -1 ?
+                  ppath : ppath + PROJECTS + "/");
+
             results.Data = Directory.GetCurrentDirectory();
             results.Succeeded();
          }
@@ -123,8 +140,7 @@ namespace Edam.Data.AssetProject
             string pname = Text.Convert.ToTitleCase(name).Replace(" ", "");
 
             // if project names exists just return...
-            string fpath = currentDirectory +
-               AppSettings.GetString(config.ASSET_PROJECTS_PATH) + name;
+            string fpath = GetProjectsPath() + name;
             if (Directory.Exists(fpath))
             {
                if (useProject)
