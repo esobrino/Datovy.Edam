@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 
 // -----------------------------------------------------------------------------
-using ReqResp = InXone.DataObjects.Requests;
-using Activity = InXone.DataObjects.Activities;
-using InXone.DataObjects.Notifications;
-using InXone.DataObjects;
+using ReqResp = Edam.DataObjects.Requests;
+using Activity = Edam.DataObjects.Activities;
+using Edam.DataObjects.Notifications;
+using Edam.DataObjects;
 
-namespace InXone.Help.Notifications
+namespace Edam.Help.Notifications
 {
 
    public class NotifyRecipientHelper
@@ -33,7 +33,7 @@ namespace InXone.Help.Notifications
          String sessionId, LocaleLanguage language, String requestId,
          Activity.ActivityRatingParticipantsInfo record,
          NotificationType request,
-         List<InXone.DataObjects.References.ReferenceBaseType> roles)
+         List<Edam.DataObjects.References.ReferenceBaseType> roles)
       {
          ReqResp.RequestResponseInfo<String> 
             response = null;
@@ -178,7 +178,7 @@ namespace InXone.Help.Notifications
             m.MessageText = Requests.RequestProcessor.
                GetActivityJoinedNotificationText(n.OrganizationId);
 
-            InXone.DataObjects.Entities.ParticipantInfo participant;
+            Edam.DataObjects.Entities.ParticipantInfo participant;
             if (activity.Participants != null &&
                 activity.Participants.Count > 0)
                participant = activity.Participants[0];

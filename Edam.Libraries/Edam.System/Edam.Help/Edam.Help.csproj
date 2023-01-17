@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InXone.DataObjects\InXone.DataObjects.csproj" />
-    <ProjectReference Include="..\InXone.System\InXone.System.csproj" />
+    <Folder Include="Merchants\" />
+    <Folder Include="UserAccounts\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Merchants\" />
-    <Folder Include="UserAccounts\" />
+    <ProjectReference Include="..\..\Edam.Data\Edam.DataObjects\Edam.DataObjects.csproj" />
+    <ProjectReference Include="..\Edam.System\Edam.System.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,6 +4,213 @@
     "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Help\\Edam.Help.csproj": {}
   },
   "projects": {
+    "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj",
+        "projectName": "Edam.Data.Assets",
+        "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj",
+        "packagesPath": "C:\\Users\\esobr\\.nuget\\packages\\",
+        "outputPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\esobr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Templates\\Edam.Data.Templates.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Templates\\Edam.Data.Templates.csproj",
+        "projectName": "Edam.Data.Templates",
+        "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Templates\\Edam.Data.Templates.csproj",
+        "packagesPath": "C:\\Users\\esobr\\.nuget\\packages\\",
+        "outputPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Templates\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\esobr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj"
+              },
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.DataObjects\\Edam.DataObjects.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.DataObjects\\Edam.DataObjects.csproj",
+        "projectName": "Edam.DataObjects",
+        "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.DataObjects\\Edam.DataObjects.csproj",
+        "packagesPath": "C:\\Users\\esobr\\.nuget\\packages\\",
+        "outputPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.DataObjects\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\esobr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj"
+              },
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Templates\\Edam.Data.Templates.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Templates\\Edam.Data.Templates.csproj"
+              },
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Net\\Edam.Net.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Net\\Edam.Net.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.8.0-beta, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Help\\Edam.Help.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -33,11 +240,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\InXone.DataObjects\\InXone.DataObjects.csproj": {
-                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\InXone.DataObjects\\InXone.DataObjects.csproj"
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.DataObjects\\Edam.DataObjects.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.DataObjects\\Edam.DataObjects.csproj"
               },
-              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\InXone.System\\InXone.System.csproj": {
-                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\InXone.System\\InXone.System.csproj"
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj"
               }
             }
           }
@@ -51,6 +258,152 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Net\\Edam.Net.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Net\\Edam.Net.csproj",
+        "projectName": "Edam.Net",
+        "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Net\\Edam.Net.csproj",
+        "packagesPath": "C:\\Users\\esobr\\.nuget\\packages\\",
+        "outputPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Net\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\esobr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj",
+        "projectName": "Edam.System",
+        "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj",
+        "packagesPath": "C:\\Users\\esobr\\.nuget\\packages\\",
+        "outputPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\esobr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.0-preview.4.21253.7, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0-preview.4.21253.7, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0-preview.4.21253.7, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 
 // -----------------------------------------------------------------------------
-using ReqResp = InXone.DataObjects.Requests;
-using Activity = InXone.DataObjects.Activities;
-using InXone.DataObjects.Notifications;
-using InXone.Net.Calendar;
-using InXone.DataObjects;
-using Resource = InXone.Application.Resources;
+using ReqResp = Edam.DataObjects.Requests;
+using Activity = Edam.DataObjects.Activities;
+using Edam.DataObjects.Notifications;
+using Edam.Net.Calendar;
+using Edam.DataObjects;
+using Resource = Edam.Application.Resources;
 
-namespace InXone.Help.Notifications
+namespace Edam.Help.Notifications
 {
 
    public class NotifyCalendarHelper
@@ -26,21 +26,21 @@ namespace InXone.Help.Notifications
          Activity.ActivityFollowUpDetailsInfo item)
       {
          CalendarInfo ical = new CalendarInfo();
-         InXone.Period p = new Period(item.ServiceStartTime, item.ServiceEndTime);
+         Edam.Period p = new Period(item.ServiceStartTime, item.ServiceEndTime);
 
          // prepare description...
          String messageFrom = String.IsNullOrWhiteSpace(item.OrganizationName) ?
             String.Empty : String.Format(
-               InXone.Application.Resources.ApplicationStrings.MessageFrom,
+               Edam.Application.Resources.ApplicationStrings.MessageFrom,
                item.OrganizationName);
-         String aDescript = InXone.Application.Resources.
+         String aDescript = Edam.Application.Resources.
             ApplicationStrings.ActivityFollowUpDescription;
          Boolean hasMessageFrom = String.IsNullOrWhiteSpace(messageFrom);
          String descript = hasMessageFrom ?
             aDescript : messageFrom + Resource.Strings.Html.TagBreak + aDescript;
 
          // get RSVP...
-         Boolean rsvp = (InXone.Application.Resources.Strings.True.ToLower() ==
+         Boolean rsvp = (Edam.Application.Resources.Strings.True.ToLower() ==
             Resource.ConfigResource.ActivityFollowUpDefaultRsvp);
 
          // build calendar appointment...

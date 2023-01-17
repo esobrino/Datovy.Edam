@@ -9,15 +9,15 @@ using System.Collections.Generic;
 //       <add key="NewUserVerificationUrl" value="http://local:3040/Home"/>
 //       <add key="NewUserSmtpServerConfigKey" value="Default"/>
 
-using InXone.DataObjects.Requests;
-using InXone.DataObjects.SelfHelp;
-using InXone.Application;
-//using InXone.DataObjects.Notifications;
+using Edam.DataObjects.Requests;
+using Edam.DataObjects.SelfHelp;
+using Edam.Application;
+//using Edam.DataObjects.Notifications;
 
-using Helper = InXone.DataObjects.SelfHelp;
-using DataObj = InXone.DataObjects;
+using Helper = Edam.DataObjects.SelfHelp;
+using DataObj = Edam.DataObjects;
 
-namespace InXone.Help.Requests
+namespace Edam.Help.Requests
 {
 
    /// <summary>
@@ -29,7 +29,7 @@ namespace InXone.Help.Requests
       #region -- 1.0 Fields and Properties
 
       public static readonly String WebAppUrlKey =
-         InXone.Application.Resources.Strings.WebAppUrlKey;
+         Edam.Application.Resources.Strings.WebAppUrlKey;
       public static readonly String NewUserSmtpServerKey =
          "NewUserSmtpServerConfigKey";
       public static readonly String NewUserLdapServerConfigKey =
@@ -49,14 +49,14 @@ namespace InXone.Help.Requests
          "/#userPasswordChange?sessionId={0}&requestId={1}&organizationId={2}" +
          "&userEmail={3}";
 
-      private InXone.Diagnostics.ResultLog m_LogResults;
+      private Edam.Diagnostics.ResultLog m_LogResults;
       private String m_RequestId = String.Empty;
       private String m_Email = String.Empty;
 
       /// <summary>
       /// Results Logged while processing requests.
       /// </summary>
-      public InXone.Diagnostics.ResultLog LogResults
+      public Edam.Diagnostics.ResultLog LogResults
       {
          get { return m_LogResults; }
       }
@@ -85,7 +85,7 @@ namespace InXone.Help.Requests
       {
          if (request == null)
          {
-            //throw new Exception(InXone.Application.Resources.
+            //throw new Exception(Edam.Application.Resources.
             //   ApplicationStrings.RequestMustBeDefined);
             // TODO: fix hardcoded text...
             throw new Exception("Request Must be Defined");
@@ -279,7 +279,7 @@ namespace InXone.Help.Requests
       /// <param name="recipients">(optional) recipients</param>
       /// <returns>true is returned if all is OK</returns>
       public Boolean SendEMail(String message, String subject = "",
-         List<InXone.DataObjects.Entities.RecipientInfo> recipients = null)
+         List<Edam.DataObjects.Entities.RecipientInfo> recipients = null)
       {
          Boolean allGood;
          Int16 goodCnt = 0, badCnt = 0;
@@ -292,7 +292,7 @@ namespace InXone.Help.Requests
          {
             if (recipients == null)
             {
-               allGood = InXone.Net.Smtp.SmtpClient.SendMessage(smtpConfigKey,
+               allGood = Edam.Net.Smtp.SmtpClient.SendMessage(smtpConfigKey,
                   m_Email, message, subject);
                if (allGood)
                   m_LogResults.Succeeded();
@@ -304,7 +304,7 @@ namespace InXone.Help.Requests
             {
                foreach (DataObj.Entities.RecipientInfo r in recipients)
                {
-                  allGood = InXone.Net.Smtp.SmtpClient.SendMessage(smtpConfigKey,
+                  allGood = Edam.Net.Smtp.SmtpClient.SendMessage(smtpConfigKey,
                      r.Email, message, subject);
                   if (allGood)
                   {
@@ -439,21 +439,21 @@ namespace InXone.Help.Requests
       /// </summary>
       /// <returns>the Service Result Code is returned (Success if all is OK)
       /// </returns>
-      public InXone.Services.ServiceResultCode SubmitDirectoryUserRegistration(
+      public Edam.Services.ServiceResultCode SubmitDirectoryUserRegistration(
          Helper.RegistrationRequestInfo request)
       {
 
          // get LDAP / Directory Services key values...
-         InXone.Net.Ldap.LdapServiceInfo s =
-            InXone.Services.ServicesSession.Configurations.FindLdapService(
+         Edam.Net.Ldap.LdapServiceInfo s =
+            Edam.Services.ServicesSession.Configurations.FindLdapService(
                NewUserLdapServerConfigKey);
-         String usersCN = InXone.Net.Ldap.
+         String usersCN = Edam.Net.Ldap.
             DirectoryServiceClient.GetDirectoryServiceUsersCN();
-         InXone.Services.ServiceResultCode result =
-            InXone.Services.ServiceResultCode.Unknown;
+         Edam.Services.ServiceResultCode result =
+            Edam.Services.ServiceResultCode.Unknown;
 
          // prepare user CN request ...
-         InXone.Net.Ldap.LdapUserInfo u = new InXone.Net.Ldap.LdapUserInfo();
+         Edam.Net.Ldap.LdapUserInfo u = new Edam.Net.Ldap.LdapUserInfo();
 
          u.UserTitle = request.FullName;
          u.UserId = request.UserId;
@@ -478,7 +478,7 @@ namespace InXone.Help.Requests
          // submit request...
          if ((s != null) && (!String.IsNullOrEmpty(usersCN)))
          {
-            InXone.Net.Ldap.DirectoryServiceClient c =
+            Edam.Net.Ldap.DirectoryServiceClient c =
                new Net.Ldap.DirectoryServiceClient(s);
             result = c.CreateUserAccount(usersCN, u);
          }
