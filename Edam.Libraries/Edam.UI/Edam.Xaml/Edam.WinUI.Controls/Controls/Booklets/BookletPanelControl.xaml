@@ -45,6 +45,9 @@
                   </MenuBarItemFlyout>
                </AppBarButton.Flyout>
             </AppBarButton>
+            <AppBarButton Icon="Play" LabelPosition="Collapsed" Padding="0" Width="40"
+                       Click="ExecuteBooklet_Click" ToolTipService.ToolTip="Execute Booklet"
+                       Foreground="Green"/>
             <!--<AppBarButton Icon="Cancel" LabelPosition="Collapsed" Padding="0" Width="40"
                        Click="DeleteCell_Click" ToolTipService.ToolTip="Remove Cell"
                        Foreground="Brown"/>-->

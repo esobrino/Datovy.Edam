@@ -40,11 +40,14 @@
                        ToolTipService.ToolTip="Add Cell">
                <AppBarButton.Flyout>
                   <MenuBarItemFlyout>
-                     <MenuFlyoutItem x:ConnectionId='6' Text="Code Cell"                           />
-                     <MenuFlyoutItem x:ConnectionId='7' Text="Text Cell"                          />
+                     <MenuFlyoutItem x:ConnectionId='7' Text="Code Cell"                           />
+                     <MenuFlyoutItem x:ConnectionId='8' Text="Text Cell"                          />
                   </MenuBarItemFlyout>
                </AppBarButton.Flyout>
             </AppBarButton>
+            <AppBarButton x:ConnectionId='6' Icon="Play" LabelPosition="Collapsed" Padding="0" Width="40"
+                                                    ToolTipService.ToolTip="Execute Booklet"
+                       Foreground="Green"/>
             <!--<AppBarButton Icon="Cancel" LabelPosition="Collapsed" Padding="0" Width="40"
                        Click="DeleteCell_Click" ToolTipService.ToolTip="Remove Cell"
                        Foreground="Brown"/>-->

@@ -325,7 +325,12 @@ namespace Edam.Data.AssetUseCases
       /// <summary>
       /// Given an Asset Use Case Map prepare a related Asset Use Case...
       /// </summary>
-      /// <param name="map">Use Case map to generate Use Case from</param>
+      /// <remarks>
+      /// The given map contains the information about source and target items
+      /// to be used to generate an mapping Asset Data Element containing this
+      /// information</remarks>
+      /// <param name="map">Use Case map to generate an Asset Use Case from
+      /// </param>
       /// <param name="mapper">mapping information</param>
       public static AssetUseCase ToAssetUseCase(
          AssetUseCaseMap map, BookMapper mapper)
@@ -333,6 +338,12 @@ namespace Edam.Data.AssetUseCases
          BookMapItemList items = BookMapItemList.PrepareList(map, mapper);
 
          AssetUseCase uc = new AssetUseCase(mapper.Namespace, mapper.VersionId);
+
+         // iteract through each (source -> target) map items...
+         foreach(var item in map.Items)
+         {
+            //item.
+         }
 
          return uc;
       }

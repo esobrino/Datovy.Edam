@@ -29,7 +29,7 @@ using Edam.Data.AssetUseCases;
 namespace Edam.WinUI.Controls.DataModels
 {
 
-    public enum DataTreeEventType
+   public enum DataTreeEventType
    {
       Unknown = 0,
       ItemSelected = 1,

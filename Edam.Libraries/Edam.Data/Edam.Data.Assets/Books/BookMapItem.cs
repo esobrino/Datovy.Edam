@@ -171,8 +171,8 @@ namespace Edam.Data.Assets.Books
          {
             foreach (var sitem in map.SourceItems)
             {
-               var fitem = Find(outList, sitem, DataMapItemType.Source);
-               if (fitem == null && !fitem.Visited)
+               var fitem = Find(items, sitem, DataMapItemType.Source);
+               if (fitem != null && !fitem.Visited)
                {
                   fitem.Visited = true;
                   outList.Add(fitem);
@@ -180,8 +180,8 @@ namespace Edam.Data.Assets.Books
             }
             foreach (var titem in map.TargetItems)
             {
-               var fitem = Find(outList, titem, DataMapItemType.Target);
-               if (fitem == null && !fitem.Visited)
+               var fitem = Find(items, titem, DataMapItemType.Target);
+               if (fitem != null && !fitem.Visited)
                {
                   fitem.Visited = true;
                   outList.Add(fitem);

@@ -32,12 +32,17 @@
             <TextBox x:Name="UseCaseNameBox" PlaceholderText="Name" 
                      Text="{x:Bind ViewModel.UseCaseName, Mode=TwoWay}" 
                      Margin="0,5" MinWidth="260" />
+            
             <AppBarButton Icon="Save" LabelPosition="Collapsed" Padding="0" 
                           Width="40" Foreground="Navy"
                           Click="UseCaseSave_Click" ToolTipService.ToolTip="Save Use Case" />
             <AppBarButton Icon="Page2" LabelPosition="Collapsed" Padding="0" 
                           Width="40" Foreground="Navy"
                           Click="UseCaseReport_Click" ToolTipService.ToolTip="Prepare Report" />
+            <AppBarButton Icon="Play" LabelPosition="Collapsed" Padding="0" 
+                          Width="40" Foreground="Green"
+                          Click="ExecuteBook_Click" ToolTipService.ToolTip="Execute Book" />
+            
             <FontIcon Margin="20,0" Visibility="{x:Bind ViewModel.AddToVisibility, Mode=TwoWay}"
                       ToolTipService.ToolTip="Double-Tapped items will be added to selected Map-Item"
                       Foreground="#4f4f4f" FontFamily="Segoe MDL2 Assets" 

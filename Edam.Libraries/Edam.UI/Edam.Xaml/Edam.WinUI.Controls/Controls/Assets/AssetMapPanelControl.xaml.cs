@@ -98,6 +98,11 @@ namespace Edam.WinUI.Controls.Assets
          DataMapContext.PrepareUseCaseReport(ViewModel.Context);
       }
 
+      private void ExecuteBook_Click(object sender, RoutedEventArgs e)
+      {
+         //DataMapContext.PrepareUseCaseReport(ViewModel.Context);
+      }
+
    }
 
 }

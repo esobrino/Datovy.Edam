@@ -38,7 +38,7 @@ Review the Use Case sections in the provided Documentation to get acquainted wit
 ## <span style="color:skyblue;font-weight:bold">CONTRIBUTING</span>
 We hope that this project is useful for others in search of an open platform for "Enteprise Data Asset Management" for now at a starting point.  With that in mind help us shape the future of this project, we will greatly appreciate any help in any form.
 
-## <span style="color:skyblue;font-weight:bold">WORD OF CAUTION</span>
+## <span style="color:skyblue;font-weight:bold">REFERENCES</span>
 This project uses a few open-source contributions from different sources or GITHUB Projects on their own including the use of the Microsoft Monaco editor and others.  Those contributions should be found in their original form and easy to identify and those have their own licenses and copyrights, make sure to keep those as found.  If you find some code not properly referenced let us know.
 
 The original project came from "KnowTech Inc." (KT), located in SC, and with the help of Datovy put in shape for the GITHUB.  You may find references of KT all over the code and those libaries and contributions should be acknowledged as the contribution of KT.
