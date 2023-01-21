@@ -22,18 +22,21 @@ For the "Communicable Diseases" project the EDAM was used to produce sample sche
 - Datovy.Edam/Edam.App.Data/Projects/Datovy.HC.CD/Documents folder.
 
 ## <span style="color:skyblue;font-weight:bold">EDAM FEATURES</span>
-(See feature list in the Documents/Edam.EU.Documentation.v0.docx)
+(See feature list in the Documents/Edam.Documentation.v0.docx)
 
 ## <span style="color:skyblue;font-weight:bold">END-USER DOCUMENTATION</span>
-(Review the Word document in Documents/Edam.EU.Documentation.v0.docx)
+(Review the Word document in Documents/Edam.Documentation.v0.docx)
 
 ## <span style="color:skyblue;font-weight:bold">EDAM DATABASE</span>
-The MS-SQL EDAM Database is provided as a separate VS solution withing this project that can be found in "Edam.Database".
+The MS-SQL EDAM Database is provided as a separate VS solution withing this project that can be found in "Edam.Database" (see the related "Edam.Installation.v0.doc" documentation)
 
 ## <span style="color:skyblue;font-weight:bold">EDAM USE CASE SUPPORT</span>
 There are too many issues while trying prepare an Asset Data Mapping for a Use Case using Excel that is usually and often done by hand.  EDAM support for Use Cases helps to describe the mappings, processing instructions while directly managing the source and target paths by the Application keeping it consistent with the data components and documents.
 
 Review the Use Case sections in the provided Documentation to get acquainted with Use Case, Mappings, and Reporting support. 
+
+## <span style="color:skyblue;font-weight:bold">GETTING STARTED</span>
+Find how to install the current version and other documentation in the "Documentation" folder.
 
 ## <span style="color:skyblue;font-weight:bold">CONTRIBUTING</span>
 We hope that this project is useful for others in search of an open platform for "Enteprise Data Asset Management" for now at a starting point.  With that in mind help us shape the future of this project, we will greatly appreciate any help in any form.
