@@ -5,6 +5,7 @@ using System.Linq;
 // -----------------------------------------------------------------------------
 using Edam.Data.Asset;
 using Edam.Data.AssetManagement;
+using Edam.Data.Assets.AssetUseCases;
 using Edam.Data.AssetSchema;
 
 namespace Edam.Data.AssetUseCases
@@ -26,6 +27,11 @@ namespace Edam.Data.AssetUseCases
       /// </summary>
       public AssetDataElementList Items { get; set; }
 
+      /// <summary>
+      /// A Report Map Item list identifying source and target elements...
+      /// </summary>
+      public List<AssetUseCaseReportItem> MappedItems { get; set; }
+
       public AssetProcess Instructions { get; set; }
       public AssetComment Comments { get; set; }
 
@@ -35,6 +41,7 @@ namespace Edam.Data.AssetUseCases
          Items = new AssetDataElementList(ns, AssetType.UseCase, versionId);
          Instructions = new AssetProcess();
          Comments = new AssetComment();
+         MappedItems = new List<AssetUseCaseReportItem>();
       }
 
       /// <summary>

@@ -16,10 +16,15 @@
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
          <RowDefinition Height="Auto"/>
+         <RowDefinition Height="Auto"/>
          <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
+
+      <StackPanel Grid.Row="0" Grid.Column="0">
+         <TextBlock Text="Map Items" Margin="17,2,0,0" />
+      </StackPanel>
       
-      <ScrollViewer x:ConnectionId='2' Grid.Row="0" Grid.Column="0"
+      <ScrollViewer x:ConnectionId='2' Grid.Row="1" Grid.Column="0"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                                   
                                               >
@@ -34,18 +39,20 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
                      </Grid.ColumnDefinitions>
                      <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                      </Grid.RowDefinitions>
 
                      <ListView x:ConnectionId='8' Grid.Row="0" Grid.Column="0"
+                               HorizontalAlignment="Stretch"
                                                                                                          
                             ItemsSource="{Binding SourceElement}"
                             x:Name="SourceControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>
-                              <MenuFlyoutItem x:ConnectionId='12' Text="Delete" ToolTipService.ToolTip="Select Item then Delete" Icon="Delete"                               />
+                              <MenuFlyoutItem x:ConnectionId='13' Text="Delete" ToolTipService.ToolTip="Select Item then Delete" Icon="Delete"                               />
                            </MenuFlyout>
                         </ListView.ContextFlyout>
                         <ListView.ItemTemplate>
@@ -61,12 +68,13 @@
                             Foreground="#4f4f4f" FontFamily="Segoe MDL2 Assets" Glyph="&#xF0AF;"/>
 
                      <ListView x:ConnectionId='9' Grid.Row="0" Grid.Column="2" 
+                               HorizontalAlignment="Stretch"
                                                                              
                             ItemsSource="{Binding TargetElement}"
                             x:Name="TargetControl">
                         <ListView.ContextFlyout>
                            <MenuFlyout>
-                              <MenuFlyoutItem x:ConnectionId='10' Text="Delete" Icon="Delete"                               />
+                              <MenuFlyoutItem x:ConnectionId='11' Text="Delete" Icon="Delete"                               />
                            </MenuFlyout>
                         </ListView.ContextFlyout>
                         <ListView.ItemTemplate>
@@ -78,13 +86,20 @@
                         </ListView.ItemTemplate>
                      </ListView>
 
+                     <FontIcon x:ConnectionId='10' Margin="4,5" Foreground="Brown" FontSize="12"
+                           FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;" 
+                           ToolTipService.ToolTip="Delete"
+                           ToolTipService.Placement="Bottom" 
+                           Grid.Row="0" Grid.Column="3" Width="20"
+                                                                  />
+                     
                   </Grid>
                </DataTemplate>
             </ListView.ItemTemplate>
          </ListView>
       </ScrollViewer>
 
-      <TabView Grid.Row="1" Grid.Column="0" Background="#EFEFEF"
+      <TabView Grid.Row="2" Grid.Column="0" Background="#EFEFEF"
                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                      IsAddTabButtonVisible="False" TabWidthMode="SizeToContent"
                      >

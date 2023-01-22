@@ -20,6 +20,7 @@ using Edam.Data.AssetSchema;
 using Edam.InOut;
 using Edam.Data.Assets.Books;
 using Edam.Data.AssetConsole;
+using Edam.Data.Assets.AssetUseCases;
 
 namespace Edam.Data.AssetUseCases
 {
@@ -171,6 +172,11 @@ namespace Edam.Data.AssetUseCases
       #endregion
       #region -- 4.00 - Delete map item management
 
+      /// <summary>
+      /// Delete Map Item.
+      /// </summary>
+      /// <param name="type">source or destination</param>
+      /// <param name="item">item to delete</param>
       public void Delete(DataMapItemType type, MapItemInfo item)
       {
          var l = type == DataMapItemType.Source ?
@@ -179,6 +185,29 @@ namespace Edam.Data.AssetUseCases
          if (i != null)
          {
             l.Remove(i);
+         }
+      }
+
+      /// <summary>
+      /// Delete map item source-target collections...
+      /// </summary>
+      /// <param name="item">asset data map item to delete</param>
+      public void Delete(AssetDataMapItem item)
+      {
+         var mitem = Items.Find((x) => x.MapItemId == item.MapItemId);
+         if (mitem == null)
+         {
+            return;
+         }
+
+         // delete all asset map item source - target collections...
+         foreach(var i in mitem.SourceElement)
+         {
+            Book.Delete(i);
+         }
+         foreach (var i in mitem.TargetElement)
+         {
+            Book.Delete(i);
          }
       }
 
@@ -340,9 +369,26 @@ namespace Edam.Data.AssetUseCases
          AssetUseCase uc = new AssetUseCase(mapper.Namespace, mapper.VersionId);
 
          // iteract through each (source -> target) map items...
+         int index = 0;
          foreach(var item in map.Items)
          {
-            //item.
+            var ritem = new AssetUseCaseReportItem
+            {
+               Index = index,
+               MapItem = item
+            };
+
+            if (item.SourceElement.Count >= index)
+            {
+               ritem.Source = item.SourceElement[index].DataElement;
+            }
+            if (item.TargetElement.Count >= index)
+            {
+               ritem.Target = item.TargetElement[index].DataElement;
+            }
+            index++;
+
+            uc.MappedItems.Add(ritem);
          }
 
          return uc;

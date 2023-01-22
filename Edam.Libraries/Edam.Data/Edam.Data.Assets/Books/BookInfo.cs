@@ -9,6 +9,7 @@ using Newtonsoft.Json.Serialization;
 using Edam.Serialization;
 using Edam.TextParse;
 using Edam.Data.Asset;
+using Edam.Data.AssetSchema;
 using Newtonsoft.Json;
 using Edam.Data.AssetUseCases;
 
@@ -63,6 +64,26 @@ namespace Edam.Data.Books
       public BookletInfo Find(string bookletId)
       {
          return Items.Find((x) => x.BookletId == bookletId);
+      }
+
+      /// <summary>
+      /// Delete all Booklets that reference a given Map Item.
+      /// </summary>
+      /// <param name="item">map item whose references should be deleted</param>
+      public void Delete(MapItemInfo item)
+      {
+         List<BookletInfo> toRemove = new List<BookletInfo>();
+         foreach(var blet in Items)
+         {
+            if (blet.ReferenceId == item.ItemId)
+            {
+               toRemove.Add(blet);
+            }
+         }
+         foreach(var blet in toRemove)
+         {
+            Items.Remove(blet);
+         }
       }
 
    }

@@ -46,12 +46,15 @@ namespace Edam.WinUI.Controls.ViewModels
          get { return m_SelectedItem; }
          set
          {
-            if (m_SelectedItem != value)
+            if (m_SelectedItem != value && value != null)
             {
                m_SelectedItem = value;
                OnPropertyChanged(nameof(SelectedItem));
                
                CurrentItem = m_SelectedItem;
+            }
+            if (value != null)
+            {
                SetCurrentItem(value, DataTreeEventType.ItemSelected);
             }
          }

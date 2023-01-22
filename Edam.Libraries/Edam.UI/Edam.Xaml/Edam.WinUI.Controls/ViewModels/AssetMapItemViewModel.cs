@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using Microsoft.UI.Xaml;
 
 // -----------------------------------------------------------------------------
 using Edam.Data.AssetConsole;
@@ -21,7 +22,11 @@ using Edam.Data.AssetUseCases;
 namespace Edam.WinUI.Controls.ViewModels
 {
 
-    public class AssetMapItemViewModel : ObservableObject
+   /// <summary>
+   /// The Map Item establish the set of items to be mapped to accomplish a 
+   /// specific source to target mapping.
+   /// </summary>
+   public class AssetMapItemViewModel : ObservableObject
    {
 
       #region -- 1.00 - Properties and Fields
@@ -255,7 +260,8 @@ namespace Edam.WinUI.Controls.ViewModels
       /// <param name="type">type identify to be source or target</param>
       /// <param name="args">Data Tree event arguments</param>
       private MapItemInfo Add(
-         DataMapItemType type, DataTreeEventArgs args)
+         DataMapItemType type, DataTreeEventArgs args, 
+         DataTreeEventType eventType)
       {
          // get tree item
          var item = args.DataItem as DataTreeModel;
@@ -314,7 +320,7 @@ namespace Edam.WinUI.Controls.ViewModels
       {
          if (args.KeyEventData.IsControlKeyPressed)
          {
-            return Add(type, args);
+            return Add(type, args, DataTreeEventType.ItemSelected);
          }
 
          // get tree item
@@ -364,6 +370,10 @@ namespace Edam.WinUI.Controls.ViewModels
       /// <param name="item">asset map item</param>
       private void ManageSelectedMapItem(AssetDataMapItem item)
       {
+         if (item != null && item.SourceElement.Count == 0)
+         {
+            return;
+         }
          ManageSelectedMapItem(
             DataMapItemType.Source, 
             item == null ? null : item.SourceElement[0], null);
@@ -382,7 +392,7 @@ namespace Edam.WinUI.Controls.ViewModels
          MapItemInfo item;
          if (args.Type == DataTreeEventType.DoubleTapped)
          {
-            Add(DataMapItemType.Source, args);
+            Add(DataMapItemType.Source, args, args.Type);
          }
 
          item = ItemSelected(DataMapItemType.Source, args);
@@ -405,7 +415,7 @@ namespace Edam.WinUI.Controls.ViewModels
          MapItemInfo item;
          if (args.Type == DataTreeEventType.DoubleTapped)
          {
-            item = Add(DataMapItemType.Target, args);
+            item = Add(DataMapItemType.Target, args, args.Type);
          }
          
          item = ItemSelected(DataMapItemType.Target, args);
@@ -451,6 +461,30 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             Delete(type, CurrentMapItem.TargetElement, TargetSelectedItem);
          }
+      }
+
+      /// <summary>
+      /// Delete a complete map item source-target collection...
+      /// </summary>
+      /// <param name="item">asset data map item to delete</param>
+      public void DeleteItem(AssetDataMapItem item)
+      {
+         AssetDataMapItem mitem = null;
+         foreach(var i in MapItemList)
+         {
+            if (i.MapItemId == item.MapItemId)
+            {
+               mitem = i;
+               break;
+            }
+         }
+         if (mitem == null)
+         {
+            return;
+         }
+
+         Context.Delete(item);
+         MapItemList.Remove(mitem);
       }
 
       #endregion

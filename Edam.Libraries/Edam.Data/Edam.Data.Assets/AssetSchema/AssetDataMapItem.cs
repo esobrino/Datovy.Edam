@@ -54,6 +54,10 @@ namespace Edam.Data.AssetSchema
       public MapAnnotationInfo Annotation { get; set; }
    }
 
+   /// <summary>
+   /// Define a collection of source and target items that are used to define
+   /// a particular Use Case mapping requirement.
+   /// </summary>
    public class AssetDataMapItem
    {
       public string MapItemId { get; set; } = Guid.NewGuid().ToString();

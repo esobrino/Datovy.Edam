@@ -13,6 +13,7 @@ ApplicationData\AM_Console\TextMaps\JsdTextMap.json
 ApplicationData\AM_Console\TextMaps\XsdTextMap.B2B.json
 ApplicationData\AM_Console\TextMaps\XsdTextMap.Hl7.Fhir.json
 ApplicationData\AM_Console\TextMaps\XsdTextMap.json
+Assets\edam.logo.ico
 Assets\LockScreenLogo.scale-200.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png
@@ -20,4 +21,5 @@ Assets\Square44x44Logo.scale-200.png
 Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
+edam.logo.ico
 ReferenceDataTemplates\DataSource.Template.json

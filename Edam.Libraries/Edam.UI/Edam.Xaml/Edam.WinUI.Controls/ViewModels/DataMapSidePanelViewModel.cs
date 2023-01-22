@@ -145,7 +145,7 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             //item = Add(DataMapItemType.Source, args);
          }
-         else
+         else if (Context.BookModel != null)
          {
             SelectedBooklet = Context.BookModel.Model.SelectedBooklet;
             SelectedMapItem = UseCase.SelectedMapItem;

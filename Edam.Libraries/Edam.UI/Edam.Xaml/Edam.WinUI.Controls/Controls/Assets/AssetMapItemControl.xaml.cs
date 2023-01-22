@@ -29,7 +29,7 @@ using Edam.Data.AssetUseCases;
 namespace Edam.WinUI.Controls.Assets
 {
 
-    public sealed partial class AssetMapItemControl : UserControl
+   public sealed partial class AssetMapItemControl : UserControl
    {
       private AssetMapItemViewModel m_ViewModel = new AssetMapItemViewModel();
       public AssetMapItemViewModel ViewModel
@@ -120,6 +120,18 @@ namespace Edam.WinUI.Controls.Assets
       public void NotifyUseCaseSaved()
       {
          FolderViewer.ViewModel.RefreshFolderFiles();
+      }
+
+      private void Delete_PointerPressed(
+         object sender, PointerRoutedEventArgs e)
+      {
+         FontIcon fontIcon = sender as FontIcon;
+         if (fontIcon != null)
+         {
+            AssetDataMapItem item = fontIcon.DataContext as AssetDataMapItem;
+            ViewModel.DeleteItem(item);
+         }
+
       }
 
    }

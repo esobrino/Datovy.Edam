@@ -563,6 +563,18 @@ namespace Edam.WinUI.Controls.DataModels
       }
 
       #endregion
+      #region -- 4.00 - Delete Map Items
+
+      /// <summary>
+      /// Delete a complete map item source-target collection...
+      /// </summary>
+      /// <param name="item">asset data map item to delete</param>
+      public void Delete(AssetDataMapItem item)
+      {
+         UseCase.Delete(item);
+      }
+
+      #endregion
 
    }
 

@@ -10,7 +10,11 @@
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
+    <ApplicationIcon>edam.logo.ico</ApplicationIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="Assets\edam.logo.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Remove="ApplicationData\AM_Console\Projects\DAM\Arguments\0010.ToAssets.Args.json" />
     <None Remove="ApplicationData\AM_Console\Projects\DAM\Documents\placeholder.txt" />
@@ -83,6 +87,7 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="edam.logo.ico" />
     <Content Include="ReferenceDataTemplates\DataSource.Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
