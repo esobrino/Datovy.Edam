@@ -476,8 +476,9 @@ namespace Edam.Data.AssetReport
       /// <summary>
       /// Given file details write 
       /// </summary>
-      /// <param name="file"></param>
-      /// <returns></returns>
+      /// <param name="file">Output File Information</param>
+      /// <param name="report">report information</param>
+      /// <returns>report data as a string is returned.</returns>
       public string ToWorkbookFile(FileInfo file, AssetReportInfo report)
       {
          report.ReportHeader = GetMainHeader();
@@ -493,8 +494,14 @@ namespace Edam.Data.AssetReport
          builder.Name = "Dictionary";
 
          // add Use Cases
-         string header = GetMainHeader();
-         AssetUseCaseReport.AppendUseCases(builder, report);
+         if (report.UseCases.HasItems)
+         {
+            AssetUseCaseReport.AppendUseCases(builder, report);
+         }
+         else if (report.UseCases.HasMapItems)
+         {
+            AssetUseCaseReport.AppendUseCaseMapItems(builder, report);
+         }
 
          // add Dictionary
          AppendAssetItems(builder, report);
@@ -507,15 +514,15 @@ namespace Edam.Data.AssetReport
 
          // add Enum Summary (TAB) as needed
          //if (report.PrepareEnumSummaryTab)
-         {
-            AppendCodeSetSummary(builder, report.CodeSetItems);
-         }
+         //{
+         //   AppendCodeSetSummary(builder, report.CodeSetItems);
+         //}
 
          // add Code Sets (TAB[s]) as needed
          //if (report.PrepareEnumTabs)
-         {
-            AppendCodeSetItems(builder, report.CodeSetItems);
-         }
+         //{
+         //   AppendCodeSetItems(builder, report.CodeSetItems);
+         //}
 
          string data = null;
          if (builder.Type == TableBuilderType.CSV)

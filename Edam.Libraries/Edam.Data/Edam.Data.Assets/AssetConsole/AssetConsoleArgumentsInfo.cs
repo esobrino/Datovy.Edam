@@ -33,7 +33,7 @@ namespace Edam.Data.AssetConsole
       private const string CLASS_NAME = "AssetConsoleArgumentsInfo";
 
       [JsonIgnore]
-      public List<AssetUseCase> UseCases { get; set; }
+      public AssetUseCaseList UseCases { get; set; }
 
       public prj.ProjectInfo Project { get; set; }
       public ProcessInfo Process { get; set; }

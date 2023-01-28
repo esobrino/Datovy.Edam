@@ -48,11 +48,11 @@ namespace Edam.Data.AssetSchema
       #endregion
       #region -- 1.00 - Properties and Fields for Use Case Management
 
-      protected List<AssetUseCase> m_UseCases { get; set; }
+      protected AssetUseCaseList m_UseCases { get; set; }
       protected AssetColumnsInfo m_UseCaseColumns { get; set; }
       protected List<AssetUseCaseElement> m_UseCasesMergedItems;
 
-      public List<AssetUseCase> UseCases
+      public AssetUseCaseList UseCases
       {
          get { return m_UseCases; }
          set { m_UseCases = value; }
@@ -222,7 +222,7 @@ namespace Edam.Data.AssetSchema
          NamespaceInfo.Merge(Namespaces, asset.Namespaces);
          m_UseCaseColumns.Add(asset.UseCaseColumns.Headers);
 
-         m_UseCases = new List<AssetUseCase>();
+         m_UseCases = new AssetUseCaseList();
          if (asset.UseCases != null)
             m_UseCases.AddRange(asset.UseCases);
 
@@ -435,7 +435,7 @@ namespace Edam.Data.AssetSchema
 
          if (m_UseCases == null)
          {
-            m_UseCases = new List<AssetUseCase>();
+            m_UseCases = new AssetUseCaseList();
          }
 
          //var columns = m_UseCaseColumns.Headers.Count == 0 ?
@@ -450,7 +450,7 @@ namespace Edam.Data.AssetSchema
             Namespaces = Namespaces,
             Items = itms,
             AssetCustomColumns = columns,
-            UseCases = m_UseCases ?? new List<AssetUseCase>(),
+            UseCases = m_UseCases ?? new AssetUseCaseList(),
             UseCaseColumns = m_UseCaseColumns,
             UseCasesMergedItems = m_UseCasesMergedItems
          };
@@ -465,7 +465,7 @@ namespace Edam.Data.AssetSchema
       /// </param>
       /// <param name="useCases">use case to be reconciled</param>
       public static void ReconcileUseCases(
-         List<AssetData> assets, List<AssetUseCase> useCases)
+         List<AssetData> assets, AssetUseCaseList useCases)
       {
          foreach(var asset in assets)
          {

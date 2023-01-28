@@ -14,7 +14,7 @@ namespace Edam.Data.AssetUseCases
    public class AssetUseCaseReport
    {
 
-      #region -- 4.00 - Use Case Workbook Support
+      #region -- 4.00 - Use Case Workbook Support - with Processing Instructions
 
       /// <summary>
       /// Append Use Case Asset Mappings and Processing instructions if any...
@@ -55,6 +55,40 @@ namespace Edam.Data.AssetUseCases
       /// <param name="report">report details dependent on its implementation
       /// </param>
       public static void AppendUseCases(
+         ITableBuilder builder, AssetReportInfo report)
+      {
+         // TODO: remove hardcoded (3) value...
+         builder.AddColumns(hidden: true, count: 3);
+         builder.AddWorksheet("Use Cases");
+
+         string ucHeader = report.ReportHeader + ",UseCase";
+         builder.AppendMainHeader(
+            report.UseCaseColumns.ToList(), ucHeader);
+
+         // write data
+         foreach (var c in report.UseCases)
+         {
+            foreach (var i in c.Items)
+            {
+               AssetReportBuilder.AppendTableCells(builder, i);
+               builder.AppendRowCell(i.UseCaseName);
+               AppendUseCaseProcessingInstructions(
+                  builder, i, report.UseCaseColumns);
+               builder.AppendRowCellLast(null);
+            }
+         }
+      }
+
+      #endregion
+      #region -- 4.00 - Use Case Map Item Support
+
+      /// <summary>
+      /// Append Use Cases into the related TAB
+      /// </summary>
+      /// <param name="builder"></param>
+      /// <param name="report">report details dependent on its implementation
+      /// </param>
+      public static void AppendUseCaseMapItems(
          ITableBuilder builder, AssetReportInfo report)
       {
          // TODO: remove hardcoded (3) value...

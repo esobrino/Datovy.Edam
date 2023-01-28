@@ -42,7 +42,7 @@ namespace Edam.Data.AssetReport
       /// <summary>
       /// List of all Use Cases
       /// </summary>
-      public List<AssetUseCase> UseCases { get; set; }
+      public AssetUseCaseList UseCases { get; set; }
 
       /// <summary>
       /// List of Reporting Elements / Column - Headers

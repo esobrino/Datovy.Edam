@@ -186,10 +186,10 @@ namespace Edam.Xml.XmlExplore
       /// </summary>
       /// <param name="items">list of XML instance files</param>
       /// <returns></returns>
-      public static List<AssetUseCase> PrepareUseCases(List<string> items,
+      public static AssetUseCaseList PrepareUseCases(List<string> items,
          AssetConsoleArgumentsInfo arguments)
       {
-         List<AssetUseCase> cases = new List<AssetUseCase>();
+         AssetUseCaseList cases = new AssetUseCaseList();
          foreach (var i in items)
          {
             var xmlText = System.IO.File.ReadAllText(i);

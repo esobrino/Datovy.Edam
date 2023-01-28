@@ -11,6 +11,32 @@ using Edam.Data.AssetSchema;
 namespace Edam.Data.AssetUseCases
 {
 
+   public class AssetUseCaseList : List<AssetUseCase>
+   {
+
+      public bool HasItems
+      {
+         get
+         {
+            return (this.Count > 0 && this[0].Items.Count > 0);
+         }
+      }
+
+      public bool HasMapItems
+      {
+         get
+         {
+            return (this.Count > 0 && this[0].MappedItems.Count > 0);
+         }
+      }
+
+      public AssetUseCaseList() : base()
+      {
+
+      }
+
+   }
+
    /// <summary>
    /// Asset Use Case information.  For reporting purposes you will need to
    /// prepare the columns / headers list see AssetColumnsInfo.
@@ -26,6 +52,14 @@ namespace Edam.Data.AssetUseCases
       /// given before calling ToElementList method.
       /// </summary>
       public AssetDataElementList Items { get; set; }
+
+      public bool HasItems
+      {
+         get
+         {
+            return Items.Count > 0;
+         }
+      }
 
       /// <summary>
       /// A Report Map Item list identifying source and target elements...
