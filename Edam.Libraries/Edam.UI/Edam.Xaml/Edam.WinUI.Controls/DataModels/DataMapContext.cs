@@ -487,7 +487,8 @@ namespace Edam.WinUI.Controls.DataModels
          string pfolder = GetUseCaseFolderPath();
          var args = ProjectContext.CurrentProject.CurrentArguments;
 
-         AssetUseCaseMap.ToUseCaseReport(args, pfolder);
+         AssetUseCaseMap.ToUseCaseReport(
+            args, ProjectContext.ProjectFolderPath, pfolder);
       }
 
       #endregion

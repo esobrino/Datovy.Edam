@@ -21,6 +21,7 @@ using Edam.InOut;
 using Edam.Data.Assets.Books;
 using Edam.Data.AssetConsole;
 using Edam.Data.Assets.AssetUseCases;
+using System.IO;
 
 namespace Edam.Data.AssetUseCases
 {
@@ -439,23 +440,44 @@ namespace Edam.Data.AssetUseCases
       /// <param name="useCaseFolderPath">Use Case folder path</param>
       /// <returns>instance list of AssetUseCase is returned</returns>
       public static List<AssetUseCase> ToUseCaseReport(
-         AssetConsoleArgumentsInfo args, string useCaseFolderPath)
+         AssetConsoleArgumentsInfo args, string projectPath,
+         string useCaseFolderPath)
       {
+
          // if there are no data items just return...
          if (args.AssetDataItems.Count == 0)
          {
             return null;
          }
 
-         // prepare use-case list ordered by book/booklets map-items
-         AssetData adata = args.AssetDataItems[0];
-         BookMapper mapper = new BookMapper(
-            adata.Items, args.Namespace,
-            args.ProjectVersionId);
-         AssetUseCaseList list = ToAssetUseCase(useCaseFolderPath, mapper);
+         string currentFolder = Directory.GetCurrentDirectory();
+         AssetUseCaseList list = null;
+         try
+         {
+            Directory.SetCurrentDirectory(projectPath);
 
-         // prepare the report...
-         AssetUseCaseReport.ToOutput(args.OutputFile, adata, list);
+            // prepare use-case list ordered by book/booklets map-items
+            AssetData adata = args.AssetDataItems[0];
+            BookMapper mapper = new BookMapper(
+               adata.Items, args.Namespace,
+               args.ProjectVersionId);
+            list = ToAssetUseCase(useCaseFolderPath, mapper);
+
+            // prepare the report...
+            AssetUseCaseReport.ToOutput(args.OutputFile, adata, list);
+         }
+         catch
+         {
+
+         }
+         finally
+         {
+            if (currentFolder != null)
+            {
+               Directory.SetCurrentDirectory(currentFolder);
+            }
+         }
+
 
          return list;
       }
