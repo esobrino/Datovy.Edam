@@ -49,7 +49,7 @@ namespace Edam.Data.AssetSchema
       #region -- 1.00 - Properties and Fields for Use Case Management
 
       protected AssetUseCaseList m_UseCases { get; set; }
-      protected AssetColumnsInfo m_UseCaseColumns { get; set; }
+      protected TableColumnsInfo m_UseCaseColumns { get; set; }
       protected List<AssetUseCaseElement> m_UseCasesMergedItems;
 
       public AssetUseCaseList UseCases
@@ -58,7 +58,7 @@ namespace Edam.Data.AssetSchema
          set { m_UseCases = value; }
       }
 
-      public AssetColumnsInfo UseCaseColumns
+      public TableColumnsInfo UseCaseColumns
       {
          get { return m_UseCaseColumns; }
          set { m_UseCaseColumns = value; }
@@ -121,7 +121,7 @@ namespace Edam.Data.AssetSchema
       public AssetData(NamespaceInfo ns, AssetType type, string versionId)
       {
          m_Items = new AssetDataElementList(ns, type, versionId);
-         m_UseCaseColumns = new AssetColumnsInfo();
+         m_UseCaseColumns = new TableColumnsInfo();
          DefaultNamespace = ns;
          VersionId = versionId;
       }
@@ -130,7 +130,7 @@ namespace Edam.Data.AssetSchema
       {
          m_Items = new AssetDataElementList(items);
          m_Items = items;
-         m_UseCaseColumns = new AssetColumnsInfo();
+         m_UseCaseColumns = new TableColumnsInfo();
          m_DefaultNamespace = items.Namespace;
          VersionId = items.VersionId;
       }
@@ -385,7 +385,7 @@ namespace Edam.Data.AssetSchema
       /// <param name="element">element to be added</param>
       private void UseCaseItemAdd(
          List<AssetDataElement> items,
-         AssetColumnsInfo columns, AssetDataElement element)
+         TableColumnsInfo columns, AssetDataElement element)
       {
          // add item to Use Cases Merged Items (Asset Items not necessarily part
          // of or relevant for the Use Case.
@@ -414,7 +414,7 @@ namespace Edam.Data.AssetSchema
          List<AssetDataElement> itms =
             new List<AssetDataElement>();
 
-         AssetColumnsInfo columns = new AssetColumnsInfo();
+         TableColumnsInfo columns = new TableColumnsInfo();
 
          // make a copy of the Asset Items (elements) these Items may or may not
          // be included in the Use Case...

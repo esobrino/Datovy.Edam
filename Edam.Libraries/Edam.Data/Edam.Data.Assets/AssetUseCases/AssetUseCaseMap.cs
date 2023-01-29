@@ -367,28 +367,37 @@ namespace Edam.Data.AssetUseCases
          BookMapItemList items = BookMapItemList.PrepareList(map, mapper);
 
          AssetUseCase uc = new AssetUseCase(mapper.Namespace, mapper.VersionId);
+         uc.Name = map.Name;
 
          // iteract through each (source -> target) map items...
-         int index = 0;
+         int sequenceNo = 0;
          foreach(var item in map.Items)
          {
-            var ritem = new AssetUseCaseReportItem
-            {
-               Index = index,
-               MapItem = item
-            };
+            int maxIndex = item.SourceElement.Count > item.TargetElement.Count ?
+               item.SourceElement.Count : item.TargetElement.Count;
 
-            if (item.SourceElement.Count >= index)
+            // must include all source - target items - elements
+            for(var index = 0; index < maxIndex; index++)
             {
-               ritem.Source = item.SourceElement[index].DataElement;
-            }
-            if (item.TargetElement.Count >= index)
-            {
-               ritem.Target = item.TargetElement[index].DataElement;
-            }
-            index++;
+               var ritem = new AssetUseCaseReportItem
+               {
+                  SequenceNo = sequenceNo,
+                  Index = index,
+                  MapItem = item
+               };
 
-            uc.MappedItems.Add(ritem);
+               if (item.SourceElement.Count >= index + 1)
+               {
+                  ritem.Source = item.SourceElement[index].DataElement;
+               }
+               if (item.TargetElement.Count >= index + 1)
+               {
+                  ritem.Target = item.TargetElement[index].DataElement;
+               }
+               sequenceNo++;
+
+               uc.MappedItems.Add(ritem);
+            }
          }
 
          return uc;
@@ -398,12 +407,13 @@ namespace Edam.Data.AssetUseCases
       /// Given a folder path get all the Use Cases and prepare an instance of 
       /// AssetUseCase per Use Case file.
       /// </summary>
+      /// <remarks>REPORT STARTS HERE.</remarks>
       /// <param name="folderPath">folder path name</param>
       /// <param name="mapper">mapping information</param>
-      public static List<AssetUseCase> ToAssetUseCase(
+      public static AssetUseCaseList ToAssetUseCase(
          string folderPath, BookMapper mapper)
       {
-         List<AssetUseCase> useCaseList = new List<AssetUseCase>();
+         AssetUseCaseList useCaseList = new AssetUseCaseList();
 
          var files = AssetUseCaseMap.FromFolder(folderPath);
 
@@ -411,6 +421,7 @@ namespace Edam.Data.AssetUseCases
          foreach (var i in files)
          {
             var uc = AssetUseCaseMap.FromFile(i.Full);
+            uc.Name = i.Name;
             mapper.Book = uc.Book;
 
             useCaseList.Add(ToAssetUseCase(uc, mapper));
@@ -423,20 +434,30 @@ namespace Edam.Data.AssetUseCases
       /// Given project arguments and a the use case folder path prepare the
       /// Use Case items.
       /// </summary>
+      /// <remarks>REPORT STARTS HERE.</remarks>
       /// <param name="args">project arguments</param>
       /// <param name="useCaseFolderPath">Use Case folder path</param>
       /// <returns>instance list of AssetUseCase is returned</returns>
       public static List<AssetUseCase> ToUseCaseReport(
          AssetConsoleArgumentsInfo args, string useCaseFolderPath)
       {
+         // if there are no data items just return...
          if (args.AssetDataItems.Count == 0)
          {
             return null;
          }
+
+         // prepare use-case list ordered by book/booklets map-items
+         AssetData adata = args.AssetDataItems[0];
          BookMapper mapper = new BookMapper(
-            args.AssetDataItems[0].Items, args.Namespace,
+            adata.Items, args.Namespace,
             args.ProjectVersionId);
-         return ToAssetUseCase(useCaseFolderPath, mapper);
+         AssetUseCaseList list = ToAssetUseCase(useCaseFolderPath, mapper);
+
+         // prepare the report...
+         AssetUseCaseReport.ToOutput(args.OutputFile, adata, list);
+
+         return list;
       }
 
       #endregion

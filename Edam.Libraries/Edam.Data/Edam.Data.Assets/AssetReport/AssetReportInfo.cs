@@ -9,6 +9,7 @@ using Edam.Data.Asset;
 using Edam.Data.AssetSchema;
 using Edam.Data.AssetUseCases;
 using Edam.DataObjects.DataCodes;
+using Edam.Text;
 
 namespace Edam.Data.AssetReport
 {
@@ -28,7 +29,7 @@ namespace Edam.Data.AssetReport
       public List<AssetDataElement> CodeSetItems { get; set; }
 
       // custom columns to support
-      public AssetColumnsInfo AssetCustomColumns { get; set; }
+      public TableColumnsInfo AssetCustomColumns { get; set; }
 
       public bool PrepareNamespacesTab { get; set; }
       public bool PrepareEnumSummaryTab { get; set; }
@@ -47,7 +48,7 @@ namespace Edam.Data.AssetReport
       /// <summary>
       /// List of Reporting Elements / Column - Headers
       /// </summary>
-      public AssetColumnsInfo UseCaseColumns { get; set; }
+      public TableColumnsInfo UseCaseColumns { get; set; }
 
       /// <summary>
       /// This are the Use Case merged items...

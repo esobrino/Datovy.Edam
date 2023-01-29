@@ -14,6 +14,7 @@ namespace Edam.Data.Assets.AssetUseCases
    /// </summary>
    public class AssetUseCaseReportItem
    {
+      public int SequenceNo { get; set; }
       public int Index { get; set; }
       public AssetDataMapItem MapItem { get; set; }
       public AssetDataElement Source { get; set; }

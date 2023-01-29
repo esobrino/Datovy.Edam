@@ -225,10 +225,10 @@ namespace Edam.Xml.OpenXml
          }
          Column column = new Column
          {
-            Min = columnNumber,
-            Max = columnNumber,
+            Hidden = hidden,
             BestFit = bestFit,
-            Hidden = hidden
+            Min = columnNumber,
+            Max = columnNumber
          };
          m_Columns.Append(column);
       }

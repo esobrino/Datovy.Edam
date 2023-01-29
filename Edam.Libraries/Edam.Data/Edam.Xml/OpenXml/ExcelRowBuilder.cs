@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Edam.Data.AssetSchema;
 using Edam.Diagnostics;
 
 // -----------------------------------------------------------------------------
@@ -12,6 +14,7 @@ namespace Edam.Xml.OpenXml
    public class ExcelRowBuilder : ITableBuilder
    {
       public static readonly string DEFAULT_NAME = "Table";
+      public const UInt32 DEFAULT_STYLE = 0U;
 
       private ExcelDocument m_Document;
       private UInt32 m_CurrentRowIndex = 1U;
@@ -44,12 +47,14 @@ namespace Edam.Xml.OpenXml
       /// <param name="hidden">true if columns should be hidden</param>
       /// <param name="count">(optional) number of columns to add, default = 3
       /// </param>
-      public void AddColumns(bool hidden = true, int count = 3)
+      /// <param name="startIndex">start index (default: 0)</param>
+      public void AddColumns(
+         bool hidden = true, int count = 3, int startIndex = 0)
       {
          // create hidden columns: IndexNo; Status; LastUpdateDate;
-         for(var i = 1; i == count; i++)
+         for(var i = 1; i <= count; i++)
          {
-            AppendColumn((uint)i, hidden, true);
+            AppendColumn((uint)(i + startIndex), hidden, true);
          }
       }
 
@@ -98,6 +103,43 @@ namespace Edam.Xml.OpenXml
          return this;
       }
 
+      /// <summary>
+      /// Add columns and related row using given columns info.
+      /// </summary>
+      /// <param name="columns">columns details</param>
+      public void AppendTabColumnsRow(string tabName, TableColumnsInfo columns)
+      {
+         // add columns
+         foreach(var c in columns.Headers)
+         {
+            if (c.Hidden)
+            {
+               m_Document.AddColumn(
+                  (uint)c.Index, c.Hidden);
+            }
+         }
+
+         // add work-sheet TAB (if provided)...
+         if (!String.IsNullOrWhiteSpace(tabName))
+         {
+            AddWorksheet(tabName);
+         }
+
+         // add row
+         uint columnIndex = 1;
+         foreach (var i in columns.Headers)
+         {
+            var header = i.Name.Trim();
+            m_Document.InsertCellText(
+               columnIndex, m_CurrentRowIndex, header, i.StyleNo);
+            columnIndex++;
+         }
+
+         m_CurrentRowIndex++;
+         m_CurrentColumnIndex = 1;
+         m_CurrentStyleNo = DEFAULT_STYLE;
+      }
+
       public ITableBuilder AppendRowCell(string text)
       {
          var txt = text ?? String.Empty;
@@ -105,6 +147,19 @@ namespace Edam.Xml.OpenXml
             m_CurrentColumnIndex, m_CurrentRowIndex, txt, m_CurrentStyleNo);
          m_CurrentColumnIndex++;
          return this;
+      }
+
+      /// <summary>
+      /// Append Cell Fillers (empty cells)
+      /// </summary>
+      /// <param name="cellCount">how many to append</param>
+      /// <param name="styleNo">cell stype no (default: 0U)</param>
+      public void AppendCellFillers(int cellCount, uint styleNo = 0U)
+      {
+         for(var i = 0; i < cellCount; i++)
+         {
+            AppendRowCell(String.Empty);
+         }
       }
 
       public ITableBuilder AppendRowCellLast(string text = null)
@@ -167,7 +222,7 @@ namespace Edam.Xml.OpenXml
       /// <param name="styleNo">style No</param>
       /// <returns></returns>
       public ITableBuilder AppendRow(
-         string text, string delimeter = ",", UInt32 styleNo = 0U)
+         string text, string delimeter = ",", UInt32 styleNo = DEFAULT_STYLE)
       {
          String[] l = text.Split(delimeter.ToCharArray());
          uint columnIndex = 1;

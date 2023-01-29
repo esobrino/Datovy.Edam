@@ -7,35 +7,10 @@ using Edam.Data.Asset;
 using Edam.Data.AssetManagement;
 using Edam.Data.Assets.AssetUseCases;
 using Edam.Data.AssetSchema;
+using Edam.Text;
 
 namespace Edam.Data.AssetUseCases
 {
-
-   public class AssetUseCaseList : List<AssetUseCase>
-   {
-
-      public bool HasItems
-      {
-         get
-         {
-            return (this.Count > 0 && this[0].Items.Count > 0);
-         }
-      }
-
-      public bool HasMapItems
-      {
-         get
-         {
-            return (this.Count > 0 && this[0].MappedItems.Count > 0);
-         }
-      }
-
-      public AssetUseCaseList() : base()
-      {
-
-      }
-
-   }
 
    /// <summary>
    /// Asset Use Case information.  For reporting purposes you will need to
@@ -87,10 +62,10 @@ namespace Edam.Data.AssetUseCases
       /// available</param>
       /// <returns>list of AssetUseCaseElement(s) is returned</returns>
       public List<AssetUseCaseElement> ToUseCaseElementList(
-         AssetColumnsInfo columns)
+         TableColumnsInfo columns)
       {
          List<AssetUseCaseElement> l = new List<AssetUseCaseElement>();
-         var cols = columns == null ? new AssetColumnsInfo() : columns;
+         var cols = columns == null ? new TableColumnsInfo() : columns;
          foreach (var i in Items)
          {
             if (i.ProcessInstructionsBag != null)
@@ -118,7 +93,7 @@ namespace Edam.Data.AssetUseCases
       /// <param name="cases">list of use cases</param>
       /// <returns>use cases list</returns>
       public static List<AssetUseCaseElement> MergeUseCases(
-         List<AssetUseCase> cases, AssetColumnsInfo columns)
+         List<AssetUseCase> cases, TableColumnsInfo columns)
       {
          List<AssetUseCaseElement> r = new List<AssetUseCaseElement>();
          foreach (var i in cases)

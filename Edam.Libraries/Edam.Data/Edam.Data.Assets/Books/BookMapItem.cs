@@ -82,7 +82,7 @@ namespace Edam.Data.Assets.Books
             // first, identify the source and target elements
             foreach (var sitem in i.SourceElement)
             {
-               var element = mapper.FindElement(i.ItemPath);
+               var element = mapper.FindElement(sitem.Path);
                sitem.DataElement = element;
                var booklet = mapper.FindBooklet(sitem.ItemId);
 

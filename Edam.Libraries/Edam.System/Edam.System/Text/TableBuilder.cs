@@ -46,6 +46,12 @@ namespace Edam.Text
          m_Builder.AppendLine(text);
          return this;
       }
+
+      public void AppendCellFillers(int cellCount, uint styleNo = 0U)
+      {
+         throw new NotImplementedException();
+      }
+
       public ITableBuilder AppendRowCellLast(String text = null)
       {
          if (String.IsNullOrWhiteSpace(text))
@@ -89,7 +95,13 @@ namespace Edam.Text
          throw new NotImplementedException();
       }
 
-      public void AddColumns(bool hidden = true, int count = 3)
+      public void AddColumns(
+         bool hidden = true, int count = 3, int startIndex = 0)
+      {
+         throw new NotImplementedException();
+      }
+
+      public void AppendTabColumnsRow(string tabName, TableColumnsInfo columns)
       {
          throw new NotImplementedException();
       }

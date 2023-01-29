@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 // -----------------------------------------------------------------------------
 using Edam.TextParse;
 using ixone = Edam.Serialization;
+using Edam.Text;
 
 namespace Edam.Data.AssetSchema
 {
@@ -41,19 +42,19 @@ namespace Edam.Data.AssetSchema
       public const string NM_MAP_TO = "MapTo";
       public const string TK_USECASE = "usecase";
 
-      private AssetColumnsInfo m_Columns { get; set; }
+      private TableColumnsInfo m_Columns { get; set; }
 
       public AssetProcessInfo CurrentInstruction { get; set; }
       public List<AssetProcessInfo> Items { get; set; }
 
-      public AssetColumnsInfo Columns
+      public TableColumnsInfo Columns
       {
          get => m_Columns;
       }
 
       public AssetProcess()
       {
-         m_Columns = new AssetColumnsInfo();
+         m_Columns = new TableColumnsInfo();
          Items = new List<AssetProcessInfo>();
       }
 
@@ -119,13 +120,13 @@ namespace Edam.Data.AssetSchema
 
    public class AssetProcessItem
    {
-      public AssetColumnItemInfo Column { get; set; }
+      public TableColumnInfo Column { get; set; }
       public AssetProcessType Type { get; set; }
       public string Value { get; set; }
 
       public AssetProcessItem()
       {
-         Column = new AssetColumnItemInfo();
+         Column = new TableColumnInfo();
       }
    }
 

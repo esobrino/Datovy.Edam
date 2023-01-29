@@ -184,7 +184,7 @@ namespace Edam.Data.AssetReport
          builder.AppendRowCell(typeName);                     // Type
          builder.AppendRowCell(asset.ElementType.ToString()); // ElementType
          builder.AppendRowCell(asset.Length.HasValue ?
-            asset.Length.Value.ToString() : string.Empty);   // Length
+            asset.Length.Value.ToString() : string.Empty);    // Length
          builder.AppendRowCell(occurs);                       // 1:1
          builder.AppendRowCell(asset.CommentText);            // Data Owner
          builder.AppendRowCell(annotation);
@@ -418,7 +418,7 @@ namespace Edam.Data.AssetReport
       /// <param name="builder"></param>
       /// <param name="columns"></param>
       public void AppendMainHeader(ITableBuilder builder,
-         AssetColumnsInfo columns, string headerText = null, 
+         TableColumnsInfo columns, string headerText = null, 
          uint rowStyle = (uint)TableRowStyle.Fill3Border1Font14)
       {
          string header = string.IsNullOrWhiteSpace(headerText) ?
