@@ -481,3 +481,6 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Data.AssetMapping.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.Data.AssetMapping.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_6.0.1322.58009.dll
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Assets\LockScreenLogo.scale-200.png
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.Properties.Resources.resources
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.csproj.GenerateResource.cache

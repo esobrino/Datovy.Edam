@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>OPENK-MINI-02</Machine>
+    <WindowsUser>esobr</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Release|x64</SolutionConfiguration>
+    <PackageArchitecture>x64</PackageArchitecture>
+    <PackageIdentityName>773af99d-e3d2-4b70-9d7e-e40f63e7e025</PackageIdentityName>
+    <PackageIdentityPublisher>CN=esobr</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
+    <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
+    <PackageRegistrationPath></PackageRegistrationPath>
+    <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+    <LayoutDir>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.runtimeconfig.json">
+      <PackagePath>Edam.WinUI.runtimeconfig.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\TextMaps\EditorLanguageTextMap.json">
+      <PackagePath>ApplicationData\AM_Console\TextMaps\EditorLanguageTextMap.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
+      <PackagePath>Edam.WinUI.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\DataTemplates\Domain.Record.Form.json">
+      <PackagePath>DataTemplates\Domain.Record.Form.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\DataTemplates\Project.NewProject.Dialog.json">
+      <PackagePath>DataTemplates\Project.NewProject.Dialog.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\Projects\DAM\Arguments\0010.ToAssets.Args.json">
+      <PackagePath>ApplicationData\AM_Console\Projects\DAM\Arguments\0010.ToAssets.Args.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\Projects\DAM\Documents\placeholder.txt">
+      <PackagePath>ApplicationData\AM_Console\Projects\DAM\Documents\placeholder.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\Projects\DAM\Files\placeholder.txt">
+      <PackagePath>ApplicationData\AM_Console\Projects\DAM\Files\placeholder.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\Projects\DAM\Samples\placeholder.txt">
+      <PackagePath>ApplicationData\AM_Console\Projects\DAM\Samples\placeholder.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\Projects\DAM\TextMaps\DdlTextMap.json">
+      <PackagePath>ApplicationData\AM_Console\Projects\DAM\TextMaps\DdlTextMap.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\Samples\placeholder.txt">
+      <PackagePath>ApplicationData\AM_Console\Samples\placeholder.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\Templates\SqlServerSchema.sql">
+      <PackagePath>ApplicationData\AM_Console\Templates\SqlServerSchema.sql</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\Templates\ToAssets.Args.json">
+      <PackagePath>ApplicationData\AM_Console\Templates\ToAssets.Args.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\Templates\ToOpenXml.Args.json">
+      <PackagePath>ApplicationData\AM_Console\Templates\ToOpenXml.Args.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\TextMaps\DdlTextMap.json">
+      <PackagePath>ApplicationData\AM_Console\TextMaps\DdlTextMap.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\TextMaps\GsqlTextMap.json">
+      <PackagePath>ApplicationData\AM_Console\TextMaps\GsqlTextMap.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\TextMaps\JsdTextMap.json">
+      <PackagePath>ApplicationData\AM_Console\TextMaps\JsdTextMap.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\TextMaps\XsdTextMap.B2B.json">
+      <PackagePath>ApplicationData\AM_Console\TextMaps\XsdTextMap.B2B.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\TextMaps\XsdTextMap.Hl7.Fhir.json">
+      <PackagePath>ApplicationData\AM_Console\TextMaps\XsdTextMap.Hl7.Fhir.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ApplicationData\AM_Console\TextMaps\XsdTextMap.json">
+      <PackagePath>ApplicationData\AM_Console\TextMaps\XsdTextMap.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\ReferenceDataTemplates\DataSource.Template.json">
+      <PackagePath>ReferenceDataTemplates\DataSource.Template.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\appsettings.json">
+      <PackagePath>appsettings.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Edam.WinUI.deps.json">
+      <PackagePath>Edam.WinUI.deps.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.28\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
+      <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.28\lib\net6.0\WinRT.Runtime.dll">
+      <PackagePath>WinRT.Runtime.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\microsoft.graphics.win2d\1.0.0.30\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\microsoft.windowsappsdk\1.2.230118.102\runtimes\win10-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
+      <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\runtime.win-x64.runtime.native.system.data.sqlclient.sni\4.4.0\runtimes\win-x64\native\sni.dll">
+      <PackagePath>sni.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.0.4\runtimes\win-x64\native\e_sqlite3.dll">
+      <PackagePath>e_sqlite3.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI.DataModel\bin\Release\net6.0-windows10.0.19041.0\Edam.UI.DataModel.pri">
+      <PackagePath>Edam.UI.DataModel.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.UI.pri">
+      <PackagePath>Edam.UI.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls.pri">
+      <PackagePath>Edam.WinUI.Controls.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\system.text.json\6.0.5\lib\net6.0\System.Text.Json.dll">
+      <PackagePath>System.Text.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\ColorCode.Core.dll">
+      <PackagePath>ColorCode.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\ColorCode.WinUI.dll">
+      <PackagePath>ColorCode.WinUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.Common.dll">
+      <PackagePath>CommunityToolkit.Common.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.Mvvm.dll">
+      <PackagePath>CommunityToolkit.Mvvm.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.dll">
+      <PackagePath>CommunityToolkit.WinUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Core.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.DataGrid.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Input.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Layout.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Markdown.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Media.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.WinUI.UI.Controls.Primitives.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\DocumentFormat.OpenXml.dll">
+      <PackagePath>DocumentFormat.OpenXml.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\json-ld.net.dll">
+      <PackagePath>json-ld.net.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Jsonata.Net.Native.dll">
+      <PackagePath>Jsonata.Net.Native.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Jsonata.Net.Native.JsonNet.dll">
+      <PackagePath>Jsonata.Net.Native.JsonNet.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Jsonata.Net.Native.SystemTextJson.dll">
+      <PackagePath>Jsonata.Net.Native.SystemTextJson.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.Configuration.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.Configuration.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.Configuration.FileExtensions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.FileExtensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.Configuration.Json.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.DependencyInjection.dll">
+      <PackagePath>Microsoft.Extensions.DependencyInjection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.DependencyInjection.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.DependencyInjection.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.FileProviders.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.FileProviders.Physical.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Physical.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.FileSystemGlobbing.dll">
+      <PackagePath>Microsoft.Extensions.FileSystemGlobbing.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Extensions.Primitives.dll">
+      <PackagePath>Microsoft.Extensions.Primitives.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Graphics.Canvas.Interop.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.Interop.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.InteractiveExperiences.Projection.dll">
+      <PackagePath>Microsoft.InteractiveExperiences.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.WinUI.dll">
+      <PackagePath>Microsoft.WinUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.AppLifecycle.Projection.dll">
+      <PackagePath>Microsoft.Windows.AppLifecycle.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.AppNotifications.Builder.Projection.dll">
+      <PackagePath>Microsoft.Windows.AppNotifications.Builder.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.AppNotifications.Projection.dll">
+      <PackagePath>Microsoft.Windows.AppNotifications.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll">
+      <PackagePath>Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.ApplicationModel.Resources.Projection.dll">
+      <PackagePath>Microsoft.Windows.ApplicationModel.Resources.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll">
+      <PackagePath>Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.PushNotifications.Projection.dll">
+      <PackagePath>Microsoft.Windows.PushNotifications.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.Security.AccessControl.Projection.dll">
+      <PackagePath>Microsoft.Windows.Security.AccessControl.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.System.Power.Projection.dll">
+      <PackagePath>Microsoft.Windows.System.Power.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.System.Projection.dll">
+      <PackagePath>Microsoft.Windows.System.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.Windows.Widgets.Projection.dll">
+      <PackagePath>Microsoft.Windows.Widgets.Projection.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
+      <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Newtonsoft.Json.Schema.dll">
+      <PackagePath>Newtonsoft.Json.Schema.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\SQLite-net.dll">
+      <PackagePath>SQLite-net.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\SQLitePCLRaw.batteries_v2.dll">
+      <PackagePath>SQLitePCLRaw.batteries_v2.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\SQLitePCLRaw.nativelibrary.dll">
+      <PackagePath>SQLitePCLRaw.nativelibrary.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\SQLitePCLRaw.core.dll">
+      <PackagePath>SQLitePCLRaw.core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\SQLitePCLRaw.provider.dynamic_cdecl.dll">
+      <PackagePath>SQLitePCLRaw.provider.dynamic_cdecl.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\System.Data.SqlClient.dll">
+      <PackagePath>System.Data.SqlClient.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\System.IO.Packaging.dll">
+      <PackagePath>System.IO.Packaging.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\YamlDotNet.dll">
+      <PackagePath>YamlDotNet.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.B2b.dll">
+      <PackagePath>Edam.B2b.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Data.Asset.Services.dll">
+      <PackagePath>Edam.Data.Asset.Services.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Data.AssetDb.dll">
+      <PackagePath>Edam.Data.AssetDb.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Data.AssetMapping.dll">
+      <PackagePath>Edam.Data.AssetMapping.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Data.Assets.dll">
+      <PackagePath>Edam.Data.Assets.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Data.Schema.dll">
+      <PackagePath>Edam.Data.Schema.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Data.Templates.dll">
+      <PackagePath>Edam.Data.Templates.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.DataObjects.dll">
+      <PackagePath>Edam.DataObjects.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Gsql.dll">
+      <PackagePath>Edam.Gsql.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Json.dll">
+      <PackagePath>Edam.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Net.dll">
+      <PackagePath>Edam.Net.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Security.dll">
+      <PackagePath>Edam.Security.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.System.dll">
+      <PackagePath>Edam.System.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.UI.DataModel.dll">
+      <PackagePath>Edam.UI.DataModel.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.UI.dll">
+      <PackagePath>Edam.UI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.WinUI.Controls.dll">
+      <PackagePath>Edam.WinUI.Controls.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.Xml.dll">
+      <PackagePath>Edam.Xml.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\R2R\Edam.WinUI.dll">
+      <PackagePath>Edam.WinUI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\AboutControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\AboutControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Accounts\AccountLoginControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Accounts\AccountLoginControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Accounts\AccountPinLoginControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Accounts\AccountPinLoginControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Activities\ActivityPeriodRatingGridControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Activities\ActivityPeriodRatingGridControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Activities\ParticipantRatingControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Activities\ParticipantRatingControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Activities\PeriodControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Activities\PeriodControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Activities\ProgramControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Activities\ProgramControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetDataElementGridControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetDataElementGridControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetDataTreeControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetDataTreeControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetDataTreeViewerControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetDataTreeViewerControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetMapItemControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetMapItemControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetMapPanelControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetMapPanelControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetMapPlayControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetMapPlayControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetMapSidePanelControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetMapSidePanelControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetMapViewerControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetMapViewerControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetSidePanelControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetSidePanelControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetUseCaseGridControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetUseCaseGridControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Assets\AssetViewerControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Assets\AssetViewerControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Booklets\BookletCodeCellControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Booklets\BookletCodeCellControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Booklets\BookletPanelControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Booklets\BookletPanelControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Booklets\BookletTextCellControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Booklets\BookletTextCellControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Booklets\FramePanelControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Booklets\FramePanelControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Editors\CodeEditorControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Editors\CodeEditorControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Entities\EntityFollowUpGridControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Entities\EntityFollowUpGridControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Entities\EntityFollowUpViewControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Entities\EntityFollowUpViewControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Entities\EntityGroupControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Entities\EntityGroupControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Entities\ParticipantListViewControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Entities\ParticipantListViewControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Entities\PersonBaseEditorControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Entities\PersonBaseEditorControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Home\DashboardControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Home\DashboardControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Navigation\NavigationControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Navigation\NavigationControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Notes\NotesViewEditControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Notes\NotesViewEditControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Projects\ProjectFileEditorControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Projects\ProjectFileEditorControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Projects\ProjectSidePanelControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Projects\ProjectSidePanelControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Projects\ProjectViewerControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Projects\ProjectViewerControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataDomainControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataDomainControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataDomainEditorControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataDomainEditorControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataDomainGridControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataDomainGridControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataEditorControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataEditorControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataFormControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataFormControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataFormStackControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataFormStackControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataGridControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataGridControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceData\ReferenceDataValidationContentDialog.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceData\ReferenceDataValidationContentDialog.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceLists\ReferenceListGroupEditControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListGroupEditControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\ReferenceLists\ReferenceListViewControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\ReferenceLists\ReferenceListViewControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Utilities\FolderViewControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Utilities\FolderViewControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Utilities\KeyPadControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Utilities\KeyPadControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Utilities\TextButtonControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Utilities\TextButtonControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Utilities\TextEditorControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Utilities\TextEditorControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\Controls\Web\WebBrowserControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Web\WebBrowserControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\DataTemplates\Domain.Record.Form.json">
+      <PackagePath>Edam.WinUI.Controls\DataTemplates\Domain.Record.Form.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\DataTemplates\Project.NewProject.Dialog.json">
+      <PackagePath>Edam.WinUI.Controls\DataTemplates\Project.NewProject.Dialog.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\colorcode.winui\2.0.13\lib\net5.0-windows10.0.18362\ColorCode.WinUI.pri">
+      <PackagePath>ColorCode.WinUI.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.pri">
+      <PackagePath>CommunityToolkit.WinUI.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui.ui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Core.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Input.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Layout.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Markdown.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Media.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\LargeTile.scale-100.png">
+      <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\LargeTile.scale-125.png">
+      <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\LargeTile.scale-150.png">
+      <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\LargeTile.scale-200.png">
+      <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\LargeTile.scale-400.png">
+      <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SmallTile.scale-100.png">
+      <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SmallTile.scale-125.png">
+      <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SmallTile.scale-150.png">
+      <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SmallTile.scale-200.png">
+      <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SmallTile.scale-400.png">
+      <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.scale-100.png">
+      <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.scale-125.png">
+      <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.scale-150.png">
+      <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\StoreLogo.backup.png">
+      <PackagePath>Assets\StoreLogo.backup.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Wide310x150Logo.scale-125.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Wide310x150Logo.scale-150.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\Wide310x150Logo.scale-400.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Resources\edam.logo.ico">
+      <PackagePath>Resources\edam.logo.ico</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Users\esobr\.nuget\packages\microsoft.windowsappsdk\1.2.230118.102\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.2.msix">
+      <Name>Microsoft.WindowsAppRuntime.1.2</Name>
+      <Version>2000.747.1945.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.1.2, MinVersion = 2000.747.1945.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\esobr\.nuget\packages\microsoft.windowsappsdk\1.2.230118.102\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.2.msix</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\esobr\.nuget\packages\microsoft.windowsappsdk\1.2.230118.102\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.2.msix">
+      <Name>Microsoft.WindowsAppRuntime.1.2</Name>
+      <Version>2000.747.1945.0</Version>
+      <Architecture>win32</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.1.2, MinVersion = 2000.747.1945.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\esobr\.nuget\packages\microsoft.windowsappsdk\1.2.230118.102\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.2.msix</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\esobr\.nuget\packages\microsoft.windowsappsdk\1.2.230118.102\buildTransitive\..\tools\MSIX\win10-x64\Microsoft.WindowsAppRuntime.1.2.msix">
+      <Name>Microsoft.WindowsAppRuntime.1.2</Name>
+      <Version>2000.747.1945.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.1.2, MinVersion = 2000.747.1945.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\esobr\.nuget\packages\microsoft.windowsappsdk\1.2.230118.102\buildTransitive\..\tools\MSIX\win10-x64\Microsoft.WindowsAppRuntime.1.2.msix</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\esobr\.nuget\packages\microsoft.windowsappsdk\1.2.230118.102\buildTransitive\..\tools\MSIX\win10-arm64\Microsoft.WindowsAppRuntime.1.2.msix">
+      <Name>Microsoft.WindowsAppRuntime.1.2</Name>
+      <Version>2000.747.1945.0</Version>
+      <Architecture>arm64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.1.2, MinVersion = 2000.747.1945.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\esobr\.nuget\packages\microsoft.windowsappsdk\1.2.230118.102\buildTransitive\..\tools\MSIX\win10-arm64\Microsoft.WindowsAppRuntime.1.2.msix</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\bin\Release\net6.0\Edam.Json.deps.json
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\bin\Release\net6.0\Edam.Json.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\bin\Release\net6.0\Edam.Json.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\bin\Release\net6.0\Edam.Data.Assets.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\bin\Release\net6.0\Edam.System.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\bin\Release\net6.0\Edam.System.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\bin\Release\net6.0\Edam.Data.Assets.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\Edam.Json.csproj.AssemblyReference.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\Edam.Json.GeneratedMSBuildEditorConfig.editorconfig
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\Edam.Json.AssemblyInfoInputs.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\Edam.Json.AssemblyInfo.cs
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\Edam.Json.csproj.CoreCompileInputs.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\Edam.Json.csproj.CopyComplete
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\Edam.Json.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\refint\Edam.Json.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\Edam.Json.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Release\net6.0\ref\Edam.Json.dll

@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Windows.UI.Core;
 
-using mvvm = Microsoft.Toolkit.Mvvm;
+using mvvm = CommunityToolkit.Mvvm;
 using Microsoft.UI.Xaml;
 
 // -----------------------------------------------------------------------------

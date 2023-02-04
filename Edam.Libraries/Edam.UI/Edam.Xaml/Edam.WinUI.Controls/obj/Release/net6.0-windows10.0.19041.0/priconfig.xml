@@ -28,8 +28,8 @@
       <qualifier name="AlternateForm" value="" />
       <qualifier name="Platform" value="UAP" />
     </default>
-    <indexer-config type="RESW" convertDotsToSlashes="true" initialPath="InXone.WinUI.Controls" />
-    <indexer-config type="RESJSON" initialPath="InXone.WinUI.Controls" />
+    <indexer-config type="RESW" convertDotsToSlashes="true" initialPath="Edam.WinUI.Controls" />
+    <indexer-config type="RESJSON" initialPath="Edam.WinUI.Controls" />
     <indexer-config type="RESFILES" qualifierDelimiter="." />
   </index>
   <index root="\" startIndexAt="obj\Release\net6.0-windows10.0.19041.0\pri.resfiles">

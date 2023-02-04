@@ -26,7 +26,7 @@ namespace Edam.WinUI
       public MainWindow()
       {
          this.InitializeComponent();
-         Title = "Information Assets Management Studio";
+         Title = "EDAM Studio";
       }
 
       private void Window_SizeChanged(object sender, WindowSizeChangedEventArgs args)

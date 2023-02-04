@@ -39,6 +39,12 @@
               "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
                 "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj"
               },
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI.DataModel\\Edam.UI.DataModel.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI.DataModel\\Edam.UI.DataModel.csproj"
+              },
+              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI\\Edam.UI.csproj": {
+                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI\\Edam.UI.csproj"
+              },
               "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.Xaml\\Edam.WinUI.Controls\\Edam.WinUI.Controls.csproj": {
                 "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.Xaml\\Edam.WinUI.Controls\\Edam.WinUI.Controls.csproj"
               }
@@ -61,7 +67,7 @@
             },
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
-              "version": "[1.1.5, )"
+              "version": "[1.2.230118.102, )"
             }
           },
           "imports": [
@@ -86,6 +92,10 @@
             },
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
+              "version": "[6.0.13, 6.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
               "version": "[6.0.13, 6.0.13]"
             },
             {
@@ -1227,11 +1237,11 @@
           "dependencies": {
             "Microsoft.Windows.SDK.BuildTools": {
               "target": "Package",
-              "version": "[10.0.22563-preview, )"
+              "version": "[10.0.22621.755, )"
             },
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.2.230118.102, )"
             }
           },
           "imports": [
@@ -1358,21 +1368,21 @@
         "net6.0-windows10.0.19041": {
           "targetAlias": "net6.0-windows10.0.19041.0",
           "dependencies": {
-            "Microsoft.Toolkit": {
+            "CommunityToolkit.Common": {
               "target": "Package",
-              "version": "[7.1.2, )"
+              "version": "[8.1.0, )"
             },
-            "Microsoft.Toolkit.Mvvm": {
+            "CommunityToolkit.Mvvm": {
               "target": "Package",
-              "version": "[7.1.2, )"
+              "version": "[8.1.0, )"
             },
             "Microsoft.Windows.SDK.BuildTools": {
               "target": "Package",
-              "version": "[10.0.22563-preview, )"
+              "version": "[10.0.22621.755, )"
             },
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.2.230118.102, )"
             }
           },
           "imports": [
@@ -1538,7 +1548,7 @@
             },
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
-              "version": "[1.1.5, )"
+              "version": "[1.2.230118.102, )"
             }
           },
           "imports": [

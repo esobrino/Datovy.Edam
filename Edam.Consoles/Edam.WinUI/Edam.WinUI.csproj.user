@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
+  <PropertyGroup>
+    <Source>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\edam.logo.png</Source>
+    <SmallTileSource>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\edam.logo.png</SmallTileSource>
+    <MediumTileSource>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\edam.logo.png</MediumTileSource>
+    <WideTileSource>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\edam.logo.png</WideTileSource>
+    <LargeTileSource>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\edam.logo.png</LargeTileSource>
+    <AppIconSource>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\edam.logo.png</AppIconSource>
+    <SplashScreenSource>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\edam.logo.png</SplashScreenSource>
+    <PackageLogoSource>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Assets\edam.logo.png</PackageLogoSource>
+    <_LastSelectedProfileId>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
     <None Update="App.xaml">
       <SubType>Designer</SubType>

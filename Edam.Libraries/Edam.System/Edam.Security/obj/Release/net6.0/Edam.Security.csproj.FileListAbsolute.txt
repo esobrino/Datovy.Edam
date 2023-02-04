@@ -1,0 +1,15 @@
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\bin\Release\net6.0\Edam.Security.deps.json
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\bin\Release\net6.0\Edam.Security.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\bin\Release\net6.0\Edam.Security.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\bin\Release\net6.0\Edam.System.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\bin\Release\net6.0\Edam.System.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\Edam.Security.csproj.AssemblyReference.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\Edam.Security.GeneratedMSBuildEditorConfig.editorconfig
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\Edam.Security.AssemblyInfoInputs.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\Edam.Security.AssemblyInfo.cs
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\Edam.Security.csproj.CoreCompileInputs.cache
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\Edam.Security.csproj.CopyComplete
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\Edam.Security.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\refint\Edam.Security.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\Edam.Security.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Release\net6.0\ref\Edam.Security.dll
