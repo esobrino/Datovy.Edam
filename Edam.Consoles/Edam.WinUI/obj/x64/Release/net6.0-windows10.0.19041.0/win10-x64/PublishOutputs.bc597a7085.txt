@@ -1,5 +1,5 @@
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\ApplicationData\AM_Console\TextMaps\EditorLanguageTextMap.json
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.WinUI.exe
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.Studio.v0.exe
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\DataTemplates\Domain.Record.Form.json
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\DataTemplates\Project.NewProject.Dialog.json
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Assets\LockScreenLogo.scale-200.png
@@ -20,9 +20,9 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\ApplicationData
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\ApplicationData\AM_Console\TextMaps\XsdTextMap.json
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\ReferenceDataTemplates\DataSource.Template.json
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\appsettings.json
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.WinUI.deps.json
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.WinUI.runtimeconfig.json
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.WinUI.pdb
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.Studio.v0.deps.json
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.Studio.v0.runtimeconfig.json
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.Studio.v0.pdb
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Microsoft.Windows.SDK.NET.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\WinRT.Runtime.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Microsoft.Graphics.Canvas.dll
@@ -121,4 +121,4 @@ C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.UI.DataMod
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.UI.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.WinUI.Controls.dll
 C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.Xml.dll
-C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.WinUI.dll
+C:\prjs\Datovy.Edam\Edam.Consoles\Edam.WinUI\bin\Release\Publish\Edam.Studio.v0.dll

@@ -21,7 +21,7 @@
           "Edam.UI": "1.0.0",
           "Edam.UI.DataModel": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
-          "Microsoft.WindowsAppSDK": "1.1.5",
+          "Microsoft.WindowsAppSDK": "1.2.230118.102",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.28"
         },
         "runtime": {
@@ -54,7 +54,7 @@
       "ColorCode.WinUI/2.0.13": {
         "dependencies": {
           "ColorCode.Core": "2.0.13",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "lib/net5.0-windows10.0.18362/ColorCode.WinUI.dll": {
@@ -63,18 +63,26 @@
           }
         }
       },
-      "CommunityToolkit.Common/7.1.2": {
+      "CommunityToolkit.Common/8.1.0": {
         "runtime": {
-          "lib/net5.0/CommunityToolkit.Common.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
+          "lib/net6.0/CommunityToolkit.Common.dll": {
+            "assemblyVersion": "8.1.0.0",
+            "fileVersion": "8.1.0.1"
+          }
+        }
+      },
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "assemblyVersion": "8.1.0.0",
+            "fileVersion": "8.1.0.1"
           }
         }
       },
       "CommunityToolkit.WinUI/7.1.2": {
         "dependencies": {
-          "CommunityToolkit.Common": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "CommunityToolkit.Common": "8.1.0",
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.dll": {
@@ -86,7 +94,7 @@
       "CommunityToolkit.WinUI.UI/7.1.2": {
         "dependencies": {
           "CommunityToolkit.WinUI": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.dll": {
@@ -104,14 +112,14 @@
           "CommunityToolkit.WinUI.UI.Controls.Markdown": "7.1.2",
           "CommunityToolkit.WinUI.UI.Controls.Media": "7.1.2",
           "CommunityToolkit.WinUI.UI.Controls.Primitives": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         }
       },
       "CommunityToolkit.WinUI.UI.Controls.Core/7.1.2": {
         "dependencies": {
           "CommunityToolkit.WinUI": "7.1.2",
           "CommunityToolkit.WinUI.UI.Controls.Primitives": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Core.dll": {
@@ -122,7 +130,7 @@
       },
       "CommunityToolkit.WinUI.UI.Controls.DataGrid/7.1.2": {
         "dependencies": {
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.DataGrid.dll": {
@@ -134,7 +142,7 @@
       "CommunityToolkit.WinUI.UI.Controls.Input/7.1.2": {
         "dependencies": {
           "CommunityToolkit.WinUI.UI.Controls.Primitives": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Input.dll": {
@@ -146,7 +154,7 @@
       "CommunityToolkit.WinUI.UI.Controls.Layout/7.1.2": {
         "dependencies": {
           "CommunityToolkit.WinUI.UI": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Layout.dll": {
@@ -160,7 +168,7 @@
           "ColorCode.WinUI": "2.0.13",
           "CommunityToolkit.WinUI.UI": "7.1.2",
           "CommunityToolkit.WinUI.UI.Controls.Core": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Markdown.dll": {
@@ -173,7 +181,7 @@
         "dependencies": {
           "CommunityToolkit.WinUI.UI": "7.1.2",
           "Microsoft.Graphics.Win2D": "1.0.0.30",
-          "Microsoft.WindowsAppSDK": "1.1.5",
+          "Microsoft.WindowsAppSDK": "1.2.230118.102",
           "System.Text.Json": "6.0.5"
         },
         "runtime": {
@@ -186,7 +194,7 @@
       "CommunityToolkit.WinUI.UI.Controls.Primitives/7.1.2": {
         "dependencies": {
           "CommunityToolkit.WinUI.UI": "7.1.2",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "lib/net5.0-windows10.0.18362/CommunityToolkit.WinUI.UI.Controls.Primitives.dll": {
@@ -395,22 +403,6 @@
       },
       "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
-      "Microsoft.Toolkit/7.1.2": {
-        "runtime": {
-          "lib/net5.0/Microsoft.Toolkit.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
-          }
-        }
-      },
-      "Microsoft.Toolkit.Mvvm/7.1.2": {
-        "runtime": {
-          "lib/net5.0/Microsoft.Toolkit.Mvvm.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
-          }
-        }
-      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -425,54 +417,66 @@
         }
       },
       "Microsoft.Windows.SDK.BuildTools/10.0.22621.755": {},
-      "Microsoft.WindowsAppSDK/1.1.5": {
+      "Microsoft.WindowsAppSDK/1.2.230118.102": {
         "dependencies": {
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755"
         },
         "runtime": {
-          "lib/net5.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.22621.1006"
+            "fileVersion": "10.0.22622.1036"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
             "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.0.2209"
+            "fileVersion": "3.0.0.2301"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           },
-          "lib/net5.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           }
         },
         "runtimeTargets": {
@@ -1545,12 +1549,12 @@
       },
       "Edam.UI/1.0.0": {
         "dependencies": {
+          "CommunityToolkit.Common": "8.1.0",
+          "CommunityToolkit.Mvvm": "8.1.0",
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0",
-          "Microsoft.Toolkit": "7.1.2",
-          "Microsoft.Toolkit.Mvvm": "7.1.2",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "Edam.UI.dll": {}
@@ -1562,7 +1566,7 @@
           "Edam.System": "1.0.0",
           "Edam.UI": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
-          "Microsoft.WindowsAppSDK": "1.1.5"
+          "Microsoft.WindowsAppSDK": "1.2.230118.102"
         },
         "runtime": {
           "Edam.UI.DataModel.dll": {}
@@ -1605,12 +1609,19 @@
       "path": "colorcode.winui/2.0.13",
       "hashPath": "colorcode.winui.2.0.13.nupkg.sha512"
     },
-    "CommunityToolkit.Common/7.1.2": {
+    "CommunityToolkit.Common/8.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KnHnukN+Sc26YT98OWYTp8mvaYlLc61lzDh0RrVRNQXm01hZ+iXAjCgKM59vAojqxNVrlbcXj22LYOyXWDItgg==",
-      "path": "communitytoolkit.common/7.1.2",
-      "hashPath": "communitytoolkit.common.7.1.2.nupkg.sha512"
+      "sha512": "sha512-9U91MvCETPTVkLd07rGuIIPSnoqEQq7WDwNe6zfREkCFNJtR56flnO38EXP0M+pzPpHBnNmPt9PnJoPDJZjg5w==",
+      "path": "communitytoolkit.common/8.1.0",
+      "hashPath": "communitytoolkit.common.8.1.0.nupkg.sha512"
+    },
+    "CommunityToolkit.Mvvm/8.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xxOt7lu9a5kB5Fs9RfcxzVlKnhuuPe+w7AXHtmCFtS3oldrsUhEMxHfNulluXSscUUoGxZ0jh55Om12ZP6abHA==",
+      "path": "communitytoolkit.mvvm/8.1.0",
+      "hashPath": "communitytoolkit.mvvm.8.1.0.nupkg.sha512"
     },
     "CommunityToolkit.WinUI/7.1.2": {
       "type": "package",
@@ -1808,20 +1819,6 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
-    "Microsoft.Toolkit/7.1.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0yBm7zWDU8jI93UySLeXTJnzl1PPl80+E+myEy6W2UIQsEgGpiWSMcKkV5/1F7dfHWcydBMveMjXZKt1/ocV2A==",
-      "path": "microsoft.toolkit/7.1.2",
-      "hashPath": "microsoft.toolkit.7.1.2.nupkg.sha512"
-    },
-    "Microsoft.Toolkit.Mvvm/7.1.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tUQn6ar9oP7kmYaZ6pWabxpQaqw95Bsf+GG7prEL0y5MV5F60z76lI/Ppps9zcTqwd7e5CrdZBcdfor9WuvohA==",
-      "path": "microsoft.toolkit.mvvm/7.1.2",
-      "hashPath": "microsoft.toolkit.mvvm.7.1.2.nupkg.sha512"
-    },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1843,12 +1840,12 @@
       "path": "microsoft.windows.sdk.buildtools/10.0.22621.755",
       "hashPath": "microsoft.windows.sdk.buildtools.10.0.22621.755.nupkg.sha512"
     },
-    "Microsoft.WindowsAppSDK/1.1.5": {
+    "Microsoft.WindowsAppSDK/1.2.230118.102": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gGeFfN1AQiIo6DaPe4KkOvlx/EDjwq/Lc+Q3EzX+U4x/hsiZkls/XqFpNTjELyYgsxl8g0SiPzguJ7A1dlhC6Q==",
-      "path": "microsoft.windowsappsdk/1.1.5",
-      "hashPath": "microsoft.windowsappsdk.1.1.5.nupkg.sha512"
+      "sha512": "sha512-MyHPzz4NSo+ulXkQ1sVo83SaZTFUcz429oy1m7lTfaxyU5St48p3TgzKKFRwe3WtpUf9OAUReYBCczIkojfmTQ==",
+      "path": "microsoft.windowsappsdk/1.2.230118.102",
+      "hashPath": "microsoft.windowsappsdk.1.2.230118.102.nupkg.sha512"
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",

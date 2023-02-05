@@ -45,9 +45,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.UI.DataModel", "Edam.L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.WinUI.Controls", "Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\Edam.WinUI.Controls.csproj", "{B87882AE-3CB0-488A-B14B-295098B2CE80}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.WinUI", "Edam.Consoles\Edam.WinUI\Edam.WinUI.csproj", "{110A518A-5EAA-4EAA-9692-17D0C4504897}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.Studio", "Edam.Consoles\Edam.WinUI\Edam.Studio.csproj", "{110A518A-5EAA-4EAA-9692-17D0C4504897}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edam.Data.AssetMapping", "Edam.Libraries\Edam.Data\Edam.Data.AssetMapping\Edam.Data.AssetMapping.csproj", "{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.Data.AssetMapping", "Edam.Libraries\Edam.Data\Edam.Data.AssetMapping\Edam.Data.AssetMapping.csproj", "{3ADCFAB9-5271-4073-A2CC-2CBF0360D23B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

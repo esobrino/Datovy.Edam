@@ -13,17 +13,17 @@ namespace Edam.WinUI
     public partial class App : global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
-        private global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlMetaDataProvider __appProvider;
+        private global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlMetaDataProvider __appProvider;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlMetaDataProvider _AppProvider
+        private global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlMetaDataProvider _AppProvider
         {
             get
             {
                 if (__appProvider == null)
                 {
-                    __appProvider = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlMetaDataProvider();
+                    __appProvider = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlMetaDataProvider();
                 }
                 return __appProvider;
             }
@@ -61,7 +61,7 @@ namespace Edam.WinUI
     }
 }
 
-namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
+namespace Edam.WinUI.Edam_Studio_XamlTypeInfo
 {
     /// <summary>
     /// Main class for providing metadata for the app or library
@@ -70,15 +70,15 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public sealed class XamlMetaDataProvider : global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
+        private global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
 
-        private global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlTypeInfoProvider Provider
+        private global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlTypeInfoProvider Provider
         {
             get
             {
                 if (_provider == null)
                 {
-                    _provider = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlTypeInfoProvider();
+                    _provider = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlTypeInfoProvider();
                 }
                 return _provider;
             }
@@ -128,7 +128,7 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
                 {
                     xamlType = CreateXamlType(typeIndex);
                 }
-                var userXamlType = xamlType as global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType;
+                var userXamlType = xamlType as global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType;
                 if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
                 {
                     global::Microsoft.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
@@ -167,7 +167,7 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
                 {
                     xamlType = CreateXamlType(typeIndex);
                 }
-                var userXamlType = xamlType as global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType;
+                var userXamlType = xamlType as global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType;
                 if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
                 {
                     global::Microsoft.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
@@ -298,8 +298,8 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
 
         private global::Microsoft.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType userType;
+            global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
@@ -307,7 +307,7 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
             {
 
             case 0:   //  Microsoft.UI.Xaml.Controls.XamlControlsResources
-                userType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.ResourceDictionary"));
+                userType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.ResourceDictionary"));
                 userType.Activator = Activate_0_XamlControlsResources;
                 userType.DictionaryAdd = MapAdd_0_XamlControlsResources;
                 userType.AddMemberName("UseCompactResources");
@@ -315,19 +315,19 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
                 break;
 
             case 1:   //  Microsoft.UI.Xaml.ResourceDictionary
-                xamlType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 2:   //  Object
-                xamlType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 3:   //  Boolean
-                xamlType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 4:   //  Edam.WinUI.Controls.Navigation.NavigationControl
-                userType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
+                userType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
                 userType.Activator = Activate_4_NavigationControl;
                 userType.AddMemberName("ViewModel");
                 userType.AddMemberName("MenuIsVisible");
@@ -335,35 +335,35 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
                 break;
 
             case 5:   //  Microsoft.UI.Xaml.Controls.UserControl
-                xamlType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 6:   //  Edam.Uwp.ViewModels.NavigationViewModel
-                userType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
+                userType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
             case 7:   //  Edam.Helpers.ObservableObject
-                userType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableObject"));
+                userType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableObject"));
                 userType.Activator = Activate_7_ObservableObject;
                 xamlType = userType;
                 break;
 
             case 8:   //  CommunityToolkit.Mvvm.ComponentModel.ObservableObject
-                userType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
             case 9:   //  Edam.WinUI.MainWindow
-                userType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
+                userType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
                 userType.Activator = Activate_9_MainWindow;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 10:   //  Microsoft.UI.Xaml.Window
-                xamlType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
@@ -461,27 +461,27 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
 
         private global::Microsoft.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlMember xamlMember = null;
-            global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType userType;
+            global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlMember xamlMember = null;
+            global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType userType;
 
             switch (longMemberName)
             {
             case "Microsoft.UI.Xaml.Controls.XamlControlsResources.UseCompactResources":
-                userType = (global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.XamlControlsResources");
-                xamlMember = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlMember(this, "UseCompactResources", "Boolean");
+                userType = (global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.XamlControlsResources");
+                xamlMember = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlMember(this, "UseCompactResources", "Boolean");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_0_XamlControlsResources_UseCompactResources;
                 xamlMember.Setter = set_0_XamlControlsResources_UseCompactResources;
                 break;
             case "Edam.WinUI.Controls.Navigation.NavigationControl.ViewModel":
-                userType = (global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Navigation.NavigationControl");
-                xamlMember = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.Uwp.ViewModels.NavigationViewModel");
+                userType = (global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Navigation.NavigationControl");
+                xamlMember = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.Uwp.ViewModels.NavigationViewModel");
                 xamlMember.Getter = get_1_NavigationControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.Navigation.NavigationControl.MenuIsVisible":
-                userType = (global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Navigation.NavigationControl");
-                xamlMember = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlMember(this, "MenuIsVisible", "Boolean");
+                userType = (global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Navigation.NavigationControl");
+                xamlMember = new global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlMember(this, "MenuIsVisible", "Boolean");
                 xamlMember.Getter = get_2_NavigationControl_MenuIsVisible;
                 xamlMember.SetIsReadOnly();
                 break;
@@ -542,10 +542,10 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 1.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlSystemBaseType
         , global::Microsoft.UI.Xaml.Markup.IXamlType
     {
-        global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Microsoft.UI.Xaml.Markup.IXamlType _baseType;
         global::Microsoft.UI.Xaml.Markup.IXamlType _boxedType;
         bool _isArray;
@@ -560,7 +560,7 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Microsoft.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Microsoft.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -775,7 +775,7 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Microsoft.UI.Xaml.Markup.IXamlMember
     {
-        global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -784,7 +784,7 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::Edam.WinUI.Edam_Studio_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;

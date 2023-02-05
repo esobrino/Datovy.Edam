@@ -233,7 +233,7 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
             _typeNameTable[5] = "Microsoft.UI.Xaml.Controls.UserControl";
             _typeNameTable[6] = "Edam.Uwp.ViewModels.NavigationViewModel";
             _typeNameTable[7] = "Edam.Helpers.ObservableObject";
-            _typeNameTable[8] = "Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject";
+            _typeNameTable[8] = "CommunityToolkit.Mvvm.ComponentModel.ObservableObject";
             _typeNameTable[9] = "Edam.WinUI.MainWindow";
             _typeNameTable[10] = "Microsoft.UI.Xaml.Window";
 
@@ -246,7 +246,7 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
             _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
             _typeTable[6] = typeof(global::Edam.Uwp.ViewModels.NavigationViewModel);
             _typeTable[7] = typeof(global::Edam.Helpers.ObservableObject);
-            _typeTable[8] = typeof(global::Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject);
+            _typeTable[8] = typeof(global::CommunityToolkit.Mvvm.ComponentModel.ObservableObject);
             _typeTable[9] = typeof(global::Edam.WinUI.MainWindow);
             _typeTable[10] = typeof(global::Microsoft.UI.Xaml.Window);
         }
@@ -345,12 +345,12 @@ namespace Edam.WinUI.Edam_WinUI_XamlTypeInfo
                 break;
 
             case 7:   //  Edam.Helpers.ObservableObject
-                userType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject"));
+                userType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableObject"));
                 userType.Activator = Activate_7_ObservableObject;
                 xamlType = userType;
                 break;
 
-            case 8:   //  Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject
+            case 8:   //  CommunityToolkit.Mvvm.ComponentModel.ObservableObject
                 userType = new global::Edam.WinUI.Edam_WinUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;

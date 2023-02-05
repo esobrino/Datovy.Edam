@@ -172,7 +172,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[204];
+            _typeNameTable = new string[205];
             _typeNameTable[0] = "Edam.WinUI.Controls.AboutControl";
             _typeNameTable[1] = "Microsoft.UI.Xaml.Controls.UserControl";
             _typeNameTable[2] = "Edam.DataObjects.ViewModels.IMenuItemParent";
@@ -187,7 +187,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
             _typeNameTable[11] = "Edam.UI.DataModel.Devices.DeviceUserViewModel";
             _typeNameTable[12] = "Edam.UI.DataModel.Devices.DeviceUserData";
             _typeNameTable[13] = "Edam.Helpers.ObservableObject";
-            _typeNameTable[14] = "Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject";
+            _typeNameTable[14] = "CommunityToolkit.Mvvm.ComponentModel.ObservableObject";
             _typeNameTable[15] = "Object";
             _typeNameTable[16] = "Edam.WinUI.Controls.Utilities.KeyPadControl";
             _typeNameTable[17] = "Edam.Uwp.ViewModels.KeyPadViewModel";
@@ -341,44 +341,45 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
             _typeNameTable[165] = "Microsoft.UI.Xaml.Controls.NavigationViewItem";
             _typeNameTable[166] = "Microsoft.UI.Xaml.Controls.NavigationViewItemBase";
             _typeNameTable[167] = "Microsoft.UI.Xaml.Controls.IconElement";
-            _typeNameTable[168] = "Edam.WinUI.Controls.Entities.EntityFollowUpViewControl";
-            _typeNameTable[169] = "Edam.WinUI.Controls.DataModels.ActivityPeriodRatingModel";
-            _typeNameTable[170] = "Edam.WinUI.Controls.Controls.Entities.EntityGroupControl";
-            _typeNameTable[171] = "Edam.WinUI.Controls.Common.AncestorSource";
-            _typeNameTable[172] = "System.Type";
-            _typeNameTable[173] = "System.Reflection.MemberInfo";
-            _typeNameTable[174] = "Microsoft.UI.Xaml.Controls.ListView";
-            _typeNameTable[175] = "Edam.WinUI.Controls.Home.DashboardControl";
-            _typeNameTable[176] = "Edam.WinUI.Common.MenuItemTemplateSelector";
-            _typeNameTable[177] = "Edam.WinUI.Controls.Navigation.NavigationControl";
-            _typeNameTable[178] = "Edam.Uwp.ViewModels.NavigationViewModel";
-            _typeNameTable[179] = "Edam.WinUI.Controls.Projects.ProjectSidePanelControl";
-            _typeNameTable[180] = "Edam.WinUI.Controls.Projects.ProjectViewerControl";
-            _typeNameTable[181] = "Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl";
-            _typeNameTable[182] = "Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainEditorControl";
-            _typeNameTable[183] = "Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator";
-            _typeNameTable[184] = "Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl";
-            _typeNameTable[185] = "Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel";
-            _typeNameTable[186] = "Edam.UI.DataModel.Models.ElementComponentViewModel";
-            _typeNameTable[187] = "Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl";
-            _typeNameTable[188] = "Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel";
-            _typeNameTable[189] = "Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl";
-            _typeNameTable[190] = "Edam.WinUI.Controls.ViewModels.ReferenceDataGridViewModel";
-            _typeNameTable[191] = "Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl";
-            _typeNameTable[192] = "Edam.Uwp.ViewModels.ReferenceDataEditorViewModel";
-            _typeNameTable[193] = "Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog";
-            _typeNameTable[194] = "Microsoft.UI.Xaml.Controls.ContentDialog";
-            _typeNameTable[195] = "Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel";
-            _typeNameTable[196] = "Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl";
-            _typeNameTable[197] = "Edam.Uwp.ViewModels.ReferenceListViewModel";
-            _typeNameTable[198] = "Edam.WinUI.Controls.Utilities.TextButtonControl";
-            _typeNameTable[199] = "Edam.Uwp.ViewModels.TextButtonViewModel";
-            _typeNameTable[200] = "Edam.WinUI.Controls.Utilities.TextEditorControl";
-            _typeNameTable[201] = "Edam.WinUI.Controls.ViewModels.TextEditorViewModel";
-            _typeNameTable[202] = "Edam.WinUI.Controls.Web.WebBrowserControl";
-            _typeNameTable[203] = "Edam.Uwp.ViewModels.WebBrowserViewModel";
+            _typeNameTable[168] = "Microsoft.UI.Xaml.Controls.InfoBadge";
+            _typeNameTable[169] = "Edam.WinUI.Controls.Entities.EntityFollowUpViewControl";
+            _typeNameTable[170] = "Edam.WinUI.Controls.DataModels.ActivityPeriodRatingModel";
+            _typeNameTable[171] = "Edam.WinUI.Controls.Controls.Entities.EntityGroupControl";
+            _typeNameTable[172] = "Edam.WinUI.Controls.Common.AncestorSource";
+            _typeNameTable[173] = "System.Type";
+            _typeNameTable[174] = "System.Reflection.MemberInfo";
+            _typeNameTable[175] = "Microsoft.UI.Xaml.Controls.ListView";
+            _typeNameTable[176] = "Edam.WinUI.Controls.Home.DashboardControl";
+            _typeNameTable[177] = "Edam.WinUI.Common.MenuItemTemplateSelector";
+            _typeNameTable[178] = "Edam.WinUI.Controls.Navigation.NavigationControl";
+            _typeNameTable[179] = "Edam.Uwp.ViewModels.NavigationViewModel";
+            _typeNameTable[180] = "Edam.WinUI.Controls.Projects.ProjectSidePanelControl";
+            _typeNameTable[181] = "Edam.WinUI.Controls.Projects.ProjectViewerControl";
+            _typeNameTable[182] = "Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl";
+            _typeNameTable[183] = "Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainEditorControl";
+            _typeNameTable[184] = "Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator";
+            _typeNameTable[185] = "Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl";
+            _typeNameTable[186] = "Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel";
+            _typeNameTable[187] = "Edam.UI.DataModel.Models.ElementComponentViewModel";
+            _typeNameTable[188] = "Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl";
+            _typeNameTable[189] = "Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel";
+            _typeNameTable[190] = "Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl";
+            _typeNameTable[191] = "Edam.WinUI.Controls.ViewModels.ReferenceDataGridViewModel";
+            _typeNameTable[192] = "Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl";
+            _typeNameTable[193] = "Edam.Uwp.ViewModels.ReferenceDataEditorViewModel";
+            _typeNameTable[194] = "Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog";
+            _typeNameTable[195] = "Microsoft.UI.Xaml.Controls.ContentDialog";
+            _typeNameTable[196] = "Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel";
+            _typeNameTable[197] = "Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl";
+            _typeNameTable[198] = "Edam.Uwp.ViewModels.ReferenceListViewModel";
+            _typeNameTable[199] = "Edam.WinUI.Controls.Utilities.TextButtonControl";
+            _typeNameTable[200] = "Edam.Uwp.ViewModels.TextButtonViewModel";
+            _typeNameTable[201] = "Edam.WinUI.Controls.Utilities.TextEditorControl";
+            _typeNameTable[202] = "Edam.WinUI.Controls.ViewModels.TextEditorViewModel";
+            _typeNameTable[203] = "Edam.WinUI.Controls.Web.WebBrowserControl";
+            _typeNameTable[204] = "Edam.Uwp.ViewModels.WebBrowserViewModel";
 
-            _typeTable = new global::System.Type[204];
+            _typeTable = new global::System.Type[205];
             _typeTable[0] = typeof(global::Edam.WinUI.Controls.AboutControl);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
             _typeTable[2] = typeof(global::Edam.DataObjects.ViewModels.IMenuItemParent);
@@ -393,7 +394,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
             _typeTable[11] = typeof(global::Edam.UI.DataModel.Devices.DeviceUserViewModel);
             _typeTable[12] = typeof(global::Edam.UI.DataModel.Devices.DeviceUserData);
             _typeTable[13] = typeof(global::Edam.Helpers.ObservableObject);
-            _typeTable[14] = typeof(global::Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject);
+            _typeTable[14] = typeof(global::CommunityToolkit.Mvvm.ComponentModel.ObservableObject);
             _typeTable[15] = typeof(global::System.Object);
             _typeTable[16] = typeof(global::Edam.WinUI.Controls.Utilities.KeyPadControl);
             _typeTable[17] = typeof(global::Edam.Uwp.ViewModels.KeyPadViewModel);
@@ -547,42 +548,43 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
             _typeTable[165] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItem);
             _typeTable[166] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase);
             _typeTable[167] = typeof(global::Microsoft.UI.Xaml.Controls.IconElement);
-            _typeTable[168] = typeof(global::Edam.WinUI.Controls.Entities.EntityFollowUpViewControl);
-            _typeTable[169] = typeof(global::Edam.WinUI.Controls.DataModels.ActivityPeriodRatingModel);
-            _typeTable[170] = typeof(global::Edam.WinUI.Controls.Controls.Entities.EntityGroupControl);
-            _typeTable[171] = typeof(global::Edam.WinUI.Controls.Common.AncestorSource);
-            _typeTable[172] = typeof(global::System.Type);
-            _typeTable[173] = typeof(global::System.Reflection.MemberInfo);
-            _typeTable[174] = typeof(global::Microsoft.UI.Xaml.Controls.ListView);
-            _typeTable[175] = typeof(global::Edam.WinUI.Controls.Home.DashboardControl);
-            _typeTable[176] = typeof(global::Edam.WinUI.Common.MenuItemTemplateSelector);
-            _typeTable[177] = typeof(global::Edam.WinUI.Controls.Navigation.NavigationControl);
-            _typeTable[178] = typeof(global::Edam.Uwp.ViewModels.NavigationViewModel);
-            _typeTable[179] = typeof(global::Edam.WinUI.Controls.Projects.ProjectSidePanelControl);
-            _typeTable[180] = typeof(global::Edam.WinUI.Controls.Projects.ProjectViewerControl);
-            _typeTable[181] = typeof(global::Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl);
-            _typeTable[182] = typeof(global::Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainEditorControl);
-            _typeTable[183] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator);
-            _typeTable[184] = typeof(global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl);
-            _typeTable[185] = typeof(global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel);
-            _typeTable[186] = typeof(global::Edam.UI.DataModel.Models.ElementComponentViewModel);
-            _typeTable[187] = typeof(global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl);
-            _typeTable[188] = typeof(global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel);
-            _typeTable[189] = typeof(global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl);
-            _typeTable[190] = typeof(global::Edam.WinUI.Controls.ViewModels.ReferenceDataGridViewModel);
-            _typeTable[191] = typeof(global::Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl);
-            _typeTable[192] = typeof(global::Edam.Uwp.ViewModels.ReferenceDataEditorViewModel);
-            _typeTable[193] = typeof(global::Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog);
-            _typeTable[194] = typeof(global::Microsoft.UI.Xaml.Controls.ContentDialog);
-            _typeTable[195] = typeof(global::Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel);
-            _typeTable[196] = typeof(global::Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl);
-            _typeTable[197] = typeof(global::Edam.Uwp.ViewModels.ReferenceListViewModel);
-            _typeTable[198] = typeof(global::Edam.WinUI.Controls.Utilities.TextButtonControl);
-            _typeTable[199] = typeof(global::Edam.Uwp.ViewModels.TextButtonViewModel);
-            _typeTable[200] = typeof(global::Edam.WinUI.Controls.Utilities.TextEditorControl);
-            _typeTable[201] = typeof(global::Edam.WinUI.Controls.ViewModels.TextEditorViewModel);
-            _typeTable[202] = typeof(global::Edam.WinUI.Controls.Web.WebBrowserControl);
-            _typeTable[203] = typeof(global::Edam.Uwp.ViewModels.WebBrowserViewModel);
+            _typeTable[168] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBadge);
+            _typeTable[169] = typeof(global::Edam.WinUI.Controls.Entities.EntityFollowUpViewControl);
+            _typeTable[170] = typeof(global::Edam.WinUI.Controls.DataModels.ActivityPeriodRatingModel);
+            _typeTable[171] = typeof(global::Edam.WinUI.Controls.Controls.Entities.EntityGroupControl);
+            _typeTable[172] = typeof(global::Edam.WinUI.Controls.Common.AncestorSource);
+            _typeTable[173] = typeof(global::System.Type);
+            _typeTable[174] = typeof(global::System.Reflection.MemberInfo);
+            _typeTable[175] = typeof(global::Microsoft.UI.Xaml.Controls.ListView);
+            _typeTable[176] = typeof(global::Edam.WinUI.Controls.Home.DashboardControl);
+            _typeTable[177] = typeof(global::Edam.WinUI.Common.MenuItemTemplateSelector);
+            _typeTable[178] = typeof(global::Edam.WinUI.Controls.Navigation.NavigationControl);
+            _typeTable[179] = typeof(global::Edam.Uwp.ViewModels.NavigationViewModel);
+            _typeTable[180] = typeof(global::Edam.WinUI.Controls.Projects.ProjectSidePanelControl);
+            _typeTable[181] = typeof(global::Edam.WinUI.Controls.Projects.ProjectViewerControl);
+            _typeTable[182] = typeof(global::Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl);
+            _typeTable[183] = typeof(global::Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainEditorControl);
+            _typeTable[184] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator);
+            _typeTable[185] = typeof(global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl);
+            _typeTable[186] = typeof(global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel);
+            _typeTable[187] = typeof(global::Edam.UI.DataModel.Models.ElementComponentViewModel);
+            _typeTable[188] = typeof(global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl);
+            _typeTable[189] = typeof(global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel);
+            _typeTable[190] = typeof(global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl);
+            _typeTable[191] = typeof(global::Edam.WinUI.Controls.ViewModels.ReferenceDataGridViewModel);
+            _typeTable[192] = typeof(global::Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl);
+            _typeTable[193] = typeof(global::Edam.Uwp.ViewModels.ReferenceDataEditorViewModel);
+            _typeTable[194] = typeof(global::Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog);
+            _typeTable[195] = typeof(global::Microsoft.UI.Xaml.Controls.ContentDialog);
+            _typeTable[196] = typeof(global::Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel);
+            _typeTable[197] = typeof(global::Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl);
+            _typeTable[198] = typeof(global::Edam.Uwp.ViewModels.ReferenceListViewModel);
+            _typeTable[199] = typeof(global::Edam.WinUI.Controls.Utilities.TextButtonControl);
+            _typeTable[200] = typeof(global::Edam.Uwp.ViewModels.TextButtonViewModel);
+            _typeTable[201] = typeof(global::Edam.WinUI.Controls.Utilities.TextEditorControl);
+            _typeTable[202] = typeof(global::Edam.WinUI.Controls.ViewModels.TextEditorViewModel);
+            _typeTable[203] = typeof(global::Edam.WinUI.Controls.Web.WebBrowserControl);
+            _typeTable[204] = typeof(global::Edam.Uwp.ViewModels.WebBrowserViewModel);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -705,36 +707,37 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
         private object Activate_162_PersonViewModel() { return new global::Edam.UI.DataModel.Entities.PersonViewModel(); }
         private object Activate_163_ReferenceListGroupEditControl() { return new global::Edam.WinUI.Controls.ReferenceLists.ReferenceListGroupEditControl(); }
         private object Activate_165_NavigationViewItem() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewItem(); }
-        private object Activate_168_EntityFollowUpViewControl() { return new global::Edam.WinUI.Controls.Entities.EntityFollowUpViewControl(); }
-        private object Activate_169_ActivityPeriodRatingModel() { return new global::Edam.WinUI.Controls.DataModels.ActivityPeriodRatingModel(); }
-        private object Activate_170_EntityGroupControl() { return new global::Edam.WinUI.Controls.Controls.Entities.EntityGroupControl(); }
-        private object Activate_175_DashboardControl() { return new global::Edam.WinUI.Controls.Home.DashboardControl(); }
-        private object Activate_176_MenuItemTemplateSelector() { return new global::Edam.WinUI.Common.MenuItemTemplateSelector(); }
-        private object Activate_177_NavigationControl() { return new global::Edam.WinUI.Controls.Navigation.NavigationControl(); }
-        private object Activate_178_NavigationViewModel() { return new global::Edam.Uwp.ViewModels.NavigationViewModel(); }
-        private object Activate_179_ProjectSidePanelControl() { return new global::Edam.WinUI.Controls.Projects.ProjectSidePanelControl(); }
-        private object Activate_180_ProjectViewerControl() { return new global::Edam.WinUI.Controls.Projects.ProjectViewerControl(); }
-        private object Activate_181_ReferenceDataDomainGridControl() { return new global::Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl(); }
-        private object Activate_182_ReferenceDataDomainEditorControl() { return new global::Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainEditorControl(); }
-        private object Activate_183_NavigationViewItemSeparator() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator(); }
-        private object Activate_184_ReferenceDataFormControl() { return new global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl(); }
-        private object Activate_185_ReferenceDataFormViewModel() { return new global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel(); }
-        private object Activate_187_ReferenceDataFormStackControl() { return new global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl(); }
-        private object Activate_188_ReferenceDataFormStackViewModel() { return new global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel(); }
-        private object Activate_189_ReferenceDataGridControl() { return new global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl(); }
-        private object Activate_190_ReferenceDataGridViewModel() { return new global::Edam.WinUI.Controls.ViewModels.ReferenceDataGridViewModel(); }
-        private object Activate_191_ReferenceDataEditorControl() { return new global::Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl(); }
-        private object Activate_192_ReferenceDataEditorViewModel() { return new global::Edam.Uwp.ViewModels.ReferenceDataEditorViewModel(); }
-        private object Activate_193_ReferenceDataValidationContentDialog() { return new global::Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog(); }
-        private object Activate_195_ReferenceDataValidationViewModel() { return new global::Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel(); }
-        private object Activate_196_ReferenceListViewControl() { return new global::Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl(); }
-        private object Activate_197_ReferenceListViewModel() { return new global::Edam.Uwp.ViewModels.ReferenceListViewModel(); }
-        private object Activate_198_TextButtonControl() { return new global::Edam.WinUI.Controls.Utilities.TextButtonControl(); }
-        private object Activate_199_TextButtonViewModel() { return new global::Edam.Uwp.ViewModels.TextButtonViewModel(); }
-        private object Activate_200_TextEditorControl() { return new global::Edam.WinUI.Controls.Utilities.TextEditorControl(); }
-        private object Activate_201_TextEditorViewModel() { return new global::Edam.WinUI.Controls.ViewModels.TextEditorViewModel(); }
-        private object Activate_202_WebBrowserControl() { return new global::Edam.WinUI.Controls.Web.WebBrowserControl(); }
-        private object Activate_203_WebBrowserViewModel() { return new global::Edam.Uwp.ViewModels.WebBrowserViewModel(); }
+        private object Activate_168_InfoBadge() { return new global::Microsoft.UI.Xaml.Controls.InfoBadge(); }
+        private object Activate_169_EntityFollowUpViewControl() { return new global::Edam.WinUI.Controls.Entities.EntityFollowUpViewControl(); }
+        private object Activate_170_ActivityPeriodRatingModel() { return new global::Edam.WinUI.Controls.DataModels.ActivityPeriodRatingModel(); }
+        private object Activate_171_EntityGroupControl() { return new global::Edam.WinUI.Controls.Controls.Entities.EntityGroupControl(); }
+        private object Activate_176_DashboardControl() { return new global::Edam.WinUI.Controls.Home.DashboardControl(); }
+        private object Activate_177_MenuItemTemplateSelector() { return new global::Edam.WinUI.Common.MenuItemTemplateSelector(); }
+        private object Activate_178_NavigationControl() { return new global::Edam.WinUI.Controls.Navigation.NavigationControl(); }
+        private object Activate_179_NavigationViewModel() { return new global::Edam.Uwp.ViewModels.NavigationViewModel(); }
+        private object Activate_180_ProjectSidePanelControl() { return new global::Edam.WinUI.Controls.Projects.ProjectSidePanelControl(); }
+        private object Activate_181_ProjectViewerControl() { return new global::Edam.WinUI.Controls.Projects.ProjectViewerControl(); }
+        private object Activate_182_ReferenceDataDomainGridControl() { return new global::Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl(); }
+        private object Activate_183_ReferenceDataDomainEditorControl() { return new global::Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainEditorControl(); }
+        private object Activate_184_NavigationViewItemSeparator() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator(); }
+        private object Activate_185_ReferenceDataFormControl() { return new global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl(); }
+        private object Activate_186_ReferenceDataFormViewModel() { return new global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel(); }
+        private object Activate_188_ReferenceDataFormStackControl() { return new global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl(); }
+        private object Activate_189_ReferenceDataFormStackViewModel() { return new global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel(); }
+        private object Activate_190_ReferenceDataGridControl() { return new global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl(); }
+        private object Activate_191_ReferenceDataGridViewModel() { return new global::Edam.WinUI.Controls.ViewModels.ReferenceDataGridViewModel(); }
+        private object Activate_192_ReferenceDataEditorControl() { return new global::Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl(); }
+        private object Activate_193_ReferenceDataEditorViewModel() { return new global::Edam.Uwp.ViewModels.ReferenceDataEditorViewModel(); }
+        private object Activate_194_ReferenceDataValidationContentDialog() { return new global::Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog(); }
+        private object Activate_196_ReferenceDataValidationViewModel() { return new global::Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel(); }
+        private object Activate_197_ReferenceListViewControl() { return new global::Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl(); }
+        private object Activate_198_ReferenceListViewModel() { return new global::Edam.Uwp.ViewModels.ReferenceListViewModel(); }
+        private object Activate_199_TextButtonControl() { return new global::Edam.WinUI.Controls.Utilities.TextButtonControl(); }
+        private object Activate_200_TextButtonViewModel() { return new global::Edam.Uwp.ViewModels.TextButtonViewModel(); }
+        private object Activate_201_TextEditorControl() { return new global::Edam.WinUI.Controls.Utilities.TextEditorControl(); }
+        private object Activate_202_TextEditorViewModel() { return new global::Edam.WinUI.Controls.ViewModels.TextEditorViewModel(); }
+        private object Activate_203_WebBrowserControl() { return new global::Edam.WinUI.Controls.Web.WebBrowserControl(); }
+        private object Activate_204_WebBrowserViewModel() { return new global::Edam.Uwp.ViewModels.WebBrowserViewModel(); }
         private void VectorAdd_34_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::CommunityToolkit.WinUI.UI.Controls.DataGridColumn>)instance;
@@ -861,12 +864,12 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 break;
 
             case 13:   //  Edam.Helpers.ObservableObject
-                userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject"));
+                userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableObject"));
                 userType.Activator = Activate_13_ObservableObject;
                 xamlType = userType;
                 break;
 
-            case 14:   //  Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject
+            case 14:   //  CommunityToolkit.Mvvm.ComponentModel.ObservableObject
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
@@ -1269,7 +1272,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 break;
 
             case 66:   //  Edam.WinUI.Controls.ViewModels.AssetViewerViewModel
-                userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject"));
+                userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -1745,7 +1748,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 break;
 
             case 124:   //  Edam.WinUI.Controls.ViewModels.MapSidePanelViewModel
-                userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject"));
+                userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -2088,6 +2091,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 userType.AddMemberName("CompactPaneLength");
                 userType.AddMemberName("HasUnrealizedChildren");
                 userType.AddMemberName("Icon");
+                userType.AddMemberName("InfoBadge");
                 userType.AddMemberName("IsChildSelected");
                 userType.AddMemberName("IsExpanded");
                 userType.AddMemberName("MenuItems");
@@ -2106,9 +2110,15 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 xamlType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 168:   //  Edam.WinUI.Controls.Entities.EntityFollowUpViewControl
+            case 168:   //  Microsoft.UI.Xaml.Controls.InfoBadge
+                userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 169:   //  Edam.WinUI.Controls.Entities.EntityFollowUpViewControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_168_EntityFollowUpViewControl;
+                userType.Activator = Activate_169_EntityFollowUpViewControl;
                 userType.AddMemberName("RatingModel");
                 userType.AddMemberName("ParentMenu");
                 userType.AddMemberName("ViewModel");
@@ -2116,252 +2126,252 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 169:   //  Edam.WinUI.Controls.DataModels.ActivityPeriodRatingModel
+            case 170:   //  Edam.WinUI.Controls.DataModels.ActivityPeriodRatingModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 170:   //  Edam.WinUI.Controls.Controls.Entities.EntityGroupControl
+            case 171:   //  Edam.WinUI.Controls.Controls.Entities.EntityGroupControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_170_EntityGroupControl;
+                userType.Activator = Activate_171_EntityGroupControl;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 171:   //  Edam.WinUI.Controls.Common.AncestorSource
+            case 172:   //  Edam.WinUI.Controls.Common.AncestorSource
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.AddMemberName("AncestorType");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 172:   //  System.Type
+            case 173:   //  System.Type
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Reflection.MemberInfo"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 173:   //  System.Reflection.MemberInfo
+            case 174:   //  System.Reflection.MemberInfo
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case 174:   //  Microsoft.UI.Xaml.Controls.ListView
+            case 175:   //  Microsoft.UI.Xaml.Controls.ListView
                 xamlType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 175:   //  Edam.WinUI.Controls.Home.DashboardControl
+            case 176:   //  Edam.WinUI.Controls.Home.DashboardControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_175_DashboardControl;
+                userType.Activator = Activate_176_DashboardControl;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 176:   //  Edam.WinUI.Common.MenuItemTemplateSelector
+            case 177:   //  Edam.WinUI.Common.MenuItemTemplateSelector
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.DataTemplateSelector"));
-                userType.Activator = Activate_176_MenuItemTemplateSelector;
+                userType.Activator = Activate_177_MenuItemTemplateSelector;
                 userType.SetContentPropertyName("Edam.WinUI.Common.MenuItemTemplateSelector.ItemTemplate");
                 userType.AddMemberName("ItemTemplate");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 177:   //  Edam.WinUI.Controls.Navigation.NavigationControl
+            case 178:   //  Edam.WinUI.Controls.Navigation.NavigationControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_177_NavigationControl;
+                userType.Activator = Activate_178_NavigationControl;
                 userType.AddMemberName("ViewModel");
                 userType.AddMemberName("MenuIsVisible");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 178:   //  Edam.Uwp.ViewModels.NavigationViewModel
+            case 179:   //  Edam.Uwp.ViewModels.NavigationViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 179:   //  Edam.WinUI.Controls.Projects.ProjectSidePanelControl
+            case 180:   //  Edam.WinUI.Controls.Projects.ProjectSidePanelControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_179_ProjectSidePanelControl;
+                userType.Activator = Activate_180_ProjectSidePanelControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 180:   //  Edam.WinUI.Controls.Projects.ProjectViewerControl
+            case 181:   //  Edam.WinUI.Controls.Projects.ProjectViewerControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_180_ProjectViewerControl;
+                userType.Activator = Activate_181_ProjectViewerControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 181:   //  Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl
+            case 182:   //  Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_181_ReferenceDataDomainGridControl;
+                userType.Activator = Activate_182_ReferenceDataDomainGridControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 182:   //  Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainEditorControl
+            case 183:   //  Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainEditorControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_182_ReferenceDataDomainEditorControl;
+                userType.Activator = Activate_183_ReferenceDataDomainEditorControl;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 183:   //  Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator
+            case 184:   //  Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItemBase"));
-                userType.Activator = Activate_183_NavigationViewItemSeparator;
+                userType.Activator = Activate_184_NavigationViewItemSeparator;
                 xamlType = userType;
                 break;
 
-            case 184:   //  Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl
+            case 185:   //  Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_184_ReferenceDataFormControl;
+                userType.Activator = Activate_185_ReferenceDataFormControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 185:   //  Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel
+            case 186:   //  Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.UI.DataModel.Models.ElementComponentViewModel"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 186:   //  Edam.UI.DataModel.Models.ElementComponentViewModel
+            case 187:   //  Edam.UI.DataModel.Models.ElementComponentViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 xamlType = userType;
                 break;
 
-            case 187:   //  Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl
+            case 188:   //  Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_187_ReferenceDataFormStackControl;
+                userType.Activator = Activate_188_ReferenceDataFormStackControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 188:   //  Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel
+            case 189:   //  Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.UI.DataModel.Models.ElementComponentViewModel"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 189:   //  Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl
+            case 190:   //  Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_189_ReferenceDataGridControl;
+                userType.Activator = Activate_190_ReferenceDataGridControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 190:   //  Edam.WinUI.Controls.ViewModels.ReferenceDataGridViewModel
+            case 191:   //  Edam.WinUI.Controls.ViewModels.ReferenceDataGridViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 191:   //  Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl
+            case 192:   //  Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_191_ReferenceDataEditorControl;
+                userType.Activator = Activate_192_ReferenceDataEditorControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 192:   //  Edam.Uwp.ViewModels.ReferenceDataEditorViewModel
+            case 193:   //  Edam.Uwp.ViewModels.ReferenceDataEditorViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.UI.DataModel.Models.ElementComponentViewModel"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 193:   //  Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog
+            case 194:   //  Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentDialog"));
-                userType.Activator = Activate_193_ReferenceDataValidationContentDialog;
+                userType.Activator = Activate_194_ReferenceDataValidationContentDialog;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 194:   //  Microsoft.UI.Xaml.Controls.ContentDialog
+            case 195:   //  Microsoft.UI.Xaml.Controls.ContentDialog
                 xamlType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 195:   //  Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel
+            case 196:   //  Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 196:   //  Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl
+            case 197:   //  Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_196_ReferenceListViewControl;
+                userType.Activator = Activate_197_ReferenceListViewControl;
                 userType.AddMemberName("ViewModel");
                 userType.AddMemberName("ParentMenu");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 197:   //  Edam.Uwp.ViewModels.ReferenceListViewModel
+            case 198:   //  Edam.Uwp.ViewModels.ReferenceListViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 198:   //  Edam.WinUI.Controls.Utilities.TextButtonControl
+            case 199:   //  Edam.WinUI.Controls.Utilities.TextButtonControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_198_TextButtonControl;
+                userType.Activator = Activate_199_TextButtonControl;
                 userType.AddMemberName("Texto");
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 199:   //  Edam.Uwp.ViewModels.TextButtonViewModel
+            case 200:   //  Edam.Uwp.ViewModels.TextButtonViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 200:   //  Edam.WinUI.Controls.Utilities.TextEditorControl
+            case 201:   //  Edam.WinUI.Controls.Utilities.TextEditorControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_200_TextEditorControl;
+                userType.Activator = Activate_201_TextEditorControl;
                 userType.AddMemberName("Texto");
                 userType.AddMemberName("m_ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 201:   //  Edam.WinUI.Controls.ViewModels.TextEditorViewModel
+            case 202:   //  Edam.WinUI.Controls.ViewModels.TextEditorViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 202:   //  Edam.WinUI.Controls.Web.WebBrowserControl
+            case 203:   //  Edam.WinUI.Controls.Web.WebBrowserControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_202_WebBrowserControl;
+                userType.Activator = Activate_203_WebBrowserControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 203:   //  Edam.Uwp.ViewModels.WebBrowserViewModel
+            case 204:   //  Edam.Uwp.ViewModels.WebBrowserViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
@@ -4701,210 +4711,220 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.Icon = (global::Microsoft.UI.Xaml.Controls.IconElement)Value;
         }
-        private object get_251_NavigationViewItem_IsChildSelected(object instance)
+        private object get_251_NavigationViewItem_InfoBadge(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
+            return that.InfoBadge;
+        }
+        private void set_251_NavigationViewItem_InfoBadge(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
+            that.InfoBadge = (global::Microsoft.UI.Xaml.Controls.InfoBadge)Value;
+        }
+        private object get_252_NavigationViewItem_IsChildSelected(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.IsChildSelected;
         }
-        private void set_251_NavigationViewItem_IsChildSelected(object instance, object Value)
+        private void set_252_NavigationViewItem_IsChildSelected(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.IsChildSelected = (global::System.Boolean)Value;
         }
-        private object get_252_NavigationViewItem_IsExpanded(object instance)
+        private object get_253_NavigationViewItem_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.IsExpanded;
         }
-        private void set_252_NavigationViewItem_IsExpanded(object instance, object Value)
+        private void set_253_NavigationViewItem_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_253_NavigationViewItem_MenuItems(object instance)
+        private object get_254_NavigationViewItem_MenuItems(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.MenuItems;
         }
-        private object get_254_NavigationViewItem_MenuItemsSource(object instance)
+        private object get_255_NavigationViewItem_MenuItemsSource(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.MenuItemsSource;
         }
-        private void set_254_NavigationViewItem_MenuItemsSource(object instance, object Value)
+        private void set_255_NavigationViewItem_MenuItemsSource(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.MenuItemsSource = (global::System.Object)Value;
         }
-        private object get_255_NavigationViewItem_SelectsOnInvoked(object instance)
+        private object get_256_NavigationViewItem_SelectsOnInvoked(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.SelectsOnInvoked;
         }
-        private void set_255_NavigationViewItem_SelectsOnInvoked(object instance, object Value)
+        private void set_256_NavigationViewItem_SelectsOnInvoked(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.SelectsOnInvoked = (global::System.Boolean)Value;
         }
-        private object get_256_EntityFollowUpViewControl_RatingModel(object instance)
+        private object get_257_EntityFollowUpViewControl_RatingModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Entities.EntityFollowUpViewControl)instance;
             return that.RatingModel;
         }
-        private object get_257_EntityFollowUpViewControl_ParentMenu(object instance)
+        private object get_258_EntityFollowUpViewControl_ParentMenu(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Entities.EntityFollowUpViewControl)instance;
             return that.ParentMenu;
         }
-        private void set_257_EntityFollowUpViewControl_ParentMenu(object instance, object Value)
+        private void set_258_EntityFollowUpViewControl_ParentMenu(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.Entities.EntityFollowUpViewControl)instance;
             that.ParentMenu = (global::Edam.DataObjects.ViewModels.IMenuItemParent)Value;
         }
-        private object get_258_EntityFollowUpViewControl_ViewModel(object instance)
+        private object get_259_EntityFollowUpViewControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Entities.EntityFollowUpViewControl)instance;
             return that.ViewModel;
         }
-        private object get_259_AncestorSource_AncestorType(object instance)
+        private object get_260_AncestorSource_AncestorType(object instance)
         {
             return global::Edam.WinUI.Controls.Common.AncestorSource.GetAncestorType((global::Microsoft.UI.Xaml.FrameworkElement)instance);
         }
-        private void set_259_AncestorSource_AncestorType(object instance, object Value)
+        private void set_260_AncestorSource_AncestorType(object instance, object Value)
         {
             global::Edam.WinUI.Controls.Common.AncestorSource.SetAncestorType((global::Microsoft.UI.Xaml.FrameworkElement)instance, (global::System.Type)Value);
         }
-        private object get_260_MenuItemTemplateSelector_ItemTemplate(object instance)
+        private object get_261_MenuItemTemplateSelector_ItemTemplate(object instance)
         {
             var that = (global::Edam.WinUI.Common.MenuItemTemplateSelector)instance;
             return that.ItemTemplate;
         }
-        private void set_260_MenuItemTemplateSelector_ItemTemplate(object instance, object Value)
+        private void set_261_MenuItemTemplateSelector_ItemTemplate(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Common.MenuItemTemplateSelector)instance;
             that.ItemTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_261_NavigationControl_ViewModel(object instance)
+        private object get_262_NavigationControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Navigation.NavigationControl)instance;
             return that.ViewModel;
         }
-        private object get_262_NavigationControl_MenuIsVisible(object instance)
+        private object get_263_NavigationControl_MenuIsVisible(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Navigation.NavigationControl)instance;
             return that.MenuIsVisible;
         }
-        private object get_263_ProjectSidePanelControl_ViewModel(object instance)
+        private object get_264_ProjectSidePanelControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Projects.ProjectSidePanelControl)instance;
             return that.ViewModel;
         }
-        private void set_263_ProjectSidePanelControl_ViewModel(object instance, object Value)
+        private void set_264_ProjectSidePanelControl_ViewModel(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.Projects.ProjectSidePanelControl)instance;
             that.ViewModel = (global::Edam.WinUI.Controls.ViewModels.ProjectViewerViewModel)Value;
         }
-        private object get_264_ProjectViewerControl_ViewModel(object instance)
+        private object get_265_ProjectViewerControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Projects.ProjectViewerControl)instance;
             return that.ViewModel;
         }
-        private object get_265_ReferenceDataDomainGridControl_ViewModel(object instance)
+        private object get_266_ReferenceDataDomainGridControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl)instance;
             return that.ViewModel;
         }
-        private object get_266_ReferenceDataFormControl_ViewModel(object instance)
+        private object get_267_ReferenceDataFormControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl)instance;
             return that.ViewModel;
         }
-        private void set_266_ReferenceDataFormControl_ViewModel(object instance, object Value)
+        private void set_267_ReferenceDataFormControl_ViewModel(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl)instance;
             that.ViewModel = (global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel)Value;
         }
-        private object get_267_ReferenceDataFormStackControl_ViewModel(object instance)
+        private object get_268_ReferenceDataFormStackControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl)instance;
             return that.ViewModel;
         }
-        private void set_267_ReferenceDataFormStackControl_ViewModel(object instance, object Value)
+        private void set_268_ReferenceDataFormStackControl_ViewModel(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl)instance;
             that.ViewModel = (global::Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel)Value;
         }
-        private object get_268_ReferenceDataGridControl_ViewModel(object instance)
+        private object get_269_ReferenceDataGridControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl)instance;
             return that.ViewModel;
         }
-        private object get_269_ReferenceDataEditorControl_ViewModel(object instance)
+        private object get_270_ReferenceDataEditorControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl)instance;
             return that.ViewModel;
         }
-        private object get_270_ReferenceDataValidationContentDialog_ViewModel(object instance)
+        private object get_271_ReferenceDataValidationContentDialog_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog)instance;
             return that.ViewModel;
         }
-        private void set_270_ReferenceDataValidationContentDialog_ViewModel(object instance, object Value)
+        private void set_271_ReferenceDataValidationContentDialog_ViewModel(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog)instance;
             that.ViewModel = (global::Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel)Value;
         }
-        private object get_271_ReferenceListViewControl_ViewModel(object instance)
+        private object get_272_ReferenceListViewControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl)instance;
             return that.ViewModel;
         }
-        private object get_272_ReferenceListViewControl_ParentMenu(object instance)
+        private object get_273_ReferenceListViewControl_ParentMenu(object instance)
         {
             var that = (global::Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl)instance;
             return that.ParentMenu;
         }
-        private void set_272_ReferenceListViewControl_ParentMenu(object instance, object Value)
+        private void set_273_ReferenceListViewControl_ParentMenu(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl)instance;
             that.ParentMenu = (global::Edam.DataObjects.ViewModels.IMenuItemParent)Value;
         }
-        private object get_273_TextButtonControl_Texto(object instance)
+        private object get_274_TextButtonControl_Texto(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Utilities.TextButtonControl)instance;
             return that.Texto;
         }
-        private void set_273_TextButtonControl_Texto(object instance, object Value)
+        private void set_274_TextButtonControl_Texto(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.Utilities.TextButtonControl)instance;
             that.Texto = (global::System.String)Value;
         }
-        private object get_274_TextButtonControl_ViewModel(object instance)
+        private object get_275_TextButtonControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Utilities.TextButtonControl)instance;
             return that.ViewModel;
         }
-        private object get_275_TextEditorControl_Texto(object instance)
+        private object get_276_TextEditorControl_Texto(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Utilities.TextEditorControl)instance;
             return that.Texto;
         }
-        private void set_275_TextEditorControl_Texto(object instance, object Value)
+        private void set_276_TextEditorControl_Texto(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.Utilities.TextEditorControl)instance;
             that.Texto = (global::System.String)Value;
         }
-        private object get_276_TextEditorControl_m_ViewModel(object instance)
+        private object get_277_TextEditorControl_m_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Utilities.TextEditorControl)instance;
             return that.m_ViewModel;
         }
-        private void set_276_TextEditorControl_m_ViewModel(object instance, object Value)
+        private void set_277_TextEditorControl_m_ViewModel(object instance, object Value)
         {
             var that = (global::Edam.WinUI.Controls.Utilities.TextEditorControl)instance;
             that.m_ViewModel = (global::Edam.WinUI.Controls.ViewModels.TextEditorViewModel)Value;
         }
-        private object get_277_WebBrowserControl_ViewModel(object instance)
+        private object get_278_WebBrowserControl_ViewModel(object instance)
         {
             var that = (global::Edam.WinUI.Controls.Web.WebBrowserControl)instance;
             return that.ViewModel;
@@ -6588,57 +6608,64 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 xamlMember.Getter = get_250_NavigationViewItem_Icon;
                 xamlMember.Setter = set_250_NavigationViewItem_Icon;
                 break;
+            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.InfoBadge":
+                userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
+                xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "InfoBadge", "Microsoft.UI.Xaml.Controls.InfoBadge");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_251_NavigationViewItem_InfoBadge;
+                xamlMember.Setter = set_251_NavigationViewItem_InfoBadge;
+                break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.IsChildSelected":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "IsChildSelected", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_251_NavigationViewItem_IsChildSelected;
-                xamlMember.Setter = set_251_NavigationViewItem_IsChildSelected;
+                xamlMember.Getter = get_252_NavigationViewItem_IsChildSelected;
+                xamlMember.Setter = set_252_NavigationViewItem_IsChildSelected;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.IsExpanded":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_252_NavigationViewItem_IsExpanded;
-                xamlMember.Setter = set_252_NavigationViewItem_IsExpanded;
+                xamlMember.Getter = get_253_NavigationViewItem_IsExpanded;
+                xamlMember.Setter = set_253_NavigationViewItem_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.MenuItems":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "MenuItems", "System.Collections.Generic.IList`1<Object>");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_253_NavigationViewItem_MenuItems;
+                xamlMember.Getter = get_254_NavigationViewItem_MenuItems;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.MenuItemsSource":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "MenuItemsSource", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_254_NavigationViewItem_MenuItemsSource;
-                xamlMember.Setter = set_254_NavigationViewItem_MenuItemsSource;
+                xamlMember.Getter = get_255_NavigationViewItem_MenuItemsSource;
+                xamlMember.Setter = set_255_NavigationViewItem_MenuItemsSource;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.SelectsOnInvoked":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "SelectsOnInvoked", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_255_NavigationViewItem_SelectsOnInvoked;
-                xamlMember.Setter = set_255_NavigationViewItem_SelectsOnInvoked;
+                xamlMember.Getter = get_256_NavigationViewItem_SelectsOnInvoked;
+                xamlMember.Setter = set_256_NavigationViewItem_SelectsOnInvoked;
                 break;
             case "Edam.WinUI.Controls.Entities.EntityFollowUpViewControl.RatingModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Entities.EntityFollowUpViewControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "RatingModel", "Edam.WinUI.Controls.DataModels.ActivityPeriodRatingModel");
-                xamlMember.Getter = get_256_EntityFollowUpViewControl_RatingModel;
+                xamlMember.Getter = get_257_EntityFollowUpViewControl_RatingModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.Entities.EntityFollowUpViewControl.ParentMenu":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Entities.EntityFollowUpViewControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ParentMenu", "Edam.DataObjects.ViewModels.IMenuItemParent");
-                xamlMember.Getter = get_257_EntityFollowUpViewControl_ParentMenu;
-                xamlMember.Setter = set_257_EntityFollowUpViewControl_ParentMenu;
+                xamlMember.Getter = get_258_EntityFollowUpViewControl_ParentMenu;
+                xamlMember.Setter = set_258_EntityFollowUpViewControl_ParentMenu;
                 break;
             case "Edam.WinUI.Controls.Entities.EntityFollowUpViewControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Entities.EntityFollowUpViewControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.Uwp.ViewModels.EntityFollowUpViewModel");
-                xamlMember.Getter = get_258_EntityFollowUpViewControl_ViewModel;
+                xamlMember.Getter = get_259_EntityFollowUpViewControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.Common.AncestorSource.AncestorType":
@@ -6646,116 +6673,116 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "AncestorType", "System.Type");
                 xamlMember.SetTargetTypeName("Microsoft.UI.Xaml.FrameworkElement");
                 xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_259_AncestorSource_AncestorType;
-                xamlMember.Setter = set_259_AncestorSource_AncestorType;
+                xamlMember.Getter = get_260_AncestorSource_AncestorType;
+                xamlMember.Setter = set_260_AncestorSource_AncestorType;
                 break;
             case "Edam.WinUI.Common.MenuItemTemplateSelector.ItemTemplate":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Common.MenuItemTemplateSelector");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ItemTemplate", "Microsoft.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_260_MenuItemTemplateSelector_ItemTemplate;
-                xamlMember.Setter = set_260_MenuItemTemplateSelector_ItemTemplate;
+                xamlMember.Getter = get_261_MenuItemTemplateSelector_ItemTemplate;
+                xamlMember.Setter = set_261_MenuItemTemplateSelector_ItemTemplate;
                 break;
             case "Edam.WinUI.Controls.Navigation.NavigationControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Navigation.NavigationControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.Uwp.ViewModels.NavigationViewModel");
-                xamlMember.Getter = get_261_NavigationControl_ViewModel;
+                xamlMember.Getter = get_262_NavigationControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.Navigation.NavigationControl.MenuIsVisible":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Navigation.NavigationControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "MenuIsVisible", "Boolean");
-                xamlMember.Getter = get_262_NavigationControl_MenuIsVisible;
+                xamlMember.Getter = get_263_NavigationControl_MenuIsVisible;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.Projects.ProjectSidePanelControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Projects.ProjectSidePanelControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.WinUI.Controls.ViewModels.ProjectViewerViewModel");
-                xamlMember.Getter = get_263_ProjectSidePanelControl_ViewModel;
-                xamlMember.Setter = set_263_ProjectSidePanelControl_ViewModel;
+                xamlMember.Getter = get_264_ProjectSidePanelControl_ViewModel;
+                xamlMember.Setter = set_264_ProjectSidePanelControl_ViewModel;
                 break;
             case "Edam.WinUI.Controls.Projects.ProjectViewerControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Projects.ProjectViewerControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.WinUI.Controls.ViewModels.ProjectViewerViewModel");
-                xamlMember.Getter = get_264_ProjectViewerControl_ViewModel;
+                xamlMember.Getter = get_265_ProjectViewerControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.ReferenceData.ReferenceDataDomainGridControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.WinUI.Controls.ViewModels.ReferenceDataDomainViewModel");
-                xamlMember.Getter = get_265_ReferenceDataDomainGridControl_ViewModel;
+                xamlMember.Getter = get_266_ReferenceDataDomainGridControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.WinUI.Controls.ViewModels.ReferenceDataFormViewModel");
-                xamlMember.Getter = get_266_ReferenceDataFormControl_ViewModel;
-                xamlMember.Setter = set_266_ReferenceDataFormControl_ViewModel;
+                xamlMember.Getter = get_267_ReferenceDataFormControl_ViewModel;
+                xamlMember.Setter = set_267_ReferenceDataFormControl_ViewModel;
                 break;
             case "Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataFormStackControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.WinUI.Controls.ViewModels.ReferenceDataFormStackViewModel");
-                xamlMember.Getter = get_267_ReferenceDataFormStackControl_ViewModel;
-                xamlMember.Setter = set_267_ReferenceDataFormStackControl_ViewModel;
+                xamlMember.Getter = get_268_ReferenceDataFormStackControl_ViewModel;
+                xamlMember.Setter = set_268_ReferenceDataFormStackControl_ViewModel;
                 break;
             case "Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Controls.ReferenceData.ReferenceDataGridControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.WinUI.Controls.ViewModels.ReferenceDataGridViewModel");
-                xamlMember.Getter = get_268_ReferenceDataGridControl_ViewModel;
+                xamlMember.Getter = get_269_ReferenceDataGridControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.ReferenceData.ReferenceDataEditorControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.Uwp.ViewModels.ReferenceDataEditorViewModel");
-                xamlMember.Getter = get_269_ReferenceDataEditorControl_ViewModel;
+                xamlMember.Getter = get_270_ReferenceDataEditorControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.ReferenceData.ReferenceDataValidationContentDialog");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.WinUI.Controls.ViewModels.ReferenceDataValidationViewModel");
-                xamlMember.Getter = get_270_ReferenceDataValidationContentDialog_ViewModel;
-                xamlMember.Setter = set_270_ReferenceDataValidationContentDialog_ViewModel;
+                xamlMember.Getter = get_271_ReferenceDataValidationContentDialog_ViewModel;
+                xamlMember.Setter = set_271_ReferenceDataValidationContentDialog_ViewModel;
                 break;
             case "Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.Uwp.ViewModels.ReferenceListViewModel");
-                xamlMember.Getter = get_271_ReferenceListViewControl_ViewModel;
+                xamlMember.Getter = get_272_ReferenceListViewControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl.ParentMenu":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.ReferenceLists.ReferenceListViewControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ParentMenu", "Edam.DataObjects.ViewModels.IMenuItemParent");
-                xamlMember.Getter = get_272_ReferenceListViewControl_ParentMenu;
-                xamlMember.Setter = set_272_ReferenceListViewControl_ParentMenu;
+                xamlMember.Getter = get_273_ReferenceListViewControl_ParentMenu;
+                xamlMember.Setter = set_273_ReferenceListViewControl_ParentMenu;
                 break;
             case "Edam.WinUI.Controls.Utilities.TextButtonControl.Texto":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Utilities.TextButtonControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "Texto", "String");
-                xamlMember.Getter = get_273_TextButtonControl_Texto;
-                xamlMember.Setter = set_273_TextButtonControl_Texto;
+                xamlMember.Getter = get_274_TextButtonControl_Texto;
+                xamlMember.Setter = set_274_TextButtonControl_Texto;
                 break;
             case "Edam.WinUI.Controls.Utilities.TextButtonControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Utilities.TextButtonControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.Uwp.ViewModels.TextButtonViewModel");
-                xamlMember.Getter = get_274_TextButtonControl_ViewModel;
+                xamlMember.Getter = get_275_TextButtonControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Edam.WinUI.Controls.Utilities.TextEditorControl.Texto":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Utilities.TextEditorControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "Texto", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_275_TextEditorControl_Texto;
-                xamlMember.Setter = set_275_TextEditorControl_Texto;
+                xamlMember.Getter = get_276_TextEditorControl_Texto;
+                xamlMember.Setter = set_276_TextEditorControl_Texto;
                 break;
             case "Edam.WinUI.Controls.Utilities.TextEditorControl.m_ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Utilities.TextEditorControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "m_ViewModel", "Edam.WinUI.Controls.ViewModels.TextEditorViewModel");
-                xamlMember.Getter = get_276_TextEditorControl_m_ViewModel;
-                xamlMember.Setter = set_276_TextEditorControl_m_ViewModel;
+                xamlMember.Getter = get_277_TextEditorControl_m_ViewModel;
+                xamlMember.Setter = set_277_TextEditorControl_m_ViewModel;
                 break;
             case "Edam.WinUI.Controls.Web.WebBrowserControl.ViewModel":
                 userType = (global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Edam.WinUI.Controls.Web.WebBrowserControl");
                 xamlMember = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlMember(this, "ViewModel", "Edam.Uwp.ViewModels.WebBrowserViewModel");
-                xamlMember.Getter = get_277_WebBrowserControl_ViewModel;
+                xamlMember.Getter = get_278_WebBrowserControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

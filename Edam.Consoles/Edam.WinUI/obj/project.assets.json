@@ -16739,8 +16739,6 @@
     "net6.0-windows10.0.19041": [
       "Edam.Security >= 1.0.0",
       "Edam.System >= 1.0.0",
-      "Edam.UI >= 1.0.0",
-      "Edam.UI.DataModel >= 1.0.0",
       "Edam.WinUI.Controls >= 1.0.0",
       "Microsoft.Windows.SDK.BuildTools >= 10.0.22621.755",
       "Microsoft.WindowsAppSDK >= 1.2.230118.102"
@@ -16753,9 +16751,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\Edam.WinUI.csproj",
-      "projectName": "Edam.WinUI",
-      "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\Edam.WinUI.csproj",
+      "projectUniqueName": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\Edam.Studio.csproj",
+      "projectName": "Edam.Studio.v0",
+      "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\Edam.Studio.csproj",
       "packagesPath": "C:\\Users\\esobr\\.nuget\\packages\\",
       "outputPath": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\obj\\",
       "projectStyle": "PackageReference",
@@ -16784,12 +16782,6 @@
             },
             "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
               "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj"
-            },
-            "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI.DataModel\\Edam.UI.DataModel.csproj": {
-              "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI.DataModel\\Edam.UI.DataModel.csproj"
-            },
-            "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI\\Edam.UI.csproj": {
-              "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI\\Edam.UI.csproj"
             },
             "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.Xaml\\Edam.WinUI.Controls\\Edam.WinUI.Controls.csproj": {
               "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.Xaml\\Edam.WinUI.Controls\\Edam.WinUI.Controls.csproj"

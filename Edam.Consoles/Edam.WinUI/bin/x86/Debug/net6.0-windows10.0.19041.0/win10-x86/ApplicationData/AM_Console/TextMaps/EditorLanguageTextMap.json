@@ -1,9 +1,0 @@
-﻿{
-   "Items": [
-      {
-         "Direction": "From",
-         "SourceText": "xsd",
-         "TargetText": "xml"
-      }
-   ]
-}

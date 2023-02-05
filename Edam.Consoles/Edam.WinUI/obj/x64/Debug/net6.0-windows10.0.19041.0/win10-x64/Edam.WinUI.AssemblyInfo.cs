@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Edam.WinUI")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Edam.Studio.v0")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("Edam.WinUI")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Edam.WinUI")]
+[assembly: System.Reflection.AssemblyProductAttribute("Edam.Studio.v0")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Edam.Studio.v0")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows10.0.19041.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows10.0.17763.0")]

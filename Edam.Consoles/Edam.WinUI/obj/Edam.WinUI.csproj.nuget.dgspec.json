@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\Edam.WinUI.csproj",
-        "projectName": "Edam.WinUI",
+        "projectName": "Edam.Studio.v0",
         "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\Edam.WinUI.csproj",
         "packagesPath": "C:\\Users\\esobr\\.nuget\\packages\\",
         "outputPath": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\obj\\",
@@ -38,12 +38,6 @@
               },
               "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
                 "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj"
-              },
-              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI.DataModel\\Edam.UI.DataModel.csproj": {
-                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI.DataModel\\Edam.UI.DataModel.csproj"
-              },
-              "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI\\Edam.UI.csproj": {
-                "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.UI\\Edam.UI.csproj"
               },
               "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.Xaml\\Edam.WinUI.Controls\\Edam.WinUI.Controls.csproj": {
                 "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.UI\\Edam.Xaml\\Edam.WinUI.Controls\\Edam.WinUI.Controls.csproj"

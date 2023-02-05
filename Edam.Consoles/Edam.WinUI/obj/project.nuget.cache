@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "exe84ngnSwfZx+2VNSCsZqL+qdgImkwAw2/P5taQ+psa/rE9ne4YxFAfQD0Hp4uor6dTNgJbtVl8A46cOPaAog==",
+  "dgSpecHash": "KNf0j0BWMn5ffz/NMVyVuNU3EF9f++BF62QvZF9vldClmt3N8hm9ubgXmqEDb+wMB6Q16ykSaNibEpKqO5Namg==",
   "success": true,
-  "projectFilePath": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\Edam.WinUI.csproj",
+  "projectFilePath": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\Edam.Studio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\esobr\\.nuget\\packages\\colorcode.core\\2.0.13\\colorcode.core.2.0.13.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\colorcode.winui\\2.0.13\\colorcode.winui.2.0.13.nupkg.sha512",
