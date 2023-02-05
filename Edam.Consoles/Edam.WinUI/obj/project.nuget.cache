@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KNf0j0BWMn5ffz/NMVyVuNU3EF9f++BF62QvZF9vldClmt3N8hm9ubgXmqEDb+wMB6Q16ykSaNibEpKqO5Namg==",
+  "dgSpecHash": "GecaAY7Sz2JAWNzrv9lRafkGp1WJ9YK8iT5CrqNJ2xOXCr1i8irwt/AYbnyvDbqPR39hL+JGQorL8I499yJf8Q==",
   "success": true,
   "projectFilePath": "C:\\prjs\\Datovy.Edam\\Edam.Consoles\\Edam.WinUI\\Edam.Studio.csproj",
   "expectedPackageFiles": [
@@ -163,7 +163,6 @@
     "C:\\Users\\esobr\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\yamldotnet\\11.2.1\\yamldotnet.11.2.1.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.13\\microsoft.netcore.app.runtime.win-x86.6.0.13.nupkg.sha512",
-    "C:\\Users\\esobr\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.13\\microsoft.netcore.app.crossgen2.win-x64.6.0.13.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.28\\microsoft.windows.sdk.net.ref.10.0.19041.28.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.13\\microsoft.aspnetcore.app.runtime.win-x86.6.0.13.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\6.0.13\\microsoft.netcore.app.runtime.win-arm64.6.0.13.nupkg.sha512",
