@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 
 using Edam.Data.Asset;
+using Edam.Json.JsonSchema;
 
 namespace Edam.Json.JsonSchemaReader
 {
 
    public class JsonSchemaSet
    {
-      private List<JsonSchema> m_Schemas = new List<JsonSchema>();
+      private List<JsonSchemaInfo> m_Schemas = new List<JsonSchemaInfo>();
 
       private NamespaceInfo m_Namespace;
       public NamespaceInfo Namespace
@@ -34,7 +35,7 @@ namespace Edam.Json.JsonSchemaReader
          get { return m_Schemas.Count; }
       }
 
-      public List<JsonSchema> Schemas
+      public List<JsonSchemaInfo> Schemas
       {
          get { return m_Schemas; }
       }
@@ -42,7 +43,7 @@ namespace Edam.Json.JsonSchemaReader
       {
          m_Namespaces = namespaces ?? new NamespaceList();
       }
-      public void Add(JsonSchema schema)
+      public void Add(JsonSchemaInfo schema)
       {
          m_Schemas.Add(schema);
       }

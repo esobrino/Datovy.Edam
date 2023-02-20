@@ -9,7 +9,10 @@ using System.IO;
 using Edam.Serialization;
 using Edam.Data.AssetProject;
 using app = Edam.Application;
-using Microsoft.UI.Xaml.Media;
+using Edam.DataObjects.ReferenceData;
+using data = Edam.Data;
+using Edam.Data;
+using Edam.Application;
 
 namespace Edam.UI.App
 {
@@ -24,6 +27,7 @@ namespace Edam.UI.App
       public const string TYPE_POSTFIX = "_Type";
       public const string DOCUMENT_POSTFIX = "_Document";
       public const string EDAM_SETTINGS_FILENAME_KEY = "EdamSettingsFileName";
+      public const string EDAM_DATA_PATH = "AssetDataPath";
 
       static AppSettings()
       {
@@ -56,6 +60,30 @@ namespace Edam.UI.App
          return DOCUMENT_POSTFIX;
       }
 
+      public static void SetDataSource(DataSourceInfo dataSource)
+      {
+         SetConnectionString(dataSource.ConnectionString);
+      }
+
+      /// <summary>
+      /// Set Connection string and store it on the Settings files as possible.
+      /// </summary>
+      /// <param name="connectionString">connection string</param>
+      public static void SetConnectionString(string connectionString)
+      {
+         if (EdamSettings == null)
+         {
+            EdamSettings = FromJson(null);
+            if (EdamSettings == null)
+            {
+               // file don't exist so create an instance of the settings
+               EdamSettings = new EdamSettings();
+            }
+         }
+         EdamSettings.DataSource.DefaultConnectionString = connectionString;
+         ToJson(EdamSettings);
+      }
+
       /// <summary>
       /// Get Console Path where application data is found.
       /// </summary>
@@ -70,14 +98,14 @@ namespace Edam.UI.App
       }
 
       /// <summary>
-      /// Get Settings Path to re
+      /// Get Settings Path.
       /// </summary>
       /// <returns>Settings Paht is returned</returns>
       public static string GetSettingsPath()
       {
          string fname = app.AppSettings.GetSectionString(
             EDAM_SETTINGS_FILENAME_KEY);
-         return GetConsolePath() + fname;
+         return Project.GetConsoleDataPath() + fname;
       }
 
       /// <summary>
@@ -87,11 +115,90 @@ namespace Edam.UI.App
       /// <returns>uri list of given type is returned</returns>
       public static List<UriItemInfo> GetUriList(UriType type)
       {
+         VerifySetConnectionString();
          if (EdamSettings.App.UriList == null)
          {
             return new List<UriItemInfo>();
          }
          return EdamSettings.App.UriList.FindAll((x) => x.Type == type);
+      }
+
+      /// <summary>
+      /// Set Reference Data connection string.
+      /// </summary>
+      /// <param name="connectionString"></param>
+      public static void SetReferenceDataConnectionString(
+         string connectionString)
+      {
+         string kstring = ReferenceDataHelper.GetConnectionStringKey();
+         if (!String.IsNullOrWhiteSpace(kstring))
+         {
+            var cstring = app.AppSettings.GetConnectionString(kstring);
+            if (String.IsNullOrWhiteSpace(cstring))
+            {
+               DataSources.AddDefaultConnectionString(
+                  connectionString, kstring);
+            }
+         }
+      }
+
+      /// <summary>
+      /// Set Default Connection String.
+      /// </summary>
+      /// <param name="connectionString">connection string</param>
+      public static void SetDefaultConnectionString(string connectionString)
+      {
+         SetConnectionString(connectionString);
+         var defaultKey = DataSources.GetDefaultDatabaseKey();
+         DataSources.AddDefaultConnectionString(
+            connectionString, defaultKey);
+
+         // check reference data...
+         SetReferenceDataConnectionString(connectionString);
+      }
+
+      /// <summary>
+      /// Verify that a Connection String associated with default db keys are 
+      /// available.  If not try setting up those.
+      /// </summary>
+      public static void VerifySetConnectionString()
+      {
+         if (EdamSettings == null)
+         {
+            EdamSettings = FromJson(null);
+            if (EdamSettings == null)
+            {
+               EdamSettings = new EdamSettings();
+            }
+         }
+
+         // get or set default connection string if available at this time...
+         string cstring = String.IsNullOrWhiteSpace(
+            EdamSettings.DataSource.DefaultConnectionString) ?
+               DataSources.DEFAULT_CONNECTION_STRING :
+               EdamSettings.DataSource.DefaultConnectionString;
+
+         // check "Default" key
+         var key = DataSources.GetDefaultDatabaseKey();
+         if (!String.IsNullOrWhiteSpace(key))
+         {
+            var dstring = Session.DataSourceCollection.Find(key);
+            if (dstring == null)
+            {
+               SetDefaultConnectionString(cstring);
+            }
+         }
+
+         // check "ReferenceData" key
+         key = ReferenceDataHelper.GetConnectionStringKey();
+         if (!String.IsNullOrWhiteSpace(key))
+         {
+            var dstring = Session.DataSourceCollection.Find(key);
+            if (dstring == null)
+            {
+               SetReferenceDataConnectionString(cstring);
+            }
+         }
       }
 
       /// <summary>
@@ -108,6 +215,22 @@ namespace Edam.UI.App
          {
             string jsonText = File.ReadAllText(fpath);
             setts = JsonSerializer.Deserialize<EdamSettings>(jsonText);
+
+            // reset values as needed
+            if (String.IsNullOrWhiteSpace(setts.App.ConsolePath))
+            {
+               setts.App.ConsolePath = GetConsolePath();
+            }
+
+            foreach(var i in setts.App.UriList)
+            {
+               // TODO: remove hardcoded value...
+               if (String.IsNullOrWhiteSpace(i.UriText) && 
+                  i.Type == UriType.ConsolePath && i.Name == "Default")
+               {
+                  i.UriText = "";
+               }
+            }
          }
          EdamSettings = setts;
          return setts;

@@ -23,6 +23,11 @@ namespace Edam.Data.Asset.Services
          AssetServiceHelper.PrepareProceduresRegistry();
       }
 
+      public static void Initialize()
+      {
+
+      }
+
       /// <summary>
       /// Get Arguments for the Process...
       /// </summary>

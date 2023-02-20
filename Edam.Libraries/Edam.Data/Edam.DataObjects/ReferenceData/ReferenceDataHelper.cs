@@ -16,8 +16,9 @@ namespace Edam.DataObjects.ReferenceData
 
       public static string GetConnectionStringKey()
       {
-         return AppSettings.GetSectionString(
+         string connectionString = AppSettings.GetSectionString(
             CONNECTION_STRING_KEY, "ReferenceData");
+         return connectionString;
       }
    }
 }

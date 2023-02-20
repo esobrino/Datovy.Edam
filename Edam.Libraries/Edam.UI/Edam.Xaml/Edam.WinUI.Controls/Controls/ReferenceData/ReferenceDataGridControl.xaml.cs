@@ -22,8 +22,7 @@ namespace Edam.WinUI.Controls.Controls.ReferenceData
    public sealed partial class ReferenceDataGridControl : UserControl
    {
 
-      private ReferenceDataGridViewModel m_ViewModel = 
-         new ReferenceDataGridViewModel();
+      private ReferenceDataGridViewModel m_ViewModel;
       public ReferenceDataGridViewModel ViewModel
       {
          get { return m_ViewModel; }
@@ -31,6 +30,7 @@ namespace Edam.WinUI.Controls.Controls.ReferenceData
       public ReferenceDataGridControl()
       {
          this.InitializeComponent();
+         m_ViewModel = new ReferenceDataGridViewModel();
          DataContext = m_ViewModel;
          m_ViewModel.DataGridControl = DataGridControl;
       }

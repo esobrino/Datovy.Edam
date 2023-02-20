@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+	<head>
+		<title>browser-amd-editor</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		
+		<link
+			rel="stylesheet"
+			data-name="vs/editor/editor.main"
+			href="./min/vs/editor/editor.main.css"
+		/>
+	</head>
+	<body style="margin: 0; height: 100%">
+		<div id="container" style="width: 100%; height: 100%; border: 1px solid #EEEEEE"></div>
+
+		<!-- OR ANY OTHER AMD LOADER HERE INSTEAD OF loader.js -->
+		<script src="./min/vs/loader.js"></script>
+		<script src="./min/vs/editor/editor.main.nls.js"></script>
+		<script src="./min/vs/editor/editor.main.js"></script>
+		<script>
+			require.config({ paths: { vs: './min/vs' } });
+
+			require(['vs/editor/editor.main'], function () {
+				var editor = monaco.editor.create(document.getElementById('container'), {
+					value: ['function x() {', '\tconsole.log("Hello world!");', '}'].join('\n'),
+					language: 'javascript', minimap: { enabled: false }
+				});
+			});
+		</script>
+	</body>
+</html>

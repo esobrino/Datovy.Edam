@@ -25,20 +25,23 @@
             <TabViewItem.IconSource>
                <SymbolIconSource Symbol="Document" />
             </TabViewItem.IconSource>
-            <prj:ProjectFileEditorControl x:Name="FileEditorControl"
-               DataContext="{x:Bind m_ViewModel}"/>
+            <!--<prj:ProjectFileEditorControl x:Name="FileEditorControl"
+               DataContext="{x:Bind m_ViewModel}"/>-->
+            <Frame x:Name="FrameFileEditor" />
          </TabViewItem>
          <TabViewItem x:Name="AssetTab" Header="Asset" IsEnabled="False">
             <TabViewItem.IconSource>
                <SymbolIconSource Symbol="ShowResults" />
             </TabViewItem.IconSource>
-            <local:AssetDataElementGridControl x:Name="ElementGridControl" />
+            <!--<local:AssetDataElementGridControl x:Name="ElementGridControl" />-->
+            <Frame x:Name="FrameElementGrid" />
          </TabViewItem>
          <TabViewItem x:Name="UseCaseTab" Header="Use Cases" Visibility="Collapsed">
             <TabViewItem.IconSource>
                <SymbolIconSource Symbol="OtherUser" />
             </TabViewItem.IconSource>
-            <local:AssetUseCaseGridControl x:Name="UseCaseGridControl" />
+            <!--<local:AssetUseCaseGridControl x:Name="UseCaseGridControl" />-->
+            <Frame x:Name="FrameUseCaseGrid" />
          </TabViewItem>
       </TabView.TabItems>
    </TabView>

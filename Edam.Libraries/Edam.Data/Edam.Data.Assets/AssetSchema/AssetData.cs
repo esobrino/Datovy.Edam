@@ -76,24 +76,24 @@ namespace Edam.Data.AssetSchema
       #endregion
       #region -- 1.00 - Properties and Fields for Namespaces Management
 
-      protected List<NamespaceInfo> m_Namespaces;
+      protected NamespaceList m_Namespaces;
       protected NamespaceInfo m_DefaultNamespace = null;
 
       public string RootTargetNamespace { get; set; }
 
-      public List<NamespaceInfo> Namespaces
+      public NamespaceList Namespaces
       {
          get
          {
             if (m_Namespaces == null)
-               m_Namespaces = new List<NamespaceInfo>();
+               m_Namespaces = new NamespaceList();
             return m_Namespaces;
          }
          set
          {
             if (value == null)
             {
-               m_Namespaces = new List<NamespaceInfo>();
+               m_Namespaces = new NamespaceList();
             }
             else
             {
@@ -182,7 +182,7 @@ namespace Edam.Data.AssetSchema
          m_DefaultNamespace = ns;
          if (m_Namespaces == null)
          {
-            m_Namespaces = new List<NamespaceInfo>();
+            m_Namespaces = new NamespaceList();
          }
          var nsf = m_Namespaces.Find((x) => x.Uri.Equals(ns.Uri));
          if (nsf == null)

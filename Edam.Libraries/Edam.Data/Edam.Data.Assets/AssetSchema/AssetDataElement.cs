@@ -366,7 +366,13 @@ namespace Edam.Data.AssetSchema
       #endregion
       #region -- 4.0 - To/From Asset Data Element
 
-      public static AssetElementInfo<IAssetElement> ToAsset(
+      /// <summary>
+      /// Prepare the base Asset Item.
+      /// </summary>
+      /// <param name="ns">namespace information</param>
+      /// <param name="name">item name</param>
+      /// <returns>instance of AssetDataElement is returned</returns>
+      public static AssetElementInfo<IAssetElement> ToAssetElement(
          NamespaceInfo ns, string name)
       {
          QualifiedNameInfo typeQName = new QualifiedNameInfo("object");

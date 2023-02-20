@@ -1,4 +1,6 @@
-﻿using Edam.WinUI.Controls.ViewModels;
+// Copyright (c) Microsoft Corporation and Contributors.
+// Licensed under the MIT License.
+
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -6,7 +8,6 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-using Windows.UI.Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,13 +16,14 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-using Edam.WinUI.Controls.Dialogs;
-
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 using Edam.WinUI.Controls.DataModels;
 using Edam.Diagnostics;
 using Edam.WinUI.Controls.Common;
+using Edam.WinUI.Controls.ViewModels;
+using Edam.WinUI.Controls.Assets;
+using Windows.UI.Core;
 
 namespace Edam.WinUI.Controls.Projects
 {
@@ -33,14 +35,16 @@ namespace Edam.WinUI.Controls.Projects
       {
          get { return m_ViewModel; }
       }
+
       public ProjectViewerControl()
       {
          this.InitializeComponent();
+
          m_ViewModel = TreeViewSidePanel.ViewModel;
          this.DataContext = TreeViewSidePanel.ViewModel;
 
          m_ViewModel.NotifyEventCompletion += ManageNotification;
-         AssetViewerControl.ViewModel.NotifyEventCompletion += 
+         AssetViewerControl.ViewModel.NotifyEventCompletion +=
             ManageNotification;
          AssetViewSidePanel.ViewModel.NotifyAssetSaveOptionChanged +=
             AssetViewerControl.ViewModel.ManageNotification;

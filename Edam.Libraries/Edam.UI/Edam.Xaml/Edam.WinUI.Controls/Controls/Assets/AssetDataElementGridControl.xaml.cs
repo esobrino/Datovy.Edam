@@ -14,25 +14,13 @@ namespace Edam.WinUI.Controls.Assets
       public AssetViewerViewModel ViewModel
       {
          get { return m_ViewModel; }
-         set
-         {
-            m_ViewModel = new AssetViewerViewModel();
-            DataContext = m_ViewModel;
-
-            //var styleSelector = 
-            //   Resources[CustomRowStyleSelector.STYLE_SELECTOR] 
-            //      as CustomRowStyleSelector;
-            //if (styleSelector != null)
-            //{
-            //   styleSelector.Parent = this;
-            //}
-         }
       }
 
       public AssetDataElementGridControl()
       {
          this.InitializeComponent();
-         ViewModel = new AssetViewerViewModel();
+         m_ViewModel = new AssetViewerViewModel();
+         DataContext = m_ViewModel;
       }
    }
 

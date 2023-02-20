@@ -99,7 +99,7 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
                resource.OrdinalNo = ++resourceCount;
 
                // add resources (tables)
-               var ritem = AssetDataElement.ToAsset(ns, resource.Name);
+               var ritem = AssetDataElement.ToAssetElement(ns, resource.Name);
                ritem.DataOwnerId = dataOwnerId;
                ritem.Root = ns.Prefix;
                ritem.Domain = schema.Name;

@@ -75,11 +75,11 @@ namespace Edam.Xml.XmlExplore
       #endregion
       #region -- Manage Namespaces
 
-      public static List<NamespaceInfo> SetNamespaces(
-         List<NamespaceInfo> namespaces, XmlSchemaSet schemaSet, 
+      public static NamespaceList SetNamespaces(
+         NamespaceList namespaces, XmlSchemaSet schemaSet, 
          NamespaceInfo defaultNamespace)
       {
-         var list = namespaces ?? new List<NamespaceInfo>();
+         var list = namespaces ?? new NamespaceList();
          var slist = schemaSet.Schemas();
          foreach (var z in slist)
          {

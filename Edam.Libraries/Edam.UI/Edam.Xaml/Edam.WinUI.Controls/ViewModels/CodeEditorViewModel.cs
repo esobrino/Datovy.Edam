@@ -26,6 +26,7 @@ namespace Edam.WinUI.Controls.ViewModels
       private TextDocumentModel m_TextDocument;
       private ResultLog m_ResultsLog = new ResultLog();
       private Uri m_UrlSource;
+      private static string m_CodeEditorPath = "";
 
       public DataTextMap DataTextMap { get; set; }
       public WebView2 CodeEditor = null;
@@ -57,13 +58,23 @@ namespace Edam.WinUI.Controls.ViewModels
 
       public CodeEditorViewModel()
       {
-         Navigate(GetDefaultCodeEditorUrl());
+         Navigate(GetDefaultCodeEditorUri());
          m_TextDocument = new TextDocumentModel(this);
          DataTextMap = Project.GetDataTextMapByKey();
       }
 
-      public static string GetDefaultCodeEditorUrl()
+      /// <summary>
+      /// Get Default Code Editor URI
+      /// </summary>
+      /// <param name="path"></param>
+      /// <returns></returns>
+      public static string GetDefaultCodeEditorUri(string path = null)
       {
+         if (!String.IsNullOrWhiteSpace(m_CodeEditorPath))
+         {
+            return m_CodeEditorPath;
+         }
+
          string key = AppSettings.GetSectionString(DEFAULT_CODE_EDITOR_KEY);
          if (string.IsNullOrEmpty(key))
          {
@@ -74,7 +85,8 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             return null;
          }
-         return ConfigurationHelper.GetAbsoluteFileUri(url);
+         m_CodeEditorPath = ConfigurationHelper.GetAbsoluteFileUri(path + url);
+         return m_CodeEditorPath;
       }
 
       public async Task<ResultLog> SetEditorText(String text, String language)

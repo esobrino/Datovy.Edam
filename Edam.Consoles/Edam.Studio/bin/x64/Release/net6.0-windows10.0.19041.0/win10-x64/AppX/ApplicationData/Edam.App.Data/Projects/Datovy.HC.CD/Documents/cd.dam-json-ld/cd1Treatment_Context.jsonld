@@ -1,0 +1,29 @@
+{
+  "@context": {
+      "cd1": "http://www.datovy.com/hc/cd/Clinical/#",
+      "treatment_Id": "cd1:Treatment_Id",
+      "given_Indicator": "cd1:Given_Indicator",
+      "name": "cd1:Name",
+      "start_Date": "cd1:Start_Date",
+      "end_Date": "cd1:End_Date",
+      "quantity": "cd1:Quantity",
+      "form": "cd1:Form",
+      "comment": "cd1:Comment",
+      "status_Code_ID": "cd1:Status_Code_ID",
+      "status_DateTime": "cd1:Status_DateTime",
+      "activity_ID": "cd1:Activity_ID",
+      "case_ID": "cd1:Case_ID",
+      "subject_ID": "cd1:Subject_ID",
+      "tenant_ID": "cd1:Tenant_ID",
+      "data_Owner_ID": "cd1:Data_Owner_ID",
+      "agency_Reporting_ID": "cd1:Agency_Reporting_ID",
+      "sequence_Number": "cd1:Sequence_Number",
+      "effective_DateTime": "cd1:Effective_DateTime",
+      "effective_End_DateTime": "cd1:Effective_End_DateTime",
+      "version_Number": "cd1:Version_Number",
+      "created_DateTime": "cd1:Created_DateTime",
+      "updated_DateTime": "cd1:Updated_DateTime",
+      "record_Status_Code_ID": "cd1:Record_Status_Code_ID",
+      "session_Updated_ID": "cd1:Session_Updated_ID"
+   }
+}

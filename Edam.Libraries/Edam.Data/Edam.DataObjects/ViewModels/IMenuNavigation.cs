@@ -10,6 +10,7 @@ namespace Edam.DataObjects.ViewModels
    public interface IMenuNavigation
    {
       void Goto(Object sender, GotoEventArgs e);
+      IMenuItem Find(MenuOption option);
    }
 
 }

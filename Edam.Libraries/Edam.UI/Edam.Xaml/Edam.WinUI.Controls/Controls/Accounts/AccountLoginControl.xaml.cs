@@ -11,6 +11,7 @@ using Microsoft.UI.Xaml.Controls;
 // -----------------------------------------------------------------------------
 using Edam.Uwp.ViewModels;
 using Edam.WinUI.Controls.ViewModels;
+using Edam.WinUI.Controls.DataModels;
 
 namespace Edam.WinUI.Controls.Accounts
 {

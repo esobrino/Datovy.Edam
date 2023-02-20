@@ -16,6 +16,12 @@ namespace Edam.Data.AssetSchema
       private List<AssetDataElement> m_Types = new List<AssetDataElement>();
       private int m_Count = 0;
 
+      public int ItemsCount
+      {
+         get { return m_Count; }
+         set { m_Count = value; }
+      }
+
       public List<AssetDataElement> Types
       {
          get { return m_Types; }
@@ -99,7 +105,7 @@ namespace Edam.Data.AssetSchema
          {
             parent = m_Types.Find((x) => x.ElementName == element.EntityName);
          }
-         element.OrdinalNo = ++m_Count;
+         element.OrdinalNo = ++ItemsCount;
          element.Parent = parent;
          element.ParentNo = parent != null ?
             parent.OrdinalNo : element.OrdinalNo;

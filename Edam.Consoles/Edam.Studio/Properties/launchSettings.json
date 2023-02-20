@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Edam.Studio (Package)": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": true
+    },
+    "Edam.Studio (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

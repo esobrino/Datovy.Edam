@@ -54,6 +54,9 @@ namespace Edam.Data.AssetConsole
       AssetsToJld = 95,
       AssetsToOpenXml = 96,
 
+      // json
+      JsonToAssets = 105,
+
       // other
       FileToCodeSet = 120,
 

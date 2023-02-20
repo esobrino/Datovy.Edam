@@ -1,0 +1,1718 @@
+{
+   "components": {
+      "schemas": {
+         "cd12Specimen_Source_Type_": {
+            "title": "cd12:Specimen_Source_Type_",
+            "description": "Identify and describe a specimen associated with virus laboratory tests",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Specimen_Source_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Specimen_Source_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd12Note_Type_": {
+            "title": "cd12:Note_Type_",
+            "description": "Identify and describe the kind of note or comment",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Note_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Note_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd12Note_": {
+            "title": "cd12:Note_",
+            "description": "A statement, comment, or remark defining a thing or providing additional information",
+            "properties": {
+               "note_ID": {
+                  "description": "Note ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "note_Type_ID": {
+                  "description": "Note Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "note_Text": {
+                  "description": "Note Text",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "note_DateTime": {
+                  "description": "Note Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "author_ID": {
+                  "description": "Author ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "author_Role_ID": {
+                  "description": "Author Role ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "author_Name": {
+                  "description": "Author Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "lab_Result_ID": {
+                  "description": "Lab Result ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "specimen_ID": {
+                  "description": "Specimen ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Note_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Note_Context.jsonld"
+               }
+            }
+         },
+         "cd12Media_Type_": {
+            "title": "cd12:Media_Type_",
+            "description": "Identify and describe the kind of media",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tags": {
+                  "description": "Provided to set a comma delimited list of Privacy, Security or other data Tags such as GDPR, HIPAA, PII or other.",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Media_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Media_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd12Media_": {
+            "title": "cd12:Media_",
+            "description": "A document, image, or other digital artifacts that describe or define something",
+            "properties": {
+               "media_ID": {
+                  "description": "Media ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "alternate_ID": {
+                  "description": "Alternate ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_Text": {
+                  "description": "Category Text",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code": {
+                  "description": "Status Code",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "url_Text": {
+                  "description": "Url Text",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "size_In_Bytes": {
+                  "description": "Size In Bytes",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "media_Data": {
+                  "description": "Media Data",
+               },
+               "scope_Code_ID": {
+                  "description": "Scope Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "content_Type_Code_ID": {
+                  "description": "Content Type Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "content_Type_Text": {
+                  "description": "Content Type Text",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "default_Indicator": {
+                  "description": "Default Indicator",
+                  "type": "array",
+                  "items": { "type": "boolean" }
+               },
+               "serial_No": {
+                  "description": "Serial No",
+                  "type": "array",
+                  "items": { "type": "long" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "reference_Date_Type_ID": {
+                  "description": "Reference Date Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "reference_DateTime": {
+                  "description": "Reference Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "lab_Result_ID": {
+                  "description": "Lab Result ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "specimen_ID": {
+                  "description": "Specimen ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Media_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Media_Context.jsonld"
+               }
+            }
+         },
+         "cd12Lab_Type_": {
+            "title": "cd12:Lab_Type_",
+            "description": "Identify and describe a Lab type/kind",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Lab_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Lab_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd12Lab_Test_Type_": {
+            "title": "cd12:Lab_Test_Type_",
+            "description": "Identify and describe Lab test type/kind associated with a disease",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Lab_Test_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Lab_Test_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd12Lab_Result_Type_": {
+            "title": "cd12:Lab_Result_Type_",
+            "description": "Identify and describe a kind of lab result",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Lab_Result_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Lab_Result_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd12Lab_Result_": {
+            "title": "cd12:Lab_Result_",
+            "description": "Provide details about a Lab test results",
+            "properties": {
+               "lab_Result_ID": {
+                  "description": "Lab Result ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "laboratory_ID": {
+                  "description": "Laboratory ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "lab_Result_DateTime": {
+                  "description": "Lab Result Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "result_Type_ID": {
+                  "description": "Result Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "result_Value": {
+                  "description": "Result Value",
+                  "type": "array",
+                  "items": { "type": "DECIMAL" }
+               },
+               "result_Unit": {
+                  "description": "Result Unit",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Lab_Result_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Lab_Result_Context.jsonld"
+               }
+            }
+         },
+         "cd12Laboratory_": {
+            "title": "cd12:Laboratory_",
+            "description": "Provide details about a laboratory unit and reference to its unit/organization",
+            "properties": {
+               "laboratory_ID": {
+                  "description": "Laboratory ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "alternate_ID": {
+                  "description": "Alternate ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "lab_Code_ID": {
+                  "description": "Lab Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "name": {
+                  "description": "Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "type_ID": {
+                  "description": "Laboratory Type ",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "vendor_LIMS_Code_ID": {
+                  "description": "LIMS - Laborary Information Management System",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "organization_ID": {
+                  "description": "Organization ID... External reference to (Entity) Organization",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Laboratory_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Laboratory_Context.jsonld"
+               }
+            }
+         },
+         "cd12Lab_Test_Interpretation_Code_": {
+            "title": "cd12:Lab_Test_Interpretation_Code_",
+            "description": "Identify and describe Epidemiologic interpretation of the results of the tests performed for Vaccine Preventable Disease (VPD)",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Lab_Test_Interpretation_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Lab_Test_Interpretation_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd12Unit_Code_": {
+            "title": "cd12:Unit_Code_",
+            "description": "Identify and describe codes for a standard measure in terms of which quantities may be express",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Unit_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Unit_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd12Lab_Test_Report_": {
+            "title": "cd12:Lab_Test_Report_",
+            "description": "Details about a laboratory test based on CDC NNDSS messages MMGs",
+            "properties": {
+               "lab_Test_Report_ID": {
+                  "description": "Lab Test Report ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "laboratory_ID": {
+                  "description": "Laboratory ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "lab_Type_ID": {
+                  "description": "Performing laboratory type",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "test_Type_ID": {
+                  "description": "Epidemiologic interpretation of the type of test(s) performed for this case",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "test_Interpretation_Code_ID": {
+                  "description": "Epidemiologic interpretation of the results of the test(s) performed for this case. This is a qualitative test result.  (e.g, positive, detected, negative)",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "test_Result_Quantitative": {
+                  "description": "Quantitative Test Result Value",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "test_Result_Unit_Code_ID": {
+                  "description": "Units of measure for the Quantitative Test Result Value",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "specimen_Source_Type_ID": {
+                  "description": "This indicates the source of the specimen tested.",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "specimen_Collection_Date": {
+                  "description": "Date of collection of laboratory specimen used for diagnosis of health event reported in this case report. Time of collection is an optional addition to date.",
+                  "type": "array",
+                  "items": { "type": "date" }
+               },
+               "specimen_Sent_Date": {
+                  "description": "Date specimen sent to CDC",
+                  "type": "array",
+                  "items": { "type": "date" }
+               },
+               "case_ID": {
+                  "description": "Case ID... External reference to (Management) Case",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Lab_Test_Report_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Lab_Test_Report_Context.jsonld"
+               }
+            }
+         },
+         "cd12Lab_Link_": {
+            "title": "cd12:Lab_Link_",
+            "description": "Association of a Lab with an external reference such as a Patient, Specimen, or other",
+            "properties": {
+               "lab_Link_ID": {
+                  "description": "Lab Link ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "laboratory_ID": {
+                  "description": "Reference laboratory that will be used along with the patient identifier and specimen identifier to uniquely identify a lab message",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "case_ID": {
+                  "description": "Case ID... External reference to (Management) Case",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "subject_ID": {
+                  "description": "Lab message patient Identifier that will be used along with the reference laboratory and specimen identifier to uniquely identify a VPD lab message... External reference to (Entity) Person",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "specimen_ID": {
+                  "description": "Lab message patient Identifier that will be used along with the reference laboratory and specimen identifier to uniquely identify a VPD lab message",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Lab_Link_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Lab_Link_Context.jsonld"
+               }
+            }
+         },
+         "cd12Lab_Report_": {
+            "title": "cd12:Lab_Report_",
+            "description": "Lab report details captured at a given date-time to be reported to an Authority",
+            "properties": {
+               "lab_Report_ID": {
+                  "description": "Lab Report ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "report_Date": {
+                  "description": "Report Date",
+                  "type": "array",
+                  "items": { "type": "date" }
+               },
+               "testing_Performed_Flag_ID": {
+                  "description": "Was laboratory testing done to confirm the diagnosis?",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "lab_Confirmed_Flag_ID": {
+                  "description": "Was the case laboratory confirmed?",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "specimen_Sent_Flag_ID": {
+                  "description": "Was a specimen sent to CDC for testing?",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "case_ID": {
+                  "description": "Case ID... External reference to (Management) Case",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "subject_ID": {
+                  "description": "Subject ID... External reference to (Entity) Person",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Lab_Report_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Lab_Report_Context.jsonld"
+               }
+            }
+         },
+         "cd12Specimen_": {
+            "title": "cd12:Specimen_",
+            "description": "A sample of a tissue, organ, or other use for testing and epidemiology studies",
+            "properties": {
+               "specimen_ID": {
+                  "description": "Specimen ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "case_ID": {
+                  "description": "Case ID... External reference to (Management) Case",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "subject_ID": {
+                  "description": "Subject ID... External reference to (Entity) Person",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Specimen_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Specimen_Context.jsonld"
+               }
+            }
+         },
+         "cd12Epidemiology_": {
+            "title": "cd12:Epidemiology_",
+            "description": "Epidemiology ",
+            "properties": {
+               "specimen_Source_Type": {
+                  "description": "Specimen Source Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Specimen_Source_Type_"
+                  }
+               },
+               "note_Type": {
+                  "description": "Note Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Note_Type_"
+                  }
+               },
+               "note": {
+                  "description": "Note",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Note_"
+                  }
+               },
+               "media_Type": {
+                  "description": "Media Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Media_Type_"
+                  }
+               },
+               "media": {
+                  "description": "Media",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Media_"
+                  }
+               },
+               "lab_Type": {
+                  "description": "Lab Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Lab_Type_"
+                  }
+               },
+               "lab_Test_Type": {
+                  "description": "Lab Test Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Lab_Test_Type_"
+                  }
+               },
+               "lab_Result_Type": {
+                  "description": "Lab Result Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Lab_Result_Type_"
+                  }
+               },
+               "lab_Result": {
+                  "description": "Lab Result",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Lab_Result_"
+                  }
+               },
+               "laboratory": {
+                  "description": "Laboratory",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Laboratory_"
+                  }
+               },
+               "lab_Test_Interpretation_Code": {
+                  "description": "Lab Test Interpretation Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Lab_Test_Interpretation_Code_"
+                  }
+               },
+               "unit_Code": {
+                  "description": "Unit Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Unit_Code_"
+                  }
+               },
+               "lab_Test_Report": {
+                  "description": "Lab Test Report",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Lab_Test_Report_"
+                  }
+               },
+               "lab_Link": {
+                  "description": "Lab Link",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Lab_Link_"
+                  }
+               },
+               "lab_Report": {
+                  "description": "Lab Report",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Lab_Report_"
+                  }
+               },
+               "specimen": {
+                  "description": "Specimen",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd12Specimen_"
+                  }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd12:Epidemiology_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd12Epidemiology_Context.jsonld"
+               }
+            }
+         }
+}
+}
+}

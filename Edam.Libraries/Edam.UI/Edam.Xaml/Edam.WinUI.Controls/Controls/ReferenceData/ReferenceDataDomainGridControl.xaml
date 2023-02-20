@@ -19,7 +19,7 @@
                    ScrollViewer.HorizontalScrollBarVisibility="Visible"
                    AutoGenerateColumns="False" IsReadOnly="False"
                    ItemsSource="{x:Bind ViewModel.Items, Mode=TwoWay}">
-         <tk:DataGrid.Columns>
+      <tk:DataGrid.Columns>
             <tk:DataGridTextColumn Header="ID"
                                    MinWidth="100" CanUserSort="True"
                                    Binding="{Binding DomainId}"/>

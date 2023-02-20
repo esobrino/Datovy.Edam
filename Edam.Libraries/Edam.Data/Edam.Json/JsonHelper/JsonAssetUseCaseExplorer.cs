@@ -5,12 +5,12 @@ using Newtonsoft.Json.Linq;
 // -----------------------------------------------------------------------------
 using Edam.TextParse;
 using Edam.Data.Asset;
-using Edam.Json.JsonSchemaReader;
 using Edam.Data.AssetSchema;
 using Edam.Diagnostics;
 using System.ComponentModel.DataAnnotations;
 using Edam.Data.AssetConsole;
 using Edam.Data.AssetUseCases;
+using Edam.Json.JsonSchema;
 
 namespace Edam.Json.JsonHelper
 {

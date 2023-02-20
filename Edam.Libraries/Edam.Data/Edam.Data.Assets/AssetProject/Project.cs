@@ -38,15 +38,56 @@ namespace Edam.Data.AssetProject
       private static string m_ProjectsPath = null;
 
       /// <summary>
+      /// Set Default Full Project Path using given base path.
+      /// </summary>
+      /// <param name="basePath">base path</param>
+      /// <returns>full path is returned</returns>
+      public static string SetDefaultFullPath(string basePath)
+      {
+         string fullPath = basePath +
+            AppSettings.GetString(config.ASSET_CONSOLE_PATH);
+         m_ConsolePath = config.GetAbsolutePath(fullPath);
+         return m_ConsolePath;
+      }
+
+      /// <summary>
       /// Initialize Project...
       /// </summary>
       public static void InitializeProject()
       {
          m_ProjectsPath = AppSettings.GetString(config.ASSET_PROJECTS_PATH);
-         m_ConsolePath = config.GetAbsolutePath(
-            AppSettings.GetString(config.ASSET_CONSOLE_PATH));
+
+         if (String.IsNullOrWhiteSpace(m_ConsolePath))
+         {
+            m_ConsolePath = config.GetAbsolutePath(
+               AppSettings.GetString(config.ASSET_CONSOLE_PATH));
+         }
+
          Directory.SetCurrentDirectory(m_ConsolePath);
          m_Initialized = true;
+      }
+
+      /// <summary>
+      /// Get Console - Data (absolute) Path, also set the m_ConsolePath as
+      /// needed...
+      /// </summary>
+      /// <returns>path is returned as an absolute path</returns>
+      public static string GetConsoleDataPath(bool getRelativePath = false)
+      {
+         var dataPath = AppSettings.GetString(config.ASSET_DATA_PATH);
+
+         var consolePath = AppSettings.GetString(config.ASSET_CONSOLE_PATH);
+         if (String.IsNullOrWhiteSpace(consolePath))
+         {
+            m_ConsolePath = config.GetAbsolutePath(dataPath);
+         }
+         else
+         {
+            return consolePath;
+         }
+
+         return getRelativePath ?
+            dataPath : m_ConsolePath;
       }
 
       /// <summary>
@@ -56,16 +97,24 @@ namespace Edam.Data.AssetProject
       public static string GetProjectsPath(
          bool getRelativePath = false, bool onlyPath = false)
       {
+         if (!onlyPath && !String.IsNullOrWhiteSpace(m_ProjectsPath))
+         {
+            return m_ProjectsPath;
+         }
+
          string consolePath = String.IsNullOrWhiteSpace(m_ConsolePath) ?
             config.GetAbsolutePath(
                AppSettings.GetString(config.ASSET_CONSOLE_PATH)) :
             m_ConsolePath;
 
+         string cpath = consolePath;
          if (onlyPath)
          {
-            return consolePath;
+            return cpath;
          }
-         return (getRelativePath ? "./" : consolePath) + PROJECTS + "/";
+
+         m_ProjectsPath = (getRelativePath ? "./" : cpath) + PROJECTS + "/";
+         return m_ProjectsPath;
       }
 
       /// <summary>
@@ -101,10 +150,8 @@ namespace Edam.Data.AssetProject
          try
          {
             string ppath = String.IsNullOrWhiteSpace(projectsPath) ?
-                  GetProjectsPath() : projectsPath;
-            Directory.SetCurrentDirectory(
-               ppath.IndexOf(m_ProjectsPath) != -1 ?
-                  ppath : ppath + PROJECTS + "/");
+               GetProjectsPath() : projectsPath;
+            Directory.SetCurrentDirectory(m_ProjectsPath);
 
             results.Data = Directory.GetCurrentDirectory();
             results.Succeeded();
@@ -114,6 +161,35 @@ namespace Edam.Data.AssetProject
             results.Failed(ex);
          }
          return results;
+      }
+
+      /// <summary>
+      /// Get Projects Path.
+      /// </summary>
+      /// <param name="projectName">project name</param>
+      public static string GetProjectPath(string projectName)
+      {
+         string projectname = m_ProjectsPath;
+         string [] l = projectname.Split("\\");
+         if (l.Length > 1)
+         {
+            string pname = l[l.Length - 1].Replace("\\", "/").Replace("/","");
+            if (pname == "Projects")
+            {
+               return projectname + projectName + "/";
+            }
+         }
+         return projectname;
+      }
+
+      /// <summary>
+      /// Set the project directory before working on a project.
+      /// </summary>
+      /// <param name="arguments"></param>
+      public static void GotoProject(AssetConsoleArgumentsInfo arguments)
+      {
+         string path = GetProjectPath(arguments.ProjectName);
+         Directory.SetCurrentDirectory(path);
       }
 
       /// <summary>

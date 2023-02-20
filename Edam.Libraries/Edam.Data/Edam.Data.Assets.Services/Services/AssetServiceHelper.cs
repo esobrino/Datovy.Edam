@@ -26,16 +26,17 @@ using keys = Edam.Data.AssetSchema.AssetResourceHelper;
 
 using Edam.Xml.XmlExplore;
 using Edam.Json.JsonExplore;
-using Edam.Json.JsonSchemaReader;
 using Edam.Data.Schema.DataDefinitionLanguage;
 using Edam.DataObjects.ReferenceData;
 using Edam.DataObjects.Documents;
 using ddl = Edam.Data.Schema.SchemaObject;
 using Edam.Data.AssetDb.Readers;
+using Edam.Json.JsonSchema;
+
 namespace Edam.Data.AssetConsole.Services
 {
 
-   public class ArgumentSet
+    public class ArgumentSet
    {
       public List<String> Arguments { get; set; }
       public ArgumentSet()
@@ -56,11 +57,6 @@ namespace Edam.Data.AssetConsole.Services
 
       public const string USE_ARGS_FILE = "-useargsfile";
       public const string USE_ARGS_FOLDER = "-useargsfolder";
-
-      public const string DEFAULT_ORGANIZATION_ID =
-         "AppSettings:DefaultOrganizationID";
-      public const string DEFAULT_ORGANIZATION_DOMAIN_URI =
-         "AppSettings:DefaultOrganizationDomainUri";
 
       private static IConfiguration m_Configuration;
 
@@ -127,6 +123,7 @@ namespace Edam.Data.AssetConsole.Services
 
          callBack = new ExecutorHandler(JsdToAssets);
          m_Registry.Add(AssetConsoleProcedure.JsdToAssets, callBack);
+         m_Registry.Add(AssetConsoleProcedure.JsonToAssets, callBack);
 
          callBack = new ExecutorHandler(DdlToAssets);
          m_Registry.Add(AssetConsoleProcedure.DdlToAssets, callBack);
@@ -453,7 +450,8 @@ namespace Edam.Data.AssetConsole.Services
          return results;
       }
 
-      public static IResultsLog DbDdlToAssets(AssetConsoleArgumentsInfo arguments)
+      public static IResultsLog DbDdlToAssets(
+         AssetConsoleArgumentsInfo arguments)
       {
          ResultsLog<EventCode> results = new ResultsLog<EventCode>();
          DdlSchemaInstance.ToFile(arguments);
@@ -561,12 +559,24 @@ namespace Edam.Data.AssetConsole.Services
       #endregion
       #region -- Console Source Data Support
 
+      /// <summary>
+      /// Scan File Folder.
+      /// </summary>
+      /// <param name="arguments">arguments</param>
+      /// <param name="argumentsFilePath">arguments file folder</param>
+      /// <returns>IResultsLog is returned</returns>
       private static IResultsLog FromFolder(AssetConsoleArgumentsInfo arguments,
          String argumentsFilePath = null)
       {
          ResultLog tresults = new ResultLog();
          AssetDataItems items = new AssetDataItems();
          IResultsLog results = null;
+
+         if (!arguments.Process.ScanFilesFolder)
+         {
+            tresults.Succeeded();
+            return tresults;
+         }
 
          // go through different file or directory URI lists and get assets...
          List<UriResourceType> resources = UriResourceInfo.GetExtensionTypes();
@@ -597,6 +607,7 @@ namespace Edam.Data.AssetConsole.Services
 
          // finally complete the requested service... (output... or other)
          arguments.AssetDataItems = items;
+         tresults.Succeeded();
          return tresults;
       }
 
@@ -923,11 +934,10 @@ namespace Edam.Data.AssetConsole.Services
 
          if (String.IsNullOrWhiteSpace(arguments.Process.OrganizationId))
             arguments.Process.OrganizationId =
-               AppSettings.GetString(DEFAULT_ORGANIZATION_ID);
+               AppSettings.GetDefaultOrganizationId();
          if (String.IsNullOrWhiteSpace(arguments.Process.OrganizationDomainUri))
             arguments.Process.OrganizationDomainUri =
-               AppSettings.GetString(
-                  DEFAULT_ORGANIZATION_DOMAIN_URI);
+               AppSettings.GetDefaultOrganizationUri();
 
          Application.Session.OrganizationId =
             arguments.Process.OrganizationId;

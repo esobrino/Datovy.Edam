@@ -19,6 +19,7 @@ namespace Edam.UI.App
 
          public DefaultsInfo Defaults = new DefaultsInfo();
       }
+
       public class AppInfo
       {
          public class DefaultsInfo
@@ -32,8 +33,14 @@ namespace Edam.UI.App
             new List<UriItemInfo>();
       }
 
+      public class DataSourceInfo
+      {
+         public string DefaultConnectionString { get; set; }
+      }
+
       public AppInfo App = new AppInfo();
       public SchemaInfo Schema = new SchemaInfo();
+      public DataSourceInfo DataSource = new DataSourceInfo();
 
    }
 

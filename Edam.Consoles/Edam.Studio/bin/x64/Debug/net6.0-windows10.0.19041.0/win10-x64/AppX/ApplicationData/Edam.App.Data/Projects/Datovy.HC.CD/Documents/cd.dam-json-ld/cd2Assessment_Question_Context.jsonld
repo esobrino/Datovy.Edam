@@ -1,0 +1,21 @@
+{
+  "@context": {
+      "cd2": "http://www.datovy.com/hc/cd/Surveillance/#",
+      "question_ID": "cd2:Question_ID",
+      "question_Sequence": "cd2:Question_Sequence",
+      "question_Text": "cd2:Question_Text",
+      "questionnaire_ID": "cd2:Questionnaire_ID",
+      "answer_Type_ID": "cd2:Answer_Type_ID",
+      "tenant_ID": "cd2:Tenant_ID",
+      "data_Owner_ID": "cd2:Data_Owner_ID",
+      "agency_Reporting_ID": "cd2:Agency_Reporting_ID",
+      "sequence_Number": "cd2:Sequence_Number",
+      "effective_DateTime": "cd2:Effective_DateTime",
+      "effective_End_DateTime": "cd2:Effective_End_DateTime",
+      "version_Number": "cd2:Version_Number",
+      "created_DateTime": "cd2:Created_DateTime",
+      "updated_DateTime": "cd2:Updated_DateTime",
+      "record_Status_Code_ID": "cd2:Record_Status_Code_ID",
+      "session_Updated_ID": "cd2:Session_Updated_ID"
+   }
+}

@@ -1,0 +1,55 @@
+{
+	"@context": {
+		"edam": "http://www.datovy.com/edam/arguments"
+	},
+	"Domain": {
+		"DomainId": "www.shopify.com",
+		"Description": "Shopify API Message Entities"
+	},
+	"Namespace": {
+		"OrganizationDomainId": "SHOPIFY",
+		"Uri": "http://www.shopify.com/api/msg",
+		"Prefix": "sfy",
+		"Extension": "",
+		"RootElementName": "cd:Output_Document"
+	},
+	"Project": {
+		"Name": "Shopify",
+		"VersionId": "v1r0"
+	},
+	"Process": {
+		"RecordId": null,
+		"Name": "Shopify.Messages.ToAssets",
+		"OrganizationId": "Shopify",
+		"OrganizationDomainUri": null,
+		"ProcedureName": "JsonToAssets",
+		"ProcedureTag": "JSON.JsonReader",
+		"SchemaType": 1,
+		"NextProcess": "",
+		"NextProcedure": [
+			""
+		]
+	},
+	"InputFile": {
+		"Extension": "xlsx",
+		"Name": "shopify.api.msg.mdf",
+		"Path": "./Files",
+		"Full": null
+	},
+	"OutputFile": {
+		"Extension": "xlsx",
+		"Name": "shopify.api.msg.dictionary",
+		"Path": "./Documents",
+		"Full": "./Documents/shopify.api.dictionary.xlsx"
+	},
+	"UriList": [
+		"./Archive/Shopify.Messages.json"
+	],
+	"InspectArguments": {
+		"ListLength": "1",
+		"MaxThreshold": "1"
+	},
+	"ConnectionString": "",
+	"ElementTransform": null,
+	"TextMapFilePath": "./Archive/JsdTextMap.json"
+}

@@ -1,0 +1,103 @@
+{
+   "Metadata": {
+      "OrganizationId": "DATOVY",
+      "TemplateName":  "Settings and Configurations",
+      "TemplateVersionId": "v1r0",
+      "TemplateURI": "http://www.datovy.com/referencedata/template/datasource"
+   },
+   "Templates": [
+      {
+         "GroupNo": 1100000,
+         "ResourceName": "",
+         "ScopeNo": 1,
+         "StatusNo": 1,
+         "Title": "Servers",
+         "Description": "Databases",
+         "Items": [
+            {
+               "TemplateNo": 1100001,
+               "Name": "ReferenceData.DataSource",
+               "ResourceName": "",
+               "GroupNo": 1100000,
+               "ScopeNo": 1,
+               "StatusNo": 1,
+               "Title": "Data Sources",
+               "TemplateTypeNo": 100,
+               "TemplateDefaultNo": null,
+               "Items": [
+                  {
+                     "Title": "Source URI",
+                     "Name": "SourceURI",
+                     "MaxLength": "99",
+                     "SerialNo": "1",
+                     "Gridable": "2"
+                  },
+                  {
+                     "Title": "Source ID",
+                     "Name": "SourceId",
+                     "KeyType": "1",
+                     "MinLength": "8",
+                     "MaxLength": "40",
+                     "SerialNo": "2",
+                     "Gridable": "2"
+                  },
+                  {
+                     "Title": "Description",
+                     "Name": "Description",
+                     "MinLength": "0",
+                     "MaxLength": "80",
+                     "SerialNo": "3",
+                     "Discernible": "1",
+                     "Required": "1"
+                  },
+                  {
+                     "Title": "Server Name",
+                     "Name": "ServerName",
+                     "MinLength": "0",
+                     "MaxLength": "99",
+                     "SerialNo": "4",
+                     "Gridable": "2"
+                  },
+                  {
+                     "Title": "Data Source",
+                     "Name": "DataSource",
+                     "MinLength": "0",
+                     "MaxLength": "99",
+                     "SerialNo": "5",
+                     "Gridable": "2"
+                  },
+                  {
+                     "Title": "User Name",
+                     "Name": "UserName",
+                     "MinLength": "0",
+                     "MaxLength": "99",
+                     "SerialNo": "6",
+                     "Gridable": "2"
+                  },
+                  {
+                     "Title": "Password",
+                     "Name": "Password",
+                     "MinLength": "0",
+                     "MaxLength": "1024",
+                     "SerialNo": "7",
+                     "ValueType": "20",
+                     "Gridable": "2"
+                  },
+                  {
+                     "Title": "Record Status",
+                     "Name": "RecordStatusCode",
+                     "MinLength": "1",
+                     "MaxLength": "1",
+                     "SerialNo": "8",
+                     "Gridable": "2",
+                     "Required": "0",
+                     "Visibility": "2"
+                  }
+               ],
+               "Maps": [],
+               "Groups": []
+            }
+         ]
+      }
+   ]
+}

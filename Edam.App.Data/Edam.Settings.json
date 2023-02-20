@@ -6,17 +6,12 @@
       "Defaults": {
          "OrganizationId": "Datovy"
       },
-      "ConsolePath": "c:/prjs/Datovy.Edam/Edam.App.Data/",
+      "ConsolePath": "",
 	  "UriList": [
 	     {
 			"Name": "Default",
 			"Type": "ConsolePath",
-			"UriText": "c:/prjs/Datovy.Edam/Edam.App.Data/"
-		 },
-	     {
-			"Name": "AM.Console",
-			"Type": "ConsolePath",
-			"UriText": "c:/prjs/AppData/Edam.AM.Console/"
+			"UriText": ""
 		 }
 	  ]
    },
@@ -25,6 +20,9 @@
          "TypePostfix": "_",
          "DocumentPostfix": "_Document"
       }
+   },
+   "DataSource": {
+	   "DefaultConnectionString": ""
    }
 }
 

@@ -1,0 +1,258 @@
+{
+   "$schema": "http://json-schema.org//schema#",
+   "$id": "http://edd.schema.org/www.datovy.com_hc_cd_Article",
+   "type": "object",
+   "definitions": {
+      "cd9:Item_": {
+         "title": "cd9:Item_",
+         "description": "Describe, provide details about an article or thing",
+         "properties": {
+            "cd9:Item_ID": {
+               "$ref": "#/properties/cd9:Item_ID"
+            },
+            "cd9:Name": {
+               "$ref": "#/properties/cd9:Name"
+            },
+            "cd9:Type_ID": {
+               "$ref": "#/properties/cd9:Type_ID"
+            },
+            "cd9:Value_Amount": {
+               "$ref": "#/properties/cd9:Value_Amount"
+            },
+            "cd9:Quantity": {
+               "$ref": "#/properties/cd9:Quantity"
+            },
+            "cd9:Status_Code_ID": {
+               "$ref": "#/properties/cd9:Status_Code_ID"
+            },
+            "cd9:Status_DateTime": {
+               "$ref": "#/properties/cd9:Status_DateTime"
+            },
+            "cd9:Tenant_ID": {
+               "$ref": "#/properties/cd9:Tenant_ID"
+            },
+            "cd9:Data_Owner_ID": {
+               "$ref": "#/properties/cd9:Data_Owner_ID"
+            },
+            "cd9:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd9:Agency_Reporting_ID"
+            },
+            "cd9:Sequence_Number": {
+               "$ref": "#/properties/cd9:Sequence_Number"
+            },
+            "cd9:Effective_DateTime": {
+               "$ref": "#/properties/cd9:Effective_DateTime"
+            },
+            "cd9:Effective_End_DateTime": {
+               "$ref": "#/properties/cd9:Effective_End_DateTime"
+            },
+            "cd9:Version_Number": {
+               "$ref": "#/properties/cd9:Version_Number"
+            },
+            "cd9:Created_DateTime": {
+               "$ref": "#/properties/cd9:Created_DateTime"
+            },
+            "cd9:Updated_DateTime": {
+               "$ref": "#/properties/cd9:Updated_DateTime"
+            },
+            "cd9:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd9:Record_Status_Code_ID"
+            },
+            "cd9:Session_Updated_ID": {
+               "$ref": "#/properties/cd9:Session_Updated_ID"
+            }
+         }
+      },
+      "cd9:Item_Type_": {
+         "title": "cd9:Item_Type_",
+         "description": "Identify and describe the kind of Item",
+         "properties": {
+            "cd9:Type_ID": {
+               "$ref": "#/properties/cd9:Type_ID"
+            },
+            "cd9:Description": {
+               "$ref": "#/properties/cd9:Description"
+            },
+            "cd9:Category_ID": {
+               "$ref": "#/properties/cd9:Category_ID"
+            },
+            "cd9:CodeSet_Name": {
+               "$ref": "#/properties/cd9:CodeSet_Name"
+            },
+            "cd9:Tenant_ID": {
+               "$ref": "#/properties/cd9:Tenant_ID"
+            },
+            "cd9:Data_Owner_ID": {
+               "$ref": "#/properties/cd9:Data_Owner_ID"
+            },
+            "cd9:Agency_Reporting_ID": {
+               "$ref": "#/properties/cd9:Agency_Reporting_ID"
+            },
+            "cd9:Sequence_Number": {
+               "$ref": "#/properties/cd9:Sequence_Number"
+            },
+            "cd9:Effective_DateTime": {
+               "$ref": "#/properties/cd9:Effective_DateTime"
+            },
+            "cd9:Effective_End_DateTime": {
+               "$ref": "#/properties/cd9:Effective_End_DateTime"
+            },
+            "cd9:Version_Number": {
+               "$ref": "#/properties/cd9:Version_Number"
+            },
+            "cd9:Created_DateTime": {
+               "$ref": "#/properties/cd9:Created_DateTime"
+            },
+            "cd9:Updated_DateTime": {
+               "$ref": "#/properties/cd9:Updated_DateTime"
+            },
+            "cd9:Record_Status_Code_ID": {
+               "$ref": "#/properties/cd9:Record_Status_Code_ID"
+            },
+            "cd9:Session_Updated_ID": {
+               "$ref": "#/properties/cd9:Session_Updated_ID"
+            }
+         }
+      },
+      "cd9:Article_": {
+         "title": "cd9:Article_",
+         "description": "Article ",
+         "properties": {
+            "cd9:Item": {
+               "$ref": "#/properties/cd9:Item"
+            },
+            "cd9:Item_Type": {
+               "$ref": "#/properties/cd9:Item_Type"
+            }
+         }
+      }
+   },
+   "properties": {
+      "cd9:Item_ID": {
+         "description": "Item ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Name": {
+         "description": "Name",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Type_ID": {
+         "description": "Identify and describe the kind of Item",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Value_Amount": {
+         "description": "Value Amount",
+         "type": "array",
+         "items": { "type": "DECIMAL" }
+      },
+      "cd9:Quantity": {
+         "description": "Quantity",
+         "type": "array",
+         "items": { "type": "DECIMAL" }
+      },
+      "cd9:Status_Code_ID": {
+         "description": "Status Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Status_DateTime": {
+         "description": "Status Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd9:Tenant_ID": {
+         "description": "Tenant ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Data_Owner_ID": {
+         "description": "Data Owner ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Agency_Reporting_ID": {
+         "description": "Agency Reporting ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Sequence_Number": {
+         "description": "Sequence Number",
+         "type": "array",
+         "items": { "type": "integer" }
+      },
+      "cd9:Effective_DateTime": {
+         "description": "Effective Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd9:Effective_End_DateTime": {
+         "description": "Effective End Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd9:Version_Number": {
+         "description": "Version Number",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Created_DateTime": {
+         "description": "Created Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd9:Updated_DateTime": {
+         "description": "Updated Date Time",
+         "type": "array",
+         "items": { "type": "dateTime" }
+      },
+      "cd9:Record_Status_Code_ID": {
+         "description": "Record Status Code ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Session_Updated_ID": {
+         "description": "Session Updated ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Description": {
+         "description": "Description",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Category_ID": {
+         "description": "Category ID",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:CodeSet_Name": {
+         "description": "Code Set Name",
+         "type": "array",
+         "items": { "type": "string" }
+      },
+      "cd9:Item": {
+         "description": "Item",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd9:Item_"
+         }
+      },
+      "cd9:Item_Type": {
+         "description": "Item Type",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd9:Item_Type_"
+         }
+      },
+      "cd9:Article": {
+         "description": "Article",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd9:Article_"
+         }
+      }
+   }
+}

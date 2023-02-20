@@ -158,6 +158,15 @@ namespace Edam.WinUI.Controls.Controls.Navigation
       #endregion
       #region -- 4.00 - Initialize Main Menu Set
 
+      public void SetupInstance(MenuOption option, object instance)
+      {
+         var item = Find(option);
+         if (item != null )
+         {
+            item.Instance = instance;
+         }
+      }
+
       /// <summary>
       /// Get Main Menu.
       /// </summary>

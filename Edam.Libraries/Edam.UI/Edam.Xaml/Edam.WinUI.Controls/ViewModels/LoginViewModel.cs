@@ -18,6 +18,11 @@ using Edam.DataObjects.Services;
 using Edam.UI;
 using Edam.Security;
 using Edam.UI.DataModel.Devices;
+using Edam.UI.App;
+using uiapp = Edam.UI.App;
+using Edam.Data;
+using System.ComponentModel.DataAnnotations;
+using Edam.DataObjects.ReferenceData;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
@@ -270,6 +275,34 @@ namespace Edam.WinUI.Controls.ViewModels
 
       private IdentityService m_IdentityService;
 
+      private Visibility m_DataSourceVisibility;
+      public Visibility DataSourceVisibility
+      {
+         get { return m_DataSourceVisibility; }
+         set
+         {
+            if (m_DataSourceVisibility != value)
+            {
+               m_DataSourceVisibility = value;
+               OnPropertyChanged(nameof(DataSourceVisibility));
+            }
+         }
+      }
+
+      private string m_ConnectionString;
+      public string ConnectionString
+      {
+         get { return m_ConnectionString; }
+         set
+         {
+            if (m_ConnectionString != value)
+            {
+               m_ConnectionString = value;
+               OnPropertyChanged(nameof(ConnectionString));
+            }
+         }
+      }
+
       #endregion
       #region -- 1.50 - Initialize Resources
 
@@ -279,6 +312,10 @@ namespace Edam.WinUI.Controls.ViewModels
 
       public LoginViewModel() : base()
       {
+         DataSourceVisibility = String.IsNullOrWhiteSpace(
+            DataSources.GetDefaultConnectionString()) ? 
+               Visibility.Visible : Visibility.Collapsed;
+
          OnSubmitCommand = new Command(OnSubmit);
          OnForgotCommand = new Command(OnForgot);
          OnCancelCommand = new Command(OnCancel);
@@ -293,6 +330,12 @@ namespace Edam.WinUI.Controls.ViewModels
          BusyVisible = Visibility.Visible;
          AutoLogin();
          m_IdentityService = IdentityService.GetService();
+
+         string cstring = DataSources.GetDefaultConnectionString();
+         if (String.IsNullOrWhiteSpace(cstring))
+         {
+            ConnectionString = DataSources.DEFAULT_CONNECTION_STRING;
+         }
       }
 
       #endregion
@@ -462,6 +505,13 @@ namespace Edam.WinUI.Controls.ViewModels
       /// </summary>
       public void OnSubmit()
       {
+         // make sure we do have a default connection string...
+         if (DataSourceVisibility == Visibility.Visible)
+         {
+            uiapp.AppSettings.SetDefaultConnectionString(ConnectionString);
+         }
+
+         // check that we have an email
          if (!CheckEmail())
             return;
 

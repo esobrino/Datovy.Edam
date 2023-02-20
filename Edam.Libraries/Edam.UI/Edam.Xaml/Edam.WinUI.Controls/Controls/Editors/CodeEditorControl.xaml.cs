@@ -24,7 +24,7 @@ namespace Edam.WinUI.Controls.Editors
    public sealed partial class CodeEditorControl : UserControl
    {
 
-      private CodeEditorViewModel m_ViewModel = new CodeEditorViewModel();
+      private CodeEditorViewModel m_ViewModel;
       public CodeEditorViewModel ViewModel
       {
          get { return m_ViewModel; }
@@ -37,6 +37,7 @@ namespace Edam.WinUI.Controls.Editors
       public CodeEditorControl()
       {
          this.InitializeComponent();
+         m_ViewModel = new CodeEditorViewModel();
          DataContext = m_ViewModel;
          m_ViewModel.CodeEditor = CodeEditor;
       }

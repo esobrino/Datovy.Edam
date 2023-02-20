@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.Data\Edam.B2b\Edam.B2b.csproj" />
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.Data\Edam.Data.Assets.Services\Edam.Data.Asset.Services.csproj" />
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.Data\Edam.Data.Assets\Edam.Data.Assets.csproj" />
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.Data\Edam.DataObjects\Edam.DataObjects.csproj" />
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.Data\Edam.Json\Edam.Json.csproj" />
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.System\Edam.System\Edam.System.csproj" />
+  </ItemGroup>
+
+</Project>

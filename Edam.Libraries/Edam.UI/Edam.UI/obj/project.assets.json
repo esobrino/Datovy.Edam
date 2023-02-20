@@ -2,33 +2,30 @@
   "version": 3,
   "targets": {
     "net6.0-windows10.0.19041": {
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
-        },
-        "build": {
-          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
         }
       },
       "Microsoft.Extensions.Configuration/6.0.0-preview.4.21253.7": {
@@ -371,6 +368,125 @@
           }
         }
       },
+      "sqlite-net-pcl/1.8.0-beta": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLite-net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.lib.e_sqlite3": "2.0.4",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/alpine-x64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "alpine-x64"
+          },
+          "runtimes/linux-arm/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          },
+          "runtimes/linux-arm64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-armel/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-armel"
+          },
+          "runtimes/linux-mips64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-mips64"
+          },
+          "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-musl-x64"
+          },
+          "runtimes/linux-x64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x86/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-x86"
+          },
+          "runtimes/osx-x64/native/libe_sqlite3.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-arm/native/e_sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win-arm"
+          },
+          "runtimes/win-arm64/native/e_sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/e_sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/e_sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        }
+      },
       "System.Data.SqlClient/4.8.2": {
         "type": "package",
         "dependencies": {
@@ -397,6 +513,15 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0-preview.4.21253.7": {
@@ -501,6 +626,49 @@
           "bin/placeholder/Edam.Data.Assets.dll": {}
         }
       },
+      "Edam.Data.Templates/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.Templates.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.Templates.dll": {}
+        }
+      },
+      "Edam.DataObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Data.Templates": "1.0.0",
+          "Edam.Net": "1.0.0",
+          "sqlite-net-pcl": "1.8.0-beta"
+        },
+        "compile": {
+          "bin/placeholder/Edam.DataObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.DataObjects.dll": {}
+        }
+      },
+      "Edam.Net/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Net.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Net.dll": {}
+        }
+      },
       "Edam.System/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -520,33 +688,30 @@
       }
     },
     "net6.0-windows10.0.19041/win10-arm64": {
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
-        },
-        "build": {
-          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
         }
       },
       "Microsoft.Extensions.Configuration/6.0.0-preview.4.21253.7": {
@@ -853,6 +1018,74 @@
       "runtime.win-x86.runtime.native.System.Data.SqlClient.sni/4.4.0": {
         "type": "package"
       },
+      "sqlite-net-pcl/1.8.0-beta": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLite-net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.lib.e_sqlite3": "2.0.4",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "native": {
+          "runtimes/win-arm64/native/e_sqlite3.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        }
+      },
       "System.Data.SqlClient/4.8.2": {
         "type": "package",
         "dependencies": {
@@ -869,6 +1102,15 @@
           "runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0-preview.4.21253.7": {
@@ -957,6 +1199,49 @@
           "bin/placeholder/Edam.Data.Assets.dll": {}
         }
       },
+      "Edam.Data.Templates/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.Templates.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.Templates.dll": {}
+        }
+      },
+      "Edam.DataObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Data.Templates": "1.0.0",
+          "Edam.Net": "1.0.0",
+          "sqlite-net-pcl": "1.8.0-beta"
+        },
+        "compile": {
+          "bin/placeholder/Edam.DataObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.DataObjects.dll": {}
+        }
+      },
+      "Edam.Net/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Net.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Net.dll": {}
+        }
+      },
       "Edam.System/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -976,33 +1261,30 @@
       }
     },
     "net6.0-windows10.0.19041/win10-x64": {
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
-        },
-        "build": {
-          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
         }
       },
       "Microsoft.Extensions.Configuration/6.0.0-preview.4.21253.7": {
@@ -1309,6 +1591,74 @@
       "runtime.win-x86.runtime.native.System.Data.SqlClient.sni/4.4.0": {
         "type": "package"
       },
+      "sqlite-net-pcl/1.8.0-beta": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLite-net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.lib.e_sqlite3": "2.0.4",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "native": {
+          "runtimes/win-x64/native/e_sqlite3.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        }
+      },
       "System.Data.SqlClient/4.8.2": {
         "type": "package",
         "dependencies": {
@@ -1325,6 +1675,15 @@
           "runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0-preview.4.21253.7": {
@@ -1413,6 +1772,49 @@
           "bin/placeholder/Edam.Data.Assets.dll": {}
         }
       },
+      "Edam.Data.Templates/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.Templates.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.Templates.dll": {}
+        }
+      },
+      "Edam.DataObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Data.Templates": "1.0.0",
+          "Edam.Net": "1.0.0",
+          "sqlite-net-pcl": "1.8.0-beta"
+        },
+        "compile": {
+          "bin/placeholder/Edam.DataObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.DataObjects.dll": {}
+        }
+      },
+      "Edam.Net/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Net.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Net.dll": {}
+        }
+      },
       "Edam.System/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1432,33 +1834,30 @@
       }
     },
     "net6.0-windows10.0.19041/win10-x86": {
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
-        },
-        "build": {
-          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
         }
       },
       "Microsoft.Extensions.Configuration/6.0.0-preview.4.21253.7": {
@@ -1765,6 +2164,74 @@
           "runtimes/win-x86/native/sni.dll": {}
         }
       },
+      "sqlite-net-pcl/1.8.0-beta": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLite-net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.lib.e_sqlite3": "2.0.4",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "native": {
+          "runtimes/win-x86/native/e_sqlite3.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        }
+      },
       "System.Data.SqlClient/4.8.2": {
         "type": "package",
         "dependencies": {
@@ -1781,6 +2248,15 @@
           "runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0-preview.4.21253.7": {
@@ -1869,6 +2345,49 @@
           "bin/placeholder/Edam.Data.Assets.dll": {}
         }
       },
+      "Edam.Data.Templates/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.Templates.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.Templates.dll": {}
+        }
+      },
+      "Edam.DataObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Data.Templates": "1.0.0",
+          "Edam.Net": "1.0.0",
+          "sqlite-net-pcl": "1.8.0-beta"
+        },
+        "compile": {
+          "bin/placeholder/Edam.DataObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.DataObjects.dll": {}
+        }
+      },
+      "Edam.Net/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Net.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Net.dll": {}
+        }
+      },
       "Edam.System/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1889,21 +2408,24 @@
     }
   },
   "libraries": {
-    "CommunityToolkit.Common/8.1.0": {
-      "sha512": "9U91MvCETPTVkLd07rGuIIPSnoqEQq7WDwNe6zfREkCFNJtR56flnO38EXP0M+pzPpHBnNmPt9PnJoPDJZjg5w==",
+    "CommunityToolkit.Common/7.1.2": {
+      "sha512": "KnHnukN+Sc26YT98OWYTp8mvaYlLc61lzDh0RrVRNQXm01hZ+iXAjCgKM59vAojqxNVrlbcXj22LYOyXWDItgg==",
       "type": "package",
-      "path": "communitytoolkit.common/8.1.0",
+      "path": "communitytoolkit.common/7.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "License.md",
         "ThirdPartyNotices.txt",
-        "communitytoolkit.common.8.1.0.nupkg.sha512",
+        "communitytoolkit.common.7.1.2.nupkg.sha512",
         "communitytoolkit.common.nuspec",
-        "lib/net6.0/CommunityToolkit.Common.dll",
-        "lib/net6.0/CommunityToolkit.Common.pdb",
-        "lib/net6.0/CommunityToolkit.Common.xml",
+        "lib/net5.0/CommunityToolkit.Common.dll",
+        "lib/net5.0/CommunityToolkit.Common.pdb",
+        "lib/net5.0/CommunityToolkit.Common.xml",
+        "lib/netstandard1.4/CommunityToolkit.Common.dll",
+        "lib/netstandard1.4/CommunityToolkit.Common.pdb",
+        "lib/netstandard1.4/CommunityToolkit.Common.xml",
         "lib/netstandard2.0/CommunityToolkit.Common.dll",
         "lib/netstandard2.0/CommunityToolkit.Common.pdb",
         "lib/netstandard2.0/CommunityToolkit.Common.xml",
@@ -1912,27 +2434,24 @@
         "lib/netstandard2.1/CommunityToolkit.Common.xml"
       ]
     },
-    "CommunityToolkit.Mvvm/8.1.0": {
-      "sha512": "xxOt7lu9a5kB5Fs9RfcxzVlKnhuuPe+w7AXHtmCFtS3oldrsUhEMxHfNulluXSscUUoGxZ0jh55Om12ZP6abHA==",
+    "CommunityToolkit.Mvvm/7.1.2": {
+      "sha512": "/zEpNH3FIBFY2iZRBi+S3Sia3q2yJgy1IQHnWRW7MdhQIe3IGcA1TGqJdbtjiJBmNy4v7kkPdNzgYlvvNDjXZg==",
       "type": "package",
-      "path": "communitytoolkit.mvvm/8.1.0",
+      "path": "communitytoolkit.mvvm/7.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "License.md",
         "ThirdPartyNotices.txt",
-        "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
-        "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
-        "build/netstandard2.0/CommunityToolkit.Mvvm.targets",
-        "build/netstandard2.1/CommunityToolkit.Mvvm.targets",
-        "buildTransitive/netstandard2.0/CommunityToolkit.Mvvm.targets",
-        "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets",
-        "communitytoolkit.mvvm.8.1.0.nupkg.sha512",
+        "analyzers/dotnet/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/cs/CommunityToolkit.Mvvm.SourceGenerators.pdb",
+        "analyzers/dotnet/cs/CommunityToolkit.Mvvm.SourceGenerators.xml",
+        "communitytoolkit.mvvm.7.1.2.nupkg.sha512",
         "communitytoolkit.mvvm.nuspec",
-        "lib/net6.0/CommunityToolkit.Mvvm.dll",
-        "lib/net6.0/CommunityToolkit.Mvvm.pdb",
-        "lib/net6.0/CommunityToolkit.Mvvm.xml",
+        "lib/net5.0/CommunityToolkit.Mvvm.dll",
+        "lib/net5.0/CommunityToolkit.Mvvm.pdb",
+        "lib/net5.0/CommunityToolkit.Mvvm.xml",
         "lib/netstandard2.0/CommunityToolkit.Mvvm.dll",
         "lib/netstandard2.0/CommunityToolkit.Mvvm.pdb",
         "lib/netstandard2.0/CommunityToolkit.Mvvm.xml",
@@ -3112,6 +3631,94 @@
         "version.txt"
       ]
     },
+    "sqlite-net-pcl/1.8.0-beta": {
+      "sha512": "fTkgcNJCrYCp8DRqYpq/WhPES0MrFPgxOirbGH1169JFNwxDJxpD0gM1QIwj7fFdv/tNp+jGKcqFX4pl5oGq6A==",
+      "type": "package",
+      "path": "sqlite-net-pcl/1.8.0-beta",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "Logo-low.png",
+        "lib/netstandard2.0/SQLite-net.dll",
+        "lib/netstandard2.0/SQLite-net.xml",
+        "sqlite-net-pcl.1.8.0-beta.nupkg.sha512",
+        "sqlite-net-pcl.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.bundle_green/2.0.4": {
+      "sha512": "ubFgOHDmtTcq2LU7Ss10yHnFVMm2rFVr65Ggi+Mh514KjGx4pal98P2zSvZtWf3wbtJw6G1InBgeozBtnpEfKQ==",
+      "type": "package",
+      "path": "sqlitepclraw.bundle_green/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll",
+        "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll",
+        "lib/net461/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net461/SQLitePCLRaw.nativelibrary.dll",
+        "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll",
+        "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll",
+        "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
+        "sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
+        "sqlitepclraw.bundle_green.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.core/2.0.4": {
+      "sha512": "4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
+      "type": "package",
+      "path": "sqlitepclraw.core/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.core.dll",
+        "sqlitepclraw.core.2.0.4.nupkg.sha512",
+        "sqlitepclraw.core.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
+      "sha512": "oetvmtDZOE4Nnrtxd8Trapl9geBiu0rDCUXff46qGYjnUwzaU1mZ3OHnfR402tl32rx8gBWg3n5OBRaPJRbsGw==",
+      "type": "package",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net461/SQLitePCLRaw.lib.e_sqlite3.targets",
+        "lib/net461/_._",
+        "lib/netstandard2.0/_._",
+        "runtimes/alpine-x64/native/libe_sqlite3.so",
+        "runtimes/linux-arm/native/libe_sqlite3.so",
+        "runtimes/linux-arm64/native/libe_sqlite3.so",
+        "runtimes/linux-armel/native/libe_sqlite3.so",
+        "runtimes/linux-mips64/native/libe_sqlite3.so",
+        "runtimes/linux-musl-x64/native/libe_sqlite3.so",
+        "runtimes/linux-x64/native/libe_sqlite3.so",
+        "runtimes/linux-x86/native/libe_sqlite3.so",
+        "runtimes/osx-x64/native/libe_sqlite3.dylib",
+        "runtimes/win-arm/native/e_sqlite3.dll",
+        "runtimes/win-arm64/native/e_sqlite3.dll",
+        "runtimes/win-x64/native/e_sqlite3.dll",
+        "runtimes/win-x86/native/e_sqlite3.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/e_sqlite3.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/e_sqlite3.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/e_sqlite3.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/e_sqlite3.dll",
+        "sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
+        "sqlitepclraw.lib.e_sqlite3.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+      "sha512": "AY6+vv/4ji1mCkLrS6HP/88rHT9YFKRyg3LUj8RyIk6imJMUFdQDiP8rK8gq0a/0FbqspLjK1t7rtKcr7FXRYA==",
+      "type": "package",
+      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll",
+        "sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
+        "sqlitepclraw.provider.dynamic_cdecl.nuspec"
+      ]
+    },
     "System.Data.SqlClient/4.8.2": {
       "sha512": "80vGtW6uLB4AkyrdVuKTXYUyuXDPAsSKbTVfvjndZaRAYxzFzWhJbvUfeAKrN+128ycWZjLIAl61dFUwWHOOTw==",
       "type": "package",
@@ -3194,6 +3801,27 @@
         "runtimes/win/lib/uap10.0.16299/System.Data.SqlClient.xml",
         "system.data.sqlclient.4.8.2.nupkg.sha512",
         "system.data.sqlclient.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Memory/4.5.3": {
+      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "type": "package",
+      "path": "system.memory/4.5.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -3376,6 +4004,21 @@
       "path": "../../Edam.Data/Edam.Data.Assets/Edam.Data.Assets.csproj",
       "msbuildProject": "../../Edam.Data/Edam.Data.Assets/Edam.Data.Assets.csproj"
     },
+    "Edam.Data.Templates/1.0.0": {
+      "type": "project",
+      "path": "../../Edam.Data/Edam.Data.Templates/Edam.Data.Templates.csproj",
+      "msbuildProject": "../../Edam.Data/Edam.Data.Templates/Edam.Data.Templates.csproj"
+    },
+    "Edam.DataObjects/1.0.0": {
+      "type": "project",
+      "path": "../../Edam.Data/Edam.DataObjects/Edam.DataObjects.csproj",
+      "msbuildProject": "../../Edam.Data/Edam.DataObjects/Edam.DataObjects.csproj"
+    },
+    "Edam.Net/1.0.0": {
+      "type": "project",
+      "path": "../../Edam.System/Edam.Net/Edam.Net.csproj",
+      "msbuildProject": "../../Edam.System/Edam.Net/Edam.Net.csproj"
+    },
     "Edam.System/1.0.0": {
       "type": "project",
       "path": "../../Edam.System/Edam.System/Edam.System.csproj",
@@ -3384,9 +4027,10 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows10.0.19041": [
-      "CommunityToolkit.Common >= 8.1.0",
-      "CommunityToolkit.Mvvm >= 8.1.0",
+      "CommunityToolkit.Common >= 7.1.2",
+      "CommunityToolkit.Mvvm >= 7.1.2",
       "Edam.Data.Assets >= 1.0.0",
+      "Edam.DataObjects >= 1.0.0",
       "Edam.System >= 1.0.0",
       "Microsoft.Windows.SDK.BuildTools >= 10.0.22621.755",
       "Microsoft.WindowsAppSDK >= 1.2.230118.102"
@@ -3428,6 +4072,9 @@
             "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj": {
               "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj"
             },
+            "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.DataObjects\\Edam.DataObjects.csproj": {
+              "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.DataObjects\\Edam.DataObjects.csproj"
+            },
             "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
               "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj"
             }
@@ -3446,11 +4093,11 @@
         "dependencies": {
           "CommunityToolkit.Common": {
             "target": "Package",
-            "version": "[8.1.0, )"
+            "version": "[7.1.2, )"
           },
           "CommunityToolkit.Mvvm": {
             "target": "Package",
-            "version": "[8.1.0, )"
+            "version": "[7.1.2, )"
           },
           "Microsoft.Windows.SDK.BuildTools": {
             "target": "Package",
@@ -3475,27 +4122,27 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x86",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
@@ -3503,15 +4150,15 @@
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           }
         ],
         "frameworkReferences": {
@@ -3522,7 +4169,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

@@ -1,0 +1,58 @@
+{
+   "$schema": "http://json-schema.org//schema#",
+   "$id": "http://datovy.hc.cd/www.datovy.com_hc_cd",
+   "type": "object",
+   "definitions": {
+      "cd:Disease_Surveillance_": {
+         "title": "cd:Disease_Surveillance_",
+         "description": "Disease Surveillance ",
+         "properties": {
+            "cd6:Action": {
+               "$ref": "hc_cd_Action.jsd.json#/properties/cd6:Action"
+            },
+            "cd8:Application": {
+               "$ref": "hc_cd_Application.jsd.json#/properties/cd8:Application"
+            },
+            "cd9:Article": {
+               "$ref": "hc_cd_Article.jsd.json#/properties/cd9:Article"
+            },
+            "cd1:Clinical": {
+               "$ref": "hc_cd_Clinical.jsd.json#/properties/cd1:Clinical"
+            },
+            "cd5:Entity": {
+               "$ref": "hc_cd_Entity.jsd.json#/properties/cd5:Entity"
+            },
+            "cd12:Epidemiology": {
+               "$ref": "hc_cd_Epidemiology.jsd.json#/properties/cd12:Epidemiology"
+            },
+            "cd3:Generic": {
+               "$ref": "hc_cd_Generic.jsd.json#/properties/cd3:Generic"
+            },
+            "cd4:Geography": {
+               "$ref": "hc_cd_Geography.jsd.json#/properties/cd4:Geography"
+            },
+            "cd7:Management": {
+               "$ref": "hc_cd_Management.jsd.json#/properties/cd7:Management"
+            },
+            "cd10:Message": {
+               "$ref": "hc_cd_Message.jsd.json#/properties/cd10:Message"
+            },
+            "cd11:Provider": {
+               "$ref": "hc_cd_Provider.jsd.json#/properties/cd11:Provider"
+            },
+            "cd2:Surveillance": {
+               "$ref": "hc_cd_Surveillance.jsd.json#/properties/cd2:Surveillance"
+            }
+         }
+      }
+   },
+   "properties": {
+      "cd:Disease_Surveillance_Document": {
+         "description": "Disease Surveillance Document",
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/cd:Disease_Surveillance_"
+         }
+      }
+   }
+}

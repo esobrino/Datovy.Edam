@@ -108,6 +108,7 @@ namespace Edam.WinUI.Controls.Helpers
             textBox.MinHeight = 100;
             textBox.TextWrapping = TextWrapping.Wrap;
             textBox.AcceptsReturn = false;
+            textBox.MaxLength = column.Element.MaxLength;
          }
          column.EditControl = textBox;
          column.EditControlType = ModelColumnControlType.Text;

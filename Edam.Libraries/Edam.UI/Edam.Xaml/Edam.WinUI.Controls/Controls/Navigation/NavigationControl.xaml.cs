@@ -22,6 +22,8 @@ using Edam.WinUI.Controls.Application;
 using Edam.UI.DataModel.ViewModels;
 using Microsoft.UI.Xaml.Data;
 using Edam.WinUI.Controls.Controls.Navigation;
+using Edam.WinUI.Controls.DataModels;
+using Edam.WinUI.Controls.Projects;
 
 namespace Edam.WinUI.Controls.Navigation
 {
@@ -55,6 +57,9 @@ namespace Edam.WinUI.Controls.Navigation
          ApplicationHelper.SetApplicationMenuControl(this);
 
          m_MenuController = new MenuController(PanelContent, ViewModel.Items);
+
+         ProjectViewerControl projectViewer = new ProjectViewerControl();
+         m_MenuController.SetupInstance(MenuOption.Projects, projectViewer);
 
          ApplicationHelper.SetMenuOption(MenuOption.Login);
       }
@@ -138,6 +143,11 @@ namespace Edam.WinUI.Controls.Navigation
             m_ViewModel.SelectedItem = null;
             PresentPage(item, e, MenuIsVisible);
          }
+      }
+
+      public IMenuItem Find(MenuOption option)
+      {
+         return m_MenuController.Find(option);
       }
 
       private void PageNavigation_SelectionChanged(NavigationView sender,

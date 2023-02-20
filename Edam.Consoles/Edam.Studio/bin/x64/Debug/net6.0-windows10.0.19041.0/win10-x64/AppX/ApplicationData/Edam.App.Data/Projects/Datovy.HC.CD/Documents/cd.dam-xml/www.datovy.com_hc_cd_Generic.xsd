@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Generic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Description" type="xs:string" />
+  <xs:element name="Category_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Category ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="CodeSet_Name" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Code Set Name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Tenant_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Tenant ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Data_Owner_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Data Owner ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Agency_Reporting_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Agency Reporting ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Version_Number" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Version Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Effective Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_End_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Effective End Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sequence_Number" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Sequence Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Created_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Created Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Updated_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Updated Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Record_Status_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Record Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Session_Updated_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Session Updated ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Entity_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Entity_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Entity ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Entity_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Entity_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tags" type="xs:string" />
+  <xs:complexType name="Element_Value_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Tags" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Element_Value_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Element Value ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Element_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Element ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sequence_No" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Sequence No</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reference_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Reference Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reference_Time" type="xs:time">
+    <xs:annotation>
+      <xs:documentation>Reference Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Entity_Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Entity Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Checked" type="xs:boolean" />
+  <xs:element name="Start_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Start Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="End_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>End Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Start_Value" type="xs:DECIMAL">
+    <xs:annotation>
+      <xs:documentation>Start Value</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="End_Value" type="xs:DECIMAL">
+    <xs:annotation>
+      <xs:documentation>End Value</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Value_Numeric" type="xs:DECIMAL">
+    <xs:annotation>
+      <xs:documentation>Value Numeric</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Value_Text" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Value Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Element_Value_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Element_Value_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Element_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Sequence_No" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Reference_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Reference_Time" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Entity_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Entity_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Checked" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Start_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:End_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Start_Value" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:End_Value" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Value_Numeric" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Value_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Group_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Group ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Label_Text" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Label Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Period_To_Comply" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Period To Comply</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Required_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Required Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Value_Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Value Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Code_Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Code Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Element_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Element_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Group_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Label_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Sequence_No" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Period_To_Comply" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Required_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Value_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Code_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Checked" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Start_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:End_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Start_Value" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:End_Value" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Value_Numeric" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Value_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd3:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Entity_Type" type="cd3:Entity_Type_">
+    <xs:annotation>
+      <xs:documentation>Entity Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Entity" type="cd3:Entity_" />
+  <xs:element name="Element_Value_Type" type="cd3:Element_Value_Type_">
+    <xs:annotation>
+      <xs:documentation>Element Value Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Element_Value" type="cd3:Element_Value_">
+    <xs:annotation>
+      <xs:documentation>Element Value</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Element" type="cd3:Element_" />
+  <xs:complexType name="Generic_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd3:Entity_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd3:Entity" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd3:Element_Value_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd3:Element_Value" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd3:Element" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -8,9 +8,10 @@
     ".NETCoreApp,Version=v6.0": {
       "Edam.UI/1.0.0": {
         "dependencies": {
-          "CommunityToolkit.Common": "8.1.0",
-          "CommunityToolkit.Mvvm": "8.1.0",
+          "CommunityToolkit.Common": "7.1.2",
+          "CommunityToolkit.Mvvm": "7.1.2",
           "Edam.Data.Assets": "1.0.0",
+          "Edam.DataObjects": "1.0.0",
           "Edam.System": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
           "Microsoft.WindowsAppSDK": "1.2.230118.102",
@@ -32,19 +33,19 @@
           }
         }
       },
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
-            "assemblyVersion": "8.1.0.0",
-            "fileVersion": "8.1.0.1"
+          "lib/net5.0/CommunityToolkit.Common.dll": {
+            "assemblyVersion": "7.1.0.0",
+            "fileVersion": "7.1.2.1"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
-            "assemblyVersion": "8.1.0.0",
-            "fileVersion": "8.1.0.1"
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
+            "assemblyVersion": "7.1.0.0",
+            "fileVersion": "7.1.2.1"
           }
         }
       },
@@ -293,6 +294,125 @@
           }
         }
       },
+      "sqlite-net-pcl/1.8.0-beta": {
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.4": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.lib.e_sqlite3": "2.0.4",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {
+            "assemblyVersion": "2.0.4.976",
+            "fileVersion": "2.0.4.976"
+          },
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {
+            "assemblyVersion": "2.0.4.976",
+            "fileVersion": "2.0.4.976"
+          }
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
+            "assemblyVersion": "2.0.4.976",
+            "fileVersion": "2.0.4.976"
+          }
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
+        "runtimeTargets": {
+          "runtimes/alpine-x64/native/libe_sqlite3.so": {
+            "rid": "alpine-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm/native/libe_sqlite3.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libe_sqlite3.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-armel/native/libe_sqlite3.so": {
+            "rid": "linux-armel",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-mips64/native/libe_sqlite3.so": {
+            "rid": "linux-mips64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libe_sqlite3.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x86/native/libe_sqlite3.so": {
+            "rid": "linux-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libe_sqlite3.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm/native/e_sqlite3.dll": {
+            "rid": "win-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/e_sqlite3.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/e_sqlite3.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/e_sqlite3.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {
+            "assemblyVersion": "2.0.4.976",
+            "fileVersion": "2.0.4.976"
+          }
+        }
+      },
       "System.Data.SqlClient/4.8.2": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
@@ -320,6 +440,7 @@
           }
         }
       },
+      "System.Memory/4.5.3": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0-preview.4.21253.7": {},
       "System.Security.AccessControl/4.7.0": {
         "dependencies": {
@@ -341,6 +462,34 @@
         },
         "runtime": {
           "Edam.Data.Assets.dll": {}
+        }
+      },
+      "Edam.Data.Templates/1.0.0": {
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "runtime": {
+          "Edam.Data.Templates.dll": {}
+        }
+      },
+      "Edam.DataObjects/1.0.0": {
+        "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
+          "Edam.Data.Templates": "1.0.0",
+          "Edam.Net": "1.0.0",
+          "sqlite-net-pcl": "1.8.0-beta"
+        },
+        "runtime": {
+          "Edam.DataObjects.dll": {}
+        }
+      },
+      "Edam.Net/1.0.0": {
+        "dependencies": {
+          "Edam.System": "1.0.0"
+        },
+        "runtime": {
+          "Edam.Net.dll": {}
         }
       },
       "Edam.System/1.0.0": {
@@ -368,19 +517,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CommunityToolkit.Common/8.1.0": {
+    "CommunityToolkit.Common/7.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9U91MvCETPTVkLd07rGuIIPSnoqEQq7WDwNe6zfREkCFNJtR56flnO38EXP0M+pzPpHBnNmPt9PnJoPDJZjg5w==",
-      "path": "communitytoolkit.common/8.1.0",
-      "hashPath": "communitytoolkit.common.8.1.0.nupkg.sha512"
+      "sha512": "sha512-KnHnukN+Sc26YT98OWYTp8mvaYlLc61lzDh0RrVRNQXm01hZ+iXAjCgKM59vAojqxNVrlbcXj22LYOyXWDItgg==",
+      "path": "communitytoolkit.common/7.1.2",
+      "hashPath": "communitytoolkit.common.7.1.2.nupkg.sha512"
     },
-    "CommunityToolkit.Mvvm/8.1.0": {
+    "CommunityToolkit.Mvvm/7.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xxOt7lu9a5kB5Fs9RfcxzVlKnhuuPe+w7AXHtmCFtS3oldrsUhEMxHfNulluXSscUUoGxZ0jh55Om12ZP6abHA==",
-      "path": "communitytoolkit.mvvm/8.1.0",
-      "hashPath": "communitytoolkit.mvvm.8.1.0.nupkg.sha512"
+      "sha512": "sha512-/zEpNH3FIBFY2iZRBi+S3Sia3q2yJgy1IQHnWRW7MdhQIe3IGcA1TGqJdbtjiJBmNy4v7kkPdNzgYlvvNDjXZg==",
+      "path": "communitytoolkit.mvvm/7.1.2",
+      "hashPath": "communitytoolkit.mvvm.7.1.2.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/6.0.0-preview.4.21253.7": {
       "type": "package",
@@ -515,12 +664,54 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
     },
+    "sqlite-net-pcl/1.8.0-beta": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fTkgcNJCrYCp8DRqYpq/WhPES0MrFPgxOirbGH1169JFNwxDJxpD0gM1QIwj7fFdv/tNp+jGKcqFX4pl5oGq6A==",
+      "path": "sqlite-net-pcl/1.8.0-beta",
+      "hashPath": "sqlite-net-pcl.1.8.0-beta.nupkg.sha512"
+    },
+    "SQLitePCLRaw.bundle_green/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ubFgOHDmtTcq2LU7Ss10yHnFVMm2rFVr65Ggi+Mh514KjGx4pal98P2zSvZtWf3wbtJw6G1InBgeozBtnpEfKQ==",
+      "path": "sqlitepclraw.bundle_green/2.0.4",
+      "hashPath": "sqlitepclraw.bundle_green.2.0.4.nupkg.sha512"
+    },
+    "SQLitePCLRaw.core/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
+      "path": "sqlitepclraw.core/2.0.4",
+      "hashPath": "sqlitepclraw.core.2.0.4.nupkg.sha512"
+    },
+    "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oetvmtDZOE4Nnrtxd8Trapl9geBiu0rDCUXff46qGYjnUwzaU1mZ3OHnfR402tl32rx8gBWg3n5OBRaPJRbsGw==",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.0.4",
+      "hashPath": "sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512"
+    },
+    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AY6+vv/4ji1mCkLrS6HP/88rHT9YFKRyg3LUj8RyIk6imJMUFdQDiP8rK8gq0a/0FbqspLjK1t7rtKcr7FXRYA==",
+      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.4",
+      "hashPath": "sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512"
+    },
     "System.Data.SqlClient/4.8.2": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-80vGtW6uLB4AkyrdVuKTXYUyuXDPAsSKbTVfvjndZaRAYxzFzWhJbvUfeAKrN+128ycWZjLIAl61dFUwWHOOTw==",
       "path": "system.data.sqlclient/4.8.2",
       "hashPath": "system.data.sqlclient.4.8.2.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0-preview.4.21253.7": {
       "type": "package",
@@ -558,6 +749,21 @@
       "hashPath": "system.text.json.6.0.0-preview.4.21253.7.nupkg.sha512"
     },
     "Edam.Data.Assets/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Edam.Data.Templates/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Edam.DataObjects/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Edam.Net/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

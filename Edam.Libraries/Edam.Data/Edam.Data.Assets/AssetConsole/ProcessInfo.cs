@@ -18,6 +18,7 @@ namespace Edam.Data.AssetConsole
       public String ProcedureName { get; set; }
       public String ProcedureTag { get; set; }
       public SchemaType? SchemaType { get; set; }
+      public bool ScanFilesFolder { get; set; } = false;
 
       [IgnoreDataMember]
       public AssetConsoleProcedure Procedure

@@ -16,6 +16,11 @@ namespace Edam.Application
       public const String APP_SETTINGS_SECTION_KEY = "AppSettings";
       public const String APP_CONNECTION_STRING_KEY = "ConnectionStrings";
 
+      public const string DEFAULT_ORGANIZATION_ID =
+         "AppSettings:DefaultOrganizationID";
+      public const string DEFAULT_ORGANIZATION_DOMAIN_URI =
+         "AppSettings:DefaultOrganizationDomainUri";
+
       public static string ApplicationDirectory { get; private set; }
       private static IConfiguration m_Configuration;
 
@@ -26,6 +31,24 @@ namespace Edam.Application
                APP_CONFIG_FILE_PATH, optional: true, reloadOnChange: true)
             .Build();
          ApplicationDirectory = AppDomain.CurrentDomain.BaseDirectory;
+      }
+
+      /// <summary>
+      /// Get default organization id.
+      /// </summary>
+      /// <returns>organization id is returned if any was configured</returns>
+      public static string GetDefaultOrganizationId()
+      {
+         return GetString(DEFAULT_ORGANIZATION_ID);
+      }
+
+      /// <summary>
+      /// Get default organization URI.
+      /// </summary>
+      /// <returns>organization uri is returned if any was configured</returns>
+      public static string GetDefaultOrganizationUri()
+      {
+         return GetString(DEFAULT_ORGANIZATION_DOMAIN_URI);
       }
 
       /// <summary>

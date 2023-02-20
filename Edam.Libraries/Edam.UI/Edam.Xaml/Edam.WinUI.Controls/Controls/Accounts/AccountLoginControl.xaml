@@ -45,6 +45,20 @@
                   FontSize="20"
                   Text="{x:Bind ViewModel.TitleText, Mode=TwoWay}" />
 
+               <StackPanel x:Name="DataSourceBox" Margin="0,0,0,5" Visibility="{x:Bind ViewModel.DataSourceVisibility}">
+                  <TextBlock
+                     MinHeight="22"
+                     FontSize="14"
+                     Text="Connection String (Required)" />
+                  <TextBox
+                     x:Name="ConnectionString"
+                     Background="White"
+                     PlaceholderText="Connection String"
+                     TextWrapping="Wrap"
+                     Height="100"
+                     Text="{x:Bind ViewModel.ConnectionString, Mode=TwoWay}" />
+               </StackPanel>
+               
                <TextBox
                   x:Name="OrganizationId"
                   Background="White"

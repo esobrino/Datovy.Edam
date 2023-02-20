@@ -16,6 +16,7 @@ namespace Edam.Data.AssetManagement.Helpers
       public const String ASSET_MANAGEMENT_DB_KEY = "AM.DB.Key";
       public const string ASSET_PROJECTS_PATH = "AppSettings:AssetProjectsPath";
       public const string ASSET_CONSOLE_PATH = "AppSettings:AssetConsolePath";
+      public const string ASSET_DATA_PATH = "AppSettings:AssetDataPath";
       public const string ASSET_ARGUMENTS_TEMPLATE_PATH =
          "AppSettings:AssetArgumentsTemplatePath";
 

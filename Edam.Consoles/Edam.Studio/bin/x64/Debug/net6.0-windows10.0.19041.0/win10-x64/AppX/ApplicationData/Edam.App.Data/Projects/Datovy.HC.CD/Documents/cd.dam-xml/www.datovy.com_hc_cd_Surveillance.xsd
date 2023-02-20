@@ -1,0 +1,1627 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Surveillance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Complication_Report_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Complication Report ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Report_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Report Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Permanent_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Permanent Flag ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Travel_Time_Last" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Length of time in the US since the last travel</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Travel_Time_Unit_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Length of Time in the US units </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Travel_Country_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>List any international destinations of recent travel</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Travel_Returned_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Travel Returned Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Import_Status_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Did symptom onset occur within 12-25 days of entering the US, following any travel or living outside the US?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Exposure_Source_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Sub-classification of disease or condition acquired in the US</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Detection_Method_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Detection Method</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Patient_Address_City_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Patient address city</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Investigation_Status_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Case investigation status code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Transmission_Setting_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>What was the transmission setting where the condition was acquired?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Age_Setting_Verified_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Does the age of the case match or make sense for the transmission setting listed (e.g., a subject aged 80 probably would not have a transmission setting of child day care center)?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Epidemiology_Linked_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Is this case Epi-Linked to another confirmed or probable case?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Case ID... External reference to (Management) Case</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Subject_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Subject ID... External reference to (Entity) Person</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Tenant_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Tenant ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Data_Owner_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Data Owner ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Agency_Reporting_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Agency Reporting ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sequence_Number" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Sequence Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Effective Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_End_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Effective End Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Version_Number" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Version Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Created_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Created Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Updated_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Updated Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Record_Status_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Record Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Session_Updated_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Session Updated ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Complication_Report_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Complication_Report_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Report_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Permanent_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Travel_Time_Last" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Travel_Time_Unit_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Travel_Country_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Travel_Returned_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Import_Status_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Exposure_Source_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Detection_Method_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Patient_Address_City_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Investigation_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Transmission_Setting_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Age_Setting_Verified_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Epidemiology_Linked_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Subject_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Description" type="xs:string" />
+  <xs:element name="Category_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Category ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="CodeSet_Name" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Code Set Name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Notifiable_Indicator" type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>Notifiable Indicator</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Reporting_Criteria_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Notifiable_Indicator" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Reporting_Source_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Result_Status_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Case_Class_Status_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Case_Transmission_Mode_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exposure_Report_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Exposure Report ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Transmission_Mode_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Code for the mechanism by which disease or condition was acquired by the subject of the investigation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reporting_State_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Reporting State Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reporting_County_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Reporting County Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Class_Status_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Status of the case/event as suspect, probable, confirmed, or not a case per CSTE/CDC/ surveillance case definitions.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Outbreak_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Denotes whether the reported case was associated with an identified outbreak.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Outbreak_Name_Text" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Denotes whether the reported case was associated with an identified outbreak.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Investigation_Start_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Case Investigation Start Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Submitted_First_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Case Submitted First Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Notified_CDC_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Case Notified CDC Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Notify_Immediate_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Does this case meet the criteria for immediate (extremely urgent or urgent) notification to CDC?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Notification_Result_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Status of the notification</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Jurisdiction_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Identifier for the physical site from which the notification is being submitted. Locally defined field.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reported_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Reported Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reported_State_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Reported State Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reported_County_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Reported County Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reporting_Source_Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Type of facility or provider associated with the source of information sent to Public Health.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reporting_Source_Zip_Code" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>ZIP Code of the reporting source for this case.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reporting_Criteria_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>For cases meeting the binational criteria, select all the criteria which are met.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reporting_Jurisdiction_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Reporting Jurisdiction Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Person_Reporting_Name_Text" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Person Reporting Name Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Person_Reporting_Phone_Number" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Person Reporting Phone Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Person_Reporting_Email" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Person Reporting Email</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Comment_Text" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Comment Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Report_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Case Report ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Location_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Location ID... External reference to (Geography) Location</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Exposure_Report_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Exposure_Report_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Transmission_Mode_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Reporting_State_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Reporting_County_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Class_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Outbreak_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Outbreak_Name_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Investigation_Start_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Submitted_First_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Notified_CDC_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Notify_Immediate_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Notification_Result_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Jurisdiction_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Reported_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Reported_State_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Reported_County_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Reporting_Source_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Reporting_Source_Zip_Code" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Reporting_Criteria_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Reporting_Jurisdiction_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Person_Reporting_Name_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Person_Reporting_Phone_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Person_Reporting_Email" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Comment_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Report_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Location_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Profile_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Assessment_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Travel_Detail_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Travel Detail ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Travel_Parent_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Travel Parent ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Purpose_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Purpose Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Travel_Number" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Travel Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="State_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>State Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="County_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>County Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Country_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Country Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Origin_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Origin ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Destination_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Destination ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Departure_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Departure Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Arrival_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Arrival Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Travel_Detail_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Travel_Detail_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Travel_Parent_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Purpose_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Subject_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Travel_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:State_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:County_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Country_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Origin_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Destination_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Departure_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Arrival_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Profile_Condition_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Profile Condition ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Profile_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Profile ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Condition_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Condition Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Profile_Condition_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Profile_Condition_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Profile_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Condition_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Profile_Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Profile Type ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Profile_Name" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Profile Name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Status_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Status_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Status Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Profile_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Profile_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Profile_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Profile_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Questionnaire_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Questionnaire ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Questionnaire_No" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Questionnaire No</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Title" type="xs:string" />
+  <xs:element name="Questionnaire_URL" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Questionnaire URL</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Questionnaire_Answer_URL" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Questionnaire Answer URL</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Assessment_Questionnaire_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Questionnaire_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Questionnaire_No" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Title" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Questionnaire_URL" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Questionnaire_Answer_URL" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Question_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Question ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Question_Sequence" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Question Sequence</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Question_Text" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Question Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Answer_Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Base Type Complex Type single-select, multi-select radio button, date-time if calendar, free text, option</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Assessment_Question_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Question_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Question_Sequence" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Question_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Questionnaire_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Answer_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Answer_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Answer ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Assessment_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Assessment ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="AnswerValue" type="xs:string" />
+  <xs:complexType name="Assessment_Answer_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Answer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Assessment_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Question_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:AnswerValue" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alternate_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Alternate ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Assessment_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Assessment_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Alternate_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Questionnaire_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Subject_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Answer_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Report_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Illness_Onset_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Date of the beginning of the illness.  Reported date of the onset of symptoms of the condition being reported to the public health system.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Illness_End_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Date at which the disease or condition ends.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Illness_Duration" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Length of time this subject had this disease or condition.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Illness_Duration_Unit_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Unit of time used to describe the length of the illness or condition.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Pregnancy_Status_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Indicates whether the subject was pregnant at the time of the event.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Diagnosis_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Diagnosis Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Hospitalized_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Was subject hospitalized because of this event?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Hospital_Stay_InDays" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Subject's duration of stay at the hospital for the condition covered by the investigation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Admission_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Subject’s most recent admission date to the hospital for the condition covered by the investigation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Discharged_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Subject’s most recent discharge date from the hospital for the condition covered by the investigation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Exposure_Setting_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Place or location where subject may had been exposed to the virus or disease</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Subject_Died_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Did the subject die from this illness or complications of this illness?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Deceased_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>If the subject died from this illness or complications associated with this illness, indicate the date of death.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Deceased_Source_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Indication of where the disease/condition was likely acquired.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Imported_Country_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>If the disease or condition was imported, indicates the country in which the disease was likely acquired.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Imported_State_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>If the disease or condition was imported, indicates the state in which the disease was likely acquired.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Imported_City_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>If the disease or condition was imported, indicates the city in which the disease was likely acquired.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Imported_County_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>If the disease or condition was imported, contains the county of origin of the disease or condition..</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Age_At_Case" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Subject age at time of case investigation</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Age_Unit_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Subject age unit at time of case investigation</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_State_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Case State ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Legacy_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Case Legacy ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Case_Report_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Report_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Report_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Illness_Onset_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Illness_End_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Illness_Duration" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Illness_Duration_Unit_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Pregnancy_Status_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Diagnosis_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Hospitalized_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Hospital_Stay_InDays" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Admission_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Discharged_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Exposure_Setting_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Condition_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Subject_Died_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Deceased_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Deceased_Source_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Imported_Country_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Imported_State_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Imported_City_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Imported_County_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Age_At_Case" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Age_Unit_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_State_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Legacy_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Subject_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Travel_Purpose_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="City_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>City Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Exposure_Location_Report_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Exposure_Report_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Country_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:State_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:City_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:County_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Report_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Jurisdiction_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Unit_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Event_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Notifiable_Indicator" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Sexual_Preference_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Indicator_Flag_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Contact_Type_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contact_Report_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Contact Report ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contacted_Date" type="xs:date">
+    <xs:annotation>
+      <xs:documentation>Contacted Date</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, type of contact the subject had with a person with confirmed or suspected virus infection?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_Type_Other_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Contact Type Other Flag ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_Type_Other_Text" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Contact Type Other Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, answer (Yes, No, Unknown) for each type of contact the subject had with a person with confirmed or suspected virus infection</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Linked_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, was the subject in contact with a person with confirmed or suspected virus infection?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Child_Care_Linked_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Child Care Linked Flag ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Child_Care_Case_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Was there an identified virus case in the childcare facility?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sexual_Preference_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>What is/was the subject's sexual preference?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sexual_Partner_Male_Total" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Sexual Partner Male Total</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sexual_Partner_Female_Total" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Sexual Partner Female Total</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Drug_Used_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, did the subject inject drugs not prescribed by a doctor?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Drug_Street_Used_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>During the 2-6 weeks prior to the onset of symptoms, did the subject use street drugs but not inject?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Traveled_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Traveled Flag ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Outbreak_Source_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Outbreak Source Flag ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Outbreak_Foodborne_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Subject is associated with a foodborne outbreak that is associated with an infected food handler?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Outbreak_Food_Item_Text" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Outbreak Food Item Text</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Outbreak_Waterborne_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Subject is associated with a foodborne outbreak that is associated with an infected food handler?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Outbreak_Unidentified_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Subject is associated with an outbreak that does not have an identified source?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Food_Handler_Flag_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>During the 2 weeks prior to the onset of symptoms or while ill, was the subject employed as a food handler?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Contact_Report_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Contact_Report_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Report_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Contacted_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Contact_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Contact_Type_Other_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Contact_Type_Other_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Contact_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Epidemiology_Linked_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_Linked_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Child_Care_Linked_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Child_Care_Case_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sexual_Preference_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sexual_Partner_Male_Total" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sexual_Partner_Female_Total" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Drug_Used_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Drug_Street_Used_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Traveled_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Travel_Detail_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Outbreak_Source_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Outbreak_Foodborne_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Outbreak_Food_Item_Text" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Outbreak_Waterborne_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Outbreak_Unidentified_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Food_Handler_Flag_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Subject_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Exposure_Setting_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Viral_Report_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Viral Report ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Viral_Report_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Viral_Report_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Report_Date" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Status_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Transmission_Setting_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Detection_Method_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Case_Investigation_Stattus_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Case_Classification_Exposure_Source_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd2:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Complication_Report" type="cd2:Complication_Report_">
+    <xs:annotation>
+      <xs:documentation>Complication Report</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reporting_Criteria_Code" type="cd2:Reporting_Criteria_Code_">
+    <xs:annotation>
+      <xs:documentation>Reporting Criteria Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Reporting_Source_Type" type="cd2:Reporting_Source_Type_">
+    <xs:annotation>
+      <xs:documentation>Reporting Source Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Result_Status_Code" type="cd2:Result_Status_Code_">
+    <xs:annotation>
+      <xs:documentation>Result Status Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Class_Status_Code" type="cd2:Case_Class_Status_Code_">
+    <xs:annotation>
+      <xs:documentation>Case Class Status Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Transmission_Mode_Code" type="cd2:Case_Transmission_Mode_Code_">
+    <xs:annotation>
+      <xs:documentation>Case Transmission Mode Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Exposure_Report" type="cd2:Exposure_Report_">
+    <xs:annotation>
+      <xs:documentation>Exposure Report</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Profile_Type" type="cd2:Profile_Type_">
+    <xs:annotation>
+      <xs:documentation>Profile Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Assessment_Type" type="cd2:Assessment_Type_">
+    <xs:annotation>
+      <xs:documentation>Assessment Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Travel_Detail" type="cd2:Travel_Detail_">
+    <xs:annotation>
+      <xs:documentation>Travel Detail</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Profile_Condition" type="cd2:Profile_Condition_">
+    <xs:annotation>
+      <xs:documentation>Profile Condition</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Profile" type="cd2:Profile_" />
+  <xs:element name="Assessment_Questionnaire" type="cd2:Assessment_Questionnaire_">
+    <xs:annotation>
+      <xs:documentation>Assessment Questionnaire</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Assessment_Question" type="cd2:Assessment_Question_">
+    <xs:annotation>
+      <xs:documentation>Assessment Question</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Assessment_Answer" type="cd2:Assessment_Answer_">
+    <xs:annotation>
+      <xs:documentation>Assessment Answer</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Assessment" type="cd2:Assessment_" />
+  <xs:element name="Answer_Type" type="cd2:Answer_Type_">
+    <xs:annotation>
+      <xs:documentation>Answer Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Report_Type" type="cd2:Report_Type_">
+    <xs:annotation>
+      <xs:documentation>Report Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Report" type="cd2:Case_Report_">
+    <xs:annotation>
+      <xs:documentation>Case Report</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Travel_Purpose_Code" type="cd2:Travel_Purpose_Code_">
+    <xs:annotation>
+      <xs:documentation>Travel Purpose Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Exposure_Location_Report" type="cd2:Exposure_Location_Report_">
+    <xs:annotation>
+      <xs:documentation>Exposure Location Report</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Jurisdiction_Code" type="cd2:Jurisdiction_Code_">
+    <xs:annotation>
+      <xs:documentation>Jurisdiction Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Unit_Code" type="cd2:Unit_Code_">
+    <xs:annotation>
+      <xs:documentation>Unit Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Event_Code" type="cd2:Event_Code_">
+    <xs:annotation>
+      <xs:documentation>Event Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sexual_Preference_Code" type="cd2:Sexual_Preference_Code_">
+    <xs:annotation>
+      <xs:documentation>Sexual Preference Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Indicator_Flag_Code" type="cd2:Indicator_Flag_Code_">
+    <xs:annotation>
+      <xs:documentation>Indicator Flag Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_Type" type="cd2:Contact_Type_">
+    <xs:annotation>
+      <xs:documentation>Contact Type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_Report" type="cd2:Contact_Report_">
+    <xs:annotation>
+      <xs:documentation>Contact Report</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Exposure_Setting_Code" type="cd2:Exposure_Setting_Code_">
+    <xs:annotation>
+      <xs:documentation>Exposure Setting Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Viral_Report" type="cd2:Viral_Report_">
+    <xs:annotation>
+      <xs:documentation>Viral Report</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Transmission_Setting_Code" type="cd2:Transmission_Setting_Code_">
+    <xs:annotation>
+      <xs:documentation>Transmission Setting Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Detection_Method_Code" type="cd2:Detection_Method_Code_">
+    <xs:annotation>
+      <xs:documentation>Detection Method Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Investigation_Stattus_Code" type="cd2:Case_Investigation_Stattus_Code_">
+    <xs:annotation>
+      <xs:documentation>Case Investigation Stattus Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_Classification_Exposure_Source_Code" type="cd2:Case_Classification_Exposure_Source_Code_">
+    <xs:annotation>
+      <xs:documentation>Case Classification Exposure Source Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Surveillance_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Complication_Report" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Reporting_Criteria_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Reporting_Source_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Result_Status_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Case_Class_Status_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Case_Transmission_Mode_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Exposure_Report" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Profile_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Assessment_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Travel_Detail" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Profile_Condition" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Profile" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Assessment_Questionnaire" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Assessment_Question" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Assessment_Answer" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Assessment" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Answer_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Report_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Case_Report" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Travel_Purpose_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Exposure_Location_Report" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Jurisdiction_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Unit_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Event_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Sexual_Preference_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Indicator_Flag_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Contact_Type" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Contact_Report" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Exposure_Setting_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Viral_Report" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Transmission_Setting_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Detection_Method_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Case_Investigation_Stattus_Code" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd2:Case_Classification_Exposure_Source_Code" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

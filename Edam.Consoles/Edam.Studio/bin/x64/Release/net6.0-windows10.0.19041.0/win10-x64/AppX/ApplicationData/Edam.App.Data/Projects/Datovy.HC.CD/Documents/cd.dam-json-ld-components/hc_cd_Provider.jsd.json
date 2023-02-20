@@ -1,0 +1,223 @@
+{
+   "components": {
+      "schemas": {
+         "cd11Provider_Code_": {
+            "title": "cd11:Provider_Code_",
+            "description": "The Healthcare Provider Taxonomy code set divides health care providers into hierarchical groupings by type, classification, and specialization, and assigns a code to each grouping",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd11:Provider_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd11Provider_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd11Provider_Reference_": {
+            "title": "cd11:Provider_Reference_",
+            "description": "A reference to a provider or entity",
+            "properties": {
+               "provider_Reference_ID": {
+                  "description": "Provider Reference ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "alternate_ID": {
+                  "description": "Alternate ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "provider_Code_ID": {
+                  "description": "Provider Code",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "person_ID": {
+                  "description": "Person ID... External reference to (Entity) Person",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "organization_ID": {
+                  "description": "Organization ID... External reference to (Entity) Organization",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "name_ID": {
+                  "description": "Name ID... External reference to (Entity) Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd11:Provider_Reference_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd11Provider_Reference_Context.jsonld"
+               }
+            }
+         },
+         "cd11Provider_": {
+            "title": "cd11:Provider_",
+            "description": "Provider ",
+            "properties": {
+               "provider_Code": {
+                  "description": "Provider Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd11Provider_Code_"
+                  }
+               },
+               "provider_Reference": {
+                  "description": "Provider Reference",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd11Provider_Reference_"
+                  }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd11:Provider_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd11Provider_Context.jsonld"
+               }
+            }
+         }
+}
+}
+}

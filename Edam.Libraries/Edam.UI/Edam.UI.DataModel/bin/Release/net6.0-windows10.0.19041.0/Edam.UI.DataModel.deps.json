@@ -31,19 +31,19 @@
           }
         }
       },
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
-            "assemblyVersion": "8.1.0.0",
-            "fileVersion": "8.1.0.1"
+          "lib/net5.0/CommunityToolkit.Common.dll": {
+            "assemblyVersion": "7.1.0.0",
+            "fileVersion": "7.1.2.1"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
-            "assemblyVersion": "8.1.0.0",
-            "fileVersion": "8.1.0.1"
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
+            "assemblyVersion": "7.1.0.0",
+            "fileVersion": "7.1.2.1"
           }
         }
       },
@@ -504,9 +504,10 @@
       },
       "Edam.UI/1.0.0": {
         "dependencies": {
-          "CommunityToolkit.Common": "8.1.0",
-          "CommunityToolkit.Mvvm": "8.1.0",
+          "CommunityToolkit.Common": "7.1.2",
+          "CommunityToolkit.Mvvm": "7.1.2",
           "Edam.Data.Assets": "1.0.0",
+          "Edam.DataObjects": "1.0.0",
           "Edam.System": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
           "Microsoft.WindowsAppSDK": "1.2.230118.102"
@@ -528,19 +529,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CommunityToolkit.Common/8.1.0": {
+    "CommunityToolkit.Common/7.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9U91MvCETPTVkLd07rGuIIPSnoqEQq7WDwNe6zfREkCFNJtR56flnO38EXP0M+pzPpHBnNmPt9PnJoPDJZjg5w==",
-      "path": "communitytoolkit.common/8.1.0",
-      "hashPath": "communitytoolkit.common.8.1.0.nupkg.sha512"
+      "sha512": "sha512-KnHnukN+Sc26YT98OWYTp8mvaYlLc61lzDh0RrVRNQXm01hZ+iXAjCgKM59vAojqxNVrlbcXj22LYOyXWDItgg==",
+      "path": "communitytoolkit.common/7.1.2",
+      "hashPath": "communitytoolkit.common.7.1.2.nupkg.sha512"
     },
-    "CommunityToolkit.Mvvm/8.1.0": {
+    "CommunityToolkit.Mvvm/7.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xxOt7lu9a5kB5Fs9RfcxzVlKnhuuPe+w7AXHtmCFtS3oldrsUhEMxHfNulluXSscUUoGxZ0jh55Om12ZP6abHA==",
-      "path": "communitytoolkit.mvvm/8.1.0",
-      "hashPath": "communitytoolkit.mvvm.8.1.0.nupkg.sha512"
+      "sha512": "sha512-/zEpNH3FIBFY2iZRBi+S3Sia3q2yJgy1IQHnWRW7MdhQIe3IGcA1TGqJdbtjiJBmNy4v7kkPdNzgYlvvNDjXZg==",
+      "path": "communitytoolkit.mvvm/7.1.2",
+      "hashPath": "communitytoolkit.mvvm.7.1.2.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/6.0.0-preview.4.21253.7": {
       "type": "package",

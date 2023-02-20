@@ -5,6 +5,7 @@
     xmlns:local="using:Edam.WinUI.Controls.Editors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ct="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
    <Grid>
 
@@ -16,7 +17,7 @@
          <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
 
-      <WebView2
+      <ct:WebView2
          x:Name="CodeEditor"
          Grid.Row="1"
          HorizontalAlignment="Stretch"

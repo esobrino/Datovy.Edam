@@ -1,0 +1,2190 @@
+{
+   "components": {
+      "schemas": {
+         "cd7Referral_Type_": {
+            "title": "cd7:Referral_Type_",
+            "description": "Identify and describe a kind of Referral",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Referral_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Referral_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd7Referral_": {
+            "title": "cd7:Referral_",
+            "description": "A recommendation of a person to an activity, program or product",
+            "properties": {
+               "referral_ID": {
+                  "description": "Referral ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "alternate_ID": {
+                  "description": "Alternate ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "referral_DateTime": {
+                  "description": "Referral Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "case_ID": {
+                  "description": "Case ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "profile_ID": {
+                  "description": "Profile ID... External reference to (Surveillance) Profile",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "provider_ID": {
+                  "description": "Provider ID... External reference to (Provider) Provider",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "activity_ID": {
+                  "description": "Activity ID... External reference to (Action) Activity",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Referral_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Referral_Context.jsonld"
+               }
+            }
+         },
+         "cd7Flag_Code_": {
+            "title": "cd7:Flag_Code_",
+            "description": "Identify and describe a variable code used to indicate a property or state of a value",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Flag_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Flag_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd7Case_Type_": {
+            "title": "cd7:Case_Type_",
+            "description": "Identify and describe a kind of Case",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "duration": {
+                  "description": "Duration",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "near_Complete_Duration": {
+                  "description": "Near Complete Duration",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Case_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Case_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd7Priority_Code_": {
+            "title": "cd7:Priority_Code_",
+            "description": "Identify and describe the precedence or importance of something",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Priority_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Priority_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd7Disposition_": {
+            "title": "cd7:Disposition_",
+            "description": "An instance of a disposition of a Case or other",
+            "properties": {
+               "disposition_ID": {
+                  "description": "Disposition ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "disposition_DateTime": {
+                  "description": "Disposition Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "case_ID": {
+                  "description": "Case ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Disposition_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Disposition_Context.jsonld"
+               }
+            }
+         },
+         "cd7Case_": {
+            "title": "cd7:Case_",
+            "description": "An aggregation of information about a set of related activities and events",
+            "properties": {
+               "case_ID": {
+                  "description": "Case ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "alternate_ID": {
+                  "description": "Alternate ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "officer_ID": {
+                  "description": "Officer ID... External reference to (Entity) Officer",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "subject_ID": {
+                  "description": "Subject ID... External reference to (Entity) Person",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "provider_ID": {
+                  "description": "Provider ID... External reference to (Provider) Provider",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "organization_ID": {
+                  "description": "Organization ID... External reference to (Entity) Organization",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "disposition_ID": {
+                  "description": "Disposition ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "probable_Reason_Code_ID": {
+                  "description": "Probable Reason Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "detection_Method_Code_ID": {
+                  "description": "Detection Method Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "profile_ID": {
+                  "description": "Profile ID... External reference to (Surveillance) Profile",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "priority_Code_ID": {
+                  "description": "Priority Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "person_Age": {
+                  "description": "Person Age",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "person_Age_Unit_Code_ID": {
+                  "description": "Person/Patient age unit at time of case investigation",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "class_Status_Code_ID": {
+                  "description": "Class Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Case_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Case_Context.jsonld"
+               }
+            }
+         },
+         "cd7Flag_": {
+            "title": "cd7:Flag_",
+            "description": "An instance of a code or variable used to indicate a property or state of something important",
+            "properties": {
+               "flag_ID": {
+                  "description": "Flag ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "case_ID": {
+                  "description": "Case ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "value": {
+                  "description": "Value",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Flag_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Flag_Context.jsonld"
+               }
+            }
+         },
+         "cd7Unit_Code_": {
+            "title": "cd7:Unit_Code_",
+            "description": "Identify and describe codes for a standard measure in terms of which quantities may be express",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Unit_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Unit_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd7Status_Code_": {
+            "title": "cd7:Status_Code_",
+            "description": "Identify and describe a kind of state or change of state",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Status_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Status_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd7Assignment_": {
+            "title": "cd7:Assignment_",
+            "description": "A transfer of a responsability to an agent, officer or other",
+            "properties": {
+               "assignment_ID": {
+                  "description": "Assignment ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "assigned_DateTime": {
+                  "description": "Assigned Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "manager_ID": {
+                  "description": "Manager ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "officer_ID": {
+                  "description": "Officer ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "case_ID": {
+                  "description": "Case ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "referral_ID": {
+                  "description": "Referral ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "concept_ID": {
+                  "description": "Concept ID... External reference to (Generic) Element",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "contact_ID": {
+                  "description": "Contact ID... External reference to (Entity) Contact",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "subject_ID": {
+                  "description": "Subject ID... External reference to (Entity) Person",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "priority_Code_ID": {
+                  "description": "Priority Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Assignment_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Assignment_Context.jsonld"
+               }
+            }
+         },
+         "cd7Assignment_Link_": {
+            "title": "cd7:Assignment_Link_",
+            "description": "An association related to a transfer of a responsability to an agent, officer or other",
+            "properties": {
+               "assignment_Link_ID": {
+                  "description": "Assignment Link ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "assignment_ID": {
+                  "description": "Assignment ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "case_ID": {
+                  "description": "Case ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "officer_ID": {
+                  "description": "Officer ID... External reference to (Entity) Officer ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Assignment_Link_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Assignment_Link_Context.jsonld"
+               }
+            }
+         },
+         "cd7Detection_Method_Code_": {
+            "title": "cd7:Detection_Method_Code_",
+            "description": "Identify and describe a Process by which the case first identified",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Detection_Method_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Detection_Method_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd7Probable_Reason_Code_": {
+            "title": "cd7:Probable_Reason_Code_",
+            "description": "Identify and describe a Rationale for classifying a case as probable",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Probable_Reason_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Probable_Reason_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd7Request_": {
+            "title": "cd7:Request_",
+            "description": "A petition related to a recomendation to an activity, program, or product",
+            "properties": {
+               "request_ID": {
+                  "description": "Request ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "alternate_ID": {
+                  "description": "Alternate ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "request_Date": {
+                  "description": "Request Date",
+                  "type": "array",
+                  "items": { "type": "date" }
+               },
+               "service_Code_ID": {
+                  "description": "Service Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "case_ID": {
+                  "description": "Case ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "referral_ID": {
+                  "description": "Referral ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "provider_ID": {
+                  "description": "Provider ID... External reference to (Provider) Provider",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "activity_ID": {
+                  "description": "Activity ID... External reference to (Action) Activity",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "item_ID": {
+                  "description": "Item ID... External reference to (Article) Item",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Request_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Request_Context.jsonld"
+               }
+            }
+         },
+         "cd7Service_Code_": {
+            "title": "cd7:Service_Code_",
+            "description": "Identify and describe a kind of service",
+            "properties": {
+               "code_ID": {
+                  "description": "Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Service_Code_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Service_Code_Context.jsonld"
+               }
+            }
+         },
+         "cd7Note_Type_": {
+            "title": "cd7:Note_Type_",
+            "description": "Identify and describe the kind of note or comment",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Note_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Note_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd7Note_": {
+            "title": "cd7:Note_",
+            "description": "A statement, comment, or remark defining a thing or providing additional information",
+            "properties": {
+               "note_ID": {
+                  "description": "Note ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "note_Type_ID": {
+                  "description": "Note Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "note_Text": {
+                  "description": "Note Text",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "note_DateTime": {
+                  "description": "Note Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "author_ID": {
+                  "description": "Author ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "author_Role_ID": {
+                  "description": "Author Role ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "author_Name": {
+                  "description": "Author Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "case_ID": {
+                  "description": "Case ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Note_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Note_Context.jsonld"
+               }
+            }
+         },
+         "cd7Media_Type_": {
+            "title": "cd7:Media_Type_",
+            "description": "Identify and describe the kind of media",
+            "properties": {
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "description": {
+                  "description": "Description",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_ID": {
+                  "description": "Category ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tags": {
+                  "description": "Provided to set a comma delimited list of Privacy, Security or other data Tags such as GDPR, HIPAA, PII or other.",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "codeSet_Name": {
+                  "description": "Code Set Name",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Media_Type_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Media_Type_Context.jsonld"
+               }
+            }
+         },
+         "cd7Media_": {
+            "title": "cd7:Media_",
+            "description": "A document, image, or other digital artifacts that describe or define something",
+            "properties": {
+               "media_ID": {
+                  "description": "Media ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "alternate_ID": {
+                  "description": "Alternate ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "type_ID": {
+                  "description": "Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "category_Text": {
+                  "description": "Category Text",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_Code": {
+                  "description": "Status Code",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "url_Text": {
+                  "description": "Url Text",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "size_In_Bytes": {
+                  "description": "Size In Bytes",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "media_Data": {
+                  "description": "Media Data",
+               },
+               "scope_Code_ID": {
+                  "description": "Scope Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "content_Type_Code_ID": {
+                  "description": "Content Type Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "content_Type_Text": {
+                  "description": "Content Type Text",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "default_Indicator": {
+                  "description": "Default Indicator",
+                  "type": "array",
+                  "items": { "type": "boolean" }
+               },
+               "serial_No": {
+                  "description": "Serial No",
+                  "type": "array",
+                  "items": { "type": "long" }
+               },
+               "status_Code_ID": {
+                  "description": "Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "status_DateTime": {
+                  "description": "Status Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "reference_Date_Type_ID": {
+                  "description": "Reference Date Type ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "reference_DateTime": {
+                  "description": "Reference Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "case_ID": {
+                  "description": "Case ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "tenant_ID": {
+                  "description": "Tenant ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "data_Owner_ID": {
+                  "description": "Data Owner ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "agency_Reporting_ID": {
+                  "description": "Agency Reporting ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "sequence_Number": {
+                  "description": "Sequence Number",
+                  "type": "array",
+                  "items": { "type": "integer" }
+               },
+               "effective_DateTime": {
+                  "description": "Effective Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "effective_End_DateTime": {
+                  "description": "Effective End Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "version_Number": {
+                  "description": "Version Number",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "created_DateTime": {
+                  "description": "Created Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "updated_DateTime": {
+                  "description": "Updated Date Time",
+                  "type": "array",
+                  "items": { "type": "dateTime" }
+               },
+               "record_Status_Code_ID": {
+                  "description": "Record Status Code ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               },
+               "session_Updated_ID": {
+                  "description": "Session Updated ID",
+                  "type": "array",
+                  "items": { "type": "string" }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Media_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Media_Context.jsonld"
+               }
+            }
+         },
+         "cd7Management_": {
+            "title": "cd7:Management_",
+            "description": "Management ",
+            "properties": {
+               "referral_Type": {
+                  "description": "Referral Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Referral_Type_"
+                  }
+               },
+               "referral": {
+                  "description": "Referral",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Referral_"
+                  }
+               },
+               "flag_Code": {
+                  "description": "Flag Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Flag_Code_"
+                  }
+               },
+               "case_Type": {
+                  "description": "Case Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Case_Type_"
+                  }
+               },
+               "priority_Code": {
+                  "description": "Priority Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Priority_Code_"
+                  }
+               },
+               "disposition": {
+                  "description": "Disposition",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Disposition_"
+                  }
+               },
+               "case": {
+                  "description": "Case",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Case_"
+                  }
+               },
+               "flag": {
+                  "description": "Flag",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Flag_"
+                  }
+               },
+               "unit_Code": {
+                  "description": "Unit Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Unit_Code_"
+                  }
+               },
+               "status_Code": {
+                  "description": "Status Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Status_Code_"
+                  }
+               },
+               "assignment": {
+                  "description": "Assignment",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Assignment_"
+                  }
+               },
+               "assignment_Link": {
+                  "description": "Assignment Link",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Assignment_Link_"
+                  }
+               },
+               "detection_Method_Code": {
+                  "description": "Detection Method Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Detection_Method_Code_"
+                  }
+               },
+               "probable_Reason_Code": {
+                  "description": "Probable Reason Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Probable_Reason_Code_"
+                  }
+               },
+               "request": {
+                  "description": "Request",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Request_"
+                  }
+               },
+               "service_Code": {
+                  "description": "Service Code",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Service_Code_"
+                  }
+               },
+               "note_Type": {
+                  "description": "Note Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Note_Type_"
+                  }
+               },
+               "note": {
+                  "description": "Note",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Note_"
+                  }
+               },
+               "media_Type": {
+                  "description": "Media Type",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Media_Type_"
+                  }
+               },
+               "media": {
+                  "description": "Media",
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/cd7Media_"
+                  }
+               }
+               "@context": {
+                  "type": "string",
+                  "description": "cd7:Management_ JSON-LD context",
+                  "enum": "../JSON-LD_Contexts/cd7Management_Context.jsonld"
+               }
+            }
+         }
+}
+}
+}

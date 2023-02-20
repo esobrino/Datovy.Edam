@@ -1,0 +1,2212 @@
+{
+	"customers": {
+		"customer": {
+			"accepts_marketing": false,
+			"accepts_marketing_updated_at": "2013-06-27T08:48:27-04:00",
+			"addresses": [
+				{
+					"id": 207119551,
+					"customer_id": 6940095564,
+					"first_name": "Bob",
+					"last_name": "Norman",
+					"company": null,
+					"address1": "Chestnut Street 92",
+					"address2": "Apartment 2",
+					"city": "Louisville",
+					"province": "Kentucky",
+					"country": "United States",
+					"zip": "40202",
+					"phone": "555-625-1199",
+					"province_code": "KY",
+					"country_code": "US",
+					"country_name": "United States",
+					"default": true
+				}
+			],
+			"currency": "JPY",
+			"created_at": "2013-06-27T08:48:27-04:00",
+			"default_address": {
+				"address1": "Chestnut Street 92",
+				"address2": "Apartment 2",
+				"city": "Louisville",
+				"company": null,
+				"country": "united states",
+				"first_name": "Bob",
+				"id": 207119551,
+				"last_name": "Norman",
+				"phone": "555-625-1199",
+				"province": "Kentucky",
+				"zip": "40202",
+				"province_code": "KY",
+				"country_code": "US",
+				"country_name": "United States",
+				"default": true
+			},
+			"email": "bob.norman@mail.example.com",
+			"email_marketing_consent": {
+				"state": "subscribed",
+				"opt_in_level": "confirmed_opt_in",
+				"consent_updated_at": "2022-04-01T11:22:06-04:00"
+			},
+			"first_name": "John",
+			"id": 207119551,
+			"last_name": "Norman",
+			"last_order_id": 234132602919,
+			"last_order_name": "#1169",
+			"metafield": {
+				"key": "new",
+				"namespace": "global",
+				"value": "newvalue",
+				"type": "string"
+			},
+			"marketing_opt_in_level": "confirmed_opt_in",
+			"multipass_identifier": null,
+			"note": "Placed an order that had a fraud warning",
+			"orders_count": 3,
+			"password": "password",
+			"password_confirmation": "password_confirmation",
+			"phone": "+16135551111",
+			"sms_marketing_consent": {
+				"state": "subscribed",
+				"opt_in_level": "single_opt_in",
+				"consent_updated_at": "2021-08-03T15:31:06-04:00",
+				"consent_collected_from": "OTHER"
+			},
+			"state": "disabled",
+			"tags": "loyal",
+			"tax_exempt": true,
+			"tax_exemptions": [
+				"CA_STATUS_CARD_EXEMPTION",
+				"CA_BC_RESELLER_EXEMPTION"
+			],
+			"total_spent": "375.30",
+			"updated_at": "2012-08-24T14:01:46-04:00",
+			"verified_email": true
+		},
+		"customer_address": {
+			"address1": "1 Rue des Carrieres",
+			"address2": "Suite 1234",
+			"city": "Montreal",
+			"country": "Canada",
+			"country_code": "CA",
+			"country_name": "Canada",
+			"company": "Fancy Co.",
+			"customer_id": {
+				"id": 1073339470
+			},
+			"first_name": "Samuel",
+			"id": 207119551,
+			"last_name": "de Champlain",
+			"name": "Samuel de Champlain",
+			"phone": "819-555-5555",
+			"province": "Quebec",
+			"province_code": "QC",
+			"zip": "G1R 4P5"
+		}
+	},
+	"discounts": {
+		"discount_code": {
+			"api_client_id": 431223487,
+			"balance": 80.17,
+			"code": "1234 4567 8901 2ABC",
+			"created_at": "2008-12-31T19:00:00-05:00",
+			"currency": "CAD",
+			"customer_id": {
+				"customer_id": 368407052327
+			},
+			"disabled_at": "2009-01-31T19:00:00-05:00",
+			"expires_on": "2020-01-31",
+			"id": 989034056,
+			"initial_value": 100,
+			"last_characters": "2ABC",
+			"line_item_id": 241253183,
+			"note": "A note",
+			"order_id": 241253183,
+			"template_suffix": "birthday",
+			"user_id": 241253183,
+			"updated_at": "2009-01-31T19:00:00-05:00"
+		}
+	},
+	"events": {
+		"event": {
+			"arguments": "IPod Nano - 8GB",
+			"body": null,
+			"created_at": "2015-04-20T08:33:57-11:00",
+			"id": 164748010,
+			"description": "Received a new order",
+			"path": "/admin/orders/406514653/transactions/#1145",
+			"message": "Received new order",
+			"subject_id": 406514653,
+			"subject_type": "Order",
+			"verb": "confirmed"
+		}
+	},
+	"inventory": {
+		"inventory_item": {
+			"cost": "25.00",
+			"country_code_of_origin": "FR",
+			"country_harmonized_system_codes": [
+				{
+					"harmonized_system_code": "1234561111",
+					"country_code": "CA"
+				},
+				{
+					"harmonized_system_code": "1234562222",
+					"country_code": "US"
+				}
+			],
+			"created_at": "2012-08-24T14:01:47-04:00",
+			"harmonized_system_code": 123456,
+			"id": 450789469,
+			"province_code_of_origin": "QC",
+			"sku": "IPOD2008PINK",
+			"tracked": true,
+			"updated_at": "2012-08-24T14:01:47-04:00",
+			"requires_shipping": true
+		},
+		"location": {
+			"active": true,
+			"address1": "126 York Street",
+			"address2": "Unit 42",
+			"city": "Ottawa",
+			"country": "Canada",
+			"country_code": "CA",
+			"created_at": "2008-12-31T19:00:00-05:00",
+			"id": 121,
+			"legacy": true,
+			"name": "Ottawa Store",
+			"phone": "18883290139",
+			"province": "Ontario",
+			"province_code": "ON",
+			"updated_at": "2009-01-31T19:00:00-05:00",
+			"zip": "k1n5t5",
+			"localized_country_name": "Canada",
+			"localized_province_name": "Ontario"
+		}
+	},
+	"metafield": {
+		"metafield": {
+			"created_at": "2012-03-13T16:09:54-04:00",
+			"description": "The number of units at the warehouse.",
+			"id": 915396206,
+			"key": "warehouse",
+			"namespace": "inventory",
+			"owner_id": 548380009,
+			"owner_resource": "product",
+			"updated_at": "2012-08-24T14:02:15-04:00",
+			"value": 25,
+			"type": "single_line_text_field"
+		}
+	},
+	"orders": {
+		"draft_order": {
+			"id": 450789469,
+			"order_id": {
+				"id": 456789101
+			},
+			"name": "#1001",
+			"customer": {
+				"id": 207119551,
+				"email": "bob.norman@mail.example.com",
+				"accepts_marketing": false,
+				"created_at": "2012-03-13T16:09:55-04:00",
+				"updated_at": "2012-03-13T16:09:55-04:00",
+				"first_name": "Bob",
+				"last_name": "Norman",
+				"orders_count": "1",
+				"state": "disabled",
+				"total_spent": "0.00",
+				"last_order_id": 450789469,
+				"note": null,
+				"verified_email": true,
+				"multipass_identifier": null,
+				"tax_exempt": false,
+				"tax_exemptions": {},
+				"phone": "+13125551212",
+				"tags": "loyal",
+				"last_order_name": "#1001",
+				"currency": "USD",
+				"addresses": {},
+				"admin_graphql_api_id": "gid://shopify/Customer/207119551",
+				"default_address": {}
+			},
+			"shipping_address": {
+				"address1": "123 Amoebobacterieae St",
+				"address2": "",
+				"city": "Ottawa",
+				"company": null,
+				"country": "Canada",
+				"first_name": "Bob",
+				"last_name": "Bobsen",
+				"latitude": "45.41634",
+				"longitude": "-75.6868",
+				"phone": "555-625-1199",
+				"province": "Ontario",
+				"zip": "K2P0V6",
+				"name": "Bob Bobsen",
+				"country_code": "CA",
+				"province_code": "ON"
+			},
+			"billing_address": {
+				"address1": "123 Amoebobacterieae St",
+				"address2": "",
+				"city": "Ottawa",
+				"company": null,
+				"country": "US",
+				"first_name": null,
+				"id": 207119551,
+				"last_name": null,
+				"phone": "(555)555-5555",
+				"province": "KY",
+				"zip": "40202",
+				"name": null,
+				"province_code": null,
+				"country_code": null,
+				"default": true
+			},
+			"note": null,
+			"note_attributes": [
+				{
+					"name": "custom name",
+					"value": "custom value"
+				}
+			],
+			"email": "bob.norman@example.com",
+			"currency": "USD",
+			"invoice_sent_at": "2008-01-10T11:00:00-05:00",
+			"invoice_url": "https://www.example.com/14376108/checkouts/91a9b3f92d7d42e57268eff5ebd570df",
+			"line_items": {
+				"custom": false,
+				"fulfillable_quantity": 1,
+				"fulfillment_service": "amazon",
+				"grams": 500,
+				"id": 669751112,
+				"price": "199.99",
+				"product_id": 7513594,
+				"quantity": 1,
+				"requires_shipping": true,
+				"sku": "IPOD-342-N",
+				"title": "IPod Nano",
+				"variant_id": 4264112,
+				"variant_title": "Pink",
+				"vendor": "Apple",
+				"name": "IPod Nano - Pink",
+				"gift_card": false,
+				"properties": [
+					{
+						"name": "custom engraving",
+						"value": "Happy Birthday Mom!"
+					}
+				],
+				"taxable": true,
+				"tax_lines": [
+					{
+						"title": "title of tax line",
+						"rate": "10",
+						"price": "18"
+					}
+				],
+				"applied_discount": {
+					"title": "title of the discount",
+					"description": "Description of discount!",
+					"value": "10",
+					"value_type": "percentage",
+					"amount": "19.99"
+				}
+			},
+			"payment_terms": {
+				"amount": 70,
+				"currency": "CAD",
+				"payment_terms_name": "NET_30",
+				"payment_terms_type": "NET",
+				"due_in_days": 30,
+				"payment_schedules": [
+					{
+						"amount": 70,
+						"currency": "CAD",
+						"issued_at": "2020-07-29T13:02:43-04:00",
+						"due_at": "2020-08-29T13:02:43-04:00",
+						"completed_at": "null",
+						"expected_payment_method": "shopify_payments"
+					}
+				]
+			},
+			"shipping_line": {
+				"handle": "shopify-Standard%20Shipping-8.00",
+				"price": 0,
+				"title": "Free Shipping"
+			},
+			"source_name": "instagram",
+			"tags": "tagsational",
+			"tax_exempt": false,
+			"tax_exemptions": [
+				"CA_STATUS_CARD_EXEMPTION",
+				"CA_BC_RESELLER_EXEMPTION"
+			],
+			"tax_lines": [
+				{
+					"price": 11.94,
+					"rate": 0.06,
+					"title": "State Tax"
+				}
+			],
+			"applied_discount": {
+				"title": "Title of the discount",
+				"description": "Description",
+				"value": "10",
+				"value_type": "fixed_amount",
+				"amount": "10"
+			},
+			"taxes_included": false,
+			"total_tax": "11.94",
+			"subtotal_price": 398,
+			"total_price": "409.94",
+			"completed_at": "2012-08-24T14:02:15-04:00",
+			"created_at": "2008-01-10T11:00:00-05:00",
+			"updated_at": "2012-08-24T14:02:15-04:00",
+			"status": "authorized"
+		},
+		"order": {
+			"app_id": 1966818,
+			"billing_address": {
+				"address1": "2259 Park Ct",
+				"address2": "Apartment 5",
+				"city": "Drayton Valley",
+				"company": null,
+				"country": "Canada",
+				"first_name": "Christopher",
+				"last_name": "Gorski",
+				"phone": "(555)555-5555",
+				"province": "Alberta",
+				"zip": "T0E 0M0",
+				"name": "Christopher Gorski",
+				"province_code": "AB",
+				"country_code": "CA",
+				"latitude": "45.41634",
+				"longitude": "-75.6868"
+			},
+			"browser_ip": "216.191.105.146",
+			"buyer_accepts_marketing": false,
+			"cancel_reason": "customer",
+			"cancelled_at": null,
+			"cart_token": "68778783ad298f1c80c3bafcddeea",
+			"checkout_token": "bd5a8aa1ecd019dd3520ff791ee3a24c",
+			"client_details": {
+				"accept_language": "en-US,en;q=0.9",
+				"browser_height": 1320,
+				"browser_ip": "216.191.105.146",
+				"browser_width": 1280,
+				"session_hash": "9ad4d1f4e6a8977b9dd98eed1e477643",
+				"user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
+			},
+			"closed_at": "2008-01-10T11:00:00-05:00",
+			"company": {
+				"id": 182772,
+				"location_id": 753095
+			},
+			"created_at": "2008-01-10T11:00:00-05:00",
+			"currency": "USD",
+			"current_total_discounts": "10.00",
+			"current_total_discounts_set": {
+				"current_total_discounts_set": {
+					"shop_money": {
+						"amount": "10.00",
+						"currency_code": "CAD"
+					},
+					"presentment_money": {
+						"amount": "5.00",
+						"currency_code": "EUR"
+					}
+				}
+			},
+			"current_total_duties_set": {
+				"current_total_duties_set": {
+					"shop_money": {
+						"amount": "164.86",
+						"currency_code": "CAD"
+					},
+					"presentment_money": {
+						"amount": "105.31",
+						"currency_code": "EUR"
+					}
+				}
+			},
+			"current_total_price": "10.00",
+			"current_total_price_set": {
+				"current_total_price_set": {
+					"shop_money": {
+						"amount": "30.00",
+						"currency_code": "CAD"
+					},
+					"presentment_money": {
+						"amount": "20.00",
+						"currency_code": "EUR"
+					}
+				}
+			},
+			"current_subtotal_price": "10.00",
+			"current_subtotal_price_set": {
+				"current_subtotal_price_set": {
+					"shop_money": {
+						"amount": "30.00",
+						"currency_code": "CAD"
+					},
+					"presentment_money": {
+						"amount": "20.00",
+						"currency_code": "EUR"
+					}
+				}
+			},
+			"current_total_tax": "10.00",
+			"current_total_tax_set": {
+				"current_total_tax_set": {
+					"shop_money": {
+						"amount": "30.00",
+						"currency_code": "CAD"
+					},
+					"presentment_money": {
+						"amount": "20.00",
+						"currency_code": "EUR"
+					}
+				}
+			},
+			"customer": {
+				"id": 207119551,
+				"email": "bob.norman@mail.example.com",
+				"accepts_marketing": false,
+				"created_at": "2012-03-13T16:09:55-04:00",
+				"updated_at": "2012-03-13T16:09:55-04:00",
+				"first_name": "Bob",
+				"last_name": "Norman",
+				"state": "disabled",
+				"note": null,
+				"verified_email": true,
+				"multipass_identifier": null,
+				"tax_exempt": false,
+				"tax_exemptions": {},
+				"phone": "+13125551212",
+				"tags": "loyal",
+				"currency": "USD",
+				"addresses": {},
+				"admin_graphql_api_id": "gid://shopify/Customer/207119551",
+				"default_address": {}
+			},
+			"customer_locale": "en-CA",
+			"discount_applications": {
+				"discount_applications": [
+					{
+						"type": "manual",
+						"title": "custom discount",
+						"description": "customer deserved it",
+						"value": "2.0",
+						"value_type": "fixed_amount",
+						"allocation_method": "across",
+						"target_selection": "explicit",
+						"target_type": "line_item"
+					},
+					{
+						"type": "script",
+						"description": "my scripted discount",
+						"value": "5.0",
+						"value_type": "fixed_amount",
+						"allocation_method": "across",
+						"target_selection": "explicit",
+						"target_type": "shipping_line"
+					},
+					{
+						"type": "discount_code",
+						"code": "SUMMERSALE",
+						"value": "10.0",
+						"value_type": "fixed_amount",
+						"allocation_method": "across",
+						"target_selection": "all",
+						"target_type": "line_item"
+					}
+				]
+			},
+			"discount_codes": [
+				{
+					"code": "SPRING30",
+					"amount": "30.00",
+					"type": "fixed_amount"
+				}
+			],
+			"email": "bob.norman@mail.example.com",
+			"estimated_taxes": false,
+			"financial_status": "authorized",
+			"fulfillments": [
+				{
+					"created_at": "2012-03-13T16:09:54-04:00",
+					"id": 255858046,
+					"order_id": 450789469,
+					"status": "failure",
+					"tracking_company": "USPS",
+					"tracking_number": "1Z2345",
+					"updated_at": "2012-05-01T14:22:25-04:00"
+				}
+			],
+			"fulfillment_status": "partial",
+			"gateway": "shopify_payments",
+			"id": 450789469,
+			"landing_site": "http://www.example.com?source=abc",
+			"line_items": [
+				{
+					"fulfillable_quantity": 1,
+					"fulfillment_service": "amazon",
+					"fulfillment_status": "fulfilled",
+					"grams": 500,
+					"id": 669751112,
+					"price": "199.99",
+					"product_id": 7513594,
+					"quantity": 1,
+					"requires_shipping": true,
+					"sku": "IPOD-342-N",
+					"title": "IPod Nano",
+					"variant_id": 4264112,
+					"variant_title": "Pink",
+					"vendor": "Apple",
+					"name": "IPod Nano - Pink",
+					"gift_card": false,
+					"price_set": {
+						"shop_money": {
+							"amount": "199.99",
+							"currency_code": "USD"
+						},
+						"presentment_money": {
+							"amount": "173.30",
+							"currency_code": "EUR"
+						}
+					},
+					"properties": [
+						{
+							"name": "custom engraving",
+							"value": "Happy Birthday Mom!"
+						}
+					],
+					"taxable": true,
+					"tax_lines": [
+						{
+							"title": "HST",
+							"price": "25.81",
+							"price_set": {
+								"shop_money": {
+									"amount": "25.81",
+									"currency_code": "USD"
+								},
+								"presentment_money": {
+									"amount": "20.15",
+									"currency_code": "EUR"
+								}
+							},
+							"channel_liable": true,
+							"rate": 0.13
+						}
+					],
+					"total_discount": "5.00",
+					"total_discount_set": {
+						"shop_money": {
+							"amount": "5.00",
+							"currency_code": "USD"
+						},
+						"presentment_money": {
+							"amount": "4.30",
+							"currency_code": "EUR"
+						}
+					},
+					"discount_allocations": [
+						{
+							"amount": "5.00",
+							"discount_application_index": 2,
+							"amount_set": {
+								"shop_money": {
+									"amount": "5.00",
+									"currency_code": "USD"
+								},
+								"presentment_money": {
+									"amount": "3.96",
+									"currency_code": "EUR"
+								}
+							}
+						}
+					],
+					"origin_location": {
+						"id": 1390592786454,
+						"country_code": "CA",
+						"province_code": "ON",
+						"name": "Apple",
+						"address1": "700 West Georgia Street",
+						"address2": "1500",
+						"city": "Toronto",
+						"zip": "V7Y 1G5"
+					},
+					"duties": [
+						{
+							"id": "2",
+							"harmonized_system_code": "520300",
+							"country_code_of_origin": "CA",
+							"shop_money": {
+								"amount": "164.86",
+								"currency_code": "CAD"
+							},
+							"presentment_money": {
+								"amount": "105.31",
+								"currency_code": "EUR"
+							},
+							"tax_lines": [
+								{
+									"title": "VAT",
+									"price": "16.486",
+									"rate": 0.1,
+									"price_set": {
+										"shop_money": {
+											"amount": "16.486",
+											"currency_code": "CAD"
+										},
+										"presentment_money": {
+											"amount": "10.531",
+											"currency_code": "EUR"
+										}
+									},
+									"channel_liable": true
+								}
+							],
+							"admin_graphql_api_id": "gid://shopify/Duty/2"
+						}
+					]
+				}
+			],
+			"location_id": 49202758,
+			"merchant_of_record_app_id": 123456,
+			"name": "#1001",
+			"note": "Customer changed their mind.",
+			"note_attributes": [
+				{
+					"name": "custom name",
+					"value": "custom value"
+				}
+			],
+			"number": 1,
+			"order_number": 1001,
+			"original_total_duties_set": {
+				"original_total_duties_set": {
+					"shop_money": {
+						"amount": "164.86",
+						"currency_code": "CAD"
+					},
+					"presentment_money": {
+						"amount": "105.31",
+						"currency_code": "EUR"
+					}
+				}
+			},
+			"payment_details": {
+				"avs_result_code": "Y",
+				"credit_card_bin": "453600",
+				"cvv_result_code": "M",
+				"credit_card_number": "•••• •••• •••• 4242",
+				"credit_card_company": "Visa"
+			},
+			"payment_terms": {
+				"amount": 70,
+				"currency": "CAD",
+				"payment_terms_name": "NET_30",
+				"payment_terms_type": "NET",
+				"due_in_days": 30,
+				"payment_schedules": [
+					{
+						"amount": 70,
+						"currency": "CAD",
+						"issued_at": "2020-07-29T13:02:43-04:00",
+						"due_at": "2020-08-29T13:02:43-04:00",
+						"completed_at": "null",
+						"expected_payment_method": "shopify_payments"
+					}
+				]
+			},
+			"payment_gateway_names": [
+				"authorize_net",
+				"Cash on Delivery (COD)"
+			],
+			"phone": "+557734881234",
+			"presentment_currency": "CAD",
+			"processed_at": "2008-01-10T11:00:00-05:00",
+			"processing_method": "direct",
+			"referring_site": "http://www.anexample.com",
+			"refunds": [
+				{
+					"id": 18423447608,
+					"order_id": 394481795128,
+					"created_at": "2018-03-06T09:35:37-05:00",
+					"note": null,
+					"user_id": null,
+					"processed_at": "2018-03-06T09:35:37-05:00",
+					"refund_line_items": [],
+					"transactions": [],
+					"order_adjustments": []
+				}
+			],
+			"shipping_address": {
+				"address1": "123 Amoebobacterieae St",
+				"address2": "",
+				"city": "Ottawa",
+				"company": null,
+				"country": "Canada",
+				"first_name": "Bob",
+				"last_name": "Bobsen",
+				"latitude": "45.41634",
+				"longitude": "-75.6868",
+				"phone": "555-625-1199",
+				"province": "Ontario",
+				"zip": "K2P0V6",
+				"name": "Bob Bobsen",
+				"country_code": "CA",
+				"province_code": "ON"
+			},
+			"shipping_lines": [
+				{
+					"code": "INT.TP",
+					"price": "4.00",
+					"price_set": {
+						"shop_money": {
+							"amount": "4.00",
+							"currency_code": "USD"
+						},
+						"presentment_money": {
+							"amount": "3.17",
+							"currency_code": "EUR"
+						}
+					},
+					"discounted_price": "4.00",
+					"discounted_price_set": {
+						"shop_money": {
+							"amount": "4.00",
+							"currency_code": "USD"
+						},
+						"presentment_money": {
+							"amount": "3.17",
+							"currency_code": "EUR"
+						}
+					},
+					"source": "canada_post",
+					"title": "Small Packet International Air",
+					"tax_lines": [],
+					"carrier_identifier": "third_party_carrier_identifier",
+					"requested_fulfillment_service_id": "third_party_fulfillment_service_id"
+				}
+			],
+			"source_name": "instagram",
+			"source_identifier": "ORDERID-123",
+			"source_url": "{URL_to_order}",
+			"subtotal_price": 398,
+			"subtotal_price_set": {
+				"shop_money": {
+					"amount": "141.99",
+					"currency_code": "CAD"
+				},
+				"presentment_money": {
+					"amount": "90.95",
+					"currency_code": "EUR"
+				}
+			},
+			"tags": "imported, vip",
+			"tax_lines": [
+				{
+					"price": 11.94,
+					"rate": 0.06,
+					"title": "State Tax",
+					"channel_liable": true
+				}
+			],
+			"taxes_included": false,
+			"test": true,
+			"token": "b1946ac92492d2347c6235b4d2611184",
+			"total_discounts": "0.00",
+			"total_discounts_set": {
+				"shop_money": {
+					"amount": "0.00",
+					"currency_code": "CAD"
+				},
+				"presentment_money": {
+					"amount": "0.00",
+					"currency_code": "EUR"
+				}
+			},
+			"total_line_items_price": "398.00",
+			"total_line_items_price_set": {
+				"shop_money": {
+					"amount": "141.99",
+					"currency_code": "CAD"
+				},
+				"presentment_money": {
+					"amount": "90.95",
+					"currency_code": "EUR"
+				}
+			},
+			"total_outstanding": "5.00",
+			"total_price": "409.94",
+			"total_price_set": {
+				"shop_money": {
+					"amount": "164.86",
+					"currency_code": "CAD"
+				},
+				"presentment_money": {
+					"amount": "105.31",
+					"currency_code": "EUR"
+				}
+			},
+			"total_shipping_price_set": {
+				"shop_money": {
+					"amount": "30.00",
+					"currency_code": "USD"
+				},
+				"presentment_money": {
+					"amount": "0.00",
+					"currency_code": "USD"
+				}
+			},
+			"total_tax": "11.94",
+			"total_tax_set": {
+				"shop_money": {
+					"amount": "18.87",
+					"currency_code": "CAD"
+				},
+				"presentment_money": {
+					"amount": "11.82",
+					"currency_code": "EUR"
+				}
+			},
+			"total_tip_received": "4.87",
+			"total_weight": 300,
+			"updated_at": "2012-08-24T14:02:15-04:00",
+			"user_id": 31522279,
+			"order_status_url": {
+				"order_status_url": "https://checkout.shopify.com/112233/checkouts/4207896aad57dfb159/thank_you_token?key=753621327b9e8a64789651bf221dfe35"
+			}
+		},
+		"order_risk": {
+			"cause_cancel": false,
+			"checkout_id": 901414060,
+			"display": true,
+			"id": 284138680,
+			"merchant_message": "This order came from an anonymous proxy.",
+			"message": "This order came from an anonymous proxy.",
+			"order_id": 450789469,
+			"recommendation": "cancel",
+			"score": 1,
+			"source": "External"
+		},
+		"refund": {
+			"created_at": "2008-01-10T11:00:00-05:00",
+			"duties": {
+				"duties": [
+					{
+						"duty_id": 1,
+						"amount_set": {
+							"shop_money": {
+								"amount": "9.83",
+								"currency_code": "CAD"
+							},
+							"presentment_money": {
+								"amount": "9.83",
+								"currency_code": "CAD"
+							}
+						}
+					}
+				]
+			},
+			"id": 92738740,
+			"note": "Item was damaged during shipping",
+			"order_adjustments": [
+				{
+					"id": 4221763620,
+					"order_id": 171016912932,
+					"refund_id": 8244756516,
+					"amount": "-8.00",
+					"tax_amount": "0.00",
+					"kind": "shipping_refund",
+					"reason": "Shipping refund",
+					"amount_set": {
+						"shop_money": {
+							"amount": 10.99,
+							"currency_code": "USD"
+						},
+						"presentment_money": {
+							"amount": 12.95,
+							"currency_code": "CAD"
+						}
+					},
+					"tax_amount_set": {
+						"shop_money": {
+							"amount": 1.67,
+							"currency_code": "USD"
+						},
+						"presentment_money": {
+							"amount": 2.32,
+							"currency_code": "CAD"
+						}
+					}
+				}
+			],
+			"processed_at": "2007-01-10T11:00:00-05:00",
+			"refund_duties": [
+				{
+					"duty_id": 1,
+					"refund_type": "FULL"
+				}
+			],
+			"refund_line_items": [
+				{
+					"id": 209341123,
+					"line_item": {},
+					"line_item_id": 128323456,
+					"quantity": 2,
+					"location_id": 40642626,
+					"restock_type": "return",
+					"subtotal": 10.99,
+					"total_tax": 2.67,
+					"subtotal_set": {
+						"shop_money": {
+							"amount": 10.99,
+							"currency_code": "CAD"
+						},
+						"presentment_money": {
+							"amount": 8.95,
+							"currency_code": "USD"
+						}
+					},
+					"total_tax_set": {
+						"shop_money": {
+							"amount": 1.67,
+							"currency_code": "CAD"
+						},
+						"presentment_money": {
+							"amount": 1.32,
+							"currency_code": "USD"
+						}
+					}
+				}
+			],
+			"restock": true,
+			"transactions": [
+				{
+					"id": 179259969,
+					"order_id": 450789469,
+					"amount": "209.00",
+					"kind": "refund",
+					"gateway": "shopify_payments",
+					"status": "success",
+					"message": null,
+					"created_at": "2005-08-05T12:59:12-04:00",
+					"test": false,
+					"authorization": "authorization-key",
+					"currency": "USD",
+					"location_id": null,
+					"user_id": null,
+					"parent_id": 801038806,
+					"device_id": null,
+					"receipt": {},
+					"error_code": null,
+					"source_name": "web"
+				}
+			],
+			"user_id": 238478920
+		},
+		"transaction": {
+			"amount": "10.00",
+			"authorization": "ch_1AtJu6CktlpKSclI4zjeQb2t",
+			"authorization_expires_at": "2021-03-13T16:09:54-04:00",
+			"created_at": "2012-03-13T16:09:54-04:00",
+			"currency": "USD",
+			"device_id": 1,
+			"error_code": "invalid_cvc",
+			"extended_authorization_attributes": {
+				"standard_authorization_expires_at": "2020-10-08T00:00:00-04:00",
+				"extended_authorization_expires_at": "2020-10-30T00:00:00-04:00"
+			},
+			"gateway": "shopify_payments",
+			"id": 999225661,
+			"kind": "capture",
+			"location_id": {
+				"id": 49202758
+			},
+			"message": "Marked the Stripe payment as received",
+			"order_id": 450789469,
+			"payment_details": {
+				"credit_card_bin": "123456",
+				"avs_result_code": "Y",
+				"cvv_result_code": "M",
+				"credit_card_number": "•••• •••• •••• 4242",
+				"credit_card_company": "Visa",
+				"credit_card_name": "John Smith",
+				"credit_card_wallet": "shopify_pay",
+				"credit_card_expiration_month": 10,
+				"credit_card_expiration_year": 2028
+			},
+			"parent_id": 584698724408,
+			"payments_refund_attributes": {
+				"status": "success",
+				"acquirer_reference_number": "123456789012345678901234"
+			},
+			"processed_at": "2018-01-10T11:00:00-05:00",
+			"receipt": {},
+			"source_name": "web",
+			"status": "success",
+			"test": true,
+			"user_id": 106045196,
+			"currency_exchange_adjustment": {
+				"id": 1,
+				"adjustment": "-0.01",
+				"original_amount": "-53.62",
+				"final_amount": "-53.63",
+				"currency": "CAD"
+			}
+		}
+	},
+	"plus": {
+		"gift_card": {
+			"api_client_id": 431223487,
+			"balance": 80.17,
+			"code": "1234 4567 8901 2ABC",
+			"created_at": "2008-12-31T19:00:00-05:00",
+			"currency": "CAD",
+			"customer_id": {
+				"customer_id": 368407052327
+			},
+			"disabled_at": "2009-01-31T19:00:00-05:00",
+			"expires_on": "2020-01-31",
+			"id": 989034056,
+			"initial_value": 100,
+			"last_characters": "2ABC",
+			"line_item_id": 241253183,
+			"note": "A note",
+			"order_id": 241253183,
+			"template_suffix": "birthday",
+			"user_id": 241253183,
+			"updated_at": "2009-01-31T19:00:00-05:00"
+		},
+		"user": {
+			"account_owner": false,
+			"bio": "A person on a mission",
+			"email": "joe@example.com",
+			"first_name": "Joe",
+			"id": 1234567890,
+			"im": "joe-chat@example.com",
+			"last_name": "Smith",
+			"permissions": [
+				"customers",
+				"dashboard",
+				"reports"
+			],
+			"phone": "(555) 555-5555",
+			"receive_announcements": 0,
+			"screen_name": "joesmith",
+			"url": "http://example.com",
+			"locale": "en",
+			"user_type": "regular"
+		}
+	},
+	"products": {
+		"collect": {
+			"collection_id": 841564295,
+			"created_at": "2018-04-25T13:51:12-04:00",
+			"id": 841564295,
+			"position": 2,
+			"product_id": 632910392,
+			"sort_value": "0000000002",
+			"updated_at": "2018-04-25T13:51:12-04:00"
+		},
+		"collection": {
+			"body_html": "<p>The best selling iPods ever</p>",
+			"handle": "ipods",
+			"image": {
+				"src": "http://static.shopify.com/collections/ipod.jpg?0",
+				"alt": "iPods",
+				"width": 500,
+				"height": 488,
+				"created_at": "2018-04-19T09:34:47-04:00"
+			},
+			"id": 841564295,
+			"published_at": "2008-02-01T19:00:00-05:00",
+			"published_scope": "global",
+			"sort_order": "manual",
+			"template_suffix": "custom",
+			"title": "IPods",
+			"updated_at": "2008-02-01T19:00:00-05:00"
+		},
+		"custom_collection": {
+			"body_html": "<p>The best selling iPods ever</p>",
+			"handle": "ipods",
+			"image": {
+				"src": "http://static.shopify.com/collections/ipod.jpg?0",
+				"alt": "iPods",
+				"width": 500,
+				"height": 488,
+				"created_at": "2018-04-19T09:34:47-04:00"
+			},
+			"id": 841564295,
+			"published": true,
+			"published_at": "2008-02-01T19:00:00-05:00",
+			"published_scope": "global",
+			"sort_order": "manual",
+			"template_suffix": "custom",
+			"title": "IPods",
+			"updated_at": "2008-02-01T19:00:00-05:00"
+		},
+		"product": {
+			"body_html": "It's the small iPod with a big idea: Video.",
+			"created_at": "2012-02-15T15:12:21-05:00",
+			"handle": "ipod-nano",
+			"id": 632910392,
+			"images": [
+				{
+					"id": 850703190,
+					"product_id": 632910392,
+					"position": 1,
+					"created_at": "2018-01-08T12:34:47-05:00",
+					"updated_at": "2018-01-08T12:34:47-05:00",
+					"width": 110,
+					"height": 140,
+					"src": "http://example.com/burton.jpg",
+					"variant_ids": [
+						{}
+					]
+				}
+			],
+			"options": {
+				"id": 594680422,
+				"product_id": 632910392,
+				"name": "Color",
+				"position": 1,
+				"values": [
+					"Pink",
+					"Red",
+					"Green",
+					"Black"
+				]
+			},
+			"product_type": "Cult Products",
+			"published_at": "2007-12-31T19:00:00-05:00",
+			"published_scope": "global",
+			"status": "active",
+			"tags": "Emotive, Flash Memory, MP3, Music",
+			"template_suffix": "special",
+			"title": "IPod Nano - 8GB",
+			"updated_at": "2012-08-24T14:01:47-04:00",
+			"variants": [
+				{
+					"barcode": "1234_pink",
+					"compare_at_price": null,
+					"created_at": "2012-08-24T14:01:47-04:00",
+					"fulfillment_service": "manual",
+					"grams": 567,
+					"weight": 0.2,
+					"weight_unit": "kg",
+					"id": 808950810,
+					"inventory_item_id": 341629,
+					"inventory_management": "shopify",
+					"inventory_policy": "continue",
+					"inventory_quantity": 10,
+					"option1": "Pink",
+					"position": 1,
+					"price": 199.99,
+					"product_id": 632910392,
+					"requires_shipping": true,
+					"sku": "IPOD2008PINK",
+					"taxable": true,
+					"title": "Pink",
+					"updated_at": "2012-08-24T14:01:47-04:00"
+				}
+			],
+			"vendor": "Apple"
+		},
+		"product_image": {
+			"created_at": "2012-03-13T16:09:58-04:00",
+			"id": 850703190,
+			"position": 1,
+			"product_id": 632910392,
+			"variant_ids": [
+				808950810
+			],
+			"src": "http://static.shopify.com/products/ipod-nano.png",
+			"width": 640,
+			"height": 480,
+			"updated_at": "2012-03-13T16:09:58-04:00"
+		},
+		"product_variant": {
+			"barcode": "1234_pink",
+			"compare_at_price": "299.00",
+			"created_at": "2012-08-24T14:01:47-04:00",
+			"fulfillment_service": "manual",
+			"grams": 567,
+			"id": 808950810,
+			"image_id": 434522,
+			"inventory_item_id": 342916,
+			"inventory_management": "shopify",
+			"inventory_policy": "continue",
+			"inventory_quantity": 10,
+			"old_inventory_quantity": 5,
+			"inventory_quantity_adjustment": 5,
+			"option": {
+				"option1": "Pink"
+			},
+			"presentment_prices": {
+				"presentment_prices": [
+					{
+						"price": {
+							"currency_code": "USD",
+							"amount": "199.99"
+						},
+						"compare_at_price": {
+							"currency_code": "USD",
+							"amount": "249.99"
+						}
+					},
+					{
+						"price": {
+							"currency_code": "EUR",
+							"amount": "158.95"
+						},
+						"compare_at_price": {
+							"currency_code": "EUR",
+							"amount": "198.95"
+						}
+					},
+					{
+						"price": {
+							"currency_code": "GBP",
+							"amount": "143.00"
+						},
+						"compare_at_price": {
+							"currency_code": "GBP",
+							"amount": "179.00"
+						}
+					},
+					{
+						"price": {
+							"currency_code": "JPY",
+							"amount": "22400"
+						},
+						"compare_at_price": {
+							"currency_code": "JPY",
+							"amount": "28000"
+						}
+					}
+				]
+			},
+			"position": 1,
+			"price": "199.00",
+			"product_id": 632910392,
+			"requires_shipping": true,
+			"sku": "IPOD2008PINK",
+			"taxable": true,
+			"tax_code": "DA040000",
+			"title": "Pink",
+			"updated_at": "2012-08-24T14:01:47-04:00",
+			"weight": 100,
+			"weight_unit": "oz"
+		}
+	},
+	"sales_channels": {
+		"checkout": {
+			"applied_discount": {
+				"amount": "30.00",
+				"title": "XYZ Promotion",
+				"description": "Promotional item for blackfriday.",
+				"value": "30.00",
+				"value_type": "fixed_amount",
+				"non_applicable_reason": null,
+				"applicable": true,
+				"application_type": "discount_code"
+			},
+			"billing_address": {
+				"address1": "Chestnut Street 92",
+				"address2": "Suite 300",
+				"city": "Louisville",
+				"company": null,
+				"country": "US",
+				"first_name": null,
+				"id": 207119551,
+				"last_name": null,
+				"phone": "555-625-1199",
+				"province": "KY",
+				"zip": "40202",
+				"province_code": null,
+				"country_code": null
+			},
+			"buyer_accepts_marketing": false,
+			"created_at": {
+				"created_at": "2008-01-10T11:00:00-05:00"
+			},
+			"currency": {
+				"currency": "USD"
+			},
+			"customer_id": {
+				"customer_id": 1234
+			},
+			"discount_code": {
+				"discount_code": "30_DOLLARS_OFF"
+			},
+			"email": {
+				"email": "bob.norman@mail.example.com"
+			},
+			"gift_cards": [
+				{
+					"amount_used": "30.00",
+					"balance": "70.00",
+					"id": 1014759463,
+					"last_characters": "abdr"
+				}
+			],
+			"line_items": {
+				"line_items": [
+					{
+						"compare_at_price": "9.99",
+						"fulfillment_service": "manual",
+						"grams": "20",
+						"id": 39072856,
+						"line_price": "19.99",
+						"price": "19.99",
+						"product_id": 632910392,
+						"quantity": "",
+						"requires_shipping": false,
+						"sku": "IPOD2008GREEN",
+						"taxable": true,
+						"title": "IPod Nano - 8GB",
+						"variant_id": 39072856,
+						"variant_title": "Green",
+						"vendor": "Apple",
+						"applied_discounts": [
+							{
+								"id": 97651367,
+								"amount": "4.99",
+								"description": "25%OFF",
+								"created_at": "2008-01-10T11:00:00-05:00",
+								"application_type": "manual"
+							}
+						],
+						"discount_allocations": [
+							{
+								"id": 97651367,
+								"amount": "4.99",
+								"description": "25%OFF",
+								"created_at": "2008-01-10T11:00:00-05:00",
+								"application_type": "manual"
+							}
+						]
+					}
+				]
+			},
+			"order": {
+				"id": 123,
+				"name": "#0123",
+				"status_url": "https://checkout.shopify.com/123/checkouts/4207896aad57dfb159?key=123abc"
+			},
+			"payment_due": {
+				"payment_due": "99.95"
+			},
+			"payment_url": {
+				"payment_url": "https://elb.deposit.shopifycs.com/sessions"
+			},
+			"phone": {
+				"phone": "+13125551212"
+			},
+			"presentment_currency": {
+				"presentment_currency": "JPY"
+			},
+			"requires_shipping": true,
+			"reservation_time": {
+				"reservation_time": null
+			},
+			"reservation_time_left": {
+				"reservation_time_left": 0
+			},
+			"shipping_address": {
+				"address1": "Chestnut Street 92",
+				"address2": "Apt 2",
+				"city": "Louisville",
+				"company": null,
+				"country": "United States",
+				"first_name": "Bob",
+				"last_name": "Norman",
+				"phone": "555-625-1199",
+				"province": "Kentucky",
+				"zip": "40202",
+				"country_code": "US",
+				"province_code": "KY"
+			},
+			"shipping_line": {
+				"handle": "shopify-Standard-10.00",
+				"price": "10.00",
+				"title": "Standard"
+			},
+			"shipping_rate": {
+				"id": "shopify-Standard-10.00",
+				"price": "10.00",
+				"title": "Standard"
+			},
+			"source_name": {
+				"source_name": "instagram"
+			},
+			"source_identifier": {
+				"source_identifier": "ORDERID-123"
+			},
+			"source_url": {
+				"source_url": "{URL_to_order}"
+			},
+			"subtotal_price": {
+				"subtotal_price": "398.00"
+			},
+			"tax_lines": [
+				{
+					"price": "11.94",
+					"rate": "0.06",
+					"title": "State Tax"
+				}
+			],
+			"taxes_included": {
+				"taxes_included": false
+			},
+			"token": {
+				"token": "b1946ac92492d2347c6235b4d2611184"
+			},
+			"total_price": {
+				"total_price": "409.94"
+			},
+			"total_tax": {
+				"total_tax": "11.94"
+			},
+			"updated_at": {
+				"updated_at": "2012-08-24T14:02:15-04:00"
+			},
+			"user_id": {
+				"user_id": 1234
+			},
+			"web_url": {
+				"web_url": "https://checkout.shopify.com/112233/checkouts/4207896aad57dfb159?key=123abc"
+			}
+		},
+		"collection_listing": {
+			"collection_id": {
+				"collection_id": 1053727709
+			},
+			"body_html": "It's a collection of curated products for the home page.",
+			"default_product_image": [
+				{
+					"src": "http://example.com/burton.jpg"
+				}
+			],
+			"image": [
+				{
+					"src": "http://example.com/burton.jpg"
+				}
+			],
+			"handle": "ipod-nano",
+			"published_at": "2007-12-31T19:00:00-05:00",
+			"title": "Home page",
+			"sort_order": "alpha-asc",
+			"updated_at": "2012-08-24T14:01:47-04:00"
+		},
+		"payment": {
+			"credit_card": {
+				"first_name": "Bob",
+				"last_name": "Norman",
+				"first_digits": "424242",
+				"last_digits": "4242",
+				"brand": "visa",
+				"expiry_month": 12,
+				"expiry_year": 2020
+			},
+			"id": 367556198456,
+			"payment_processing_error_message": "Card was declined",
+			"next_action": {
+				"redirect_url": "https://shop-domain-url.myshopify.com/:shop_id/checkouts/:token/authentications/:auth_token/3ds"
+			},
+			"transaction": {
+				"amount": "323.17",
+				"amount_in": null,
+				"amount_out": null,
+				"amount_rounding": null,
+				"authorization": "ch_1CfBrOCNqnO8CNQxAtf5k9iX",
+				"created_at": "2018-06-20T15:20:53-04:00",
+				"currency": "USD",
+				"error_code": null,
+				"gateway": "shopify_payments",
+				"id": 597850423352,
+				"kind": "sale",
+				"message": "Transaction approved",
+				"status": "success",
+				"test": true
+			},
+			"unique_token": "client-side-idempotency-token"
+		},
+		"product_resource_feedback": {
+			"created_at": "2023-02-02 14:09:48 UTC",
+			"updated_at": "2023-02-02 14:09:48 UTC",
+			"resource_id": 321,
+			"resource_type": "Product",
+			"state": "requires_action",
+			"messages": [
+				"Needs at least one image."
+			],
+			"feedback_generated_at": "2023-02-02T14:09:48.959656Z",
+			"resource_updated_at": "2023-02-02 14:09:48 UTC"
+		},
+		"product_listing": {
+			"product_id": {
+				"product_id": 1053727709
+			},
+			"body_html": "It's the small iPod with a big idea: Video.",
+			"created_at": "2012-02-15T15:12:21-05:00",
+			"handle": "ipod-nano",
+			"images": [
+				{
+					"src": "http://example.com/burton.jpg"
+				}
+			],
+			"options": [
+				{
+					"name": "Title"
+				}
+			],
+			"product_type": "Cult Products",
+			"published_at": "2007-12-31T19:00:00-05:00",
+			"tags": "Emotive, Flash Memory, MP3, Music",
+			"title": "IPod Nano - 8GB",
+			"updated_at": "2012-08-24T14:01:47-04:00",
+			"variants": {
+				"barcode": "1234_pink",
+				"compare_at_price": null,
+				"created_at": "2012-08-24T14:01:47-04:00",
+				"fulfillment_service": "manual",
+				"grams": 567,
+				"weight": 0.2,
+				"weight_unit": "kg",
+				"id": 808950810,
+				"inventory_management": "shopify",
+				"inventory_policy": "continue",
+				"inventory_quantity": 10,
+				"option1": "Pink",
+				"position": 1,
+				"price": 199.99,
+				"product_id": 632910392,
+				"requires_shipping": true,
+				"sku": "IPOD2008PINK",
+				"taxable": true,
+				"title": "Pink",
+				"updated_at": "2012-08-24T14:01:47-04:00"
+			},
+			"vendor": "Apple"
+		},
+		"resource_feedback": {
+			"created_at": "2023-02-02 14:09:48 UTC",
+			"updated_at": "2023-02-02 14:09:48 UTC",
+			"resource_id": 321,
+			"resource_type": "Shop",
+			"state": "requires_action",
+			"messages": [
+				"is not connected. Connect your account to use this sales channel."
+			],
+			"feedback_generated_at": "2023-02-02T14:09:48.548298Z"
+		}
+	},
+	"shipping_fulfillement": {
+		"assigned_fulfillment_order": {
+			"assigned_location_id": 3183479,
+			"destination": {
+				"id": 54433189,
+				"address1": "123 Amoebobacterieae St",
+				"address2": "Unit 806",
+				"city": "Ottawa",
+				"company": "",
+				"country": "Canada",
+				"email": "bob@example.com",
+				"first_name": "Bob",
+				"last_name": "Bobsen",
+				"phone": "(555)555-5555",
+				"province": "Ontario",
+				"zip": "K2P0V6"
+			},
+			"id": 255858046,
+			"line_items": [
+				{
+					"id": 466157049,
+					"shop_id": 3998762,
+					"fulfillment_order_id": 1568020,
+					"line_item_id": 466157049,
+					"inventory_item_id": 6588097,
+					"quantity": 1,
+					"fulfillable_quantity": 1
+				}
+			],
+			"order_id": 3183479,
+			"request_status": "unsubmitted",
+			"shop_id": 255858046,
+			"status": "open"
+		},
+		"carrier_service": {
+			"active": true,
+			"callback_url": "http://myapp.com",
+			"carrier_service_type": "api",
+			"id": 14079244,
+			"name": "My Carrier Service",
+			"service_discovery": true,
+			"admin_graphql_api_id": "gid://shopify/DeliveryCarrierService/1"
+		},
+		"fulfillment": {
+			"created_at": "2012-03-13T16:09:54-04:00",
+			"id": 255858046,
+			"line_items": [
+				{
+					"id": 466157049,
+					"variant_id": 39072856,
+					"title": "IPod Nano - 8gb",
+					"quantity": 1,
+					"price": "199.00",
+					"grams": 200,
+					"sku": "IPOD2008GREEN",
+					"variant_title": "green",
+					"vendor": null,
+					"fulfillment_service": "manual",
+					"product_id": 632910392,
+					"requires_shipping": true,
+					"taxable": true,
+					"gift_card": false,
+					"name": "IPod Nano - 8gb - green",
+					"variant_inventory_management": "shopify",
+					"properties": [],
+					"product_exists": true,
+					"fulfillable_quantity": 1,
+					"total_discount": "0.00",
+					"fulfillment_status": null,
+					"fulfillment_line_item_id": 274098237,
+					"tax_lines": [],
+					"duties": [
+						{
+							"id": "2",
+							"harmonized_system_code": "520300",
+							"country_code_of_origin": "CA",
+							"shop_money": {
+								"amount": "164.86",
+								"currency_code": "CAD"
+							},
+							"presentment_money": {
+								"amount": "105.31",
+								"currency_code": "EUR"
+							},
+							"tax_lines": [
+								{
+									"title": "VAT",
+									"price": "16.486",
+									"rate": 0.1,
+									"price_set": {
+										"shop_money": {
+											"amount": "16.486",
+											"currency_code": "CAD"
+										},
+										"presentment_money": {
+											"amount": "10.531",
+											"currency_code": "EUR"
+										}
+									}
+								}
+							],
+							"admin_graphql_api_id": "gid://shopify/Duty/2"
+						}
+					]
+				}
+			],
+			"location_id": 40642626,
+			"name": "#1001.1",
+			"notify_customer": true,
+			"order_id": 450789469,
+			"origin_address": [
+				{
+					"address1": "1 Rue des Carrieres",
+					"address2": "Suite 1234",
+					"city": "Montreal",
+					"country_code": "CA",
+					"province_code": "QC",
+					"zip": "G1R 4P5"
+				}
+			],
+			"receipt": {
+				"testcase": true,
+				"authorization": "123456"
+			},
+			"service": "manual",
+			"shipment_status": "confirmed",
+			"status": "failure",
+			"tracking_company": "China Post",
+			"tracking_numbers": [
+				"112345Z2345"
+			],
+			"tracking_urls": [
+				"http://track-chinapost.com/startairmail.php?code=112345Z2345"
+			],
+			"updated_at": "2012-05-01T14:22:25-04:00",
+			"variant_inventory_management": "shopify"
+		},
+		"fulfillment_event": {
+			"address1": "3575 Boul. Saint-Laurent",
+			"city": "Montreal",
+			"country": "Canada",
+			"created_at": "2012-03-13T16:09:54-04:00",
+			"estimated_delivery_at": "2014-04-13T16:09:54-04:00",
+			"fulfillment_id": 450789469,
+			"happened_at": "2012-03-13T16:09:54-04:00",
+			"id": 255858046,
+			"latitude": 45.5017,
+			"longitude": 73.5673,
+			"message": "IN_TRANSIT",
+			"order_id": 3183479,
+			"province": "QC",
+			"shop_id": 255858046,
+			"status": "in_transit",
+			"updated_at": "2012-03-15T16:09:54-04:00",
+			"zip": "H2X 2R7"
+		},
+		"fulfillment_order": {
+			"assigned_location_id": 3183479,
+			"destination": {
+				"id": 54433189,
+				"address1": "123 Amoebobacterieae St",
+				"address2": "Unit 806",
+				"city": "Ottawa",
+				"company": "",
+				"country": "Canada",
+				"email": "bob@example.com",
+				"first_name": "Bob",
+				"last_name": "Bobsen",
+				"phone": "(555)555-5555",
+				"province": "Ontario",
+				"zip": "K2P0V6"
+			},
+			"delivery_method": {
+				"id": 64434189,
+				"method_type": "local",
+				"min_delivery_date_time": "2022-04-20T23:59:59-04:00",
+				"max_delivery_date_time": "2022-04-28T23:59:59-04:00"
+			},
+			"fulfill_at": "2021-01-01",
+			"fulfill_by": "2021-01-01",
+			"fulfillment_holds": [
+				{
+					"reason": "incorrect_address",
+					"reason_notes": "the apartment number is missing."
+				}
+			],
+			"id": 255858046,
+			"international_duties": {
+				"incoterm": "DAP"
+			},
+			"line_items": [
+				{
+					"id": 466157049,
+					"shop_id": 3998762,
+					"fulfillment_order_id": 1568020,
+					"line_item_id": 466157049,
+					"inventory_item_id": 6588097,
+					"quantity": 1,
+					"fulfillable_quantity": 1,
+					"variant_id": 2385087
+				}
+			],
+			"order_id": 3183479,
+			"request_status": "unsubmitted",
+			"shop_id": 255858046,
+			"status": "open",
+			"supported_actions": [
+				"create_fulfillment",
+				"request_fulfillment",
+				"cancel_fulfillment_order",
+				"request_cancellation"
+			],
+			"merchant_requests": [
+				{
+					"message": "Hello, World!",
+					"request_options": {
+						"shipping_method": "pidgeon carrier",
+						"note": "handle with care",
+						"date": "2019-08-13T16:09:58-04:00"
+					},
+					"kind": "fulfillment_request"
+				}
+			],
+			"assigned_location": {
+				"address1": "123 Amoebobacterieae St",
+				"address2": "Unit 806",
+				"city": "Ottawa",
+				"country_code": "CA",
+				"location_id": 17232953366,
+				"name": "Bob Bobsen",
+				"phone": "(555)555-5555",
+				"province": "Ontario",
+				"zip": "K2P0V6"
+			},
+			"created_at": "2022-01-01T11:00:00-01:00",
+			"updated_at": {
+				"created_at": "2022-01-01T11:00:00-01:00"
+			}
+		},
+		"fulfillment_service": {
+			"admin_graphql_api_id": "gid://shopify/FulfillmentService/1",
+			"callback_url": "http://myapp.com",
+			"fulfillment_orders_opt_in": true,
+			"permits_sku_sharing": true,
+			"handle": "my-fulfillment-service",
+			"inventory_management": true,
+			"location_id": 19,
+			"name": "My Fulfillment Service",
+			"provider_id": null,
+			"requires_shipping_method": true,
+			"tracking_support": true
+		},
+		"locations_for_move": {
+			"locations_for_move": [
+				{
+					"location": {
+						"id": 5,
+						"name": "123 Main St"
+					},
+					"movable": false,
+					"message": "Shirt - Medium can't be changed because it isn't stocked at this location."
+				},
+				{
+					"location": {
+						"id": 3,
+						"name": "Alpha Location"
+					},
+					"movable": true,
+					"message": null
+				},
+				{
+					"location": {
+						"id": 1,
+						"name": "Bravo Location"
+					},
+					"movable": false,
+					"message": "Current location."
+				},
+				{
+					"location": {
+						"id": 2,
+						"name": "Charlie Location"
+					},
+					"movable": false,
+					"message": "No items are stocked at this location."
+				},
+				{
+					"location": {
+						"id": 4,
+						"name": "Delta Location"
+					},
+					"movable": false,
+					"message": "2 items can't be changed because they aren't stocked at this location."
+				}
+			]
+		}
+	},
+	"shopify_payments": {
+		"dispute": {
+			"id": {
+				"id": 54534554564
+			},
+			"order_id": {
+				"order_id": 450789469
+			},
+			"type": {
+				"type": "inquiry"
+			},
+			"currency": {
+				"currency": "USD"
+			},
+			"amount": {
+				"amount": "102.53"
+			},
+			"reason": {
+				"reason": "fraudulent"
+			},
+			"network_reason_code": {
+				"network_reason_code": 4840
+			},
+			"status": {
+				"status": "under_review"
+			},
+			"evidence_due_by": {
+				"evidence_due_by": "2018-01-10T11:00:00-05:00"
+			},
+			"evidence_sent_on": {
+				"evidence_sent_on": "2018-01-09T11:00:00-05:00"
+			},
+			"finalized_on": {
+				"finalized_on": "2018-03-10T11:00:00-05:00"
+			}
+		},
+		"dispute_file_upload": {
+			"id": {
+				"id": 54534554564
+			},
+			"shop_id": {
+				"shop_id": 54534554564
+			},
+			"file_size": {
+				"file_size": 1231
+			},
+			"file_type": {
+				"file_type": "application/pdf"
+			},
+			"original_filename": {
+				"original_filename": "original.pdf"
+			},
+			"filename": {
+				"filename": "5bfd2770-7df8-47ac-a78a-00ffa867aafc.pdf"
+			},
+			"dispute_evidence_id": {
+				"dispute_evidence_id": 2314551
+			},
+			"dispute_evidence_type": {
+				"dispute_evidence_type": "uncategorized_file"
+			},
+			"url": {
+				"url": "https://cdn.shopify.com/disputes/5bfd2770-7df8-47ac-a78a-00ffa867aafc.pdf"
+			}
+		},
+		"payouts": {
+			"id": {
+				"id": 54534554564
+			},
+			"status": {
+				"status": "scheduled"
+			},
+			"date": {
+				"date": "2018-03-22"
+			},
+			"currency": {
+				"currency": "USD"
+			},
+			"amount": {
+				"amount": "102.53"
+			}
+		},
+		"transactions": {
+			"id": 54534554564,
+			"type": {
+				"type": "charge"
+			},
+			"test": {
+				"test": false
+			},
+			"payout_id": {
+				"payout_id": 1234
+			},
+			"payout_status": {
+				"payout_status": "scheduled"
+			},
+			"currency": {
+				"currency": "USD"
+			},
+			"amount": {
+				"amount": "102.53"
+			},
+			"fee": {
+				"fee": "3.07"
+			},
+			"net": {
+				"net": "102.53"
+			},
+			"source_id": {
+				"source_id": 1234
+			},
+			"source_type": {
+				"source_type": "charge"
+			},
+			"source_order_transaction_id": {
+				"source_order_transaction_id": 12
+			},
+			"source_order_id": {
+				"source_order_id": 1
+			},
+			"processed_at": {
+				"processed_at": "2018-03-23T16:32:45Z"
+			}
+		}
+	},
+	"store": {
+		"country": {
+			"code": "CA",
+			"id": 879921427,
+			"name": "Canada",
+			"provinces": [
+				{
+					"code": "ON",
+					"country_id": 879921427,
+					"id": 205434194,
+					"name": "Ontario",
+					"tax": 0.13,
+					"tax_name": "HST",
+					"tax_type": "harmonized",
+					"tax_percentage": 13
+				}
+			],
+			"tax": 0.05
+		},
+		"currency": {
+			"currency": "JPY",
+			"rate_updated_at": "2018-10-03T14:44:08-04:00"
+		},
+		"policy": {
+			"title": {
+				"title": "Refund Policy"
+			},
+			"body": {
+				"body": "You have 30 days to get a refund"
+			},
+			"url": {
+				"url": "https://jsmith.myshopify.com/548380009/policies/878590288"
+			},
+			"created_at": {
+				"created_at": "2012-02-15T15:12:21-05:00"
+			},
+			"updated_at": {
+				"updated_at": "2012-08-24T14:01:47-04:00"
+			},
+			"handle": {
+				"handle": "terms-of-service"
+			}
+		},
+		"province": {
+			"code": "AB",
+			"country_id": 879921427,
+			"id": 205434194,
+			"name": "Alberta",
+			"shipping_zone_id": 2038345,
+			"tax": 0.08,
+			"tax_name": "PST",
+			"tax_type": "normal",
+			"tax_percentage": 8
+		},
+		"shipping_zone": {
+			"id": 132,
+			"name": "North America",
+			"profile_id": 163945,
+			"location_group_id": 32873,
+			"countries": {
+				"id": 189,
+				"shipping_zone_id": 132,
+				"name": "Canada",
+				"tax": 0.5,
+				"code": "CA",
+				"tax_name": "GST",
+				"provinces": []
+			},
+			"provinces": {
+				"code": "AB",
+				"country_id": 879921427,
+				"shipping_zone_is": 132,
+				"id": 205434194,
+				"name": "Alberta",
+				"tax": 0.08,
+				"tax_name": null,
+				"tax_type": null,
+				"tax_percentage": 8
+			},
+			"carrier_shipping_rate_providers": [],
+			"price_based_shipping_rates": {
+				"id": 882078077,
+				"name": "$5 Shipping",
+				"price": "5.00",
+				"shipping_zone_id": 881877113,
+				"min_order_subtotal": "40.0",
+				"max_order_subtotal": null
+			},
+			"weight_based_shipping_rates": {
+				"id": 882078078,
+				"name": "Canada Air Shipping",
+				"price": "25.00",
+				"shipping_zone_id": 881877113,
+				"weight_low": 0,
+				"weight_high": 11.02
+			}
+		},
+		"shop": {
+			"address1": "1 Infinite Loop",
+			"address2": "Suite 100",
+			"checkout_api_supported": true,
+			"city": "Cupertino",
+			"country": "US",
+			"country_code": "US",
+			"country_name": "United States",
+			"county_taxes": null,
+			"created_at": "2007-12-31T19:00:00-05:00",
+			"customer_email": "customers@apple.com",
+			"currency": "USD",
+			"domain": "shop.apple.com",
+			"enabled_presentment_currencies": [
+				"CAD",
+				"GBP",
+				"USD",
+				"JPY"
+			],
+			"eligible_for_card_reader_giveaway": true,
+			"eligible_for_payments": true,
+			"email": "j.smith@example.com",
+			"finances": true,
+			"force_ssl": true,
+			"google_apps_domain": null,
+			"google_apps_login_enabled": null,
+			"has_discounts": false,
+			"has_gift_cards": true,
+			"has_storefront": true,
+			"iana_timezone": "America/New_York",
+			"id": 548380009,
+			"latitude": 45.427408,
+			"longitude": -75.68903,
+			"money_format": "${{amount}}",
+			"money_in_emails_format": "${{amount}}",
+			"money_with_currency_format": "${{amount}} USD",
+			"money_with_currency_in_emails_format": "${{amount}} USD",
+			"multi_location_enabled": true,
+			"myshopify_domain": "jsmith.myshopify.com",
+			"name": "John Smith Test Store",
+			"password_enabled": false,
+			"phone": null,
+			"plan_display_name": "enterprise",
+			"pre_launch_enabled": false,
+			"cookie_consent_level": "implicit",
+			"plan_name": "enterprise",
+			"primary_locale": "fr",
+			"primary_location_id": 905684977,
+			"province": "California",
+			"province_code": "CA",
+			"requires_extra_payments_agreement": false,
+			"setup_required": false,
+			"shop_owner": "John Smith",
+			"source": null,
+			"taxes_included": null,
+			"tax_shipping": null,
+			"timezone": "(GMT-05:00) Eastern Time",
+			"transactional_sms_disabled": false,
+			"updated_at": "2007-12-31T19:00:00-05:00",
+			"weight_unit": "lb",
+			"zip": "95014",
+			"marketing_sms_consent_enabled_at_checkout": true
+		}
+	},
+	"tender_transaction": {
+		"tender_transaction": {
+			"id": 999225661,
+			"order_id": 450789469,
+			"amount": "10.00",
+			"currency": "USD",
+			"user_id": 106045196,
+			"test": true,
+			"processed_at": "2012-03-13T16:09:54-04:00",
+			"remote_reference": "ch_1AtJu6CktlpKSclI4zjeQb2t",
+			"payment_details": {
+				"credit_card_number": "•••• •••• •••• 4242",
+				"credit_card_company": "Visa"
+			},
+			"payment_method": "credit_card"
+		}
+	}
+}

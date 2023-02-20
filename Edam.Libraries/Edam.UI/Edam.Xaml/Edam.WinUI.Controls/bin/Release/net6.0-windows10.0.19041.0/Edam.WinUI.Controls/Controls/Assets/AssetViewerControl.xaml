@@ -1,4 +1,4 @@
-﻿<UserControl x:ConnectionId='1'
+﻿<UserControl
     x:Class="Edam.WinUI.Controls.Assets.AssetViewerControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -25,20 +25,23 @@
             <TabViewItem.IconSource>
                <SymbolIconSource Symbol="Document" />
             </TabViewItem.IconSource>
-            <prj:ProjectFileEditorControl x:ConnectionId='9' x:Name="FileEditorControl"
-                                                 />
+            <!--<prj:ProjectFileEditorControl x:Name="FileEditorControl"
+               DataContext="{x:Bind m_ViewModel}"/>-->
+            <Frame x:ConnectionId='9' x:Name="FrameFileEditor" />
          </TabViewItem>
          <TabViewItem x:ConnectionId='5' x:Name="AssetTab" Header="Asset" IsEnabled="False">
             <TabViewItem.IconSource>
                <SymbolIconSource Symbol="ShowResults" />
             </TabViewItem.IconSource>
-            <local:AssetDataElementGridControl x:ConnectionId='8' x:Name="ElementGridControl" />
+            <!--<local:AssetDataElementGridControl x:Name="ElementGridControl" />-->
+            <Frame x:ConnectionId='8' x:Name="FrameElementGrid" />
          </TabViewItem>
          <TabViewItem x:ConnectionId='6' x:Name="UseCaseTab" Header="Use Cases" Visibility="Collapsed">
             <TabViewItem.IconSource>
                <SymbolIconSource Symbol="OtherUser" />
             </TabViewItem.IconSource>
-            <local:AssetUseCaseGridControl x:ConnectionId='7' x:Name="UseCaseGridControl" />
+            <!--<local:AssetUseCaseGridControl x:Name="UseCaseGridControl" />-->
+            <Frame x:ConnectionId='7' x:Name="FrameUseCaseGrid" />
          </TabViewItem>
       </TabView.TabItems>
    </TabView>

@@ -327,7 +327,7 @@ namespace Edam.Data.AssetConsole
       }
 
       [JsonIgnore]
-      public AssetDataItems AssetDataItems { get; set; }
+      public AssetDataItems AssetDataItems { get; set; } = new AssetDataItems();
 
       // connection string
       public String ConnectionString { get; set; }
@@ -518,12 +518,20 @@ namespace Edam.Data.AssetConsole
          return copy;
       }
 
+      /// <summary>
+      /// Get project arguments input file name.
+      /// </summary>
+      /// <returns>partial file path to the file is returned</returns>
       public string GetInputFileName()
       {
          // TODO: remove hardcoded text...
          return "./files/" + InputFile.Name + "." + InputFile.Extension;
       }
 
+      /// <summary>
+      /// Get Data Domain based on project arguments.
+      /// </summary>
+      /// <returns>instance of DataDomain is returned</returns>
       public DataDomain GetDataDomain()
       {
          DataDomain dmain = new DataDomain();

@@ -22,6 +22,12 @@ using Edam.WinUI.Controls.ReferenceLists;
 using UIApp = Edam.UI.App;
 using Windows.UI.Core;
 using Windows.System;
+using Windows.Storage;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Edam.Data;
+using System.IO;
+using CommunityToolkit.WinUI.UI.Controls;
+using Edam.Application;
 
 namespace Edam.WinUI.Controls.Application
 {
@@ -31,6 +37,9 @@ namespace Edam.WinUI.Controls.Application
 
    public class ApplicationHelper
    {
+
+      #region -- 1.00 - Constants Properties and Fields
+
       public const string HOME_CONTROL = "HomeControl";
       private const string PROJECT_VIEW = "ProjectView";
       private const string REFERENCE_LIST_VIEW = "ReferenceListView";
@@ -68,8 +77,12 @@ namespace Edam.WinUI.Controls.Application
          get { return m_ReferenceDataTemplates; }
       }
 
+      #endregion
+      #region -- 4.00 - Helper methods, id home control, menu options... others
+
       /// <summary>
-      /// Get Home Control
+      /// Get Home Control stating what is the location of "Home" when user 
+      /// selects the "Home" button.
       /// </summary>
       /// <returns>instance of an UIElement control is returned</returns>
       public static UIElement GetHomeControl()
@@ -84,7 +97,15 @@ namespace Edam.WinUI.Controls.Application
                break;
             default:
             case PROJECT_VIEW:
-               control = new ProjectViewerControl();
+               var item = ApplicationHelper.Find(MenuOption.Projects);
+               if (item == null)
+               {
+                  control = new ProjectViewerControl();
+               }
+               else
+               {
+                  control = item.Instance as UIElement;
+               }
                break;
          }
          return control;
@@ -110,6 +131,10 @@ namespace Edam.WinUI.Controls.Application
 
       public static void ResetApplication()
       {
+         // review data sources...
+         UIApp.AppSettings.VerifySetConnectionString();
+
+         // reset app now....
          GotoEventArgs a = new GotoEventArgs();
          a.MenuOption = MenuOption.ResetApplication;
          m_ApplicationMenuControl.Goto(m_ApplicationMenuControl, a);
@@ -121,6 +146,14 @@ namespace Edam.WinUI.Controls.Application
          a.MenuOption = app.Session.IsUserLogged ? option : MenuOption.Login;
          m_ApplicationMenuControl.Goto(m_ApplicationMenuControl, a);
       }
+
+      public static IMenuItem Find(MenuOption option)
+      {
+         return m_ApplicationMenuControl.Find(option);
+      }
+
+      #endregion
+      #region -- 4.00 - Login and Logout
 
       public static void LoginApplication()
       {
@@ -137,6 +170,9 @@ namespace Edam.WinUI.Controls.Application
          m_ApplicationMenuControl.Goto(m_ApplicationMenuControl, a);
          Edam.Application.Session.LogoutUser();
       }
+
+      #endregion
+      #region -- 4.00 - Manage file templates...
 
       /// <summary>
       /// Load File Templates...
@@ -191,21 +227,96 @@ namespace Edam.WinUI.Controls.Application
          return results;
       }
 
+      #endregion
+      #region -- 4.00 - Manage Application Folders
+
+      /// <summary>
+      /// Get the Application Installed Location.
+      /// </summary>
+      /// <returns>Installed location is returned</returns>
+      public static string GetApplicationInstalledLocation()
+      {
+         StorageFolder localFolder = 
+            Windows.ApplicationModel.Package.Current.InstalledLocation;
+         return localFolder.Path;
+      }
+
+      public static string GetLocalFolder()
+      {
+         StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+         return localFolder.Path;
+      }
+
+      public static void MoveToApplicationInstalledLocation()
+      {
+         string path = GetApplicationInstalledLocation();
+         Directory.SetCurrentDirectory(path);
+      }
+
+      #endregion
+      #region -- 4.00 - Connection String resolution
+
+      /// <summary>
+      /// Get Reference Data Connection String By (Default) Key.
+      /// </summary>
+      /// <remarks>
+      /// Find the default reference data here:
+      /// 
+      /// "ReferenceData": {
+      ///    "ConnectionStringKey": "RefDatalocal"
+      /// },
+      /// 
+      /// Upon application initialization and after it has been installed and
+      /// executed for the first time, check if this connection string is 
+      /// available and ask for it if can't be found.
+      /// </remarks>
+      /// <returns>the connection string is returned</returns>
+      public static string GetReferenceDataConnectionStringByKey()
+      {
+         string kstring = ReferenceDataHelper.GetConnectionStringKey();
+         DataSourceInfo dataSource = DataSources.GetDataSource(kstring);
+         return dataSource.ConnectionString;
+      }
+
+      #endregion
+      #region -- 4.00 - Application Initialization support
+
+      /// <summary>
+      /// First time initialization of the application.
+      /// </summary>
       public static void InitializeApplication()
       {
+         string ilocation = GetApplicationInstalledLocation();
+
+         // setup Code Editor path
+         ViewModels.CodeEditorViewModel.GetDefaultCodeEditorUri(ilocation);
+
+         // setup default project
+         Data.AssetProject.Project.SetDefaultFullPath(ilocation);
+
+         // setup app working directory
+         MoveToApplicationInstalledLocation();
+
          app.Session.SessionId = Guid.NewGuid().ToString();
+         app.Session.OrganizationId = AppSettings.GetDefaultOrganizationId();
          Edam.Security.SecuredKeysVault.OpenVault();
          Edam.WinUI.Helpers.DependencyInjectionHelper.
             InitializeDependencyInjectionService();
          app.Session.MessageBox = new Dialogs.DialogMessageBox();
       }
 
+      /// <summary>
+      /// First time initialization of the main window in the application.
+      /// </summary>
+      /// <param name="mainWindow"></param>
       public static void InitializeApplication(Window mainWindow)
       {
          m_MainWindow = mainWindow;
          ApplicationHelper.LoadFileTemplates();
          LocalDocumentStorageHelper.InitializeAll();
       }
+
+      #endregion
 
    }
 

@@ -9,14 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-      <PackageReference Include="CommunityToolkit.Common" Version="8.1.0" />
-      <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+      <PackageReference Include="CommunityToolkit.Common" Version="7.1.2" />
+      <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
       <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230118.102" />
       <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Edam.Data\Edam.Data.Assets\Edam.Data.Assets.csproj" />
+    <ProjectReference Include="..\..\Edam.Data\Edam.DataObjects\Edam.DataObjects.csproj" />
     <ProjectReference Include="..\..\Edam.System\Edam.System\Edam.System.csproj" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,21 @@
+{
+  "@context": {
+      "cd12": "http://www.datovy.com/hc/cd/Epidemiology/#",
+      "specimen_Source_Type": "cd12:Specimen_Source_Type",
+      "note_Type": "cd12:Note_Type",
+      "note": "cd12:Note",
+      "media_Type": "cd12:Media_Type",
+      "media": "cd12:Media",
+      "lab_Type": "cd12:Lab_Type",
+      "lab_Test_Type": "cd12:Lab_Test_Type",
+      "lab_Result_Type": "cd12:Lab_Result_Type",
+      "lab_Result": "cd12:Lab_Result",
+      "laboratory": "cd12:Laboratory",
+      "lab_Test_Interpretation_Code": "cd12:Lab_Test_Interpretation_Code",
+      "unit_Code": "cd12:Unit_Code",
+      "lab_Test_Report": "cd12:Lab_Test_Report",
+      "lab_Link": "cd12:Lab_Link",
+      "lab_Report": "cd12:Lab_Report",
+      "specimen": "cd12:Specimen"
+   }
+}

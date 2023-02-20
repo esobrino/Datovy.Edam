@@ -197,28 +197,27 @@ namespace Edam.Data.Schema.ImportExport
          }
       }
 
+      #region -- 4.00 - Prepare Type Definition
+
       public static AssetElementInfo<IAssetElement> PrepareTypeDefinition(
          string schemaName, string tableName, string tableOriginalName,
          string domain, string dataOwnerId,NamespaceInfo ns)
       {
          // prepare table resource
          AssetElementInfo<IAssetElement> ritem = 
-            AssetDataElement.ToAsset(ns, tableName);
+            AssetDataElement.ToAssetElement(ns, tableName);
 
          string entityPath;
          string schemaPath;
-         string domainName;
          if (String.IsNullOrWhiteSpace(schemaName))
          {
             entityPath = "";
             schemaPath = String.Empty;
-            domainName = tableName;
          }
          else
          {
             entityPath = ns.Prefix + ":" + schemaName;
             schemaPath = entityPath + "/";
-            domainName = schemaName;
          }
 
          ritem.DataOwnerId = dataOwnerId;
@@ -259,10 +258,12 @@ namespace Edam.Data.Schema.ImportExport
          children = new List<AssetElementInfo<IAssetElement>>();
       }
 
-      private AssetElementInfo<IAssetElement> ToAsset(
+      #endregion
+
+      private AssetElementInfo<IAssetElement> ToAssetElement(
          AssetElementInfo<IAssetElement> parent, DdlImportItemInfo item, 
-         NamespaceInfo ns, bool 
-         useItemType = false, bool isRootDocument = false)
+         NamespaceInfo ns, bool useItemType = false,
+         bool isRootDocument = false)
       {
          string dataType;
          string originalDataType;
@@ -358,7 +359,8 @@ namespace Edam.Data.Schema.ImportExport
          AssetElementInfo<IAssetElement> ritem, DdlImportItemInfo item,
          bool useItemType = false, bool isRootDocument = false)
       {
-         var eitem = ToAsset(ritem, item, ns, useItemType, isRootDocument);
+         var eitem = ToAssetElement(
+            ritem, item, ns, useItemType, isRootDocument);
 
          eitem.DataOwnerId = dataOwnerId;
          eitem.Root = ns.NamePath.Root;

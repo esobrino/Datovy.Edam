@@ -35,33 +35,30 @@
           }
         }
       },
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
-        },
-        "build": {
-          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
         }
       },
       "CommunityToolkit.WinUI/7.1.2": {
@@ -2470,9 +2467,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "CommunityToolkit.Common": "8.1.0",
-          "CommunityToolkit.Mvvm": "8.1.0",
+          "CommunityToolkit.Common": "7.1.2",
+          "CommunityToolkit.Mvvm": "7.1.2",
           "Edam.Data.Assets": "1.0.0",
+          "Edam.DataObjects": "1.0.0",
           "Edam.System": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
           "Microsoft.WindowsAppSDK": "1.2.230118.102"
@@ -2551,33 +2549,30 @@
           }
         }
       },
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
-        },
-        "build": {
-          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
         }
       },
       "CommunityToolkit.WinUI/7.1.2": {
@@ -5098,9 +5093,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "CommunityToolkit.Common": "8.1.0",
-          "CommunityToolkit.Mvvm": "8.1.0",
+          "CommunityToolkit.Common": "7.1.2",
+          "CommunityToolkit.Mvvm": "7.1.2",
           "Edam.Data.Assets": "1.0.0",
+          "Edam.DataObjects": "1.0.0",
           "Edam.System": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
           "Microsoft.WindowsAppSDK": "1.2.230118.102"
@@ -5179,33 +5175,30 @@
           }
         }
       },
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
-        },
-        "build": {
-          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
         }
       },
       "CommunityToolkit.WinUI/7.1.2": {
@@ -7726,9 +7719,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "CommunityToolkit.Common": "8.1.0",
-          "CommunityToolkit.Mvvm": "8.1.0",
+          "CommunityToolkit.Common": "7.1.2",
+          "CommunityToolkit.Mvvm": "7.1.2",
           "Edam.Data.Assets": "1.0.0",
+          "Edam.DataObjects": "1.0.0",
           "Edam.System": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
           "Microsoft.WindowsAppSDK": "1.2.230118.102"
@@ -7807,33 +7801,30 @@
           }
         }
       },
-      "CommunityToolkit.Common/8.1.0": {
+      "CommunityToolkit.Common/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Common.dll": {
+          "lib/net5.0/CommunityToolkit.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.1.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "related": ".pdb;.xml"
           }
-        },
-        "build": {
-          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
         }
       },
       "CommunityToolkit.WinUI/7.1.2": {
@@ -10354,9 +10345,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "CommunityToolkit.Common": "8.1.0",
-          "CommunityToolkit.Mvvm": "8.1.0",
+          "CommunityToolkit.Common": "7.1.2",
+          "CommunityToolkit.Mvvm": "7.1.2",
           "Edam.Data.Assets": "1.0.0",
+          "Edam.DataObjects": "1.0.0",
           "Edam.System": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
           "Microsoft.WindowsAppSDK": "1.2.230118.102"
@@ -10430,21 +10422,24 @@
         "lib/net5.0-windows10.0.18362/ColorCode.WinUI.pri"
       ]
     },
-    "CommunityToolkit.Common/8.1.0": {
-      "sha512": "9U91MvCETPTVkLd07rGuIIPSnoqEQq7WDwNe6zfREkCFNJtR56flnO38EXP0M+pzPpHBnNmPt9PnJoPDJZjg5w==",
+    "CommunityToolkit.Common/7.1.2": {
+      "sha512": "KnHnukN+Sc26YT98OWYTp8mvaYlLc61lzDh0RrVRNQXm01hZ+iXAjCgKM59vAojqxNVrlbcXj22LYOyXWDItgg==",
       "type": "package",
-      "path": "communitytoolkit.common/8.1.0",
+      "path": "communitytoolkit.common/7.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "License.md",
         "ThirdPartyNotices.txt",
-        "communitytoolkit.common.8.1.0.nupkg.sha512",
+        "communitytoolkit.common.7.1.2.nupkg.sha512",
         "communitytoolkit.common.nuspec",
-        "lib/net6.0/CommunityToolkit.Common.dll",
-        "lib/net6.0/CommunityToolkit.Common.pdb",
-        "lib/net6.0/CommunityToolkit.Common.xml",
+        "lib/net5.0/CommunityToolkit.Common.dll",
+        "lib/net5.0/CommunityToolkit.Common.pdb",
+        "lib/net5.0/CommunityToolkit.Common.xml",
+        "lib/netstandard1.4/CommunityToolkit.Common.dll",
+        "lib/netstandard1.4/CommunityToolkit.Common.pdb",
+        "lib/netstandard1.4/CommunityToolkit.Common.xml",
         "lib/netstandard2.0/CommunityToolkit.Common.dll",
         "lib/netstandard2.0/CommunityToolkit.Common.pdb",
         "lib/netstandard2.0/CommunityToolkit.Common.xml",
@@ -10453,27 +10448,24 @@
         "lib/netstandard2.1/CommunityToolkit.Common.xml"
       ]
     },
-    "CommunityToolkit.Mvvm/8.1.0": {
-      "sha512": "xxOt7lu9a5kB5Fs9RfcxzVlKnhuuPe+w7AXHtmCFtS3oldrsUhEMxHfNulluXSscUUoGxZ0jh55Om12ZP6abHA==",
+    "CommunityToolkit.Mvvm/7.1.2": {
+      "sha512": "/zEpNH3FIBFY2iZRBi+S3Sia3q2yJgy1IQHnWRW7MdhQIe3IGcA1TGqJdbtjiJBmNy4v7kkPdNzgYlvvNDjXZg==",
       "type": "package",
-      "path": "communitytoolkit.mvvm/8.1.0",
+      "path": "communitytoolkit.mvvm/7.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "License.md",
         "ThirdPartyNotices.txt",
-        "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
-        "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
-        "build/netstandard2.0/CommunityToolkit.Mvvm.targets",
-        "build/netstandard2.1/CommunityToolkit.Mvvm.targets",
-        "buildTransitive/netstandard2.0/CommunityToolkit.Mvvm.targets",
-        "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets",
-        "communitytoolkit.mvvm.8.1.0.nupkg.sha512",
+        "analyzers/dotnet/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/cs/CommunityToolkit.Mvvm.SourceGenerators.pdb",
+        "analyzers/dotnet/cs/CommunityToolkit.Mvvm.SourceGenerators.xml",
+        "communitytoolkit.mvvm.7.1.2.nupkg.sha512",
         "communitytoolkit.mvvm.nuspec",
-        "lib/net6.0/CommunityToolkit.Mvvm.dll",
-        "lib/net6.0/CommunityToolkit.Mvvm.pdb",
-        "lib/net6.0/CommunityToolkit.Mvvm.xml",
+        "lib/net5.0/CommunityToolkit.Mvvm.dll",
+        "lib/net5.0/CommunityToolkit.Mvvm.pdb",
+        "lib/net5.0/CommunityToolkit.Mvvm.xml",
         "lib/netstandard2.0/CommunityToolkit.Mvvm.dll",
         "lib/netstandard2.0/CommunityToolkit.Mvvm.pdb",
         "lib/netstandard2.0/CommunityToolkit.Mvvm.xml",
@@ -16572,8 +16564,6 @@
   "projectFileDependencyGroups": {
     "net6.0-windows10.0.19041": [
       "CommunityToolkit.WinUI.UI.Controls >= 7.1.2",
-      "CommunityToolkit.WinUI.UI.Controls.DataGrid >= 7.1.2",
-      "CommunityToolkit.WinUI.UI.Controls.Primitives >= 7.1.2",
       "Edam.B2b >= 1.0.0",
       "Edam.Data.Asset.Services >= 1.0.0",
       "Edam.Data.AssetMapping >= 1.0.0",
@@ -16664,14 +16654,6 @@
             "target": "Package",
             "version": "[7.1.2, )"
           },
-          "CommunityToolkit.WinUI.UI.Controls.DataGrid": {
-            "target": "Package",
-            "version": "[7.1.2, )"
-          },
-          "CommunityToolkit.WinUI.UI.Controls.Primitives": {
-            "target": "Package",
-            "version": "[7.1.2, )"
-          },
           "Microsoft.Windows.SDK.BuildTools": {
             "target": "Package",
             "version": "[10.0.22621.755, )"
@@ -16695,27 +16677,27 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x86",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
@@ -16723,15 +16705,15 @@
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-            "version": "[6.0.13, 6.0.13]"
+            "version": "[6.0.14, 6.0.14]"
           }
         ],
         "frameworkReferences": {
@@ -16742,7 +16724,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

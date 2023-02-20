@@ -9,13 +9,18 @@ using Edam.Data.AssetConsole;
 using Edam.Data.Asset;
 using Edam.Data.AssetSchema;
 using Edam.Json.JsonSchemaReader;
+using Edam.Json.JsonInstanceReader;
 using Edam.Data.AssetUseCases;
+using Edam.Json.JsonSchema;
 
 namespace Edam.Json.JsonExplore
 {
 
-    public class JsonInspector
+   public class JsonInspector
    {
+
+      #region -- 1.00 - Properties and Fields
+
       private JsonSchemaSet m_SchemaSet = null;
       private AssetConsoleArgumentsInfo m_Arguments;
 
@@ -29,15 +34,24 @@ namespace Edam.Json.JsonExplore
          get
          {
             return m_Arguments.Procedure ==
-            AssetConsoleProcedure.XsdToAssetsReport;
+               AssetConsoleProcedure.XsdToAssetsReport;
          }
       }
+
+      #endregion
+      #region -- 1.50 - Constructor
 
       public JsonInspector(AssetConsoleArgumentsInfo arguments)
       {
          m_Arguments = arguments;
-         PrepareSchemaSet();
+         if (arguments.Procedure == AssetConsoleProcedure.JsdToAssets)
+         {
+            PrepareSchemaSet();
+         }
       }
+
+      #endregion
+      #region -- 4.00 - Prepare JSON Schema support
 
       /// <summary>
       /// Given arguments prepare schema set.
@@ -78,6 +92,9 @@ namespace Edam.Json.JsonExplore
          return m_SchemaSet;
       }
 
+      #endregion
+      #region -- 4.00 - Prepare Use Case support
+
       /// <summary>
       /// Prepare Use Cases.
       /// </summary>
@@ -96,10 +113,15 @@ namespace Edam.Json.JsonExplore
          return cases;
       }
 
+      #endregion
+      #region -- 4.00 - Manage Asset to Report support
+
       /// <summary>
-      /// 
+      /// To Ouput / Report.
       /// </summary>
-      /// <param name="asset"></param>
+      /// <param name="asset">AssetData instance</param>
+      /// <param name="toOutput">true to output</param>
+      /// <returns>instance of AssetData is returned</returns>
       private AssetData ToOutput(AssetData asset, bool toOutput)
       {
          asset.MapDataTypes(m_Arguments.TextMapFilePath);
@@ -112,26 +134,96 @@ namespace Edam.Json.JsonExplore
       }
 
       /// <summary>
-      /// 
-      /// </summary>
-      private AssetData InspectSchema(bool toOutput)
-      {
-         if (m_SchemaSet.Count == 0)
-            return null;
-         JsonSchemaInspector r = new JsonSchemaInspector(m_SchemaSet);
-         r.DefaultNamespace = m_Arguments.Namespace;
-         r.Inspect();
-         return ToOutput(r.Asset, toOutput);
-      }
-
-      /// <summary>
-      /// 
+      /// Output to Report.
       /// </summary>
       public void ToOutput()
       {
          if (ToAssetsReport)
             InspectSchema(true);
       }
+
+      #endregion
+      #region -- 4.00 - Inspect Schema or Instance support
+
+      /// <summary>
+      /// Inspect Schema and return AssetData.
+      /// </summary>
+      /// <param name="toOutput">true to output to report</param>
+      /// <returns>AssetData instance is returned</returns>
+      private AssetData InspectSchema(bool toOutput)
+      {
+         if (m_SchemaSet.Count == 0)
+            return null;
+
+         IJsonInspector i = new JsonSchemaInspector(m_SchemaSet);
+         i.DefaultNamespace = m_Arguments.Namespace;
+         i.Inspect();
+
+         return ToOutput(i.Asset, toOutput);
+      }
+
+      /// <summary>
+      /// Inspect Instance and return AssetData.
+      /// </summary>
+      /// <param name="toOutput">true to output to report</param>
+      /// <returns>AssetData instance is returned</returns>
+      public AssetData InspectInstance(bool toOutput)
+      {
+         IJsonInspector i = new JsonInstanceInspector(m_Arguments);
+
+         i.Inspect();
+
+         return ToOutput(i.Asset, toOutput);
+      }
+
+      /// <summary>
+      /// Inspect JSON Schema or Instance (based on arguments)
+      /// </summary>
+      /// <param name="arguments">arguments</param>
+      /// <param name="toOutput">true to output a Report</param>
+      public AssetData Inspect(
+         AssetConsoleArgumentsInfo arguments, bool toOutput = false)
+      {
+         AssetData assetData;
+         switch(arguments.Procedure)
+         {
+            case AssetConsoleProcedure.JsdToAssets:
+               assetData = InspectSchema(toOutput);
+               break;
+            case AssetConsoleProcedure.JsonToAssets:
+               assetData = InspectInstance(toOutput);
+               break;
+            default:
+               assetData = null;
+               break;
+         }
+         return assetData;
+      }
+
+      /// <summary>
+      /// Given an XSD file write corresponding Asset definitions to requested
+      /// format.
+      /// </summary>
+      /// <param name="arguments">list of string arguments</param>
+      public static AssetData ToAssetList(AssetConsoleArgumentsInfo arguments)
+      {
+         JsonInspector i = new JsonInspector(arguments);
+         return i.Inspect(arguments, false);
+      }
+
+      /// <summary>
+      /// Given an XSD file write corresponding Asset definitions to requested
+      /// format.
+      /// </summary>
+      /// <param name="args">list of string arguments</param>
+      public static AssetData ToAssetList(String[] args)
+      {
+         var arguments = AssetConsoleArgumentsInfo.FromArguments(args);
+         return ToAssetList(arguments);
+      }
+
+      #endregion
+      #region -- 4.00 - To File / Report support
 
       /// <summary>
       /// Given an XSD file write corresponding Asset definitions to requested
@@ -155,27 +247,8 @@ namespace Edam.Json.JsonExplore
          ToFile(arguments);
       }
 
-      /// <summary>
-      /// Given an XSD file write corresponding Asset definitions to requested
-      /// format.
-      /// </summary>
-      /// <param name="arguments">list of string arguments</param>
-      public static AssetData ToAssetList(AssetConsoleArgumentsInfo arguments)
-      {
-         var i = new JsonInspector(arguments);
-         return i.InspectSchema(false);
-      }
+      #endregion
 
-      /// <summary>
-      /// Given an XSD file write corresponding Asset definitions to requested
-      /// format.
-      /// </summary>
-      /// <param name="args">list of string arguments</param>
-      public static AssetData ToAssetList(String[] args)
-      {
-         var arguments = AssetConsoleArgumentsInfo.FromArguments(args);
-         return ToAssetList(arguments);
-      }
    }
 
 }

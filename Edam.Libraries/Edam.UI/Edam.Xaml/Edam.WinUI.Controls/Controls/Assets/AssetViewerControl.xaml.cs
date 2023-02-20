@@ -23,6 +23,7 @@ using Edam.Data.AssetConsole;
 using Edam.WinUI.Controls.Common;
 using Edam.Serialization;
 using Edam.InOut;
+using Edam.WinUI.Controls.Projects;
 
 namespace Edam.WinUI.Controls.Assets
 {
@@ -36,9 +37,21 @@ namespace Edam.WinUI.Controls.Assets
          get { return m_ViewModel; }
       }
 
+      ProjectFileEditorControl FileEditorControl { get; set; }
+      AssetDataElementGridControl ElementGridControl { get; set; }
+      AssetUseCaseGridControl UseCaseGridControl { get; set; }
+
       public AssetViewerControl()
       {
          this.InitializeComponent();
+
+         FileEditorControl = new Projects.ProjectFileEditorControl();
+         ElementGridControl = new AssetDataElementGridControl();
+         UseCaseGridControl = new AssetUseCaseGridControl();
+
+         FrameFileEditor.Content = FileEditorControl;
+         FrameElementGrid.Content = ElementGridControl;
+         FrameUseCaseGrid.Content = UseCaseGridControl;
 
          m_ViewModel = ElementGridControl.ViewModel;
          DataContext = ElementGridControl.ViewModel;
@@ -49,6 +62,7 @@ namespace Edam.WinUI.Controls.Assets
          ViewModel.NotifyEventCompletion +=
             FileEditorControl.ManageNotification;
          ViewModel.NotifyEventCompletion += ManageNotification;
+
          TabViewer.SelectedItem = FileTab;
       }
 

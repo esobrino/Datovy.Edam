@@ -1,0 +1,29 @@
+{
+  "@context": {
+      "cd1": "http://www.datovy.com/hc/cd/Clinical/#",
+      "blood_Transfusion_ID": "cd1:Blood_Transfusion_ID",
+      "donated_Product_Code_ID": "cd1:Donated_Product_Code_ID",
+      "donated_Date": "cd1:Donated_Date",
+      "donor_Flag_ID": "cd1:Donor_Flag_ID",
+      "donor_Implicated_Flag_ID": "cd1:Donor_Implicated_Flag_ID",
+      "transfusion_Associated_Flag_ID": "cd1:Transfusion_Associated_Flag_ID",
+      "transfused_Product_Code_ID": "cd1:Transfused_Product_Code_ID",
+      "transfused_Date": "cd1:Transfused_Date",
+      "organ_Transplant_Flag_ID": "cd1:Organ_Transplant_Flag_ID",
+      "case_ID": "cd1:Case_ID",
+      "subject_ID": "cd1:Subject_ID",
+      "status_Code_ID": "cd1:Status_Code_ID",
+      "status_DateTime": "cd1:Status_DateTime",
+      "tenant_ID": "cd1:Tenant_ID",
+      "data_Owner_ID": "cd1:Data_Owner_ID",
+      "agency_Reporting_ID": "cd1:Agency_Reporting_ID",
+      "sequence_Number": "cd1:Sequence_Number",
+      "effective_DateTime": "cd1:Effective_DateTime",
+      "effective_End_DateTime": "cd1:Effective_End_DateTime",
+      "version_Number": "cd1:Version_Number",
+      "created_DateTime": "cd1:Created_DateTime",
+      "updated_DateTime": "cd1:Updated_DateTime",
+      "record_Status_Code_ID": "cd1:Record_Status_Code_ID",
+      "session_Updated_ID": "cd1:Session_Updated_ID"
+   }
+}

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:cd="http://www.datovy.com/hc/cd" xmlns:cd1="http://www.datovy.com/hc/cd/Clinical" xmlns:cd2="http://www.datovy.com/hc/cd/Surveillance" xmlns:cd3="http://www.datovy.com/hc/cd/Generic" xmlns:cd4="http://www.datovy.com/hc/cd/Geography" xmlns:cd5="http://www.datovy.com/hc/cd/Entity" xmlns:cd6="http://www.datovy.com/hc/cd/Action" xmlns:cd7="http://www.datovy.com/hc/cd/Management" xmlns:cd8="http://www.datovy.com/hc/cd/Application" xmlns:cd9="http://www.datovy.com/hc/cd/Article" xmlns:cd10="http://www.datovy.com/hc/cd/Message" xmlns:cd11="http://www.datovy.com/hc/cd/Provider" xmlns:cd12="http://www.datovy.com/hc/cd/Epidemiology" targetNamespace="http://www.datovy.com/hc/cd/Application" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Session_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Session ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Session_Type_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Identify and describe the session type</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Session_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Session Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Referral_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Referral ID... External reference to a (Surveillance) Referral</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Case_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Case ID... External reference to a (Management) Case</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Officer_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Officer ID... External reference to a (Entity) Officer</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Contact_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Contact ID... External reference to a (Entity) Contact</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Token_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Token ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Tenant_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Tenant ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Data_Owner_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Data Owner ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Agency_Reporting_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Agency Reporting ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Sequence_Number" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Sequence Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Effective Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Effective_End_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Effective End Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Version_Number" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Version Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Created_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Created Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Updated_DateTime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>Updated Date Time</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Record_Status_Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Record Status Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Session_Updated_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Session Updated ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Session_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Session_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Session_Type_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Session_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Referral_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Case_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Officer_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Contact_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Token_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>User ID... External reference to a (Entity) Officer</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Access_Token_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:User_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Token_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Code_Number" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Code Number</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Code_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Code ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Description" type="xs:string" />
+  <xs:element name="Category_ID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Category ID</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="CodeSet_Name" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Code Set Name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="App_Message_Code_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Code_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Description" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Category_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:CodeSet_Name" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Tenant_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Data_Owner_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Agency_Reporting_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Sequence_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Effective_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Effective_End_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Version_Number" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Created_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Updated_DateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Record_Status_Code_ID" />
+      <xs:element minOccurs="0" maxOccurs="1" ref="cd8:Session_Updated_ID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Session" type="cd8:Session_" />
+  <xs:element name="Access_Token" type="cd8:Access_Token_">
+    <xs:annotation>
+      <xs:documentation>Access Token</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="App_Message_Code" type="cd8:App_Message_Code_">
+    <xs:annotation>
+      <xs:documentation>App Message Code</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Application_">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd8:Session" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd8:Access_Token" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cd8:App_Message_Code" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

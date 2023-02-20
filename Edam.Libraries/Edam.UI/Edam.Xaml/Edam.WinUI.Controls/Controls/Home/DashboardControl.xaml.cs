@@ -29,6 +29,7 @@ namespace Edam.WinUI.Controls.Home
 
          Project.InitializeProject();
          HomeControl.Children.Clear();
+
          var control = ApplicationHelper.GetHomeControl();
          if (control != null)
          {

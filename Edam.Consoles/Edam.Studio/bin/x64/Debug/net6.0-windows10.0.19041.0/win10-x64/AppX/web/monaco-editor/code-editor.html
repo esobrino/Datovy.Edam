@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>browser-amd-editor</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		
+		<link
+			rel="stylesheet"
+			data-name="vs/editor/editor.main"
+			href="./min/vs/editor/editor.main.css"
+		/>
+		<style>
+         .contents {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+			   left: 0px;
+			   right: 0px;
+         }
+		</style>
+	</head>
+	<body>
+
+      <div id="content" class="contents"></div>
+
+		<!-- OR ANY OTHER AMD LOADER HERE INSTEAD OF loader.js -->
+		<script src="./min/vs/loader.js"></script>
+		<script src="./min/vs/editor/editor.main.nls.js"></script>
+		<script src="./min/vs/editor/editor.main.js"></script>
+		<script>
+			require.config({ paths: { vs: './min/vs' } });
+
+			require(['vs/editor/editor.main'], function () {
+				window.editor = monaco.editor.create(document.getElementById('content'), {
+					value: [''].join('\n'),
+					language: 'javascript', minimap: { enabled: false },
+					automaticLayout: true
+				});
+         });
+
+			function setEditorText(text, language) {
+				monaco.editor.getModels().forEach(model => model.dispose());
+				var model = monaco.editor.createModel(text, language);
+				window.editor.setModel(model);
+         }
+
+			function getEditorText() {
+				return window.editor.getValue();
+         }
+		</script>
+	</body>
+</html>

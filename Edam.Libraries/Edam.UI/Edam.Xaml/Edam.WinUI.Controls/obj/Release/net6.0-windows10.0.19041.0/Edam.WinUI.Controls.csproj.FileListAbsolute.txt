@@ -371,3 +371,5 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Rel
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\qualifiers.txt
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\qualifiers.txt.intermediate
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\MultipleQualifiersPerDimensionFound.txt
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls\DataTemplates\DataSource.Dialog.json
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\DataTemplates\DataSource.Dialog.json

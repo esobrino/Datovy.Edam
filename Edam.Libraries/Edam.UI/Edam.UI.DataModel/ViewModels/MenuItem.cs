@@ -52,6 +52,11 @@ namespace Edam.UI.DataModel.ViewModels
             Parent.Goto(sender, e);
       }
 
+      public IMenuItem Find(MenuOption option)
+      {
+         return this;
+      }
+
    }
 
    public class Separator : MenuItemBase { }

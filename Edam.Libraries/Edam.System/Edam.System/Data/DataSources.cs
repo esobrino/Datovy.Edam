@@ -12,6 +12,8 @@ using Settings = Edam.Application.AppSettings;
 using Keys = Edam.Application.Defaults.AppSettingsKeys;
 //using ServiceConfig = Edam.Services.ServicesSession;
 using Encryptor = Edam.Security.Cryptography.Encryptor;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Edam.Data
 {
@@ -29,6 +31,10 @@ namespace Edam.Data
    [ XmlRoot("DatabaseResources") ]
    public class DataSources
    {
+
+      public const string DEFAULT_DB_KEY = "Default";
+      public const string DEFAULT_CONNECTION_STRING = 
+         "Data Source=.;Initial Catalog=Edam.Database;Integrated Security=True";
       
       [XmlIgnoreAttribute]
       public DataSourceInfo SelectedDataSource { get; set; }
@@ -60,7 +66,12 @@ namespace Edam.Data
       /// <returns>key is returned</returns>
       public static String GetDefaultDatabaseKey()
       {
-         return Settings.GetSectionString(Keys.DefaultDbKeyId);
+         string key = Settings.GetSectionString(Keys.DefaultDbKeyId);
+         if (String.IsNullOrWhiteSpace(key))
+         {
+            key = DEFAULT_DB_KEY;
+         }
+         return key;
       }
 
       /// <summary>
@@ -193,9 +204,28 @@ namespace Edam.Data
          return cs;
       }
 
-      public static DataSourceInfo GetDataSource(String key)
+      /// <summary>
+      /// Get Data Source related to given configuration string key.  Data
+      /// Sources will be tried to be found in the Session DataSourceCollection,
+      /// if not found there then the key will be use to try finding it based on
+      /// the application settings.
+      /// </summary>
+      /// <param name="key">key to use</param>
+      /// <param name="addIt">true to add it</param>
+      /// <returns>if found the connection string is returned</returns>
+      public static DataSourceInfo GetDataSource(String key, bool addIt = true)
       {
          DataSourceInfo ds = null;
+
+         // try to find the key in data sources cache...
+
+         DataSourceInfo dsource = Session.DataSourceCollection.Find(key);
+         if (dsource != null)
+         {
+            return dsource;
+         }
+
+         // try to get it from app settings...
          string cstring = Settings.GetConnectionString(key);
          if (String.IsNullOrWhiteSpace(cstring))
          {
@@ -205,8 +235,37 @@ namespace Edam.Data
          {
             ds = new DataSourceInfo();
             ds.ConnectionString = cstring;
+            if (addIt)
+            {
+               Session.DataSourceCollection.Add(key, ds);
+            }
          }
          return ds;
+      }
+
+      /// <summary>
+      /// Add default connection string into an item with given key.  If item 
+      /// don't exist and key is null "Default" will be used.
+      /// </summary>
+      /// <param name="connectionString">connection string</param>
+      /// <param name="key">(optional) key</param>
+      public static void AddDefaultConnectionString(
+         string connectionString, string key = null)
+      {
+         string dkey = String.IsNullOrWhiteSpace(key) ? 
+            Keys.DefaultDbKeyId : key;
+         var item = Session.DataSourceCollection.Find(key) as DataSourceInfo;
+         if (item != null)
+         {
+            item.ConnectionString = connectionString;
+         }
+         else
+         {
+            DataSourceInfo dataSource = new DataSourceInfo();
+            dataSource.ConnectionString = connectionString;
+            dataSource.Key = dkey;
+            Session.DataSourceCollection.Add(dkey, dataSource);
+         }
       }
 
 #if DATA_SUPPORT_

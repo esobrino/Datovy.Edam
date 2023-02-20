@@ -45,7 +45,21 @@
                   FontSize="20"
                                                                    />
 
-               <TextBox x:ConnectionId='8'
+               <StackPanel x:ConnectionId='8' x:Name="DataSourceBox" Margin="0,0,0,5"                                                     >
+                  <TextBlock
+                     MinHeight="22"
+                     FontSize="14"
+                     Text="Connection String (Required)" />
+                  <TextBox x:ConnectionId='22'
+                     x:Name="ConnectionString"
+                     Background="White"
+                     PlaceholderText="Connection String"
+                     TextWrapping="Wrap"
+                     Height="100"
+                                                                             />
+               </StackPanel>
+               
+               <TextBox x:ConnectionId='9'
                   x:Name="OrganizationId"
                   Background="White"
                                                                
@@ -53,7 +67,7 @@
                                                
                   PlaceholderText="Organization Id"
                                                                         />
-               <TextBox x:ConnectionId='9'
+               <TextBox x:ConnectionId='10'
                   x:Name="UserEmailText"
                   Margin="0,5"
                   Background="White"
@@ -63,26 +77,26 @@
                   PlaceholderText="Email"
                                                                    />
 
-               <StackPanel x:ConnectionId='10' x:Name="RequestIdBox"                                               >
-                  <TextBlock x:ConnectionId='19'
+               <StackPanel x:ConnectionId='11' x:Name="RequestIdBox"                                               >
+                  <TextBlock x:ConnectionId='20'
                      MinHeight="22"
                      FontSize="14"
                                                                    />
-                  <TextBox x:ConnectionId='20'
+                  <TextBox x:ConnectionId='21'
                      x:Name="RequestIdEntry"
                      Background="White"
                      PlaceholderText="Enter code here"
                                                                       />
                </StackPanel>
 
-               <PasswordBox x:ConnectionId='11'
+               <PasswordBox x:ConnectionId='12'
                   x:Name="Password1Entry"
                   Background="White"
                                                
                                                                          
                   PlaceholderText="Password"
                                                                    />
-               <PasswordBox x:ConnectionId='12'
+               <PasswordBox x:ConnectionId='13'
                   x:Name="Password2Entry"
                   Margin="0,5"
                   Background="White"
@@ -91,26 +105,26 @@
                                                                    />
 
                <StackPanel Margin="0,5" Orientation="Vertical">
-                  <CheckBox x:ConnectionId='16'
+                  <CheckBox x:ConnectionId='17'
                      x:Name="AcceptPrivacyIndicator"
                      Background="White"
                      Content="Accept Privacy Statement"
                                                                               
                                                    />
-                  <CheckBox x:ConnectionId='17'
+                  <CheckBox x:ConnectionId='18'
                      x:Name="AcceptTermsIndicator"
                      Background="White"
                      Content="Accept Terms and Conditions"
                                                                             
                                                    />
-                  <CheckBox x:ConnectionId='18'
+                  <CheckBox x:ConnectionId='19'
                      x:Name="KeepMeLoggedIndicator"
                      Background="White"
                      Content="Keep Me Logged"
                                                                               />
                </StackPanel>
 
-               <Button x:ConnectionId='13'
+               <Button x:ConnectionId='14'
                   x:Name="SubmitButton"
                   HorizontalAlignment="Stretch"
                   BorderBrush="#999999"
@@ -119,7 +133,7 @@
                                                                       
                                                                         />
 
-               <Button x:ConnectionId='14'
+               <Button x:ConnectionId='15'
                   x:Name="ForgotButton"
                   Margin="0,5,0,5"
                   HorizontalAlignment="Stretch"
@@ -131,7 +145,7 @@
                   Forgot
                </Button>
 
-               <Button x:ConnectionId='15'
+               <Button x:ConnectionId='16'
                   HorizontalAlignment="Stretch"
                   BorderBrush="#999999"
                   BorderThickness="2"

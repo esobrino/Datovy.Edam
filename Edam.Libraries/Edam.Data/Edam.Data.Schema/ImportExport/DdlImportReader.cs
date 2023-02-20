@@ -217,7 +217,6 @@ namespace Edam.Data.Schema.ImportExport
             header, null, ns, null, null, m_VersionId, 0);
 
          // add schema type
-         string cName = header.TableCatalog + typePostfix;
          var rootSchema = DdlAsset.PrepareTypeDefinition(
             String.Empty, header.TableCatalog, header.TableCatalog, ns.Prefix,
             Session.OrganizationId, ns);
@@ -303,6 +302,10 @@ namespace Edam.Data.Schema.ImportExport
 
                if (assets != null)
                {
+                  if (arguments.AssetDataItems == null)
+                  {
+                     arguments.AssetDataItems = new AssetDataItems();
+                  }
                   foreach(var a in assets)
                   {
                      a.Namespaces.Add(NamespaceInfo.GetW3CNamespace());

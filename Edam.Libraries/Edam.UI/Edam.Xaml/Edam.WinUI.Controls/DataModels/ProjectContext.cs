@@ -14,12 +14,16 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using Edam.Data.AssetConsole.Services;
 using Edam.Data.Asset.Services;
 using Edam.Data.Asset;
+using Edam.Diagnostics;
 
 namespace Edam.WinUI.Controls.DataModels
 {
 
    public static class ProjectContext
    {
+
+      #region -- 1.00 - fields and properties
+
       public static ProjectItem TreeView { get; set; }
 
       private static AssetConsoleArgumentsInfo m_Arguments = null;
@@ -78,6 +82,11 @@ namespace Edam.WinUI.Controls.DataModels
          if (m_CurrentProject != null)
          {
             m_Arguments = m_CurrentProject.CurrentArguments;
+            if (m_Arguments.AssetDataItems == null)
+            {
+               m_Arguments.AssetDataItems = new AssetDataItems();
+            }
+
             if (m_Arguments != null && m_Arguments.AssetDataItems.Count > 0)
             {
                m_AssetData = m_Arguments.AssetDataItems[0];
@@ -85,6 +94,7 @@ namespace Edam.WinUI.Controls.DataModels
          }
       }
 
+      #endregion
       #region -- 4.00 - Get / Find and Prepare Arguments 
 
       public static void PrepareArguments(AssetConsoleArgumentsInfo args)

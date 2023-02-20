@@ -1,0 +1,22 @@
+{
+  "@context": {
+      "cd5": "http://www.datovy.com/hc/cd/Entity/#",
+      "location_Link_ID": "cd5:Location_Link_ID",
+      "location_ID": "cd5:Location_ID",
+      "person_ID": "cd5:Person_ID",
+      "organization_ID": "cd5:Organization_ID",
+      "officer_ID": "cd5:Officer_ID",
+      "contact_ID": "cd5:Contact_ID",
+      "tenant_ID": "cd5:Tenant_ID",
+      "data_Owner_ID": "cd5:Data_Owner_ID",
+      "agency_Reporting_ID": "cd5:Agency_Reporting_ID",
+      "sequence_Number": "cd5:Sequence_Number",
+      "effective_DateTime": "cd5:Effective_DateTime",
+      "effective_End_DateTime": "cd5:Effective_End_DateTime",
+      "version_Number": "cd5:Version_Number",
+      "created_DateTime": "cd5:Created_DateTime",
+      "updated_DateTime": "cd5:Updated_DateTime",
+      "record_Status_Code_ID": "cd5:Record_Status_Code_ID",
+      "session_Updated_ID": "cd5:Session_Updated_ID"
+   }
+}

@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using CommunityToolkit.WinUI.UI.Controls;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -22,8 +23,7 @@ namespace Edam.WinUI.Controls.ReferenceData
 
    public sealed partial class ReferenceDataDomainGridControl : UserControl
    {
-      private ReferenceDataDomainViewModel m_ViewModel = 
-         new ReferenceDataDomainViewModel();
+      private ReferenceDataDomainViewModel m_ViewModel;
       public ReferenceDataDomainViewModel ViewModel
       {
          get { return m_ViewModel; }
@@ -32,6 +32,7 @@ namespace Edam.WinUI.Controls.ReferenceData
       public ReferenceDataDomainGridControl()
       {
          this.InitializeComponent();
+         m_ViewModel = new ReferenceDataDomainViewModel();
          DataContext = m_ViewModel;
       }
 

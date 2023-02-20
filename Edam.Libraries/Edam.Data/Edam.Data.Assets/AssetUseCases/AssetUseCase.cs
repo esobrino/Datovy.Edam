@@ -96,6 +96,11 @@ namespace Edam.Data.AssetUseCases
          List<AssetUseCase> cases, TableColumnsInfo columns)
       {
          List<AssetUseCaseElement> r = new List<AssetUseCaseElement>();
+         if (cases == null)
+         {
+            return r;
+         }
+
          foreach (var i in cases)
          {
             r.AddRange(i.ToUseCaseElementList(columns));

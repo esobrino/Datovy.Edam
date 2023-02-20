@@ -1,8 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
-  <ItemGroup />
-  <ItemGroup />
+  <ItemGroup>
+    <Page Update="Controls\Projects\ProjectFileEditorControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\Projects\ProjectViewerControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\Assets\AssetMapSidePanelControl.xaml">
       <SubType>Designer</SubType>
@@ -108,11 +116,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\Assets\AssetDataElementGridControl.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Controls\Projects\ProjectFileEditorControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

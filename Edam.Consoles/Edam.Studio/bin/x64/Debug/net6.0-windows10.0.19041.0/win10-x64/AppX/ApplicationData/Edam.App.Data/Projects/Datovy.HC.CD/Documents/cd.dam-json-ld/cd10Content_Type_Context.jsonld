@@ -1,0 +1,21 @@
+{
+  "@context": {
+      "cd10": "http://www.datovy.com/hc/cd/Message/#",
+      "type_ID": "cd10:Type_ID",
+      "description": "cd10:Description",
+      "local_Type_ID": "cd10:Local_Type_ID",
+      "regional_Type_ID": "cd10:Regional_Type_ID",
+      "source_ID": "cd10:Source_ID",
+      "tenant_ID": "cd10:Tenant_ID",
+      "data_Owner_ID": "cd10:Data_Owner_ID",
+      "agency_Reporting_ID": "cd10:Agency_Reporting_ID",
+      "sequence_Number": "cd10:Sequence_Number",
+      "effective_DateTime": "cd10:Effective_DateTime",
+      "effective_End_DateTime": "cd10:Effective_End_DateTime",
+      "version_Number": "cd10:Version_Number",
+      "created_DateTime": "cd10:Created_DateTime",
+      "updated_DateTime": "cd10:Updated_DateTime",
+      "record_Status_Code_ID": "cd10:Record_Status_Code_ID",
+      "session_Updated_ID": "cd10:Session_Updated_ID"
+   }
+}

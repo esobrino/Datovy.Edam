@@ -1,0 +1,8 @@
+{
+  "@context": {
+      "cd8": "http://www.datovy.com/hc/cd/Application/#",
+      "session": "cd8:Session",
+      "access_Token": "cd8:Access_Token",
+      "app_Message_Code": "cd8:App_Message_Code"
+   }
+}
