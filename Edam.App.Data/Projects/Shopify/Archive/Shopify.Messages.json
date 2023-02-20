@@ -221,7 +221,10 @@
 				"verified_email": true,
 				"multipass_identifier": null,
 				"tax_exempt": false,
-				"tax_exemptions": {},
+                "tax_exemptions": [
+                    "CA_STATUS_CARD_EXEMPTION",
+                    "CA_BC_RESELLER_EXEMPTION"
+                ],
 				"phone": "+13125551212",
 				"tags": "loyal",
 				"last_order_name": "#1001",
@@ -483,7 +486,10 @@
 				"verified_email": true,
 				"multipass_identifier": null,
 				"tax_exempt": false,
-				"tax_exemptions": {},
+                "tax_exemptions": [
+                    "CA_STATUS_CARD_EXEMPTION",
+                    "CA_BC_RESELLER_EXEMPTION"
+                ],
 				"phone": "+13125551212",
 				"tags": "loyal",
 				"currency": "USD",

@@ -10,6 +10,7 @@ using config = Edam.Data.AssetManagement.Helpers.ConfigurationHelper;
 using Edam.Data.AssetProject;
 using Edam.Data.Asset.Services;
 using app = Edam.Application;
+using Edam.Application;
 
 namespace Edam.Test.Library.Application
 {
@@ -28,6 +29,12 @@ namespace Edam.Test.Library.Application
          return Project.SetDefaultFullPath(String.Empty);;
       }
 
+      public static string GetApplicationDataLocation()
+      {
+         return Environment.GetFolderPath(
+            Environment.SpecialFolder.MyDocuments);
+      }
+
       public static void MoveToApplicationInstalledLocation()
       {
          string path = GetApplicationInstalledLocation();
@@ -40,6 +47,11 @@ namespace Edam.Test.Library.Application
       {
          // setup app working directory
          MoveToApplicationInstalledLocation();
+
+         // setup app data folder
+         AppData.SetFolderPath(GetApplicationDataLocation());
+
+         var appDataLocation = GetApplicationDataLocation();
 
          app.Session.SessionId = Guid.NewGuid().ToString();
          Edam.Security.SecuredKeysVault.OpenVault();

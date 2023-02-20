@@ -306,7 +306,7 @@ namespace Edam.Data.DataItem
          {
             dataType = ns.Prefix + ":" + parentName + TypePostfix;
             originalDataType = parentName;
-            elementName = ns.Prefix + ":" + parentName + DocumentPostfix;
+            elementName = ns.Prefix + ":" + parentName;
             elementOriginalName = parentName;
          }
          else
@@ -328,8 +328,6 @@ namespace Edam.Data.DataItem
                   parent.ElementQualifiedName.Prefix, parent.ElementName),
             MinOccurrence = 0,
             MaxOccurrence = 1,
-            Occurs = item.Type == ItemInstanceType.Array ? (
-               item.IsRequired ? "(1:1)" : "(0:1") : "(0:*)",
             ElementQualifiedName =
                new QualifiedNameInfo(ns.Prefix, elementName),
             ElementType = ElementType.element,
@@ -343,6 +341,15 @@ namespace Edam.Data.DataItem
             OriginalDataType = originalDataType,
             Tags = item.Tags == null ? String.Empty : item.Tags
          };
+
+         if (item.Type == ItemInstanceType.Array || item.MaxOccursUnbounded)
+         {
+            a.Occurs = item.IsRequired ? "(1:*)" : "(0:*)";
+         }
+         else
+         {
+            a.Occurs = item.IsRequired ? "(1:1)" : "(0:1)";
+         }
 
          a.Annotation.Clear();
          if (!String.IsNullOrWhiteSpace(item.Description))

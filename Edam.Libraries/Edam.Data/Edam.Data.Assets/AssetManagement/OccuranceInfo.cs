@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Numerics;
+
 namespace Edam.Data.AssetManagement
 {
    public class OccuranceInfo
@@ -57,9 +59,18 @@ namespace Edam.Data.AssetManagement
          if (!(int.TryParse(l[0], out int mn) ||
             String.IsNullOrWhiteSpace(l[0])))
             mn = 0;
-         if (!(int.TryParse(l[1], out int mx) ||
+
+         int mx;
+         if (l[1] == "*")
+         {
+            mx = int.MaxValue;
+         }
+         else if (!(int.TryParse(l[1], out mx) ||
             String.IsNullOrWhiteSpace(l[1])))
+         {
             mx = 1;
+         }
+
          o.MinOccurance = mn;
          o.MaxOccurance = mx;
          return o;

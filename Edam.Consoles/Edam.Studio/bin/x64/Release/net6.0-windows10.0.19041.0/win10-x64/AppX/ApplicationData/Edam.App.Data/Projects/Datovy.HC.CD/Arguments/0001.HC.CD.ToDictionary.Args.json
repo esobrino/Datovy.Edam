@@ -14,7 +14,7 @@
       "RootElementName": "cd:Disease_Surveillance_Document"
    },
    "Project": {
-      "Name": "Communicable Diseases Database",
+      "Name": "Datovy.HC.CD",
       "VersionId": "v1r0"
    },
    "Process": {

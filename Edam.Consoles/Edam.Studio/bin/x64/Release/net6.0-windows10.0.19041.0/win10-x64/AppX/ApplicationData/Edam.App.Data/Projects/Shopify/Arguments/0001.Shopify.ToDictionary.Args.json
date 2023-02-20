@@ -11,7 +11,7 @@
       "Uri": "http://www.shopify.com/api/msg",
       "Prefix": "sfy",
       "Extension": "",
-      "RootElementName": "cd:Shopify_Api"
+      "RootElementName": "sfy:Shopify_Api_Document"
    },
    "Project": {
       "Name": "Shopify",

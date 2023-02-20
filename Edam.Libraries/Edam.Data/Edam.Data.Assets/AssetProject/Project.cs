@@ -55,11 +55,12 @@ namespace Edam.Data.AssetProject
       /// </summary>
       public static void InitializeProject()
       {
-         m_ProjectsPath = AppSettings.GetString(config.ASSET_PROJECTS_PATH);
+         m_ProjectsPath = m_ProjectsPath ??
+            AppSettings.GetString(config.ASSET_PROJECTS_PATH);
 
          if (String.IsNullOrWhiteSpace(m_ConsolePath))
          {
-            m_ConsolePath = config.GetAbsolutePath(
+            m_ConsolePath = m_ProjectsPath ?? config.GetAbsolutePath(
                AppSettings.GetString(config.ASSET_CONSOLE_PATH));
          }
 

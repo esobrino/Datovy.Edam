@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="f4cc7158-940a-46c7-a1b3-27c41674f5d2" Publisher="CN=esobr" Version="1.0.0.0" ProcessorArchitecture="x64" />
+  <Identity Name="f4cc7158-940a-46c7-a1b3-27c41674f5d2" Publisher="CN=KnowTech Inc." Version="1.0.0.0" ProcessorArchitecture="x64" />
   <Properties>
     <DisplayName>Edam.Studio</DisplayName>
     <PublisherDisplayName>esobr</PublisherDisplayName>

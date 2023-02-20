@@ -9,7 +9,7 @@
     <SolutionConfiguration>Debug|x64</SolutionConfiguration>
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>f4cc7158-940a-46c7-a1b3-27c41674f5d2</PackageIdentityName>
-    <PackageIdentityPublisher>CN=esobr</PackageIdentityPublisher>
+    <PackageIdentityPublisher>CN=KnowTech Inc.</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\prjs\Datovy.Edam\Edam.Consoles\Edam.Studio\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>

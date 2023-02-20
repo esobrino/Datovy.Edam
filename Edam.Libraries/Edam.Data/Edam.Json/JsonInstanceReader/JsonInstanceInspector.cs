@@ -123,7 +123,7 @@ namespace Edam.Json.JsonInstanceReader
                }
             }
 
-            ItemInstanceItemInfo citem = new ItemInstanceItemInfo();
+            ItemInstanceItemInfo citem = new ItemInstanceItemInfo(); ;
             citem.Parent = parentType;
 
             if (item.Type == JTokenType.Property)
@@ -142,6 +142,8 @@ namespace Edam.Json.JsonInstanceReader
             {
                foreach(var ctoken in item.Children<JToken>())
                {
+                  citem = new ItemInstanceItemInfo();
+                  citem.Parent = parentType;
                   ReadProperty(ctoken as JProperty, parentType, citem);
                   childList.Add(citem);
                   if (citem.Name == null)
@@ -156,8 +158,18 @@ namespace Edam.Json.JsonInstanceReader
                citem.Value = val.ToString();
                citem.Type = GetType(item.Type);
                citem.Path = item.Path.ToString();
+               citem.MaxOccursUnbounded = true;
                citem.SetName();
-               childList.Add(citem);
+
+               parentType.Type = citem.Type;
+               parentType.DataType = citem.Type.ToString();
+               parentType.Value = val.ToString();
+               parentType.IsValue = true;
+               parentType.MaxOccursUnbounded = true;
+               parentType.Name = citem.Name;
+               parentType.OriginalName = citem.Name;
+
+               childList.Add(parentType);
                break;
             }
             else
@@ -205,14 +217,13 @@ namespace Edam.Json.JsonInstanceReader
                   childItem.Type = GetType(child.Type);
                   childItem.Path = child.Path.ToString();
                   childItem.SetName();
+                  childItem.DataType = childItem.Name + AssetItem.TypePostfix;
                }
 
-               //type.Path = jprop.Path.ToString();
-               //type.Name = jprop.Name;
-               //type.Value = jprop.Value.ToString();
                type.Path = child.Path.ToString();
                type.Type = GetType(child.Type);
                type.SetName();
+               type.DataType = type.Name + AssetItem.TypePostfix;
             }
             else if (child.Type == JTokenType.Array && childItem != null)
             {
@@ -221,12 +232,16 @@ namespace Edam.Json.JsonInstanceReader
                   childItem.Type = GetType(child.Type);
                   childItem.Path = child.Path.ToString();
                   childItem.SetName();
+                  childItem.DataType = childItem.Name + AssetItem.TypePostfix +
+                     AssetItem.TypePostfix;
                }
 
                type.Path = child.Path;
                type.Type = GetType(child.Type);
                type.SetName();
                type.Name = type.Name + "_";
+               type.DataType = type.Name + AssetItem.TypePostfix;
+               type.MaxOccursUnbounded = true;
             }
             else if (child.Type != JTokenType.Property && childItem != null)
             {
@@ -235,6 +250,11 @@ namespace Edam.Json.JsonInstanceReader
                childItem.Type = GetType(val.Type);
                childItem.Path = child.Path;
                childItem.SetName();
+               childItem.IsValue = true;
+               if (childItem.Type == ItemInstanceType.Null)
+               {
+                  childItem.DataType = "String";
+               }
                return type;
             }
             else
@@ -243,10 +263,19 @@ namespace Edam.Json.JsonInstanceReader
             }
 
             ReadChildren(child.Children<JToken>(), type, children);
+
+            if (type.IsValue)
+            {
+               childItem.Type = type.Type;
+               childItem.DataType = type.DataType;
+               childItem.IsValue = true;
+               childItem.Value = type.Value;
+               childItem.MaxOccursUnbounded = type.MaxOccursUnbounded;
+            }
          }
          type.Children = children;
 
-         if (!Types.ContainsKey(type.Name))
+         if (!Types.ContainsKey(type.Name) && !type.IsValue)
          {
             Types.Add(type.Name, type);
          }

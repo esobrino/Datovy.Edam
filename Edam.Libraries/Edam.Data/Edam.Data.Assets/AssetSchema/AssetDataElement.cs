@@ -66,8 +66,13 @@ namespace Edam.Data.AssetSchema
       public string Occurs
       {
          get => GetOccurance().Text;
-         set => m_Occurance.Text = value == null ? 
-            String.Empty : value.Replace(" ","");
+         set
+         {
+            m_Occurance.Text = value == null ?
+            String.Empty : value.Replace(" ", "");
+            MinOccurrence = (int)m_Occurance.MinOccurance;
+            MaxOccurrence = (int)m_Occurance.MaxOccurance;
+         }
       }
 
       public string DataType

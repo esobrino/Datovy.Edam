@@ -18,6 +18,9 @@ namespace Edam.Data.DataItem
       public string Description { get; set; }
       public string Path { get; set; }
       public string Value { get; set; }
+
+      public bool MaxOccursUnbounded = false;
+
       public ItemInstanceType Type { get; set; }
       public DataElementKind Kind { get; set; } = DataElementKind.Property;
 
@@ -34,6 +37,7 @@ namespace Edam.Data.DataItem
       public bool IsPrimaryKey { get; set; } = false;
       public bool IsIdentity { get; set; } = false;
       public bool IsRequired { get; set; } = false;
+      public bool IsValue { get; set; } = false;
 
       public string Tags { get; set; }
 
@@ -75,7 +79,14 @@ namespace Edam.Data.DataItem
             OriginalName = last;
          }
 
-         int pindx = Name.IndexOf(':');
+         int pindx = Name.IndexOf('[');
+         if (pindx != -1)
+         {
+            Name = Name.Substring(0, pindx);
+            OriginalName = Name;
+         }
+
+         pindx = Name.IndexOf(':');
          if (pindx != -1)
          {
             Prefix = Name.Substring(0, pindx);

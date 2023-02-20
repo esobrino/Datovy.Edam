@@ -247,6 +247,12 @@ namespace Edam.WinUI.Controls.Application
          return localFolder.Path;
       }
 
+      public static string GetApplicationDataLocation()
+      {
+         return Environment.GetFolderPath(
+            Environment.SpecialFolder.MyDocuments);
+      }
+
       public static void MoveToApplicationInstalledLocation()
       {
          string path = GetApplicationInstalledLocation();
@@ -294,9 +300,14 @@ namespace Edam.WinUI.Controls.Application
          // setup default project
          Data.AssetProject.Project.SetDefaultFullPath(ilocation);
 
-         // setup app working directory
+         // setup app working folder
          MoveToApplicationInstalledLocation();
 
+         // setup app data folder
+         AppData.SetFolderPath(GetApplicationDataLocation() + "/Edam/");
+         //AppData.CopyFolder("");
+
+         // setup the session or other resources...
          app.Session.SessionId = Guid.NewGuid().ToString();
          app.Session.OrganizationId = AppSettings.GetDefaultOrganizationId();
          Edam.Security.SecuredKeysVault.OpenVault();

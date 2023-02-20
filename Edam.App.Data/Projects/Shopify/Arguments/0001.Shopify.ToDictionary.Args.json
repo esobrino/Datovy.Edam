@@ -7,11 +7,11 @@
 		"Description": "Shopify API Message Entities"
 	},
 	"Namespace": {
-		"OrganizationDomainId": "SHOPIFY",
+		"OrganizationDomainId": "Shopify",
 		"Uri": "http://www.shopify.com/api/msg",
 		"Prefix": "sfy",
 		"Extension": "",
-		"RootElementName": "cd:Output_Document"
+		"RootElementName": "sfy:Shopify_Api_Document"
 	},
 	"Project": {
 		"Name": "Shopify",
