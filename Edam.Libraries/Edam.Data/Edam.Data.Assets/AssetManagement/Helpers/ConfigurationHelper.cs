@@ -51,12 +51,12 @@ namespace Edam.Data.AssetManagement.Helpers
       /// </summary>
       /// <param name="path">path to examine</param>
       /// <returns>absolute path is returned</returns>
-      public static string GetAbsolutePath(string path)
+      public static string GetAbsoluteAppDataPath(string path)
       {
          // is an absolute path?  if not find application path...
          if (path.IndexOf(':') == -1)
          {
-            path = AppSettings.ApplicationDirectory + path;
+            path = AppSettings.ApplicationDataFolder + path;
          }
          return path;
       }
@@ -71,25 +71,19 @@ namespace Edam.Data.AssetManagement.Helpers
          // is an absolute path?  if not find application path...
          if (path.IndexOf(ABSOLUTE_FILE_URI_HEADER) == -1)
          {
-            path = ABSOLUTE_FILE_URI_HEADER + GetAbsolutePath(path);
+            path = ABSOLUTE_FILE_URI_HEADER + GetAbsoluteAppDataPath(path);
          }
          return path;
       }
 
       public static String GetDefaultFolderInputhPath()
       {
-         return GetAbsolutePath(AppSettings.GetString(DEFAULT_IN_PATH));
+         return GetAbsoluteAppDataPath(AppSettings.GetString(DEFAULT_IN_PATH));
       }
 
       public static String GetDefaultFolderOutputPath()
       {
-         return GetAbsolutePath(AppSettings.GetString(DEFAULT_OUT_PATH));
-      }
-
-      public static String GetDefaultFolderDocument()
-      {
-         return FolderFileHelper.GetFullPath(
-            Environment.SpecialFolder.MyDocuments);
+         return GetAbsoluteAppDataPath(AppSettings.GetString(DEFAULT_OUT_PATH));
       }
 
    }

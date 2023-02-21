@@ -38,15 +38,18 @@ namespace Edam.Data.AssetProject
       private static string m_ProjectsPath = null;
 
       /// <summary>
-      /// Set Default Full Project Path using given base path.
+      /// Set Project Default Full Path using given base path.
       /// </summary>
       /// <param name="basePath">base path</param>
       /// <returns>full path is returned</returns>
-      public static string SetDefaultFullPath(string basePath)
+      public static string SetDefaultFullPath(string basePath = null)
       {
-         string fullPath = basePath +
+         string consolePath =
             AppSettings.GetString(config.ASSET_CONSOLE_PATH);
-         m_ConsolePath = config.GetAbsolutePath(fullPath);
+         string fullPath = basePath + 
+            (String.IsNullOrWhiteSpace(consolePath) ?
+               AppData.GetApplicationDataFolder() : consolePath);
+         m_ConsolePath = config.GetAbsoluteAppDataPath(fullPath);
          return m_ConsolePath;
       }
 
@@ -60,7 +63,7 @@ namespace Edam.Data.AssetProject
 
          if (String.IsNullOrWhiteSpace(m_ConsolePath))
          {
-            m_ConsolePath = m_ProjectsPath ?? config.GetAbsolutePath(
+            m_ConsolePath = m_ProjectsPath ?? config.GetAbsoluteAppDataPath(
                AppSettings.GetString(config.ASSET_CONSOLE_PATH));
          }
 
@@ -75,12 +78,17 @@ namespace Edam.Data.AssetProject
       /// <returns>path is returned as an absolute path</returns>
       public static string GetConsoleDataPath(bool getRelativePath = false)
       {
+         if (!String.IsNullOrWhiteSpace(m_ConsolePath))
+         {
+            return m_ConsolePath;
+         }
+
          var dataPath = AppSettings.GetString(config.ASSET_DATA_PATH);
 
          var consolePath = AppSettings.GetString(config.ASSET_CONSOLE_PATH);
          if (String.IsNullOrWhiteSpace(consolePath))
          {
-            m_ConsolePath = config.GetAbsolutePath(dataPath);
+            m_ConsolePath = config.GetAbsoluteAppDataPath("/" + dataPath);
          }
          else
          {
@@ -104,7 +112,7 @@ namespace Edam.Data.AssetProject
          }
 
          string consolePath = String.IsNullOrWhiteSpace(m_ConsolePath) ?
-            config.GetAbsolutePath(
+            config.GetAbsoluteAppDataPath(
                AppSettings.GetString(config.ASSET_CONSOLE_PATH)) :
             m_ConsolePath;
 

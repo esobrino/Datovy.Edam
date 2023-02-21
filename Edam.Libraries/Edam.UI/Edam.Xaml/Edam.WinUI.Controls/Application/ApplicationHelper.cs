@@ -28,6 +28,7 @@ using Edam.Data;
 using System.IO;
 using CommunityToolkit.WinUI.UI.Controls;
 using Edam.Application;
+using Edam.Data.AssetProject;
 
 namespace Edam.WinUI.Controls.Application
 {
@@ -43,6 +44,7 @@ namespace Edam.WinUI.Controls.Application
       public const string HOME_CONTROL = "HomeControl";
       private const string PROJECT_VIEW = "ProjectView";
       private const string REFERENCE_LIST_VIEW = "ReferenceListView";
+      public const string EDAM_STUDIO = "Edam.Studio";
 
       // TODO: put license in config file
       public const string REFERENCE_DATA = "Reference Data";
@@ -247,18 +249,6 @@ namespace Edam.WinUI.Controls.Application
          return localFolder.Path;
       }
 
-      public static string GetApplicationDataLocation()
-      {
-         return Environment.GetFolderPath(
-            Environment.SpecialFolder.MyDocuments);
-      }
-
-      public static void MoveToApplicationInstalledLocation()
-      {
-         string path = GetApplicationInstalledLocation();
-         Directory.SetCurrentDirectory(path);
-      }
-
       #endregion
       #region -- 4.00 - Connection String resolution
 
@@ -297,15 +287,13 @@ namespace Edam.WinUI.Controls.Application
          // setup Code Editor path
          ViewModels.CodeEditorViewModel.GetDefaultCodeEditorUri(ilocation);
 
+         // prepare AppData folder and create/copy AppData folder...
+         AppData.InitializeAppData(EDAM_STUDIO);
+         AppData.InitializeAppDataCopy(
+            GetApplicationInstalledLocation() + "/" + AppData.APPLICATION_DATA);
+
          // setup default project
-         Data.AssetProject.Project.SetDefaultFullPath(ilocation);
-
-         // setup app working folder
-         MoveToApplicationInstalledLocation();
-
-         // setup app data folder
-         AppData.SetFolderPath(GetApplicationDataLocation() + "/Edam/");
-         //AppData.CopyFolder("");
+         Project.SetDefaultFullPath();
 
          // setup the session or other resources...
          app.Session.SessionId = Guid.NewGuid().ToString();

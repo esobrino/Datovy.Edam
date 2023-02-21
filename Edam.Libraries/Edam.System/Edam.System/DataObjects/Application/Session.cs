@@ -655,7 +655,7 @@ namespace Edam.Application
       public static string GetApplicationFullPath(
          string folderName, string fileName, string extension = null)
       {
-         return app.AppSettings.ApplicationDirectory +
+         return app.AppSettings.ApplicationFolder +
             folderName + "/" + fileName +
             (String.IsNullOrWhiteSpace(extension) ?
                String.Empty : "." + extension);

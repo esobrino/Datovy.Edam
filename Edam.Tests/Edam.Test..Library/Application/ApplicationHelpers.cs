@@ -11,12 +11,14 @@ using Edam.Data.AssetProject;
 using Edam.Data.Asset.Services;
 using app = Edam.Application;
 using Edam.Application;
+using Edam.Data.Asset;
 
 namespace Edam.Test.Library.Application
 {
 
    public class ApplicationHelpers
    {
+      public const string EDAM_STUDIO = "Edam.Studio";
 
       #region -- 4.00 - Manage Application Folders
 
@@ -26,30 +28,38 @@ namespace Edam.Test.Library.Application
       /// <returns>Installed location is returned</returns>
       public static string GetApplicationInstalledLocation()
       {
-         return Project.SetDefaultFullPath(String.Empty);;
+         string consolePath =
+            AppSettings.GetString(config.ASSET_CONSOLE_PATH);
+         string fullPath = 
+            (String.IsNullOrWhiteSpace(consolePath) ?
+               "c:/prjs/" : consolePath);
+         return config.GetAbsoluteAppDataPath(fullPath);
       }
 
+      /// <summary>
+      /// Get Application Data Location.
+      /// </summary>
+      /// <returns>the "MyDocuments" folder path is returned</returns>
       public static string GetApplicationDataLocation()
       {
          return Environment.GetFolderPath(
             Environment.SpecialFolder.MyDocuments);
       }
 
-      public static void MoveToApplicationInstalledLocation()
-      {
-         string path = GetApplicationInstalledLocation();
-         Directory.SetCurrentDirectory(path);
-      }
-
       #endregion
 
+      /// <summary>
+      /// Initialize Application (must be called once upon app start-up).
+      /// </summary>
       public static void InitializeApplication()
       {
-         // setup app working directory
-         MoveToApplicationInstalledLocation();
+         // prepare AppData folder and create/copy AppData folder...
+         AppData.InitializeAppData(EDAM_STUDIO);
+         AppData.InitializeAppDataCopy(
+            GetApplicationInstalledLocation() + AppData.APPLICATION_DATA);
 
-         // setup app data folder
-         AppData.SetFolderPath(GetApplicationDataLocation());
+         // setup default project
+         Project.SetDefaultFullPath();
 
          var appDataLocation = GetApplicationDataLocation();
 

@@ -5,18 +5,71 @@ using System.Text;
 using System.IO;
 
 using Edam.Diagnostics;
+using Edam.InOut;
 
 namespace Edam.Application
 {
 
    public class AppData
    {
+      public const string APPLICATION_DATA = "ApplicationData";
+      public const string ASSET_DATA_PATH = "AppSettings:AssetDataPath";
 
       private static string m_FolderPath;
+      private static bool m_NeedsAppData = false;
 
       public static string FolderPath
       {
          get { return m_FolderPath; }
+      }
+
+      /// <summary>
+      /// Initialize the default location in "MyDocuments" folder where the app
+      /// data will recide.
+      /// </summary>
+      /// <param name="applicationNameId">name of the application data folder
+      /// within the "MyDocuments" location</param>
+      /// <returns>returns true if further initialization is needed</returns>
+      public static void InitializeAppData(string applicationNameId)
+      {
+         // setup app data folder
+         string folderPath = GetApplicationDataLocation() +
+            "/" + applicationNameId + "/";
+         SetFolderPath(folderPath);
+
+         // if exists we are done...
+         if (Directory.Exists(folderPath))
+         {
+            m_NeedsAppData = false;
+            return;
+         }
+         m_NeedsAppData = true;
+
+         // create directory
+         Directory.CreateDirectory(folderPath);
+
+         // move to this directory
+         Directory.SetCurrentDirectory(m_FolderPath);
+      }
+
+      /// <summary>
+      /// Get the "MyDocuments" folder as the AppData folder.
+      /// </summary>
+      /// <returns>folder full path is returned</returns>
+      public static string GetApplicationDataLocation()
+      {
+         return Environment.GetFolderPath(
+            Environment.SpecialFolder.MyDocuments);
+      }
+
+      /// <summary>
+      /// Get Application Data Folder.
+      /// </summary>
+      /// <returns>folder path is returned</returns>
+      public static string GetApplicationDataFolder()
+      {
+         return GetApplicationDataLocation() + "/" +
+            AppSettings.GetString(ASSET_DATA_PATH);
       }
 
       /// <summary>
@@ -28,54 +81,6 @@ namespace Edam.Application
          m_FolderPath = m_FolderPath ?? folderPath;
       }
 
-      private static void DirectoryCopy(
-         string sourceDirName, string destDirName, bool copySubDirs)
-      {
-         DirectoryInfo dir = new DirectoryInfo(sourceDirName);
-         DirectoryInfo[] dirs = dir.GetDirectories();
-
-         // If the source directory does not exist, throw an exception.
-         if (!dir.Exists)
-         {
-            throw new DirectoryNotFoundException(
-                "Source directory does not exist or could not be found: "
-                + sourceDirName);
-         }
-
-         // If the destination directory does not exist, create it.
-         if (!Directory.Exists(destDirName))
-         {
-            Directory.CreateDirectory(destDirName);
-         }
-
-
-         // Get the file contents of the directory to copy.
-         FileInfo[] files = dir.GetFiles();
-
-         foreach (FileInfo file in files)
-         {
-            // Create the path to the new copy of the file.
-            string temppath = Path.Combine(destDirName, file.Name);
-
-            // Copy the file.
-            file.CopyTo(temppath, false);
-         }
-
-         // If copySubDirs is true, copy the subdirectories.
-         if (copySubDirs)
-         {
-
-            foreach (DirectoryInfo subdir in dirs)
-            {
-               // Create the subdirectory.
-               string temppath = Path.Combine(destDirName, subdir.Name);
-
-               // Copy the subdirectories.
-               DirectoryCopy(subdir.FullName, temppath, copySubDirs);
-            }
-         }
-      }
-
       /// <summary>
       /// Copy given source folder into the AppData folder.
       /// </summary>
@@ -84,22 +89,36 @@ namespace Edam.Application
       public static ResultLog CopyFolder(string sourceFolderPath)
       {
          ResultLog resultLog = new ResultLog();
-         if (Directory.Exists(sourceFolderPath))
+         if (!Directory.Exists(sourceFolderPath))
          {
-            resultLog.Succeeded();
+            resultLog.Failed(EventCode.Failed);
             return resultLog;
          }
 
          try
          {
-            DirectoryCopy(sourceFolderPath, m_FolderPath, true);
+            FolderHelper.FolderCopy(sourceFolderPath, m_FolderPath, true);
+            m_NeedsAppData = false;
             resultLog.Succeeded();
          }
          catch (Exception ex)
          {
             resultLog.Failed(ex);
          }
+
          return resultLog;
+      }
+
+      /// <summary>
+      /// Initialize a Application Data Copy if needed.
+      /// </summary>
+      /// <param name="sourceFolderPath">source folder path</param>
+      public static void InitializeAppDataCopy(string sourceFolderPath)
+      {
+         if (m_NeedsAppData)
+         {
+            CopyFolder(sourceFolderPath);
+         }
       }
 
    }

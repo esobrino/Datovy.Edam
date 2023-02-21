@@ -21,7 +21,8 @@ namespace Edam.Application
       public const string DEFAULT_ORGANIZATION_DOMAIN_URI =
          "AppSettings:DefaultOrganizationDomainUri";
 
-      public static string ApplicationDirectory { get; private set; }
+      public static string ApplicationDataFolder { get; private set; }
+      public static string ApplicationFolder { get; private set; }
       private static IConfiguration m_Configuration;
 
       static AppSettings()
@@ -30,7 +31,8 @@ namespace Edam.Application
             .AddJsonFile(
                APP_CONFIG_FILE_PATH, optional: true, reloadOnChange: true)
             .Build();
-         ApplicationDirectory = AppDomain.CurrentDomain.BaseDirectory;
+         ApplicationFolder = AppDomain.CurrentDomain.BaseDirectory;
+         ApplicationDataFolder = AppData.GetApplicationDataLocation();
       }
 
       /// <summary>

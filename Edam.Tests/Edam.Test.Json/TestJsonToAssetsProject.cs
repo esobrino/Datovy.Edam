@@ -7,6 +7,7 @@ using Edam.Data.AssetConsole.Services;
 using Edam.Data.AssetConsole;
 using Edam.Data.Asset.Services;
 using Edam.InOut;
+using Edam.Application;
 
 namespace Edam.Test.Json
 {
@@ -26,8 +27,9 @@ namespace Edam.Test.Json
       public void TestJsonToAssets()
       {
          ItemBaseInfo item = new ItemBaseInfo();
+         string appPath = AppData.GetApplicationDataFolder();
          item.FromFullPath(
-            "C:/prjs/ApplicationData/Edam.App.Data/Projects/Shopify/" +
+            appPath + "Projects/Shopify/" +
             "Arguments/0001.Shopify.ToDictionary.Args.json", null);
          ResultsLog<object> presults = ProjectConsole.ProcessItem(item);
 
