@@ -282,10 +282,9 @@ namespace Edam.WinUI.Controls.Application
       /// </summary>
       public static void InitializeApplication()
       {
-         string ilocation = GetApplicationInstalledLocation();
-
          // setup Code Editor path
-         ViewModels.CodeEditorViewModel.GetDefaultCodeEditorUri(ilocation);
+         ViewModels.CodeEditorViewModel.GetDefaultCodeEditorUri(
+            AppData.GetApplicationDataResourcesFolder());
 
          // prepare AppData folder and create/copy AppData folder...
          AppData.InitializeAppData(EDAM_STUDIO);

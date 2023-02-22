@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppInstaller
+	Uri="file:///c:/temp/edam.studio.pack/Edam.Studio_x64.appinstaller"
+	Version="1.0.0.0" xmlns="http://schemas.microsoft.com/appx/appinstaller/2017/2">
+	<MainPackage
+		Name="f4cc7158-940a-46c7-a1b3-27c41674f5d2"
+		Version="1.0.0.0"
+		Publisher="CN=KnowTech Inc."
+		Uri="file:///c:/temp/edam.studio.pack/Edam.Studio_1.0.0.0_x64_Test/Edam.Studio_1.0.0.0_x64.msix"
+		ProcessorArchitecture="x64" />
+	<Dependencies>
+		<Package
+			Name="Microsoft.WindowsAppRuntime.1.2"
+			Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+			ProcessorArchitecture="x64"
+			Uri="file:///c:/temp/edam.studio.pack/Edam.Studio_1.0.0.0_x64_Test/Dependencies/x64/Microsoft.WindowsAppRuntime.1.2.msix"
+			Version="2000.747.1945.0" />
+	</Dependencies>
+	<UpdateSettings>
+		<OnLaunch
+			HoursBetweenUpdateChecks="0" />
+	</UpdateSettings>
+</AppInstaller>

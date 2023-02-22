@@ -85,6 +85,12 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             return null;
          }
+
+         if (path[path.Length-1]== '/' || path[path.Length-1] == '\\')
+         {
+            path = path.Substring(0, path.Length-1);
+         }
+
          m_CodeEditorPath = ConfigurationHelper.GetAbsoluteFileUri(path + url);
          return m_CodeEditorPath;
       }

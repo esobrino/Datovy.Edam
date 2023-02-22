@@ -1,7 +1,0 @@
-{
-  "@context": {
-      "cd10": "http://www.datovy.com/hc/cd/Message/#",
-      "content_Type": "cd10:Content_Type",
-      "submission": "cd10:Submission"
-   }
-}

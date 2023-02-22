@@ -1,9 +1,0 @@
-{
-   "$schema": "http://json-schema.org//schema#",
-   "$id": "http://edd.schema.org/www.w3.org_2001_XMLSchema",
-   "type": "object",
-   "definitions": {
-   },
-   "properties": {
-   }
-}

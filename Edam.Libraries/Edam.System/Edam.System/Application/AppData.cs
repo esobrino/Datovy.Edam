@@ -73,6 +73,16 @@ namespace Edam.Application
       }
 
       /// <summary>
+      /// Get Application Data Folder.
+      /// </summary>
+      /// <returns>folder path is returned</returns>
+      public static string GetApplicationDataResourcesFolder()
+      {
+         return GetApplicationDataLocation() + "/" +
+            AppSettings.GetString(ASSET_DATA_PATH) + "Resources";
+      }
+
+      /// <summary>
       /// Set Folder Path.
       /// </summary>
       /// <param name="folderPath">folder path</param>

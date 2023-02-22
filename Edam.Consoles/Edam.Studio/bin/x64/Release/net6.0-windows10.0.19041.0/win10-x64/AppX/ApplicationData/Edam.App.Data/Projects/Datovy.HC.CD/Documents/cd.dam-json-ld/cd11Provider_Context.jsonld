@@ -1,7 +1,0 @@
-{
-  "@context": {
-      "cd11": "http://www.datovy.com/hc/cd/Provider/#",
-      "provider_Code": "cd11:Provider_Code",
-      "provider_Reference": "cd11:Provider_Reference"
-   }
-}

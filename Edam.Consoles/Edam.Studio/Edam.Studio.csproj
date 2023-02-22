@@ -13,6 +13,16 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <PackageCertificateThumbprint>5EA355E978382173A3A9B7194C02DDDFF6189445</PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GenerateAppInstallerFile>True</GenerateAppInstallerFile>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Never</AppxBundle>
+    <AppInstallerUri>c:/temp/edam.studio.pack</AppInstallerUri>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <PackageIcon>edam.logo.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\edam.logo.png" />
@@ -86,6 +96,25 @@
     <ProjectReference Include="..\..\Edam.Libraries\Edam.System\Edam.System\Edam.System.csproj" />
     <ProjectReference Include="..\..\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\Edam.WinUI.Controls.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\edam.logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <!-- 
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
@@ -95,7 +124,4 @@
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(ProjectDir)web\*.*&quot; &quot;$(TargetDir)\Appx\web&quot; /Y /I /E&#xD;&#xA;if not exist $(TargetDir)\Appx\ApplicationData mkdir $(TargetDir)\Appx\ApplicationData&#xD;&#xA;xcopy &quot;C:\prjs\Datovy.Edam\Edam.App.Data\*.*&quot; &quot;$(TargetDir)\Appx\ApplicationData\Edam.App.Data&quot; /Y /I /E /D&#xD;&#xA;" />
-  </Target>
 </Project>

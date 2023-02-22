@@ -97,8 +97,10 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Rel
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls\Controls\Utilities\TextEditorControl.xaml
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls\Controls\Web\WebBrowserControl.xaml
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls\DataTemplates\Domain.Record.Form.json
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls\DataTemplates\DataSource.Dialog.json
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls\DataTemplates\Project.NewProject.Dialog.json
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\DataTemplates\Domain.Record.Form.json
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\DataTemplates\DataSource.Dialog.json
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\DataTemplates\Project.NewProject.Dialog.json
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls.deps.json
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls.dll
@@ -127,9 +129,9 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Rel
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.Json.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.System.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.Data.Assets.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.Net.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.UI.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.UI.pri
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.Net.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.UI.DataModel.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.UI.DataModel.pri
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.Data.AssetDb.pdb
@@ -371,5 +373,3 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Rel
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\qualifiers.txt
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\qualifiers.txt.intermediate
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Release\net6.0-windows10.0.19041.0\MultipleQualifiersPerDimensionFound.txt
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\Edam.WinUI.Controls\DataTemplates\DataSource.Dialog.json
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Release\net6.0-windows10.0.19041.0\DataTemplates\DataSource.Dialog.json

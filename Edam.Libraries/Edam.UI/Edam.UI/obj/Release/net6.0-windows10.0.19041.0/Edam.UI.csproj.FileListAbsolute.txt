@@ -3,9 +3,15 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.UI.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.UI.pri
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Data.Assets.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Data.Templates.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.DataObjects.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Net.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.System.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Data.Assets.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.DataObjects.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.System.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Data.Templates.pdb
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Net.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\obj\Release\net6.0-windows10.0.19041.0\Edam.UI.csproj.AssemblyReference.cache
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\obj\Release\net6.0-windows10.0.19041.0\Edam.UI.GeneratedMSBuildEditorConfig.editorconfig
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\obj\Release\net6.0-windows10.0.19041.0\Edam.UI.AssemblyInfoInputs.cache
@@ -31,9 +37,3 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\obj\Release\net6.0-windows10.
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\obj\Release\net6.0-windows10.0.19041.0\qualifiers.txt
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\obj\Release\net6.0-windows10.0.19041.0\qualifiers.txt.intermediate
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\obj\Release\net6.0-windows10.0.19041.0\MultipleQualifiersPerDimensionFound.txt
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Data.Templates.dll
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.DataObjects.dll
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Net.dll
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.DataObjects.pdb
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Data.Templates.pdb
-C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Release\net6.0-windows10.0.19041.0\Edam.Net.pdb
