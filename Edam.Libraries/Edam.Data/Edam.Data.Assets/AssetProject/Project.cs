@@ -178,14 +178,18 @@ namespace Edam.Data.AssetProject
       /// <param name="projectName">project name</param>
       public static string GetProjectPath(string projectName)
       {
-         string projectname = m_ProjectsPath;
-         string [] l = projectname.Split("\\");
+         string projectname = m_ProjectsPath.Replace("\\","/");
+         if (projectname.EndsWith("/"))
+         {
+            projectname = projectname.Substring(0, projectname.Length - 1);
+         }
+         string [] l = projectname.Split("/");
          if (l.Length > 1)
          {
-            string pname = l[l.Length - 1].Replace("\\", "/").Replace("/","");
+            string pname = l[l.Length - 1].Replace("/","");
             if (pname == "Projects")
             {
-               return projectname + projectName + "/";
+               return projectname + "/" + projectName + "/";
             }
          }
          return projectname;

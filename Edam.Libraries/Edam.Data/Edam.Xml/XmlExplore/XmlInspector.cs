@@ -64,7 +64,8 @@ namespace Edam.Xml.XmlExplore
          m_SchemaSet = new XmlSchemaSet();
 
          // no URI list, try using arguments input-file if any
-         if (m_Arguments.UriList.Count == 0)
+         if (m_Arguments.UriList.Count == 0 && 
+            !String.IsNullOrEmpty(m_Arguments.InputFile.Full))
          {
             m_SchemaSet.Add(null, m_Arguments.InputFile.Full);
          }

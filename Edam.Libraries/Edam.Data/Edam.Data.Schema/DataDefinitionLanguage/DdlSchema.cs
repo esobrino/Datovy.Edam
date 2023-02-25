@@ -241,7 +241,9 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
             }
          }
 
-         string dsize = dataSize == "-1" ? "MAX" : dataSize;
+         // TODO: set the default size in the settings or as a config param...
+         string dsize = dataSize == "-1" || 
+            String.IsNullOrWhiteSpace(dataSize) ? "256" : dataSize;
 
          string dtype = VARCHAR;
          if (delement == null)

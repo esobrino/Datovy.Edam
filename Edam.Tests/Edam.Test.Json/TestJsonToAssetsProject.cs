@@ -32,13 +32,6 @@ namespace Edam.Test.Json
             appPath + "Projects/Shopify/" +
             "Arguments/0001.Shopify.ToDictionary.Args.json", null);
          ResultsLog<object> presults = ProjectConsole.ProcessItem(item);
-
-
-         //var results = AssetServiceHelper.Execute(
-         //   "C:/prjs/ApplicationData/Edam.App.Data/Projects/Shopify/" +
-         //   "Arguments/0001.Shopify.ToDictionary.Args.json", 
-         //   AssetConsoleProcedure.Unknown);
-
       }
    }
 

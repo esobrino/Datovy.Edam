@@ -76,6 +76,20 @@ namespace Edam.WinUI.Controls.DataModels
          Item = item;
       }
 
+      /// <summary>
+      /// Get a Project Item given a full path.
+      /// </summary>
+      /// <param name="fullPath">full path</param>
+      /// <returns>instance of ProjectItem is returned</returns>
+      public ProjectItem GetProjectItem(string fullPath)
+      {
+         ItemBaseInfo item = new ItemBaseInfo();
+         item.FromFullPath(fullPath, null);
+         ProjectItem projectItem = new ProjectItem(item);
+
+         return projectItem;
+      }
+
       public string GetFolderName()
       {
          if (String.IsNullOrWhiteSpace(ItemFolderPath))

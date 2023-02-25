@@ -37,6 +37,7 @@ namespace Edam.InOut
             System.IO.Directory.SetCurrentDirectory(folderPath);
          }
       }
+
    }
 
 }

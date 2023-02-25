@@ -1,0 +1,53 @@
+{
+   "@context": {
+      "edam": "http://www.datovy.com/edam/arguments"
+   },
+   "Domain": {
+      "DomainId": "Datovy.HC.RVCT",
+      "Description": "Report of Verified Case of Tuberculosis"
+   },
+   "Namespace": {
+      "OrganizationDomainId": "datovy.hc.rvct",
+      "Uri": "http://www.datovy.com/hc/rvct",
+      "Prefix": "rvct",
+      "Extension": "",
+      "RootElementName": "cd:RVCT_Document"
+   },
+   "Project": {
+      "Name": "Datovy.HC.RVCT",
+      "VersionId": "v1r0"
+   },
+   "Process": {
+      "RecordId": null,
+      "Name": "Datovy.HC.RVCT.ToAssets",
+      "OrganizationId": "Datovy",
+      "OrganizationDomainUri": null,
+      "ProcedureName": "XsdToAssets",
+      "ProcedureTag": "Xsd.XsdReader",
+      "SchemaType": 1,
+      "NextProcess": "",
+      "NextProcedure": [""]
+   },
+   "InputFile": {
+      "Extension": "xlsx",
+      "Name": "rvct_extension_document",
+      "Path": "./Files",
+      "Full": null
+   },
+   "OutputFile": {
+      "Extension": "xlsx",
+      "Name": "datovy.hc.rvct.dictionary",
+      "Path": "./Documents",
+      "Full": "./Documents/datovy.hc.rvct.dictionary.xlsx"
+   },
+   "UriList": [
+   ],
+   "InspectArguments": {
+      "ListLength": "1",
+      "MaxThreshold": "1"
+   },
+   "ConnectionString": "",
+   "ElementTransform": null,
+   "TextMapFilePath": "../../TextMaps/DdlTextMap.json"
+}
+

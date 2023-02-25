@@ -90,8 +90,12 @@ namespace Edam.Data.AssetManagement.Writers.Ddl
                   throw new Exception("Element with no-namespace found.");
                }
 
+               // get type name
+               var typeName = String.IsNullOrWhiteSpace(i.Type) ?
+                  i.EntityQualifiedNameText : i.Type;
+
                // new type is found? > add resource, and move to next...
-               if ((String.IsNullOrWhiteSpace(i.Type) || i.Type != typeId))
+               if ((String.IsNullOrWhiteSpace(typeName) || typeName != typeId))
                {
                   if (resource.Resources.Count > 0)
                   {
@@ -101,6 +105,12 @@ namespace Edam.Data.AssetManagement.Writers.Ddl
                      }
                      resourceSchema.Items.Add(resource);
                   }
+
+                  if (String.IsNullOrWhiteSpace(i.OriginalName))
+                  {
+                     i.OriginalName = i.ElementQualifiedName.OriginalName;
+                  }
+
                   resourceSchema = schm;
                   resource = new ResourceInfo
                   {
@@ -108,6 +118,7 @@ namespace Edam.Data.AssetManagement.Writers.Ddl
                      Name = i.OriginalName,
                      Namespace = nspace
                   };
+
                   typeId = i.Element;
                   continue;
                }
