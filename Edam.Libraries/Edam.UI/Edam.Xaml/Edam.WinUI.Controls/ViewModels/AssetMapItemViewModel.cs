@@ -361,6 +361,11 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             Context.SetSelectedMapItem(type, item);
          }
+         else
+         {
+            Context.ClearBookletItems();
+         }
+
          ParentControl.BookletChanged(this, args);
       }
 

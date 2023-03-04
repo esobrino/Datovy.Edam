@@ -12,11 +12,12 @@ using Edam.WinUI.Controls.DataModels;
 using Edam.Data.Books;
 using Edam.Data.Assets.AssetConsole;
 using Edam.Data.AssetUseCases;
+using System.Runtime.CompilerServices;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
 
-    public class DataMapSidePanelViewModel : ObservableObject
+   public class DataMapSidePanelViewModel : ObservableObject
    {
       private const string ChevronClose = "\xE96F";
       private const string ChevronOpen = "\xE970";
@@ -73,6 +74,7 @@ namespace Edam.WinUI.Controls.ViewModels
             if (m_SelectedMapItem != value)
             {
                m_SelectedMapItem = value;
+               Context.SetMapItemReferences(m_SelectedMapItem);
                OnPropertyChanged(nameof(SelectedMapItem));
             }
          }
@@ -120,6 +122,34 @@ namespace Edam.WinUI.Controls.ViewModels
          }
       }
 
+      private string m_MapItemDescription;
+      public string MapItemDescription
+      {
+         get { return m_MapItemDescription; }
+         set
+         {
+            if (m_MapItemDescription != value)
+            {
+               m_MapItemDescription = value;
+               OnPropertyChanged(nameof(MapItemDescription));
+            }
+         }
+      }
+
+      private string m_MapItemInstructions;
+      public string MapItemInstructions
+      {
+         get { return m_MapItemInstructions; }
+         set
+         {
+            if (m_MapItemInstructions != value)
+            {
+               m_MapItemInstructions = value;
+               OnPropertyChanged(nameof(MapItemInstructions));
+            }
+         }
+      }
+
       public DataMapSidePanelViewModel()
       {
          SelectedChevron = ChevronClose;
@@ -149,6 +179,14 @@ namespace Edam.WinUI.Controls.ViewModels
          {
             SelectedBooklet = Context.BookModel.Model.SelectedBooklet;
             SelectedMapItem = UseCase.SelectedMapItem;
+
+            MapItemDescription = 
+               SelectedMapItem != null ? SelectedMapItem.Description :
+               String.Empty;
+            MapItemInstructions = 
+               SelectedMapItem != null ? SelectedMapItem.Instructions :
+               String.Empty;
+
             //item = ItemSelected(DataMapItemType.Source, args);
          }
       }

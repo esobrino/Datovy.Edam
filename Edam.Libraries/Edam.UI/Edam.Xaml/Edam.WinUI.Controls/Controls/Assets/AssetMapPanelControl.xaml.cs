@@ -100,7 +100,7 @@ namespace Edam.WinUI.Controls.Assets
 
       private void ExecuteBook_Click(object sender, RoutedEventArgs e)
       {
-         //DataMapContext.PrepareUseCaseReport(ViewModel.Context);
+         ViewModel.Context.Execute(ViewModel.Context.UseCase.Book);
       }
 
    }

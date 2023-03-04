@@ -26,6 +26,10 @@ namespace Edam.WinUI.Controls.DataModels
       #region -- 1.00 - Properties and Fields declarations
 
       private DataMapContext m_Context;
+      public DataMapContext Context
+      {
+         get { return m_Context; }
+      }
 
       /// <summary>
       /// Items show all added booklets and (code and text) cells...

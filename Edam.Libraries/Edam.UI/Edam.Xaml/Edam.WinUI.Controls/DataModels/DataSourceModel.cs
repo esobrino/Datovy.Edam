@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 // -----------------------------------------------------------------------------
 using Edam.Helpers;
 using Edam.Data;
-using app = Edam.UI.App;
+using app = Edam.Application.Settings;
 
 namespace Edam.WinUI.Controls.DataModels
 {

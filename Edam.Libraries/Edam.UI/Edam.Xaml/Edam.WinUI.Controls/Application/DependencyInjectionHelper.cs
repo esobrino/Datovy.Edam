@@ -13,7 +13,7 @@ using helper = Edam.WinUI.Helpers;
 using Edam.InOut;
 using Edam.Data.Schema.ImportExport;
 using Edam.B2b;
-using UIApp = Edam.UI.App;
+using UIApp = Edam.Application.Settings;
 
 namespace Edam.WinUI.Helpers
 {

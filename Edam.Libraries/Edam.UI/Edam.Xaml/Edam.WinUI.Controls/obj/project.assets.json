@@ -2270,6 +2270,20 @@
           }
         }
       },
+      "Edam.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.DataObjects": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Application.dll": {}
+        }
+      },
       "Edam.B2b/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4894,6 +4908,20 @@
           "lib/netstandard2.1/YamlDotNet.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "Edam.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.DataObjects": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Application.dll": {}
         }
       },
       "Edam.B2b/1.0.0": {
@@ -7522,6 +7550,20 @@
           }
         }
       },
+      "Edam.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.DataObjects": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Application.dll": {}
+        }
+      },
       "Edam.B2b/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -10146,6 +10188,20 @@
           "lib/netstandard2.1/YamlDotNet.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "Edam.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.DataObjects": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Application.dll": {}
         }
       },
       "Edam.B2b/1.0.0": {
@@ -16485,6 +16541,11 @@
         "yamldotnet.nuspec"
       ]
     },
+    "Edam.Application/1.0.0": {
+      "type": "project",
+      "path": "../../../Edam.Application/Edam.Application/Edam.Application.csproj",
+      "msbuildProject": "../../../Edam.Application/Edam.Application/Edam.Application.csproj"
+    },
     "Edam.B2b/1.0.0": {
       "type": "project",
       "path": "../../../Edam.Data/Edam.B2b/Edam.B2b.csproj",
@@ -16564,6 +16625,7 @@
   "projectFileDependencyGroups": {
     "net6.0-windows10.0.19041": [
       "CommunityToolkit.WinUI.UI.Controls >= 7.1.2",
+      "Edam.Application >= 1.0.0",
       "Edam.B2b >= 1.0.0",
       "Edam.Data.Asset.Services >= 1.0.0",
       "Edam.Data.AssetMapping >= 1.0.0",
@@ -16610,6 +16672,9 @@
         "net6.0-windows10.0.19041": {
           "targetAlias": "net6.0-windows10.0.19041.0",
           "projectReferences": {
+            "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Application\\Edam.Application\\Edam.Application.csproj": {
+              "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Application\\Edam.Application\\Edam.Application.csproj"
+            },
             "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.B2b\\Edam.B2b.csproj": {
               "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.B2b\\Edam.B2b.csproj"
             },
@@ -16724,7 +16789,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

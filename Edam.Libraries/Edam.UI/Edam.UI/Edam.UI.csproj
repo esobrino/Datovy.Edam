@@ -20,4 +20,8 @@
     <ProjectReference Include="..\..\Edam.Data\Edam.DataObjects\Edam.DataObjects.csproj" />
     <ProjectReference Include="..\..\Edam.System\Edam.System\Edam.System.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="App\" />
+  </ItemGroup>
 </Project>

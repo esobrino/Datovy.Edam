@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml;
+
 // -----------------------------------------------------------------------------
 using Edam.Helpers;
 using prjs = Edam.Data.AssetProject;
 using Edam.WinUI.Controls.Common;
 using Edam.Diagnostics;
-using System.Collections.ObjectModel;
 using Edam.InOut;
 using Edam.WinUI.Controls.DataModels;
 using Edam.DataObjects.Models;
 using Edam.WinUI.Controls.Dialogs;
 using Edam.Data.AssetProject;
 using Edam.Data.AssetSchema;
-using Edam.UI.App;
+using uiApp = Edam.Application.Settings;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
@@ -271,7 +272,7 @@ namespace Edam.WinUI.Controls.ViewModels
       {
          ObservableCollection<UriItemInfo> l = 
             new ObservableCollection<UriItemInfo>();
-         var items = AppSettings.GetUriList(UriType.ConsolePath);
+         var items = uiApp.AppSettings.GetUriList(UriType.ConsolePath);
          foreach(var i in items)
          {
             l.Add(i);

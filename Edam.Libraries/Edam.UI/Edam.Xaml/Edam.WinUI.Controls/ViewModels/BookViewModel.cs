@@ -33,7 +33,7 @@ namespace Edam.WinUI.Controls.ViewModels
       private DataMapContext m_Context;
       public DataMapContext Context
       {
-         get { return m_Context; }
+         get { return m_Context ?? Model.Context; }
       }
 
       public void FindBooklet(string bookletId)
@@ -99,9 +99,21 @@ namespace Edam.WinUI.Controls.ViewModels
 
       }
 
+      /// <summary>
+      /// Manage notification and processing...
+      /// </summary>
+      /// <param name="type">notification type</param>
+      /// <param name="messageText">message details (if any)</param>
+      /// <param name="data">cell to be managed</param>
       public void NotifyEvent(
          NotificationType type, string messageText, object data = null)
       {
+         if (type == NotificationType.ExecuteItem)
+         {
+            BookletCellInfo cell = (BookletCellInfo)data;
+            ProcessCell(cell);
+         }
+
          if (ManageEvent != null)
          {
             NotificationArgs args = new NotificationArgs();
@@ -112,23 +124,13 @@ namespace Edam.WinUI.Controls.ViewModels
          }
       }
 
+      /// <summary>
+      /// Process Item using given Cell information...
+      /// </summary>
+      /// <param name="cell">Cell to process</param>
       public void ProcessCell(BookletCellInfo cell)
       {
-         IBookCellView cellView = cell.Instance as IBookCellView;
-         if (cellView != null)
-         {
-            string cellText = cellView.GetInputText();
-            JsonInstanceSample = Context == null ? 
-               String.Empty : Context.Source.JsonInstanceSample;
-
-            if (string.IsNullOrEmpty(cellText) && 
-               string.IsNullOrEmpty(JsonInstanceSample))
-            {
-               return;
-            }
-
-            // execute script here...
-         }
+         Context.Execute(cell);
       }
 
    }

@@ -397,7 +397,19 @@ namespace Edam.Data.AssetManagement
 
       public DataElementKind Kind { get; set; } = DataElementKind.Property;
 
-      public string OriginalName { get; set; }
+      private string m_OriginalName = null;
+      public string OriginalName
+      {
+         get
+         {
+            if (m_OriginalName == null)
+            {
+               m_OriginalName = ElementQualifiedName.OriginalName;
+            }
+            return m_OriginalName;
+         }
+         set { m_OriginalName = value; }
+      }
       public string OriginalDataType { get; set; }
 
       #endregion

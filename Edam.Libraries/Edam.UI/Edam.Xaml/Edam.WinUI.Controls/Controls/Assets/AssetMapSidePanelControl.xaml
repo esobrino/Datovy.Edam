@@ -47,7 +47,7 @@
                   <ListView ItemsSource="{x:Bind ViewModel.Context.SourceItems, Mode=TwoWay}">
                      <ListView.ItemTemplate>
                         <DataTemplate>
-                           <TextBlock Text="{Binding DisplayFullPath}" />
+                           <TextBlock Text="{Binding DisplayFullPath}" Grid.Column="1" />
                         </DataTemplate>
                      </ListView.ItemTemplate>
                   </ListView>
@@ -65,7 +65,7 @@
                   <ListView ItemsSource="{x:Bind ViewModel.Context.TargetItems, Mode=TwoWay}">
                      <ListView.ItemTemplate>
                         <DataTemplate>
-                           <TextBlock Text="{Binding DisplayFullPath}" />
+                           <TextBlock Text="{Binding DisplayFullPath}" Grid.Column="1" />
                         </DataTemplate>
                      </ListView.ItemTemplate>
                   </ListView>
@@ -81,9 +81,9 @@
             <Expander.Content>
                <Grid>
                   <StackPanel Orientation="Vertical">
-                     <TextBox Header="Description" Text="{x:Bind ViewModel.SelectedMapItem.Description, Mode=TwoWay}"
+                     <TextBox Header="Description" Text="{x:Bind ViewModel.MapItemDescription, Mode=TwoWay}"
                               AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-                     <TextBox Header="Instructions" Text="{x:Bind ViewModel.SelectedMapItem.Instructions, Mode=TwoWay}"
+                     <TextBox Header="Instructions" Text="{x:Bind ViewModel.MapItemInstructions, Mode=TwoWay}"
                               AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                   </StackPanel>
                </Grid>

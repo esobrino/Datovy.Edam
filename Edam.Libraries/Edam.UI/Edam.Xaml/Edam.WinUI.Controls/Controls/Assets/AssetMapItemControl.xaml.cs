@@ -19,7 +19,6 @@ using Edam.WinUI.Controls.ViewModels;
 using Edam.WinUI.Controls.DataModels;
 using Edam.Data.Assets.AssetConsole;
 using Edam.Data.AssetSchema;
-using Edam.WinUI.Controls.DataModels;
 using Edam.WinUI.Controls.Common;
 using System.Runtime.CompilerServices;
 using Edam.WinUI.Controls.Booklets;

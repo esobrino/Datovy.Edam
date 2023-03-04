@@ -14,6 +14,7 @@ using Edam.Data.AssetConsole;
 using Edam.InOut;
 using Edam.B2b;
 using Edam.Data.Schema.ImportExport;
+using UIApp = Edam.Application.Settings;
 
 namespace Edam.Test.Library.Application
 {
@@ -32,6 +33,9 @@ namespace Edam.Test.Library.Application
 
          AppAssembly.RegisterType(AssetResourceHelper.ASSET_B2B_EDI_FILE_READER,
             typeof(EdiFileReader), "EdiToAssets");
+         AppAssembly.RegisterType(
+            AssetResourceHelper.ASSET_APP_SETTINGS,
+            typeof(UIApp.AppSettings), AppSettings.APP_SETTINGS_SECTION_KEY);
          AppAssembly.RegisterType(
             AssetResourceHelper.ASSET_DDL_IMPORT_FILE_READER,
             typeof(DdlImportReader),

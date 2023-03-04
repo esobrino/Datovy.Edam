@@ -7,7 +7,7 @@ using System.IO;
 
 // -----------------------------------------------------------------------------
 using config = Edam.Data.AssetManagement.Helpers.ConfigurationHelper;
-using Edam.Data.AssetProject;
+using prj = Edam.Data.AssetProject;
 using Edam.Data.Asset.Services;
 using app = Edam.Application;
 using Edam.Application;
@@ -59,7 +59,7 @@ namespace Edam.Test.Library.Application
             GetApplicationInstalledLocation() + AppData.APPLICATION_DATA);
 
          // setup default project
-         Project.SetDefaultFullPath();
+         prj.Project.SetDefaultFullPath();
 
          var appDataLocation = GetApplicationDataLocation();
 
@@ -67,7 +67,7 @@ namespace Edam.Test.Library.Application
          Edam.Security.SecuredKeysVault.OpenVault();
          DependencyInjectionHelper.InitializeDependencyInjectionService();
          ProjectConsole.Initialize();
-         Project.SetProjectsDirectory();
+         prj.Project.SetProjectsDirectory();
       }
 
    }

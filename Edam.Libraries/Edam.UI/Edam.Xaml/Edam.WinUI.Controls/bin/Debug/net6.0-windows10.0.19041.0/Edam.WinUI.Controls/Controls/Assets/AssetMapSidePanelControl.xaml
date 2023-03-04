@@ -47,7 +47,7 @@
                   <ListView x:ConnectionId='11'                                                                  >
                      <ListView.ItemTemplate>
                         <DataTemplate>
-                           <TextBlock Text="{Binding DisplayFullPath}" />
+                           <TextBlock Text="{Binding DisplayFullPath}" Grid.Column="1" />
                         </DataTemplate>
                      </ListView.ItemTemplate>
                   </ListView>
@@ -65,7 +65,7 @@
                   <ListView x:ConnectionId='9'                                                                  >
                      <ListView.ItemTemplate>
                         <DataTemplate>
-                           <TextBlock Text="{Binding DisplayFullPath}" />
+                           <TextBlock Text="{Binding DisplayFullPath}" Grid.Column="1" />
                         </DataTemplate>
                      </ListView.ItemTemplate>
                   </ListView>
@@ -81,9 +81,9 @@
             <Expander.Content>
                <Grid>
                   <StackPanel Orientation="Vertical">
-                     <TextBox x:ConnectionId='7' Header="Description"                                                                   
+                     <TextBox x:ConnectionId='7' Header="Description"                                                          
                               AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-                     <TextBox x:ConnectionId='8' Header="Instructions"                                                                    
+                     <TextBox x:ConnectionId='8' Header="Instructions"                                                           
                               AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                   </StackPanel>
                </Grid>

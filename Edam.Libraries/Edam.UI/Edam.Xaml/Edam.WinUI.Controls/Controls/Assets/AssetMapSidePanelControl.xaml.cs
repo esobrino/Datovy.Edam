@@ -45,10 +45,16 @@ namespace Edam.WinUI.Controls.Assets
          DataContext = ViewModel;
       }
 
+      /// <summary>
+      /// Toogle panel visibility...
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
       private void SidePanelToggle_Click(object sender, RoutedEventArgs e)
       {
          ViewModel.TogglePanelVisibility();
       }
+
    }
 
 }

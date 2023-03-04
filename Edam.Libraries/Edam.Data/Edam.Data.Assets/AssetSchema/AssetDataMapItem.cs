@@ -15,6 +15,13 @@ using Edam.Data.Books;
 namespace Edam.Data.AssetSchema
 {
 
+   public enum MapItemSide
+   {
+      Unknown = 0,
+      Source = 1,
+      Target = 2
+   }
+
    public class MapAnnotationInfo
    {
       public string Description { get; set; }
@@ -33,6 +40,9 @@ namespace Edam.Data.AssetSchema
       public string UriText { get; set; }
    }
 
+   /// <summary>
+   /// Map Item Information.
+   /// </summary>
    public class MapItemInfo
    {
       public string MapItemId { get; set; }
@@ -50,6 +60,8 @@ namespace Edam.Data.AssetSchema
       public string DisplayPath { get; set; }
       public string DisplayFullPath { get; set; }
       public string QualifiedName { get; set; }
+
+      public MapItemSide Side { get; set; } = MapItemSide.Unknown;
 
       public MapAnnotationInfo Annotation { get; set; }
    }
@@ -80,7 +92,6 @@ namespace Edam.Data.AssetSchema
          Description = String.Empty;
          Instructions = String.Empty;
       }
-
    }
 
 }

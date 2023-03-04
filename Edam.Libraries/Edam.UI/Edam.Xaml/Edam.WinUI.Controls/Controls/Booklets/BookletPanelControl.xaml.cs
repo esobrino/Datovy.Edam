@@ -120,7 +120,7 @@ namespace Edam.WinUI.Controls.Booklets
 
       private void ExecuteBooklet_Click(object sender, RoutedEventArgs e)
       {
-
+         ViewModel.Context.Execute(ViewModel.Model.SelectedBooklet);
       }
 
    }

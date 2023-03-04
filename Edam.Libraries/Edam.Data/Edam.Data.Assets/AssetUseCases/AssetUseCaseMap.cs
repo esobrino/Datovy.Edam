@@ -52,6 +52,9 @@ namespace Edam.Data.AssetUseCases
       public List<AssetDataMapItem> Items { get; set; } =
          new List<AssetDataMapItem>();
 
+      [JsonIgnore]
+      public AssetDataMapItem SelectedMapItem { get; set; } = null;
+
       private BookInfo m_Book;
       public BookInfo Book
       {
@@ -68,9 +71,6 @@ namespace Edam.Data.AssetUseCases
             m_Book.Namespace = value;
          }
       }
-
-      [JsonIgnore]
-      public AssetDataMapItem SelectedMapItem { get; set; } = null;
 
       #endregion
       #region -- 1.50 - Constructure

@@ -298,6 +298,9 @@
     <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\system.data.sqlclient\4.8.2\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll">
       <PackagePath>runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Application\Edam.Application\bin\Debug\net6.0\Edam.Application.dll">
+      <PackagePath>Edam.Application.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.B2b\bin\Debug\net6.0\Edam.B2b.dll">
       <PackagePath>Edam.B2b.dll</PackagePath>
     </AppxPackagedFile>
@@ -349,14 +352,14 @@
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.Xml.dll">
       <PackagePath>Edam.Xml.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Debug\net6.0-windows10.0.19041.0\Edam.WinUI.Controls.pri">
+      <PackagePath>Edam.WinUI.Controls.pri</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Debug\net6.0-windows10.0.19041.0\Edam.UI.pri">
       <PackagePath>Edam.UI.pri</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI.DataModel\bin\Debug\net6.0-windows10.0.19041.0\Edam.UI.DataModel.pri">
       <PackagePath>Edam.UI.DataModel.pri</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Debug\net6.0-windows10.0.19041.0\Edam.WinUI.Controls.pri">
-      <PackagePath>Edam.WinUI.Controls.pri</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\AboutControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\AboutControl.xbf</PackagePath>

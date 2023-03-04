@@ -8,6 +8,7 @@ using Edam.Data.AssetConsole;
 using Edam.Data.Asset.Services;
 using Edam.InOut;
 using Edam.Application;
+using Edam.Test.Library.Project;
 
 namespace Edam.Test.Xsd
 {
@@ -26,12 +27,10 @@ namespace Edam.Test.Xsd
       [TestMethod]
       public void TestJsonToAssets()
       {
-         ItemBaseInfo item = new ItemBaseInfo();
-         string appPath = AppData.GetApplicationDataFolder();
-         item.FromFullPath(
-            appPath + "Projects/Datovy.HC.RVCT/" +
-            "Arguments/0001.HC.RVCT.ToDictionary.Args.json", null);
-         ResultsLog<object> presults = ProjectConsole.ProcessItem(item);
+         ItemBaseInfo item = ProjectHelper.GetProjectItem(
+            "Projects/Datovy.HC.RVCT/" +
+            "Arguments/0001.HC.RVCT.ToDictionary.Args.json");
+         ResultsLog<object> presults = ProjectHelper.ProcessItrem(item);
       }
    }
 

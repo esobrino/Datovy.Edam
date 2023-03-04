@@ -6,17 +6,28 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+   
    <local:FramePanelControl x:Name="PanelControl"
       HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
       <StackPanel Background="#F6F6F6" GotFocus="StackPanel_GotFocus">
+         <!--<StackPanel.Resources>
+            <CommandBarFlyout x:Name="ImageCommandsFlyout">
+               <AppBarButton Icon="Copy" ToolTipService.ToolTip="Copy"/>
+               <AppBarButton Icon="Paste" ToolTipService.ToolTip="Paste"/>
+               <CommandBarFlyout.SecondaryCommands>
+                  <AppBarButton Label="Select all"/>
+                  <AppBarButton Label="Delete" Icon="Delete"/>
+               </CommandBarFlyout.SecondaryCommands>
+            </CommandBarFlyout>
+         </StackPanel.Resources>-->
+
          <TextBox TextWrapping="Wrap" x:Name="CodeInputPanel"
              Text="{x:Bind m_ViewModel.CellText, Mode=TwoWay}"
              AcceptsReturn="True" HorizontalAlignment="Stretch"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-             ScrollViewer.VerticalScrollBarVisibility="Auto"
-             PlaceholderText="Enter Code here"/>
-         <TextBlock Text="jsonata" HorizontalAlignment="Right" FontSize="9" />
+             ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+         <!--PlaceholderText="Enter Code here" ContextFlyout="{x:Bind ImageCommandsFlyout}"/>-->
+         <TextBlock Text="jsonata" HorizontalAlignment="Right" FontSize="9"/>
          <TextBlock Margin="10" HorizontalAlignment="Stretch" Text=""
                     x:Name="CodeOutputPanel" Visibility="Collapsed"/>
       </StackPanel>

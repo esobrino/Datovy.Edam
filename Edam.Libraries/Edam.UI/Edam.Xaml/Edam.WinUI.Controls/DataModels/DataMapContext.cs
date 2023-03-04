@@ -25,6 +25,7 @@ using DocumentFormat.OpenXml.EMMA;
 using Edam.Data.Books;
 using System.Data.SqlClient;
 using Edam.Data.AssetUseCases;
+using Edam.Json.JsonQuery;
 
 namespace Edam.WinUI.Controls.DataModels
 {
@@ -101,6 +102,9 @@ namespace Edam.WinUI.Controls.DataModels
       public BookViewModel BookModel { get; set; }
       public ListView BookletViewList { get; set; }
 
+      #endregion
+      #region -- 1.03 - Map Items properties
+
       /// <summary>
       /// Source (Map) Items
       /// </summary>
@@ -135,6 +139,20 @@ namespace Edam.WinUI.Controls.DataModels
          }
       }
 
+      private ObservableCollection<MapItemInfo> m_MapItems;
+      public ObservableCollection<MapItemInfo> MapItems
+      {
+         get { return m_MapItems; }
+         set
+         {
+            if (m_MapItems != value)
+            {
+               m_MapItems = value;
+               OnPropertyChanged(nameof(MapItems));
+            }
+         }
+      }
+
       /// <summary>
       /// Selected Map Item Info / details
       /// </summary>
@@ -146,12 +164,20 @@ namespace Edam.WinUI.Controls.DataModels
       public IMapLanguageInfo LanguageInstance { get; set; } =
          MapLanguageHelper.GetInstance();
 
+      /// <summary>
+      /// Processor to execute Book, Booklet and Cell code...
+      /// </summary>
+      /// <remarks>A Use Case must be selected before making a processor
+      /// available therefore always check the Use Case</remarks>
+      public IBookItemProcessor Processor { get; set; } = null;
+
       #endregion
       #region -- 1.50 - Constructure
 
       public DataMapContext()
       {
          m_UseCase = new AssetUseCaseMap();
+         MapItems = new ObservableCollection<MapItemInfo>();
          SourceItems = new ObservableCollection<MapItemInfo>();
          TargetItems = new ObservableCollection<MapItemInfo>();
       }
@@ -317,6 +343,54 @@ namespace Edam.WinUI.Controls.DataModels
       }
 
       /// <summary>
+      /// Set Map Item References.
+      /// </summary>
+      /// <param name="item">item to setup references</param>
+      public void SetMapItemReferences(AssetDataMapItem item)
+      {
+         MapItems.Clear();
+         SourceItems.Clear();
+         TargetItems.Clear();
+
+         if (item == null)
+         {
+            
+            return;
+         }
+
+         if (item.SourceElement != null)
+         {
+            foreach (var i in item.SourceElement)
+            {
+               i.Side = MapItemSide.Source;
+               SourceItems.Add(i);
+               MapItems.Add(i);
+            }
+         }
+
+         if (item.TargetElement != null)
+         {
+            foreach (var i in item.TargetElement)
+            {
+               i.Side = MapItemSide.Target;
+               TargetItems.Add(i);
+               MapItems.Add(i);
+            }
+         }
+      }
+
+      /// <summary>
+      /// Clear Book/Booklet Items
+      /// </summary>
+      public void ClearBookletItems()
+      {
+         if (BookModel != null)
+         {
+            BookModel.Model.ClearAll();
+         }
+      }
+
+      /// <summary>
       /// An item in a view tree has been selected.
       /// </summary>
       /// <remarks>
@@ -427,6 +501,14 @@ namespace Edam.WinUI.Controls.DataModels
          }
 
          UseCase = AssetUseCaseMap.FromFile(fileDetails.Path);
+
+         // setup processor to execute code segments
+         if (Processor != null)
+         {
+            Processor.ClearResults();
+         }
+
+         Processor = GetProcessor(UseCase, Source);
 
          // update tree controls with use case information
          DataTreeModel.ClearVisited(Source.TreeModel);
@@ -573,6 +655,66 @@ namespace Edam.WinUI.Controls.DataModels
       public void Delete(AssetDataMapItem item)
       {
          UseCase.Delete(item);
+      }
+
+      #endregion
+      #region -- 4.00 - Book, Booklet, and Cell execution support
+
+      /// <summary>
+      /// Get Procesor.
+      /// </summary>
+      /// <param name="useCase">Use Case</param>
+      /// <param name="instance">instance of the source containing the sample
+      /// json message</param>
+      /// <returns>instance of processor is returned</returns>
+      public static IBookItemProcessor GetProcessor(
+         AssetUseCaseMap useCase, DataInstance instance)
+      {
+         IBookItemProcessor processor = 
+            new JsonProcesor(useCase, instance.JsonInstanceSample);
+         return processor;
+      }
+
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="cell"></param>
+      public void Execute(BookletCellInfo cell)
+      {
+         if (Processor == null)
+         {
+            return;
+         }
+
+         Processor.Execute(cell);
+      }
+
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="booklet"></param>
+      public void Execute(BookletInfo booklet)
+      {
+         if (Processor == null)
+         {
+            return;
+         }
+
+         Processor.Execute(booklet);
+      }
+
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="book"></param>
+      public void Execute(BookInfo book)
+      {
+         if (Processor == null)
+         {
+            return;
+         }
+
+         Processor.Execute(book);
       }
 
       #endregion

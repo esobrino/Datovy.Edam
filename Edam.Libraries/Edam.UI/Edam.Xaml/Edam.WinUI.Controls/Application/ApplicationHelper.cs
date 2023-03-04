@@ -19,7 +19,7 @@ using uiapp = Edam.WinUI.Controls.Application;
 
 using Edam.WinUI.Controls.Projects;
 using Edam.WinUI.Controls.ReferenceLists;
-using UIApp = Edam.UI.App;
+using UIApp = Edam.Application.Settings;
 using Windows.UI.Core;
 using Windows.System;
 using Windows.Storage;
