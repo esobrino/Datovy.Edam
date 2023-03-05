@@ -63,8 +63,8 @@ namespace Edam.WinUI.Controls.Booklets
       {
          BookletCellInfo cell = Tag as BookletCellInfo;
          ViewModel.ProcessCell(cell);
-         ViewModel.NotifyEvent(
-            Common.NotificationType.ExecuteItem, String.Empty, cell);
+         //ViewModel.NotifyEvent(
+         //   Common.NotificationType.ExecuteItem, String.Empty, cell);
       }
 
       private void RemoveItemClicked(object sender, PointerRoutedEventArgs e)

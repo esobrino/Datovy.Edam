@@ -30,7 +30,7 @@ namespace Edam.Test.Xsd
          ItemBaseInfo item = ProjectHelper.GetProjectItem(
             "Projects/Datovy.HC.RVCT/" +
             "Arguments/0001.HC.RVCT.ToDictionary.Args.json");
-         ResultsLog<object> presults = ProjectHelper.ProcessItrem(item);
+         var presults = ProjectHelper.ProcessItem(item);
       }
    }
 

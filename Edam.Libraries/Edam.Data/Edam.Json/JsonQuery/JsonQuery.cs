@@ -23,6 +23,8 @@ namespace Edam.Json.JsonQuery
          {
             JsonataQuery q = new JsonataQuery(query);
             results.Data = q.Eval(jsonData);
+            results.ResultValueObject = results.Data;
+            results.ReturnText = results.Data;
             results.ReturnValue = (int)EventCode.Success;
             results.Succeeded();
          }

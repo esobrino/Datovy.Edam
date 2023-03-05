@@ -1405,6 +1405,15 @@
           }
         }
       },
+      "Edam.Application/1.0.0": {
+        "dependencies": {
+          "Edam.DataObjects": "1.0.0",
+          "Edam.System": "1.0.0"
+        },
+        "runtime": {
+          "Edam.Application.dll": {}
+        }
+      },
       "Edam.B2b/1.0.0": {
         "dependencies": {
           "Edam.Data.AssetDb": "1.0.0",
@@ -1575,6 +1584,7 @@
       "Edam.WinUI.Controls/1.0.0": {
         "dependencies": {
           "CommunityToolkit.WinUI.UI.Controls": "7.1.2",
+          "Edam.Application": "1.0.0",
           "Edam.B2b": "1.0.0",
           "Edam.Data.Asset.Services": "1.0.0",
           "Edam.Data.AssetMapping": "1.0.0",
@@ -2502,6 +2512,11 @@
       "sha512": "sha512-tBt8K+korVfrjH9wyDEhiLKxbs8qoLCLIFwvYgkSUuMC9//w3z0cFQ8LQAI/5MCKq+BMil0cfRTRvPeE7eXhQw==",
       "path": "yamldotnet/11.2.1",
       "hashPath": "yamldotnet.11.2.1.nupkg.sha512"
+    },
+    "Edam.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Edam.B2b/1.0.0": {
       "type": "project",

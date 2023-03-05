@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Edam.Data.AssetUseCases;
 using Edam.Data.Books;
 using Edam.Diagnostics;
+using Edam.Text;
 
 namespace Edam.Data.Books
 {
@@ -22,18 +23,13 @@ namespace Edam.Data.Books
       AssetUseCaseMap UseCase { get; }
 
       /// <summary>
-      /// Clear results.
-      /// </summary>
-      void ClearResults();
-
-      /// <summary>
       /// Go through book booklets and cells operating under the given source 
       /// instance and providing a result.
       /// </summary>
       /// <param name="book">provided book</param>
       /// <returns>results log instance is returned holding those results
       /// </returns>
-      ResultLog Execute(BookInfo book);
+      List<IParserResults> Execute(BookInfo book);
 
       /// <summary>
       /// Go through book booklets and cells operating under the given source 
@@ -42,7 +38,7 @@ namespace Edam.Data.Books
       /// <param name="booklet">provided booklet</param>
       /// <returns>results log instance is returned holding those results
       /// </returns>
-      ResultLog Execute(BookletInfo booklet);
+      List<IParserResults> Execute(BookletInfo booklet);
 
       /// <summary>
       /// Go through book booklets and cells operating under the given source 
@@ -51,7 +47,7 @@ namespace Edam.Data.Books
       /// <param name="cell">provided cell</param>
       /// <returns>results log instance is returned holding those results
       /// </returns>
-      ResultLog Execute(BookletCellInfo cell);
+      IParserResults Execute(BookletCellInfo cell);
    }
 
 }

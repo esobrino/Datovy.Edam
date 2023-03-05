@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Edam.Data.AssetUseCases;
 using Edam.Diagnostics;
 using Edam.Data.Books;
+using Edam.Json.JsonHelper;
+using Edam.Text;
 
 namespace Edam.Json.JsonQuery
 {
@@ -29,12 +31,6 @@ namespace Edam.Json.JsonQuery
          get { return m_SampleJson; }
       }
 
-      private JsonProcessorResults m_Results;
-      public JsonProcessorResults Results
-      {
-         get { return m_Results; }
-      }
-
       public JsonProcesor(AssetUseCaseMap useCase, string sampleJson)
       {
          m_UseCase = useCase;
@@ -42,11 +38,13 @@ namespace Edam.Json.JsonQuery
       }
 
       /// <summary>
-      /// Clear Results...
+      /// Scan for definitions.
       /// </summary>
-      public void ClearResults()
+      /// <param name="jsonText">jsonText to scan all definitions</param>
+      public JsonParserResults ScanDefinitions(string jsonText)
       {
-         Results.Clear();
+         // TODO: remove hardcoded string
+         return JsonParser.ScanProperties(jsonText, "$definition");
       }
 
       /// <summary>
@@ -56,21 +54,25 @@ namespace Edam.Json.JsonQuery
       /// <param name="cell">provided cell</param>
       /// <returns>results log instance is returned holding those results
       /// </returns>
-      public ResultLog Execute(BookletCellInfo cell)
+      public IParserResults Execute(BookletCellInfo cell)
       {
          if (cell.CellType != BookletCellType.Code)
          {
-            ResultLog rslt = new ResultLog();
-            rslt.ResultValueObject = null;
-            rslt.ReturnValue = (int) EventCode.SuccessWithoutResults;
-            rslt.Succeeded();
-            return rslt;
+            return null;
          }
 
+         JsonParserResults parsedResults = null;
          var results = JsonQuery.Execute(SampleJson, cell.Text);
+         if (results.Success)
+         {
+            parsedResults = ScanDefinitions(results.Data);
+            parsedResults.ParentContext = cell;
+            parsedResults.Context = cell;
 
-         Results.Add(results);
-         return results;
+            parsedResults.ResultText = results.ReturnText;
+         }
+
+         return parsedResults;
       }
 
       /// <summary>
@@ -80,24 +82,21 @@ namespace Edam.Json.JsonQuery
       /// <param name="booklet">provided booklet</param>
       /// <returns>results log instance is returned holding those results
       /// </returns>
-      public ResultLog Execute(BookletInfo booklet)
+      public List<IParserResults> Execute(BookletInfo booklet)
       {
+         List<IParserResults> results = new List<IParserResults>();
          ResultLog resultLog = new ResultLog();
          foreach (var item in booklet.Items)
          {
-            Execute(item);
+            var result = Execute(item);
+            if (result != null)
+            {
+               result.ParentContext = booklet;
+               results.Add(result);
+            }
          }
 
-         if (Results.ResultsLog.Count == 0)
-         {
-            resultLog.Succeeded();
-         }
-         else
-         {
-            resultLog.Failed(EventCode.Failed);
-         }
-
-         return resultLog;
+         return results;
       }
 
       /// <summary>
@@ -107,33 +106,23 @@ namespace Edam.Json.JsonQuery
       /// <param name="book">provided book</param>
       /// <returns>results log instance is returned holding those results
       /// </returns>
-      public ResultLog Execute(BookInfo book)
+      public List<IParserResults> Execute(BookInfo book)
       {
-         ResultLog resultLog = new ResultLog();
+         List<IParserResults> results = new List<IParserResults>();
          foreach (var item in book.Items)
          {
-            Execute(item);
+            var result = Execute(item);
+            if (result != null)
+            {
+               foreach(var i in result)
+               {
+                  i.ParentContext = book;
+               }
+               results.AddRange(result);
+            }
          }
 
-         if (Results.ResultsLog.Count == 0)
-         {
-            resultLog.Succeeded();
-         }
-         else
-         {
-            resultLog.Failed(EventCode.Failed);
-         }
-
-         return resultLog;
-      }
-
-      /// <summary>
-      /// Scan for definitions.
-      /// </summary>
-      /// <param name="jsonText">jsonText to scan all definitions</param>
-      public void ScanDefinitions(string jsonText)
-      {
-
+         return results;
       }
 
    }

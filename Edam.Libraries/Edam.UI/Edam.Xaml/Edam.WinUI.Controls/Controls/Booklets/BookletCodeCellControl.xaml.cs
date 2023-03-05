@@ -83,6 +83,7 @@ namespace Edam.WinUI.Controls.Booklets
       public void SetOutputText(string text)
       {
          CodeOutputPanel.Text = text;
+         CodeOutputPanel.Visibility = Visibility.Visible;
       }
 
       private void StackPanel_GotFocus(object sender, RoutedEventArgs e)

@@ -40,6 +40,15 @@ namespace Edam.Data.Books
       /// </summary>
       [JsonIgnore]
       public IBookCellView Instance { get; set; }
+
+      /// <summary>
+      /// Set output text...
+      /// </summary>
+      /// <param name="outputText">text to output</param>
+      public void SetOutputText(string outputText)
+      {
+         Instance.SetOutputText(outputText);
+      }
    }
 
 }

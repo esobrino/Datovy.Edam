@@ -1,4 +1,5 @@
 ﻿using Edam.Diagnostics;
+using Edam.Text;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace Edam.Json.JsonQuery
          new List<ResultsLog<string>>();
 
       public List<string> Definitions { get; set; }
-      public List<string> Results { get; set; }
+      public List<IParserResults> Results { get; set; } = 
+         new List<IParserResults>();
 
       /// <summary>
       /// Clear all previous results.
@@ -48,7 +50,7 @@ namespace Edam.Json.JsonQuery
          {
             var jsonResult = log.DataObject.ToString();
             ProcessJson(jsonResult);
-            Results.Add(jsonResult);
+            //Results.Add(jsonResult);
          }
       }
    }

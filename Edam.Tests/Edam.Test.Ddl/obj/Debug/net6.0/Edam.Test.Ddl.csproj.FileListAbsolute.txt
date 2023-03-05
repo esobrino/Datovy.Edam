@@ -179,3 +179,5 @@ C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Ddl\obj\Debug\net6.0\refint\Edam.Test.D
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Ddl\obj\Debug\net6.0\Edam.Test.Ddl.pdb
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Ddl\obj\Debug\net6.0\Edam.Test.Ddl.genruntimeconfig.cache
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Ddl\obj\Debug\net6.0\ref\Edam.Test.Ddl.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Ddl\bin\Debug\net6.0\Edam.Application.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Ddl\bin\Debug\net6.0\Edam.Application.pdb

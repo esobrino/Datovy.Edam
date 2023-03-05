@@ -503,11 +503,6 @@ namespace Edam.WinUI.Controls.DataModels
          UseCase = AssetUseCaseMap.FromFile(fileDetails.Path);
 
          // setup processor to execute code segments
-         if (Processor != null)
-         {
-            Processor.ClearResults();
-         }
-
          Processor = GetProcessor(UseCase, Source);
 
          // update tree controls with use case information
@@ -676,9 +671,9 @@ namespace Edam.WinUI.Controls.DataModels
       }
 
       /// <summary>
-      /// 
+      /// Execute code and setup result...
       /// </summary>
-      /// <param name="cell"></param>
+      /// <param name="cell">cell to process</param>
       public void Execute(BookletCellInfo cell)
       {
          if (Processor == null)
@@ -686,13 +681,29 @@ namespace Edam.WinUI.Controls.DataModels
             return;
          }
 
-         Processor.Execute(cell);
+         cell.SetOutputText(String.Empty);
+
+         // get current input text...
+         string inText = cell.Instance.GetInputText();
+         if (String.IsNullOrWhiteSpace(inText))
+         {
+            return;
+         }
+
+         cell.Text = inText;
+
+         // set output text...
+         var results = Processor.Execute(cell);
+         if (results != null && results.Results.Success)
+         {
+            cell.SetOutputText(results.ResultText);
+         }
       }
 
       /// <summary>
-      /// 
+      /// Execute code and setup result... in the booklet.
       /// </summary>
-      /// <param name="booklet"></param>
+      /// <param name="booklet">booklet to process</param>
       public void Execute(BookletInfo booklet)
       {
          if (Processor == null)
@@ -704,9 +715,9 @@ namespace Edam.WinUI.Controls.DataModels
       }
 
       /// <summary>
-      /// 
+      /// Execute code and setup result...
       /// </summary>
-      /// <param name="book"></param>
+      /// <param name="book">book to process</param>
       public void Execute(BookInfo book)
       {
          if (Processor == null)

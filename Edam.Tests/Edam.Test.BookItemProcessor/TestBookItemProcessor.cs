@@ -16,6 +16,8 @@ using Edam.Data.Books;
 using Edam.Json.JsonQuery;
 using Edam.Json.JsonDataTree;
 using Edam.Data.AssetSchema;
+using Edam.Text;
+using Edam.Test.Library.Mapping;
 
 namespace Edam.Test.BookItemProcessor
 {
@@ -23,6 +25,7 @@ namespace Edam.Test.BookItemProcessor
    [TestClass]
    public class TestBookItemProcessor
    {
+      public const string DEFAULT_SAMPLE_FILE_NAME = "DefaultSample.json";
 
       [TestInitialize]
       public void InitializeEnvironment()
@@ -65,7 +68,13 @@ namespace Edam.Test.BookItemProcessor
             new JsonProcesor(useCase, jsonSampleText);
 
          // execute book...
-         processor.Execute(useCase.Book);
+         var results = processor.Execute(useCase.Book);
+
+         // write results to a JSON file...
+         BookHelper.WriteResults(results, DEFAULT_SAMPLE_FILE_NAME);
+
+         // read results from JSON file...
+         results = BookHelper.ReadResults(DEFAULT_SAMPLE_FILE_NAME);
       }
    }
 

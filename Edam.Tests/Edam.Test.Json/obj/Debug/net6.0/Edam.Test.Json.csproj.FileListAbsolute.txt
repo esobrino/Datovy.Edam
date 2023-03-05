@@ -171,3 +171,5 @@ C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\obj\Debug\net6.0\Edam.Test.Json.ge
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\obj\Debug\net6.0\ref\Edam.Test.Json.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Edam.Data.Asset.Services.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Edam.Data.Asset.Services.pdb
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Edam.Application.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Edam.Application.pdb
