@@ -56,11 +56,6 @@ namespace Edam.Test.BookItemProcessor
          // get source data tree
          var sourceTree = DataTreeHelper.GetDataTree(args);
 
-         // get asset data tree
-         var dataTree = AssetDataTree.GetDataTree(
-            args.AssetDataItems, args.RootElementName,
-            args.GetDefaultNamespace());
-
          // prepare sample JSON for tree
          var  instance = JsonDataTreeInstance.PrepareInstance(sourceTree.Root);
          string jsonSampleText = instance.JsonText;

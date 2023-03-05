@@ -23,11 +23,13 @@ namespace Edam.Json.JsonQuery
          {
             JsonataQuery q = new JsonataQuery(query);
             results.Data = q.Eval(jsonData);
+            results.ReturnValue = (int)EventCode.Success;
             results.Succeeded();
          }
          catch(Exception ex)
          {
             results.Failed(ex);
+            results.ReturnValue = (int)EventCode.Failed;
             results.Data = null;
          }
          return results;

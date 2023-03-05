@@ -35,3 +35,5 @@ C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\obj\Debug\net6.0\Edam.Test.Lib
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\obj\Debug\net6.0\ref\Edam.Test.Library.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.Asset.Services.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.Asset.Services.pdb
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Application.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Application.pdb

@@ -58,7 +58,17 @@ namespace Edam.Json.JsonQuery
       /// </returns>
       public ResultLog Execute(BookletCellInfo cell)
       {
+         if (cell.CellType != BookletCellType.Code)
+         {
+            ResultLog rslt = new ResultLog();
+            rslt.ResultValueObject = null;
+            rslt.ReturnValue = (int) EventCode.SuccessWithoutResults;
+            rslt.Succeeded();
+            return rslt;
+         }
+
          var results = JsonQuery.Execute(SampleJson, cell.Text);
+
          Results.Add(results);
          return results;
       }
@@ -115,6 +125,15 @@ namespace Edam.Json.JsonQuery
          }
 
          return resultLog;
+      }
+
+      /// <summary>
+      /// Scan for definitions.
+      /// </summary>
+      /// <param name="jsonText">jsonText to scan all definitions</param>
+      public void ScanDefinitions(string jsonText)
+      {
+
       }
 
    }

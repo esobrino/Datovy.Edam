@@ -169,3 +169,5 @@ C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.BookItemProcessor\obj\Debug\net6.0\Edam
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.BookItemProcessor\obj\Debug\net6.0\Edam.Test.BookItemProcessor.genruntimeconfig.cache
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.BookItemProcessor\obj\Debug\net6.0\ref\Edam.Test.BookItemProcessor.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.BookItemProcessor\bin\Debug\net6.0\appsettings.json
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.BookItemProcessor\bin\Debug\net6.0\Edam.Application.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.BookItemProcessor\bin\Debug\net6.0\Edam.Application.pdb

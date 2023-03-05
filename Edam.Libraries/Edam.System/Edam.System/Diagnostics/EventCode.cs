@@ -10,6 +10,7 @@ namespace Edam.Diagnostics
    {
       ThereAreOtherOptions = 2,
       Success = 0,
+      SuccessWithoutResults = 1,
       Failed = -1,
       MissingOrganizationOri = -2,
       StoredProcedureCallFailed = -3,
