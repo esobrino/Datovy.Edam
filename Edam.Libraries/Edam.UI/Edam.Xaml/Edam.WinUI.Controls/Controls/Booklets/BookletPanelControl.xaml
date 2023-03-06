@@ -24,8 +24,8 @@
          </Grid.ColumnDefinitions>
          <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
          </Grid.RowDefinitions>
 
          <StackPanel Grid.Row="0" Grid.Column="0" Margin="10,0"
@@ -58,8 +58,8 @@
                       SelectionChanged="BookletList_SelectionChanged" />
          </ScrollViewer>
 
-         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0"
-                     HorizontalAlignment="Center" VerticalAlignment="Top">
+         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Margin="0,6,0,5"
+                     HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <TextBlock Text="Add" VerticalAlignment="Center" />
             <HyperlinkButton Content="+ Text" Click="AddTextCell_Click" Padding="3,0"/>
             <TextBlock Text="or" VerticalAlignment="Center"/>

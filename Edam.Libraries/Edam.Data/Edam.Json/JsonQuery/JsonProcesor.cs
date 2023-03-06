@@ -66,6 +66,7 @@ namespace Edam.Json.JsonQuery
          if (results.Success)
          {
             parsedResults = ScanDefinitions(results.Data);
+            parsedResults.OriginalText = cell.Text;
             parsedResults.ParentContext = cell;
             parsedResults.Context = cell;
 

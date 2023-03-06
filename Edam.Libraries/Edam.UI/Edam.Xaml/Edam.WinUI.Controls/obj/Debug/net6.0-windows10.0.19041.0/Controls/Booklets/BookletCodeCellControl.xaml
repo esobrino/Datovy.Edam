@@ -21,14 +21,14 @@
             </CommandBarFlyout>
          </StackPanel.Resources>-->
 
-         <TextBox x:ConnectionId='4' TextWrapping="Wrap" x:Name="CodeInputPanel"
+         <TextBox x:ConnectionId='4' TextWrapping="Wrap" x:Name="CodeInputPanel" FontFamily="Consolas"
                                                               
              AcceptsReturn="True" HorizontalAlignment="Stretch"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
              ScrollViewer.VerticalScrollBarVisibility="Auto"/>
          <!--PlaceholderText="Enter Code here" ContextFlyout="{x:Bind ImageCommandsFlyout}"/>-->
-         <TextBlock Text="jsonata" HorizontalAlignment="Right" FontSize="9"/>
-         <TextBlock x:ConnectionId='5' Margin="10" HorizontalAlignment="Stretch" Text=""
+         <TextBlock Text="jsonata" HorizontalAlignment="Right" FontFamily="Consolas" FontSize="9"/>
+         <TextBlock x:ConnectionId='5' Margin="10" HorizontalAlignment="Stretch" FontFamily="Consolas" Text=""
                     x:Name="CodeOutputPanel" Visibility="Collapsed"/>
       </StackPanel>
       <!--<tk:MarkdownTextBlock />-->

@@ -28,7 +28,7 @@
     <AppXManifest Include="C:\prjs\Datovy.Edam\Edam.Consoles\Edam.Studio\bin\x64\Debug\net6.0-windows10.0.19041.0\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-03-05T20:27:48.786</Modified>
+      <Modified>2023-03-06T12:33:46.679</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -462,7 +462,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Debug\net6.0-windows10.0.19041.0\Edam.WinUI.Controls.dll">
       <PackagePath>Edam.WinUI.Controls.dll</PackagePath>
-      <Modified>2023-03-05T20:06:35.668</Modified>
+      <Modified>2023-03-06T12:33:42.534</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.Xml.dll">
       <PackagePath>Edam.Xml.dll</PackagePath>
@@ -554,7 +554,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Booklets\BookletCodeCellControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Booklets\BookletCodeCellControl.xbf</PackagePath>
-      <Modified>2023-03-05T20:06:34.718</Modified>
+      <Modified>2023-03-06T12:33:41.670</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Booklets\BookletPanelControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Booklets\BookletPanelControl.xbf</PackagePath>
