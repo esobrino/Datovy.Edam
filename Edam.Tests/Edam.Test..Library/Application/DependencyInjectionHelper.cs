@@ -13,7 +13,9 @@ using Edam.Data.AssetMapping;
 using Edam.Data.AssetConsole;
 using Edam.InOut;
 using Edam.B2b;
+using Edam.Data.Books;
 using Edam.Data.Schema.ImportExport;
+using Edam.Json.JsonQuery;
 using UIApp = Edam.Application.Settings;
 
 namespace Edam.Test.Library.Application
@@ -43,6 +45,8 @@ namespace Edam.Test.Library.Application
          AppAssembly.RegisterType(
             AssetResourceHelper.ASSET_ROW_BUILDER_NAME,
             typeof(Edam.Xml.OpenXml.ExcelRowBuilder));
+         AppAssembly.RegisterType(
+            BookHelper.BOOK_PROCESSOR_KEY, typeof(JsonProcesor));
       }
 
    }

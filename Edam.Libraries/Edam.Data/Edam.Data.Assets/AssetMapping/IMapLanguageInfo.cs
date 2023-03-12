@@ -15,6 +15,7 @@ namespace Edam.Data.AssetMapping
    {
       string Name { get; }
       string GetDefaultLanguageName();
+      string GetDefaultEmptyCodeText();
       string GetPath(string originalPath);
       string Join(string header, string tail);
       IResultsLog Execute(string jsonText, string query);

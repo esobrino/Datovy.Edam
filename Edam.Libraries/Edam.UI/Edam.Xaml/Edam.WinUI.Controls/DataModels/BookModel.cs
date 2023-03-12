@@ -155,6 +155,8 @@ namespace Edam.WinUI.Controls.DataModels
                   Tag = cell
                };
                cctrl.FramePanel.Tag = cell;
+               cctrl.SetInputText(
+                  Context.LanguageInstance.GetDefaultEmptyCodeText());
                cctrl.SetCell(cell);
                control = cctrl;
                cellModel.BaseControl = cctrl;

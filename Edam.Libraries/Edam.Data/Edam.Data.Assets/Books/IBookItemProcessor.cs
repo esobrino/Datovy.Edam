@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,14 @@ namespace Edam.Data.Books
    public interface IBookItemProcessor
    {
       AssetUseCaseMap UseCase { get; }
+
+      /// <summary>
+      /// Initialize Processor using given use-case map and JSON document 
+      /// instance.
+      /// </summary>
+      /// <param name="useCase"></param>
+      /// <param name="jsonDocumentText"></param>
+      void Initialize(AssetUseCaseMap useCase, string jsonDocumentText);
 
       /// <summary>
       /// Go through book booklets and cells operating under the given source 
@@ -48,6 +57,12 @@ namespace Edam.Data.Books
       /// <returns>results log instance is returned holding those results
       /// </returns>
       IParserResults Execute(BookletCellInfo cell);
+
+      /// <summary>
+      /// Merge all Book Items into a single result.
+      /// </summary>
+      /// <param name="results">list of parsed items</param>
+      void MergeItems(List<IParserResults> results);
    }
 
 }

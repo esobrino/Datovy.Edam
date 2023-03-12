@@ -65,16 +65,18 @@ namespace Edam.Test.BookItemProcessor
 
          // get Book-Item processor
          IBookItemProcessor processor =
-            new JsonProcesor(useCase, jsonSampleText);
+            Data.Books.BookHelper.GetBookItemProcessor(useCase, jsonSampleText);
 
          // execute book...
          var results = processor.Execute(useCase.Book);
 
          // write results to a JSON file...
-         BookHelper.WriteResults(results, DEFAULT_SAMPLE_FILE_NAME);
+         Library.Mapping.BookHelper.WriteResults(
+            results, DEFAULT_SAMPLE_FILE_NAME);
 
          // read results from JSON file...
-         results = BookHelper.ReadResults(DEFAULT_SAMPLE_FILE_NAME);
+         results = Library.Mapping.BookHelper.ReadResults(
+            DEFAULT_SAMPLE_FILE_NAME);
       }
    }
 

@@ -53,6 +53,15 @@ namespace Edam.Data.AssetMapping
       }
 
       /// <summary>
+      /// Get Default Empty Code Text...
+      /// </summary>
+      /// <returns>returns a text string with the default code text</returns>
+      public string GetDefaultEmptyCodeText()
+      {
+         return "{\r\n\r\n}";
+      }
+
+      /// <summary>
       /// Execute given JSONata code on current selected Language
       /// as found in query.
       /// </summary>

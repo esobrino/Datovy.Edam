@@ -19,6 +19,9 @@ namespace Edam.Json.JsonQuery
    /// </summary>
    public class JsonProcesor : IBookItemProcessor
    {
+
+      #region -- 1.00 - Properties and Fields
+
       private AssetUseCaseMap m_UseCase;
       public AssetUseCaseMap UseCase
       {
@@ -31,11 +34,33 @@ namespace Edam.Json.JsonQuery
          get { return m_SampleJson; }
       }
 
+      #endregion
+      #region -- 1.50 - Constructure and Initialization
+
       public JsonProcesor(AssetUseCaseMap useCase, string sampleJson)
+      {
+         Initialize(useCase, sampleJson);
+      }
+
+      public JsonProcesor()
+      {
+         m_UseCase = null;
+         m_SampleJson = null;
+      }
+
+      /// <summary>
+      /// Initialize JSON processor...
+      /// </summary>
+      /// <param name="useCase">use case to manage</param>
+      /// <param name="sampleJson">sample JSON</param>
+      public void Initialize(AssetUseCaseMap useCase, string sampleJson)
       {
          m_UseCase = useCase;
          m_SampleJson = sampleJson;
       }
+
+      #endregion
+      #region -- 4.00 - Helper functions
 
       /// <summary>
       /// Scan for definitions.
@@ -46,6 +71,9 @@ namespace Edam.Json.JsonQuery
          // TODO: remove hardcoded string
          return JsonParser.ScanProperties(jsonText, "$definition");
       }
+
+      #endregion
+      #region -- 4.00 - Execute operations on Books, Booklet and Cells...
 
       /// <summary>
       /// Go through book booklets and cells operating under the given source
@@ -125,6 +153,20 @@ namespace Edam.Json.JsonQuery
 
          return results;
       }
+
+      #endregion
+      #region -- 4.00 - Merge Items support
+
+      /// <summary>
+      /// Merge Items... to create a single result.
+      /// </summary>
+      /// <param name="results"></param>
+      public void MergeItems(List<IParserResults> results)
+      {
+
+      }
+
+      #endregion
 
    }
 
