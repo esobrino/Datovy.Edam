@@ -17,6 +17,7 @@ using Edam.WinUI.Controls.Home;
 using Edam.WinUI.Controls.Projects;
 using Edam.WinUI.Controls.ReferenceData;
 using Edam.WinUI.Controls.Web;
+using Edam.WinUI.Controls.Controls.Viewers;
 
 namespace Edam.WinUI.Controls.Controls.Navigation
 {
@@ -200,10 +201,10 @@ namespace Edam.WinUI.Controls.Controls.Navigation
             new MenuItem { Id = (Int32)MenuOption.PinLogin,
                Title = "Pin Login", Glyph = Symbol.Pin, Tooltip = "Pin Login",
                Visible = false, TargetType = typeof(AccountPinLoginControl),
-               Navigation = false },
-            new MenuItem { Id = (Int32)MenuOption.Browse,
-               Title = "Browse", Glyph = Symbol.Globe, Tooltip = "Browse",
-               TargetType = typeof(WebBrowserControl) }
+               Navigation = false }
+            //new MenuItem { Id = (Int32)MenuOption.Browse,
+            //   Title = "Browse", Glyph = Symbol.Globe, Tooltip = "Browse",
+            //   TargetType = typeof(WebBrowserControl) }
             //new MenuItem { Id = (int)MenuOption.Dashboard,
             //   Title = LocalStrings.MainMenuDashboard,
             //   TargetType = typeof(Views.Dashboard.DashboardRequestActionView) },

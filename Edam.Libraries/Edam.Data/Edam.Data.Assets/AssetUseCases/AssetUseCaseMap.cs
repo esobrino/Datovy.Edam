@@ -10,7 +10,7 @@ using Newtonsoft.Json.Serialization;
 
 // -----------------------------------------------------------------------------
 using Edam.Data.Asset;
-using Edam.Data.Assets.AssetConsole;
+using Edam.Data.AssetConsole;
 using Edam.Data.AssetProject;
 using Edam.Data.Books;
 
@@ -93,9 +93,41 @@ namespace Edam.Data.AssetUseCases
       #endregion
       #region -- 4.00 - Search and Find support
 
+      /// <summary>
+      /// Find an Asset Data Map Item using the MapItemId...
+      /// </summary>
+      /// <param name="itemId">id to search for</param>
+      /// <returns>the instance of AssetDataMapItem is returned if found
+      /// else null</returns>
       public AssetDataMapItem Find(string itemId)
       {
          return Items.Find((x) => x.MapItemId == itemId);
+      }
+
+      /// <summary>
+      /// Find Asset-Data-Map-Item using a Cell reference ID that should be
+      /// pointing to a source or target item withing the Map-Item.
+      /// </summary>
+      /// <param name="cell">cell with needed search info</param>
+      /// <returns>list of found map-items is returned if any was found
+      /// </returns>
+      public List<AssetDataMapItem> Find(
+         MapItemType type, BookletCellInfo cell)
+      {
+         List<AssetDataMapItem> items = new List<AssetDataMapItem>();
+
+         foreach (var i in Items)
+         {
+            var l = type == MapItemType.Source ?
+               i.SourceElement : i.TargetElement;
+            var t = l.Find((x) => x.ItemId == cell.ReferenceId);
+            if (t != null)
+            {
+               items.Add(i);
+            }
+         }
+
+         return items;
       }
 
       /// <summary>
@@ -106,13 +138,13 @@ namespace Edam.Data.AssetUseCases
       /// <returns>list of found map-items is returned if any was found
       /// </returns>
       public List<AssetDataMapItem> Find(
-         DataMapItemType type, string elementPath)
+         MapItemType type, string elementPath)
       {
          List<AssetDataMapItem> items = new List<AssetDataMapItem>();
 
          foreach (var i in Items)
          {
-            var l = type == DataMapItemType.Source ?
+            var l = type == MapItemType.Source ?
                i.SourceElement : i.TargetElement;
             var t = l.Find((x) => x.Path == elementPath);
             if (t != null)
@@ -133,7 +165,7 @@ namespace Edam.Data.AssetUseCases
       /// <returns>list of found map-items is returned if any was found
       /// </returns>
       public List<AssetDataMapItem> SelectItem(
-         DataMapItemType type, string elementPath)
+         MapItemType type, string elementPath)
       {
          var i = Find(type, elementPath);
          if (i.Count > 0)
@@ -159,9 +191,9 @@ namespace Edam.Data.AssetUseCases
          return i;
       }
 
-      public void Add(DataMapItemType type, MapItemInfo item)
+      public void Add(MapItemType type, MapItemInfo item)
       {
-         var l = type == DataMapItemType.Source ?
+         var l = type == MapItemType.Source ?
             SelectedMapItem.SourceElement : SelectedMapItem.TargetElement;
          var i = l.Find((x) => x.Path == item.Path);
          if (i == null)
@@ -178,9 +210,9 @@ namespace Edam.Data.AssetUseCases
       /// </summary>
       /// <param name="type">source or destination</param>
       /// <param name="item">item to delete</param>
-      public void Delete(DataMapItemType type, MapItemInfo item)
+      public void Delete(MapItemType type, MapItemInfo item)
       {
-         var l = type == DataMapItemType.Source ?
+         var l = type == MapItemType.Source ?
             SelectedMapItem.SourceElement : SelectedMapItem.TargetElement;
          var i = l.Find((x) => x.Path == item.Path);
          if (i != null)

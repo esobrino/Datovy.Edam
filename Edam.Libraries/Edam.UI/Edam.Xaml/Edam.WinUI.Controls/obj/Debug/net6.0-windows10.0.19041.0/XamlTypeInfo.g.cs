@@ -172,7 +172,7 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[204];
+            _typeNameTable = new string[205];
             _typeNameTable[0] = "Edam.WinUI.Controls.AboutControl";
             _typeNameTable[1] = "Microsoft.UI.Xaml.Controls.UserControl";
             _typeNameTable[2] = "Edam.DataObjects.ViewModels.IMenuItemParent";
@@ -375,10 +375,11 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
             _typeNameTable[199] = "Edam.Uwp.ViewModels.TextButtonViewModel";
             _typeNameTable[200] = "Edam.WinUI.Controls.Utilities.TextEditorControl";
             _typeNameTable[201] = "Edam.WinUI.Controls.ViewModels.TextEditorViewModel";
-            _typeNameTable[202] = "Edam.WinUI.Controls.Web.WebBrowserControl";
-            _typeNameTable[203] = "Edam.Uwp.ViewModels.WebBrowserViewModel";
+            _typeNameTable[202] = "Edam.WinUI.Controls.Controls.Viewers.ExcelViewerControl";
+            _typeNameTable[203] = "Edam.WinUI.Controls.Web.WebBrowserControl";
+            _typeNameTable[204] = "Edam.Uwp.ViewModels.WebBrowserViewModel";
 
-            _typeTable = new global::System.Type[204];
+            _typeTable = new global::System.Type[205];
             _typeTable[0] = typeof(global::Edam.WinUI.Controls.AboutControl);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
             _typeTable[2] = typeof(global::Edam.DataObjects.ViewModels.IMenuItemParent);
@@ -581,8 +582,9 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
             _typeTable[199] = typeof(global::Edam.Uwp.ViewModels.TextButtonViewModel);
             _typeTable[200] = typeof(global::Edam.WinUI.Controls.Utilities.TextEditorControl);
             _typeTable[201] = typeof(global::Edam.WinUI.Controls.ViewModels.TextEditorViewModel);
-            _typeTable[202] = typeof(global::Edam.WinUI.Controls.Web.WebBrowserControl);
-            _typeTable[203] = typeof(global::Edam.Uwp.ViewModels.WebBrowserViewModel);
+            _typeTable[202] = typeof(global::Edam.WinUI.Controls.Controls.Viewers.ExcelViewerControl);
+            _typeTable[203] = typeof(global::Edam.WinUI.Controls.Web.WebBrowserControl);
+            _typeTable[204] = typeof(global::Edam.Uwp.ViewModels.WebBrowserViewModel);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -733,8 +735,9 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
         private object Activate_199_TextButtonViewModel() { return new global::Edam.Uwp.ViewModels.TextButtonViewModel(); }
         private object Activate_200_TextEditorControl() { return new global::Edam.WinUI.Controls.Utilities.TextEditorControl(); }
         private object Activate_201_TextEditorViewModel() { return new global::Edam.WinUI.Controls.ViewModels.TextEditorViewModel(); }
-        private object Activate_202_WebBrowserControl() { return new global::Edam.WinUI.Controls.Web.WebBrowserControl(); }
-        private object Activate_203_WebBrowserViewModel() { return new global::Edam.Uwp.ViewModels.WebBrowserViewModel(); }
+        private object Activate_202_ExcelViewerControl() { return new global::Edam.WinUI.Controls.Controls.Viewers.ExcelViewerControl(); }
+        private object Activate_203_WebBrowserControl() { return new global::Edam.WinUI.Controls.Web.WebBrowserControl(); }
+        private object Activate_204_WebBrowserViewModel() { return new global::Edam.Uwp.ViewModels.WebBrowserViewModel(); }
         private void VectorAdd_38_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::CommunityToolkit.WinUI.UI.Controls.DataGridColumn>)instance;
@@ -2353,15 +2356,22 @@ namespace Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 202:   //  Edam.WinUI.Controls.Web.WebBrowserControl
+            case 202:   //  Edam.WinUI.Controls.Controls.Viewers.ExcelViewerControl
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_202_WebBrowserControl;
+                userType.Activator = Activate_202_ExcelViewerControl;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 203:   //  Edam.WinUI.Controls.Web.WebBrowserControl
+                userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_203_WebBrowserControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 203:   //  Edam.Uwp.ViewModels.WebBrowserViewModel
+            case 204:   //  Edam.Uwp.ViewModels.WebBrowserViewModel
                 userType = new global::Edam.WinUI.Controls.Edam_WinUI_Controls_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Edam.Helpers.ObservableObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();

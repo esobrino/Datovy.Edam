@@ -17,14 +17,14 @@
           "Edam.Data.Schema.dll": {}
         }
       },
-      "DocumentFormat.OpenXml/2.14.0-beta0001": {
+      "DocumentFormat.OpenXml/2.19.0": {
         "dependencies": {
           "System.IO.Packaging": "4.7.0"
         },
         "runtime": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
-            "assemblyVersion": "2.14.0.0",
-            "fileVersion": "2.14.0.0"
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
+            "assemblyVersion": "2.19.0.0",
+            "fileVersion": "2.19.0.0"
           }
         }
       },
@@ -273,7 +273,7 @@
       },
       "Edam.Xml/1.0.0": {
         "dependencies": {
-          "DocumentFormat.OpenXml": "2.14.0-beta0001",
+          "DocumentFormat.OpenXml": "2.19.0",
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0"
         },
@@ -289,12 +289,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DocumentFormat.OpenXml/2.14.0-beta0001": {
+    "DocumentFormat.OpenXml/2.19.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-D5a4bIGYi1wRxvNGrEoS7rrypKGCeiPrL8UK52TVwXmKgGwOYZOXajpSXy3oEKMvxkD6GQs+kBaI9N666x7oVQ==",
-      "path": "documentformat.openxml/2.14.0-beta0001",
-      "hashPath": "documentformat.openxml.2.14.0-beta0001.nupkg.sha512"
+      "sha512": "sha512-BLFqodowHZHR/A/sKU/6e+63J5ONWDdv8hEuSZOUiBfGFuVmsG9P3o+LMSq+dajNWE1q+lqVSa1H5FuhLX8/fA==",
+      "path": "documentformat.openxml/2.19.0",
+      "hashPath": "documentformat.openxml.2.19.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/6.0.0-preview.4.21253.7": {
       "type": "package",

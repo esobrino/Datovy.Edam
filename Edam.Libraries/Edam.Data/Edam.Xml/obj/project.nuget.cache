@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lRQh121AvsEYIqhdaflAXFCAsPeF6YVhOw48O2fUIK5etDcNWsLHB4lCCal84KVYdGcQ2lXVfN+5U45/cpXpdw==",
+  "dgSpecHash": "ZUHyo8ZI59/m7GebBTAvL0+o8wllDThLey3BJqEKJzhbCWDWdF3iUVcdERN8BHo/3fD5zedgRIbJew30KhhMKg==",
   "success": true,
   "projectFilePath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Xml\\Edam.Xml.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\esobr\\.nuget\\packages\\documentformat.openxml\\2.14.0-beta0001\\documentformat.openxml.2.14.0-beta0001.nupkg.sha512",
+    "C:\\Users\\esobr\\.nuget\\packages\\documentformat.openxml\\2.19.0\\documentformat.openxml.2.19.0.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0-preview.4.21253.7\\microsoft.extensions.configuration.6.0.0-preview.4.21253.7.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0-preview.4.21253.7\\microsoft.extensions.configuration.abstractions.6.0.0-preview.4.21253.7.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\6.0.0-preview.4.21253.7\\microsoft.extensions.configuration.fileextensions.6.0.0-preview.4.21253.7.nupkg.sha512",

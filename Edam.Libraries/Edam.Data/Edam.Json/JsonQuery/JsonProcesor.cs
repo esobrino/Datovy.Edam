@@ -8,7 +8,9 @@ using Edam.Data.AssetUseCases;
 using Edam.Diagnostics;
 using Edam.Data.Books;
 using Edam.Json.JsonHelper;
+using Edam.Data.AssetConsole;
 using Edam.Text;
+using Edam.Data.AssetSchema;
 
 namespace Edam.Json.JsonQuery
 {
@@ -138,6 +140,8 @@ namespace Edam.Json.JsonQuery
       public List<IParserResults> Execute(BookInfo book)
       {
          List<IParserResults> results = new List<IParserResults>();
+
+         // go through a book - booklets...
          foreach (var item in book.Items)
          {
             var result = Execute(item);
@@ -145,6 +149,11 @@ namespace Edam.Json.JsonQuery
             {
                foreach(var i in result)
                {
+                  BookletCellInfo cell = i.Context as BookletCellInfo;
+                  if (cell != null)
+                  {
+                     i.MapItem = UseCase.Find(MapItemType.Source, cell);
+                  }
                   i.ParentContext = book;
                }
                results.AddRange(result);

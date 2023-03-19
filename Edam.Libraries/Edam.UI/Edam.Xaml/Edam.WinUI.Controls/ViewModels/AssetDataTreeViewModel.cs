@@ -13,7 +13,6 @@ using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
 using Edam.WinUI.Controls.DataModels;
 using System.Collections.ObjectModel;
-using Edam.Data.Assets.AssetConsole;
 using Edam.Json.JsonDataTree;
 using Edam.WinUI.Controls.Common;
 
@@ -74,8 +73,8 @@ namespace Edam.WinUI.Controls.ViewModels
          }
       }
 
-      private DataMapItemType m_MapType = DataMapItemType.Unknown;
-      public DataMapItemType MapType
+      private MapItemType m_MapType = MapItemType.Unknown;
+      public MapItemType MapType
       {
          get { return m_MapType; }
       }
@@ -110,21 +109,21 @@ namespace Edam.WinUI.Controls.ViewModels
          return inst.JsonText;
       }
 
-      public void SetMapContext(DataMapContext context, DataMapItemType type)
+      public void SetMapContext(DataMapContext context, MapItemType type)
       {
          m_MapType = type;
          m_MapContext = context;
 
          switch(type)
          {
-            case DataMapItemType.Source:
+            case MapItemType.Source:
                context.Source.TreeModel = TreeView;
                if (String.IsNullOrWhiteSpace(context.Source.JsonInstanceSample))
                {
                   context.Source.JsonInstanceSample = GetSampleInstance();
                }
                break;
-            case DataMapItemType.Target:
+            case MapItemType.Target:
                context.Target.TreeModel = TreeView;
                break;
             default:
@@ -150,7 +149,7 @@ namespace Edam.WinUI.Controls.ViewModels
          args.KeyEventData = KeyEventData == null ? 
             new KeyEventData() : KeyEventData;
 
-         DataTreeEvent treeEvent = (MapType == DataMapItemType.Source) ?
+         DataTreeEvent treeEvent = (MapType == MapItemType.Source) ?
             m_MapContext.Source.ManageNotification :
             m_MapContext.Target.ManageNotification;
 

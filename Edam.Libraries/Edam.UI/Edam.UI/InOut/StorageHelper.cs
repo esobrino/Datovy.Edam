@@ -10,7 +10,7 @@ using Windows.Storage;
 namespace Edam.InOut
 {
 
-   public class StorageHelper
+   public class StorageFolderFileHelper
    {
 
       public static StorageFolder GetFolder(string folderPath)

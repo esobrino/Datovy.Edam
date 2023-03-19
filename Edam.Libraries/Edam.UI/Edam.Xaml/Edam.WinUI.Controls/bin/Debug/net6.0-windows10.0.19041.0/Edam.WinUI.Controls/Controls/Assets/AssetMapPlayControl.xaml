@@ -30,15 +30,18 @@
 
          <CommandBar Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
             OverflowButtonVisibility="Collapsed" DefaultLabelPosition="Right">
-            <AppBarButton x:ConnectionId='10'                            
+            <AppBarButton x:ConnectionId='11'                            
                Background="Transparent" BorderThickness="0" FontSize="14" FontWeight="Bold"
                ToolTipService.ToolTip="Refresh Sample Document Instance" Content="Sample" />
-            <AppBarButton x:ConnectionId='11'                          Icon="Save" Label="Save" LabelPosition="Default"
+            <AppBarButton x:ConnectionId='12'                          Icon="OpenFile" Label="Open" LabelPosition="Default"
+               Background="Transparent" BorderThickness="0" FontSize="14" 
+               ToolTipService.ToolTip="Open File" />
+            <AppBarButton x:ConnectionId='13'                          Icon="Save" Label="Save" LabelPosition="Default"
                Background="Transparent" BorderThickness="0" FontSize="14" 
                ToolTipService.ToolTip="Save File" />
          </CommandBar>
 
-         <ed:CodeEditorControl x:ConnectionId='9' Grid.Row="1" Grid.Column="0"
+         <ed:CodeEditorControl x:ConnectionId='10' Grid.Row="1" Grid.Column="0"
              x:Name="EditorControl"                                />
       </Grid>
 
@@ -78,10 +81,13 @@
                <AppBarButton x:ConnectionId='6'                              
                   Background="Transparent" BorderThickness="0" FontSize="18" FontWeight="Bold"
                   ToolTipService.ToolTip="Request" Content="Request"/>
-               <AppBarButton x:ConnectionId='7'                              Icon="Save" Label="Save" LabelPosition="Default"
+               <AppBarButton x:ConnectionId='7'                          Icon="OpenFile" Label="Open" LabelPosition="Default"
+                  Background="Transparent" BorderThickness="0" FontSize="14" 
+                  ToolTipService.ToolTip="Open File" />
+               <AppBarButton x:ConnectionId='8'                          Icon="Save" Label="Save" LabelPosition="Default"
                   Background="Transparent" BorderThickness="0" FontSize="14" 
                   ToolTipService.ToolTip="Save File" />
-               <AppBarButton x:ConnectionId='8'                              Icon="Play" Label="Execute" LabelPosition="Default"
+               <AppBarButton x:ConnectionId='9'                              Icon="Play" Label="Execute" LabelPosition="Default"
                   Background="Transparent" BorderThickness="0" FontSize="14" 
                   ToolTipService.ToolTip="Execute Request" />
             </CommandBar>
@@ -116,7 +122,7 @@
                <AppBarButton x:ConnectionId='3'                              
                   Background="Transparent" BorderThickness="0" FontSize="18" FontWeight="Bold"
                   ToolTipService.ToolTip="Results" Content="Results" />
-               <AppBarButton x:ConnectionId='4'                               Icon="Save" Label="Save" LabelPosition="Default"
+               <AppBarButton x:ConnectionId='4'                          Icon="Save" Label="Save" LabelPosition="Default"
                   Background="Transparent" BorderThickness="0" FontSize="14" 
                   ToolTipService.ToolTip="Save File" />
             </CommandBar>

@@ -103,19 +103,19 @@
     <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.dll">
       <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\documentformat.openxml\2.14.0-beta0001\lib\netstandard2.0\DocumentFormat.OpenXml.dll">
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\documentformat.openxml\2.19.0\lib\net6.0\DocumentFormat.OpenXml.dll">
       <PackagePath>DocumentFormat.OpenXml.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\json-ld.net\1.0.6\lib\netstandard1.3\json-ld.net.dll">
       <PackagePath>json-ld.net.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\jsonata.net.native\2.0.0\lib\net5.0\Jsonata.Net.Native.dll">
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\jsonata.net.native\2.0.1\lib\net5.0\Jsonata.Net.Native.dll">
       <PackagePath>Jsonata.Net.Native.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\jsonata.net.native.jsonnet\2.0.0\lib\net5.0\Jsonata.Net.Native.JsonNet.dll">
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\jsonata.net.native.jsonnet\2.0.1\lib\net5.0\Jsonata.Net.Native.JsonNet.dll">
       <PackagePath>Jsonata.Net.Native.JsonNet.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\jsonata.net.native.systemtextjson\2.0.0\lib\net5.0\Jsonata.Net.Native.SystemTextJson.dll">
+    <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\jsonata.net.native.systemtextjson\2.0.1\lib\net5.0\Jsonata.Net.Native.SystemTextJson.dll">
       <PackagePath>Jsonata.Net.Native.SystemTextJson.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\esobr\.nuget\packages\microsoft.extensions.configuration\6.0.0-preview.4.21253.7\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll">
@@ -352,11 +352,11 @@
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Xml\bin\Debug\net6.0\Edam.Xml.dll">
       <PackagePath>Edam.Xml.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Debug\net6.0-windows10.0.19041.0\Edam.UI.pri">
-      <PackagePath>Edam.UI.pri</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI.DataModel\bin\Debug\net6.0-windows10.0.19041.0\Edam.UI.DataModel.pri">
       <PackagePath>Edam.UI.DataModel.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI\bin\Debug\net6.0-windows10.0.19041.0\Edam.UI.pri">
+      <PackagePath>Edam.UI.pri</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\bin\Debug\net6.0-windows10.0.19041.0\Edam.WinUI.Controls.pri">
       <PackagePath>Edam.WinUI.Controls.pri</PackagePath>
@@ -504,6 +504,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Utilities\TextEditorControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Utilities\TextEditorControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Viewers\ExcelViewerControl.xbf">
+      <PackagePath>Edam.WinUI.Controls\Controls\Viewers\ExcelViewerControl.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.Xaml\Edam.WinUI.Controls\obj\Debug\net6.0-windows10.0.19041.0\Controls\Web\WebBrowserControl.xbf">
       <PackagePath>Edam.WinUI.Controls\Controls\Web\WebBrowserControl.xbf</PackagePath>

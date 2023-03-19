@@ -1,20 +1,14 @@
-﻿using Edam.Data.AssetConsole;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace Edam.Data.Assets.AssetConsole
-{
+using Edam.Data.AssetSchema;
 
-   public enum DataMapItemType
-   {
-      Unknown = 0,
-      Source = 1,
-      Target = 2
-   }
+namespace Edam.Data.AssetConsole
+{
 
    public class SampleItem
    {
@@ -25,7 +19,7 @@ namespace Edam.Data.Assets.AssetConsole
 
    public class DataMapItemInfo
    {
-      public DataMapItemType Type { get; set; }
+      public MapItemType Type { get; set; }
       public string Name { get; set; }
 
       [IgnoreDataMember]

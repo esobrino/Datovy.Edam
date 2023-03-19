@@ -10,9 +10,11 @@ namespace Edam.WinUI.Controls.Dialogs
 
    public class StorageInfo : IStorageInfo
    {
-      public FolderFileItemInfo StorageItem { get; set; }
       public Action<IDialogObjectInfo> CallBack { get; set; }
       public List<string> FileTypeFilter { get; set; }
+
+      public StorageAction StorageAction { get; set; }
+      public FolderFileItemInfo StorageItem { get; set; }
 
       public string CommandText { get; set; }
       public string ItemType { get; set; }

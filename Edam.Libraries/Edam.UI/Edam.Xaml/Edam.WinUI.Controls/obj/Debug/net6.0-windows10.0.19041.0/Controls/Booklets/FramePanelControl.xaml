@@ -10,15 +10,30 @@
 
    <Grid>
       <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="Auto" />
          <ColumnDefinition Width="*" />
          <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
          <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
+
+      <StackPanel Grid.Row="0" Grid.Column="0" Margin="5,5" Padding="0">
+         <!--<StackPanel Orientation="Horizontal" ToolTipService.ToolTip="Move Cell Up"
+                     ToolTipService.Placement="Bottom" x:Name="UpButton">
+            <FontIcon Margin="2" FontSize="12"
+                      FontFamily="Segoe MDL2 Assets" Glyph="&#xE74A;" 
+                      PointerPressed="UpClicked" />
+         </StackPanel>-->
+         <StackPanel x:ConnectionId='6' Orientation="Horizontal" ToolTipService.ToolTip="Move Cell Down"
+                     ToolTipService.Placement="Bottom" x:Name="DownButton">
+            <FontIcon x:ConnectionId='7' Margin="2,5" FontSize="12"
+                      FontFamily="Segoe MDL2 Assets" Glyph="&#xE74B;" 
+                                                   />
+         </StackPanel>
+      </StackPanel>
       
-      <StackPanel Grid.Row="0" Grid.Column="1"
-                  Margin="5,5" Padding="0">
+      <StackPanel Grid.Row="0" Grid.Column="2" Margin="5,5" Padding="0">
          <StackPanel x:ConnectionId='2' Orientation="Horizontal" ToolTipService.ToolTip="Run"
                      ToolTipService.Placement="Bottom" x:Name="PlayButton">
             <FontIcon x:ConnectionId='5' Margin="2" Foreground="DarkGreen" FontSize="12"
@@ -39,7 +54,7 @@
          </StackPanel>-->
       </StackPanel>
 
-      <ContentPresenter Grid.Row="0" Grid.Column="0" BorderBrush="LightBlue" BorderThickness="1"
+      <ContentPresenter Grid.Row="0" Grid.Column="1" BorderBrush="LightBlue" BorderThickness="1"
          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
          Content="{Binding FrameContent, ElementName=Self}" MinHeight="30">
          

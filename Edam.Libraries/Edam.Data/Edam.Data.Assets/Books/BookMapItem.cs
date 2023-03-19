@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Edam.Data.Assets.AssetConsole;
+using Edam.Data.AssetConsole;
 
 // -----------------------------------------------------------------------------
 using Edam.Data.AssetSchema;
@@ -129,11 +129,11 @@ namespace Edam.Data.Assets.Books
       /// <param name="type">list to search (source or target)</param>
       /// <returns>if found a BookMapItem instance is returned</returns>
       public static BookMapItem Find(
-         BookMapItemList list, BookMapItemInfo item, DataMapItemType type)
+         BookMapItemList list, BookMapItemInfo item, MapItemType type)
       {
          foreach(var map in list)
          {
-            if (type == DataMapItemType.Source)
+            if (type == MapItemType.Source)
             {
                foreach (var sitem in map.SourceItems)
                {
@@ -171,7 +171,7 @@ namespace Edam.Data.Assets.Books
          {
             foreach (var sitem in map.SourceItems)
             {
-               var fitem = Find(items, sitem, DataMapItemType.Source);
+               var fitem = Find(items, sitem, MapItemType.Source);
                if (fitem != null && !fitem.Visited)
                {
                   fitem.Visited = true;
@@ -180,7 +180,7 @@ namespace Edam.Data.Assets.Books
             }
             foreach (var titem in map.TargetItems)
             {
-               var fitem = Find(items, titem, DataMapItemType.Target);
+               var fitem = Find(items, titem, MapItemType.Target);
                if (fitem != null && !fitem.Visited)
                {
                   fitem.Visited = true;

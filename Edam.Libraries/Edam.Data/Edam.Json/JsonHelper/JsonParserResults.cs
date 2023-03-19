@@ -8,18 +8,24 @@ using Jsonata.Net.Native.Json;
 
 using Edam.Text;
 using Edam.Diagnostics;
+using Newtonsoft.Json;
 
 namespace Edam.Json.JsonHelper
 {
 
    public class JsonParserResults : IParserResults
    {
+      [JsonIgnore]
       public object ParentContext { get; set; } = null;
+
+      public object MapItem { get; set; } = null;
       public object Context { get; set; } = null;
       public string OriginalText { get; set; } = null;
       public string ParsedText { get; set; } = null;
       public string ResultText { get; set; } = null;
       public List<string> Extracts { get; set; } = new List<string>();
+
+      [JsonIgnore]
       public ResultLog Results { get; set; } = new ResultLog();
 
       /// <summary>

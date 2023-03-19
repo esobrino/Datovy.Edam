@@ -6,9 +6,9 @@
 
   <ItemGroup>
     <PackageReference Include="json-ld.net" Version="1.0.6" />
-    <PackageReference Include="Jsonata.Net.Native" Version="2.0.0" />
-    <PackageReference Include="Jsonata.Net.Native.JsonNet" Version="2.0.0" />
-    <PackageReference Include="Jsonata.Net.Native.SystemTextJson" Version="2.0.0" />
+    <PackageReference Include="Jsonata.Net.Native" Version="2.0.1" />
+    <PackageReference Include="Jsonata.Net.Native.JsonNet" Version="2.0.1" />
+    <PackageReference Include="Jsonata.Net.Native.SystemTextJson" Version="2.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.14" />
     <PackageReference Include="YamlDotNet" Version="11.2.1" />

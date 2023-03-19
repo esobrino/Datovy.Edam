@@ -39,6 +39,7 @@
     <None Remove="Controls\ReferenceData\ReferenceDataDomainGridControl.xaml" />
     <None Remove="Controls\Utilities\FolderViewControl.xaml" />
     <None Remove="Controls\Utilities\TextEditorControl.xaml" />
+    <None Remove="Controls\Viewers\ExcelViewerControl.xaml" />
     <None Remove="DataTemplates\DataSource.Dialog.json" />
     <None Remove="DataTemplates\Domain.Record.Form.json" />
     <None Remove="DataTemplates\Project.NewProject.Dialog.json" />
@@ -254,5 +255,15 @@
     <Page Update="Controls\Notebooks\NotebookPanelControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Controls\Viewers\ExcelViewerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controls\ContentDialogs\" />
   </ItemGroup>
 </Project>

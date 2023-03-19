@@ -10,7 +10,6 @@ using Edam.Data.AssetSchema;
 using Microsoft.UI.Xaml;
 using Edam.WinUI.Controls.DataModels;
 using Edam.Data.Books;
-using Edam.Data.Assets.AssetConsole;
 using Edam.Data.AssetUseCases;
 using System.Runtime.CompilerServices;
 

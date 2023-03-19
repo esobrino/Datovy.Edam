@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Edam.Data.AssetConsole;
 using Edam.Data.AssetSchema;
 using Edam.Data.AssetProject;
-using Edam.Data.Assets.AssetConsole;
 using Edam.InOut;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;

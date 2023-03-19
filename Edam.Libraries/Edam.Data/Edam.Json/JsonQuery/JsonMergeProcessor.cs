@@ -62,17 +62,16 @@ namespace Edam.Json.JsonQuery
          foreach (var item in items)
          {
             BookletCellInfo cell = item.Context as BookletCellInfo;
-            if (cell == null)
+            if (cell != null)
             {
-               continue;
+
+               JsonMergeItem mitem = new JsonMergeItem();
+               mitem.MapItem = FindMapItem(cell.ReferenceId);
+               mitem.Booklet = FindBooklet(cell.BookletId);
+               mitem.Cell = cell;
+
+               Items.Add(mitem);
             }
-
-            JsonMergeItem mitem = new JsonMergeItem();
-            mitem.MapItem = FindMapItem(cell.ReferenceId);
-            mitem.Booklet = FindBooklet(cell.BookletId);
-            mitem.Cell = cell;
-
-            Items.Add(mitem);
          }
 
          // go through all items to be merged...
@@ -80,6 +79,7 @@ namespace Edam.Json.JsonQuery
          {
 
          }
+
       }
 
    }

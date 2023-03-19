@@ -607,6 +607,16 @@ namespace Edam.WinUI.Controls.ViewModels
          ManageResults(results);
       }
 
+      /// <summary>
+      /// Add multiple items selected from the file picker.
+      /// </summary>
+      public void ItemSave(string text)
+      {
+         StorageInfo storageInfo = new StorageInfo();
+         storageInfo.CallBack = ProcessAddItemsResult;
+         StoragePickerDialog.SavePickerAsync(storageInfo);
+      }
+
       #endregion
       #region -- 4.00 - Project Add/New Dialog Support Methods
 
@@ -675,6 +685,9 @@ namespace Edam.WinUI.Controls.ViewModels
          }
       }
 
+      /// <summary>
+      /// Add multiple items selected from the file picker.
+      /// </summary>
       public void ProjectAddItems()
       {
          StorageInfo storageInfo = new StorageInfo();

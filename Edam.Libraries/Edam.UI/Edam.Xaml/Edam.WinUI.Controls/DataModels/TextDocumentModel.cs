@@ -30,10 +30,17 @@ namespace Edam.WinUI.Controls.DataModels
       {
          m_ViewModel = model;
       }
+
       public void SetText(TextSetOptions options, string text, string language)
       {
          LanguageText = language;
          m_ViewModel.SetEditorText(text, language);
+      }
+
+      public async Task<string> GetText()
+      {
+         var text = await m_ViewModel.GetEditorText();
+         return text;
       }
 
    }

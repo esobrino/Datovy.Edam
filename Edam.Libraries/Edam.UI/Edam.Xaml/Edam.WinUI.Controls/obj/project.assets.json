@@ -231,18 +231,18 @@
           }
         }
       },
-      "DocumentFormat.OpenXml/2.14.0-beta0001": {
+      "DocumentFormat.OpenXml/2.19.0": {
         "type": "package",
         "dependencies": {
           "System.IO.Packaging": "4.7.0"
         },
         "compile": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
             "related": ".xml"
           }
         }
@@ -263,7 +263,7 @@
           "lib/netstandard1.3/json-ld.net.dll": {}
         }
       },
-      "Jsonata.Net.Native/2.0.0": {
+      "Jsonata.Net.Native/2.0.1": {
         "type": "package",
         "compile": {
           "lib/net5.0/Jsonata.Net.Native.dll": {}
@@ -272,10 +272,10 @@
           "lib/net5.0/Jsonata.Net.Native.dll": {}
         }
       },
-      "Jsonata.Net.Native.JsonNet/2.0.0": {
+      "Jsonata.Net.Native.JsonNet/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
@@ -285,10 +285,10 @@
           "lib/net5.0/Jsonata.Net.Native.JsonNet.dll": {}
         }
       },
-      "Jsonata.Net.Native.SystemTextJson/2.0.0": {
+      "Jsonata.Net.Native.SystemTextJson/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "System.Text.Json": "6.0.5"
         },
         "compile": {
@@ -2432,9 +2432,9 @@
         "dependencies": {
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0",
-          "Jsonata.Net.Native": "2.0.0",
-          "Jsonata.Net.Native.JsonNet": "2.0.0",
-          "Jsonata.Net.Native.SystemTextJson": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
+          "Jsonata.Net.Native.JsonNet": "2.0.1",
+          "Jsonata.Net.Native.SystemTextJson": "2.0.1",
           "Newtonsoft.Json": "13.0.1",
           "Newtonsoft.Json.Schema": "3.0.14",
           "YamlDotNet": "11.2.1",
@@ -2517,7 +2517,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DocumentFormat.OpenXml": "2.14.0-beta0001",
+          "DocumentFormat.OpenXml": "2.19.0",
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0"
         },
@@ -2759,18 +2759,18 @@
           }
         }
       },
-      "DocumentFormat.OpenXml/2.14.0-beta0001": {
+      "DocumentFormat.OpenXml/2.19.0": {
         "type": "package",
         "dependencies": {
           "System.IO.Packaging": "4.7.0"
         },
         "compile": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
             "related": ".xml"
           }
         }
@@ -2791,7 +2791,7 @@
           "lib/netstandard1.3/json-ld.net.dll": {}
         }
       },
-      "Jsonata.Net.Native/2.0.0": {
+      "Jsonata.Net.Native/2.0.1": {
         "type": "package",
         "compile": {
           "lib/net5.0/Jsonata.Net.Native.dll": {}
@@ -2800,10 +2800,10 @@
           "lib/net5.0/Jsonata.Net.Native.dll": {}
         }
       },
-      "Jsonata.Net.Native.JsonNet/2.0.0": {
+      "Jsonata.Net.Native.JsonNet/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
@@ -2813,10 +2813,10 @@
           "lib/net5.0/Jsonata.Net.Native.JsonNet.dll": {}
         }
       },
-      "Jsonata.Net.Native.SystemTextJson/2.0.0": {
+      "Jsonata.Net.Native.SystemTextJson/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "System.Text.Json": "6.0.5"
         },
         "compile": {
@@ -5072,9 +5072,9 @@
         "dependencies": {
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0",
-          "Jsonata.Net.Native": "2.0.0",
-          "Jsonata.Net.Native.JsonNet": "2.0.0",
-          "Jsonata.Net.Native.SystemTextJson": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
+          "Jsonata.Net.Native.JsonNet": "2.0.1",
+          "Jsonata.Net.Native.SystemTextJson": "2.0.1",
           "Newtonsoft.Json": "13.0.1",
           "Newtonsoft.Json.Schema": "3.0.14",
           "YamlDotNet": "11.2.1",
@@ -5157,7 +5157,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DocumentFormat.OpenXml": "2.14.0-beta0001",
+          "DocumentFormat.OpenXml": "2.19.0",
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0"
         },
@@ -5399,18 +5399,18 @@
           }
         }
       },
-      "DocumentFormat.OpenXml/2.14.0-beta0001": {
+      "DocumentFormat.OpenXml/2.19.0": {
         "type": "package",
         "dependencies": {
           "System.IO.Packaging": "4.7.0"
         },
         "compile": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
             "related": ".xml"
           }
         }
@@ -5431,7 +5431,7 @@
           "lib/netstandard1.3/json-ld.net.dll": {}
         }
       },
-      "Jsonata.Net.Native/2.0.0": {
+      "Jsonata.Net.Native/2.0.1": {
         "type": "package",
         "compile": {
           "lib/net5.0/Jsonata.Net.Native.dll": {}
@@ -5440,10 +5440,10 @@
           "lib/net5.0/Jsonata.Net.Native.dll": {}
         }
       },
-      "Jsonata.Net.Native.JsonNet/2.0.0": {
+      "Jsonata.Net.Native.JsonNet/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
@@ -5453,10 +5453,10 @@
           "lib/net5.0/Jsonata.Net.Native.JsonNet.dll": {}
         }
       },
-      "Jsonata.Net.Native.SystemTextJson/2.0.0": {
+      "Jsonata.Net.Native.SystemTextJson/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "System.Text.Json": "6.0.5"
         },
         "compile": {
@@ -7712,9 +7712,9 @@
         "dependencies": {
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0",
-          "Jsonata.Net.Native": "2.0.0",
-          "Jsonata.Net.Native.JsonNet": "2.0.0",
-          "Jsonata.Net.Native.SystemTextJson": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
+          "Jsonata.Net.Native.JsonNet": "2.0.1",
+          "Jsonata.Net.Native.SystemTextJson": "2.0.1",
           "Newtonsoft.Json": "13.0.1",
           "Newtonsoft.Json.Schema": "3.0.14",
           "YamlDotNet": "11.2.1",
@@ -7797,7 +7797,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DocumentFormat.OpenXml": "2.14.0-beta0001",
+          "DocumentFormat.OpenXml": "2.19.0",
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0"
         },
@@ -8039,18 +8039,18 @@
           }
         }
       },
-      "DocumentFormat.OpenXml/2.14.0-beta0001": {
+      "DocumentFormat.OpenXml/2.19.0": {
         "type": "package",
         "dependencies": {
           "System.IO.Packaging": "4.7.0"
         },
         "compile": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
             "related": ".xml"
           }
         }
@@ -8071,7 +8071,7 @@
           "lib/netstandard1.3/json-ld.net.dll": {}
         }
       },
-      "Jsonata.Net.Native/2.0.0": {
+      "Jsonata.Net.Native/2.0.1": {
         "type": "package",
         "compile": {
           "lib/net5.0/Jsonata.Net.Native.dll": {}
@@ -8080,10 +8080,10 @@
           "lib/net5.0/Jsonata.Net.Native.dll": {}
         }
       },
-      "Jsonata.Net.Native.JsonNet/2.0.0": {
+      "Jsonata.Net.Native.JsonNet/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
@@ -8093,10 +8093,10 @@
           "lib/net5.0/Jsonata.Net.Native.JsonNet.dll": {}
         }
       },
-      "Jsonata.Net.Native.SystemTextJson/2.0.0": {
+      "Jsonata.Net.Native.SystemTextJson/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "System.Text.Json": "6.0.5"
         },
         "compile": {
@@ -10352,9 +10352,9 @@
         "dependencies": {
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0",
-          "Jsonata.Net.Native": "2.0.0",
-          "Jsonata.Net.Native.JsonNet": "2.0.0",
-          "Jsonata.Net.Native.SystemTextJson": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
+          "Jsonata.Net.Native.JsonNet": "2.0.1",
+          "Jsonata.Net.Native.SystemTextJson": "2.0.1",
           "Newtonsoft.Json": "13.0.1",
           "Newtonsoft.Json.Schema": "3.0.14",
           "YamlDotNet": "11.2.1",
@@ -10437,7 +10437,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "DocumentFormat.OpenXml": "2.14.0-beta0001",
+          "DocumentFormat.OpenXml": "2.19.0",
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0"
         },
@@ -10735,14 +10735,14 @@
         "tools/VisualStudioToolsManifest.xml"
       ]
     },
-    "DocumentFormat.OpenXml/2.14.0-beta0001": {
-      "sha512": "D5a4bIGYi1wRxvNGrEoS7rrypKGCeiPrL8UK52TVwXmKgGwOYZOXajpSXy3oEKMvxkD6GQs+kBaI9N666x7oVQ==",
+    "DocumentFormat.OpenXml/2.19.0": {
+      "sha512": "BLFqodowHZHR/A/sKU/6e+63J5ONWDdv8hEuSZOUiBfGFuVmsG9P3o+LMSq+dajNWE1q+lqVSa1H5FuhLX8/fA==",
       "type": "package",
-      "path": "documentformat.openxml/2.14.0-beta0001",
+      "path": "documentformat.openxml/2.19.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "documentformat.openxml.2.14.0-beta0001.nupkg.sha512",
+        "documentformat.openxml.2.19.0.nupkg.sha512",
         "documentformat.openxml.nuspec",
         "icon.png",
         "lib/net35/DocumentFormat.OpenXml.dll",
@@ -10751,6 +10751,8 @@
         "lib/net40/DocumentFormat.OpenXml.xml",
         "lib/net46/DocumentFormat.OpenXml.dll",
         "lib/net46/DocumentFormat.OpenXml.xml",
+        "lib/net6.0/DocumentFormat.OpenXml.dll",
+        "lib/net6.0/DocumentFormat.OpenXml.xml",
         "lib/netstandard1.3/DocumentFormat.OpenXml.dll",
         "lib/netstandard1.3/DocumentFormat.OpenXml.xml",
         "lib/netstandard2.0/DocumentFormat.OpenXml.dll",
@@ -10771,48 +10773,48 @@
         "lib/portable45-net45+win8/json-ld.net.dll"
       ]
     },
-    "Jsonata.Net.Native/2.0.0": {
-      "sha512": "ecj/3O61+bdbcWGw5gLN4CGVRPRiCA48i6jBGeIe20Q/GphGAK8BHeFC2zcA//nNMixXJXTnPKhFwjkItmCl2w==",
+    "Jsonata.Net.Native/2.0.1": {
+      "sha512": "4ATzpJAT1mFTmop3hxa/L1RzYMpDrzft5J8bw90xlNwQuj325MxZmjep5fGGMNgZRYPt7e3VM6eFe0J91KMMOA==",
       "type": "package",
-      "path": "jsonata.net.native/2.0.0",
+      "path": "jsonata.net.native/2.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "jsonata-button.png",
-        "jsonata.net.native.2.0.0.nupkg.sha512",
+        "jsonata.net.native.2.0.1.nupkg.sha512",
         "jsonata.net.native.nuspec",
         "lib/net47/Jsonata.Net.Native.dll",
         "lib/net5.0/Jsonata.Net.Native.dll",
         "lib/netstandard2.0/Jsonata.Net.Native.dll"
       ]
     },
-    "Jsonata.Net.Native.JsonNet/2.0.0": {
-      "sha512": "ljhu3vqY1PN58vynR+viHDhUuukuIKz9UEWuinESZrxHHLRpKK9ppVMamMlXMmoMlu6XCL/Aio0olfdTaBP68w==",
+    "Jsonata.Net.Native.JsonNet/2.0.1": {
+      "sha512": "99FM+v5/UaNXzajJzgfNRHX5DCcRf8sY7UmpM1pvOLACROmSKsN57anq/XuKJIcaWPLRZoq09+TiBM05mZC2nQ==",
       "type": "package",
-      "path": "jsonata.net.native.jsonnet/2.0.0",
+      "path": "jsonata.net.native.jsonnet/2.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "jsonata-button.png",
-        "jsonata.net.native.jsonnet.2.0.0.nupkg.sha512",
+        "jsonata.net.native.jsonnet.2.0.1.nupkg.sha512",
         "jsonata.net.native.jsonnet.nuspec",
         "lib/net47/Jsonata.Net.Native.JsonNet.dll",
         "lib/net5.0/Jsonata.Net.Native.JsonNet.dll",
         "lib/netstandard2.0/Jsonata.Net.Native.JsonNet.dll"
       ]
     },
-    "Jsonata.Net.Native.SystemTextJson/2.0.0": {
-      "sha512": "VbRFi/7d5vasHHxU6e7XQ/6nsEHMtTFpmCcfLUhlx3weMY34lacLlqwhH2YJuqkavDvgSVzSZbpRjf9F5C9gFw==",
+    "Jsonata.Net.Native.SystemTextJson/2.0.1": {
+      "sha512": "uQsjOJ0X1E3nCyr64yT1jlTwtp7qoBv2qOm7ckK3Y3Tgaez9Vu0SEl2wrSWcurKkwxxkLJuE5KjQVNR/PR+CXQ==",
       "type": "package",
-      "path": "jsonata.net.native.systemtextjson/2.0.0",
+      "path": "jsonata.net.native.systemtextjson/2.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "jsonata-button.png",
-        "jsonata.net.native.systemtextjson.2.0.0.nupkg.sha512",
+        "jsonata.net.native.systemtextjson.2.0.1.nupkg.sha512",
         "jsonata.net.native.systemtextjson.nuspec",
         "lib/net47/Jsonata.Net.Native.SystemTextJson.dll",
         "lib/net5.0/Jsonata.Net.Native.SystemTextJson.dll",
@@ -16742,27 +16744,27 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-            "version": "[6.0.14, 6.0.14]"
+            "version": "[6.0.15, 6.0.15]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[6.0.14, 6.0.14]"
+            "version": "[6.0.15, 6.0.15]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-            "version": "[6.0.14, 6.0.14]"
+            "version": "[6.0.15, 6.0.15]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-            "version": "[6.0.14, 6.0.14]"
+            "version": "[6.0.15, 6.0.15]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[6.0.14, 6.0.14]"
+            "version": "[6.0.15, 6.0.15]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x86",
-            "version": "[6.0.14, 6.0.14]"
+            "version": "[6.0.15, 6.0.15]"
           },
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
@@ -16770,15 +16772,15 @@
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-            "version": "[6.0.14, 6.0.14]"
+            "version": "[6.0.15, 6.0.15]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[6.0.14, 6.0.14]"
+            "version": "[6.0.15, 6.0.15]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-            "version": "[6.0.14, 6.0.14]"
+            "version": "[6.0.15, 6.0.15]"
           }
         ],
         "frameworkReferences": {
@@ -16789,7 +16791,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

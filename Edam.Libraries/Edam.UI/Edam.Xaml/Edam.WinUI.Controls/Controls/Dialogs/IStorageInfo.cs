@@ -12,7 +12,6 @@ namespace Edam.WinUI.Controls.Dialogs
 
    public interface IStorageInfo : IDialogObjectInfo
    {
-      FolderFileItemInfo StorageItem { get; set; }
       List<string> FileTypeFilter { get; set; }
       Action<IDialogObjectInfo> CallBack { get; set; }
    }

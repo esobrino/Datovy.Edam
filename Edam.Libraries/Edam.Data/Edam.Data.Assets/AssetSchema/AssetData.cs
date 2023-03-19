@@ -18,7 +18,8 @@ namespace Edam.Data.AssetSchema
 {
 
     /// <summary>
-    /// 
+    /// An Asset is a collection of data-components/elements representing a 
+    /// business domain, or artifact such as a form, report or other.
     /// </summary>
     public class AssetData
    {

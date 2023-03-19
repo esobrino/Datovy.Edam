@@ -17,7 +17,6 @@ using Edam.InOut;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
 using Edam.WinUI.Controls.DataModels;
-using Edam.Data.Assets.AssetConsole;
 using DocumentFormat.OpenXml.Office2019.Drawing.Model3D;
 using Edam.Data.Asset;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -40,7 +39,7 @@ namespace Edam.WinUI.Controls.DataModels
 
    public class DataTreeEventArgs
    {
-      public DataMapItemType MapType { get; set; }
+      public MapItemType MapType { get; set; }
       public DataTreeEventType Type { get; set; }
       public DataMapContext Context { get; set; }
       public KeyEventData KeyEventData { get; set; }
@@ -80,9 +79,9 @@ namespace Edam.WinUI.Controls.DataModels
       }
       public bool IsControlKeyPressed
       {
-         get 
-         { 
-            return m_KeyEventData == null ? 
+         get
+         {
+            return m_KeyEventData == null ?
                false : m_KeyEventData.IsControlKeyPressed;
          }
       }
@@ -100,7 +99,16 @@ namespace Edam.WinUI.Controls.DataModels
       public DataTreeEvent ManageNotification { get; set; }
 
       public BookViewModel BookModel { get; set; }
-      public ListView BookletViewList { get; set; }
+
+      private ListView m_ListView = null;
+      public ListView BookletViewList
+      {
+         get { return m_ListView; }
+         set
+         {
+            m_ListView = value;
+         }
+      }
 
       #endregion
       #region -- 1.03 - Map Items properties
@@ -180,6 +188,9 @@ namespace Edam.WinUI.Controls.DataModels
          MapItems = new ObservableCollection<MapItemInfo>();
          SourceItems = new ObservableCollection<MapItemInfo>();
          TargetItems = new ObservableCollection<MapItemInfo>();
+
+         BookModel = new BookViewModel();
+         BookModel.Model = new BookModel(this);
       }
 
       #endregion
@@ -213,7 +224,7 @@ namespace Edam.WinUI.Controls.DataModels
          {
             // try to find Use Case...
             var useCase = AssetUseCaseMap.FromUriVersion(
-               arguments.NamespaceUri, context == null ? 
+               arguments.NamespaceUri, context == null ?
                   null : context.UseCase.Name, arguments.ProjectVersionId);
 
             // Use Case was not found in storage
@@ -314,7 +325,7 @@ namespace Edam.WinUI.Controls.DataModels
       /// <param name="path">item path</param>
       /// <returns>instance of MapItemInfo is returned</returns>
       public MapItemInfo GetMapItem(
-         DataInstance instance, string name, string path, 
+         DataInstance instance, string name, string path,
          MapItemInfo item = null)
       {
          MapItemInfo e = item ?? new MapItemInfo();
@@ -335,7 +346,7 @@ namespace Edam.WinUI.Controls.DataModels
          DataInstance instance)
       {
          items.Clear();
-         foreach(var sitem in source)
+         foreach (var sitem in source)
          {
             GetMapItem(instance, sitem.Name, sitem.Path, sitem);
             items.Add(sitem);
@@ -354,7 +365,7 @@ namespace Edam.WinUI.Controls.DataModels
 
          if (item == null)
          {
-            
+
             return;
          }
 
@@ -362,7 +373,7 @@ namespace Edam.WinUI.Controls.DataModels
          {
             foreach (var i in item.SourceElement)
             {
-               i.Side = MapItemSide.Source;
+               i.Side = MapItemType.Source;
                SourceItems.Add(i);
                MapItems.Add(i);
             }
@@ -372,7 +383,7 @@ namespace Edam.WinUI.Controls.DataModels
          {
             foreach (var i in item.TargetElement)
             {
-               i.Side = MapItemSide.Target;
+               i.Side = MapItemType.Target;
                TargetItems.Add(i);
                MapItems.Add(i);
             }
@@ -399,20 +410,20 @@ namespace Edam.WinUI.Controls.DataModels
       /// <param name="type">identify if it is the source or target tree</param>
       /// <param name="item">the item that has been selected</param>
       public void SetSelectedMapItem(
-         DataMapItemType type, MapItemInfo item)
+         MapItemType type, MapItemInfo item)
       {
          ObservableCollection<MapItemInfo> items = null;
          List<MapItemInfo> mapItems = null;
          DataInstance instance = null;
-         switch(type)
+         switch (type)
          {
-            case DataMapItemType.Source:
+            case MapItemType.Source:
                SelectedSourceItem = item;
                mapItems = UseCase.SelectedMapItem.SourceElement;
                items = SourceItems;
                instance = Source;
                break;
-            case DataMapItemType.Target:
+            case MapItemType.Target:
                SelectedTargetItem = item;
                mapItems = UseCase.SelectedMapItem.TargetElement;
                items = TargetItems;
@@ -435,7 +446,7 @@ namespace Edam.WinUI.Controls.DataModels
          BookModel.Model.SelectedBooklet = null;
          int bcount = UseCase.Book.Items.Count;
          int ccount;
-         for (var i = 0; i <  bcount; i++)
+         for (var i = 0; i < bcount; i++)
          {
             var booklet = UseCase.Book.Items[i];
             ccount = booklet.Items.Count;
@@ -443,7 +454,7 @@ namespace Edam.WinUI.Controls.DataModels
             for (var c = 0; c < ccount; c++)
             {
                var cell = booklet.Items[c];
-               foreach(var mapItem in mapItems)
+               foreach (var mapItem in mapItems)
                {
                   if (cell.ReferenceId == mapItem.ItemId)
                   {
@@ -456,6 +467,14 @@ namespace Edam.WinUI.Controls.DataModels
                }
             }
          }
+      }
+
+      /// <summary>
+      /// Refresh Map Items...
+      /// </summary>
+      public void RefreshMapItem()
+      {
+         SetSelectedMapItem(MapItemType.Source, SelectedItem);
       }
 
       #endregion
@@ -622,7 +641,7 @@ namespace Edam.WinUI.Controls.DataModels
          DataMapItemInfo item = null;
          foreach (var m in mapItems)
          {
-            if (m.Type == DataMapItemType.Target)
+            if (m.Type == MapItemType.Target)
             {
                item = m;
                break;
@@ -663,11 +682,38 @@ namespace Edam.WinUI.Controls.DataModels
       /// json message</param>
       /// <returns>instance of processor is returned</returns>
       public static IBookItemProcessor GetProcessor(
-         AssetUseCaseMap useCase, DataInstance instance)
+         AssetUseCaseMap useCase = null, DataInstance instance = null)
       {
-         IBookItemProcessor processor = 
+         IBookItemProcessor processor =
             new JsonProcesor(useCase, instance.JsonInstanceSample);
          return processor;
+      }
+
+      /// <summary>
+      /// Get or Set Processor for current Use Case...
+      /// </summary>
+      /// <returns></returns>
+      public IBookItemProcessor GetProcessor()
+      {
+         if (Processor != null)
+         {
+            return Processor;
+         }
+
+         if (UseCase == null)
+         {
+            UseCase = new AssetUseCaseMap();
+            UseCase.Name = "tmpUseCase";
+         }
+         if (Source == null)
+         {
+
+         }
+
+         // setup processor to execute code segments
+         Processor = GetProcessor(UseCase, Source);
+
+         return Processor;
       }
 
       /// <summary>
@@ -678,7 +724,7 @@ namespace Edam.WinUI.Controls.DataModels
       {
          if (Processor == null)
          {
-            return;
+            GetProcessor();
          }
 
          cell.SetOutputText(String.Empty);
@@ -708,7 +754,7 @@ namespace Edam.WinUI.Controls.DataModels
       {
          if (Processor == null)
          {
-            return;
+            GetProcessor();
          }
 
          Processor.Execute(booklet);
@@ -722,10 +768,49 @@ namespace Edam.WinUI.Controls.DataModels
       {
          if (Processor == null)
          {
-            return;
+            GetProcessor();
          }
 
          Processor.Execute(book);
+      }
+
+      #endregion
+      #region -- 4.00 - Cell support
+
+      /// <summary>
+      /// Move the Cell Down.
+      /// </summary>
+      /// <param name="cell">cell to be moved down</param>
+      public void MoveCellDown(BookletCellInfo cell)
+      {
+         object c2 = null;
+
+         if (BookModel.Model.SelectedBooklet == null)
+         {
+            return;
+         }
+
+         // swap positions in the Booklet Cells List...
+         for(var i=0; BookModel.Model.SelectedBooklet.Items.Count > 0; i++)
+         {
+            var bcell = BookModel.Model.SelectedBooklet.Items[i];
+            if (cell.CellId == bcell.CellId)
+            {
+               if (i + 1 < BookModel.Model.SelectedBooklet.Items.Count)
+               {
+                  BookModel.Model.SelectedBooklet.Items[i] = 
+                     BookModel.Model.SelectedBooklet.Items[i + 1];
+                  BookModel.Model.SelectedBooklet.Items[i + 1] = bcell;
+                  c2 = bcell;
+               }
+               break;
+            }
+         }
+
+         if (c2 != null)
+         {
+            RefreshMapItem();
+         }
       }
 
       #endregion

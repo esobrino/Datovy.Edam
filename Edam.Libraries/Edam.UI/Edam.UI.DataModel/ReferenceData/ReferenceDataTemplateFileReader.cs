@@ -31,16 +31,16 @@ namespace Edam.UI.DataModel.ReferenceData
          FromFolder(string folderPath)
       {
          Windows.Storage.StorageFolder folder =
-            StorageHelper.GetFolder(folderPath);
+            StorageFolderFileHelper.GetFolder(folderPath);
          List<Windows.Storage.StorageFile> files = 
-            StorageHelper.GetFolderFiles(folder);
+            StorageFolderFileHelper.GetFolderFiles(folder);
 
          List<ReferenceDataTemplateInfo> list =
             new List<ReferenceDataTemplateInfo>();
 
          foreach (var i in files)
          {
-            string data = StorageHelper.ReadText(i);
+            string data = StorageFolderFileHelper.ReadText(i);
             ReferenceDataTemplateInfo l = ToTemplateInfo(data);
             list.Add(l);
          }

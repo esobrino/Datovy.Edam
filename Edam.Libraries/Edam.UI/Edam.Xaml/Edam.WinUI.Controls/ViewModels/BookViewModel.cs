@@ -13,7 +13,6 @@ using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
 using Edam.WinUI.Controls.DataModels;
 using System.Collections.ObjectModel;
-using Edam.Data.Assets.AssetConsole;
 using Edam.Json.JsonDataTree;
 using Edam.WinUI.Controls.Common;
 using Edam.WinUI.Controls.Booklets;
@@ -94,9 +93,22 @@ namespace Edam.WinUI.Controls.ViewModels
          AddCell(BookletCellType.Code);
       }
 
+      /// <summary>
+      /// Delete given Cell...
+      /// </summary>
+      /// <param name="item">cell item to delete</param>
       public void DeleteCell(object item = null)
       {
 
+      }
+
+      /// <summary>
+      /// Move the Cell Down.
+      /// </summary>
+      /// <param name="cell">cell to be moved down</param>
+      public void MoveCellDown(BookletCellInfo cell)
+      {
+         Context.MoveCellDown(cell);
       }
 
       /// <summary>

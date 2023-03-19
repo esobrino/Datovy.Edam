@@ -9,13 +9,12 @@ using Newtonsoft.Json;
 // -----------------------------------------------------------------------------
 using util = Edam.Serialization;
 using Edam.Data.Asset;
-using Edam.Data.Assets.AssetConsole;
 using Edam.Data.Books;
 
 namespace Edam.Data.AssetSchema
 {
 
-   public enum MapItemSide
+   public enum MapItemType
    {
       Unknown = 0,
       Source = 1,
@@ -61,7 +60,7 @@ namespace Edam.Data.AssetSchema
       public string DisplayFullPath { get; set; }
       public string QualifiedName { get; set; }
 
-      public MapItemSide Side { get; set; } = MapItemSide.Unknown;
+      public MapItemType Side { get; set; } = MapItemType.Unknown;
 
       public MapAnnotationInfo Annotation { get; set; }
    }

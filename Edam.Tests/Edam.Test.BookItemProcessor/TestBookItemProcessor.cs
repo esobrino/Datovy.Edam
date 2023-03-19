@@ -78,6 +78,7 @@ namespace Edam.Test.BookItemProcessor
          results = Library.Mapping.BookHelper.ReadResults(
             DEFAULT_SAMPLE_FILE_NAME);
       }
+
    }
 
 }

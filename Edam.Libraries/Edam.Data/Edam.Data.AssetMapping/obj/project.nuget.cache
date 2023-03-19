@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "FT/EPHE0MpXPMv2u9j0qSdZsMbb71LQcvPvdwg3t9ffKubLohtgiEsaX+B6l08EMq6L2s3Nv0tWpzaeFFMbl2A==",
+  "dgSpecHash": "/J/Hhb9gQcCkkX2pt1p3N41luXH4K0Ki67cfoaNkC3Zp48UAlOizs8MegAGDX+Mdqdg5GVoYr54QSax0y7n4lQ==",
   "success": true,
   "projectFilePath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.AssetMapping\\Edam.Data.AssetMapping.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\esobr\\.nuget\\packages\\json-ld.net\\1.0.6\\json-ld.net.1.0.6.nupkg.sha512",
-    "C:\\Users\\esobr\\.nuget\\packages\\jsonata.net.native\\2.0.0\\jsonata.net.native.2.0.0.nupkg.sha512",
-    "C:\\Users\\esobr\\.nuget\\packages\\jsonata.net.native.jsonnet\\2.0.0\\jsonata.net.native.jsonnet.2.0.0.nupkg.sha512",
-    "C:\\Users\\esobr\\.nuget\\packages\\jsonata.net.native.systemtextjson\\2.0.0\\jsonata.net.native.systemtextjson.2.0.0.nupkg.sha512",
+    "C:\\Users\\esobr\\.nuget\\packages\\jsonata.net.native\\2.0.1\\jsonata.net.native.2.0.1.nupkg.sha512",
+    "C:\\Users\\esobr\\.nuget\\packages\\jsonata.net.native.jsonnet\\2.0.1\\jsonata.net.native.jsonnet.2.0.1.nupkg.sha512",
+    "C:\\Users\\esobr\\.nuget\\packages\\jsonata.net.native.systemtextjson\\2.0.1\\jsonata.net.native.systemtextjson.2.0.1.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0-preview.4.21253.7\\microsoft.extensions.configuration.6.0.0-preview.4.21253.7.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0-preview.4.21253.7\\microsoft.extensions.configuration.abstractions.6.0.0-preview.4.21253.7.nupkg.sha512",
     "C:\\Users\\esobr\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\6.0.0-preview.4.21253.7\\microsoft.extensions.configuration.fileextensions.6.0.0-preview.4.21253.7.nupkg.sha512",

@@ -34,7 +34,10 @@ namespace Edam.WinUI.Controls.DataModels
       /// <summary>
       /// Items show all added booklets and (code and text) cells...
       /// </summary>
-      public ListView ListView { get; set; }
+      public ListView ListView
+      {
+         get { return m_Context.BookletViewList; }
+      }
 
       private ObservableCollection<IBookCellView> m_Items;
       public ObservableCollection<IBookCellView> Items
@@ -77,7 +80,6 @@ namespace Edam.WinUI.Controls.DataModels
          }
          m_Book = context.UseCase.Book;
          m_Context = context;
-         ListView = context.BookletViewList;
          Items = new ObservableCollection<IBookCellView>();
       }
 
@@ -101,7 +103,10 @@ namespace Edam.WinUI.Controls.DataModels
       public void ClearAll()
       {
          Items.Clear();
-         ListView.Items.Clear();
+         if (ListView != null)
+         {
+            ListView.Items.Clear();
+         }
          //foreach(var booklet in Book.Items)
          //{
          //   booklet.Items.Clear();

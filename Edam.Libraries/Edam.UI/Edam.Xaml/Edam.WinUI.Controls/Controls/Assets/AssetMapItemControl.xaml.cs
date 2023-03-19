@@ -17,7 +17,7 @@ using Windows.Foundation.Collections;
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 using Edam.WinUI.Controls.ViewModels;
 using Edam.WinUI.Controls.DataModels;
-using Edam.Data.Assets.AssetConsole;
+using Edam.Data.AssetConsole;
 using Edam.Data.AssetSchema;
 using Edam.WinUI.Controls.Common;
 using System.Runtime.CompilerServices;
@@ -68,12 +68,12 @@ namespace Edam.WinUI.Controls.Assets
 
       private void SourceDeleteItem_Click(object sender, RoutedEventArgs e)
       {
-         m_ViewModel.DeleteItem(DataMapItemType.Source);
+         m_ViewModel.DeleteItem(MapItemType.Source);
       }
 
       private void TargetDeleteItem_Click(object sender, RoutedEventArgs e)
       {
-         m_ViewModel.DeleteItem(DataMapItemType.Target);
+         m_ViewModel.DeleteItem(MapItemType.Target);
       }
 
       private void ScrollViewer_KeyDown(object sender, KeyRoutedEventArgs e)

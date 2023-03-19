@@ -19,7 +19,6 @@ using Edam.WinUI.Controls.ViewModels;
 using Edam.Data.AssetSchema;
 using Edam.WinUI.Controls.DataModels;
 using Edam.WinUI.Controls.Common;
-using Edam.Data.Assets.AssetConsole;
 using Edam.Application;
 
 namespace Edam.WinUI.Controls.Assets
@@ -54,7 +53,7 @@ namespace Edam.WinUI.Controls.Assets
          }
 
          context.Source.Instance = TreeView;
-         TreeView.ViewModel.SetMapContext(context, DataMapItemType.Source);
+         TreeView.ViewModel.SetMapContext(context, MapItemType.Source);
       }
 
       private void AssetRefresh_Click(object sender, RoutedEventArgs e)

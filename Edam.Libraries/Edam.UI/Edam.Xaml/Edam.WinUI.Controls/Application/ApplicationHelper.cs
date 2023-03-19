@@ -89,6 +89,7 @@ namespace Edam.WinUI.Controls.Application
       /// <returns>instance of an UIElement control is returned</returns>
       public static UIElement GetHomeControl()
       {
+         //return GetControl();
          HomeControl = app.AppSettings.GetSectionString(
             uiapp.ApplicationHelper.HOME_CONTROL);
          UIElement control = null;
@@ -109,6 +110,24 @@ namespace Edam.WinUI.Controls.Application
                   control = item.Instance as UIElement;
                }
                break;
+         }
+         return control;
+      }
+
+      public static UIElement GetControl(
+         MenuOption option = MenuOption.Unknown)
+      {
+         UIElement control = null;
+         var item = ApplicationHelper.Find(MenuOption.Viewer);
+         if (item == null)
+         {
+            control = new ProjectViewerControl();
+         }
+         else
+         {
+            item.Instance = item.Instance ??
+               Activator.CreateInstance(item.TargetType);
+            control = item.Instance as UIElement;
          }
          return control;
       }

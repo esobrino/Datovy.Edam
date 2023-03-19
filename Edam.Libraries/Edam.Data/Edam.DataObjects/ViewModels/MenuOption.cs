@@ -22,6 +22,7 @@ namespace Edam.DataObjects.ViewModels
       People = 30,
       Group = 40,
       Report = 50,
+      Viewer = 60,
 
       ResetApplication = 95,
       Administration = 96,

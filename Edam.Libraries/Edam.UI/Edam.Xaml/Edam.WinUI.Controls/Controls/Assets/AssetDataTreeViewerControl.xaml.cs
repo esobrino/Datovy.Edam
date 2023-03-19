@@ -18,7 +18,8 @@ using Windows.Foundation.Collections;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.WinUI.Controls.Common;
 using Edam.WinUI.Controls.DataModels;
-using Edam.Data.Assets.AssetConsole;
+using Edam.Data.AssetConsole;
+using Edam.Data.AssetSchema;
 
 namespace Edam.WinUI.Controls.Assets
 {
@@ -51,7 +52,7 @@ namespace Edam.WinUI.Controls.Assets
          if (context.Target.Arguments != null)
          {
             TreeView.SetDataTree(context.Target.Arguments);
-            TreeView.ViewModel.SetMapContext(context, DataMapItemType.Target);
+            TreeView.ViewModel.SetMapContext(context, MapItemType.Target);
             m_ViewModel.SetContext(context);
          }
       }

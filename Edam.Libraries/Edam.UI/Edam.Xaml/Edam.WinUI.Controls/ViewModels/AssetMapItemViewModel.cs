@@ -14,7 +14,6 @@ using Edam.InOut;
 using Edam.WinUI.Controls.ViewModels;
 using Edam.Helpers;
 using Edam.WinUI.Controls.DataModels;
-using Edam.Data.Assets.AssetConsole;
 using Edam.WinUI.Controls.Assets;
 using Edam.Data.Asset;
 using Edam.Data.AssetUseCases;
@@ -260,7 +259,7 @@ namespace Edam.WinUI.Controls.ViewModels
       /// <param name="type">type identify to be source or target</param>
       /// <param name="args">Data Tree event arguments</param>
       private MapItemInfo Add(
-         DataMapItemType type, DataTreeEventArgs args, 
+         MapItemType type, DataTreeEventArgs args, 
          DataTreeEventType eventType)
       {
          // get tree item
@@ -277,7 +276,7 @@ namespace Edam.WinUI.Controls.ViewModels
          }
 
          // identify the list
-         List<MapItemInfo> list = type == DataMapItemType.Source ?
+         List<MapItemInfo> list = type == MapItemType.Source ?
                CurrentMapItem.SourceElement :
                CurrentMapItem.TargetElement;
 
@@ -293,7 +292,7 @@ namespace Edam.WinUI.Controls.ViewModels
             item.Item.Element.ElementName,
             item.Item.Element.ElementPath,
             item.Item.Element.GetElementNamespace(),
-            type == DataMapItemType.Source ? 
+            type == MapItemType.Source ? 
                args.Context.Source : args.Context.Target);
 
          e.TreeItem = item;
@@ -316,7 +315,7 @@ namespace Edam.WinUI.Controls.ViewModels
       /// <param name="type">type identify to be source or target</param>
       /// <param name="args">Data Tree event arguments</param>
       private MapItemInfo ItemSelected(
-         DataMapItemType type, DataTreeEventArgs args)
+         MapItemType type, DataTreeEventArgs args)
       {
          if (args.KeyEventData.IsControlKeyPressed)
          {
@@ -339,7 +338,7 @@ namespace Edam.WinUI.Controls.ViewModels
          // since the user can select individual nodes and work with those later
          if (flist != null && flist.Count != 0)
          {
-            var list = type == DataMapItemType.Source ? 
+            var list = type == MapItemType.Source ? 
                flist[0].SourceElement : flist[0].TargetElement;
             if (list != null)
             {
@@ -355,7 +354,7 @@ namespace Edam.WinUI.Controls.ViewModels
       /// <param name="type">source or destination</param>
       /// <param name="item">map-item</param>
       private void ManageSelectedMapItem(
-         DataMapItemType type, MapItemInfo item, DataTreeEventArgs args)
+         MapItemType type, MapItemInfo item, DataTreeEventArgs args)
       {
          if (item != null)
          {
@@ -380,7 +379,7 @@ namespace Edam.WinUI.Controls.ViewModels
             return;
          }
          ManageSelectedMapItem(
-            DataMapItemType.Source, 
+            MapItemType.Source, 
             item == null ? null : item.SourceElement[0], null);
       }
 
@@ -397,12 +396,12 @@ namespace Edam.WinUI.Controls.ViewModels
          MapItemInfo item;
          if (args.Type == DataTreeEventType.DoubleTapped)
          {
-            Add(DataMapItemType.Source, args, args.Type);
+            Add(MapItemType.Source, args, args.Type);
          }
 
-         item = ItemSelected(DataMapItemType.Source, args);
+         item = ItemSelected(MapItemType.Source, args);
 
-         ManageSelectedMapItem(DataMapItemType.Source, item, args);
+         ManageSelectedMapItem(MapItemType.Source, item, args);
          if (Context.BookModel != null && 
             args.Type != DataTreeEventType.ItemSelected)
          {
@@ -420,19 +419,19 @@ namespace Edam.WinUI.Controls.ViewModels
          MapItemInfo item;
          if (args.Type == DataTreeEventType.DoubleTapped)
          {
-            item = Add(DataMapItemType.Target, args, args.Type);
+            item = Add(MapItemType.Target, args, args.Type);
          }
          
-         item = ItemSelected(DataMapItemType.Target, args);
+         item = ItemSelected(MapItemType.Target, args);
 
-         ManageSelectedMapItem(DataMapItemType.Target, item, args);
+         ManageSelectedMapItem(MapItemType.Target, item, args);
       }
 
       #endregion
       #region -- 4.00 - Map Item Delete Support
 
       private void Delete(
-         DataMapItemType type,
+         MapItemType type,
          List<MapItemInfo> list,
          MapItemInfo item)
       {
@@ -456,9 +455,9 @@ namespace Edam.WinUI.Controls.ViewModels
          }
       }
 
-      public void DeleteItem(DataMapItemType type)
+      public void DeleteItem(MapItemType type)
       {
-         if (type == DataMapItemType.Source)
+         if (type == MapItemType.Source)
          {
             Delete(type, CurrentMapItem.SourceElement, SourceSelectedItem);
          }

@@ -17,6 +17,7 @@ using Edam.Json.JsonQuery;
 using System.Collections.ObjectModel;
 using Microsoft.UI.Xaml;
 using Edam.Diagnostics;
+using Edam.WinUI.Controls.Dialogs;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
@@ -29,6 +30,11 @@ namespace Edam.WinUI.Controls.ViewModels
       {
          get { return m_Context; }
       }
+
+      public Action<IDialogObjectInfo> SetText { get; set; }
+
+      public StoragePickerHelper storageHelper = new StoragePickerHelper();
+
       public void SetDataMapContext(DataMapContext context)
       {
          m_Context = context;
@@ -37,6 +43,36 @@ namespace Edam.WinUI.Controls.ViewModels
       public IResultsLog ExecuteRequest(string jsonText, string query)
       {
          return Context.LanguageInstance.Execute(jsonText, query);
+      }
+
+      /// <summary>
+      /// Add multiple items selected from the file picker.
+      /// </summary>
+      public void ItemSave(string text)
+      {
+         storageHelper.ItemSave(text, "", null);
+      }
+
+      /// <summary>
+      /// Open File Call Back...
+      /// </summary>
+      /// <param name="info">file info details</param>
+      public void OpenFileCallBack(IDialogObjectInfo info)
+      {
+         var txt = System.IO.File.ReadAllText(info.StorageItem.Full);
+         if (txt != null)
+         {
+            if (SetText != null)
+            {
+               info.DataObject = txt;
+               SetText(info);
+            }
+         }
+      }
+
+      public void ItemOpen(string commandText)
+      {
+         storageHelper.ItemOpen(OpenFileCallBack, commandText);
       }
 
    }

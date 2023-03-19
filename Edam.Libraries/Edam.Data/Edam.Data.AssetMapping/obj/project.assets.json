@@ -18,7 +18,7 @@
           "lib/netstandard1.3/json-ld.net.dll": {}
         }
       },
-      "Jsonata.Net.Native/2.0.0": {
+      "Jsonata.Net.Native/2.0.1": {
         "type": "package",
         "compile": {
           "lib/net5.0/Jsonata.Net.Native.dll": {}
@@ -27,10 +27,10 @@
           "lib/net5.0/Jsonata.Net.Native.dll": {}
         }
       },
-      "Jsonata.Net.Native.JsonNet/2.0.0": {
+      "Jsonata.Net.Native.JsonNet/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
@@ -40,10 +40,10 @@
           "lib/net5.0/Jsonata.Net.Native.JsonNet.dll": {}
         }
       },
-      "Jsonata.Net.Native.SystemTextJson/2.0.0": {
+      "Jsonata.Net.Native.SystemTextJson/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Jsonata.Net.Native": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
           "System.Text.Json": "6.0.5"
         },
         "compile": {
@@ -1616,9 +1616,9 @@
         "dependencies": {
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0",
-          "Jsonata.Net.Native": "2.0.0",
-          "Jsonata.Net.Native.JsonNet": "2.0.0",
-          "Jsonata.Net.Native.SystemTextJson": "2.0.0",
+          "Jsonata.Net.Native": "2.0.1",
+          "Jsonata.Net.Native.JsonNet": "2.0.1",
+          "Jsonata.Net.Native.SystemTextJson": "2.0.1",
           "Newtonsoft.Json": "13.0.1",
           "Newtonsoft.Json.Schema": "3.0.14",
           "YamlDotNet": "11.2.1",
@@ -1665,48 +1665,48 @@
         "lib/portable45-net45+win8/json-ld.net.dll"
       ]
     },
-    "Jsonata.Net.Native/2.0.0": {
-      "sha512": "ecj/3O61+bdbcWGw5gLN4CGVRPRiCA48i6jBGeIe20Q/GphGAK8BHeFC2zcA//nNMixXJXTnPKhFwjkItmCl2w==",
+    "Jsonata.Net.Native/2.0.1": {
+      "sha512": "4ATzpJAT1mFTmop3hxa/L1RzYMpDrzft5J8bw90xlNwQuj325MxZmjep5fGGMNgZRYPt7e3VM6eFe0J91KMMOA==",
       "type": "package",
-      "path": "jsonata.net.native/2.0.0",
+      "path": "jsonata.net.native/2.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "jsonata-button.png",
-        "jsonata.net.native.2.0.0.nupkg.sha512",
+        "jsonata.net.native.2.0.1.nupkg.sha512",
         "jsonata.net.native.nuspec",
         "lib/net47/Jsonata.Net.Native.dll",
         "lib/net5.0/Jsonata.Net.Native.dll",
         "lib/netstandard2.0/Jsonata.Net.Native.dll"
       ]
     },
-    "Jsonata.Net.Native.JsonNet/2.0.0": {
-      "sha512": "ljhu3vqY1PN58vynR+viHDhUuukuIKz9UEWuinESZrxHHLRpKK9ppVMamMlXMmoMlu6XCL/Aio0olfdTaBP68w==",
+    "Jsonata.Net.Native.JsonNet/2.0.1": {
+      "sha512": "99FM+v5/UaNXzajJzgfNRHX5DCcRf8sY7UmpM1pvOLACROmSKsN57anq/XuKJIcaWPLRZoq09+TiBM05mZC2nQ==",
       "type": "package",
-      "path": "jsonata.net.native.jsonnet/2.0.0",
+      "path": "jsonata.net.native.jsonnet/2.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "jsonata-button.png",
-        "jsonata.net.native.jsonnet.2.0.0.nupkg.sha512",
+        "jsonata.net.native.jsonnet.2.0.1.nupkg.sha512",
         "jsonata.net.native.jsonnet.nuspec",
         "lib/net47/Jsonata.Net.Native.JsonNet.dll",
         "lib/net5.0/Jsonata.Net.Native.JsonNet.dll",
         "lib/netstandard2.0/Jsonata.Net.Native.JsonNet.dll"
       ]
     },
-    "Jsonata.Net.Native.SystemTextJson/2.0.0": {
-      "sha512": "VbRFi/7d5vasHHxU6e7XQ/6nsEHMtTFpmCcfLUhlx3weMY34lacLlqwhH2YJuqkavDvgSVzSZbpRjf9F5C9gFw==",
+    "Jsonata.Net.Native.SystemTextJson/2.0.1": {
+      "sha512": "uQsjOJ0X1E3nCyr64yT1jlTwtp7qoBv2qOm7ckK3Y3Tgaez9Vu0SEl2wrSWcurKkwxxkLJuE5KjQVNR/PR+CXQ==",
       "type": "package",
-      "path": "jsonata.net.native.systemtextjson/2.0.0",
+      "path": "jsonata.net.native.systemtextjson/2.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "jsonata-button.png",
-        "jsonata.net.native.systemtextjson.2.0.0.nupkg.sha512",
+        "jsonata.net.native.systemtextjson.2.0.1.nupkg.sha512",
         "jsonata.net.native.systemtextjson.nuspec",
         "lib/net47/Jsonata.Net.Native.SystemTextJson.dll",
         "lib/net5.0/Jsonata.Net.Native.SystemTextJson.dll",
@@ -5659,7 +5659,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

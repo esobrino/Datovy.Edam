@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 // -----------------------------------------------------------------------------
 using Edam.DataObjects.Models;
+using Edam.InOut;
 
 namespace Edam.WinUI.Controls.Dialogs
 {
@@ -14,6 +15,9 @@ namespace Edam.WinUI.Controls.Dialogs
    {
       public const string ITEM_TYPE_FILE = "File";
       public const string ITEM_TYPE_PROJECT = "Project";
+
+      public StorageAction StorageAction { get; set; }
+      public FolderFileItemInfo StorageItem { get; set; }
 
       public string Title { get; set; }
       public string Message { get; set; }

@@ -70,8 +70,20 @@ namespace Edam.WinUI.Controls.Booklets
       private void RemoveItemClicked(object sender, PointerRoutedEventArgs e)
       {
          BookletCellInfo cell = Tag as BookletCellInfo;
-         ViewModel.NotifyEvent(
-            Common.NotificationType.RemoveItem, String.Empty, cell);
+      }
+
+      private void UpClicked(object sender, PointerRoutedEventArgs e)
+      {
+         BookletCellInfo cell = Tag as BookletCellInfo;
+         ViewModel.ProcessCell(cell);
+         //ViewModel.NotifyEvent(
+         //   Common.NotificationType.ExecuteItem, String.Empty, cell);
+      }
+
+      private void DownClicked(object sender, PointerRoutedEventArgs e)
+      {
+         BookletCellInfo cell = Tag as BookletCellInfo;
+         ViewModel.MoveCellDown(cell);
       }
 
       private void AddItemClicked(object sender, PointerRoutedEventArgs e)

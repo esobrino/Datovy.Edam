@@ -71,7 +71,8 @@ namespace Edam.Json.JsonHelper
          {
             token = JsonConvert.DeserializeObject(jsonText);
             RemoveProperties(token as JToken, fields, results);
-            results.ParsedText = token.ToString();
+            results.ParsedText = 
+               token == null ? String.Empty : token.ToString();
             results.Results.Succeeded();
          }
          catch (Exception ex)

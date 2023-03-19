@@ -59,11 +59,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.Test.Xsd", "Edam.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.Test.Ddl", "Edam.Tests\Edam.Test.Ddl\Edam.Test.Ddl.csproj", "{E4637672-69CC-4498-88F6-EE67A9F2BDD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edam.Test.BookItemProcessor", "Edam.Tests\Edam.Test.BookItemProcessor\Edam.Test.BookItemProcessor.csproj", "{AF34DB5A-E23F-47BB-A7EB-E93B2A6714E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.Test.BookItemProcessor", "Edam.Tests\Edam.Test.BookItemProcessor\Edam.Test.BookItemProcessor.csproj", "{AF34DB5A-E23F-47BB-A7EB-E93B2A6714E4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Edam.Application", "Edam.Application", "{1E317B1C-E9AA-4E61-AB15-A9B01A7A055E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edam.Application", "Edam.Libraries\Edam.Application\Edam.Application\Edam.Application.csproj", "{536E9F9D-0C7B-489E-9557-5D39D63A8BD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.Application", "Edam.Libraries\Edam.Application\Edam.Application\Edam.Application.csproj", "{536E9F9D-0C7B-489E-9557-5D39D63A8BD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edam.Test.OpenXml.Word", "Edam.Tests\Edam.Test.OpenXml.Word\Edam.Test.OpenXml.Word.csproj", "{9CC05969-E571-4ECE-A5CC-730954B60B2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -485,6 +487,22 @@ Global
 		{536E9F9D-0C7B-489E-9557-5D39D63A8BD7}.Release|x64.Build.0 = Release|Any CPU
 		{536E9F9D-0C7B-489E-9557-5D39D63A8BD7}.Release|x86.ActiveCfg = Release|Any CPU
 		{536E9F9D-0C7B-489E-9557-5D39D63A8BD7}.Release|x86.Build.0 = Release|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Debug|arm64.Build.0 = Debug|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Debug|x64.Build.0 = Debug|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Debug|x86.Build.0 = Debug|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Release|arm64.ActiveCfg = Release|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Release|arm64.Build.0 = Release|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Release|x64.ActiveCfg = Release|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Release|x64.Build.0 = Release|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Release|x86.ActiveCfg = Release|Any CPU
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -518,6 +536,7 @@ Global
 		{AF34DB5A-E23F-47BB-A7EB-E93B2A6714E4} = {5D40A1B6-8B4B-445D-87BC-851E8796E44F}
 		{1E317B1C-E9AA-4E61-AB15-A9B01A7A055E} = {6DC10C52-A152-43FE-AEF7-F892389FDDB2}
 		{536E9F9D-0C7B-489E-9557-5D39D63A8BD7} = {1E317B1C-E9AA-4E61-AB15-A9B01A7A055E}
+		{9CC05969-E571-4ECE-A5CC-730954B60B2B} = {5D40A1B6-8B4B-445D-87BC-851E8796E44F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D19BF1CF-946C-4A08-A01C-49F0869E9455}

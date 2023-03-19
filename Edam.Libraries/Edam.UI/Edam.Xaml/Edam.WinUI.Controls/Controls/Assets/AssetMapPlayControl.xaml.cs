@@ -18,6 +18,7 @@ using Windows.UI.Core;
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 using Edam.WinUI.Controls.ViewModels;
 using Edam.WinUI.Controls.DataModels;
+using Edam.WinUI.Controls.Dialogs;
 
 namespace Edam.WinUI.Controls.Assets
 {
@@ -34,11 +35,7 @@ namespace Edam.WinUI.Controls.Assets
       {
          this.InitializeComponent();
          DataContext = m_ViewModel;
-      }
-
-      private void EditorSave_Click(object sender, RoutedEventArgs e)
-      {
-
+         m_ViewModel.SetText = SetText;
       }
 
       private async void ExecuteRequest_Click(object sender, RoutedEventArgs e)
@@ -91,9 +88,29 @@ namespace Edam.WinUI.Controls.Assets
          {
             text = String.Empty;
          }
+         SetText(text);
+      }
+
+      public void SetText(string text)
+      {
          EditorControl.TextDocument.SetText(
-            Microsoft.UI.Text.TextSetOptions.None, 
+            Microsoft.UI.Text.TextSetOptions.None,
             text, "json");
+      }
+
+      public void SetText(IDialogObjectInfo info)
+      {
+         if (info.CommandText == "editor")
+         {
+            SetText(info.DataObject.ToString());
+         }
+         else if (info.CommandText == "script")
+         {
+            RequestEditorControl.TextDocument.
+               SetText(
+                  Microsoft.UI.Text.TextSetOptions.None,
+                  info.DataObject.ToString(),"json");
+         }
       }
 
       public void SafeText()
@@ -119,6 +136,34 @@ namespace Edam.WinUI.Controls.Assets
          //      SaveText();
          //   }
          //}
+      }
+
+      private async void EditorSave_Click(object sender, RoutedEventArgs e)
+      {
+         var text = await EditorControl.TextDocument.GetText();
+         ViewModel.ItemSave(text);
+      }
+
+      private void EditorOpen_Click(object sender, RoutedEventArgs e)
+      {
+         ViewModel.ItemOpen("editor");
+      }
+
+      private async void ScriptSave_Click(object sender, RoutedEventArgs e)
+      {
+         var text = await RequestEditorControl.TextDocument.GetText();
+         ViewModel.ItemSave(text);
+      }
+
+      private void ScriptOpen_Click(object sender, RoutedEventArgs e)
+      {
+         ViewModel.ItemOpen("script");
+      }
+
+      private async void OutputSave_Click(object sender, RoutedEventArgs e)
+      {
+         var text = await ResponseEditorControl.TextDocument.GetText();
+         ViewModel.ItemSave(text);
       }
 
       #endregion

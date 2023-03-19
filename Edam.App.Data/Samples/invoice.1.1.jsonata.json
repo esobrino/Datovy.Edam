@@ -1,0 +1,5 @@
+Account.Order#$oindx.Product.{
+    "OrderID": $$.Account.Order[$oindx].OrderID,
+    "ProductName": $."Product Name",
+    "ProductID": $.ProductID
+}
