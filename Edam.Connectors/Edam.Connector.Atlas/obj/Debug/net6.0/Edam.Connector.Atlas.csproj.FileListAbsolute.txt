@@ -1,0 +1,17 @@
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\bin\Debug\net6.0\Edam.Connector.Atlas.deps.json
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\bin\Debug\net6.0\Edam.Connector.Atlas.dll
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\bin\Debug\net6.0\Edam.Connector.Atlas.pdb
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\bin\Debug\net6.0\Edam.Net.dll
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\bin\Debug\net6.0\Edam.System.dll
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\bin\Debug\net6.0\Edam.Net.pdb
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\bin\Debug\net6.0\Edam.System.pdb
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\Edam.Connector.Atlas.csproj.AssemblyReference.cache
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\Edam.Connector.Atlas.GeneratedMSBuildEditorConfig.editorconfig
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\Edam.Connector.Atlas.AssemblyInfoInputs.cache
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\Edam.Connector.Atlas.AssemblyInfo.cs
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\Edam.Connector.Atlas.csproj.CoreCompileInputs.cache
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\Edam.Connector.Atlas.csproj.CopyComplete
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\Edam.Connector.Atlas.dll
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\refint\Edam.Connector.Atlas.dll
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\Edam.Connector.Atlas.pdb
+C:\prjs\Datovy.Edam\Edam.Connectors\Edam.Connector.Atlas\obj\Debug\net6.0\ref\Edam.Connector.Atlas.dll

@@ -62,7 +62,10 @@ namespace Edam.Json.JsonExplore
          if (String.IsNullOrWhiteSpace(m_Arguments.OutFileExtension))
             m_Arguments.OutFileExtension = "csv";
 
-         m_SchemaSet = new JsonSchemaSet(null);
+         NamespaceList namespaces = new NamespaceList();
+         namespaces.Add(m_Arguments.Namespace);
+
+         m_SchemaSet = new JsonSchemaSet(namespaces);
 
          // no URI list, try using arguments input-file if any
          if (m_Arguments.UriList.Count == 0)
@@ -78,15 +81,23 @@ namespace Edam.Json.JsonExplore
          // URI list was given, scan all XSD's
          var uriList = UriResourceInfo.GetUriList(
             m_Arguments.UriList, UriResourceType.jsdjson);
+
          foreach (var i in uriList)
          {
-            var fresults = JsonSchemaInstance.FromFile(i, null, m_SchemaSet);
+            var fresults = JsonSchemaInstance.FromFile(
+               i, namespaces, m_SchemaSet);
          }
 
          // prepare use cases
          var useCases =
             PrepareUseCases(UriResourceInfo.GetUriList(
                m_Arguments.UriList, UriResourceType.json));
+
+         if (m_Arguments.UseCases == null)
+         {
+            m_Arguments.UseCases = new AssetUseCaseList();
+         }
+
          m_Arguments.UseCases.AddRange(useCases);
 
          return m_SchemaSet;
@@ -155,9 +166,14 @@ namespace Edam.Json.JsonExplore
          if (m_SchemaSet.Count == 0)
             return null;
 
-         IJsonInspector i = new JsonSchemaInspector(m_SchemaSet);
-         i.DefaultNamespace = m_Arguments.Namespace;
+         m_SchemaSet.Namespace = m_Arguments.Namespace;
+         IJsonInspector i = new JsonSchemaInspector(
+            m_SchemaSet, m_Arguments.Namespace);
          i.Inspect();
+
+         m_Arguments.AssetDataItems = 
+            m_Arguments.AssetDataItems ?? new AssetDataItems();
+         m_Arguments.AssetDataItems.Add(i.Asset);
 
          return ToOutput(i.Asset, toOutput);
       }

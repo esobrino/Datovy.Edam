@@ -1,0 +1,54 @@
+{
+   "@context": {
+      "edam": "http://www.datovy.com/edam/arguments"
+   },
+   "Domain": {
+      "DomainId": "Apache.AP.AT",
+      "Description": "Apache Atlas"
+   },
+   "Namespace": {
+      "OrganizationDomainId": "apache.ap.at",
+      "Uri": "http://atlas.apache.org/ap/at",
+      "Prefix": "at",
+      "Extension": "",
+      "RootElementName": "at:Apache_Atlas_Document"
+   },
+   "Project": {
+      "Name": "Apache.AP.AT",
+      "VersionId": "v1r0"
+   },
+   "Process": {
+      "RecordId": null,
+      "Name": "Apache.AP.AT.ToAssets",
+      "OrganizationId": "Apache",
+      "OrganizationDomainUri": null,
+      "ProcedureName": "JsdToAssets",
+      "ProcedureTag": "JSD.JsdSchemaReader",
+      "SchemaType": 1,
+      "NextProcess": "",
+      "NextProcedure": [""]
+   },
+   "InputFile": {
+      "Extension": "xlsx",
+      "Name": "apache.ap.at.mdf",
+      "Path": "./Files",
+      "Full": null
+   },
+   "OutputFile": {
+      "Extension": "xlsx",
+      "Name": "apache.ap.at.dictionary",
+      "Path": "./Documents",
+      "Full": "./Documents/apache.ap.at.dictionary.xlsx"
+   },
+   "UriList": [
+      "./Files"
+   ],
+   "InspectArguments": {
+      "ListLength": "1",
+      "MaxThreshold": "1"
+   },
+   "ConnectionString": "",
+   "ElementTransform": null,
+   "TextMapFilePath": "./Archive/JsdTextMap.json"
+}
+

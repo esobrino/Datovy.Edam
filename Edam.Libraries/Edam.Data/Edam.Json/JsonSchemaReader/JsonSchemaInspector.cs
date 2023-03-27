@@ -28,12 +28,17 @@ namespace Edam.Json.JsonSchemaReader
       #endregion
       #region -- Constructor / Destructor
 
-      public JsonSchemaInspector(JsonSchemaSet schemaSet)
+      public JsonSchemaInspector(JsonSchemaSet schemaSet,
+         NamespaceInfo defaultNamespace)
       {
          if (schemaSet == null || schemaSet.Count == 0)
             throw new Exception(
                "Provided Schema set is empty. Json cannot be generated.");
          m_SchemaSet = schemaSet;
+
+         DefaultNamespace = defaultNamespace;
+         m_SchemaSet.Namespace = DefaultNamespace;
+
          //schemaSet.ValidationEventHandler +=
          //   new ValidationEventHandler(ValidationCallBack);
          Asset = new AssetData(schemaSet.Namespace, AssetType.Schema,
@@ -53,10 +58,10 @@ namespace Edam.Json.JsonSchemaReader
       #endregion
       #region -- Manage Namespaces
 
-      public static List<NamespaceInfo> SetNamespaces(
-         List<NamespaceInfo> namespaces, JsonSchemaSet schemaSet)
+      public static NamespaceList SetNamespaces(
+         NamespaceList namespaces, JsonSchemaSet schemaSet)
       {
-         var list = namespaces ?? new List<NamespaceInfo>();
+         var list = namespaces ?? new NamespaceList();
          var slist = schemaSet.Schemas;
          foreach (var z in slist)
          {
@@ -95,7 +100,10 @@ namespace Edam.Json.JsonSchemaReader
 
       public void Inspect()
       {
-
+         NamespaceList namespaces = new NamespaceList();
+         namespaces.Add(DefaultNamespace);
+         SetNamespaces(namespaces, m_SchemaSet);
+         Asset = ToDataAsset(m_SchemaSet, namespaces);
       }
 
       #endregion

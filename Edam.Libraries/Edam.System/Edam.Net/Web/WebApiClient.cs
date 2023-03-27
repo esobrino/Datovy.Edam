@@ -43,9 +43,12 @@ namespace Edam.Net.Web
       /// <param name="client">prepared HttpClient</param>
       /// <param name="accept">accept Content Type</param>
       /// <param name="contentType">Content Type</param>
+      /// <param name="clientId">client ID</param>
+      /// <param name="clientSecret">client Secret</param>
       private void Initialize(String uri, HttpClient client,
          WebApiContentType accept = WebApiContentType.ApplicationJson,
-         WebApiContentType contentType = WebApiContentType.ApplicationJson)
+         WebApiContentType contentType = WebApiContentType.ApplicationJson,
+         string clientId = null, string clientSecret = null)
       {
 
          m_Results = new Diagnostics.ResultLog();
@@ -69,6 +72,13 @@ namespace Edam.Net.Web
          else
          if (accept == WebApiContentType.TextPlain)
             m_Client.DefaultRequestHeaders.Add("Accept", "text/plain");
+
+         if (!String.IsNullOrWhiteSpace(clientId) && 
+            !String.IsNullOrWhiteSpace(clientSecret))
+         {
+            m_Client.DefaultRequestHeaders.Authorization = 
+               PrepareBasicAuthentication(clientId, clientSecret);
+         }
       }
 
       /// <summary>
@@ -77,18 +87,43 @@ namespace Edam.Net.Web
       /// <param name="uri">server URI (e.g. http://localhost:8080/) </param>
       public WebApiClient(String uri,
          WebApiContentType accept = WebApiContentType.ApplicationJson,
-         WebApiContentType contentType = WebApiContentType.ApplicationJson)
+         WebApiContentType contentType = WebApiContentType.ApplicationJson,
+         string clientId = null, string clientSecret = null)
       {
-         Initialize(uri, null, accept, contentType);
+         Initialize(uri, null, accept, contentType, clientId, clientSecret);
       }
 
       public WebApiClient(String uri, HttpClient client,
          WebApiContentType accept = WebApiContentType.ApplicationJson,
-         WebApiContentType contentType = WebApiContentType.ApplicationJson)
+         WebApiContentType contentType = WebApiContentType.ApplicationJson,
+         string clientId = null, string clientSecret = null)
       {
-         Initialize(uri, client, accept, contentType);
+         Initialize(uri, client, accept, contentType, clientId, clientSecret);
       }
 
+      /// <summary>
+      /// Prepare Basic authentication for given request.
+      /// </summary>
+      /// <param name="request"></param>
+      /// <param name="clientId"></param>
+      /// <param name="clientSecret"></param>
+      public static AuthenticationHeaderValue PrepareBasicAuthentication(
+         string clientId, string clientSecret)
+      {
+         var authenticationString = $"{clientId}:{clientSecret}";
+         var base64EncodedAuthenticationString =
+            System.Convert.ToBase64String(
+               System.Text.ASCIIEncoding.UTF8.GetBytes(authenticationString));
+         return new AuthenticationHeaderValue(
+            "Basic", base64EncodedAuthenticationString);
+      }
+
+      /// <summary>
+      /// Prepare Basic authentication for given request.
+      /// </summary>
+      /// <param name="request"></param>
+      /// <param name="clientId"></param>
+      /// <param name="clientSecret"></param>
       public static void AddBasicAuthentication(
          HttpRequestMessage request, string clientId, string clientSecret)
       {
@@ -96,8 +131,8 @@ namespace Edam.Net.Web
          var base64EncodedAuthenticationString =
             System.Convert.ToBase64String(
                System.Text.ASCIIEncoding.UTF8.GetBytes(authenticationString));
-         request.Headers.Authorization = new AuthenticationHeaderValue(
-            "Basic", base64EncodedAuthenticationString);
+         request.Headers.Authorization = 
+            PrepareBasicAuthentication(clientId, clientSecret);
       }
 
       /// <summary>

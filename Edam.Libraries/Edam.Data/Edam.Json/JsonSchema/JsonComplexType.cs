@@ -10,15 +10,15 @@ using Edam.Data.AssetSchema;
 namespace Edam.Json.JsonSchema
 {
 
-    public class JsonComplexType : JsonItemInfo
-    {
+   public class JsonComplexType : JsonItemInfo
+   {
 
-        public JsonComplexType(JToken token, NamespaceList namepaces) :
-           base(token, namepaces)
-        {
-            ElementType = ElementType.type;
-        }
+      public JsonComplexType(JToken token, NamespaceList namepaces) :
+         base(token, namepaces)
+      {
 
-    }
+      }
+
+   }
 
 }

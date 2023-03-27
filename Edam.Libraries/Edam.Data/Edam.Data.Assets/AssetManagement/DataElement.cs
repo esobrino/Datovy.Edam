@@ -296,6 +296,16 @@ namespace Edam.Data.AssetManagement
          }
       }
 
+      public bool IsGrouped
+      {
+         get
+         {
+            return ElementGroup == ElementGroup.OptionAll ||
+               ElementGroup == ElementGroup.OptionAny ||
+               ElementGroup == ElementGroup.OptionOne;
+         }
+      }
+
       public bool IsType
       {
          get
@@ -359,6 +369,7 @@ namespace Edam.Data.AssetManagement
             }
             return m_CodeSetItems;
          }
+         set { m_CodeSetItems = value; }
       }
       public int EnumCount
       {

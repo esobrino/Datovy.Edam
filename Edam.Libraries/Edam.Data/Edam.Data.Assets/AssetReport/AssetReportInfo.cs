@@ -36,6 +36,11 @@ namespace Edam.Data.AssetReport
       public bool PrepareEnumTabs { get; set; }
 
       /// <summary>
+      /// Output Fully Qualified Names...
+      /// </summary>
+      public bool OutputFullyQualifiedNames { get; set; } = true;
+
+      /// <summary>
       /// header (title) items separated by commas
       /// </summary>
       public string ReportHeader { get; set; }

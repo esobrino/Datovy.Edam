@@ -1,0 +1,657 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"title": "Apache Atlas Schema",
+	"type": "object",
+	"definitions": {
+		"TimeBoundary": {
+			"type": "object",
+			"description": "Captures time-boundary details.",
+			"properties": {
+				"endTime": {
+					"type": "string"
+				},
+				"startTime": {
+					"type": "string"
+				},
+				"timeZone": {
+					"type": "string"
+				}
+			}
+		},
+		"AtlasClassification_": {
+			"type": "object",
+			"description": "An instance of a classification; it doesn't have an identity, this object exists only when associated with an entity.",
+			"properties": {
+				"entityGuid": {
+					"type": "string",
+					"description": ""
+				},
+				"entityStatus": {
+					"$ref": "#/definitions/Status"
+				},
+				"propagate": {
+					"type": "boolean"
+				},
+				"removePropagationsOnEntityDelete": {
+					"type": "boolean"
+				},
+				"validityPeriods": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/TimeBoundary"
+					}
+				}
+			}
+		},
+		"AtlasClassification": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AtlasClassification_"
+				},
+				{
+					"$ref": "#/definitions/Attributes_"
+				}
+			]
+		},
+		"Cardinality": {
+			"type": "string",
+			"enum": [
+				"SINGLE",
+				"LIST",
+				"SET"
+			]
+		},
+		"AtlasConstraintDef": {
+			"type": "object",
+			"properties": {
+				"params": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"type": {
+					"type": "string"
+				}
+			}
+		},
+		"IndexType": {
+			"type": "string",
+			"enum": [
+				"DEFAULT",
+				"STRING"
+			]
+		},
+		"AtlasAttributeDef": {
+			"type": "object",
+			"properties": {
+				"cardinality": {
+					"$ref": "#/definitions/Cardinality"
+				},
+				"constraints": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasConstraintDef"
+					}
+				},
+				"defaultValue": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"displayName": {
+					"type": "string"
+				},
+				"includedInNotification": {
+					"type": "boolean"
+				},
+				"indexType": {
+					"$ref": "#/definitions/IndexType"
+				},
+				"isIndexable": {
+					"type": "boolean"
+				},
+				"isOptional": {
+					"type": "boolean"
+				},
+				"isUnique": {
+					"type": "boolean"
+				},
+				"name": {
+					"type": "string"
+				},
+				"options": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"searchWeight": {
+					"type": "number"
+				},
+				"typeName": {
+					"type": "string"
+				},
+				"valuesMaxCount": {
+					"type": "number"
+				},
+				"valuesMinCount": {
+					"type": "number"
+				}
+			}
+		},
+		"TypeCategory": {
+			"type": "string",
+			"enum": [
+				"PRIMITIVE",
+				"OBJECT_ID_TYPE",
+				"ENUM",
+				"STRUCT",
+				"CLASSIFICATION",
+				"ENTITY",
+				"ARRAY",
+				"MAP",
+				"RELATIONSHIP",
+				"BUSINESS_METADATA"
+			]
+		},
+		"RoundingMode": {
+			"type": "string",
+			"enum": [
+				"UP",
+				"DOWN",
+				"CEILING",
+				"FLOOR",
+				"HALF_UP",
+				"HALF_DOWN",
+				"HALF_EVEN",
+				"UNNECESSARY"
+			]
+		},
+		"NumberFormat": {
+			"type": "object",
+			"properties": {
+				"availableLocales": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"currency": {
+					"type": "string"
+				},
+				"currencyInstance": {
+					"$ref": "#/definitions/NumberFormat"
+				},
+				"groupingUsed": {
+					"type": "boolean"
+				},
+				"instance": {
+					"$ref": "#/definitions/NumberFormat"
+				},
+				"integerInstance": {
+					"$ref": "#/definitions/NumberFormat"
+				},
+				"maximumFractionDigits": {
+					"type": "number"
+				},
+				"maximumIntegerDigits": {
+					"type": "number"
+				},
+				"minimumFractionDigits": {
+					"type": "number"
+				},
+				"miximumIntegerDigits": {
+					"type": "number"
+				},
+				"parseIntegerOnly": {
+					"type": "boolean"
+				},
+				"percentInstance": {
+					"$ref": "#/definitions/NumberFormat"
+				},
+				"roundingMode": {
+					"$ref": "#/definitions/RoundingMode"
+				}
+			}
+		},
+		"TimeZone": {
+			"type": "object",
+			"properties": {
+				"DSTSavings": {
+					"type": "number"
+				},
+				"ID": {
+					"type": "string"
+				},
+				"availableIDs": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"default": {
+					"$ref": "#/definitions/TimeZone"
+				},
+				"displayName": {
+					"type": "string"
+				},
+				"rawOffset": {
+					"type": "number"
+				}
+			}
+		},
+		"DateFormat": {
+			"type": "object",
+			"properties": {
+				"availableLocales": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"calendar": {
+					"type": "number"
+				},
+				"dateInstance": {
+					"$ref": "#/definitions/DateFormat"
+				},
+				"dateTimeInstance": {
+					"$ref": "#/definitions/DateFormat"
+				},
+				"instance": {
+					"$ref": "#/definitions/DateFormat"
+				},
+				"lenient": {
+					"type": "boolean"
+				},
+				"numberFormat": {
+					"$ref": "#/definitions/NumberFormat"
+				},
+				"timeInstance": {
+					"$ref": "#/definitions/DateFormat"
+				},
+				"timeZone": {
+					"$ref": "#/definitions/TimeZone"
+				}
+			}
+		},
+		"AtlasBaseTypeDef": {
+			"type": "object",
+			"properties": {
+				"category": {
+					"$ref": "#/definitions/TypeCategory"
+				},
+				"createTime": {
+					"type": "number"
+				},
+				"createdBy": {
+					"type": "string"
+				},
+				"dateFormatter": {
+					"$ref": "#/definitions/DateFormat"
+				},
+				"description": {
+					"type": "string"
+				},
+				"guid": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"options": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"serviceType": {
+					"type": "string"
+				},
+				"typeVersion": {
+					"type": "string"
+				},
+				"updateTime": {
+					"type": "string"
+				},
+				"updatedBy": {
+					"type": "string"
+				},
+				"version": {
+					"type": "number"
+				}
+			}
+		},
+		"AtlasRelationshipAttributeDef_": {
+			"type": "object",
+			"properties": {
+				"isLegacyAttribute": {
+					"type": "boolean"
+				},
+				"relationshipTypeName": {
+					"type": "string"
+				}
+			}
+		},
+		"AtlasRelationshipAttributeDef": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AtlasRelationshipAttributeDef_"
+				},
+				{
+					"$ref": "#/definitions/AtlasAttributeDef"
+				}
+			]
+		},
+		"AtlasTermAsssignmentStatus": {
+			"type": "string",
+			"enum": [
+				"DISCOVERED",
+				"PROPOSED",
+				"IMPORTED",
+				"VALIDATED",
+				"DEPRECATED",
+				"OBSOLETE",
+				"OTHER"
+			]
+		},
+		"AtlasTermAssignmentHeader": {
+			"type": "object",
+			"properties": {
+				"confidence": {
+					"type": "number"
+				},
+				"createdBy": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"displayText": {
+					"type": "string"
+				},
+				"expression": {
+					"type": "string"
+				},
+				"qualifiedName": {
+					"type": "string"
+				},
+				"relationGuid": {
+					"type": "string"
+				},
+				"source": {
+					"type": "string"
+				},
+				"status": {
+					"$ref": "#/definitions/AtlasTermAsssignmentStatus"
+				},
+				"steward": {
+					"type": "string"
+				},
+				"termGuid": {
+					"type": "string"
+				}
+			}
+		},
+		"Attribute_": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"Attributes_": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Attribute_"
+			}
+		},
+		"AttributeDefs_": {
+			"type": "object",
+			"properties": {
+				"attributeDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasAttributeDef"
+					}
+				}
+			}
+		},
+		"AtlasStructDef": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AttributeDefs_"
+				},
+				{
+					"$ref": "#/definitions/AtlasBaseTypeDef"
+				}
+			]
+		},
+		"AtlasStruct": {
+			"attributes": {
+				"$ref": "#/definitions/Attributes_"
+			},
+			"typeName": {
+				"type": "string"
+			}
+		},
+		"AtlasEntityDef_": {
+			"type": "object",
+			"properties": {
+				"businessAttributeDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasAttributeDef"
+					}
+				},
+				"relationshipAttributeDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasRelationshipAttributeDef"
+					}
+				}
+			}
+		},
+		"AtlasEntityDef": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AtlasEntityDef_"
+				},
+				{
+					"$ref": "#/definitions/AtlasStructDef"
+				}
+			]
+		},
+		"AtlasEntity_": {
+			"type": "object",
+			"description": "An instance of an entity - like hive_table, hive_database.",
+			"properties": {
+				"businessAttributes": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"classifications": {
+					"type": "array",
+					"Items": {
+						"$ref": "#/definitions/AtlasClassification"
+					}
+				},
+				"createTime": {
+					"type": "number"
+				},
+				"createdBy": {
+					"type": "string"
+				},
+				"customAttributes": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"guid": {
+					"type": "string"
+				},
+				"isIncomplete": {
+					"type": "boolean"
+				},
+				"labels": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"meanings": {
+					"$ref": "#/definitions/AtlasTermAssignmentHeader"
+				},
+				"pendingTasks": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"provenanceType": {
+					"type": "number"
+				},
+				"proxy": {
+					"type": "boolean"
+				},
+				"relationshipAttributes": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"status": {
+					"$ref": "#/definitions/Status"
+				},
+				"updateTime": {
+					"type": "number"
+				},
+				"updateBy": {
+					"type": "string"
+				},
+				"version": {
+					"type": "number"
+				},
+				"attributes": {
+					"$ref": "#/definitions/Attributes_"
+				},
+				"typeName": {
+					"type": "string"
+				}
+			}
+		},
+		"AtlasEntity": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AtlasEntity_"
+				},
+				{
+					"$ref": "#/definitions/Attributes_"
+				}
+			]
+		},
+		"AtlasRelationshipEndDef": {
+			"type": "object",
+			"properties": {
+				"cardinality": {
+					"$ref": "#/definitions/Cardinality"
+				},
+				"description": {
+					"type": "string"
+				},
+				"isContainer": {
+					"type": "boolean"
+				},
+				"isLegacyAttribute": {
+					"type": "boolean"
+				},
+				"name": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				}
+			}
+		},
+		"PropagateTags": {
+			"type": "string",
+			"enum": [
+				"NONE",
+				"ONE_TO_TWO",
+				"TWO_TO_ONE",
+				"BOTH"
+			]
+		},
+		"RelationshipCategory": {
+			"type": "string",
+			"enum": [
+				"ASSOCIATION",
+				"AGGREGATION",
+				"COMPOSITION"
+			]
+		},
+		"AtlasRelationshipDef_": {
+			"type": "object",
+			"properties": {
+				"endDef1": {
+					"$ref": "#/definitions/AtlasRelationshipEndDef"
+				},
+				"endDef2": {
+					"$ref": "#/definitions/AtlasRelationshipEndDef"
+				},
+				"propagatedTags": {
+					"$ref": "#/definitions/PropagateTags",
+					"relationshipCategory": {
+						"$ref": "#/definitions/RelationshipCategory"
+					},
+					"relationshipLabel": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"AtlasRelationshipDef": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AtlasRelationshipDef_"
+				},
+				{
+					"$ref": "#/definitions/AtlasStructDef"
+				}
+			]
+		},
+		"Status": {
+			"type": "string",
+			"description": "Status of the entity - can be active or deleted. Deleted entities are not removed from Atlas store.",
+			"enum": [
+				"ACTIVE",
+				"DELETED",
+				"PURGE"
+			]
+		},
+		"Apache_Atlas_Document_": {
+			"type": "object",
+			"properties": {
+				"entities": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasEntity"
+					}
+				},
+				"entityDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasEntityDef"
+					}
+				},
+				"relationshipDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasRelationshipDef"
+					}
+				}
+			}
+		}
+	},
+	"properties": {
+		"Apache_Atlas_Document": {
+			"description": "root element",
+		    "AllOf": [{"$ref": "#/definitions/Apache_Atlas_Document_"}]
+		},
+		"entities": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/AtlasEntity"
+			}
+		},
+		"entityDefs": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/AtlasEntityDef"
+			}
+		},
+		"relationshipDefs": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/AtlasRelationshipDef"
+			}
+		}
+	}
+}

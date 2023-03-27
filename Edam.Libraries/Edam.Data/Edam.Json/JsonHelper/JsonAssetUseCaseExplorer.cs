@@ -43,6 +43,7 @@ namespace Edam.Json.JsonHelper
       public JsonAssetUseCase(
          AssetConsoleArgumentsInfo arguments, string jsonText)
       {
+         m_Arguments = arguments;
          m_Asset = new JsonAssetItemInfo(
             arguments.Namespace, arguments.ProjectVersionId);
          m_Document = JObject.Parse(jsonText, new JsonLoadSettings() { 
@@ -181,7 +182,8 @@ namespace Edam.Json.JsonHelper
          AssetDataElement element, string name)
       {
          // a previous nameless instruction gets assigned to next Element
-         if (m_UseCase.Instructions.CurrentInstruction != null &&
+         if (m_UseCase != null && 
+            m_UseCase.Instructions.CurrentInstruction != null &&
             element != null)
          {
             switch (m_UseCase.Instructions.CurrentInstruction.Tag.Type)

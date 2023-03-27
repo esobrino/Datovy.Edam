@@ -6,6 +6,7 @@ namespace Edam.Data.AssetManagement
    public class OccuranceInfo
    {
       public const decimal MAX_NUMBER = 79228162514264337593543950335M;
+
       public decimal MinOccurance { get; set; }
       public decimal MaxOccurance { get; set; }
       public string Text

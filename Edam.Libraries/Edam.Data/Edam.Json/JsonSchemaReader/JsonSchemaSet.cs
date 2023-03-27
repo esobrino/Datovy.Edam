@@ -16,6 +16,7 @@ namespace Edam.Json.JsonSchemaReader
       public NamespaceInfo Namespace
       {
          get { return m_Namespace; }
+         set { m_Namespace = value; }
       }
 
       private string m_VersionId;
