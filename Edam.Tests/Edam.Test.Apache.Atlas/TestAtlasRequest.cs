@@ -9,7 +9,7 @@ namespace Edam.Test.Apache.Atlas
       [TestMethod]
       public void TestRequest()
       {
-         string baseUri = "http://192.168.1.178:21000/api/atlas/v2";
+         string baseUri = "http://192.168.1.178:21000";
          AtlasHttpClient client = new AtlasHttpClient(
             baseUri, clientId: "admin", clientSecret: "admin");
          var result = client.Search(null, null);

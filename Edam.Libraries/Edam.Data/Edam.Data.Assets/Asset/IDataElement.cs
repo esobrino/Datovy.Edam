@@ -45,6 +45,7 @@ namespace Edam.Data.Asset
       bool? Nillable { get; set; }
       DateTime ReferenceDate { get; set; }
       string Tags { get; set; }
+      string Guid { get; set; }
 
       String EntityElementNameText { get; }
 

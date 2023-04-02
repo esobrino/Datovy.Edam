@@ -947,7 +947,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
           "Edam.Net": "1.0.0",
+          "Edam.System": "1.0.0",
           "Newtonsoft.Json": "13.0.3"
         },
         "compile": {
@@ -955,6 +957,19 @@
         },
         "runtime": {
           "bin/placeholder/Edam.Connector.Atlas.dll": {}
+        }
+      },
+      "Edam.Data.Assets/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.Assets.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.Assets.dll": {}
         }
       },
       "Edam.Net/1.0.0": {
@@ -3543,6 +3558,11 @@
       "type": "project",
       "path": "../../Edam.Connectors/Edam.Connector.Atlas/Edam.Connector.Atlas.csproj",
       "msbuildProject": "../../Edam.Connectors/Edam.Connector.Atlas/Edam.Connector.Atlas.csproj"
+    },
+    "Edam.Data.Assets/1.0.0": {
+      "type": "project",
+      "path": "../../Edam.Libraries/Edam.Data/Edam.Data.Assets/Edam.Data.Assets.csproj",
+      "msbuildProject": "../../Edam.Libraries/Edam.Data/Edam.Data.Assets/Edam.Data.Assets.csproj"
     },
     "Edam.Net/1.0.0": {
       "type": "project",

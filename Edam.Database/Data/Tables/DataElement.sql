@@ -49,6 +49,7 @@
     [ConstraintsText]            VARCHAR (MAX)  NULL,
     [KindNo]                     SMALLINT       DEFAULT ((0)) NULL,
     [Tags]                       VARCHAR (128)  NULL,
+    [Guid]                       VARCHAR (40)   NULL,
     [OriginalName]               VARCHAR (128)  NULL,
     [OriginalDataType]           VARCHAR (128)  NULL,
     PRIMARY KEY CLUSTERED ([ElementNo] ASC),

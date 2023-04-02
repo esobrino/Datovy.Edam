@@ -61,7 +61,8 @@ BEGIN
           e.RecordStatusCode,
           e.ConstraintsText,
           e.KindNo,
-          e.Tags
+          e.Tags,
+          e.Guid
      FROM Data.DataElement e
      JOIN Data.DataDomain d
        ON e.DomainNo = d.DomainNo

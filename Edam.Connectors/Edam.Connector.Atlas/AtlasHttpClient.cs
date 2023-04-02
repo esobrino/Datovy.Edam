@@ -70,12 +70,18 @@ namespace Edam.Connector.Atlas
             sb.Add("tag", classificationType.ToString());
          }
          sb.Add("searchType", searchType.ToString());
+         sb.Add("offset", 0.ToString());
+         sb.Add("limit", 25.ToString());
          //sb.Add("term", searchTerm);
 
          string queryString = sb.ToString();
-         string apiRequest = "#!/search/searchResult" + queryString;
+         string apiRequest = "/api/atlas/v2" + queryString;
 
-         var resultText = m_Client.GetDataAsText("/types/typedefs/headers");
+         //var resultText = m_Client.GetDataAsText("/api/atlas/v2/types/typedef/name/hive_table");
+         //var resultText = m_Client.GetDataAsText("/api/atlas/v2/types/typedefs");");
+         //var resultText = m_Client.GetDataAsText("/api/atlas/v2/search/attribute?attrName=createTime&typeName=_ALL_ENTITY_TYPES");
+         //var resultText = m_Client.GetDataAsText("/api/atlas/v2/glossary");
+         var resultText = m_Client.GetDataAsText("/api/atlas/v2/search/dsl?typeName=Entity");
 
          return null;
       }

@@ -274,6 +274,7 @@ namespace Edam.Data.AssetManagement
             p.AddWithValue("@ConstraintsText", element.ConstraintsText);
             p.AddWithValue("@KindNo", (short)element.Kind);
             p.AddWithValue("@Tags", element.Tags);
+            p.AddWithValue("@Guid", element.Guid);
 
             p.AddWithValue("@OriginalName", element.OriginalName, 128);
             p.AddWithValue("@OriginalDataType", element.OriginalDataType, 128);

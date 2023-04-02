@@ -3,12 +3,19 @@ using Edam.Data.AssetManagement;
 using Edam.Data.AssetManagement.Resources;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Edam.Data.AssetSchema
 {
+
+   public class AssetDataItem
+   {
+      public AssetDataElement Element { get; set; }
+      public AssetDataElementList Children { get; set; }
+   }
 
    public class AssetDataElementList : List<AssetDataElement>
    {
@@ -112,31 +119,6 @@ namespace Edam.Data.AssetSchema
          base.Add(element);
       }
 
-      public static AssetDataElementList GetChildren(
-         List<AssetDataElement> elements, string root, string entityName,
-         NamespaceInfo ns, AssetType type, string versionId)
-      {
-         var items = from c in elements
-                     where c.Root == root &&
-                           c.EntityName == entityName
-                     select c as AssetDataElement;
-
-         var l = items.ToList();
-         AssetDataElementList list =
-            new AssetDataElementList(ns, type, versionId);
-         list.AddRange(l);
-         return list;
-      }
-
-      public static AssetDataElementList GetChildren(
-         AssetDataElementList elements, string root, string domain, 
-         string entityName)
-      {
-         return GetChildren(
-            (List<AssetDataElement>) elements, root, entityName,
-            elements.Namespace, elements.AssetType, elements.VersionId);
-      }
-
       public static Uri GetNamespace(AssetDataElement element)
       {
          if (String.IsNullOrWhiteSpace(element.Namespace))
@@ -167,6 +149,33 @@ namespace Edam.Data.AssetSchema
          Uri ns = GetNamespace(element);
       }
 
+      /// <summary>
+      /// Get the Types of given list of element items.
+      /// </summary>
+      /// <param name="items">element items list</param>
+      /// <returns></returns>
+      /// <returns>the list of times and each with related children is returned
+      /// </returns>
+      public static AssetDataElementList GetTypes(AssetDataElementList items)
+      {
+         var types = from c in items
+                     where (c.ElementType == ElementType.type ||
+                            c.ElementType == ElementType.root)
+                     select c;
+
+         var l = types.ToList();
+         AssetDataElementList list = new AssetDataElementList(items);
+         list.AddRange(l);
+         return list;
+      }
+
+      /// <summary>
+      /// Get the Types of given list of element items matching given root.
+      /// </summary>
+      /// <param name="items">element items list</param>
+      /// <param name="root">root to be matched</param>
+      /// <returns>the list of times and each with related children is returned
+      /// </returns>
       public static AssetDataElementList GetTypes(
          AssetDataElementList items, string root)
       {
@@ -182,6 +191,13 @@ namespace Edam.Data.AssetSchema
          return list;
       }
 
+      /// <summary>
+      /// Get the Types of given list of element items matching given uriText.
+      /// </summary>
+      /// <param name="items">element items list</param>
+      /// <param name="uriText">uriText to be matched</param>
+      /// <returns>the list of times and each with related children is returned
+      /// </returns>
       public static AssetDataElementList GetUriTypes(
          AssetDataElementList items, string uriText)
       {
@@ -195,6 +211,61 @@ namespace Edam.Data.AssetSchema
          AssetDataElementList list = new AssetDataElementList(items);
          list.AddRange(l);
          return list;
+      }
+
+      public static AssetDataElementList GetChildren(
+         List<AssetDataElement> elements, string root, string entityName,
+         NamespaceInfo ns, AssetType type, string versionId)
+      {
+         var items = from c in elements
+                     where c.Root == root &&
+                           c.EntityName == entityName
+                     select c as AssetDataElement;
+
+         var l = items.ToList();
+         AssetDataElementList list =
+            new AssetDataElementList(ns, type, versionId);
+         list.AddRange(l);
+         return list;
+      }
+
+      public static AssetDataElementList GetChildren(
+         AssetDataElementList elements, string root, string domain,
+         string entityName)
+      {
+         return GetChildren(
+            (List<AssetDataElement>)elements, root, entityName,
+            elements.Namespace, elements.AssetType, elements.VersionId);
+      }
+
+      /// <summary>
+      /// Get the Children of a given element.
+      /// </summary>
+      /// <param name="items">list of items to search</param>
+      /// <param name="element">based element type</param>
+      /// <returns>Children of the type is returned</returns>
+      public static AssetDataItem GetChildren(AssetDataElementList items,
+         AssetDataElement element)
+      {
+         AssetDataItem item = new AssetDataItem();
+         item.Element = element;
+         item.Children = GetChildren(
+            items, element.Root, element.Domain, element.EntityName);
+         return item;
+      }
+
+      /// <summary>
+      /// Get the Children of the first element - type found in items.
+      /// </summary>
+      /// <param name="items">list of items to search</param>
+      /// <returns>Children of the type is returned</returns>
+      public static AssetDataItem GetChildren(AssetDataElementList items)
+      {
+         AssetDataItem item = new AssetDataItem();
+         item.Element = items.Find((x) => x.ElementType == ElementType.type);
+         item.Children = GetChildren(items,
+            item.Element.Root, item.Element.Domain, item.Element.EntityName);
+         return item;
       }
 
       public static AssetDataElementList GetUriElements(

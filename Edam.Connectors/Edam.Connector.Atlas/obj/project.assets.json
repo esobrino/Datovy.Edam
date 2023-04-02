@@ -368,6 +368,19 @@
           }
         }
       },
+      "Edam.Data.Assets/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Edam.System": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Edam.Data.Assets.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Edam.Data.Assets.dll": {}
+        }
+      },
       "Edam.Net/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1003,6 +1016,11 @@
         "system.text.json.nuspec"
       ]
     },
+    "Edam.Data.Assets/1.0.0": {
+      "type": "project",
+      "path": "../../Edam.Libraries/Edam.Data/Edam.Data.Assets/Edam.Data.Assets.csproj",
+      "msbuildProject": "../../Edam.Libraries/Edam.Data/Edam.Data.Assets/Edam.Data.Assets.csproj"
+    },
     "Edam.Net/1.0.0": {
       "type": "project",
       "path": "../../Edam.Libraries/Edam.System/Edam.Net/Edam.Net.csproj",
@@ -1016,7 +1034,9 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Edam.Data.Assets >= 1.0.0",
       "Edam.Net >= 1.0.0",
+      "Edam.System >= 1.0.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
   },
@@ -1053,8 +1073,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj": {
+              "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.Data\\Edam.Data.Assets\\Edam.Data.Assets.csproj"
+            },
             "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Net\\Edam.Net.csproj": {
               "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.Net\\Edam.Net.csproj"
+            },
+            "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj": {
+              "projectPath": "C:\\prjs\\Datovy.Edam\\Edam.Libraries\\Edam.System\\Edam.System\\Edam.System.csproj"
             }
           }
         }

@@ -75,6 +75,25 @@ namespace Edam.Data.AssetSchema
          }
       }
 
+      public bool IsOptional
+      {
+         get { return m_Occurance.MinOccurance == 0; }
+      }
+
+      public bool IsList
+      {
+         get { return m_Occurance.MaxOccurance > 1; }
+      }
+
+      public bool IsString
+      {
+         get
+         {
+            return TypeQualifiedName == null ? true :
+               TypeQualifiedName.OriginalName == "string";
+         }
+      }
+
       public string DataType
       {
          get => ElementDataType;

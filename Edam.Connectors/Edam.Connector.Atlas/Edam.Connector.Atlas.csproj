@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.Data\Edam.Data.Assets\Edam.Data.Assets.csproj" />
     <ProjectReference Include="..\..\Edam.Libraries\Edam.System\Edam.Net\Edam.Net.csproj" />
+    <ProjectReference Include="..\..\Edam.Libraries\Edam.System\Edam.System\Edam.System.csproj" />
   </ItemGroup>
 
 </Project>

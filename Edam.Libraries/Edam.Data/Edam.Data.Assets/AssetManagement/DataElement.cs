@@ -55,6 +55,12 @@ namespace Edam.Data.AssetManagement
       public string Element { get; set; }
       public string BatchId { get; set; }
       public string Tags { get; set; }
+      public string Guid { get; set; }
+
+      public string[] TagItems
+      {
+         get { return Tags == null ? new String[0] : Tags.Split(","); }
+      }
 
       [Key]
       [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -437,6 +443,7 @@ namespace Edam.Data.AssetManagement
          m_EnumCodeSetAsJsonText = string.Empty;
          ParentNo = 0;
          m_Constraints = new AssetElementConstraintList();
+         Guid = System.Guid.NewGuid().ToString();
       }
 
       #endregion

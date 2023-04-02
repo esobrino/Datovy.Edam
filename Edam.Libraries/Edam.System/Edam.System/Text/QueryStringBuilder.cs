@@ -129,6 +129,19 @@ namespace Edam.Text
             String.Empty));
       }
 
+      public void Add(QueryStringTag tag, Int32? value)
+      {
+         String key = Tags[(Int32)tag];
+         Add(key, (value.HasValue ? value.Value.ToString() :
+            String.Empty));
+      }
+
+      public void Add(QueryStringTag tag, Int32 value)
+      {
+         String key = Tags[(Int32)tag];
+         Add(key, value.ToString());
+      }
+
       public void Add(QueryStringTag tag, Int16? value)
       {
          String key = Tags[(Int32)tag];
