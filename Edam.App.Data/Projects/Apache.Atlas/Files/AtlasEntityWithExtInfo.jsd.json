@@ -53,6 +53,39 @@
 				}
 			]
 		},
+		"AtlasClassificationDef_": {
+			"type": "object",
+			"properties": {
+				"entityTypes": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"subTypes": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"superTypes": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+			}
+		},
+		"AtlasClassificationDef": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AtlasClassificationDef_"
+				},
+				{
+					"$ref": "#/definitions/AtlasStructDef"
+				}
+			]
+		},
 		"Cardinality": {
 			"type": "string",
 			"enum": [
@@ -451,6 +484,16 @@
 				}
 			]
 		},
+		"AtlasBusinessMetadataDef": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AttributeDefs_"
+				},
+				{
+					"$ref": "#/definitions/AtlasBaseTypeDef"
+				}
+			]
+		},
 		"AtlasEntity_": {
 			"type": "object",
 			"description": "An instance of an entity - like hive_table, hive_database.",
@@ -606,6 +649,85 @@
 				"PURGE"
 			]
 		},
+		"AtlasEnumElementDef": {
+			"type": "object",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"ordinal": {
+					"ordinal": "number"
+				},
+				"value": {
+					"value": "string"
+				}
+			}
+		},
+		"AtlasEnumDef_": {
+			"type": "object",
+			"properties": {
+				"defaultValue": {
+					"type": "string"
+				},
+				"elementDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasEnumElementDef"
+					}
+				}
+			}
+		},
+		"AtlasEnumDef": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AtlasEnumDef_"
+				},
+				{
+					"$ref": "#/definitions/AtlasBaseTypeDef"
+				}
+			]
+		},
+		"AtlasTypeDef": {
+			"type": "object",
+			"properties": {
+				"businessMetadataDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasBusinessMetadataDef"
+					}
+				},
+				"classificationDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasClassificationDef"
+					}
+				},
+				"entityDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasEntityDef"
+					}
+				},
+				"enumDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasEnumDef"
+					}
+				},
+				"relationshipDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasRelationshipDef"
+					}
+				},
+				"structDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasStructDef"
+					}
+				},
+			}
+		},
 		"Apache_Atlas_Document_": {
 			"type": "object",
 			"properties": {
@@ -619,6 +741,12 @@
 					"type": "array",
 					"items": {
 						"$ref": "#/definitions/AtlasEntityDef"
+					}
+				},
+		        "businessMetadataDefs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasBusinessMetadataDef"
 					}
 				},
 				"relationshipDefs": {
@@ -645,6 +773,12 @@
 			"type": "array",
 			"items": {
 				"$ref": "#/definitions/AtlasEntityDef"
+			}
+		},
+		"businessMetadataDefs": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/AtlasBusinessMetadataDef"
 			}
 		},
 		"relationshipDefs": {
