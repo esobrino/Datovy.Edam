@@ -87,8 +87,8 @@ namespace Edam.Data.AssetSchema
          if (type != null)
          {
             var ichildren = AssetDataElementList.GetChildren(
-               m_Items, type.Root, element.ElementName, 
-               element.GetElementNamespace(), AssetType.Schema,
+               m_Items, type.Root, type.DataType, 
+               type.GetElementNamespace(), AssetType.Schema,
                element.VersionId);
             if (ichildren != null)
             {
@@ -158,10 +158,10 @@ namespace Edam.Data.AssetSchema
 
          // get the inherited children
          List<AssetDataTreeItem> ichildren = null;
-         if (treeItem.Element.ElementType == ElementType.type)
-         {
+         //if (treeItem.Element.ElementType == ElementType.type)
+         //{
             ichildren = GetInheritedChildren(treeItem.Element, parent);
-         }
+         //}
 
          // get the children
          var echildren = GetChildren(treeItem.Element, parent);

@@ -231,7 +231,10 @@ namespace Edam.Xml.XmlExplore
       public static AssetData ToAssetList(AssetConsoleArgumentsInfo arguments)
       {
          var i = new XmlInspector(arguments);
-         return i.InspectSchema(false);
+         var assetData = i.InspectSchema(false);
+         arguments.AssetDataItems = new AssetDataItems();
+         arguments.AssetDataItems.Add(assetData);
+         return assetData;
       }
 
       /// <summary>

@@ -77,7 +77,8 @@ namespace Edam.DataObjects.Services
          b.Add(QueryStringTag.OrganizationId, oid);
          b.Add("root", root);
          b.Add("elementName", elementName);
-         b.Add(QueryStringTag.Option, (short)option);
+         b.Add(QueryStringTag.Option, 
+            option.HasValue ? (short)option.Value : null);
 
          RequestResponseInfo<DataReferenceFetchResult> data = null;
          WebApiClient client = WebApiClientInfo.GetWebApiClient();

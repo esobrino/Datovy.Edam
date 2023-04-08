@@ -798,6 +798,80 @@ namespace Edam.Connector.Atlas.Library
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
+   public partial class AtlasEntityDef_
+   {
+      [Newtonsoft.Json.JsonProperty("businessAttributeDefs")]
+      public System.Collections.Generic.ICollection<AtlasAttributeDef> BusinessAttributeDefs { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("relationshipAttributeDefs")]
+      public System.Collections.Generic.ICollection<AtlasRelationshipAttributeDef> RelationshipAttributeDefs { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("subTypes")]
+      public System.Collections.Generic.ICollection<string> SubTypes { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("superTypes")]
+      public System.Collections.Generic.ICollection<string> SuperTypes { get; set; }
+
+
+
+      private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+      [Newtonsoft.Json.JsonExtensionData]
+      public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+      {
+         get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+         set { _additionalProperties = value; }
+      }
+
+   }
+
+   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
+   public partial class AtlasEntityDef : AtlasEntityDef_
+   {
+      [Newtonsoft.Json.JsonProperty("category")]
+      [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+      public TypeCategory Category { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("createTime")]
+      public double CreateTime { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("createdBy")]
+      public string CreatedBy { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("dateFormatter")]
+      public DateFormat DateFormatter { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("description")]
+      public string Description { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("guid")]
+      public string Guid { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("name")]
+      public string Name { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("options")]
+      public Attributes_ Options { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("serviceType")]
+      public string ServiceType { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("typeVersion")]
+      public string TypeVersion { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("updateTime")]
+      public string UpdateTime { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("updatedBy")]
+      public string UpdatedBy { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("version")]
+      public double Version { get; set; }
+
+
+   }
+
+   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
    public partial class AtlasBusinessMetadataDef : AttributeDefs_
    {
       [Newtonsoft.Json.JsonProperty("category")]
@@ -1143,74 +1217,6 @@ namespace Edam.Connector.Atlas.Library
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
    public partial class AtlasEnumDef : AtlasEnumDef_
-   {
-      [Newtonsoft.Json.JsonProperty("category")]
-      [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-      public TypeCategory Category { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("createTime")]
-      public double CreateTime { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("createdBy")]
-      public string CreatedBy { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("dateFormatter")]
-      public DateFormat DateFormatter { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("description")]
-      public string Description { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("guid")]
-      public string Guid { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("name")]
-      public string Name { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("serviceType")]
-      public string ServiceType { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("typeVersion")]
-      public string TypeVersion { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("updateTime")]
-      public string UpdateTime { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("updatedBy")]
-      public string UpdatedBy { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("version")]
-      public double Version { get; set; }
-
-
-   }
-
-   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public partial class AtlasEntityDef_
-   {
-      [Newtonsoft.Json.JsonProperty("businessAttributeDefs")]
-      public System.Collections.Generic.ICollection<AtlasAttributeDef> BusinessAttributeDefs { get; set; }
-
-      [Newtonsoft.Json.JsonProperty("relationshipAttributeDefs")]
-      public System.Collections.Generic.ICollection<AtlasRelationshipAttributeDef> RelationshipAttributeDefs { get; set; }
-
-
-
-      private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
-
-      [Newtonsoft.Json.JsonExtensionData]
-      public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-      {
-         get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-         set { _additionalProperties = value; }
-      }
-
-   }
-
-   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public partial class AtlasEntityDef : AtlasEntityDef_
    {
       [Newtonsoft.Json.JsonProperty("category")]
       [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]

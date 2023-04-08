@@ -297,6 +297,15 @@ namespace Edam.WinUI.Controls.DataModels
       private static DataTreeModel PrepareModel(DataTreeModel item)
       {
          int count = 0;
+
+         // if item don't have children then review its DataType for inheritance
+         if (item.Item.Children.Count == 0)
+         {
+
+            return item;
+         }
+
+         // manage children
          foreach(var c in item.Item.Children)
          {
             string colorKey = String.Empty;

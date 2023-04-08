@@ -11,6 +11,7 @@ using Edam.Data.AssetManagement;
 using Edam.Data.AssetSchema;
 using Edam.DataObjects.DataCodes;
 using Edam.Data.AssetConsole;
+using DocumentFormat.OpenXml.Office2016.Presentation.Command;
 
 namespace Edam.Xml.XmlExplore
 {
@@ -326,16 +327,21 @@ namespace Edam.Xml.XmlExplore
          if (type.BaseXmlSchemaType != null)
          {
             typeQName = GetQualifiedName(type.BaseXmlSchemaType.QualifiedName);
-            typeName = type.BaseXmlSchemaType.QualifiedName.Name;
+            typeName = typeQName.Name; //type.BaseXmlSchemaType.QualifiedName.Name;
          }
 
          // elements as complex-types will not have qualified names, try parent
          QualifiedNameInfo eqname = GetQualifiedName(type);
          QualifiedNameInfo ename = GetQualifiedName(parent);
 
+         if (typeQName == null && typeName == AssetDataElement.OBJECT)
+         {
+            return null;
+         }
+
          AssetDataElement a = new AssetDataElement
          {
-            DataType = (typeName == "anyType") ?
+            DataType = (typeName == "xs:anyType") ?
                AssetDataElement.OBJECT : typeName,
             Occurs = String.Empty,
             Namespace = type.QualifiedName.Namespace,
@@ -854,6 +860,11 @@ namespace Edam.Xml.XmlExplore
          if (complexType is XmlSchemaComplexType)
          {
             var type = AddComplexType(complexType, parent);
+            if (type == null)
+            {
+               return;
+            }
+
             if (m_VisitedNodes.Find((x) => x == 
                type.ElementQualifiedName.Name) == null)
             {
@@ -915,6 +926,16 @@ namespace Edam.Xml.XmlExplore
                }
                else if (i is XmlSchemaChoice choices)
                {
+                  var clist = i as XmlSchemaChoice;
+                  if (clist.Parent.Parent
+                     is XmlSchemaComplexContentExtension cextension)
+                  {
+                     if (cextension.BaseTypeName.Name !=
+                        complexType.BaseXmlSchemaType.Name)
+                     {
+                        continue;
+                     }
+                  }
                   InspectChoices(choices, complexType, type, elementSequence);
                }
                else

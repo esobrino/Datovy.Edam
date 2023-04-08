@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v6.0": {
       "Edam.Connector.Atlas/1.0.0": {
         "dependencies": {
+          "Edam.Data.Assets": "1.0.0",
           "Edam.Net": "1.0.0",
+          "Edam.System": "1.0.0",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
@@ -221,6 +223,14 @@
           "System.Text.Encodings.Web": "6.0.0-preview.4.21253.7"
         }
       },
+      "Edam.Data.Assets/1.0.0": {
+        "dependencies": {
+          "Edam.System": "1.0.0"
+        },
+        "runtime": {
+          "Edam.Data.Assets.dll": {}
+        }
+      },
       "Edam.Net/1.0.0": {
         "dependencies": {
           "Edam.System": "1.0.0"
@@ -409,6 +419,11 @@
       "sha512": "sha512-D94kFB9OiGY/4jopDtltjTDHIKGrNsCtcSgTDfrdckvwVuJUj0rZhp0Ln+mCqrQhMu9Ovw9+662nzREvK59jBQ==",
       "path": "system.text.json/6.0.0-preview.4.21253.7",
       "hashPath": "system.text.json.6.0.0-preview.4.21253.7.nupkg.sha512"
+    },
+    "Edam.Data.Assets/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Edam.Net/1.0.0": {
       "type": "project",

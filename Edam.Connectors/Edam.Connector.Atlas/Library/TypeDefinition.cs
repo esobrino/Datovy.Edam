@@ -42,6 +42,9 @@ namespace Edam.Connector.Atlas.Library
       /// <summary>
       /// Given an item (element and children) prepare the Base Type defintion.
       /// </summary>
+      /// <remarks>by default a type prepared here should not be consider final
+      /// since the caller method may modify the "Category" that is defaulted 
+      /// here to "ENTITY" and other data elements as needed</remarks>
       /// <param name="item">item containing element and children to use</param>
       /// <param name="typeDef">type definition</param>
       public static void PrepareTypeDefinition(
@@ -52,12 +55,13 @@ namespace Edam.Connector.Atlas.Library
             return;
          }
 
-         typeDef.Category = TypeCategory.BUSINESS_METADATA;
+         typeDef.Category = TypeCategory.ENTITY;
          typeDef.CreateTime = DateTimeOffset.Now.Ticks;
          typeDef.CreatedBy = "Edam.Studio";
          typeDef.Description = item.Element.Description;
          typeDef.Guid = item.Element.Guid;
          typeDef.Name = item.Element.ElementName;
+         typeDef.ServiceType = "EDAM Data Asset";
 
          // key - value dictionary...
          typeDef.Options = GetOptions(item.Element);

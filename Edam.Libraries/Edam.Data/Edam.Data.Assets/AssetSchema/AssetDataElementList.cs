@@ -218,8 +218,7 @@ namespace Edam.Data.AssetSchema
          NamespaceInfo ns, AssetType type, string versionId)
       {
          var items = from c in elements
-                     where c.Root == root &&
-                           c.EntityName == entityName
+                     where c.EntityName == entityName
                      select c as AssetDataElement;
 
          var l = items.ToList();
