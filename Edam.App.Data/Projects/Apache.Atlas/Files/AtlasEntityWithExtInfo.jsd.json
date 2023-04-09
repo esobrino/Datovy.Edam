@@ -366,7 +366,7 @@
 				}
 			]
 		},
-		"AtlasTermAsssignmentStatus": {
+		"AtlasTermAssignmentStatus": {
 			"type": "string",
 			"enum": [
 				"DISCOVERED",
@@ -406,7 +406,7 @@
 					"type": "string"
 				},
 				"status": {
-					"$ref": "#/definitions/AtlasTermAsssignmentStatus"
+					"$ref": "#/definitions/AtlasTermAssignmentStatus"
 				},
 				"steward": {
 					"type": "string"

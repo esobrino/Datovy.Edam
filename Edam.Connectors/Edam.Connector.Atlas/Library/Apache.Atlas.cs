@@ -621,7 +621,7 @@ namespace Edam.Connector.Atlas.Library
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public enum AtlasTermAsssignmentStatus
+   public enum AtlasTermAssignmentStatus
    {
 
       [System.Runtime.Serialization.EnumMember(Value = @"DISCOVERED")]
@@ -683,7 +683,7 @@ namespace Edam.Connector.Atlas.Library
 
       [Newtonsoft.Json.JsonProperty("status")]
       [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-      public AtlasTermAsssignmentStatus Status { get; set; }
+      public AtlasTermAssignmentStatus Status { get; set; }
 
       [Newtonsoft.Json.JsonProperty("steward")]
       public string Steward { get; set; }
