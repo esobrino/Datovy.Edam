@@ -73,7 +73,7 @@
 					"items": {
 						"type": "string"
 					}
-				},
+				}
 			}
 		},
 		"AtlasClassificationDef": {
@@ -471,6 +471,18 @@
 					"items": {
 						"$ref": "#/definitions/AtlasRelationshipAttributeDef"
 					}
+				},
+				"subTypes": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"superTypes": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				}
 			}
 		},
@@ -567,6 +579,49 @@
 				},
 				{
 					"$ref": "#/definitions/Attributes_"
+				}
+			]
+		},
+		"ReferredEntityMap_": {
+			"type": "object",
+			"additionalProperties": {
+					"$ref": "#/definitions/AtlasEntity"
+			}
+		},
+		"ReferredEntityMaps_": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/ReferredEntityMap_"
+			}
+		},
+		"AtlasEntityExtInfo": {
+			"type": "object",
+			"properties": {
+				"referredEntities": {
+					"$ref": "#/definitions/ReferredEntityMap_"
+				}
+			}
+		},
+		"AtlasEntityWithExtInfo": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/AtlasEntity"
+				},
+				{
+					"$ref": "#/definitions/AtlasEntityExtInfo"
+				}
+			]
+		},		
+		"AtlasEntitiesWithExtInfo": {
+			"allOf": [
+				{
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasEntity"
+					}
+				},
+				{
+					"$ref": "#/definitions/ReferredEntityMap_"
 				}
 			]
 		},

@@ -1001,6 +1001,52 @@ namespace Edam.Connector.Atlas.Library
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
+   public partial class ReferredEntityMap_ : System.Collections.Generic.Dictionary<string, AtlasEntity>
+   {
+
+   }
+
+   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
+   public partial class ReferredEntityMaps_ : System.Collections.ObjectModel.Collection<ReferredEntityMap_>
+   {
+
+   }
+
+   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
+   public partial class AtlasEntityExtInfo
+   {
+      [Newtonsoft.Json.JsonProperty("referredEntities")]
+      public ReferredEntityMap_ ReferredEntities { get; set; }
+
+
+
+      private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+      [Newtonsoft.Json.JsonExtensionData]
+      public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+      {
+         get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+         set { _additionalProperties = value; }
+      }
+
+   }
+
+   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
+   public partial class AtlasEntityWithExtInfo : AtlasEntity
+   {
+      [Newtonsoft.Json.JsonProperty("referredEntities")]
+      public ReferredEntityMap_ ReferredEntities { get; set; }
+
+
+   }
+
+   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
+   public partial class AtlasEntitiesWithExtInfo : System.Collections.ObjectModel.Collection<AtlasEntity>
+   {
+
+   }
+
+   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
    public partial class AtlasRelationshipEndDef
    {
       [Newtonsoft.Json.JsonProperty("cardinality")]
