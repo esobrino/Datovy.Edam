@@ -4,6 +4,7 @@ using Edam.Data.AssetManagement.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Formats.Asn1;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,9 @@ namespace Edam.Data.AssetSchema
 
    public class AssetDataItem
    {
-      public AssetDataElement Element { get; set; }
-      public AssetDataElementList Children { get; set; }
+      public AssetDataElement Element { get; set; } = null;
+      public AssetDataElementList Children { get; set; } = null;
+      public object Tag { get; set; }
    }
 
    public class AssetDataElementList : List<AssetDataElement>

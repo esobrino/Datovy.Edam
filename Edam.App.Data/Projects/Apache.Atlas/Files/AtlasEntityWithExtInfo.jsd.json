@@ -492,7 +492,10 @@
 					"$ref": "#/definitions/AtlasEntityDef_"
 				},
 				{
-					"$ref": "#/definitions/AtlasStructDef"
+					"$ref": "#/definitions/AttributeDefs_"
+				},
+				{
+					"$ref": "#/definitions/AtlasBaseTypeDef"
 				}
 			]
 		},
@@ -535,13 +538,22 @@
 					"type": "boolean"
 				},
 				"labels": {
-					"$ref": "#/definitions/Attributes_"
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
 				"meanings": {
-					"$ref": "#/definitions/AtlasTermAssignmentHeader"
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AtlasTermAssignmentHeader"
+					}
 				},
 				"pendingTasks": {
-					"$ref": "#/definitions/Attributes_"
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
 				"provenanceType": {
 					"type": "number"
@@ -603,21 +615,27 @@
 			}
 		},
 		"AtlasEntityWithExtInfo": {
-			"allOf": [
-				{
+			"type": "object",
+			"properties": {
+				"entity": {
 					"$ref": "#/definitions/AtlasEntity"
 				},
-				{
-					"$ref": "#/definitions/AtlasEntityExtInfo"
+				"referredEntities": {
+					"$ref": "#/definitions/ReferredEntityMap_"
 				}
-			]
+			}
 		},		
 		"AtlasEntitiesWithExtInfo": {
 			"allOf": [
 				{
-					"type": "array",
-					"items": {
-						"$ref": "#/definitions/AtlasEntity"
+					"type": "object",
+					"properties": {
+						"entities": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/AtlasEntity"
+							}
+						}
 					}
 				},
 				{

@@ -828,6 +828,9 @@ namespace Edam.Connector.Atlas.Library
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
    public partial class AtlasEntityDef : AtlasEntityDef_
    {
+      [Newtonsoft.Json.JsonProperty("attributeDefs")]
+      public System.Collections.Generic.ICollection<AtlasAttributeDef> AttributeDefs { get; set; }
+
       [Newtonsoft.Json.JsonProperty("category")]
       [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
       public TypeCategory Category { get; set; }
@@ -945,13 +948,13 @@ namespace Edam.Connector.Atlas.Library
       public bool IsIncomplete { get; set; }
 
       [Newtonsoft.Json.JsonProperty("labels")]
-      public Attributes_ Labels { get; set; }
+      public System.Collections.Generic.ICollection<string> Labels { get; set; }
 
       [Newtonsoft.Json.JsonProperty("meanings")]
-      public AtlasTermAssignmentHeader Meanings { get; set; }
+      public System.Collections.Generic.ICollection<AtlasTermAssignmentHeader> Meanings { get; set; }
 
       [Newtonsoft.Json.JsonProperty("pendingTasks")]
-      public Attributes_ PendingTasks { get; set; }
+      public System.Collections.Generic.ICollection<string> PendingTasks { get; set; }
 
       [Newtonsoft.Json.JsonProperty("provenanceType")]
       public double ProvenanceType { get; set; }
@@ -1032,17 +1035,43 @@ namespace Edam.Connector.Atlas.Library
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public partial class AtlasEntityWithExtInfo : AtlasEntity
+   public partial class AtlasEntityWithExtInfo
    {
+      [Newtonsoft.Json.JsonProperty("entity")]
+      public AtlasEntity Entity { get; set; }
+
       [Newtonsoft.Json.JsonProperty("referredEntities")]
       public ReferredEntityMap_ ReferredEntities { get; set; }
 
 
+
+      private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+      [Newtonsoft.Json.JsonExtensionData]
+      public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+      {
+         get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+         set { _additionalProperties = value; }
+      }
+
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public partial class AtlasEntitiesWithExtInfo : System.Collections.ObjectModel.Collection<AtlasEntity>
+   public partial class AtlasEntitiesWithExtInfo : System.Collections.Generic.Dictionary<string, AtlasEntity>
    {
+      [Newtonsoft.Json.JsonProperty("entities")]
+      public System.Collections.Generic.ICollection<AtlasEntity> Entities { get; set; }
+
+
+
+      private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+      [Newtonsoft.Json.JsonExtensionData]
+      public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+      {
+         get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+         set { _additionalProperties = value; }
+      }
 
    }
 
