@@ -172,7 +172,7 @@ namespace Edam.Json.JsonExplore
          i.Inspect();
 
          m_Arguments.AssetDataItems = 
-            m_Arguments.AssetDataItems ?? new AssetDataItems();
+            m_Arguments.AssetDataItems ?? new AssetDataList();
          m_Arguments.AssetDataItems.Add(i.Asset);
 
          return ToOutput(i.Asset, toOutput);

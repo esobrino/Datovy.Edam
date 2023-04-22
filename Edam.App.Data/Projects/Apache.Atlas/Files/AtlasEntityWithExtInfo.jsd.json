@@ -49,7 +49,7 @@
 					"$ref": "#/definitions/AtlasClassification_"
 				},
 				{
-					"$ref": "#/definitions/Attributes_"
+					"ref": "#/definitions/AtlasStruct"
 				}
 			]
 		},
@@ -98,7 +98,10 @@
 			"type": "object",
 			"properties": {
 				"params": {
-					"$ref": "#/definitions/Attributes_"
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
 				"type": {
 					"type": "string"
@@ -152,7 +155,10 @@
 					"type": "string"
 				},
 				"options": {
-					"$ref": "#/definitions/Attributes_"
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
 				"searchWeight": {
 					"type": "number"
@@ -209,16 +215,19 @@
 					"type": "string"
 				},
 				"currencyInstance": {
-					"$ref": "#/definitions/NumberFormat"
+					"type": "string",
+					"description": "#/definitions/NumberFormat"
 				},
 				"groupingUsed": {
 					"type": "boolean"
 				},
 				"instance": {
-					"$ref": "#/definitions/NumberFormat"
+					"type": "string",
+					"description": "#/definitions/NumberFormat"
 				},
 				"integerInstance": {
-					"$ref": "#/definitions/NumberFormat"
+					"type": "string",
+					"description": "#/definitions/NumberFormat"
 				},
 				"maximumFractionDigits": {
 					"type": "number"
@@ -236,7 +245,8 @@
 					"type": "boolean"
 				},
 				"percentInstance": {
-					"$ref": "#/definitions/NumberFormat"
+					"type": "string",
+					"description": "#/definitions/NumberFormat"
 				},
 				"roundingMode": {
 					"$ref": "#/definitions/RoundingMode"
@@ -253,7 +263,10 @@
 					"type": "string"
 				},
 				"availableIDs": {
-					"$ref": "#/definitions/Attributes_"
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
 				"default": {
 					"$ref": "#/definitions/TimeZone"
@@ -279,10 +292,12 @@
 					"type": "number"
 				},
 				"dateInstance": {
-					"$ref": "#/definitions/DateFormat"
+					"type": "string",
+					"description": "#/definitions/DateFormat"
 				},
 				"dateTimeInstance": {
-					"$ref": "#/definitions/DateFormat"
+					"type": "string",
+					"description": "#/definitions/DateFormat"
 				},
 				"instance": {
 					"$ref": "#/definitions/DateFormat"
@@ -294,7 +309,8 @@
 					"$ref": "#/definitions/NumberFormat"
 				},
 				"timeInstance": {
-					"$ref": "#/definitions/DateFormat"
+					"type": "string",
+					"description": "#/definitions/DateFormat"
 				},
 				"timeZone": {
 					"$ref": "#/definitions/TimeZone"
@@ -326,7 +342,10 @@
 					"type": "string"
 				},
 				"options": {
-					"$ref": "#/definitions/Attributes_"
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
 				"serviceType": {
 					"type": "string"
@@ -416,18 +435,6 @@
 				}
 			}
 		},
-		"Attribute_": {
-			"type": "object",
-			"additionalProperties": {
-				"type": "string"
-			}
-		},
-		"Attributes_": {
-			"type": "array",
-			"items": {
-				"$ref": "#/definitions/Attribute_"
-			}
-		},
 		"AttributeDefs_": {
 			"type": "object",
 			"properties": {
@@ -450,11 +457,14 @@
 			]
 		},
 		"AtlasStruct": {
-			"attributes": {
-				"$ref": "#/definitions/Attributes_"
-			},
-			"typeName": {
-				"type": "string"
+			"type": "object",
+			"properties": {
+				"attributes": {
+					"$ref": "#/definitions/ReferredObjectMap_"
+				},
+				"typeName": {
+					"type": "string"
+				}
 			}
 		},
 		"AtlasEntityDef_": {
@@ -514,7 +524,10 @@
 			"description": "An instance of an entity - like hive_table, hive_database.",
 			"properties": {
 				"businessAttributes": {
-					"$ref": "#/definitions/Attributes_"
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
 				"classifications": {
 					"type": "array",
@@ -529,7 +542,10 @@
 					"type": "string"
 				},
 				"customAttributes": {
-					"$ref": "#/definitions/Attributes_"
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
 				"guid": {
 					"type": "string"
@@ -562,7 +578,10 @@
 					"type": "boolean"
 				},
 				"relationshipAttributes": {
-					"$ref": "#/definitions/Attributes_"
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
 				"status": {
 					"$ref": "#/definitions/Status"
@@ -577,7 +596,7 @@
 					"type": "number"
 				},
 				"attributes": {
-					"$ref": "#/definitions/Attributes_"
+					"$ref": "#/definitions/ReferredObjectMap_"
 				},
 				"typeName": {
 					"type": "string"
@@ -590,20 +609,20 @@
 					"$ref": "#/definitions/AtlasEntity_"
 				},
 				{
-					"$ref": "#/definitions/Attributes_"
+					"$ref": "#/definitions/AtlasStruct"
 				}
 			]
+		},
+		"ReferredObjectMap_": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "object"
+			}
 		},
 		"ReferredEntityMap_": {
 			"type": "object",
 			"additionalProperties": {
 					"$ref": "#/definitions/AtlasEntity"
-			}
-		},
-		"ReferredEntityMaps_": {
-			"type": "array",
-			"items": {
-				"$ref": "#/definitions/ReferredEntityMap_"
 			}
 		},
 		"AtlasEntityExtInfo": {

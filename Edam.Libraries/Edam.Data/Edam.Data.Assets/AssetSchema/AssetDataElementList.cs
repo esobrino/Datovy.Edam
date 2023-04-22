@@ -251,7 +251,7 @@ namespace Edam.Data.AssetSchema
          AssetDataItem item = new AssetDataItem();
          item.Element = element;
          item.Children = GetChildren(
-            items, element.Root, element.Domain, element.EntityName);
+            items, element.Root, element.Domain, element.ElementName);
          return item;
       }
 

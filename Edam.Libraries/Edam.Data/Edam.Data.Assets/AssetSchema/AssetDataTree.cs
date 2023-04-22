@@ -9,6 +9,7 @@ using Edam.Diagnostics;
 using Edam.Data.AssetConsole;
 using Edam.Data.Asset;
 using System.Xml.Linq;
+using Edam.DataObjects.Trees;
 
 namespace Edam.Data.AssetSchema
 {
@@ -108,8 +109,10 @@ namespace Edam.Data.AssetSchema
       {
          List<AssetDataTreeItem> list = new List<AssetDataTreeItem>();
 
-         string elementName = element.ElementType == ElementType.element ?
+         string elementName = element.ElementType == ElementType.element ||
+            element.ElementType == ElementType.reference ?
             element.DataType : element.ElementName;
+
          var children = AssetDataElementList.GetChildren(
             m_Items, element.Root, elementName, element.GetElementNamespace(),
             AssetType.Schema, element.VersionId);
@@ -135,6 +138,26 @@ namespace Edam.Data.AssetSchema
             item = item.Parent;
          }
          return c;
+      }
+
+      public void GetElementDeclarationChildren(
+         AssetDataElement element, AssetDataTreeItem parent)
+      {
+         var items = from c in m_Items
+                     where c.ElementName == element.DataType &&
+                          (c.EntityName == String.Empty ||
+                           c.EntityName == null) &&
+                           c.ElementType == ElementType.element &
+                           c.MaxOccurrence > 0
+                     select c as AssetDataElement;
+         if (items != null && items.Count() > 0)
+         {
+            AssetDataElement ielement = items.First();
+            var children = from i in m_Items
+                           where i.ElementName == ielement.DataType &&
+                                 i.ElementType == ElementType.type
+                           select i as AssetDataElement;
+         }
       }
 
       /// <summary>

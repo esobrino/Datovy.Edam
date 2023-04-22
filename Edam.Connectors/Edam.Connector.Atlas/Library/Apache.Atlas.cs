@@ -129,7 +129,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
+      public System.Collections.Generic.ICollection<string> Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -171,7 +171,7 @@ namespace Edam.Connector.Atlas.Library
    public partial class AtlasConstraintDef
    {
       [Newtonsoft.Json.JsonProperty("params")]
-      public Attributes_ Params { get; set; }
+      public System.Collections.Generic.ICollection<string> Params { get; set; }
 
       [Newtonsoft.Json.JsonProperty("type")]
       public string Type { get; set; }
@@ -242,7 +242,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
+      public System.Collections.Generic.ICollection<string> Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("searchWeight")]
       public double SearchWeight { get; set; }
@@ -362,17 +362,26 @@ namespace Edam.Connector.Atlas.Library
       [Newtonsoft.Json.JsonProperty("currency")]
       public string Currency { get; set; }
 
+      /// <summary>
+      /// #/definitions/NumberFormat
+      /// </summary>
       [Newtonsoft.Json.JsonProperty("currencyInstance")]
-      public NumberFormat CurrencyInstance { get; set; }
+      public string CurrencyInstance { get; set; }
 
       [Newtonsoft.Json.JsonProperty("groupingUsed")]
       public bool GroupingUsed { get; set; }
 
+      /// <summary>
+      /// #/definitions/NumberFormat
+      /// </summary>
       [Newtonsoft.Json.JsonProperty("instance")]
-      public NumberFormat Instance { get; set; }
+      public string Instance { get; set; }
 
+      /// <summary>
+      /// #/definitions/NumberFormat
+      /// </summary>
       [Newtonsoft.Json.JsonProperty("integerInstance")]
-      public NumberFormat IntegerInstance { get; set; }
+      public string IntegerInstance { get; set; }
 
       [Newtonsoft.Json.JsonProperty("maximumFractionDigits")]
       public double MaximumFractionDigits { get; set; }
@@ -389,8 +398,11 @@ namespace Edam.Connector.Atlas.Library
       [Newtonsoft.Json.JsonProperty("parseIntegerOnly")]
       public bool ParseIntegerOnly { get; set; }
 
+      /// <summary>
+      /// #/definitions/NumberFormat
+      /// </summary>
       [Newtonsoft.Json.JsonProperty("percentInstance")]
-      public NumberFormat PercentInstance { get; set; }
+      public string PercentInstance { get; set; }
 
       [Newtonsoft.Json.JsonProperty("roundingMode")]
       [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -419,7 +431,7 @@ namespace Edam.Connector.Atlas.Library
       public string ID { get; set; }
 
       [Newtonsoft.Json.JsonProperty("availableIDs")]
-      public Attributes_ AvailableIDs { get; set; }
+      public System.Collections.Generic.ICollection<string> AvailableIDs { get; set; }
 
       [Newtonsoft.Json.JsonProperty("default")]
       public TimeZone Default { get; set; }
@@ -452,11 +464,17 @@ namespace Edam.Connector.Atlas.Library
       [Newtonsoft.Json.JsonProperty("calendar")]
       public double Calendar { get; set; }
 
+      /// <summary>
+      /// #/definitions/DateFormat
+      /// </summary>
       [Newtonsoft.Json.JsonProperty("dateInstance")]
-      public DateFormat DateInstance { get; set; }
+      public string DateInstance { get; set; }
 
+      /// <summary>
+      /// #/definitions/DateFormat
+      /// </summary>
       [Newtonsoft.Json.JsonProperty("dateTimeInstance")]
-      public DateFormat DateTimeInstance { get; set; }
+      public string DateTimeInstance { get; set; }
 
       [Newtonsoft.Json.JsonProperty("instance")]
       public DateFormat Instance { get; set; }
@@ -467,8 +485,11 @@ namespace Edam.Connector.Atlas.Library
       [Newtonsoft.Json.JsonProperty("numberFormat")]
       public NumberFormat NumberFormat { get; set; }
 
+      /// <summary>
+      /// #/definitions/DateFormat
+      /// </summary>
       [Newtonsoft.Json.JsonProperty("timeInstance")]
-      public DateFormat TimeInstance { get; set; }
+      public string TimeInstance { get; set; }
 
       [Newtonsoft.Json.JsonProperty("timeZone")]
       public TimeZone TimeZone { get; set; }
@@ -512,7 +533,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
+      public System.Collections.Generic.ICollection<string> Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -603,7 +624,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
+      public System.Collections.Generic.ICollection<string> Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("searchWeight")]
       public double SearchWeight { get; set; }
@@ -705,18 +726,6 @@ namespace Edam.Connector.Atlas.Library
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public partial class Attribute_ : System.Collections.Generic.Dictionary<string, string>
-   {
-
-   }
-
-   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public partial class Attributes_ : System.Collections.ObjectModel.Collection<Attribute_>
-   {
-
-   }
-
-   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
    public partial class AttributeDefs_
    {
       [Newtonsoft.Json.JsonProperty("attributeDefs")]
@@ -761,7 +770,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
+      public System.Collections.Generic.ICollection<string> Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -784,6 +793,12 @@ namespace Edam.Connector.Atlas.Library
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
    public partial class AtlasStruct
    {
+      [Newtonsoft.Json.JsonProperty("attributes")]
+      public ReferredObjectMap_ Attributes { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("typeName")]
+      public string TypeName { get; set; }
+
 
 
       private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -854,7 +869,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
+      public System.Collections.Generic.ICollection<string> Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -900,7 +915,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
+      public System.Collections.Generic.ICollection<string> Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -927,7 +942,7 @@ namespace Edam.Connector.Atlas.Library
    public partial class AtlasEntity_
    {
       [Newtonsoft.Json.JsonProperty("businessAttributes")]
-      public Attributes_ BusinessAttributes { get; set; }
+      public System.Collections.Generic.ICollection<string> BusinessAttributes { get; set; }
 
       [Newtonsoft.Json.JsonProperty("classifications")]
       public System.Collections.Generic.ICollection<object> Classifications { get; set; }
@@ -939,7 +954,7 @@ namespace Edam.Connector.Atlas.Library
       public string CreatedBy { get; set; }
 
       [Newtonsoft.Json.JsonProperty("customAttributes")]
-      public Attributes_ CustomAttributes { get; set; }
+      public System.Collections.Generic.ICollection<string> CustomAttributes { get; set; }
 
       [Newtonsoft.Json.JsonProperty("guid")]
       public string Guid { get; set; }
@@ -963,7 +978,7 @@ namespace Edam.Connector.Atlas.Library
       public bool Proxy { get; set; }
 
       [Newtonsoft.Json.JsonProperty("relationshipAttributes")]
-      public Attributes_ RelationshipAttributes { get; set; }
+      public System.Collections.Generic.ICollection<string> RelationshipAttributes { get; set; }
 
       [Newtonsoft.Json.JsonProperty("status")]
       [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -979,7 +994,7 @@ namespace Edam.Connector.Atlas.Library
       public double Version { get; set; }
 
       [Newtonsoft.Json.JsonProperty("attributes")]
-      public Attributes_ Attributes { get; set; }
+      public ReferredObjectMap_ Attributes { get; set; }
 
       [Newtonsoft.Json.JsonProperty("typeName")]
       public string TypeName { get; set; }
@@ -1000,17 +1015,23 @@ namespace Edam.Connector.Atlas.Library
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
    public partial class AtlasEntity : AtlasEntity_
    {
+      [Newtonsoft.Json.JsonProperty("attributes")]
+      public ReferredObjectMap_ Attributes { get; set; }
+
+      [Newtonsoft.Json.JsonProperty("typeName")]
+      public string TypeName { get; set; }
+
 
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public partial class ReferredEntityMap_ : System.Collections.Generic.Dictionary<string, AtlasEntity>
+   public partial class ReferredObjectMap_ : System.Collections.Generic.Dictionary<string, object>
    {
 
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public partial class ReferredEntityMaps_ : System.Collections.ObjectModel.Collection<ReferredEntityMap_>
+   public partial class ReferredEntityMap_ : System.Collections.Generic.Dictionary<string, AtlasEntity>
    {
 
    }
@@ -1202,7 +1223,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
+      public System.Collections.Generic.ICollection<string> Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -1316,7 +1337,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public Attributes_ Options { get; set; }
+      public System.Collections.Generic.ICollection<string> Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }

@@ -304,7 +304,7 @@ namespace Edam.Data.Schema.ImportExport
                {
                   if (arguments.AssetDataItems == null)
                   {
-                     arguments.AssetDataItems = new AssetDataItems();
+                     arguments.AssetDataItems = new AssetDataList();
                   }
                   foreach(var a in assets)
                   {

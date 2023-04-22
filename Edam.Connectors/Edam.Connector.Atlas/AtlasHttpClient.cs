@@ -56,6 +56,8 @@ namespace Edam.Connector.Atlas
          }
       }
 
+
+      /*
       public object Search(string searchByText, string searchTerm,
          AtlasSearchClasificationType classificationType = 
             AtlasSearchClasificationType.unknown,
@@ -85,6 +87,7 @@ namespace Edam.Connector.Atlas
 
          return null;
       }
+       */
 
    }
 

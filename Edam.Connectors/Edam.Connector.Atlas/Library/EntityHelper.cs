@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Edam.Data.Asset;
 
 // -----------------------------------------------------------------------------
 using Edam.Data.AssetSchema;
@@ -26,15 +28,13 @@ namespace Edam.Connector.Atlas.Library
       /// <param name="element">element whose TagItems will be use to prepare
       /// the options</param>
       /// <returns>instance of attributes is returned</returns>
-      private static Attributes_ GetOptions(AssetDataElement element)
+      private static ICollection<string> GetOptions(AssetDataElement element)
       {
          // key - value dictionary...
-         var options = new Attributes_();
+         var options = new List<string>();
          foreach (var item in element.TagItems)
          {
-            Attribute_ attribute = new Attribute_();
-            attribute.Add(item, "true");
-            options.Add(attribute);
+            options.Add(item);
          }
          return options;
       }
@@ -54,13 +54,14 @@ namespace Edam.Connector.Atlas.Library
          {
             return;
          }
+         string description = AtlasHelper.GetDescription(item.Element);
 
          typeDef.Category = TypeCategory.ENTITY;
-         typeDef.CreateTime = DateTimeOffset.Now.Ticks;
+         //typeDef.CreateTime = DateTimeOffset.Now.Ticks;
          typeDef.CreatedBy = EDAM_STUDIO_LABEL;
-         typeDef.Description = item.Element.Description;
+         typeDef.Description = description;
          typeDef.Guid = item.Element.Guid;
-         typeDef.Name = item.Element.ElementName;
+         typeDef.Name = item.Element.ElementQualifiedName.OriginalName;
          typeDef.ServiceType = "EDAM Data Asset";
 
          // key - value dictionary...
@@ -93,14 +94,16 @@ namespace Edam.Connector.Atlas.Library
       public static AtlasEntity CreateEntityInstance(AssetDataItem item)
       {
          AtlasEntity entity = new AtlasEntity();
-         entity.TypeName = item.Element.ElementName;
+         entity.TypeName = item.Element.ElementQualifiedName.OriginalName;
          entity.UpdateBy = EDAM_STUDIO_LABEL;
-         entity.UpdateTime = DateTimeOffset.Now.Ticks;
+         //entity.UpdateTime = DateTimeOffset.Now.Ticks;
          entity.CreatedBy = EDAM_STUDIO_LABEL;
-         entity.CreateTime = DateTimeOffset.Now.Ticks;
+         //entity.CreateTime = DateTimeOffset.Now.Ticks;
          entity.Status = Status.ACTIVE;
          entity.IsIncomplete = false;
          entity.Guid = item.Element.Guid;
+
+         entity.Attributes = PrepareKeyValueMaps(item.Element);
 
          // TODO: Convert the Element.VersionId into a number
          entity.Version = 1.0;
@@ -124,13 +127,14 @@ namespace Edam.Connector.Atlas.Library
       /// <returns>Instance of AtlasTermAssignmentHeader is returned</returns>
       public static AtlasTermAssignmentHeader CreateTerm(AssetDataItem item)
       {
+         string description = AtlasHelper.GetDescription(item.Element);
+
          AtlasTermAssignmentHeader term = new AtlasTermAssignmentHeader();
          term.TermGuid = item.Element.Guid;
          term.CreatedBy = EDAM_STUDIO_LABEL;
          term.Status = AtlasTermAssignmentStatus.IMPORTED;
-         term.Description = item.Element.Description;
-         term.QualifiedName = item.Element.GetElementNamespace().UriText +
-            "://" + item.Element.ElementName;
+         term.Description = description;
+         term.QualifiedName = AtlasHelper.GetQualifiedName(item.Element);
          return term;
       }
 
@@ -199,25 +203,26 @@ namespace Edam.Connector.Atlas.Library
          AssetDataElement element)
       {
          AtlasAttributeDef attr = new AtlasAttributeDef();
+         string description = AtlasHelper.GetDescription(element);
 
          attr.Cardinality = 
             (element.IsList) ? Cardinality.LIST : Cardinality.SINGLE;
          attr.Constraints = new List<AtlasConstraintDef>();
          attr.DefaultValue = element.DefaultValue;
-         attr.Description = element.Description;
-         attr.DisplayName = element.AnnotationText;
+         attr.Description = description;
+         attr.DisplayName = description;
          attr.IncludedInNotification = true;
          attr.IsOptional = element.IsOptional;
          attr.IsIndexable = element.KeyType == Data.Asset.ConstraintType.key;
          attr.IndexType = 
             element.IsString ? IndexType.STRING : IndexType.DEFAULT;
          attr.IsUnique = element.KeyType == Data.Asset.ConstraintType.key;
-         attr.Name = element.ElementName;
+         attr.Name = element.ElementQualifiedName.OriginalName;
 
          // key - value dictionary...
          attr.Options = GetOptions(element);
 
-         attr.TypeName = element.TypeName;
+         attr.TypeName = element.TypeQualifiedName.OriginalName;
          attr.ValuesMaxCount = (double)(element.MaxOccurrence.HasValue ? 
             element.MaxOccurrence.Value : (double)1.0);
          attr.ValuesMinCount = (double)(element.MinOccurrence.HasValue ?
@@ -243,6 +248,70 @@ namespace Edam.Connector.Atlas.Library
          {
             attributeDefs.Add(CreateAttribute(element));
          }
+      }
+
+      /// <summary>
+      /// Prepare attribute key-value map based for Entity
+      /// </summary>
+      /// <param name="element">base element</param>
+      /// <returns>instance of map items is returned</returns>
+      public static ReferredObjectMap_ PrepareKeyValueMaps(
+         AssetDataElement element)
+      {
+         ReferredObjectMap_ map = new ReferredObjectMap_();
+         map.Add("name", element.ElementName);
+         map.Add("qualifiedName", AtlasHelper.GetQualifiedName(element));
+
+         ReferredObjectMap_ qName = new ReferredObjectMap_();
+         qName.Add("prefix", element.ElementQualifiedName.Prefix);
+         qName.Add("name", element.ElementQualifiedName.Name);
+         qName.Add("originalName", element.ElementQualifiedName.OriginalName);
+
+         map.Add("qualifiedNameInfo", qName);
+
+         // TODO: add any other relevant element information...
+         // "people": {
+         //    "guid": "<some-guid-here>",
+         //    "typeName": "Person"
+         // }
+
+         return map;
+      }
+
+      /// <summary>
+      /// Prepare needed resources to register Entities in Atlas that include:
+      /// 1) Create Entity Definition (like a type/class)
+      /// 2) Create Entity - Process Definition
+      /// 3) Create an Entity Instance
+      /// </summary>
+      /// <param name="items">instance of data-element list</param>
+      /// <returns>prepared and ready to send Atlas definition and instances are
+      /// returned within a list of AssetDataItems</returns>
+      public static ICollection<AssetDataItem>? CreateEntity(
+         AssetDataElementList? items)
+      {
+         if (items == null)
+         {
+            return null;
+         }
+         ICollection<AssetDataItem> ditems = PrepareEntityDefinitions(items);
+         PrepareEntityInstances(items, ditems);
+         return ditems;
+      }
+
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="items"></param>
+      /// <returns></returns>
+      public static ICollection<AssetDataItem>? CreateEntity(
+         AssetDataList? items)
+      {
+         if (items == null || items.Count == 0)
+         {
+            return null;
+         }
+         return CreateEntity(items[0].Items);
       }
 
    }

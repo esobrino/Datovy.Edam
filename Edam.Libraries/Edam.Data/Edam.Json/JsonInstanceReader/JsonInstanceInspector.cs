@@ -335,7 +335,7 @@ namespace Edam.Json.JsonInstanceReader
                assets.Add(adata);
                if (arguments.AssetDataItems == null)
                {
-                  arguments.AssetDataItems = new AssetDataItems();
+                  arguments.AssetDataItems = new AssetDataList();
                }
                arguments.AssetDataItems.AddRange(assets);
             }

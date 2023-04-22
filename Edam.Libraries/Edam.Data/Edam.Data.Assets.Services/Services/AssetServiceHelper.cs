@@ -569,7 +569,7 @@ namespace Edam.Data.AssetConsole.Services
          String argumentsFilePath = null)
       {
          ResultLog tresults = new ResultLog();
-         AssetDataItems items = new AssetDataItems();
+         AssetDataList items = new AssetDataList();
          IResultsLog results = null;
 
          if (!arguments.Process.ScanFilesFolder)
@@ -620,7 +620,7 @@ namespace Edam.Data.AssetConsole.Services
          if (results.Success)
          {
             AssetData asset = new AssetData(results.Data);
-            arguments.AssetDataItems = new AssetDataItems();
+            arguments.AssetDataItems = new AssetDataList();
             arguments.AssetDataItems.Add(asset);
             results.Succeeded();
          }
@@ -834,13 +834,13 @@ namespace Edam.Data.AssetConsole.Services
       /// <param name="argumentsFilePath"></param>
       /// <param name="arguments"></param>
       /// <returns></returns>
-      public static ResultsLog<AssetDataItems> GetAssetDataItems(
+      public static ResultsLog<AssetDataList> GetAssetDataItems(
          String argumentsFilePath,
          AssetConsoleArgumentsInfo arguments)
       {
          // TODO: manage the issue of saving items -> parent and reloading...
          // try to read from a file...
-         var results = AssetDataItems.FromFile(arguments);
+         var results = AssetDataList.FromFile(arguments);
 
          if (results.Success)
          {
@@ -851,7 +851,7 @@ namespace Edam.Data.AssetConsole.Services
             Execute(arguments, argumentsFilePath);
 
             // save results to a file if needed
-            AssetDataItems.ToFile(arguments);
+            AssetDataList.ToFile(arguments);
          }
 
          return results;

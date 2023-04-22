@@ -1,7 +1,9 @@
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Test.Library.deps.json
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Test.Library.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Test.Library.pdb
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Application.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.B2b.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.Asset.Services.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.AssetDb.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.Assets.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.Schema.dll
@@ -12,7 +14,9 @@ C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Json.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Net.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.System.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Xml.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Application.pdb
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.B2b.pdb
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.Asset.Services.pdb
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.Assets.pdb
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.DataObjects.pdb
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Json.pdb
@@ -33,7 +37,3 @@ C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\obj\Debug\net6.0\Edam.Test.Lib
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\obj\Debug\net6.0\refint\Edam.Test.Library.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\obj\Debug\net6.0\Edam.Test.Library.pdb
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\obj\Debug\net6.0\ref\Edam.Test.Library.dll
-C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.Asset.Services.dll
-C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Data.Asset.Services.pdb
-C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Application.dll
-C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test..Library\bin\Debug\net6.0\Edam.Application.pdb

@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 namespace Edam.Data.AssetSchema
 {
 
-   public class AssetDataItems : List<AssetData>
+   public class AssetDataList : List<AssetData>
    {
-      public AssetDataItems() : base()
+      public AssetDataList() : base()
       {
 
       }
 
-      public static string ToJsonText(string filePath, AssetDataItems items)
+      public static string ToJsonText(string filePath, AssetDataList items)
       {
          return JsonConvert.SerializeObject(items,
             Formatting.Indented,
@@ -36,14 +36,14 @@ namespace Edam.Data.AssetSchema
             arguments.Namespace.NamePath.VersionId + ".json";
       }
 
-      public static ResultsLog<AssetDataItems> FromFile(string filePath)
+      public static ResultsLog<AssetDataList> FromFile(string filePath)
       {
-         ResultsLog<AssetDataItems> results = new ResultsLog<AssetDataItems>();
+         ResultsLog<AssetDataList> results = new ResultsLog<AssetDataList>();
          if (System.IO.File.Exists(filePath))
          {
             string jsonText = System.IO.File.ReadAllText(filePath);
             results.Data =
-               JsonConvert.DeserializeObject<AssetDataItems>(jsonText);
+               JsonConvert.DeserializeObject<AssetDataList>(jsonText);
             results.Succeeded();
          }
          else
@@ -53,14 +53,14 @@ namespace Edam.Data.AssetSchema
          return results;
       }
 
-      public static ResultsLog<AssetDataItems> FromFile(
+      public static ResultsLog<AssetDataList> FromFile(
          AssetConsoleArgumentsInfo arguments)
       {
          string fname = GetFilePath(arguments);
          return FromFile(fname);
       }
 
-      public static IResultsLog ToFile(string filePath, AssetDataItems items)
+      public static IResultsLog ToFile(string filePath, AssetDataList items)
       {
          ResultLog resultLog = new ResultLog();
          string jsonText = ToJsonText(filePath, items);

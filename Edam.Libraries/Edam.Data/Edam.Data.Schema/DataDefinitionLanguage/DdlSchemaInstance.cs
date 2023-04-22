@@ -52,7 +52,7 @@ namespace Edam.Data.Schema.DataDefinitionLanguage
          results2.Data = ToDataAsset(results1.Data, l, arguments.Name, true);
          if (arguments.AssetDataItems == null)
          {
-            arguments.AssetDataItems = new AssetDataItems();
+            arguments.AssetDataItems = new AssetDataList();
          }
          arguments.AssetDataItems.Add(results2.Data);
          results2.Succeeded();

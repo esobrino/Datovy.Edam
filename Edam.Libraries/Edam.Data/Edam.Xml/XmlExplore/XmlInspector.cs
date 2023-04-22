@@ -232,7 +232,7 @@ namespace Edam.Xml.XmlExplore
       {
          var i = new XmlInspector(arguments);
          var assetData = i.InspectSchema(false);
-         arguments.AssetDataItems = new AssetDataItems();
+         arguments.AssetDataItems = new AssetDataList();
          arguments.AssetDataItems.Add(assetData);
          return assetData;
       }

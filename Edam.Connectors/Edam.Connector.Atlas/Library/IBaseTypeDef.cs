@@ -4,8 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Edam.Serialization;
+
 namespace Edam.Connector.Atlas.Library
 {
+
+   public interface IBaseInstance
+   {
+      string ToJson();
+   }
+
+   public class BaseInstance : IBaseInstance
+   {
+      public string ToJson()
+      {
+         return null;
+      }
+   }
 
    public interface IBaseTypeDef
    {
@@ -16,7 +31,7 @@ namespace Edam.Connector.Atlas.Library
       string Description { get; set; }
       string Guid { get; set; }
       string Name { get; set; }
-      Attributes_ Options { get; set; }
+      ICollection<string> Options { get; set; }
       string ServiceType { get; set; }
       string TypeVersion { get; set; }
       string UpdateTime { get; set; }
@@ -44,6 +59,18 @@ namespace Edam.Connector.Atlas.Library
 
    public partial class AtlasEntityDef : IBaseTypeDef
    {
+      public string ToJson()
+      {
+         return AtlasHelper.ToJson(this);
+      }
+   }
+
+   public partial class AtlasEntity : IBaseInstance
+   {
+      public string ToJson()
+      {
+         return AtlasHelper.ToJson(this);
+      }
    }
 
    public partial class AtlasEnumDef : IBaseTypeDef

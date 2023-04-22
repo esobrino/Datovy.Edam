@@ -327,7 +327,7 @@ namespace Edam.Data.AssetConsole
       }
 
       [JsonIgnore]
-      public AssetDataItems AssetDataItems { get; set; } = new AssetDataItems();
+      public AssetDataList AssetDataItems { get; set; } = new AssetDataList();
 
       // connection string
       public String ConnectionString { get; set; }

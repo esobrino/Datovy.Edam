@@ -32,8 +32,8 @@ namespace Edam.WinUI.Controls.DataModels
          get { return m_Arguments; }
       }
 
-      private static AssetDataItems m_AssetDataSet = null;
-      public static AssetDataItems AssetDataSet
+      private static AssetDataList m_AssetDataSet = null;
+      public static AssetDataList AssetDataSet
       {
          get { return m_AssetDataSet; }
       }
@@ -71,7 +71,7 @@ namespace Edam.WinUI.Controls.DataModels
          return m_CurrentProject.CurrentArguments;
       }
 
-      public static void SetAssetDataSet(AssetDataItems dataSet)
+      public static void SetAssetDataSet(AssetDataList dataSet)
       {
          m_AssetDataSet = dataSet;
       }
@@ -84,7 +84,7 @@ namespace Edam.WinUI.Controls.DataModels
             m_Arguments = m_CurrentProject.CurrentArguments;
             if (m_Arguments.AssetDataItems == null)
             {
-               m_Arguments.AssetDataItems = new AssetDataItems();
+               m_Arguments.AssetDataItems = new AssetDataList();
             }
 
             if (m_Arguments != null && m_Arguments.AssetDataItems.Count > 0)
