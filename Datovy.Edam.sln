@@ -71,7 +71,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Edam.Connectors", "Edam.Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.Connector.Atlas", "Edam.Connectors\Edam.Connector.Atlas\Edam.Connector.Atlas.csproj", "{49209539-44BB-4EF8-AF6C-20D778E739F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edam.Test.Apache.Atlas", "Edam.Tests\Edam.Test.Apache.Atlas\Edam.Test.Apache.Atlas.csproj", "{3FE590C4-F75F-484D-A40D-37F898371CC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edam.Test.Apache.Atlas", "Edam.Tests\Edam.Test.Apache.Atlas\Edam.Test.Apache.Atlas.csproj", "{3FE590C4-F75F-484D-A40D-37F898371CC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edam.Test.Edi", "Edam.Tests\Edam.Test.Edi\Edam.Test.Edi.csproj", "{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -541,6 +543,22 @@ Global
 		{3FE590C4-F75F-484D-A40D-37F898371CC7}.Release|x64.Build.0 = Release|Any CPU
 		{3FE590C4-F75F-484D-A40D-37F898371CC7}.Release|x86.ActiveCfg = Release|Any CPU
 		{3FE590C4-F75F-484D-A40D-37F898371CC7}.Release|x86.Build.0 = Release|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Debug|arm64.Build.0 = Debug|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Debug|x64.Build.0 = Debug|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Debug|x86.Build.0 = Debug|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Release|arm64.ActiveCfg = Release|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Release|arm64.Build.0 = Release|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Release|x64.ActiveCfg = Release|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Release|x64.Build.0 = Release|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Release|x86.ActiveCfg = Release|Any CPU
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -578,6 +596,7 @@ Global
 		{A30CA6BF-B6FC-4B49-8F92-6CD9DC187634} = {6DC10C52-A152-43FE-AEF7-F892389FDDB2}
 		{49209539-44BB-4EF8-AF6C-20D778E739F7} = {A30CA6BF-B6FC-4B49-8F92-6CD9DC187634}
 		{3FE590C4-F75F-484D-A40D-37F898371CC7} = {5D40A1B6-8B4B-445D-87BC-851E8796E44F}
+		{913E9BB4-6D18-49E8-AC5F-84791EEEB7ED} = {5D40A1B6-8B4B-445D-87BC-851E8796E44F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D19BF1CF-946C-4A08-A01C-49F0869E9455}

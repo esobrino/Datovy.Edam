@@ -137,7 +137,9 @@ namespace Edam.Xml.XmlExplore
                   continue;
                if (asset.Annotation == null)
                   asset.Annotation = new List<string>();
-               asset.Annotation.Add(node.InnerText);
+               var txt = 
+                  node.InnerText.Replace("\r", "").Replace("\n", "").Trim();
+               asset.Annotation.Add(txt);
             }
          }
       }
@@ -951,6 +953,7 @@ namespace Edam.Xml.XmlExplore
       /// </summary>
       private void InspectComplexTypes()
       {
+         int cnt = 0;
          // go through all registered types, attributes, and elements
          foreach (object t in m_SchemaSet.GlobalTypes.Values)
          {
@@ -966,6 +969,7 @@ namespace Edam.Xml.XmlExplore
             {
 
             }
+            cnt++;
          }
       }
 
