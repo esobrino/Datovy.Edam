@@ -74,6 +74,7 @@ namespace Edam.B2b
             arguments.Namespace, AssetType.Schema, 
             arguments.Project.VersionId);
          adata.SetDefaultNamespace(arguments.Namespace);
+         arguments.AssetDataItems = new AssetDataList();
          arguments.AssetDataItems.Add(adata);
          arguments.AssetDataItems[0].Items =
             Edi.EdiAsset.ToAssets(results.Data, arguments);

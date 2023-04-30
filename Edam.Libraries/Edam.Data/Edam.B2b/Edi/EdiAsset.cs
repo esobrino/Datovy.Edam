@@ -11,6 +11,7 @@ using Edam.Data.AssetConsole;
 using Edam.Data.AssetSchema;
 using Edam.Data.Asset;
 using TextHelper = Edam.Text.Convert;
+using System.Xml.Linq;
 
 namespace Edam.B2b.Edi
 {
@@ -35,6 +36,10 @@ namespace Edam.B2b.Edi
          int c = 0;
          foreach(var p in m_Properties)
          {
+            if (c >= values.Count)
+            {
+               break;
+            }
             if (p.PropertyType == typeof(string))
             {
                p.SetValue(i, values[c]);
@@ -62,6 +67,7 @@ namespace Edam.B2b.Edi
          public string ElementName { get; set; }
          public string OriginalName { get; set; }
          public AssetDataElement LastAdded { get; set; }
+         public ExchangeDefinitionInfo Item { get; set; }
          public List<AssetDataElement> Elements = new List<AssetDataElement>();
       }
 
@@ -72,8 +78,14 @@ namespace Edam.B2b.Edi
          private string m_CurrentEntity = String.Empty;
          private string m_CurrentElement = String.Empty;
 
+         public AssetDataElementList Items { get; set; }
          public List<EntryItem> Elements = new List<EntryItem>();
          public NamespaceInfo Namespace;
+
+         public string CurrentEntity
+         {
+            get { return m_CurrentEntity; }
+         }
 
          public EntryList(NamespaceInfo ns)
          {
@@ -90,11 +102,11 @@ namespace Edam.B2b.Edi
             return fpath;
          }
 
-         public AssetDataElement PrepareEntity(string parentName,
+         public static AssetDataElement PrepareEntity(string parentName,
             string elementName, string description, string typeName,
-            NamespaceInfo ns)
+            NamespaceInfo ns, NamespaceInfo nsParent)
          {
-            AssetDataElement asset = new AssetDataElement();
+            AssetDataElement element = new AssetDataElement();
 
             if (String.IsNullOrWhiteSpace(typeName))
             {
@@ -102,150 +114,92 @@ namespace Edam.B2b.Edi
                typeName = "string";
             }
 
-            asset.TypeQualifiedName = 
-               new QualifiedNameInfo(ns.Prefix, typeName);
-            asset.ElementQualifiedName =
+            QualifiedNameInfo baseType = 
+               ElementBaseTypeInfo.GetBaseType(typeName);
+            string typePrefix = baseType == null ? ns.Prefix : baseType.Prefix;
+
+            element.Namespaces = new NamespaceList();
+            element.Namespaces.Add(ns);
+            element.TypeQualifiedName = 
+               new QualifiedNameInfo(typePrefix, typeName);
+            element.ElementQualifiedName =
                new QualifiedNameInfo(ns.Prefix, elementName);
-            asset.EntityQualifiedName = String.IsNullOrWhiteSpace(parentName) ?
-               null : new QualifiedNameInfo(ns.Prefix, parentName);
+            element.EntityQualifiedName =
+               String.IsNullOrWhiteSpace(parentName) ?
+                  null : new QualifiedNameInfo(nsParent.Prefix, parentName);
 
             //asset.EntityName = SegmentCode;
             //asset.ElementName = SegmentReference;
-            asset.DataType = asset.TypeQualifiedName.Name;
+            element.DataType = element.TypeQualifiedName.Name;
 
-            asset.ElementType = String.IsNullOrWhiteSpace(parentName) ?
+            element.ElementType = String.IsNullOrWhiteSpace(parentName) ?
                ElementType.type : ElementType.element;
-            asset.Namespace = ns.Uri.OriginalString;
-            asset.Description = TextHelper.ToProperCase(description);
-            asset.MinLength = 0;
-            asset.MaxLength = 0;
-            asset.MinOccurrence = 0;
-            asset.MaxOccurrence = 1;
+            element.Namespace = ns.Uri.OriginalString;
+            element.Description = TextHelper.ToProperCase(description);
+            element.MinLength = 0;
+            element.MaxLength = 0;
+            element.MinOccurrence = 0;
+            element.MaxOccurrence = 1;
             //asset.DataType = asset.TypeQualifiedName.Name;
-            AssetDataElement.CompleteElementUpdate(asset, ns);
-            return asset;
+            AssetDataElement.CompleteElementUpdate(element, ns);
+            element.AddAnnotation(element.Description);
+            return element;
          }
 
-         public void RegisterPath(ExchangeDefinitionInfo item)
-         {
-            // is this the root element?
-            if (m_Path.Count == 0)
-            {
-               m_RootElement = item.SegmentCode;
-               m_CurrentEntity = String.Empty;
-               m_CurrentElement = item.EntityElementName;
-               m_Path.Add(String.Empty);
-               return;
-            }
-
-            string lastEntityName = item.EntityName.Split('/').Last();
-            if ((m_CurrentEntity == item.EntityName || 
-                 m_CurrentEntity == lastEntityName) &&
-               m_CurrentElement == item.EntityElementName)
-            {
-               return;
-            }
-
-            // prepare to investigate path
-            string[] l = item.EntityName.Split('/');
-
-            List<string> litems = new List<string>();
-            // adding to the path? yes if element == entity name...
-            if (m_CurrentElement == l[0])
-            {
-               foreach (var n in l)
-               {
-                  litems.Add(n);
-               }
-            }
-            else
-            {
-               // investigate if any path item was already visited...
-               bool found = false;
-               List<string> nPath = new List<string>();
-               for(int c = 0; c < m_Path.Count; c++)
-               {
-                  if (m_Path[c] == l[0])
-                  {
-                     break;
-                  }
-                  nPath.Add(m_Path[c]);
-               }
-
-               foreach (var i in l)
-               {
-                  if (m_Path.Find((x) => x == i) != null)
-                  {
-                     nPath.Add(i);
-                     found = true;
-                     continue;
-                  }
-                  if (found)
-                  {
-                     litems.Add(i);
-                  }
-               }
-               m_Path = nPath;
-            }
-
-            if (litems.Count > 0)
-            {
-               string cPath = GetFullPath();
-               foreach (var n in litems)
-               {
-                  //ExchangeDefinitionInfo entry = new ExchangeDefinitionInfo();
-                  //entry.SegmentCode = n + "Type";
-                  //entry.SegmentName = cPath.Replace("/", " ");
-                  //Add(String.Empty, n, entry, false);
-                  //m_CurrentEntity = n;
-                  m_Path.Add(n);
-               }
-            }
-
-            m_CurrentElement = item.EntityElementName;
-         }
-
+         /// <summary>
+         /// Add an item to the Entry Elements List.
+         /// </summary>
+         /// <param name="parentName"></param>
+         /// <param name="elementName"></param>
+         /// <param name="item"></param>
+         /// <param name="register"></param>
+         /// <param name="addChild"></param>
+         /// <returns></returns>
          public AssetDataElement Add(
             string parentName, string elementName, ExchangeDefinitionInfo item,
             bool register = true, bool addChild = true)
          {
-            if (register)
-            {
-               RegisterPath(item);
-            }
+            //if (register)
+            //{
+            //   RegisterPath(item);
+            //}
 
-            string segType = item.SegmentCode + "Type";
+            item.SegmentCode = item.SegmentCode.Trim();
 
             string fPath = GetFullPath();
-            string pName = fPath + (String.IsNullOrWhiteSpace(fPath) ?
-               String.Empty : "/") + elementName;
+            string pName = m_CurrentEntity;
             var aitem = Elements.Find((x) =>
-               x.EntityName == pName && 
-               x.ElementName == segType );
+               x.ElementName == item.Position);
 
             // if not found, prepare the complex type declaration
-            AssetDataElement asset;
+            AssetDataElement element;
             if (aitem == null)
             {
                aitem = new EntryItem();
+               aitem.Item = item;
                aitem.Path = GetFullPath();
-               aitem.EntityName = pName;
-               aitem.ElementName = segType;
+               aitem.EntityName = 
+                  item.SegmentCode + "_" + item.Position + "_Type";
+               aitem.ElementName = item.Position;
                aitem.OriginalName = item.SegmentCode;
                Elements.Add(aitem);
 
                // register parent segment...
                // TODO: replace hardcoded string
-               asset = PrepareEntity(
-                  String.Empty, segType, item.SegmentName, "object", Namespace);
-               asset.AddAnnotation(asset.Description);
+               element = PrepareEntity(
+                  String.Empty, aitem.EntityName, item.Element,
+                  "object", Namespace, Namespace);
+               element.OriginalName = item.SegmentCode;
+               element.AddAnnotation(element.Description);
                //asset.CommentText = asset.Description;
-               aitem.Elements.Add(asset);
+               aitem.Elements.Add(element);
 
                if (!addChild)
                {
-                  return asset;
+                  return element;
                }
+
+               m_CurrentEntity = aitem.EntityName;
             }
 
             // define element type
@@ -253,17 +207,18 @@ namespace Edam.B2b.Edi
                "string" : item.DataType;
 
             // prepare current segment child element
-            asset = PrepareEntity(segType, item.SegmentReference, 
-               item.SegmentName, dataType, Namespace);
-            asset.AddAnnotation(item.ElementDescription);
-            asset.CommentText = item.Element;
-            asset.MinLength = item.MinimumLength;
-            asset.MaxLength = item.MaximumLength;
-            asset.Length = asset.MaxLength;
-            aitem.Elements.Add(asset);
+            element = PrepareEntity(m_CurrentEntity, item.SegmentReference, 
+               item.ElementDescription, dataType, Namespace, Namespace);
+            element.AddAnnotation(item.ElementDescription);
+            element.CommentText = item.Element;
+            element.MinLength = item.MinimumLength;
+            element.MaxLength = item.MaximumLength;
+            element.Length = element.MaxLength;
+            element.OriginalName = item.SegmentReference;
+            aitem.Elements.Add(element);
 
-            aitem.LastAdded = asset;
-            return asset;
+            aitem.LastAdded = element;
+            return element;
          }
 
          public AssetDataElement PrepareElement(
@@ -271,114 +226,239 @@ namespace Edam.B2b.Edi
          {
             AssetDataElement child = PrepareEntity(
                parentName, childName, asset.Description, 
-               asset.ElementQualifiedName.Name, Namespace);
+               asset.ElementQualifiedName.Name, Namespace, Namespace);
             return child;
          }
       }
 
+      /// <summary>
+      /// Prepare Document.
+      /// </summary>
+      /// <param name="commonList"></param>
+      /// <param name="loops"></param>
+      /// <param name="arguments"></param>
+      /// <returns></returns>
       private static AssetDataElementList? PrepareDocument(
-         EntryList entries, AssetConsoleArgumentsInfo arguments)
+         AssetDataElementList commonList, AssetDataElementList loops, 
+         AssetConsoleArgumentsInfo arguments)
       {
          // get root element name
          string rootName = Convert.ToTitleCase(
             arguments.Namespace.Uri.Segments.Last());
+         string rootItemName = rootName + "_" + "Document";
+         string rootType = rootItemName + "_Type";
 
-         // add submission document root type
-         ExchangeDefinitionInfo entry = new();
-         entry.SegmentCode = rootName + "Document";
-         entry.SegmentName = "EDI " + rootName + " Submission Document";
-         entry.EntityElementName = entry.SegmentCode;
+         // create namespace instance
+         NamespaceInfo ns = new NamespaceInfo(arguments.Namespace);
 
-         // prepare the document
-         EntryList doc = new EntryList(arguments.Namespace);
+         // prepare the Document Type
+         var parent = EntryList.PrepareEntity(
+            String.Empty, rootType, "Root Document", "object", ns, ns);
+         loops.Add(parent);
 
-         AssetDataElement root = doc.Add(
-            String.Empty, entry.SegmentCode, entry, false, false);
-         root.ElementType = ElementType.root;
+         // add first loop as the child of the root Document Type
+         var rootChild = loops[0];
+         var child = EntryList.PrepareEntity(
+            parent.OriginalName, rootChild.OriginalName, rootChild.Description,
+            rootChild.OriginalName + "_Type", ns, ns);
+         loops.Add(child);
 
-         AssetDataPath fullPath = new AssetDataPath(entry.SegmentCode);
-
-         AssetDataElement asset;
-         AssetDataElement passet;
-         foreach (EntryItem item in entries.Elements)
-         {
-            passet = root;
-            string? pkey = root.ElementQualifiedName.OriginalName;
-
-            // walk through the path including newly found path elements..
-            List<string> rebuiltPath = fullPath.RebuildPath(item.EntityName);
-
-            // add item to the corresponding structure parent element
-            int count = 0;
-            int tcount = rebuiltPath.Count;
-            foreach (var key in rebuiltPath)
-            {
-               string eName = key + "Type";
-               EntryItem? eitem =
-                  doc.Elements.Find((x) => x.ElementName == eName);
-               if (eitem == null)
-               {
-                  eitem = new EntryItem();
-                  eitem.Path = key;
-                  eitem.EntityName = String.Empty;
-                  eitem.ElementName = eName;
-                  eitem.OriginalName = item.OriginalName;
-
-                  // add a new asset type to structure
-                  // TODO: replace hardcoded string
-                  AssetDataElement nasset = doc.PrepareEntity(
-                     String.Empty, eName, eName, "object", arguments.Namespace);
-                  eitem.Elements.Add(nasset);
-                  doc.Elements.Add(eitem);
-
-                  // add new entity to the previous parrent asset
-                  var parentAsset =
-                     doc.Elements.Find((x) => x.ElementName == pkey);
-                  nasset = doc.PrepareElement(
-                     parentAsset.Elements[0].ElementName, key, nasset);
-                  nasset.AddAnnotation(nasset.Description);
-                  parentAsset.Elements.Add(nasset);
-
-                  // add structure element to the end of the path
-                  fullPath.Add(key);
-               }
-
-               count++;
-               if (count < tcount)
-               {
-                  pkey = eitem.ElementName;
-                  continue;
-               }
-
-               // find child element type
-               asset = doc.PrepareElement(
-                  eitem.ElementName, item.OriginalName, item.Elements[0]);
-               asset.AddAnnotation(item.Elements[0].Description);
-               asset.MinOccurrence = entry.ElementRequiredType == "M" ? 1 : 0;
-               asset.MaxOccurrence = 1;
-               eitem.Elements.Add(asset);
-               passet = asset;
-               pkey = key;
-            }
-         }
+         // finally add the document element
+         child = EntryList.PrepareEntity(
+            String.Empty, rootItemName, rootItemName,
+            rootType, ns, ns);
+         child.ElementType = ElementType.element;
+         loops.Add(child);
 
          // build assets list to be returned
          AssetDataElementList elements = new(arguments.Namespace, 
             AssetType.Schema, arguments.Project.VersionId);
-         foreach(var item in entries.Elements)
-         {
-            elements.AddRange(item.Elements);
-         }
-         foreach(var item in doc.Elements)
-         {
-            elements.AddRange(item.Elements);
-         }
+
+         elements.AddRange(commonList);
+         elements.AddRange(loops);
 
          int ecount = 0;
          foreach(var item in elements)
          {
             item.SequenceId = (ecount++).ToString();
          }
+         return elements;
+      }
+
+      /// <summary>
+      /// Prepare data list for all common elements.
+      /// </summary>
+      /// <param name="entries"></param>
+      /// <param name="arguments"></param>
+      private static AssetDataElementList PrepareCommon(
+         EntryList entries, AssetConsoleArgumentsInfo arguments)
+      {
+         string nsText = arguments.Namespace.UriText + "/common";
+         string nsPref = arguments.Namespace.Prefix + "c";
+
+         NamespaceInfo ns = new NamespaceInfo(nsPref, nsText, 
+            arguments.Namespace.OrganizationDomainId, 
+            arguments.Namespace.Extension);
+
+         AssetDataElementList elements = new(ns,
+            AssetType.Schema, arguments.Project.VersionId);
+         entries.Items = elements;
+
+         foreach(var item in entries.Elements)
+         {
+            var element = elements.Find(
+               (x) => x.OriginalName == item.OriginalName);
+
+            if (element != null)
+            {
+               continue;
+            }
+
+            element = item.Elements[0];
+            var pname = element.OriginalName + "_Type";
+            var parent = EntryList.PrepareEntity(
+               String.Empty, pname,
+               element.Description, element.DataType, 
+               ns, ns);
+            elements.Add(parent);
+
+            for (var i=1; i < item.Elements.Count; i++)
+            {
+               var itm = item.Elements[i];
+               element = EntryList.PrepareEntity(
+                  pname, itm.ElementName,
+                  itm.Description, itm.DataType, ns, ns);
+               elements.Add(element);
+            }
+         }
+
+         return elements;
+      }
+
+      /// <summary>
+      /// Maintains Loop Information.
+      /// </summary>
+      private class LoopInfo
+      {
+         public string Name { get; set; }
+         public AssetDataElement? Parent { get; set; }
+         public AssetDataElement Element { get; set; }
+
+         /// <summary>
+         /// Given a loop find siblings location and append to the end of those.
+         /// </summary>
+         /// <param name="parentLoopName">loop name</param>
+         /// <param name="item">item to insert</param>
+         /// <param name="elements">list of all identified elements</param>
+         /// <param name="addIt">true to add it if no simbling has been found
+         /// </param>
+         public static void InsertItem(string parentLoopName,
+            AssetDataElement item, AssetDataElementList elements, 
+            bool addIt = false)
+         {
+            int lastIndex = -1;
+            for (var i = 0; i < elements.Count; i++)
+            {
+               if (elements[i].EntityQualifiedName == null)
+               {
+                  continue;
+               }
+               if (elements[i].EntityQualifiedName.OriginalName == 
+                  parentLoopName)
+               {
+                  lastIndex = i;
+               }
+               else if (lastIndex >= 0)
+               {
+                  break;
+               }
+            }
+
+            if (lastIndex >= 0)
+            {
+               elements.Insert(lastIndex + 1, item);
+            }
+            else if (addIt)
+            {
+               elements.Add(item);
+            }
+         }
+      }
+
+      /// <summary>
+      /// Prepare data list for all loops.
+      /// </summary>
+      /// <param name="entries"></param>
+      /// <param name="items"></param>
+      /// <param name="arguments"></param>
+      private static AssetDataElementList PrepareLoops(
+         EntryList entries, AssetDataElementList items,
+         AssetConsoleArgumentsInfo arguments)
+      {
+         AssetDataElementList elements = new(arguments.Namespace,
+            AssetType.Schema, arguments.Project.VersionId);
+         AssetDataElement parent = null;
+         entries.Items = elements;
+         string loopid = String.Empty;
+
+         NamespaceInfo nsCommon = items.Namespace;
+
+         List<LoopInfo> loops = new List<LoopInfo>();
+
+         foreach (var item in entries.Elements)
+         {
+
+            loopid = "LOOP_" + item.Item.Loop + "_" + item.Item.Parent;
+            var pname = loopid + "_Type";
+
+            var element = elements.Find(
+               (x) => x.OriginalName == loopid);
+
+            // new loop? if so add it
+            if (element == null)
+            {
+               LoopInfo loop = new LoopInfo();
+               loop.Name = item.Item.Loop;
+               loop.Parent = parent;
+               loops.Add(loop);
+
+               element = item.Elements[0];
+               parent = EntryList.PrepareEntity(
+                  String.Empty, pname,
+                  String.Empty, element.DataType,
+                  arguments.Namespace, arguments.Namespace);
+               parent.OriginalName = loopid;
+               elements.Add(parent);
+
+               loop.Element = parent;
+
+               // add to parent loop
+               var ploop = loops.Find((x) => x.Name == item.Item.Parent);
+               if (ploop != null && 
+                  ploop.Element.OriginalName != parent.OriginalName)
+               {
+                  string ptype = ploop.Element.OriginalName + "_Type";
+                  var pelement = EntryList.PrepareEntity(
+                     ptype, loopid,
+                     item.Item.Element, pname,
+                     arguments.Namespace, arguments.Namespace);
+                  pelement.OriginalName = parent.OriginalName;
+
+                  LoopInfo.InsertItem(ptype, pelement, elements);
+               }
+            }
+
+            // add current element into the loop
+            var itm = item.Elements[0];
+            element = EntryList.PrepareEntity(
+               pname, itm.OriginalName,
+               itm.Description, itm.OriginalName + "_Type",
+               nsCommon, parent.GetElementNamespace());
+            itm.OriginalName = loopid;
+
+            LoopInfo.InsertItem(pname, element, elements, true);
+         }
+
          return elements;
       }
 
@@ -400,6 +480,7 @@ namespace Edam.B2b.Edi
          List<string> entities = new List<string>();
          EntryList entries = new EntryList(arguments.Namespace);
 
+
          List<string>? headers = 
             list == null || list.Count <= 1 ? null : list[0];
          if (headers == null)
@@ -417,11 +498,14 @@ namespace Edam.B2b.Edi
             {
                continue;
             }
-            entries.Add("", entry.EntityElementName, entry);
+            entries.Add(entries.CurrentEntity, entry.EntityElementName, entry);
          }
 
-         return PrepareDocument(entries, arguments);
+         var commonItems = PrepareCommon(entries, arguments);
+         var loopItems = PrepareLoops(entries, commonItems, arguments);
+         return PrepareDocument(commonItems, loopItems, arguments);
       }
+
    }
 
 }

@@ -24,8 +24,7 @@ namespace Edam.Test.Edi
       public void TestEdiLoopsAndTagsCollectionsPreparation()
       {
          ItemBaseInfo item = ProjectHelper.GetProjectItem(
-            "Projects/Datovy-EDI/" +
-            "Arguments/0001.EDI.ToAssets.Args.json");
+            "Projects/Datovy.EDI/Arguments/0004.ToAssets.Args.json");
          var presults = ProjectHelper.ProcessItem(item);
 
          Assert.IsNotNull(presults);
