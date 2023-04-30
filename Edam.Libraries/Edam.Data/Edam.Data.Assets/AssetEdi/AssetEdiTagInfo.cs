@@ -13,8 +13,12 @@ namespace Edam.Data.AssetEdi
    public class EdiTagInfo
    {
 
+      public int Index { get; set; }
       public string Tag { get; set; }
       public QualifiedNameInfo QualifiedName { get; set; }
+      public bool IsLoop { get; set; }
+
+      public EdiTagInfo TagParent { get; set; }
 
    }
 

@@ -12,13 +12,6 @@ using System.Threading.Tasks;
 namespace Edam.Data.AssetSchema
 {
 
-   public class AssetDataItem
-   {
-      public AssetDataElement Element { get; set; } = null;
-      public AssetDataElementList Children { get; set; } = null;
-      public object Tag { get; set; }
-   }
-
    public class AssetDataElementList : List<AssetDataElement>
    {
 
@@ -283,6 +276,18 @@ namespace Edam.Data.AssetSchema
          AssetDataElementList list = new AssetDataElementList(items);
          list.AddRange(l);
          return list;
+      }
+
+      /// <summary>
+      /// return root element.
+      /// </summary>
+      /// <param name="rootName">root element name</param>
+      /// <returns>if found the root element is returned</returns>
+      public AssetDataElement GetRootElement(string rootName)
+      {
+         var element = Find((x) => x.ElementName == rootName
+            && x.EntityQualifiedName == null);
+         return element;
       }
 
    }
