@@ -3,9 +3,8 @@
     "",
     "\\Data",
     "\\Data\\Stored Procedures",
-    "\\Scripts",
-    "\\Scripts\\Sql-Scripts"
+    "\\Scripts"
   ],
-  "SelectedNode": "\\Scripts\\Sql-Scripts\\00040 - Data Registry Resources.sql",
+  "SelectedNode": "\\Scripts\\Sql-Scripts",
   "PreviewInSolutionExplorer": false
 }

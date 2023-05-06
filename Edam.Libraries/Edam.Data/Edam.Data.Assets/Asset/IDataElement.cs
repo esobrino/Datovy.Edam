@@ -29,6 +29,8 @@ namespace Edam.Data.Asset
       int TypeNo { get; set; }
       string ElementUri { get; set; }
       string ElementName { get; set; }
+      string RealName { get; set; }
+      string AlternateName { get; set; }
       QualifiedNameInfo ElementQualifiedName { get; set; }
       string ElementDataType { get; set; }
       string ElementPath { get; set; }

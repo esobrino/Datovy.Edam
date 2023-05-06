@@ -279,6 +279,9 @@ namespace Edam.Data.AssetManagement
             p.AddWithValue("@OriginalName", element.OriginalName, 128);
             p.AddWithValue("@OriginalDataType", element.OriginalDataType, 128);
 
+            p.AddWithValue("@RealName", element.OriginalName, 128);
+            p.AddWithValue("@AlternateName", element.AlternateName, 128);
+
             var r0 = p.AddWithValue("@OutAssetNo", element.AssetNo, true);
             var r1 = p.AddWithValue("@OutElementNo", element.ElementNo, true);
             var r2 = p.AddWithValue("@OutElementId", 

@@ -93,6 +93,9 @@ namespace Edam.Data.AssetManagement
          }
       }
 
+      public string RealName { get; set; }
+      public string AlternateName { get; set; }
+
       public virtual string AnnotationText
       {
          get { return string.Empty; }

@@ -4,12 +4,12 @@ using Edam.Test.Library.Application;
 using Edam.InOut;
 using Edam.Test.Library.Project;
 using Edam.Data.AssetConsole;
-using Edam.Data.AssetEdi;
+using Edam.B2b.Edi;
 
 namespace Edam.Test.Edi
 {
 
-   [TestClass]
+    [TestClass]
    public class TestEdiJson
    {
 
@@ -35,12 +35,19 @@ namespace Edam.Test.Edi
          var ilist = args.AssetDataItems;
 
          Assert.IsNotNull(ilist);
-         EdiInfo.ToEdiInfo(args);
+         var results = EdiDocument.ToDocument(args);
+         Assert.IsNotNull(results);
+         Assert.IsTrue(results.Success);
+
+         var doc = results.ResultValueObject as EdiDocument;
+         Assert.IsNotNull(doc);
+         doc.ToFile("c:/temp/edi.json");
 
          // now load document instance
-         string[] lines = EdiInfo.FromFile(
+         var iresults = EdiInstance.FromFile(doc,
             "C:\\Users\\esobr\\Documents\\Edam.Studio\\Edam.App.Data\\" +
-            "Projects\\Datovy-EDI\\Samples\\834.Sample.1.txt");
+            "Projects\\Datovy.EDI\\Samples\\834.Sample.1.txt");
+
       }
 
    }

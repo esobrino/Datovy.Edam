@@ -57,6 +57,9 @@ CREATE PROCEDURE Data.DataElementUpsert
 
    @OriginalName     VARCHAR(128) = null,
    @OriginalDataType VARCHAR(128) = null,
+   
+   @RealName         VARCHAR(128) = null,
+   @AlternateName    VARCHAR(128) = null,
 	 
    @OutAssetNo       INTEGER OUTPUT,
    @OutElementNo     INTEGER OUTPUT,

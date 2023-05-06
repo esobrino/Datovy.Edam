@@ -32,6 +32,7 @@ namespace Edam.B2b.Edi
       public short? MaximumLength { get; set; }
       public string Loop { get; set; }
       public string Parent { get; set; }
+      public string Codes { get; set; }
    }
 
    public class ExchangeDefinitionInfo : BaseDefinitionInfo

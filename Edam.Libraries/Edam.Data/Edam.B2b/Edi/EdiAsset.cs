@@ -71,6 +71,10 @@ namespace Edam.B2b.Edi
          public List<AssetDataElement> Elements = new List<AssetDataElement>();
       }
 
+      /// <summary>
+      /// Provide support for the preparation of EDI Document (i.e. 834) 
+      /// inspection and define a related dictionary for tags and loops.
+      /// </summary>
       private class EntryList
       {
          private List<string> m_Path = new List<string>();
@@ -102,6 +106,16 @@ namespace Edam.B2b.Edi
             return fpath;
          }
 
+         /// <summary>
+         /// Prepare Entity given data element base information.
+         /// </summary>
+         /// <param name="parentName"></param>
+         /// <param name="elementName"></param>
+         /// <param name="description"></param>
+         /// <param name="typeName"></param>
+         /// <param name="ns"></param>
+         /// <param name="nsParent"></param>
+         /// <returns>instance of data element is returned</returns>
          public static AssetDataElement PrepareEntity(string parentName,
             string elementName, string description, string typeName,
             NamespaceInfo ns, NamespaceInfo nsParent)
@@ -144,6 +158,32 @@ namespace Edam.B2b.Edi
             AssetDataElement.CompleteElementUpdate(element, ns);
             element.AddAnnotation(element.Description);
             return element;
+         }
+
+         public static void SetSegmentOccurance(
+            AssetDataElement element, string occurrence)
+         {
+            string[] l = occurrence.Split(":");
+            try
+            {
+               if (l.Length == 2)
+               {
+                  string mx = l[1].ToLower();
+                  element.MinOccurrence = int.Parse(l[0]);
+                  element.MaxOccurrence = (mx == "n" || mx == "*") ?
+                     int.MaxValue : int.Parse(l[1]);
+               }
+               else
+               {
+                  element.MinOccurrence = int.Parse(l[0]);
+                  element.MaxOccurrence = int.MaxValue;
+               }
+            }
+            catch (Exception ex)
+            {
+               element.MinOccurrence = 0;
+               element.MaxOccurrence = int.MaxValue;
+            }
          }
 
          /// <summary>
@@ -190,7 +230,13 @@ namespace Edam.B2b.Edi
                   String.Empty, aitem.EntityName, item.Element,
                   "object", Namespace, Namespace);
                element.OriginalName = item.SegmentCode;
+               element.RealName = item.SegmentName;
+               element.AlternateName = 
+                  item.EntityName + "/" + 
+                  item.EntityElementName + "/" + item.SegmentName + "/" +
+                  item.Element.Replace(" ","");
                element.AddAnnotation(element.Description);
+               SetSegmentOccurance(element, item.SegmentRepeat);
                //asset.CommentText = asset.Description;
                aitem.Elements.Add(element);
 
@@ -209,12 +255,21 @@ namespace Edam.B2b.Edi
             // prepare current segment child element
             element = PrepareEntity(m_CurrentEntity, item.SegmentReference, 
                item.ElementDescription, dataType, Namespace, Namespace);
-            element.AddAnnotation(item.ElementDescription);
+            element.AddAnnotation(
+               item.SegmentName + ": " + item.ElementDescription);
             element.CommentText = item.Element;
             element.MinLength = item.MinimumLength;
             element.MaxLength = item.MaximumLength;
             element.Length = element.MaxLength;
             element.OriginalName = item.SegmentReference;
+            element.RealName = item.SegmentName;
+            element.AlternateName =
+                  item.EntityName + "/" +
+                  item.EntityElementName + "/" + item.SegmentName + "/" +
+                  item.Element.Replace(" ", "");
+            element.MinOccurrence =
+               item.ElementRequiredType.ToLower() == "m" ? 1 : 0;
+            element.SampleValue = item.Codes;
             aitem.Elements.Add(element);
 
             aitem.LastAdded = element;
@@ -320,6 +375,10 @@ namespace Edam.B2b.Edi
                String.Empty, pname,
                element.Description, element.DataType, 
                ns, ns);
+            parent.MinOccurrence = element.MinOccurrence;
+            parent.MaxOccurrence = element.MaxOccurrence;
+            parent.RealName = item.Item.SegmentName;
+            parent.AlternateName = item.Item.SegmentName;
             elements.Add(parent);
 
             for (var i=1; i < item.Elements.Count; i++)
@@ -328,6 +387,12 @@ namespace Edam.B2b.Edi
                element = EntryList.PrepareEntity(
                   pname, itm.ElementName,
                   itm.Description, itm.DataType, ns, ns);
+               element.MinLength = itm.MinLength;
+               element.MaxLength = itm.MaxLength;
+               element.MinOccurrence = itm.MinOccurrence;
+               element.MaxOccurrence = itm.MaxOccurrence;
+               element.RealName = itm.RealName;
+               element.AlternateName = itm.AlternateName;
                elements.Add(element);
             }
          }
@@ -428,6 +493,10 @@ namespace Edam.B2b.Edi
                   String.Empty, element.DataType,
                   arguments.Namespace, arguments.Namespace);
                parent.OriginalName = loopid;
+               parent.RealName = element.RealName;
+               parent.AlternateName = element.AlternateName;
+               parent.MinOccurrence = element.MinOccurrence;
+               parent.MaxOccurrence = element.MaxOccurrence;
                elements.Add(parent);
 
                loop.Element = parent;
@@ -443,6 +512,10 @@ namespace Edam.B2b.Edi
                      item.Item.Element, pname,
                      arguments.Namespace, arguments.Namespace);
                   pelement.OriginalName = parent.OriginalName;
+                  pelement.RealName = item.Item.SegmentName;
+                  pelement.AlternateName = item.Item.SegmentName;
+                  EntryList.SetSegmentOccurance(
+                     pelement, item.Item.SegmentRepeat);
 
                   LoopInfo.InsertItem(ptype, pelement, elements);
                }
@@ -452,9 +525,16 @@ namespace Edam.B2b.Edi
             var itm = item.Elements[0];
             element = EntryList.PrepareEntity(
                pname, itm.OriginalName,
-               itm.Description, itm.OriginalName + "_Type",
+               item.Item.SegmentName + ": " +itm.Description, 
+               itm.OriginalName + "_Type",
                nsCommon, parent.GetElementNamespace());
+
             itm.OriginalName = loopid;
+            element.RealName = itm.RealName;
+            element.AlternateName = itm.AlternateName;
+            element.MinOccurrence = itm.MinOccurrence;
+            element.MaxOccurrence = itm.MaxOccurrence;
+            element.SampleValue = item.Item.Codes;
 
             LoopInfo.InsertItem(pname, element, elements, true);
          }

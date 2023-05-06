@@ -52,6 +52,8 @@
     [Guid]                       VARCHAR (40)   NULL,
     [OriginalName]               VARCHAR (128)  NULL,
     [OriginalDataType]           VARCHAR (128)  NULL,
+    [RealName]                   VARCHAR (128)  NULL,
+    [AlternateName]              VARCHAR (128)  NULL,
     PRIMARY KEY CLUSTERED ([ElementNo] ASC),
     CONSTRAINT [fk_DataElementConstraintType] FOREIGN KEY ([ElementConstraintNo]) REFERENCES [Data].[DataConstraintType] ([IdNo]),
     CONSTRAINT [fk_DataElementDomain] FOREIGN KEY ([DomainNo]) REFERENCES [Data].[DataDomain] ([DomainNo]),
