@@ -23,23 +23,6 @@ namespace Edam.Connector.Atlas.Library
       public const string DATA_SET = "DataSet";
 
       /// <summary>
-      /// Get element options based on related Tag Items...
-      /// </summary>
-      /// <param name="element">element whose TagItems will be use to prepare
-      /// the options</param>
-      /// <returns>instance of attributes is returned</returns>
-      private static ICollection<string> GetOptions(AssetDataElement element)
-      {
-         // key - value dictionary...
-         var options = new List<string>();
-         foreach (var item in element.TagItems)
-         {
-            options.Add(item);
-         }
-         return options;
-      }
-
-      /// <summary>
       /// Given an item (element and children) prepare the Base Type defintion.
       /// </summary>
       /// <remarks>by default a type prepared here should not be consider final
@@ -64,8 +47,8 @@ namespace Edam.Connector.Atlas.Library
          typeDef.Name = item.Element.ElementQualifiedName.OriginalName;
          typeDef.ServiceType = "EDAM Data Asset";
 
-         // key - value dictionary...
-         typeDef.Options = GetOptions(item.Element);
+         // TODO: key - value dictionary...
+         //typeDef.Options = GetOptions(item.Element);
 
          typeDef.TypeVersion = item.Element.VersionId;
       }
@@ -98,7 +81,7 @@ namespace Edam.Connector.Atlas.Library
          entity.UpdateBy = EDAM_STUDIO_LABEL;
          //entity.UpdateTime = DateTimeOffset.Now.Ticks;
          entity.CreatedBy = EDAM_STUDIO_LABEL;
-         //entity.CreateTime = DateTimeOffset.Now.Ticks;
+         entity.CreateTime = DateTimeOffset.Now.Ticks;
          entity.Status = Status.ACTIVE;
          entity.IsIncomplete = false;
          entity.Guid = item.Element.Guid;
@@ -106,7 +89,7 @@ namespace Edam.Connector.Atlas.Library
          entity.Attributes = PrepareKeyValueMaps(item.Element);
 
          // TODO: Convert the Element.VersionId into a number
-         entity.Version = 1.0;
+         entity.Version = 1;
 
          entity.Meanings = new List<AtlasTermAssignmentHeader>();
          entity.Meanings.Add(CreateTerm(item));
@@ -151,18 +134,23 @@ namespace Edam.Connector.Atlas.Library
          foreach (var type in types)
          {
             var item = AssetDataElementList.GetChildren(items, type);
-            var entityItem = new EntityDataItem();
+            var typeItem = new TypeDataItem();
 
-            entityItem.Definition = CreateEntityDefinition(item);
-            entityItem.Definition.AttributeDefs = new List<AtlasAttributeDef>();
-            item.Tag = entityItem;
+            typeItem.Definition = new AtlasTypesDef();
+
+            var entityDef = CreateEntityDefinition(item);
+            entityDef.AttributeDefs = new List<AtlasAttributeDef>();
+
+            typeItem.Definition.EntityDefs = new List<AtlasEntityDef>();
+            typeItem.Definition.EntityDefs.Add(entityDef);
+            item.Tag = typeItem;
 
             entities.Add(item);
 
             foreach(var child in item.Children)
             {
                var attrDef = CreateAttribute(child);
-               entityItem.Definition.AttributeDefs.Add(attrDef);
+               entityDef.AttributeDefs.Add(attrDef);
             }
          }
          return entities;
@@ -185,7 +173,7 @@ namespace Edam.Connector.Atlas.Library
          {
             var dataItem = item.Children == null ?
                AssetDataElementList.GetChildren(elements, item.Element) : item;
-            var tag = item.Tag as EntityDataItem ?? new EntityDataItem();
+            var tag = item.Tag as TypeDataItem ?? new TypeDataItem();
             tag.Instance = CreateEntityInstance(dataItem);
 
 
@@ -219,14 +207,10 @@ namespace Edam.Connector.Atlas.Library
          attr.IsUnique = element.KeyType == Data.Asset.ConstraintType.key;
          attr.Name = element.ElementQualifiedName.OriginalName;
 
-         // key - value dictionary...
-         attr.Options = GetOptions(element);
+         // TODO: key - value dictionary...
+         //attr.Options = GetOptions(element);
 
-         attr.TypeName = element.TypeQualifiedName.OriginalName;
-         attr.ValuesMaxCount = (double)(element.MaxOccurrence.HasValue ? 
-            element.MaxOccurrence.Value : (double)1.0);
-         attr.ValuesMinCount = (double)(element.MinOccurrence.HasValue ?
-            element.MinOccurrence.Value : (double)0.0);
+         attr.TypeName = "hive_column"; // element.TypeQualifiedName.OriginalName;
 
          return attr;
       }

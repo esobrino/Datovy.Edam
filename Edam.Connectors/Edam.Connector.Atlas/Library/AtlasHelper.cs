@@ -20,7 +20,7 @@ namespace Edam.Connector.Atlas.Library
       public static string ToJson(object item)
       {
          return JsonConvert.SerializeObject(
-            item, Newtonsoft.Json.Formatting.Indented, 
+            item, Newtonsoft.Json.Formatting.None, 
             new JsonSerializerSettings {
                NullValueHandling = NullValueHandling.Ignore });
       }

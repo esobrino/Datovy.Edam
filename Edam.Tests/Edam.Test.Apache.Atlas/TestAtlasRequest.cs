@@ -1,5 +1,7 @@
 using static System.Net.WebRequestMethods;
 
+using System.Diagnostics;
+
 using Edam.Test.Library.Project;
 using Edam.InOut;
 using Edam.Application;
@@ -7,8 +9,11 @@ using Edam.Connector.Atlas;
 using Edam.Connector.Atlas.Library;
 using Edam.Data.AssetSchema;
 using Edam.Test.Library.Application;
-using System.Diagnostics;
 using Edam.Data.AssetConsole;
+using Edam.Net;
+using Edam.Net.Web;
+using System.Text.Json.Nodes;
+using Newtonsoft.Json.Linq;
 
 namespace Edam.Test.Apache.Atlas
 {
@@ -19,6 +24,19 @@ namespace Edam.Test.Apache.Atlas
       public const string BASE_URI = "http://192.168.1.178:21000";
       public const string USER_ID = "admin";
       public const string USER_PASSWORD = "admin";
+
+      /// <summary>
+      /// Get HTTP Request Information for Atlas
+      /// </summary>
+      /// <returns></returns>
+      public static HttpRequestInfo GetRequestInfo()
+      {
+         HttpRequestInfo r = new HttpRequestInfo();
+         r.BaseUri = BASE_URI;
+         r.UserID = USER_ID;
+         r.UserSecret = USER_PASSWORD;
+         return r;
+      }
 
       [TestInitialize]
       public void InitializeEnvironment()
@@ -51,18 +69,34 @@ namespace Edam.Test.Apache.Atlas
          // prepare Atlas message
          var elist = 
             presults.ResultValueObject as AssetConsoleArgumentsInfo;
+
+         Assert.IsNotNull(elist);
+
          var ilist = elist.AssetDataItems;
          var items = EntityHelper.CreateEntity(ilist);
 
-         foreach(var i in items)
+         Assert.IsNotNull(items);
+
+         string jDefinitions = null;
+         string jInstances = null;
+         TypeDataItem? titem = null;
+
+         foreach (var i in items)
          {
-            EntityDataItem? titem = i.Tag as EntityDataItem;
+            titem = i.Tag as TypeDataItem;
             if (titem != null && titem.Definition != null)
             {
-               var jdef = titem.Definition.ToJson();
-               var jins = titem.Instance.ToJson();
+               jDefinitions = titem.Definition.ToJson();
+               jInstances = titem.Instance.ToJson();
             }
          }
+
+         HttpRequestInfo request = GetRequestInfo();
+         AtlasHttpClient client = new AtlasHttpClient(request);
+         client.Upsert(
+            "/api/atlas/v2/types/typedefs", titem.Definition);
+         string resultData = client.Data;
+
       }
    }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Edam.Net;
 using Edam.Net.Web;
 using Edam.Text;
 
@@ -37,18 +37,38 @@ namespace Edam.Connector.Atlas
       _ALL_CLASSIFICATION_TYPES = 3
    }
 
-   public class AtlasHttpClient
+   public class AtlasHttpClient : IDisposable
    {
 
+      private HttpRequestInfo m_HttpRequestInfo;
       private WebApiClient m_Client;
 
-      public AtlasHttpClient(string baseUri = null, 
-         string clientId = null, string clientSecret = null)
+      public string Data
       {
+         get { return m_Client.Data; }
+      }
+
+      public bool Success
+      {
+         get { return m_Client.Success; }
+      }
+
+      public AtlasHttpClient(HttpRequestInfo request)
+      {
+         m_HttpRequestInfo = request;
+         SetHttpClient(request);
+      }
+
+      /// <summary>
+      /// Given HTTP request information setup the HTTP Client.
+      /// </summary>
+      /// <param name="request">request details</param>
+      public void SetHttpClient(HttpRequestInfo request)
+      {
+         m_HttpRequestInfo = request;
          try
          {
-            m_Client = new WebApiClient(
-               baseUri, clientId: clientId, clientSecret: clientSecret);
+            m_Client = new WebApiClient(request);
          }
          catch (Exception ex)
          {
@@ -56,6 +76,47 @@ namespace Edam.Connector.Atlas
          }
       }
 
+      /// <summary>
+      /// Update resource identified in the URI and QueryString
+      /// </summary>
+      /// <param name="requestUri">URI / QueryString</param>
+      /// <param name="data">new updated data</param>
+      public void Put(string requestUri, object data)
+      {
+         m_Client.Put(requestUri, data);
+      }
+
+      /// <summary>
+      /// Insert and Update data...  Calls Update (PUT) upon Insert conflict.
+      /// </summary>
+      /// <param name="requestUri">resource URI</param>
+      /// <param name="data">data to put/update</param>
+      public void Upsert(string requestUri, object data)
+      {
+         m_Client.Post(requestUri, data);
+         switch(m_Client.Response.StatusCode)
+         {
+            case System.Net.HttpStatusCode.Conflict:
+               Put(requestUri, data);
+               break;
+            case System.Net.HttpStatusCode.NotFound:
+               break;
+            case System.Net.HttpStatusCode.OK:
+            default:
+               break;
+         }
+      }
+
+      /// <summary>
+      /// Release allocated resources.
+      /// </summary>
+      public void Dispose() 
+      {
+         if (m_Client != null)
+         {
+            m_Client.Dispose();
+         }
+      }
 
       /*
       public object Search(string searchByText, string searchTerm,

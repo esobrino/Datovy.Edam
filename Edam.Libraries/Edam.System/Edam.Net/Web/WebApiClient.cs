@@ -8,6 +8,8 @@ using System.Text;
 // -----------------------------------------------------------------------------
 using Edam.Application.Resources;
 using Edam.Serialization;
+using Edam.DataObjects.Entities;
+using System.Net.Http.Json;
 
 namespace Edam.Net.Web
 {
@@ -18,11 +20,13 @@ namespace Edam.Net.Web
    public class WebApiClient : IDisposable
    {
 
+      private Edam.Diagnostics.ResultLog m_Results =
+         new Diagnostics.ResultLog();
+
       private String m_ServerUri;
       private HttpResponseMessage m_Response;
       private HttpClient m_Client;
-      private Edam.Diagnostics.ResultLog m_Results = 
-         new Diagnostics.ResultLog();
+
       private WebApiContentType m_ContentType = WebApiContentType.Unknown;
 
       public String Data { get; set; }
@@ -31,9 +35,58 @@ namespace Edam.Net.Web
          get { return m_Results; }
       }
 
+      public HttpResponseMessage Response
+      {
+         get { return m_Response; }
+      }
+
       public HttpRequestHeaders Headers
       {
          get { return m_Client.DefaultRequestHeaders; }
+      }
+
+      public bool Success
+      {
+         get { return m_Response.StatusCode == System.Net.HttpStatusCode.OK; }
+      }
+
+      /// <summary>
+      /// Initialize the HTTP Client resources... using given Request details.
+      /// </summary>
+      /// <param name="request">request info</param>
+      /// <param name="client">(optional) HTTP client instance</param>
+      private void Initialize(HttpRequestInfo request, HttpClient client = null)
+      {
+         m_Results = new Diagnostics.ResultLog();
+         m_ServerUri = request.BaseUri;
+         m_ContentType = request.ContentType;
+
+         //HttpClientHandler chandler = new HttpClientHandler
+         //{
+         //   ClientCertificateOptions = ClientCertificateOption.Manual
+         //};
+
+         m_Client = client ?? new HttpClient();
+         m_Client.BaseAddress = new Uri(m_ServerUri);
+
+         if (client == null)
+            m_Client.DefaultRequestHeaders.Accept.Clear();
+
+         if (m_ContentType == WebApiContentType.ApplicationJson)
+         {
+            m_Client.DefaultRequestHeaders.Accept.Add(
+               new MediaTypeWithQualityHeaderValue("application/json"));
+         }
+         else
+         if (m_ContentType == WebApiContentType.TextPlain)
+            m_Client.DefaultRequestHeaders.Add("Accept", "text/plain");
+
+         if (!String.IsNullOrWhiteSpace(request.UserID) &&
+            !String.IsNullOrWhiteSpace(request.UserSecret))
+         {
+            m_Client.DefaultRequestHeaders.Authorization =
+               PrepareBasicAuthentication(request.UserID, request.UserSecret);
+         }
       }
 
       /// <summary>
@@ -50,35 +103,13 @@ namespace Edam.Net.Web
          WebApiContentType contentType = WebApiContentType.ApplicationJson,
          string clientId = null, string clientSecret = null)
       {
+         HttpRequestInfo request = new HttpRequestInfo();
+         request.BaseUri = uri;
+         request.ContentType = contentType;
+         request.UserID = clientId;
+         request.UserSecret = clientSecret;
 
-         m_Results = new Diagnostics.ResultLog();
-         m_ServerUri = uri;
-
-         //HttpClientHandler chandler = new HttpClientHandler
-         //{
-         //   ClientCertificateOptions = ClientCertificateOption.Manual
-         //};
-
-         m_Client = client ?? new HttpClient();
-         m_Client.BaseAddress = new Uri(m_ServerUri);
-         
-         if (client == null)
-            m_Client.DefaultRequestHeaders.Accept.Clear();
-         m_ContentType = contentType;
-
-         if (accept == WebApiContentType.ApplicationJson)
-            m_Client.DefaultRequestHeaders.Accept.Add(
-               new MediaTypeWithQualityHeaderValue("application/json"));
-         else
-         if (accept == WebApiContentType.TextPlain)
-            m_Client.DefaultRequestHeaders.Add("Accept", "text/plain");
-
-         if (!String.IsNullOrWhiteSpace(clientId) && 
-            !String.IsNullOrWhiteSpace(clientSecret))
-         {
-            m_Client.DefaultRequestHeaders.Authorization = 
-               PrepareBasicAuthentication(clientId, clientSecret);
-         }
+         Initialize(request);
       }
 
       /// <summary>
@@ -99,6 +130,16 @@ namespace Edam.Net.Web
          string clientId = null, string clientSecret = null)
       {
          Initialize(uri, client, accept, contentType, clientId, clientSecret);
+      }
+
+      public WebApiClient(HttpRequestInfo request, HttpClient client)
+      {
+         Initialize(request, client);
+      }
+
+      public WebApiClient(HttpRequestInfo request)
+      {
+         Initialize(request);
       }
 
       /// <summary>
@@ -309,8 +350,25 @@ namespace Edam.Net.Web
          }
       }
 
+      public void PostAsJson(String requestUri, object payload)
+      {
+         var t = m_Client.PostAsJsonAsync(requestUri, payload);
+         t.Wait();
+         if (t.Status == TaskStatus.RanToCompletion)
+         {
+            m_Response = t.Result;
+            var tread = m_Response.Content.ReadAsStringAsync();
+            tread.Wait();
+            if (tread.Status == TaskStatus.RanToCompletion)
+            {
+               Data = tread.Result;
+            }
+         }
+      }
+
       /// <summary>
-      /// POST data and get JSON data asynchronously and return the instance of T. 
+      /// POST data and get JSON data asynchronously and return the 
+      /// instance of T. 
       /// </summary>
       /// <param name="requestUri">request URI (e.g. api/products/1)</param>
       /// <param name="requestData">request Data as string</param>
@@ -342,6 +400,29 @@ namespace Edam.Net.Web
       {
          HttpContent content = GetHttpContent<T>(payload);
          m_Response = await m_Client.PutAsync(requestUri, content);
+      }
+
+      /// <summary>
+      /// PUT data asynchronously. 
+      /// </summary>
+      /// <param name="requestUri">request URI (e.g. api/products/1)</param>
+      /// <param name="payload">data to put (update)</param>
+      /// <returns>Task is returned</returns>
+      public void Put<T>(String requestUri, T payload)
+      {
+         HttpContent content = GetHttpContent<T>(payload);
+         var t = m_Client.PutAsync(requestUri, content);
+         t.Wait();
+         if (t.Status == TaskStatus.RanToCompletion)
+         {
+            m_Response = t.Result;
+            var tread = m_Response.Content.ReadAsStringAsync();
+            tread.Wait();
+            if (tread.Status == TaskStatus.RanToCompletion)
+            {
+               Data = tread.Result;
+            }
+         }
       }
 
       /// <summary>

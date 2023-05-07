@@ -20,7 +20,7 @@ namespace Edam.Connector.Atlas.Library
       public bool IsOptional { get; set; }
       public bool IsUnique { get; set; }
       public string Name { get; set; }
-      public ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
       public double SearchWeight { get; set; }
       public string TypeName { get; set; }
       public double ValuesMaxCount { get; set; }

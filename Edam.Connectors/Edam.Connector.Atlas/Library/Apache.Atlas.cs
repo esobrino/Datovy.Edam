@@ -111,7 +111,7 @@ namespace Edam.Connector.Atlas.Library
       public TypeCategory Category { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createTime")]
-      public double CreateTime { get; set; }
+      public long CreateTime { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createdBy")]
       public string CreatedBy { get; set; }
@@ -129,7 +129,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public System.Collections.Generic.ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -242,7 +242,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public System.Collections.Generic.ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("searchWeight")]
       public double SearchWeight { get; set; }
@@ -515,7 +515,7 @@ namespace Edam.Connector.Atlas.Library
       public TypeCategory Category { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createTime")]
-      public double CreateTime { get; set; }
+      public long CreateTime { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createdBy")]
       public string CreatedBy { get; set; }
@@ -533,7 +533,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public System.Collections.Generic.ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -624,7 +624,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public System.Collections.Generic.ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("searchWeight")]
       public double SearchWeight { get; set; }
@@ -752,7 +752,7 @@ namespace Edam.Connector.Atlas.Library
       public TypeCategory Category { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createTime")]
-      public double CreateTime { get; set; }
+      public long CreateTime { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createdBy")]
       public string CreatedBy { get; set; }
@@ -770,7 +770,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public System.Collections.Generic.ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -851,7 +851,7 @@ namespace Edam.Connector.Atlas.Library
       public TypeCategory Category { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createTime")]
-      public double CreateTime { get; set; }
+      public long CreateTime { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createdBy")]
       public string CreatedBy { get; set; }
@@ -869,7 +869,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public System.Collections.Generic.ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -897,7 +897,7 @@ namespace Edam.Connector.Atlas.Library
       public TypeCategory Category { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createTime")]
-      public double CreateTime { get; set; }
+      public long CreateTime { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createdBy")]
       public string CreatedBy { get; set; }
@@ -915,7 +915,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public System.Collections.Generic.ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -948,7 +948,7 @@ namespace Edam.Connector.Atlas.Library
       public System.Collections.Generic.ICollection<object> Classifications { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createTime")]
-      public double CreateTime { get; set; }
+      public long CreateTime { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createdBy")]
       public string CreatedBy { get; set; }
@@ -1021,6 +1021,12 @@ namespace Edam.Connector.Atlas.Library
       [Newtonsoft.Json.JsonProperty("typeName")]
       public string TypeName { get; set; }
 
+
+   }
+
+   [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
+   public partial class ReferredStringMap_ : System.Collections.Generic.Dictionary<string, string>
+   {
 
    }
 
@@ -1205,7 +1211,7 @@ namespace Edam.Connector.Atlas.Library
       public TypeCategory Category { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createTime")]
-      public double CreateTime { get; set; }
+      public long CreateTime { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createdBy")]
       public string CreatedBy { get; set; }
@@ -1223,7 +1229,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public System.Collections.Generic.ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -1319,7 +1325,7 @@ namespace Edam.Connector.Atlas.Library
       public TypeCategory Category { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createTime")]
-      public double CreateTime { get; set; }
+      public long CreateTime { get; set; }
 
       [Newtonsoft.Json.JsonProperty("createdBy")]
       public string CreatedBy { get; set; }
@@ -1337,7 +1343,7 @@ namespace Edam.Connector.Atlas.Library
       public string Name { get; set; }
 
       [Newtonsoft.Json.JsonProperty("options")]
-      public System.Collections.Generic.ICollection<string> Options { get; set; }
+      public ReferredStringMap_ Options { get; set; }
 
       [Newtonsoft.Json.JsonProperty("serviceType")]
       public string ServiceType { get; set; }
@@ -1358,7 +1364,7 @@ namespace Edam.Connector.Atlas.Library
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.8.0.0 (Newtonsoft.Json v9.0.0.0)")]
-   public partial class AtlasTypeDef
+   public partial class AtlasTypesDef
    {
       [Newtonsoft.Json.JsonProperty("businessMetadataDefs")]
       public System.Collections.Generic.ICollection<AtlasBusinessMetadataDef> BusinessMetadataDefs { get; set; }

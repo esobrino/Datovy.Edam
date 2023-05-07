@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Edam.Connector.Atlas.Library
 {
 
-   public class EntityDataItem
+   public class TypeDataItem
    {
-      public AtlasEntityDef? Definition { get; set; } = null;
+      public AtlasTypesDef? Definition { get; set; } = null;
       public AtlasEntity? Instance { get; set; } = null;
    }
 

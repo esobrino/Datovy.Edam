@@ -25,13 +25,12 @@ namespace Edam.Connector.Atlas.Library
    public interface IBaseTypeDef
    {
       TypeCategory Category { get; set; }
-      double CreateTime { get; set; }
+      long CreateTime { get; set; }
       string CreatedBy { get; set; }
       DateFormat DateFormatter { get; set; }
       string Description { get; set; }
       string Guid { get; set; }
       string Name { get; set; }
-      ICollection<string> Options { get; set; }
       string ServiceType { get; set; }
       string TypeVersion { get; set; }
       string UpdateTime { get; set; }
@@ -83,6 +82,14 @@ namespace Edam.Connector.Atlas.Library
 
    public partial class AtlasStructDef : IBaseTypeDef
    {
+   }
+
+   public partial class AtlasTypesDef : IBaseInstance
+   {
+      public string ToJson()
+      {
+         return AtlasHelper.ToJson(this);
+      }
    }
 
    #endregion
