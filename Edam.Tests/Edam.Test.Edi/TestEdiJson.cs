@@ -35,16 +35,16 @@ namespace Edam.Test.Edi
          var ilist = args.AssetDataItems;
 
          Assert.IsNotNull(ilist);
-         var results = EdiDocument.ToDocument(args);
+         var results = EdiDocumentReader.ToDocument(args);
          Assert.IsNotNull(results);
          Assert.IsTrue(results.Success);
 
-         var doc = results.ResultValueObject as EdiDocument;
+         var doc = results.ResultValueObject as EdiDocumentReader;
          Assert.IsNotNull(doc);
          doc.ToFile("c:/temp/edi.json");
 
          // now load document instance
-         var iresults = EdiInstance.FromFile(doc,
+         var iresults = EdiInstanceReader.FromFile(doc,
             "C:\\Users\\esobr\\Documents\\Edam.Studio\\Edam.App.Data\\" +
             "Projects\\Datovy.EDI\\Samples\\834.Sample.1.txt");
 

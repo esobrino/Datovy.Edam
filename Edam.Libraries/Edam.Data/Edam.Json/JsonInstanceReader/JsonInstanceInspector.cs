@@ -275,9 +275,12 @@ namespace Edam.Json.JsonInstanceReader
          }
          type.Children = children;
 
-         if (!Types.ContainsKey(type.Name) && !type.IsValue)
+         if (!String.IsNullOrWhiteSpace(type.Name))
          {
-            Types.Add(type.Name, type);
+            if (!Types.ContainsKey(type.Name) && !type.IsValue)
+            {
+               Types.Add(type.Name, type);
+            }
          }
          return type;
       }

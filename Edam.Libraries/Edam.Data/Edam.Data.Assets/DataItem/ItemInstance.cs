@@ -50,7 +50,11 @@ namespace Edam.Data.DataItem
       /// <returns>if found instance of ItemInstanceTypeInfo is returned else
       /// null</returns>
       public ItemInstanceTypeInfo Find(string typeName)
-      {         
+      {
+         if (String.IsNullOrWhiteSpace(typeName))
+         {
+            return null;
+         }
          return Types.TryGetValue(typeName, out var type) ? type : null;
       }
 
