@@ -17,6 +17,7 @@ namespace Edam.B2b.Edi
       public string EntityID { get; set; }
       public string EntityName { get; set; }
       public string EntityElementName { get; set; }
+      public string EntityLink { get; set; }
       public string Position { get; set; }
       public string SegmentCode { get; set; }
       public string SegmentRepeat { get; set; }
