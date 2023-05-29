@@ -615,5 +615,6 @@
     <None Include="Scripts\Sql-Scripts\00020 - Reference Resources.sql" />
     <None Include="Scripts\Sql-Scripts\00030 - IdBase Resources.sql" />
     <None Include="Scripts\Sql-Scripts\00040 - Data Registry Resources.sql" />
+    <None Include="Scripts\Sql-Scripts\00000 - Add DbAdmin User.sql" />
   </ItemGroup>
 </Project>

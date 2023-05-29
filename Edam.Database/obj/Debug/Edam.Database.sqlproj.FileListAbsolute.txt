@@ -10,7 +10,3 @@ C:\prjs\Datovy.Edam\Edam.Database\obj\Debug\Edam.Database.dll
 C:\prjs\Datovy.Edam\Edam.Database\obj\Debug\Edam.Database.pdb
 C:\prjs\Datovy.Edam\Edam.Database\bin\Debug\Edam.Database.dll
 C:\prjs\Datovy.Edam\Edam.Database\bin\Debug\Edam.Database.pdb
-C:\prjs\Datovy.Edam\Edam.Database\obj\Debug\Model.xml
-C:\prjs\Datovy.Edam\Edam.Database\obj\Debug\refactor.xml
-C:\prjs\Datovy.Edam\Edam.Database\obj\Debug\postdeploy.sql
-C:\prjs\Datovy.Edam\Edam.Database\obj\Debug\predeploy.sql
