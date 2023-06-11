@@ -118,7 +118,7 @@ namespace Edam.B2b.Edi
          /// <returns>instance of data element is returned</returns>
          public static AssetDataElement PrepareEntity(string parentName,
             string elementName, string description, string typeName,
-            NamespaceInfo ns, NamespaceInfo nsParent)
+            NamespaceInfo ns, NamespaceInfo nsParent, string tag)
          {
             AssetDataElement element = new AssetDataElement();
 
@@ -154,6 +154,7 @@ namespace Edam.B2b.Edi
             element.MaxLength = 0;
             element.MinOccurrence = 0;
             element.MaxOccurrence = 1;
+            element.Tags = tag;
             //asset.DataType = asset.TypeQualifiedName.Name;
             AssetDataElement.CompleteElementUpdate(element, ns);
             element.AddAnnotation(element.Description);
@@ -204,6 +205,7 @@ namespace Edam.B2b.Edi
             //   RegisterPath(item);
             //}
 
+            var loopid = "LOOP_" + item.Loop + "_" + item.Parent;
             item.SegmentCode = item.SegmentCode.Trim();
 
             string fPath = GetFullPath();
@@ -215,6 +217,7 @@ namespace Edam.B2b.Edi
             AssetDataElement element;
             if (aitem == null)
             {
+               // prepare Entry Item
                aitem = new EntryItem();
                aitem.Item = item;
                aitem.Path = GetFullPath();
@@ -222,19 +225,23 @@ namespace Edam.B2b.Edi
                   item.SegmentCode + "_" + item.Position + "_Type";
                aitem.ElementName = item.Position;
                aitem.OriginalName = item.SegmentCode;
+
                Elements.Add(aitem);
 
                // register parent segment...
                // TODO: replace hardcoded string
                element = PrepareEntity(
                   String.Empty, aitem.EntityName, item.Element,
-                  "object", Namespace, Namespace);
+                  "object", Namespace, Namespace, loopid);
                element.OriginalName = item.SegmentCode;
                element.RealName = item.SegmentName;
+
+               // setup ElementPath: schema, table, column, and link
                element.AlternateName = 
-                  item.EntityName + "/" + 
-                  item.EntityElementName + "/" + item.SegmentName + "/" +
-                  item.Element.Replace(" ","");
+                  item.EntityID + "/" + 
+                  item.EntityName + "/" + item.EntityElementName + "/" +
+                  item.EntityLink;
+
                element.AddAnnotation(element.Description);
                SetSegmentOccurance(element, item.SegmentRepeat);
                //asset.CommentText = asset.Description;
@@ -254,7 +261,7 @@ namespace Edam.B2b.Edi
 
             // prepare current segment child element
             element = PrepareEntity(m_CurrentEntity, item.SegmentReference, 
-               item.ElementDescription, dataType, Namespace, Namespace);
+               item.ElementDescription, dataType, Namespace, Namespace, loopid);
             element.AddAnnotation(
                item.SegmentName + ": " + item.ElementDescription);
             element.CommentText = item.Element;
@@ -264,9 +271,9 @@ namespace Edam.B2b.Edi
             element.OriginalName = item.SegmentReference;
             element.RealName = item.SegmentName;
             element.AlternateName =
-                  item.EntityName + "/" +
-                  item.EntityElementName + "/" + item.SegmentName + "/" +
-                  item.Element.Replace(" ", "");
+                  item.EntityID + "/" +
+                  item.EntityName + "/" + item.EntityElementName + "/" +
+                  item.EntityLink;
             element.MinOccurrence =
                item.ElementRequiredType.ToLower() == "m" ? 1 : 0;
             element.SampleValue = item.Codes;
@@ -276,14 +283,6 @@ namespace Edam.B2b.Edi
             return element;
          }
 
-         public AssetDataElement PrepareElement(
-            string parentName, string childName, AssetDataElement asset)
-         {
-            AssetDataElement child = PrepareEntity(
-               parentName, childName, asset.Description, 
-               asset.ElementQualifiedName.Name, Namespace, Namespace);
-            return child;
-         }
       }
 
       /// <summary>
@@ -302,26 +301,27 @@ namespace Edam.B2b.Edi
             arguments.Namespace.Uri.Segments.Last());
          string rootItemName = rootName + "_" + "Document";
          string rootType = rootItemName + "_Type";
+         string loopid = "";
 
          // create namespace instance
          NamespaceInfo ns = new NamespaceInfo(arguments.Namespace);
 
          // prepare the Document Type
          var parent = EntryList.PrepareEntity(
-            String.Empty, rootType, "Root Document", "object", ns, ns);
+            String.Empty, rootType, "Root Document", "object", ns, ns, loopid);
          loops.Add(parent);
 
          // add first loop as the child of the root Document Type
          var rootChild = loops[0];
          var child = EntryList.PrepareEntity(
             parent.OriginalName, rootChild.OriginalName, rootChild.Description,
-            rootChild.OriginalName + "_Type", ns, ns);
+            rootChild.OriginalName + "_Type", ns, ns, loopid);
          loops.Add(child);
 
          // finally add the document element
          child = EntryList.PrepareEntity(
             String.Empty, rootItemName, rootItemName,
-            rootType, ns, ns);
+            rootType, ns, ns, loopid);
          child.ElementType = ElementType.element;
          loops.Add(child);
 
@@ -361,6 +361,9 @@ namespace Edam.B2b.Edi
 
          foreach(var item in entries.Elements)
          {
+
+            var loopid = "LOOP_" + item.Item.Loop + "_" + item.Item.Parent;
+
             var element = elements.Find(
                (x) => x.OriginalName == item.OriginalName);
 
@@ -374,7 +377,7 @@ namespace Edam.B2b.Edi
             var parent = EntryList.PrepareEntity(
                String.Empty, pname,
                element.Description, element.DataType, 
-               ns, ns);
+               ns, ns, loopid);
             parent.MinOccurrence = element.MinOccurrence;
             parent.MaxOccurrence = element.MaxOccurrence;
             parent.RealName = item.Item.SegmentName;
@@ -386,7 +389,7 @@ namespace Edam.B2b.Edi
                var itm = item.Elements[i];
                element = EntryList.PrepareEntity(
                   pname, itm.ElementName,
-                  itm.Description, itm.DataType, ns, ns);
+                  itm.Description, itm.DataType, ns, ns, loopid);
                element.MinLength = itm.MinLength;
                element.MaxLength = itm.MaxLength;
                element.MinOccurrence = itm.MinOccurrence;
@@ -491,7 +494,7 @@ namespace Edam.B2b.Edi
                parent = EntryList.PrepareEntity(
                   String.Empty, pname,
                   String.Empty, element.DataType,
-                  arguments.Namespace, arguments.Namespace);
+                  arguments.Namespace, arguments.Namespace, loopid);
                parent.OriginalName = loopid;
                parent.RealName = element.RealName;
                parent.AlternateName = element.AlternateName;
@@ -510,7 +513,7 @@ namespace Edam.B2b.Edi
                   var pelement = EntryList.PrepareEntity(
                      ptype, loopid,
                      item.Item.Element, pname,
-                     arguments.Namespace, arguments.Namespace);
+                     arguments.Namespace, arguments.Namespace, loopid);
                   pelement.OriginalName = parent.OriginalName;
                   pelement.RealName = item.Item.SegmentName;
                   pelement.AlternateName = item.Item.SegmentName;
@@ -527,7 +530,7 @@ namespace Edam.B2b.Edi
                pname, itm.OriginalName,
                item.Item.SegmentName + ": " +itm.Description, 
                itm.OriginalName + "_Type",
-               nsCommon, parent.GetElementNamespace());
+               nsCommon, parent.GetElementNamespace(), loopid);
 
             itm.OriginalName = loopid;
             element.RealName = itm.RealName;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,15 +15,36 @@ namespace Edam.B2b.Edi
    public class EdiSegmentInfo
    {
 
+      public string Guid { get; set; } = System.Guid.NewGuid().ToString();
+      public string ParentGuid { get; set; }
+
       public int SequenceNo { get; set; }
       public int Index { get; set; }
+
+      public string SegmentId { get; set; }
       public string Segment { get; set; }
       public string Parent { get; set; }
       public string Name { get; set; }
+      public bool IsTrigger { get; set; } = false;
+
+      /// <summary>
+      /// Correspond to ako database layout: schema/table/column/link, see 
+      /// related AssetDataElement -> AlternateName that will hold the path.
+      /// </summary>
       public string ElementPath { get; set; }
+
       public string DataType { get; set; }
+
+      /// <summary>
+      /// List of valid codes
+      /// </summary>
       public List<string> Codes { get; set; } = new List<string>();
+
       public string ValueText { get; set; }
+
+      /// <summary>
+      /// True if skipped
+      /// </summary>
       public bool Skipped { get; set; } = false;
 
       public int? MinLength { get; set; } = 0;
@@ -76,8 +98,11 @@ namespace Edam.B2b.Edi
       /// <param name="segment">segment to be copied</param>
       public void Copy(EdiSegmentInfo segment)
       {
+         Guid = segment.Guid;
+         ParentGuid = segment.ParentGuid;
          SequenceNo = segment.SequenceNo;
          Index = segment.Index;
+         SegmentId = segment.SegmentId;
          Segment = segment.Segment;
          Parent = segment.Parent;
          Name = segment.Name;
@@ -138,17 +163,17 @@ namespace Edam.B2b.Edi
          var tokenCount = tokens.Length - 1;
          if (tokenCount != segment.Children.Count)
          {
-            results.Failed(segment.Segment +
+            results.Failed(segment.SegmentId +
                "(" + segment.Children.Count.ToString() + ") <> " +
                tokenCount.ToString());
          }
 
          // validate tags and segment occurance, skip as needed
-         if (segment.Segment != tokens[0])
+         if (segment.SegmentId != tokens[0])
          {
             if (segment.MinOccurrence > 0)
             {
-               results.Failed(segment.Segment +
+               results.Failed(segment.SegmentId +
                   " expected but (" + tokens[0] + ") was found " +
                   "-- SKIPPED");
             }
@@ -167,7 +192,7 @@ namespace Edam.B2b.Edi
       /// <param name="tokens">tokens values</param>
       public static void SetValues(EdiSegmentInfo segment, string[] tokens)
       {
-         int idx = 0;
+         int idx = 1;
          foreach (var child in segment.Children)
          {
             if (idx < tokens.Length)

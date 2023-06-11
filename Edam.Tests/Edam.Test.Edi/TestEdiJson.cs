@@ -48,6 +48,18 @@ namespace Edam.Test.Edi
             "C:\\Users\\esobr\\Documents\\Edam.Studio\\Edam.App.Data\\" +
             "Projects\\Datovy.EDI\\Samples\\834.Sample.1.txt");
 
+         if (iresults.Success)
+         {
+            foreach(var i in iresults.Data.Instances)
+            {
+               string instanceJson = i.ToJson();
+               System.IO.File.WriteAllText("c:/temp/instanceText.json", instanceJson);
+
+               string jsonDoc = i.ToJsonDocument();
+               System.IO.File.WriteAllText("c:/temp/jsonText.json", jsonDoc);
+            }
+         }
+
       }
 
    }

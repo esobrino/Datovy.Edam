@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Reflection;
 
+// -----------------------------------------------------------------------------
+
 namespace Edam.B2b.Edi
 {
 
@@ -19,7 +21,17 @@ namespace Edam.B2b.Edi
          m_Header = headers;
       }
 
-      public ExchangeDefinitionInfo GetDefinition(List<string> data)
+      /// <summary>
+      /// Given a row as a list of columns, assuming that their position are
+      /// well known and correspond exactly to the "ExchangeDefinitionInfo" 
+      /// properties layout, then assign their values positionally.
+      /// </summary>
+      /// <remarks>deviations to the expected properties layout will cause
+      /// exceptions to rise</remarks>
+      /// <param name="values">properties values list</param>
+      /// <returns>values are mapped into the "ExchangeDefinitionInfo" class
+      /// and an instance of this class is returned</returns>
+      public ExchangeDefinitionInfo GetDefinition(List<string> values)
       {
          int count = 0;
          ExchangeDefinitionInfo def = new ExchangeDefinitionInfo();
@@ -34,13 +46,13 @@ namespace Edam.B2b.Edi
 
             if (pinfo.PropertyType == typeof(string))
             {
-               pinfo.SetValue(def, data[count]);
+               pinfo.SetValue(def, values[count]);
             }
             else if (pinfo.PropertyType == typeof(int) ||
                pinfo.PropertyType == typeof(int?))
             {
                int v;
-               if (int.TryParse(data[count], out v))
+               if (int.TryParse(values[count], out v))
                {
                   pinfo.SetValue(def, v);
                }
@@ -49,7 +61,7 @@ namespace Edam.B2b.Edi
                pinfo.PropertyType == typeof(short?))
             {
                short v;
-               if (short.TryParse(data[count], out v))
+               if (short.TryParse(values[count], out v))
                {
                   pinfo.SetValue(def, v);
                }
@@ -58,7 +70,7 @@ namespace Edam.B2b.Edi
                pinfo.PropertyType == typeof(long?))
             {
                long v;
-               if (long.TryParse(data[count], out v))
+               if (long.TryParse(values[count], out v))
                {
                   pinfo.SetValue(def, v);
                }
@@ -67,7 +79,7 @@ namespace Edam.B2b.Edi
                pinfo.PropertyType == typeof(decimal?))
             {
                decimal v;
-               if (decimal.TryParse(data[count], out v))
+               if (decimal.TryParse(values[count], out v))
                {
                   pinfo.SetValue(def, v);
                }
@@ -76,7 +88,7 @@ namespace Edam.B2b.Edi
                pinfo.PropertyType == typeof(bool?))
             {
                bool v;
-               if (bool.TryParse(data[count], out v))
+               if (bool.TryParse(values[count], out v))
                {
                   pinfo.SetValue(def, v);
                }

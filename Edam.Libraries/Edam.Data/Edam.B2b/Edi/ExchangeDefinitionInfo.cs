@@ -14,10 +14,16 @@ namespace Edam.B2b.Edi
    public class BaseDefinitionInfo
    {
       public string SegmentName { get; set; }
+
+      // may represent a schema in a database
       public string EntityID { get; set; }
+      // may represent a table in a database
       public string EntityName { get; set; }
+      // may represent a column in a database
       public string EntityElementName { get; set; }
+      // may represent a foreign key in a database
       public string EntityLink { get; set; }
+
       public string Position { get; set; }
       public string SegmentCode { get; set; }
       public string SegmentRepeat { get; set; }

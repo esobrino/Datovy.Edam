@@ -13,18 +13,18 @@ namespace Edam.Text
    {
       private StringBuilder m_Builder = new StringBuilder();
       private int m_Count = 0;
-      public override string ToString()
-      {
-         if (m_Count > 0)
-            m_Builder.Append(",");
-         m_Count++;
-         return m_Builder.ToString();
-      }
+
       public void AddPropertyValue(string tag, string value)
       {
+         if (String.IsNullOrWhiteSpace(tag))
+         {
+            return;
+         }
+
          if (m_Count > 0)
             m_Builder.Append(",");
-         m_Builder.AppendLine("\"" + tag + "\": \"" + value + "\"");
+         m_Builder.AppendLine("\"" + tag + "\": \"" + 
+            (value == null ? String.Empty : value) + "\"");
          m_Count++;
       }
       public void AddPropertyValue(string tag, long? number)
@@ -51,6 +51,47 @@ namespace Edam.Text
             (number.HasValue ? number.Value.ToString() : "null"));
          m_Count++;
       }
+      public void AddText(string text)
+      {
+         m_Builder.AppendLine(text);
+      }
+      public void AddProperty(string name, bool isArray = false)
+      {
+         if (isArray)
+         {
+            m_Builder.AppendLine("\"" + name + "\": [");
+         }
+         else
+         {
+            m_Builder.AppendLine("\"" + name + "\": {");
+         }
+      }
+      public void EndProperty(bool isArray = false)
+      {
+         if (isArray)
+         {
+            m_Builder.Append("] ");
+         }
+         else
+         {
+            m_Builder.AppendLine("}");
+         }
+      }
+      public void AppendComma()
+      {
+         m_Builder.Append(",");
+      }
+
+
+      public void StartBlock()
+      {
+         m_Builder.AppendLine("{");
+      }
+      public void EndBlock()
+      {
+         m_Builder.AppendLine("}");
+      }
+
       public void StartDocument()
       {
          m_Builder.AppendLine("{");
@@ -86,6 +127,16 @@ namespace Edam.Text
          string kstring = GetQuotedItem(key);
          return kstring + ": " + vstring 
             + (addEndingComma ? "," : String.Empty);
+      }
+
+      public string ToString(bool addComma = true)
+      {
+         if (m_Count > 0 && addComma)
+         {
+            m_Builder.Append(",");
+         }
+         m_Count++;
+         return m_Builder.ToString();
       }
 
    }

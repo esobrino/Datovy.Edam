@@ -35,6 +35,12 @@ namespace Edam.B2b.Edi
       [JsonIgnore]
       public AssetDataItemList Elements { get; set; }
 
+      private string m_CurrentSegment = String.Empty;
+      private string m_CurrentParent = String.Empty;
+
+      private Dictionary<string, EdiSegmentInfo> m_Segment =
+         new Dictionary<string, EdiSegmentInfo>();
+
       #region -- 4.00 - Prepare Loops and Tags collections
 
       /// <summary>
@@ -65,7 +71,9 @@ namespace Edam.B2b.Edi
             Name = item.RealName,
             ElementPath = item.AlternateName,
             QualifiedName = item.ElementQualifiedName,
-            Segment = item.ElementQualifiedName.OriginalName,
+            SegmentId = item.ElementQualifiedName.OriginalName,
+            Segment = m_CurrentSegment,
+            Parent = m_CurrentParent,
             DataType = item.TypeQualifiedName.OriginalName,
 
             MinLength = item.MinLength,
@@ -83,14 +91,48 @@ namespace Edam.B2b.Edi
             segment.SequenceNo = SequenceCounter;
          }
 
+         // Setup Lopp info
+         if (!String.IsNullOrWhiteSpace(item.Tags))
+         {
+            string[] l = item.Tags.Split("_");
+            segment.Segment = l[1];
+            segment.Parent = l[2];
+
+            if (segment.Segment.IndexOf('-') >= 0)
+            {
+               segment.Segment = segment.Segment.Replace("-T", "");
+               segment.IsTrigger = true;
+            }
+         }
+         else if (IndexCounter != 1)
+         {
+
+         }
+
+         // get parent GUID
+         if (m_Segment.TryGetValue(segment.Parent, out EdiSegmentInfo parent))
+         {
+            segment.ParentGuid = parent.Guid;
+         }
+
          // Setup other Stuff
          segment.SetCodes(item.SampleValue);
 
          if (segment.IsLoop)
          {
-            string[] l = segment.Segment.Split("_");
-            segment.Segment = l[1];
-            segment.Parent = l[2];
+            //string[] l = segment.SegmentId.Split("_");
+            //segment.SegmentId = l[1];
+            //segment.Segment = l[1];
+            //segment.Parent = l[2];
+
+            segment.SegmentId = segment.Segment;
+            m_CurrentParent = segment.Parent;
+            m_CurrentSegment = segment.Segment;
+
+            if (!m_Segment.TryGetValue(segment.Segment, out EdiSegmentInfo val))
+            {
+               m_Segment.Add(segment.Segment, segment);
+            }
          }
 
          return segment;
@@ -100,9 +142,10 @@ namespace Edam.B2b.Edi
       /// Get the type segment children.
       /// </summary>
       /// <param name="typeName">type name</param>
-      /// <param name="parentTag"></param>
+      /// <param name="parentTag"> parent Tag</param>
+      /// <param name="parentGuid">parent GUID</param>
       private List<EdiSegmentInfo> GetTypeSegmentChildren(
-         string typeName, string parentTag)
+         string typeName, string parentTag, string parentGuid)
       {
          List<EdiSegmentInfo> children = new List<EdiSegmentInfo>();
          var items = Elements.Find((x) => x.Element.ElementName == typeName);
@@ -132,7 +175,7 @@ namespace Edam.B2b.Edi
          Items.Add(parentSegment);
          parentSegment.SegmentParent = 
             parent == null ? String.Empty : 
-               (parent.IsLoop ? parent.DataType : parent.Segment);
+               (parent.IsLoop ? parent.DataType : parent.SegmentId);
 
          foreach (var child in item.Children)
          {
@@ -155,11 +198,11 @@ namespace Edam.B2b.Edi
                var segment = AddSegment(child);
                Items.Add(segment);
                segment.IsLoop = false;
-               segment.SegmentParent = parentSegment.Segment;
+               segment.SegmentParent = parentSegment.SegmentId;
 
                segment.Children = 
                   GetTypeSegmentChildren(GetTypeName(
-                     child.ElementName), child.ElementName);
+                     child.ElementName), child.ElementName, parentSegment.Guid);
             }
          }
       }

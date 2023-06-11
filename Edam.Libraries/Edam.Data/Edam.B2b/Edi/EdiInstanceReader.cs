@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Presentation;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Edam.Diagnostics;
@@ -27,23 +28,76 @@ namespace Edam.B2b.Edi
       public EdiInstance Instance { get; set; } = new EdiInstance();
 
       /// <summary>
+      /// Manage Instance Uniqueness
+      /// </summary>
+      private class InstanceState
+      {
+         private EdiSegmentList m_CurrentInstance = null;
+         private string m_Guid = System.Guid.NewGuid().ToString();
+         private Dictionary<string, string> m_KeyMap =
+            new Dictionary<string, string>();
+
+         public string Guid
+         {
+            get { return m_Guid; }
+         }
+
+         public EdiSegmentList Instance
+         {
+            get { return m_CurrentInstance; }
+         }
+
+         public InstanceState()
+         {
+            m_CurrentInstance = new EdiSegmentList();
+         }
+
+         private string GetGuid(string segment)
+         {
+            if (m_KeyMap.TryGetValue(segment, out string value))
+            {
+               return value;
+            }
+            string nguid = System.Guid.NewGuid().ToString();
+            m_KeyMap.Add(segment, nguid);
+            return nguid;
+         }
+
+         public void SetUniqueIds(EdiSegmentInfo item)
+         {
+            // remember current reference (original and parrent) id'd
+            string orefid = item.Guid;
+            string prefId = item.ParentGuid;
+
+            // make the segment unique...
+            item.Guid = System.Guid.NewGuid().ToString();
+
+            // find parent GUID
+
+         }
+      }
+
+      /// <summary>
       /// Manage Reader State
       /// </summary>
       private class ReaderState
       {
          public ResultLog Results = new ResultLog();
 
+         public InstanceState? CurrentInstance { get; set; } = null;
+
          private int m_CurrentTagIndex = -1;
          private EdiSegmentInfo? m_CurrentTag = null;
          private string? m_CurrentSegmentId = null;
-         private EdiInstance? Instance = null;
+         private EdiInstance? m_Instance = null;
 
-         public EdiSegmentList Items { get; set; }
+         public EdiSegmentList? Items { get; set; } = null;
 
          public ReaderState(EdiDocument document, EdiInstance? instance)
          {
+            EdiSegmentList? itms = null;
             Items = document.Items;
-            Instance = instance;
+            m_Instance = instance;
          }
 
          /// <summary>
@@ -73,7 +127,7 @@ namespace Edam.B2b.Edi
 
                if (tag.SegmentParent == segmentId)
                {
-                  if (tag.Segment == tokens[0])
+                  if (tag.SegmentId == tokens[0])
                   {
                      if (tag.Codes.Count > 0)
                      {
@@ -104,11 +158,8 @@ namespace Edam.B2b.Edi
             }
 
             // maybe we are starting a new submission...
-            if (m_CurrentTag.Segment == "IEA" && tokens[0] == "ISA")
+            if (tokens[0] == "ISA")
             {
-               Instance.Instances.Add(Instance.Items);
-               Instance.Items.Clear();
-
                // find ISA tag... to start a new submission...
                var seg = Items.FindTag(String.Empty, tokens[0], tokens[1]);
                if (seg != null)
@@ -129,7 +180,8 @@ namespace Edam.B2b.Edi
          {
             if (m_CurrentTagIndex == -1)
             {
-               var seg = Items.FindTag(String.Empty, tokens[0], tokens[1]);
+               var seg = Items.FindTag(
+                  String.Empty, tokens[0], tokens[1]);
                if (seg != null)
                {
                   SetCurrent(seg);
@@ -148,6 +200,26 @@ namespace Edam.B2b.Edi
             }
 
             Results.Failed("End of Document found");
+            return null;
+         }
+
+         public EdiSegmentInfo? PrepareNewSubmission(string[] tokens)
+         {
+            if (CurrentInstance != null)
+            {
+               m_Instance.Instances.Add(CurrentInstance.Instance);
+            }
+
+            CurrentInstance = new InstanceState();
+
+            // find ISA tag... to start a new submission...
+            var seg = Items.FindTag(String.Empty, tokens[0], tokens[1]);
+            if (seg != null)
+            {
+               SetCurrent(seg);
+               return m_CurrentTag;
+            }
+
             return null;
          }
       }
@@ -201,13 +273,19 @@ namespace Edam.B2b.Edi
                continue;
             }
 
+            // is this a new ISA instance? if so, start a new instance
+            if (tokens[0] == "ISA")
+            {
+               m_State.PrepareNewSubmission(tokens);
+            }
+
             segment = m_State.GetNextTag(tokens);
 
             if (segment != null)
             {
                var sitem = EdiSegmentInfo.Duplicate(segment);
                EdiSegmentInfo.SetValues(sitem, tokens);
-               Instance.Items.Add(sitem);
+               m_State.CurrentInstance.Instance.Add(sitem);
             }
             else
             {
@@ -218,7 +296,7 @@ namespace Edam.B2b.Edi
          // add last instance...
          if (Instance.Items.Count > 0)
          {
-            Instance.Instances.Add(Instance.Items);
+            Instance.Instances.Add(m_State.CurrentInstance.Instance);
          }
 
          if (lineCount != Lines.Length)
@@ -235,16 +313,16 @@ namespace Edam.B2b.Edi
       /// </summary>
       /// <param name="filePath">document instance file path</param>
       /// <returns>if success lines are returned</returns>
-      public static ResultsLog<EdiInstanceReader> FromFile(
+      public static ResultsLog<EdiInstance> FromFile(
          EdiDocumentReader document, string filePath)
       {
-         ResultsLog<EdiInstanceReader> results = 
-            new ResultsLog<EdiInstanceReader>();
-         EdiInstanceReader instance = new EdiInstanceReader(document);
+         ResultsLog<EdiInstance> results = 
+            new ResultsLog<EdiInstance>();
+         EdiInstanceReader reader = new EdiInstanceReader(document);
          try
          {
-            instance.Parse(System.IO.File.ReadAllLines(filePath));
-
+            reader.Parse(System.IO.File.ReadAllLines(filePath));
+            results.Data = reader.Instance;
             results.Succeeded();
          }
          catch (Exception ex)
