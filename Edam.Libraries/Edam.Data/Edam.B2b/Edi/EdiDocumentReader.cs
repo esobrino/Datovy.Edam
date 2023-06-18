@@ -72,8 +72,8 @@ namespace Edam.B2b.Edi
             ElementPath = item.AlternateName,
             QualifiedName = item.ElementQualifiedName,
             SegmentId = item.ElementQualifiedName.OriginalName,
-            Segment = m_CurrentSegment,
-            Parent = m_CurrentParent,
+            Loop = m_CurrentSegment,
+            LoopParent = m_CurrentParent,
             DataType = item.TypeQualifiedName.OriginalName,
 
             MinLength = item.MinLength,
@@ -95,12 +95,12 @@ namespace Edam.B2b.Edi
          if (!String.IsNullOrWhiteSpace(item.Tags))
          {
             string[] l = item.Tags.Split("_");
-            segment.Segment = l[1];
-            segment.Parent = l[2];
+            segment.Loop = l[1];
+            segment.LoopParent = l[2];
 
-            if (segment.Segment.IndexOf('-') >= 0)
+            if (segment.Loop.IndexOf('-') >= 0)
             {
-               segment.Segment = segment.Segment.Replace("-T", "");
+               segment.Loop = segment.Loop.Replace("-T", "");
                segment.IsTrigger = true;
             }
          }
@@ -110,7 +110,7 @@ namespace Edam.B2b.Edi
          }
 
          // get parent GUID
-         if (m_Segment.TryGetValue(segment.Parent, out EdiSegmentInfo parent))
+         if (m_Segment.TryGetValue(segment.LoopParent, out EdiSegmentInfo parent))
          {
             segment.ParentGuid = parent.Guid;
          }
@@ -125,13 +125,13 @@ namespace Edam.B2b.Edi
             //segment.Segment = l[1];
             //segment.Parent = l[2];
 
-            segment.SegmentId = segment.Segment;
-            m_CurrentParent = segment.Parent;
-            m_CurrentSegment = segment.Segment;
+            segment.SegmentId = segment.Loop;
+            m_CurrentParent = segment.LoopParent;
+            m_CurrentSegment = segment.Loop;
 
-            if (!m_Segment.TryGetValue(segment.Segment, out EdiSegmentInfo val))
+            if (!m_Segment.TryGetValue(segment.Loop, out EdiSegmentInfo val))
             {
-               m_Segment.Add(segment.Segment, segment);
+               m_Segment.Add(segment.Loop, segment);
             }
          }
 

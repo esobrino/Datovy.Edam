@@ -17,14 +17,19 @@ namespace Edam.B2b.Edi
 
       public string Guid { get; set; } = System.Guid.NewGuid().ToString();
       public string ParentGuid { get; set; }
+      public string LoopParentGuid { get; set; }
 
       public int SequenceNo { get; set; }
       public int Index { get; set; }
 
       public string SegmentId { get; set; }
-      public string Segment { get; set; }
-      public string Parent { get; set; }
+      public string Loop { get; set; }
+      public string LoopParent { get; set; }
       public string Name { get; set; }
+
+      /// <summary>
+      /// true when the segment represent a trigger marking the need for a UID
+      /// </summary>
       public bool IsTrigger { get; set; } = false;
 
       /// <summary>
@@ -103,8 +108,8 @@ namespace Edam.B2b.Edi
          SequenceNo = segment.SequenceNo;
          Index = segment.Index;
          SegmentId = segment.SegmentId;
-         Segment = segment.Segment;
-         Parent = segment.Parent;
+         Loop = segment.Loop;
+         LoopParent = segment.LoopParent;
          Name = segment.Name;
          ElementPath = segment.ElementPath;
          ValueText = segment.ValueText;
@@ -113,8 +118,10 @@ namespace Edam.B2b.Edi
          MaxLength = segment.MaxLength;
          MinOccurrence = segment.MinOccurrence;
          MaxOccurrence = segment.MaxOccurrence;
-         IsLoop = segment.IsLoop;
          SegmentParent = segment.SegmentParent;
+
+         IsLoop = segment.IsLoop;
+         IsTrigger = segment.IsTrigger;
 
          QualifiedName = new QualifiedNameInfo(
             segment.QualifiedName.Prefix, segment.QualifiedName.Name);

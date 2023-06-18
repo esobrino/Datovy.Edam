@@ -101,6 +101,14 @@ namespace Edam.B2b.Edi
             IsValid = PathID.Length > 0;
          }
 
+         public void AddUniqueIds(
+            Text.JsonBuilder builder, EdiSegmentInfo segment)
+         {
+            builder.AddPropertyValue("Guid", segment.Guid);
+            builder.AddPropertyValue("ParentGuid", segment.ParentGuid);
+            builder.AddPropertyValue("LoopParentGuid", segment.LoopParentGuid);
+         }
+
          /// <summary>
          /// Add Record for given segment instance.
          /// </summary>
@@ -110,6 +118,8 @@ namespace Edam.B2b.Edi
             Edam.Text.JsonBuilder builder = new Edam.Text.JsonBuilder();
 
             builder.StartBlock();
+            AddUniqueIds(builder, segment);
+
             foreach (var child in segment.Children)
             {
                string[] lst = child.ElementPath.Split('/');
@@ -185,8 +195,6 @@ namespace Edam.B2b.Edi
          Dictionary<string, SegmentRecord> schemaItem =
             new Dictionary<string, SegmentRecord>();
 
-         Edam.Text.JsonBuilder builder = new Edam.Text.JsonBuilder();
-
          // add rows/records for each table (schema/table)
          string[] lst = null;
          foreach(var item in this)
@@ -225,6 +233,8 @@ namespace Edam.B2b.Edi
 
          // add each table to schema and schema to root
          List<SegmentRecord> schemaRecords = tableItem.Values.ToList();
+
+         Edam.Text.JsonBuilder builder = new Edam.Text.JsonBuilder();
          builder.StartDocument();
 
          // add root property if any was specified
@@ -252,6 +262,7 @@ namespace Edam.B2b.Edi
                   builder.AppendComma();
                }
                int rcount = 0;
+
                builder.AddProperty(sitem.EntityName, isArray: true);
                foreach(var child in sitem.Rows)
                {

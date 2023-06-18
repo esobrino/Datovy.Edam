@@ -50,13 +50,17 @@ namespace Edam.Test.Edi
 
          if (iresults.Success)
          {
+            int fileCount = 0;
             foreach(var i in iresults.Data.Instances)
             {
                string instanceJson = i.ToJson();
-               System.IO.File.WriteAllText("c:/temp/instanceText.json", instanceJson);
+               System.IO.File.WriteAllText(
+                  "c:/temp/instanceText.json", instanceJson);
 
                string jsonDoc = i.ToJsonDocument();
-               System.IO.File.WriteAllText("c:/temp/jsonText.json", jsonDoc);
+               System.IO.File.WriteAllText("c:/temp/jsonText" + 
+                  fileCount.ToString() + ".json", jsonDoc);
+               fileCount++;
             }
          }
 

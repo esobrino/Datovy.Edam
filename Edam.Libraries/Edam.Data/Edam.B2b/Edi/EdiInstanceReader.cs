@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using DocumentFormat.OpenXml.Presentation;
@@ -32,10 +33,33 @@ namespace Edam.B2b.Edi
       /// </summary>
       private class InstanceState
       {
+
+         public class key_value
+         {
+            public string Key { get; set; }
+            public string Value { get; set; }
+
+            public key_value(string key, string value)
+            {
+               Key = key;
+               Value = value;
+            }
+         }
+
          private EdiSegmentList m_CurrentInstance = null;
          private string m_Guid = System.Guid.NewGuid().ToString();
-         private Dictionary<string, string> m_KeyMap =
-            new Dictionary<string, string>();
+
+         /// <summary>
+         /// Manage unique keys based on their segment loop-id's so every loop
+         /// will have a unique ID
+         /// </summary>
+         private List<key_value> m_KeyMap = new List<key_value>();
+         private List<key_value> m_LoopKeyMap = new List<key_value>();
+
+         public List<key_value> LoopKeyMap
+         {
+            get { return m_LoopKeyMap; }
+         }
 
          public string Guid
          {
@@ -52,29 +76,117 @@ namespace Edam.B2b.Edi
             m_CurrentInstance = new EdiSegmentList();
          }
 
-         private string GetGuid(string segment)
+         /// <summary>
+         /// Get registered parent loop while managing revisiting trigger loops.
+         /// </summary>
+         /// <remarks>
+         /// Trigger loops are those that if revisited the rest of the child 
+         /// loops should be removed to allow the unique identification of a new
+         /// set of loop children.
+         /// </remarks>
+         /// <param name="item">segment information</param>
+         /// <returns>instance of key_value is returned</returns>
+         private key_value? GetRegisteredParent(EdiSegmentInfo item)
          {
-            if (m_KeyMap.TryGetValue(segment, out string value))
+            // try to find items in the order they were inserted...
+            for (int i = 0; i < m_KeyMap.Count; i++)
             {
-               return value;
+               var kval = m_KeyMap[i];
+               if (kval.Key == item.LoopParent)
+               {
+                  // if this is not a trigger item, just return
+                  // the value of the key
+                  if (!item.IsTrigger)
+                  {
+                     return kval;
+                  }
+
+                  // if we get here means that we are visiting a trigger item
+                  // again and if so we need to create a new set of unique
+                  // values for subsequent keys
+
+                  // if we get here, re-key all subsequent entries that will
+                  // efectively create a new sequence of unique-keys
+
+                  var lkval = m_LoopKeyMap.Find((x) => x.Key == item.Loop);
+                  lkval.Value = item.Guid;
+
+                  m_KeyMap.RemoveRange(i, m_KeyMap.Count - i);
+                  return kval;
+               }
             }
-            string nguid = System.Guid.NewGuid().ToString();
-            m_KeyMap.Add(segment, nguid);
-            return nguid;
+            return null;
          }
 
+         /// <summary>
+         /// Fetch the Parent Loop Guid to uniquely identify the reference item
+         /// </summary>
+         /// <param name="item">segment information</param>
+         /// <returns>GUID is returned</returns>
+         private string GetParentLoopGuid(EdiSegmentInfo item)
+         {
+            // first register item loop as needed
+            key_value lkval = m_LoopKeyMap.Find((x) => x.Key == item.Loop);
+            if (lkval == null)
+            {
+               lkval = new key_value(item.Loop, item.Guid);
+               m_KeyMap.Add(lkval);
+            }
+            else if (lkval.Value == null)
+            {
+               lkval.Value = item.Guid;
+            }
+
+            // manage parent loop
+            key_value? kval = GetRegisteredParent(item);
+            if (kval != null)
+            {
+               return kval.Value;
+            }
+
+            // find parent loop key
+            var plkval = m_LoopKeyMap.Find(x => x.Key == item.LoopParent);
+            //if (item.IsTrigger)
+            //{
+            //   plkval.Value = item.Guid;
+            //}
+
+            kval = new key_value(item.LoopParent, plkval.Value);
+            m_KeyMap.Add(kval);
+
+            return kval.Value;
+         }
+
+         /// <summary>
+         /// Set Unique ID's...
+         /// </summary>
+         /// <param name="item">item to set its ID's</param>
          public void SetUniqueIds(EdiSegmentInfo item)
          {
-            // remember current reference (original and parrent) id'd
-            string orefid = item.Guid;
-            string prefId = item.ParentGuid;
-
             // make the segment unique...
-            item.Guid = System.Guid.NewGuid().ToString();
+            //item.Guid = System.Guid.NewGuid().ToString();
+            item.ParentGuid = GetParentLoopGuid(item);
 
-            // find parent GUID
-
+            var kval = m_LoopKeyMap.Find(x => x.Key == item.Loop);
+            item.LoopParentGuid = kval.Value;
          }
+
+         /// <summary>
+         /// Add given item to the current instance...
+         /// </summary>
+         /// <param name="item">instance item to add</param>
+         public void AddInstance(EdiSegmentInfo item)
+         {
+            SetUniqueIds(item);
+            m_CurrentInstance.Add(item);
+
+            // update ids of children...
+            foreach(var child in item.Children)
+            {
+               child.ParentGuid = item.Guid;
+            }
+         }
+
       }
 
       /// <summary>
@@ -203,6 +315,12 @@ namespace Edam.B2b.Edi
             return null;
          }
 
+         /// <summary>
+         /// Prepare New Submission since a ISA was found.
+         /// </summary>
+         /// <param name="tokens">ISA data items values</param>
+         /// <returns>if ISA was found the segment instance is returend else
+         /// null</returns>
          public EdiSegmentInfo? PrepareNewSubmission(string[] tokens)
          {
             if (CurrentInstance != null)
@@ -210,7 +328,22 @@ namespace Edam.B2b.Edi
                m_Instance.Instances.Add(CurrentInstance.Instance);
             }
 
+            // get ready for new Instance
             CurrentInstance = new InstanceState();
+
+            // register all loops...
+            var groupByLoop =
+               from item in Items
+               group item by item.Loop into newGroup
+               orderby newGroup.Key
+               select newGroup;
+
+            foreach (var item in groupByLoop)
+            {
+               var kval = new InstanceState.key_value(
+                  item.Key, null);
+               CurrentInstance.LoopKeyMap.Add(kval);
+            }
 
             // find ISA tag... to start a new submission...
             var seg = Items.FindTag(String.Empty, tokens[0], tokens[1]);
@@ -259,6 +392,7 @@ namespace Edam.B2b.Edi
             return;
          }
 
+         // get all values for segment items...
          m_Delimiter = new string(Lines[2][2], 1);
 
          int lineCount = 0;
@@ -284,8 +418,10 @@ namespace Edam.B2b.Edi
             if (segment != null)
             {
                var sitem = EdiSegmentInfo.Duplicate(segment);
+               sitem.Guid = System.Guid.NewGuid().ToString();
+
                EdiSegmentInfo.SetValues(sitem, tokens);
-               m_State.CurrentInstance.Instance.Add(sitem);
+               m_State.CurrentInstance.AddInstance(sitem);
             }
             else
             {
@@ -294,10 +430,7 @@ namespace Edam.B2b.Edi
          }
 
          // add last instance...
-         if (Instance.Items.Count > 0)
-         {
-            Instance.Instances.Add(m_State.CurrentInstance.Instance);
-         }
+         Instance.Instances.Add(m_State.CurrentInstance.Instance);
 
          if (lineCount != Lines.Length)
          {
