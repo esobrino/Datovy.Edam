@@ -41,6 +41,8 @@ namespace Edam.Diagnostics
       void Copy(List<Diagnostics.IMessageLogEntry> messages);
       void Copy(List<String> messages);
 
+      void Write(IMessageLogEntry entry);
+
       void Clear();
 
    }

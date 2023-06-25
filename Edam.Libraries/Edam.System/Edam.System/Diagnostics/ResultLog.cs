@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
+
 
 // -----------------------------------------------------------------------------
 
@@ -419,6 +421,27 @@ namespace Edam.Diagnostics
       }
 
       #endregion
+      #region -- 1.14 Write
+
+      /// <summary>
+      /// If a notification handler has been specify then try to 
+      /// </summary>
+      /// <param name="message">message to notify</param>
+      public virtual void Write(IMessageLogEntry message)
+      {
+         if (LogMessageHandler == null)
+         {
+            return;
+         }
+
+         LogMessageEventArgs e = new LogMessageEventArgs(this);
+         e.Message = message;
+         e.Verbosity = ResultLog.DefaultVerbosity;
+
+         LogMessageHandler(this, e);
+      }
+
+      #endregion
       #region    -- 1.14 Add Items
 
       /// <summary>
@@ -450,6 +473,7 @@ namespace Edam.Diagnostics
 
          // add message
          m_Messages.Add(message);
+         Write(message);
       }  // end of Add message
 
       /// <summary>
@@ -470,12 +494,12 @@ namespace Edam.Diagnostics
          m.Exception = null;
 
          m_Messages.Add(m);
-      }  // end of Add message
+      }
 
       public void Add(String Message)
       {
          Add(String.Empty, Message);
-      }  // end of Add Message
+      }
 
       public void Add(String location, SeverityLevel severity, String message)
       {
@@ -583,6 +607,14 @@ namespace Edam.Diagnostics
             SeverityLevel.Fatal : SeverityLevel.Info;
          if (severity == SeverityLevel.Fatal)
             m_Success = false;
+
+         IMessageLogEntry m = CreateMessageLogEntry();
+         m.Message = String.IsNullOrWhiteSpace(details) ? 
+            code.ToString() : details;
+         m.Severity = severity;
+         m.LoggedDateTime = DateTime.Now;
+
+         Add(m);
       }
 
       public Exception GetLastException()
@@ -707,7 +739,16 @@ namespace Edam.Diagnostics
       #endregion
       #region -- 1.20 Delegates and Callback Support
 
-      public LogMessageEvent LogMessageHandler;
+      /// <summary>
+      /// Default Verbosity.
+      /// </summary>
+      public static Verbosity DefaultVerbosity = Verbosity.Debugging;
+
+      /// <summary>
+      /// Message Log Handler is the same for any log to allow sending the
+      /// notification to others when a message is logged.
+      /// </summary>
+      public static LogMessageEvent LogMessageHandler;
 
       #endregion
       #region    -- 1.30 Object Initialization - Configuration

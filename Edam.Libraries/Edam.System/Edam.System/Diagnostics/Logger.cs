@@ -743,9 +743,9 @@ namespace Edam.Diagnostics
 
          string outMess =
             "<Entry>"
-         + "<Date>" + dateTime.ToString() + "</Date>"
-         + "<Message>" + message.Trim() + "</Message>"
-         + "<Severity>" + level.ToString() + "</Severity>";
+          + "<Date>" + dateTime.ToString() + "</Date>"
+          + "<Message>" + message.Trim() + "</Message>"
+          + "<Severity>" + level.ToString() + "</Severity>";
 
          if (!String.IsNullOrEmpty(location))
             outMess += "<Location>" + location + "</Location>";

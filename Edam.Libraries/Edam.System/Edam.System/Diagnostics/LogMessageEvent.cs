@@ -33,7 +33,7 @@ namespace Edam.Diagnostics
          Message.ClearFields();
          m_ParentLog = parentLog;
          Cancel = false;
-         Verbosity = Verbosity.None;
+         Verbosity = Verbosity.Debugging;
       }
 
    }  // end of LogMessageEventArgs
