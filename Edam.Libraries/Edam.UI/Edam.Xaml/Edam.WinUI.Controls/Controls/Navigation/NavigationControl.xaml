@@ -80,7 +80,7 @@
                </Button>
             </StackPanel>
 
-            <diag:DiagnosticsLogControl VerticalAlignment="Stretch" Margin="4,0,0,0" 
+            <diag:DiagnosticsLogControl VerticalAlignment="Stretch" Margin="0" 
                           Grid.Row="1" Grid.Column="0"
                           Visibility="{x:Bind m_ViewModel.Expander.PanelVisibility,Mode=TwoWay}"/>
       </Grid>
