@@ -2,6 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Page Update="Controls\Utilities\DiagnosticsLogControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Controls\Viewers\ExcelViewerControl.xaml">
       <SubType>Designer</SubType>
     </Page>

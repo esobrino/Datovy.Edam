@@ -12,14 +12,13 @@ using Edam.WinUI.Controls.DataModels;
 using Edam.Data.Books;
 using Edam.Data.AssetUseCases;
 using System.Runtime.CompilerServices;
+using Edam.WinUI.Controls.Utilities;
 
 namespace Edam.WinUI.Controls.ViewModels
 {
 
    public class DataMapSidePanelViewModel : ObservableObject
    {
-      private const string ChevronClose = "\xE96F";
-      private const string ChevronOpen = "\xE970";
 
       public DataMapContext Context { get; set; }
       public AssetUseCaseMap UseCase
@@ -149,18 +148,10 @@ namespace Edam.WinUI.Controls.ViewModels
          }
       }
 
+      public ExpanderModel Expander { get; } = new ExpanderModel();
+
       public DataMapSidePanelViewModel()
       {
-         SelectedChevron = ChevronClose;
-         PanelVisibility = Visibility.Collapsed;
-      }
-
-      public void TogglePanelVisibility()
-      {
-         SelectedChevron = PanelVisibility == Visibility.Visible ?
-            ChevronClose : ChevronOpen;
-         PanelVisibility = PanelVisibility == Visibility.Visible ? 
-            Visibility.Collapsed : Visibility.Visible;
       }
 
       /// <summary>

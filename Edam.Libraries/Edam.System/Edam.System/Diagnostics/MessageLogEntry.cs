@@ -10,12 +10,16 @@ namespace Edam.Diagnostics
 
    public interface IMessageLogEntry
    {
+      Guid Guid { get; }
       EventCode ResultCode { get; set; }
       Object Tag { get; set; }
       SeverityLevel Severity { get; set; }
       String Source { get; set; }
       String Message { get; set; }
+
       DateTime LoggedDateTime { get; set; }
+      String LoggedDateTimeText { get; }
+
       Object Exception { get; set; }
       String ErrorMessage { get; }
       String XmlMessage { get; }
@@ -37,11 +41,18 @@ namespace Edam.Diagnostics
    public class MessageLogEntry : IMessageLogEntry
    {
 
+      public Guid Guid { get; }
       public Object Tag { get; set; }
       public SeverityLevel Severity { get; set; }
       public String Source { get; set; }
       public String Message { get; set; }
+
       public DateTime LoggedDateTime { get; set; }
+      public string LoggedDateTimeText
+      {
+         get { return LoggedDateTime.ToString("yyyy-MM-dd HH:mm:ss"); }
+      }
+
       public Object Exception { get; set; }
       public EventCode ResultCode { get; set; }
 

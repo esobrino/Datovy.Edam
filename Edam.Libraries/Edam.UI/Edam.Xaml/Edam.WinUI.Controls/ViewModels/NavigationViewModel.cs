@@ -26,6 +26,7 @@ using Edam.WinUI.Controls.ReferenceData;
 using Edam.WinUI.Controls.Projects;
 using Edam.UI.DataModel.ViewModels;
 using Edam.WinUI.Controls.Controls.Navigation;
+using Edam.WinUI.Controls.Utilities;
 
 namespace Edam.Uwp.ViewModels
 {
@@ -34,6 +35,8 @@ namespace Edam.Uwp.ViewModels
    {
 
       #region -- 1.00 - Properties and definitions...
+
+      public ExpanderModel Expander { get; } = new ExpanderModel();
 
       public IMenuItemParent ParentMenu { get; set; }
 

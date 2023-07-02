@@ -53,6 +53,8 @@ namespace Edam.Diagnostics
       #endregion
       #region    -- 1.14 Log Messages Property Support
 
+      public static ResultLog DefaultLog { get; } = new ResultLog();
+
       protected Exception m_LastException;
       protected List<IMessageLogEntry> m_Messages = null;
       public List<IMessageLogEntry> Messages
@@ -421,7 +423,7 @@ namespace Edam.Diagnostics
       }
 
       #endregion
-      #region -- 1.14 Write
+      #region -- 1.14 Write to Log and Trace
 
       /// <summary>
       /// If a notification handler has been specify then try to 
@@ -439,6 +441,21 @@ namespace Edam.Diagnostics
          e.Verbosity = ResultLog.DefaultVerbosity;
 
          LogMessageHandler(this, e);
+      }
+
+      /// <summary>
+      /// Trace message 
+      /// </summary>
+      /// <param name="message">message to trace</param>
+      /// <param name="source">source</param>
+      public static void Trace(string message, string source = null)
+      {
+         IMessageLogEntry entry = new MessageLogEntry();
+         entry.Message = message;
+         entry.Source = source;
+         entry.Severity = SeverityLevel.Info;
+         
+         DefaultLog.Write(entry);
       }
 
       #endregion
@@ -748,7 +765,15 @@ namespace Edam.Diagnostics
       /// Message Log Handler is the same for any log to allow sending the
       /// notification to others when a message is logged.
       /// </summary>
-      public static LogMessageEvent LogMessageHandler;
+      private static LogMessageEvent m_LogMessageHandler = null;
+      public static LogMessageEvent LogMessageHandler
+      {
+         get { return m_LogMessageHandler; }
+         set
+         {
+            m_LogMessageHandler = value;
+         }
+      }
 
       #endregion
       #region    -- 1.30 Object Initialization - Configuration
@@ -774,7 +799,6 @@ namespace Edam.Diagnostics
          m_Messages = new List<IMessageLogEntry>();
          m_Success = false;
          m_LastException = null;
-         LogMessageHandler = null;
          ReturnText = String.Empty;
          Clear();
       }

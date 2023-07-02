@@ -24,6 +24,7 @@ using Microsoft.UI.Xaml.Data;
 using Edam.WinUI.Controls.Controls.Navigation;
 using Edam.WinUI.Controls.DataModels;
 using Edam.WinUI.Controls.Projects;
+using Edam.WinUI.Controls.Utilities;
 
 namespace Edam.WinUI.Controls.Navigation
 {
@@ -182,6 +183,10 @@ namespace Edam.WinUI.Controls.Navigation
          NoNavigationContent.Height = PageNavigation.Height;
       }
 
+      private void SidePanelToggle_Click(object sender, RoutedEventArgs e)
+      {
+         m_ViewModel.Expander.TogglePanelVisibility();
+      }
    }
 
 }

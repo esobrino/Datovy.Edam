@@ -20,7 +20,7 @@
          <RowDefinition Height="*" />
       </Grid.RowDefinitions>
       
-      <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" MinWidth="500" Visibility="{x:Bind ViewModel.PanelVisibility, Mode=TwoWay}">
+      <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" MinWidth="500" Visibility="{x:Bind ViewModel.Expander.PanelVisibility, Mode=TwoWay}">
          <Expander IsExpanded="False" HorizontalAlignment="Stretch"
                    HorizontalContentAlignment="Stretch">
             <Expander.Header>
@@ -109,7 +109,7 @@
 
       <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
          <Button HorizontalAlignment="Right" x:Name="SidePanelToggle" Background="Transparent" Height="40" BorderThickness="0" Click="SidePanelToggle_Click">
-            <FontIcon HorizontalAlignment="Left" FontFamily="Segoe MDL2 Assets" Glyph="{x:Bind ViewModel.SelectedChevron, Mode=TwoWay}" />
+            <FontIcon HorizontalAlignment="Left" FontFamily="Segoe MDL2 Assets" Glyph="{x:Bind ViewModel.Expander.SelectedChevron, Mode=TwoWay}" />
          </Button>
       </StackPanel>
    </Grid>

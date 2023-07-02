@@ -52,7 +52,7 @@ namespace Edam.WinUI.Controls.Assets
       /// <param name="e"></param>
       private void SidePanelToggle_Click(object sender, RoutedEventArgs e)
       {
-         ViewModel.TogglePanelVisibility();
+         ViewModel.Expander.TogglePanelVisibility();
       }
 
    }

@@ -20,7 +20,7 @@
          <RowDefinition Height="*" />
       </Grid.RowDefinitions>
       
-      <StackPanel x:ConnectionId='2' Grid.Row="0" Grid.Column="0" Orientation="Vertical" MinWidth="500"                                                             >
+      <StackPanel x:ConnectionId='2' Grid.Row="0" Grid.Column="0" Orientation="Vertical" MinWidth="500"                                                                      >
          <Expander IsExpanded="False" HorizontalAlignment="Stretch"
                    HorizontalContentAlignment="Stretch">
             <Expander.Header>
@@ -109,7 +109,7 @@
 
       <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
          <Button x:ConnectionId='3' HorizontalAlignment="Right" x:Name="SidePanelToggle" Background="Transparent" Height="40" BorderThickness="0"                              >
-            <FontIcon x:ConnectionId='4' HorizontalAlignment="Left" FontFamily="Segoe MDL2 Assets"                                                         />
+            <FontIcon x:ConnectionId='4' HorizontalAlignment="Left" FontFamily="Segoe MDL2 Assets"                                                                  />
          </Button>
       </StackPanel>
    </Grid>

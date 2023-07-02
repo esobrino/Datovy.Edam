@@ -37,6 +37,7 @@
     <None Remove="Controls\ReferenceData\ReferenceDataDomainControl.xaml" />
     <None Remove="Controls\ReferenceData\ReferenceDataDomainEditorControl.xaml" />
     <None Remove="Controls\ReferenceData\ReferenceDataDomainGridControl.xaml" />
+    <None Remove="Controls\Utilities\DiagnosticsLogControl.xaml" />
     <None Remove="Controls\Utilities\FolderViewControl.xaml" />
     <None Remove="Controls\Utilities\TextEditorControl.xaml" />
     <None Remove="Controls\Viewers\ExcelViewerControl.xaml" />
@@ -265,5 +266,13 @@
 
   <ItemGroup>
     <Folder Include="Controls\ContentDialogs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <CustomAdditionalCompileInputs Remove="Controls\Utilities\DiagnosticsLogControl.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Remove="Controls\Utilities\DiagnosticsLogControl.xaml" />
   </ItemGroup>
 </Project>

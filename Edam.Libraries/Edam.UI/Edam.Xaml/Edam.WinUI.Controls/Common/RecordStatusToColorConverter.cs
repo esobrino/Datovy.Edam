@@ -10,6 +10,7 @@ namespace Edam.WinUI.Common
 {
    public class RecordStatusToColorConverter : IValueConverter
    {
+
       public object Convert(object value, Type targetType, object parameter,
          string culture)
       {

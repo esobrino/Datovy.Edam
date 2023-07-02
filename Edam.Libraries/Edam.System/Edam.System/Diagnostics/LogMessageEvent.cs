@@ -30,7 +30,6 @@ namespace Edam.Diagnostics
 
       public LogMessageEventArgs(ResultLog parentLog)
       {
-         Message.ClearFields();
          m_ParentLog = parentLog;
          Cancel = false;
          Verbosity = Verbosity.Debugging;

@@ -6,6 +6,7 @@
    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
    xmlns:inav="using:Edam.UI.DataModel.ViewModels"
    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:diag="using:Edam.WinUI.Controls.Utilities"
    d:DesignHeight="300"
    d:DesignWidth="400"
                                     
@@ -31,17 +32,21 @@
       VerticalAlignment="Stretch"
       BorderThickness="0">
       <Grid.RowDefinitions>
-         <RowDefinition Height="Auto" />
+         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="*" />
+         <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
       <Frame x:ConnectionId='7'
          x:Name="NoNavigationContent"
-         Grid.Row="0"
+         Grid.Row="0" Grid.Column="0"
          Width="Auto"
          Height="Auto"
          Background="Gray" />
       <NavigationView x:ConnectionId='8'
          x:Name="PageNavigation"
-         Grid.Row="0"
+         Grid.Row="0" Grid.Column="0"
          Height="Auto"
          HorizontalAlignment="Stretch"
          VerticalAlignment="Stretch"
@@ -53,8 +58,33 @@
                                                                       
                                                            
          Visibility="Collapsed">
-         <Frame x:ConnectionId='9' x:Name="PanelContent" Margin="0,0,0,0" />
+         <Frame x:ConnectionId='12' x:Name="PanelContent" Margin="0,0,0,0" />
       </NavigationView>
+      
+      <Grid Grid.Row="0" Grid.Column="1"
+            Margin="0,1,0,0">
+            <Grid.RowDefinitions>
+               <RowDefinition Height="59" />
+               <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+               <Button x:ConnectionId='10' HorizontalAlignment="Left" x:Name="SidePanelToggle"
+                       ToolTipService.ToolTip="Show Hide Diagnostics and Trace Messages Side Panel"
+                       Height="30" BorderThickness="0"                               Background="Transparent">
+                  <FontIcon x:ConnectionId='11' HorizontalAlignment="Left" FontFamily="Segoe MDL2 Assets" FontSize="14"
+                                                                                               />
+               </Button>
+            </StackPanel>
+
+            <diag:DiagnosticsLogControl x:ConnectionId='9' VerticalAlignment="Stretch" Margin="4,0,0,0" 
+                          Grid.Row="1" Grid.Column="0"
+                                                                                                />
+      </Grid>
+      
    </Grid>
 
 </UserControl>
