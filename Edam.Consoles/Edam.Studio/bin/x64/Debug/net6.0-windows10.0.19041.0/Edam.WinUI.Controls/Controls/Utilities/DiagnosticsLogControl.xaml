@@ -9,23 +9,42 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" VerticalAlignment="Stretch">
 
-   <ListView x:ConnectionId='2'                                          VerticalAlignment="top" 
+   <Grid>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="45"/>
+         <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+      <StackPanel Background="#efefef"
+             Grid.Row="0" Grid.Column="0">
+         <AppBarButton x:ConnectionId='7' Icon="Clear" LabelPosition="Collapsed"
+                                                     ToolTipService.ToolTip="Clean all Entries"/>
+      </StackPanel>
+      
+      <ListView x:ConnectionId='2'                                          VerticalAlignment="top" 
              HorizontalAlignment="Stretch"
              ScrollViewer.VerticalScrollBarVisibility="Visible"
              ScrollViewer.VerticalScrollMode="Auto"
              ScrollViewer.HorizontalScrollMode="Auto" CanBeScrollAnchor="True"
              BorderBrush="LightGray" BorderThickness="1"
+             Grid.Row="1" Grid.Column="0"
+             MaxWidth="600" 
              >
-      <ListView.ItemTemplate>
-         <DataTemplate                                   >
-            <StackPanel x:ConnectionId='4' Padding="2,4,2,4">
-               <TextBlock x:ConnectionId='5'                                   
+         <ListView.ItemTemplate>
+            <DataTemplate                                   >
+               <StackPanel x:ConnectionId='4' Padding="2,4,2,4">
+                  <TextBlock x:ConnectionId='5'                                   
                           FontSize="10" Foreground="Gray"/>
-               <TextBlock x:ConnectionId='6'                             
-                          FontSize="12"/>
-            </StackPanel>
-         </DataTemplate>
-      </ListView.ItemTemplate>
-   </ListView>
+                  <TextBlock x:ConnectionId='6'                             
+                          FontSize="12" TextWrapping="WrapWholeWords"/>
+               </StackPanel>
+            </DataTemplate>
+         </ListView.ItemTemplate>
+      </ListView>
+   </Grid>
+   
 </UserControl>
 

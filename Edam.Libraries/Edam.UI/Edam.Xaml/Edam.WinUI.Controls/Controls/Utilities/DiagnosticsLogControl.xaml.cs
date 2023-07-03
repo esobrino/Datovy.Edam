@@ -30,6 +30,11 @@ namespace Edam.WinUI.Controls.Utilities
          this.InitializeComponent();
          DataContext = m_ViewModel;
       }
+
+      private void ClearViewButton_Click(object sender, RoutedEventArgs e)
+      {
+         m_ViewModel.ClearView();
+      }
    }
 
 }

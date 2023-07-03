@@ -9,22 +9,41 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" VerticalAlignment="Stretch">
 
-   <ListView ItemsSource="{x:Bind m_ViewModel.Items}" VerticalAlignment="top" 
+   <Grid>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="48"/>
+         <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+      <StackPanel Background="#fbfbfb" BorderBrush="LightGray" BorderThickness="1"
+             Grid.Row="0" Grid.Column="0">
+         <AppBarButton Icon="Clear" LabelPosition="Collapsed" Width="34"
+                       Click="ClearViewButton_Click" ToolTipService.ToolTip="Clean all Entries"/>
+      </StackPanel>
+      
+      <ListView ItemsSource="{x:Bind m_ViewModel.Items}" VerticalAlignment="top" 
              HorizontalAlignment="Stretch"
              ScrollViewer.VerticalScrollBarVisibility="Visible"
              ScrollViewer.VerticalScrollMode="Auto"
              ScrollViewer.HorizontalScrollMode="Auto" CanBeScrollAnchor="True"
              BorderBrush="LightGray" BorderThickness="1"
+             Grid.Row="1" Grid.Column="0"
+             MaxWidth="600" 
              >
-      <ListView.ItemTemplate>
-         <DataTemplate x:DataType="diag:IMessageLogEntry">
-            <StackPanel Padding="2,4,2,4">
-               <TextBlock Text="{x:Bind LoggedDateTimeText}"
+         <ListView.ItemTemplate>
+            <DataTemplate x:DataType="diag:IMessageLogEntry">
+               <StackPanel Padding="2,4,2,4">
+                  <TextBlock Text="{x:Bind LoggedDateTimeText}"
                           FontSize="10" Foreground="Gray"/>
-               <TextBlock Text="{x:Bind ErrorMessage}"
-                          FontSize="12"/>
-            </StackPanel>
-         </DataTemplate>
-      </ListView.ItemTemplate>
-   </ListView>
+                  <TextBlock Text="{x:Bind ErrorMessage}"
+                          FontSize="12" TextWrapping="WrapWholeWords"/>
+               </StackPanel>
+            </DataTemplate>
+         </ListView.ItemTemplate>
+      </ListView>
+   </Grid>
+   
 </UserControl>

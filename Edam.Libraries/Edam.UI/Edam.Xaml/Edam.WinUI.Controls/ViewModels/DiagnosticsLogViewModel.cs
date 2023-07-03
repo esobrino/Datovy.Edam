@@ -37,6 +37,11 @@ namespace Edam.WinUI.Controls.ViewModels
          m_ResultLog.Write(entry);
       }
 
+      public void ClearView()
+      {
+         Items.Clear();
+      }
+
       /// <summary>
       /// Show provided message in the log List View control.
       /// </summary>

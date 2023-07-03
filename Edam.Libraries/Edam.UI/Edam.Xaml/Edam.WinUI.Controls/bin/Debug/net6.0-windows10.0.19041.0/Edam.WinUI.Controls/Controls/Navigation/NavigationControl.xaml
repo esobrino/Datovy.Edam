@@ -80,7 +80,7 @@
                </Button>
             </StackPanel>
 
-            <diag:DiagnosticsLogControl x:ConnectionId='9' VerticalAlignment="Stretch" Margin="4,0,0,0" 
+            <diag:DiagnosticsLogControl x:ConnectionId='9' VerticalAlignment="Stretch" Margin="0" 
                           Grid.Row="1" Grid.Column="0"
                                                                                                 />
       </Grid>
