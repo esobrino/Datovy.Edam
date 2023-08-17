@@ -15,21 +15,21 @@
           "Edam.System": "1.0.0",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
           "Microsoft.WindowsAppSDK": "1.2.230118.102",
-          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.28"
+          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.29"
         },
         "runtime": {
           "Edam.UI.dll": {}
         }
       },
-      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.28": {
+      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.29": {
         "runtime": {
           "Microsoft.Windows.SDK.NET.dll": {
             "assemblyVersion": "10.0.19041.24",
-            "fileVersion": "10.0.19041.28"
+            "fileVersion": "10.0.19041.29"
           },
           "WinRT.Runtime.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.1.40881"
+            "fileVersion": "2.0.3.42921"
           }
         }
       },
@@ -512,7 +512,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.28": {
+    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.29": {
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""

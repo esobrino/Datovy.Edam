@@ -14,13 +14,13 @@
          <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
-         <RowDefinition Height="45"/>
+         <RowDefinition Height="48"/>
          <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
 
-      <StackPanel Background="#efefef"
+      <StackPanel Background="#fbfbfb" BorderBrush="LightGray" BorderThickness="1"
              Grid.Row="0" Grid.Column="0">
-         <AppBarButton x:ConnectionId='7' Icon="Clear" LabelPosition="Collapsed"
+         <AppBarButton x:ConnectionId='7' Icon="Clear" LabelPosition="Collapsed" Width="34"
                                                      ToolTipService.ToolTip="Clean all Entries"/>
       </StackPanel>
       

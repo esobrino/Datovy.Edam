@@ -510,7 +510,7 @@ namespace Edam.Diagnostics
          m.Message = message;
          m.Exception = null;
 
-         m_Messages.Add(m);
+         Add(m);
       }
 
       public void Add(String Message)
