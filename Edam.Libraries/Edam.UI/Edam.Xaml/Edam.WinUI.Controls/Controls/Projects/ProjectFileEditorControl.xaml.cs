@@ -27,7 +27,7 @@ using Edam.WinUI.Controls.Editors;
 namespace Edam.WinUI.Controls.Projects
 {
 
-    public sealed partial class ProjectFileEditorControl : UserControl
+   public sealed partial class ProjectFileEditorControl : UserControl
    {
 
       private ProjectViewerViewModel m_ViewModel;
@@ -86,6 +86,9 @@ namespace Edam.WinUI.Controls.Projects
       {
          if (!m_ViewModel.NewItemSelected(item))
          {
+            EditorControl.TextDocument.SetText(
+               Microsoft.UI.Text.TextSetOptions.None, text,
+               item == null ? String.Empty : item.Item.ExtensionName);
             return;
          }
          PlayButton.Visibility = item.CanExecute ?

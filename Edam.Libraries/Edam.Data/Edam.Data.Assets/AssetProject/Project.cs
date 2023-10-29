@@ -34,8 +34,12 @@ namespace Edam.Data.AssetProject
          "EditorLanguageMapFileName";
 
       private static bool m_Initialized = false;
+
+      private static string m_ConsoleDefaultPath = null;
       private static string m_ConsolePath = null;
       private static string m_ProjectsPath = null;
+
+      #region -- 4.00 - Console Path Support
 
       /// <summary>
       /// Set Project Default Full Path using given base path.
@@ -44,12 +48,23 @@ namespace Edam.Data.AssetProject
       /// <returns>full path is returned</returns>
       public static string SetDefaultFullPath(string basePath = null)
       {
+         if (!String.IsNullOrWhiteSpace(m_ConsoleDefaultPath))
+         {
+            m_ConsolePath = m_ConsoleDefaultPath;
+            return m_ConsolePath;
+         }
+
          string consolePath =
             AppSettings.GetString(config.ASSET_CONSOLE_PATH);
          string fullPath = basePath + 
             (String.IsNullOrWhiteSpace(consolePath) ?
                AppData.GetApplicationDataFolder() : consolePath);
          m_ConsolePath = config.GetAbsoluteAppDataPath(fullPath);
+         if (m_ConsoleDefaultPath == null && 
+            String.IsNullOrWhiteSpace(m_ConsolePath))
+         {
+            m_ConsoleDefaultPath = m_ConsolePath;
+         }
          return m_ConsolePath;
       }
 
@@ -99,6 +114,8 @@ namespace Edam.Data.AssetProject
             dataPath : m_ConsolePath;
       }
 
+      #endregion
+
       /// <summary>
       /// Get Projects full Path...
       /// </summary>
@@ -109,6 +126,11 @@ namespace Edam.Data.AssetProject
          if (!onlyPath && !String.IsNullOrWhiteSpace(m_ProjectsPath))
          {
             return m_ProjectsPath;
+         }
+
+         if (String.IsNullOrWhiteSpace(m_ConsolePath))
+         {
+            SetDefaultFullPath();
          }
 
          string consolePath = String.IsNullOrWhiteSpace(m_ConsolePath) ?
@@ -132,6 +154,10 @@ namespace Edam.Data.AssetProject
       /// <param name="folderPath">folder path for projects</param>
       public static void SetProjectsPath(string folderPath)
       {
+         if (String.IsNullOrWhiteSpace(folderPath))
+         {
+            SetDefaultFullPath();
+         }
          m_ConsolePath = folderPath;
       }
 
@@ -158,9 +184,24 @@ namespace Edam.Data.AssetProject
          ResultsLog<string> results = new Diagnostics.ResultsLog<string>();
          try
          {
+            // if requested path is empty then return to Default
+            if (String.IsNullOrWhiteSpace(projectsPath))
+            {
+               m_ProjectsPath = String.Empty;
+               SetDefaultFullPath();
+            }
+
+            // get new path
             string ppath = String.IsNullOrWhiteSpace(projectsPath) ?
                GetProjectsPath() : projectsPath;
-            Directory.SetCurrentDirectory(m_ProjectsPath);
+
+            if (!ppath.EndsWith(PROJECTS + "/"))
+            {
+               ppath += PROJECTS + "/";
+            }
+
+            Directory.SetCurrentDirectory(ppath);
+            m_ProjectsPath = ppath;
 
             results.Data = Directory.GetCurrentDirectory();
             results.Succeeded();

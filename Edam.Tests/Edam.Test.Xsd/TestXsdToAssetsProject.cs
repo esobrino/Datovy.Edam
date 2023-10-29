@@ -32,6 +32,13 @@ namespace Edam.Test.Xsd
             "Arguments/0001.HC.RVCT.ToAssets.Args.json");
          var presults = ProjectHelper.ProcessItem(item);
       }
+
+      [TestMethod]
+      public void TestWordDivision()
+      {
+         var result = Edam.Text.Convert.ToTitleCase("ABC_.ThisIsWord");
+
+      }
    }
 
 }

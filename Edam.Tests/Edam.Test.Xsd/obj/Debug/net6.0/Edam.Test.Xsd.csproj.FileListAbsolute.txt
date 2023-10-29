@@ -171,3 +171,5 @@ C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Xsd\obj\Debug\net6.0\Edam.Test.Xsd.pdb
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Xsd\obj\Debug\net6.0\Edam.Test.Xsd.genruntimeconfig.cache
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Xsd\obj\Debug\net6.0\ref\Edam.Test.Xsd.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Xsd\bin\Debug\net6.0\appsettings.json
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Xsd\bin\Debug\net6.0\Edam.Application.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Xsd\bin\Debug\net6.0\Edam.Application.pdb

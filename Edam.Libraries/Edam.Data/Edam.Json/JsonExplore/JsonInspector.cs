@@ -135,6 +135,11 @@ namespace Edam.Json.JsonExplore
       /// <returns>instance of AssetData is returned</returns>
       private AssetData ToOutput(AssetData asset, bool toOutput)
       {
+         if (asset == null)
+         {
+            return null;
+         }
+
          asset.MapDataTypes(m_Arguments.TextMapFilePath);
          asset.SetUseCases(m_Arguments);
 

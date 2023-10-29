@@ -471,6 +471,11 @@ namespace Edam.Data.AssetSchema
       {
          foreach(var asset in assets)
          {
+            if (asset == null)
+            {
+               continue;
+            }
+
             asset.UseCasesMergedItems = new List<AssetUseCaseElement>();
             asset.UseCases = useCases;
 

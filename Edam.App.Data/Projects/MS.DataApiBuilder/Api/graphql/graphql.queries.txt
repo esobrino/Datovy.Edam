@@ -1,0 +1,33 @@
+{
+  domains {
+    items {
+      Domain, DomainName, TypeNo, Description,
+      type {
+        IdNo, Description
+      },
+      elements {
+        items {
+          ElementName,
+          Description
+        }
+      }
+    }
+  }
+}
+
+mutation {
+  executeCodeSetUpsert (
+    SessionId: "5e5ef6da-ac99-4c48-9b4c-90bb04a99c9e",
+    OrganizationId: "COMMONS",
+    DomainNo: 1,
+    CodeSetUri: "http://www.sample.com/codeset/gender",
+    CodeSetNo: null,
+    CodeSetId: "PersonGender",
+    CodeSetName: "Person Gender",
+    VersionId: "v1r0",
+    DataOwnerId: "COMMONS"
+  ) {
+    result
+  }
+}
+

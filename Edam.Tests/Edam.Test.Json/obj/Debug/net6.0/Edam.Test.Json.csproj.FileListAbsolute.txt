@@ -44,7 +44,6 @@ C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\SQLitePCLRaw.core
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\SQLitePCLRaw.provider.dynamic_cdecl.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\System.Data.SqlClient.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\System.IO.Packaging.dll
-C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\System.Runtime.InteropServices.PInvoke.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\System.Text.Json.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\YamlDotNet.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
@@ -173,3 +172,10 @@ C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Edam.Data.Asset.S
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Edam.Data.Asset.Services.pdb
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Edam.Application.dll
 C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Edam.Application.pdb
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Fluid.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Namotion.Reflection.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\NJsonSchema.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\NJsonSchema.CodeGeneration.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\NJsonSchema.CodeGeneration.CSharp.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\Parlot.dll
+C:\prjs\Datovy.Edam\Edam.Tests\Edam.Test.Json\bin\Debug\net6.0\TimeZoneConverter.dll

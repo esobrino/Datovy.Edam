@@ -16,6 +16,7 @@ using Microsoft.UI.Dispatching;
 
 namespace Edam.Helpers
 {
+
    /// <summary>
    /// Observable object with INotifyPropertyChanged implemented
    /// </summary>

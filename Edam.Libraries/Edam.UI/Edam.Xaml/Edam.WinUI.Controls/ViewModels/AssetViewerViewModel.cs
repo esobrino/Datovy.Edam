@@ -129,7 +129,8 @@ namespace Edam.WinUI.Controls.ViewModels
             Items.Clear();
 
             // if available, use the first asset data item...
-            if (results.Data != null && results.Data.Count > 0)
+            if (results.Data != null && results.Data.Count > 0 &&
+               results.Data[0] != null)
             {
                foreach (var i in results.Data[0].Items)
                {

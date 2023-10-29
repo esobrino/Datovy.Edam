@@ -4,12 +4,14 @@ using System.Text;
 using System.Linq;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 
 // -----------------------------------------------------------------------------
 
 namespace Edam.Text
 {
+
    /// <summary>Provide support for general conversions from an object to a
    /// String type. The user of this class must understand that the conversion
    /// exceptions/errors are ignored by the class trying to always return a value.
@@ -109,6 +111,8 @@ namespace Edam.Text
       /// Convert string to Camel Case...
       /// </summary>
       /// <param name="value">string value to convert</param>
+      /// <param name="removePunctation">true to remove punctuation marks such
+      /// as dots, underscores, spaces, and others</param>
       /// <returns>Camel Case string is returned</returns>
       public static string ToCamelCase(string value)
       {
@@ -131,6 +135,44 @@ namespace Edam.Text
          }
 
          return result;
+      }
+
+      /// <summary>
+      /// Remove / Clean dots, @, _ characters from the string.
+      /// </summary>
+      /// <param name="value">string to operate on</param>
+      /// <returns>a clean string is returned</returns>
+      static string CleanString(string value)
+      {
+         // Replace invalid characters with empty strings.
+         try
+         {
+            return Regex.Replace(value, @"[^\w_\.@-]", "",
+                                 RegexOptions.None, TimeSpan.FromSeconds(1.5));
+         }
+         // If we timeout when replacing invalid characters,
+         // we should return Empty.
+         catch (RegexMatchTimeoutException)
+         {
+            return String.Empty;
+         }
+      }
+
+      /// <summary>
+      /// Convert string to Camel Case...
+      /// </summary>
+      /// <param name="value">string value to convert</param>
+      /// <param name="removePunctation">true to remove punctuation marks such
+      /// as dots, underscores, spaces, and others</param>
+      /// <returns>Camel Case string is returned</returns>
+      public static string ToCamelCase(string value, bool removePunctation)
+      {
+         var s = char.ToLower(value[0]) + value.Substring(1);
+         if (removePunctation)
+         {
+            s = s.Replace("_", "").Replace(".", "").Replace(" ", "");
+         }
+         return s;
       }
 
       public static string ToWordProperCase(string word)

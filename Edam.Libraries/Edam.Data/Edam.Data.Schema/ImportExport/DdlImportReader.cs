@@ -176,6 +176,7 @@ namespace Edam.Data.Schema.ImportExport
          var documentSchema = DdlAsset.PrepareTypeDefinition(
             String.Empty, rootElementName, header.TableCatalog, ns.Prefix,
             Session.OrganizationId, ns);
+         documentSchema.InclusionType = DataElementInclusionType.Exclude;
          documentList.Add(documentSchema);
          AssetDataElementList list = 
             new AssetDataElementList(ns, AssetType.Schema, m_VersionId);
@@ -188,6 +189,7 @@ namespace Edam.Data.Schema.ImportExport
             var parentSchema = DdlAsset.PrepareTypeDefinition(
                String.Empty, tName, schema.asset.SchemaName, schema.ns.Prefix,
                Session.OrganizationId, schema.ns);
+            parentSchema.InclusionType = DataElementInclusionType.Exclude;
             list.Add(parentSchema);
 
             // prepare an entry per schema table... as an element
@@ -196,6 +198,7 @@ namespace Edam.Data.Schema.ImportExport
                var item = schema.PrepareElementDefinition(
                   parentSchema, table.Item as DdlImportItemInfo, true);
                item.MaxOccurrence = int.MaxValue;
+               item.InclusionType = DataElementInclusionType.Exclude;
                list.Add(item);
             }
 
@@ -209,6 +212,7 @@ namespace Edam.Data.Schema.ImportExport
             var ditem = schema.PrepareElementDefinition(
                documentSchema, itm, true);
             ditem.Domain = ns.Prefix;
+            ditem.InclusionType = DataElementInclusionType.Exclude;
             documentList.Add(ditem);
          }
 

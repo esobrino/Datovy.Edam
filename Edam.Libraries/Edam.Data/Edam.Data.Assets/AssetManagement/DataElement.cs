@@ -432,6 +432,9 @@ namespace Edam.Data.AssetManagement
       }
       public string OriginalDataType { get; set; }
 
+      public DataElementInclusionType InclusionType { get; set; } = 
+         DataElementInclusionType.Unknown;
+
       #endregion
       #region -- 1.5 - Constructor/Destructor
 

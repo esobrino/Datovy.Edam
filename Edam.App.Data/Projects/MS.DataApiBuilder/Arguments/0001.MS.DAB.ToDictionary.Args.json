@@ -1,0 +1,54 @@
+{
+   "@context": {
+      "edam": "http://www.datovy.com/edam/arguments"
+   },
+   "Domain": {
+      "DomainId": "Microsoft.API.DAB",
+      "Description": "Microsoft API Builder"
+   },
+   "Namespace": {
+      "OrganizationDomainId": "microsoft.api.dab",
+      "Uri": "http://www.microsoft.com/api.dab",
+      "Prefix": "ab",
+      "Extension": "",
+      "RootElementName": "ab:DabConfigFile"
+   },
+   "Project": {
+      "Name": "Data API Builder Config File",
+      "VersionId": "v1r0"
+   },
+   "Process": {
+      "RecordId": null,
+      "Name": "Dab.Config.File.ToAssets",
+      "OrganizationId": "Microsoft",
+      "OrganizationDomainUri": null,
+      "ProcedureName": "JsdToAssets",
+      "ProcedureTag": "JSD.JsdSchemaReader",
+      "SchemaType": 1,
+      "NextProcess": "",
+      "NextProcedure": [""]
+   },
+   "InputFile": {
+      "Extension": "xlsx",
+      "Name": "ms.api.dab.mdf",
+      "Path": "./Files",
+      "Full": null
+   },
+   "OutputFile": {
+      "Extension": "xlsx",
+      "Name": "ms.api.dab.dictionary",
+      "Path": "./Documents",
+      "Full": "./Documents/ms.api.dab.dictionary.xlsx"
+   },
+   "UriList": [
+      "./Files"
+   ],
+   "InspectArguments": {
+      "ListLength": "1",
+      "MaxThreshold": "1"
+   },
+   "ConnectionString": "",
+   "ElementTransform": null,
+   "TextMapFilePath": "./Archive/JsdTextMap.json"
+}
+

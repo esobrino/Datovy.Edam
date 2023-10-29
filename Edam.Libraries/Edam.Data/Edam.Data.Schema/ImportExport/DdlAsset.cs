@@ -355,6 +355,14 @@ namespace Edam.Data.Schema.ImportExport
          return a;
       }
 
+      /// <summary>
+      /// Prepare Element Definition using given info.
+      /// </summary>
+      /// <param name="ritem"></param>
+      /// <param name="item"></param>
+      /// <param name="useItemType"></param>
+      /// <param name="isRootDocument"></param>
+      /// <returns></returns>
       public AssetElementInfo<IAssetElement> PrepareElementDefinition(
          AssetElementInfo<IAssetElement> ritem, DdlImportItemInfo item,
          bool useItemType = false, bool isRootDocument = false)
@@ -386,6 +394,11 @@ namespace Edam.Data.Schema.ImportExport
          return eitem;
       }
 
+      /// <summary>
+      /// Prepare Column Definition.
+      /// </summary>
+      /// <param name="item"></param>
+      /// <returns></returns>
       public AssetElementInfo<IAssetElement> PrepareColumnDefinition(
          DdlImportItemInfo item)
       {
@@ -403,6 +416,9 @@ namespace Edam.Data.Schema.ImportExport
          return eitem;
       }
 
+      /// <summary>
+      /// Prepare Additional Columns (like Diagnostics columns [if any])
+      /// </summary>
       public void PrepareAdditionalColumns()
       {
          if (m_TextMapper == null || m_TextMapper.ElementProperty == null)
@@ -460,6 +476,9 @@ namespace Edam.Data.Schema.ImportExport
          }
       }
 
+      /// <summary>
+      /// Add Property Bag...
+      /// </summary>
       public void AddPropertyBag()
       {
          if (ritem != null)

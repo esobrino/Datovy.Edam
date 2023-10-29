@@ -9,6 +9,16 @@ using Edam.Data.Asset;
 
 namespace Edam.Data.Asset
 {
+
+   public enum DataElementInclusionType
+   {
+      Unknown = 0,
+      Include = 1,
+      Exclude = 2,
+      Selected = 3,
+      Unselected = 4
+   }
+
    public interface IDataElement
    {
       string AnnotationText { get; }
@@ -49,6 +59,8 @@ namespace Edam.Data.Asset
       string Tags { get; set; }
       string Guid { get; set; }
 
+      DataElementInclusionType InclusionType { get; set; }
+
       String EntityElementNameText { get; }
 
       string FixedValue { get; set; }
@@ -57,6 +69,7 @@ namespace Edam.Data.Asset
 
       ConstraintType KeyType { get; set; }
       ConstraintType AutoGenerateType { get; set; }
+      AssetElementConstraintList Constraints { get; }
 
       int ElementTypeNo { get; set; }
       int ElementGroupNo { get; set; }

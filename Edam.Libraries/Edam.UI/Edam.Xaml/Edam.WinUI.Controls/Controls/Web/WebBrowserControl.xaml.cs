@@ -19,8 +19,10 @@ using Windows.Foundation.Collections;
 
 namespace Edam.WinUI.Controls.Web
 {
+
    public sealed partial class WebBrowserControl : UserControl
    {
+
       private WebBrowserViewModel m_ViewModel = new WebBrowserViewModel();
       public WebBrowserViewModel ViewModel
       {
@@ -34,5 +36,7 @@ namespace Edam.WinUI.Controls.Web
          m_ViewModel.WebViewer = WebViewer;
          m_ViewModel.Dispatcher = DispatcherQueue;
       }
+
    }
+
 }

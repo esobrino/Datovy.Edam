@@ -1,0 +1,149 @@
+{
+    "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.8.52/dab.draft.schema.json",
+    "data-source": {
+        "database-type": "mssql",
+        "connection-string": "Server=.;Database=Edam.Database;User Id=DbUser;Password=MySecretPassword!;TrustServerCertificate=True",
+        "options": {
+            "set-session-context": false
+        }
+    },
+    "runtime": {
+        "rest": {
+            "enabled": true,
+            "path": "/api"
+        },
+        "graphql": {
+            "enabled": true,
+            "path": "/graphql",
+            "allow-introspection": true
+        },
+        "host": {
+            "cors": {
+                "origins": [],
+                "allow-credentials": false
+            },
+            "authentication": {
+                "provider": "StaticWebApps"
+            },
+            "mode": "development"
+        }
+    },
+    "entities": {
+		"CodeSet": {
+            "source": "Data.DataCodeSet",
+            "rest": true,
+            "graphql": true,
+            "permissions": [
+                {
+                    "role": "anonymous",
+                    "actions": ["*"]
+                }
+            ]
+		},
+		"DomainType": {
+            "source": "Data.DataDomainType",
+            "rest": true,
+            "graphql": true,
+            "permissions": [
+                {
+                    "role": "anonymous",
+                    "actions": ["*"]
+                }
+            ]
+		},
+        "Domain": {
+            "source": "Data.DataDomain",
+            "rest": true,
+            "graphql": true,
+            "relationships": {
+                "type": {
+                   "target.entity": "DomainType",
+                   "cardinality": "one"
+                },
+                "elements": {
+                    "target.entity": "Element",
+                    "cardinality": "many"
+                }
+            },
+            "permissions": [{
+                    "role": "anonymous",
+                    "actions": [{
+                            "action": "read",
+                            "fields": {
+                                "include": ["*"],
+                                "exclude": ["CreatedDate", "DataOwnerId"]
+                            }
+                        },
+						"create",
+						"update",
+						"delete"
+                    ]
+                }
+            ]
+        },
+        "Element": {
+           "source": "Data.DataElement",
+           "rest": true,
+           "graphql": true,
+           "relationships": {
+               "domain": {
+                  "target.entity": "Domain",
+                  "cardinality": "one"
+               }
+           },
+           "permissions": [
+               {
+                   "role": "anonymous",
+                   "actions": ["*"]
+               }
+           ]
+        },
+        "CodeSetDetails": {
+           "source": {
+              "type": "view",
+              "object": "Data.DataDomainView",
+              "key-fields": [
+                 "DomainNo"
+              ]
+           },
+           "rest": {
+              "methods": [ "post" ]
+           },
+           "graphql": {
+              "operation": "mutation"
+           },
+           "permissions": [{
+              "role": "anonymous",
+              "actions": [ "read" ]
+           }]
+        },
+        "CodeSetUpsert": {
+           "source": {
+              "type": "stored-procedure",
+              "object": "Data.DataCodeSetUpsert",
+              "parameters": {
+                 "SessionId": "",
+                 "OrganizationId": "COMMONS",
+                 "DomainNo": 0,
+                 "CodeSetUri": "http://www.courts.com",
+                 "CodeSetNo": 0,
+                 "CodeSetId": "GenderCode",
+                 "CodeSetName": "Gender Code",
+                 "VersionId": "v1r0",
+                 "DataOwnerId": "COMMONS",
+                 "OutCodeSetNo": 0
+              }
+           },
+           "rest": {
+              "methods": [ "post" ]
+           },
+           "graphql": {
+              "operation": "mutation"
+           },
+           "permissions": [{
+              "role": "anonymous",
+              "actions": [ "execute" ]
+           }]
+        }
+    }
+}
