@@ -16,12 +16,44 @@ namespace Edam.Api.DataApiBuilder
    {
 
       /// <summary>
+      /// Figure out parameter value based on element data type.
+      /// </summary>
+      /// <param name="element">element with info to evaluate</param>
+      /// <returns>returns the base type enum</returns>
+      private object GetParameterValue(AssetDataElement element)
+      {
+         object value;
+         string ldType = element.OriginalDataType.ToLower();
+         switch(ldType)
+         {
+            case "int":
+            case "integer":
+            case "bigint":
+            case "smallint":
+            case "money":
+            case "float":
+            case "double":
+            case "decimal":
+            case "numeric":
+               value = 0; 
+               break;
+            case "bit":
+               value = 0;
+               break;
+            default:
+               value = String.Empty;
+               break;
+         }
+         return value;
+      }
+
+      /// <summary>
       /// Prepare an instance of an Entity using given AssetDataElement 
       /// definition.
       /// </summary>
       /// <param name="item">asset data element item</param>
       /// <returns>instance of Entity_ is returned</returns>
-      public Entity_ ElementToEntity(AssetDataItem item)
+      public Entity_? ElementToEntity(AssetDataItem item)
       {
 
          // Source can be substituted with a string that is the name of the 
@@ -29,10 +61,33 @@ namespace Edam.Api.DataApiBuilder
          EntityItem_ eitem = new EntityItem_();
          eitem.Object =
             item.Element.Domain + "." + item.Element.OriginalName;
-         eitem.Type = EntityItemTypeEnum_.Table;
+
+         switch(item.Element.ElementType)
+         {
+            case ElementType.type:
+               eitem.Type = EntityItemTypeEnum_.Table;
+               break;
+            case ElementType.view:
+               eitem.Type = EntityItemTypeEnum_.View;
+               break;
+            case ElementType.procedure:
+               eitem.Type = EntityItemTypeEnum_.StoredProcedure;
+               break;
+            default:
+               return null;
+         }
 
          // add all parameters (no-implemented-yet)
-         // TODO: implement the support of procedures
+         if (eitem.Type == EntityItemTypeEnum_.StoredProcedure)
+         {
+            var p = new EntitySourceParameterMap_();
+            foreach(var par in item.Children)
+            {
+               var pval = GetParameterValue(par);
+               p.Add(par.ElementQualifiedName.OriginalName, pval);
+            }
+            eitem.Parameters = p;
+         }
 
          // add all key fields
          var keys = new List<string>();
@@ -53,59 +108,79 @@ namespace Edam.Api.DataApiBuilder
          Entity_ entity = new Entity_();
          entity.Source = eitem;
 
-         // rest - boolean or restProperties_ the last allows to define 
-         // specific a path and specific methods to be supported
-         entity.Rest = true;
+         if (item.Element.ElementType == ElementType.procedure)
+         {
+            var restProp = new RestProperties_();
+            restProp.Methods = new MethodEmum_();
+            restProp.Methods.Add(Anonymous2.Post);
+            entity.Rest = restProp;
 
-         // graphql - boolean or graphqlProperties_ the last allowos to define
-         // singular/plural names & operations (query/mutation) to be supported
-         entity.Graphql = true;
+            var graphProp = new GraphqlProperties_();
+            graphProp.Operation = OperationEnum_.Mutation;
+            entity.Graphql = graphProp;
+         }
+         else
+         {
+            // rest - boolean or restProperties_ the last allows to define 
+            // specific a path and specific methods to be supported
+            entity.Rest = true;
+
+            // graphql - boolean or graphqlProperties_ the last allowos to
+            // define singular/plural names & operations (query/mutation) to be
+            // supported
+            entity.Graphql = true;
+         }
 
          // specify mappings
-         StringMap_ stringMap = new StringMap_();
-         RelationshipsMap_ rmap = new RelationshipsMap_();
-         foreach (var i in item.Children)
+         if (item.Element.ElementType != ElementType.procedure)
          {
-            var cname = i.ElementQualifiedName.OriginalName;
-            var camelName = Edam.Text.Convert.ToCamelCase(cname, true);
-            stringMap.Add(cname, camelName);
-
-            //if (i.OriginalName != i.EntityName)
-            //{
-            //   stringMap.Add(i.OriginalName, i.EntityName);
-            //}
-
-            // specify relationships - for graphql
-            if (i.Constraints != null)
+            StringMap_ stringMap = new StringMap_();
+            RelationshipsMap_ rmap = new RelationshipsMap_();
+            foreach (var i in item.Children)
             {
-               foreach (var constraint in i.Constraints)
+               var cname = i.ElementQualifiedName.OriginalName;
+               var camelName = Edam.Text.Convert.ToCamelCase(cname, true);
+               stringMap.Add(cname, camelName);
+
+               //if (i.OriginalName != i.EntityName)
+               //{
+               //   stringMap.Add(i.OriginalName, i.EntityName);
+               //}
+
+               // specify relationships - for graphql
+               if (i.Constraints != null)
                {
-                  if (constraint.ContraintType ==
-                     AssetElementContraintType.ForeignKey)
+                  foreach (var constraint in i.Constraints)
                   {
-                     Relationships_ r = new Relationships_();
-                     r.Cardinality = CardinalityEnum_.One;
+                     if (constraint.ContraintType ==
+                        AssetElementContraintType.ForeignKey)
+                     {
+                        Relationships_ r = new Relationships_();
+                        r.Cardinality = CardinalityEnum_.One;
 
-                     var refEntityName = Edam.Text.Convert.ToCamelCase(
-                        constraint.ReferenceSchemaName +
-                        constraint.ReferenceEntityName, true);
+                        string tname = constraint.ReferenceSchemaName +
+                           constraint.ReferenceEntityName;
+                        //var refEntityName = Edam.Text.Convert.ToCamelCase(
+                        //   constraint.ReferenceSchemaName +
+                        //   constraint.ReferenceEntityName, true);
 
-                     r.TargetEntity = refEntityName;
-                     rmap.TryAdd(refEntityName, r);
-                     //rmap.Add("ref" + refEntityName, r);
+                        r.TargetEntity = tname;
+                        rmap.TryAdd(tname, r);
+                        //rmap.Add("ref" + refEntityName, r);
+                     }
                   }
                }
             }
-         }
 
-         if (rmap.Count > 0)
-         {
-            entity.Relationships = rmap;
-         }
+            if (rmap.Count > 0)
+            {
+               entity.Relationships = rmap;
+            }
 
-         if (stringMap.Count > 0)
-         {
-            entity.Mappings = stringMap;
+            if (stringMap.Count > 0)
+            {
+               entity.Mappings = stringMap;
+            }
          }
 
          // specify permissions
@@ -145,10 +220,20 @@ namespace Edam.Api.DataApiBuilder
                continue;
             }
 
+            if (item.ElementType == ElementType.function)
+            {
+               continue;
+            }
+
             var dataItem = AssetDataElementList.GetChildren(items, item);
-            var ename = Edam.Text.Convert.ToCamelCase(
-               dataItem.Element.Domain + dataItem.Element.OriginalName, true);
-            entitiesMap.Add(ename, ElementToEntity(dataItem));
+            var oname = dataItem.Element.Domain + dataItem.Element.OriginalName;
+            //var ename = Edam.Text.Convert.ToCamelCase(
+            //   dataItem.Element.Domain + dataItem.Element.OriginalName, true);
+            Entity_? entity_ = ElementToEntity(dataItem);
+            if (entity_ != null)
+            {
+               entitiesMap.Add(oname, ElementToEntity(dataItem));
+            }
          }
 
          return entitiesMap;

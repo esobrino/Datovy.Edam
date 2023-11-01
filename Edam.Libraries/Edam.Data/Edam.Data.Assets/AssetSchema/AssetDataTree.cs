@@ -83,8 +83,7 @@ namespace Edam.Data.AssetSchema
       {
          List<AssetDataTreeItem> list = new List<AssetDataTreeItem>();
          AssetDataElement type = m_Items.Find(
-            (x) => x.ElementType == ElementType.type &&
-               x.ElementName == element.DataType);
+            (x) => x.IsType && x.ElementName == element.DataType);
          if (type != null)
          {
             var ichildren = AssetDataElementList.GetChildren(
@@ -155,7 +154,7 @@ namespace Edam.Data.AssetSchema
             AssetDataElement ielement = items.First();
             var children = from i in m_Items
                            where i.ElementName == ielement.DataType &&
-                                 i.ElementType == ElementType.type
+                                 i.IsType
                            select i as AssetDataElement;
          }
       }

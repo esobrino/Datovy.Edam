@@ -14,6 +14,9 @@ namespace Edam.Data.Asset
       root = 6,
       reference = 7,
       enumerator = 8,
+      procedure = 9,
+      function = 10,
+      view = 11,
       undefined = 99
    }
 

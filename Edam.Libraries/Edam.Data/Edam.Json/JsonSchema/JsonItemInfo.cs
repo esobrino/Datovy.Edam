@@ -225,7 +225,7 @@ namespace Edam.Json.JsonSchema
          }
 
          var grpQName = new JsonQualifiedNameInfo(EntityName);
-         if (ElementType == ElementType.type)
+         if (IsType)
          {
             a.ElementQualifiedName = new QualifiedNameInfo(EntityName);
             a.ElementQualifiedName.Prefix = grpQName.Prefix;

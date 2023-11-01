@@ -91,7 +91,7 @@ namespace Edam.Data.AssetSchema
 
          // add new element...
          AssetDataElement parent = null;
-         if (element.ElementType == Asset.ElementType.type)
+         if (element.IsType)
          {
             var t = m_Types.Find((x)=> x.ElementName == element.ElementName);
             if (t == null)
@@ -154,8 +154,7 @@ namespace Edam.Data.AssetSchema
       public static AssetDataElementList GetTypes(AssetDataElementList items)
       {
          var types = from c in items
-                     where (c.ElementType == ElementType.type ||
-                            c.ElementType == ElementType.root)
+                     where c.IsType
                      select c;
 
          var l = types.ToList();
@@ -175,9 +174,7 @@ namespace Edam.Data.AssetSchema
          AssetDataElementList items, string root)
       {
          var types = from c in items
-                     where c.Root == root &&
-                           (c.ElementType == ElementType.type ||
-                            c.ElementType == ElementType.root)
+                     where c.Root == root && c.IsType
                      select c;
 
          var l = types.ToList();
@@ -197,9 +194,7 @@ namespace Edam.Data.AssetSchema
          AssetDataElementList items, string uriText)
       {
          var types = from c in items
-                     where c.ElementUri == uriText &&
-                           (c.ElementType == ElementType.type ||
-                            c.ElementType == ElementType.root)
+                     where c.ElementUri == uriText && c.IsType
                      select c;
 
          var l = types.ToList();
@@ -256,7 +251,7 @@ namespace Edam.Data.AssetSchema
       public static AssetDataItem GetChildren(AssetDataElementList items)
       {
          AssetDataItem item = new AssetDataItem();
-         item.Element = items.Find((x) => x.ElementType == ElementType.type);
+         item.Element = items.Find((x) => x.IsType);
          item.Children = GetChildren(items,
             item.Element.Root, item.Element.Domain, item.Element.EntityName);
          return item;
@@ -267,9 +262,7 @@ namespace Edam.Data.AssetSchema
       {
          var types = from c in items
                      where String.IsNullOrWhiteSpace(c.EntityName) && 
-                            c.ElementUri == uriText &&
-                           (c.ElementType == ElementType.element ||
-                            c.ElementType == ElementType.attribute)
+                            c.ElementUri == uriText && c.IsElement
                      select c;
 
          var l = types.ToList();

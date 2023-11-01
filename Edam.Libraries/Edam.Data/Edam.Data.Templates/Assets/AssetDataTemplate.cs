@@ -55,7 +55,7 @@ namespace Edam.DataObjects.Assets
 
          // get all type declarations
          var types = from c in items
-                     where c.ElementType == ElementType.type
+                     where c.IsType
                      select c;
 
          List<ElementNodeInfo> nodes = new List<ElementNodeInfo>();

@@ -17,6 +17,7 @@ using Edam.Data.Schema.DataDefinitionLanguage;
 using ObjAssets = Edam.DataObjects.Assets;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Edam.Data.Assets.AssetSchema;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 
 namespace Edam.Data.Schema.ImportExport
 {
@@ -200,8 +201,9 @@ namespace Edam.Data.Schema.ImportExport
       #region -- 4.00 - Prepare Type Definition
 
       public static AssetElementInfo<IAssetElement> PrepareTypeDefinition(
+         ElementType objectType,
          string schemaName, string tableName, string tableOriginalName,
-         string domain, string dataOwnerId,NamespaceInfo ns)
+         string domain, string dataOwnerId, NamespaceInfo ns)
       {
          // prepare table resource
          AssetElementInfo<IAssetElement> ritem = 
@@ -229,6 +231,21 @@ namespace Edam.Data.Schema.ImportExport
          ritem.AddAnnotation(Text.Convert.ToProperCase(tableName));
          ritem.OriginalName = tableOriginalName;
 
+         switch(objectType)
+         {
+            case ElementType.view:
+               ritem.ElementType = ElementType.view;
+               break;
+            case ElementType.procedure:
+               ritem.ElementType = ElementType.procedure;
+               break;
+            case ElementType.function:
+               ritem.ElementType = ElementType.function;
+               break;
+            default:
+               break;
+         }
+
          return ritem;
       }
 
@@ -245,7 +262,7 @@ namespace Edam.Data.Schema.ImportExport
             String.Empty : appSettings.GetTypePostfix();
 
          string tName = item.TableName + typePostfix;
-         ritem = PrepareTypeDefinition(
+         ritem = PrepareTypeDefinition(item.ObjectType,
             item.TableSchema, tName, tableOriginalName, item.TableSchema, 
             dataOwnerId, ns);
          ritem.Item = item;
@@ -427,6 +444,13 @@ namespace Edam.Data.Schema.ImportExport
          }
 
          if (ritem == null)
+         {
+            return;
+         }
+
+         if (ritem.ElementType == ElementType.function ||
+            ritem.ElementType == ElementType.procedure ||
+            ritem.ElementType == ElementType.view)
          {
             return;
          }

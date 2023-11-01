@@ -505,9 +505,8 @@ namespace Edam.Data.AssetSchema
             elementName = item1.DataType;
          }
 
-         var item2 = Items.Find((x) => x.ElementName == elementName &&
-            x.ElementType == ElementType.type ||
-            x.ElementType == ElementType.root);
+         var item2 = Items.Find((x) => 
+            x.ElementName == elementName && x.IsType);
          return item2;
       }
 

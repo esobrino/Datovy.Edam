@@ -868,7 +868,8 @@ namespace Edam.Data.AssetConsole.Services
 
          if (context == null)
          {
-            context.Results.ResultValueObject = context.Arguments;
+            context = new ProcessArgumentsContext(null);
+            context.Results.ResultValueObject = null;
             context.Results.Failed(EventCode.Failed);
             return context;
          }

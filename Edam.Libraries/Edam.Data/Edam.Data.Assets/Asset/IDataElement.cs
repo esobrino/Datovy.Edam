@@ -59,6 +59,8 @@ namespace Edam.Data.Asset
       string Tags { get; set; }
       string Guid { get; set; }
 
+      bool IsType { get; }
+
       DataElementInclusionType InclusionType { get; set; }
 
       String EntityElementNameText { get; }

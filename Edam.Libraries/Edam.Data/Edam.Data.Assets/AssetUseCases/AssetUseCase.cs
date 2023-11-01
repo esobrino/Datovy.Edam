@@ -118,9 +118,7 @@ namespace Edam.Data.AssetUseCases
          List<AssetDataElement> asset,
          List<AssetUseCase> useCases)
       {
-         var types = asset.Where(s =>
-               s.ElementType == ElementType.root ||
-               s.ElementType == ElementType.type)
+         var types = asset.Where(s => s.IsType)
             .Select(s => s).ToList();
 
          //var properties = assets.Where(
@@ -128,10 +126,7 @@ namespace Edam.Data.AssetUseCases
          //      (s.Item.GroupType == AssetGroupItemType.attribute ||
          //       s.Item.GroupType == AssetGroupItemType.element))
          //   .Select(s => s.Item).ToList();
-         var properties = asset.Where(
-            s =>
-               s.ElementType == ElementType.attribute ||
-               s.ElementType == ElementType.element)
+         var properties = asset.Where(s => s.IsElement)
             .Select(s => s).ToList();
 
          var recon = new AssetUseCaseReconciliator(types, properties);

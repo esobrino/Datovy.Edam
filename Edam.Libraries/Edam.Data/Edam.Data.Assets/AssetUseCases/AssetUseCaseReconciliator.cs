@@ -277,8 +277,7 @@ namespace Edam.Data.AssetUseCases
          {
             foreach (var item in uc.Items)
             {
-               if (item.ElementType == ElementType.root ||
-                  item.ElementType == ElementType.type)
+               if (item.IsType)
                {
                   ProcessType(item);
                }

@@ -308,7 +308,7 @@ namespace Edam.Api.DataApiBuilder
    }
 
    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.9.0.0 (Newtonsoft.Json v13.0.0.0)")]
-   public partial class EntitySourceParameterMap_ : System.Collections.Generic.Dictionary<string, Anonymous3>
+   public partial class EntitySourceParameterMap_ : System.Collections.Generic.Dictionary<string, object>
    {
 
    }

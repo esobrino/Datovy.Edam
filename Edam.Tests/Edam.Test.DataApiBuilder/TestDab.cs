@@ -27,7 +27,7 @@ namespace Edam.Test.DataApiBuilder
       {
          ItemBaseInfo item = ProjectHelper.GetProjectItem(
             "Edam.Studio/Edam.App.Data/Projects/Datovy.HC.CD/" +
-            "Arguments/0001.HC.CD.ToDictionary.Args.json");
+            "Arguments/0001.HC.CD.Full.ToAssets.Args.json");
          ResultsLog<object> presults = ProjectHelper.ProcessItem(item);
 
          if (!presults.Success)

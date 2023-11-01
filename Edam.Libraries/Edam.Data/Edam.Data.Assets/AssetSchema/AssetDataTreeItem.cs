@@ -31,8 +31,7 @@ namespace Edam.Data.AssetSchema
          {
             m_Element = value;
             m_ItemType = value == null ? ItemType.Unknow :
-                  value.ElementType == ElementType.type ?
-                     ItemType.Folder : ItemType.File;
+                  value.IsType ? ItemType.Folder : ItemType.File;
             m_Title = value == null ? String.Empty : value.ElementName;
             SetIsValueBaseType();
          }

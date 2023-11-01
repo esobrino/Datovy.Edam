@@ -502,9 +502,7 @@ namespace Edam.Data.AssetManagement.Resources
       public AssetDataElementList GetUriTypes(string uriText)
       {
          var types = from c in DbElements
-                     where c.Namespace == uriText &&
-                           (c.ElementType == ElementType.type ||
-                            c.ElementType == ElementType.root)
+                     where c.Namespace == uriText && c.IsType
                      select c;
          //m_Elements = t;
 
@@ -553,7 +551,7 @@ namespace Edam.Data.AssetManagement.Resources
       public List<AssetDataElement> GetAllElements(string root)
       {
          var types = from c in DbElements
-                     where c.Root == root && c.ElementType != ElementType.type
+                     where c.Root == root && !c.IsType
                      select c;
          //m_Elements = t;
 
@@ -726,7 +724,7 @@ namespace Edam.Data.AssetManagement.Resources
             // if not found but the asset is a Type then try to find it using
             // its self... if found then update its TypeName to self!  this
             // is what happens when nameless types are defined in the schema.
-            if (element.ElementType == ElementType.type)
+            if (element.IsType)
             {
                t = FindType(element.ElementName);
             }

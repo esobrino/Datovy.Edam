@@ -271,6 +271,15 @@ namespace Edam.Data.Asset
             case ElementType.root:
                einfo.Type = ElementBaseType.Element;
                break;
+            case ElementType.procedure:
+               einfo.Type = ElementBaseType.Type;
+               break;
+            case ElementType.function:
+               einfo.Type = ElementBaseType.Type;
+               break;
+            case ElementType.view:
+               einfo.Type = ElementBaseType.Type;
+               break;
             case ElementType.type:
                einfo.Type = ElementBaseType.Type;
                break;

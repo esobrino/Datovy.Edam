@@ -173,7 +173,7 @@ namespace Edam.Data.Schema.ImportExport
 
          // add document type
          string rootElementName = header.TableCatalog + typePostfix;
-         var documentSchema = DdlAsset.PrepareTypeDefinition(
+         var documentSchema = DdlAsset.PrepareTypeDefinition(ElementType.type,
             String.Empty, rootElementName, header.TableCatalog, ns.Prefix,
             Session.OrganizationId, ns);
          documentSchema.InclusionType = DataElementInclusionType.Exclude;
@@ -187,6 +187,7 @@ namespace Edam.Data.Schema.ImportExport
             // add schema type
             string tName = schema.asset.SchemaName + typePostfix;
             var parentSchema = DdlAsset.PrepareTypeDefinition(
+               ElementType.type,
                String.Empty, tName, schema.asset.SchemaName, schema.ns.Prefix,
                Session.OrganizationId, schema.ns);
             parentSchema.InclusionType = DataElementInclusionType.Exclude;
@@ -221,7 +222,7 @@ namespace Edam.Data.Schema.ImportExport
             header, null, ns, null, null, m_VersionId, 0);
 
          // add schema type
-         var rootSchema = DdlAsset.PrepareTypeDefinition(
+         var rootSchema = DdlAsset.PrepareTypeDefinition(ElementType.type,
             String.Empty, header.TableCatalog, header.TableCatalog, ns.Prefix,
             Session.OrganizationId, ns);
          //list.Add(rootSchema);

@@ -301,7 +301,8 @@ namespace Edam.Data.AssetManagement
       {
          get
          { 
-            return ElementType == Asset.ElementType.element;
+            return ElementType == ElementType.element ||
+                   ElementType == ElementType.attribute;
          }
       }
 
@@ -318,8 +319,11 @@ namespace Edam.Data.AssetManagement
       public bool IsType
       {
          get
-         { 
-            return ElementType == Asset.ElementType.type;
+         {
+            return ElementType == ElementType.type ||
+                   ElementType == ElementType.root ||
+                   ElementType == ElementType.view ||
+                   ElementType == ElementType.procedure;
          }
       }
 
