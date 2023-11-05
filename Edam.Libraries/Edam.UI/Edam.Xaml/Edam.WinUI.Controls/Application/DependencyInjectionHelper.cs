@@ -45,7 +45,7 @@ namespace Edam.WinUI.Helpers
             typeof(UIApp.AppSettings), AppSettings.APP_SETTINGS_SECTION_KEY);
          AppAssembly.RegisterType(
             AssetResourceHelper.ASSET_DDL_IMPORT_FILE_READER,
-            typeof(DdlImportReader), 
+            typeof(ImportReader), 
             AssetConsoleProcedure.DdlImportToAssets.ToString());
          AppAssembly.RegisterType(AssetResourceHelper.ASSET_MAPPING_LANGUAGE, 
             typeof(MapLanguageInfo), 

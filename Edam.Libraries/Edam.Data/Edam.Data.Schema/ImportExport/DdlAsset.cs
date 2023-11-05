@@ -42,15 +42,15 @@ namespace Edam.Data.Schema.ImportExport
       string schemaName = null;
       string prefix = String.Empty;
 
-      DdlImportItemInfo assetTable = null;
+      ImportItemInfo assetTable = null;
       AssetElementInfo<IAssetElement> ritem = null;
       List<AssetElementInfo<IAssetElement>> children = null;
-      public DdlImportItemInfo ImportItem { get; set; }
+      public ImportItemInfo ImportItem { get; set; }
 
       public List<AssetElementInfo<IAssetElement>> Tables = 
          new List<AssetElementInfo<IAssetElement>>();
 
-      public DdlAsset(DdlImportItemInfo header, NamespaceList namespaces,
+      public DdlAsset(ImportItemInfo header, NamespaceList namespaces,
          NamespaceInfo ns, DataTextMap mapper, string schemaName, 
          string versionId, int schemaCount = 0)
       {
@@ -99,7 +99,7 @@ namespace Edam.Data.Schema.ImportExport
       #region -- 4.00 - Properties Bag Support
 
       public void PreparePropertyBag(int schemaOrdinalNo,
-         DdlImportItemInfo item, List<AssetElementInfo<IAssetElement>> children,
+         ImportItemInfo item, List<AssetElementInfo<IAssetElement>> children,
          AssetDataElement element)
       {
          if (children == null)
@@ -146,7 +146,7 @@ namespace Edam.Data.Schema.ImportExport
          element.PropertiesBag = bag;
       }
 
-      private static List<MapInfo> GetMaps(DdlImportItemInfo item)
+      private static List<MapInfo> GetMaps(ImportItemInfo item)
       {
          List<MapInfo> maps = new List<MapInfo>();
 
@@ -249,7 +249,7 @@ namespace Edam.Data.Schema.ImportExport
          return ritem;
       }
 
-      public void PrepareTableDefinition(DdlImportItemInfo item,
+      public void PrepareTableDefinition(ImportItemInfo item,
          string tableOriginalName)
       {
          ImportItem = item;
@@ -278,7 +278,7 @@ namespace Edam.Data.Schema.ImportExport
       #endregion
 
       private AssetElementInfo<IAssetElement> ToAssetElement(
-         AssetElementInfo<IAssetElement> parent, DdlImportItemInfo item, 
+         AssetElementInfo<IAssetElement> parent, ImportItemInfo item, 
          NamespaceInfo ns, bool useItemType = false,
          bool isRootDocument = false)
       {
@@ -381,7 +381,7 @@ namespace Edam.Data.Schema.ImportExport
       /// <param name="isRootDocument"></param>
       /// <returns></returns>
       public AssetElementInfo<IAssetElement> PrepareElementDefinition(
-         AssetElementInfo<IAssetElement> ritem, DdlImportItemInfo item,
+         AssetElementInfo<IAssetElement> ritem, ImportItemInfo item,
          bool useItemType = false, bool isRootDocument = false)
       {
          var eitem = ToAssetElement(
@@ -417,7 +417,7 @@ namespace Edam.Data.Schema.ImportExport
       /// <param name="item"></param>
       /// <returns></returns>
       public AssetElementInfo<IAssetElement> PrepareColumnDefinition(
-         DdlImportItemInfo item)
+         ImportItemInfo item)
       {
          item.TableName = item.TableName.Trim();
          item.ColumnName = item.ColumnName.Trim();
@@ -455,7 +455,7 @@ namespace Edam.Data.Schema.ImportExport
             return;
          }
 
-         DdlImportItemInfo item = new DdlImportItemInfo();
+         ImportItemInfo item = new ImportItemInfo();
          decimal? maxLength = null;
 
          item.Dbms = "";

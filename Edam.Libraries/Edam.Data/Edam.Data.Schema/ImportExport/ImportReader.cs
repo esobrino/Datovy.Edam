@@ -16,18 +16,107 @@ using Edam.DataObjects.Models;
 using Edam.Data.Schema.DataDefinitionLanguage;
 using ObjAssets = Edam.DataObjects.Assets;
 using Edam.Data.Assets.AssetSchema;
+using reader = Edam.Text.StringReader;
 
 namespace Edam.Data.Schema.ImportExport
 {
 
-   public class DdlImportReader : IDataAssets
+   public class ImportReader : IDataAssets
    {
+      private const string CLASS_NAME = "ImportReader";
+
       private DataTextMap m_Mapper;
       private AssetConsoleArgumentsInfo m_Arguments;
 
       private string m_VersionId
       {
          get { return m_Arguments.Project.VersionId; }
+      }
+
+      public static ImportItemInfo ImportItem(List<string> values)
+      {
+         String func = "SetValues";
+         if (values.Count > 19)
+         {
+            throw new ArgumentException(CLASS_NAME + "::" + func +
+               ": Expected no more than 13, 15 or 19 columns got (" +
+               values.Count.ToString() + ")");
+         }
+
+         ImportItemInfo item = new ImportItemInfo();
+
+         if (values.Count <= 15)
+         {
+            item.Dbms = reader.GetString(values[0]);
+            item.TableCatalog = reader.GetString(values[1]);
+            item.TableSchema = reader.GetString(values[2]);
+            item.TableName = reader.GetString(values[3]);
+            item.ColumnName = reader.GetString(values[4]);
+            item.OrdinalPosition = reader.GetLong(values[5]);
+            item.DataType = reader.GetString(values[6]);
+            item.CharacterMaximumLength = reader.GetDecimal(values[7]);
+            item.ConstraintType = reader.GetString(values[8]);
+            item.ConstraintTableSchema = reader.GetString(values[9]);
+            item.ConstraintTableName = reader.GetString(values[10]);
+            item.ConstraintColumnName = reader.GetString(values[11]);
+
+            item.IsIdentity = (values.Count > 12) ?
+               reader.GetBool(values[12]) : false;
+            item.Tags = (values.Count > 13) ?
+               reader.GetString(values[13]) : String.Empty;
+            item.ColumnDescription = (values.Count > 14) ?
+               reader.GetString(values[14]) : String.Empty;
+         }
+         else if (values.Count == 19)
+         {
+            item.Dbms = reader.GetString(values[0]);
+            item.TableCatalog = reader.GetString(values[1]);
+            item.TableSchema = reader.GetString(values[2]);
+            item.ObjectName = reader.GetString(values[3]);
+            item.ColumnName = reader.GetString(values[4]);
+            item.OrdinalPosition = reader.GetLong(values[5]);
+            item.DataType = reader.GetString(values[6]);
+            item.CharacterMaximumLength = reader.GetDecimal(values[7]);
+
+            item.Precision = reader.GetInteger(values[8]);
+            item.Scale = reader.GetInteger(values[9]);
+
+            item.IsOutput = reader.GetBool(values[10]);
+            item.IsReadOnly = reader.GetBool(values[11]);
+            item.IsNullable = reader.GetBool(values[12]);
+            item.IsIdentity = reader.GetBool(values[13]);
+
+            string otype = reader.GetString(values[14]).ToUpper();
+            switch (otype)
+            {
+               case "PROCEDURE":
+                  item.ObjectType = ElementType.procedure;
+                  break;
+               case "FUNCTION":
+                  item.ObjectType = ElementType.function;
+                  break;
+               case "VIEW":
+                  item.ObjectType = ElementType.view;
+                  break;
+               case "TABLE":
+               default:
+                  item.ObjectType = ElementType.type;
+                  break;
+            }
+
+            item.ConstraintType = reader.GetString(values[15]);
+            item.ConstraintTableSchema = reader.GetString(values[16]);
+            item.ConstraintTableName = reader.GetString(values[17]);
+            item.ConstraintColumnName = reader.GetString(values[18]);
+
+            if (item.ObjectType == ElementType.procedure ||
+                item.ObjectType == ElementType.function)
+            {
+               item.ColumnName = item.ColumnName.Replace("@", "");
+            }
+         }
+
+         return item;
       }
 
       public List<string> GetFileList(AssetConsoleArgumentsInfo arguments)
@@ -50,7 +139,7 @@ namespace Edam.Data.Schema.ImportExport
       }
 
       public List<AssetData> ToAssetData(
-         AssetProperties assetProperties, List<DdlImportItemInfo> items,
+         AssetProperties assetProperties, List<ImportItemInfo> items,
          NamespaceList namespaces, string rootName)
       {
          if (items == null || items.Count == 0)
@@ -159,7 +248,7 @@ namespace Edam.Data.Schema.ImportExport
       }
 
       private AssetDataElementList PrepareCatalogDocument(
-         DdlImportItemInfo header,
+         ImportItemInfo header,
          SortedDictionary<string, DdlAsset> asset, NamespaceInfo ns)
       {
          var appSettings = AppAssembly.FetchInstance(
@@ -197,13 +286,13 @@ namespace Edam.Data.Schema.ImportExport
             foreach (var table in schema.Tables)
             {
                var item = schema.PrepareElementDefinition(
-                  parentSchema, table.Item as DdlImportItemInfo, true);
+                  parentSchema, table.Item as ImportItemInfo, true);
                item.MaxOccurrence = int.MaxValue;
                item.InclusionType = DataElementInclusionType.Exclude;
                list.Add(item);
             }
 
-            DdlImportItemInfo itm = new DdlImportItemInfo();
+            ImportItemInfo itm = new ImportItemInfo();
             itm.TableSchema = String.Empty;
             itm.ColumnName = schema.ns.Prefix + ":" + schema.asset.SchemaName;
             itm.DataType = parentSchema.DataType;
@@ -228,7 +317,7 @@ namespace Edam.Data.Schema.ImportExport
          //list.Add(rootSchema);
 
          // add schema as a child of document
-         DdlImportItemInfo ritm = new DdlImportItemInfo();
+         ImportItemInfo ritm = new ImportItemInfo();
          ritm.TableSchema = String.Empty;
          ritm.ColumnName = rootSchema.ElementName;
          ritm.DataType = rootSchema.DataType;
@@ -250,13 +339,19 @@ namespace Edam.Data.Schema.ImportExport
          return list;
       }
 
+      /// <summary>
+      /// Read input file as specified in arguments and convert it to a Data 
+      /// Asset (collection of Data Elements).
+      /// </summary>
+      /// <param name="arguments">arguments</param>
+      /// <returns>results log</returns>
       public IResultsLog ToAsset(AssetConsoleArgumentsInfo arguments)
       {
          m_Arguments = arguments;
 
          IResultsLog resultsLog = new ResultLog();
 
-         List<DdlImportItemInfo> rows = new List<DdlImportItemInfo>();
+         List<ImportItemInfo> rows = new List<ImportItemInfo>();
          NamespaceList namespaces = new NamespaceList();
          namespaces.Add(arguments.Namespace);
 
@@ -292,7 +387,7 @@ namespace Edam.Data.Schema.ImportExport
                   {
                      break;
                   }
-                  rows.Add(new DdlImportItemInfo(list));
+                  rows.Add(ImportItem(list));
                }
 
                // remove header row
