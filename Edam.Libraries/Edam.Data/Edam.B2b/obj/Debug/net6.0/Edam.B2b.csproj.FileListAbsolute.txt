@@ -31,3 +31,4 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.B2b\obj\Debug\net6.0\Edam.B2b.
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.B2b\obj\Debug\net6.0\refint\Edam.B2b.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.B2b\obj\Debug\net6.0\Edam.B2b.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.B2b\obj\Debug\net6.0\ref\Edam.B2b.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.B2b\obj\Debug\net6.0\Edam.B2b.sourcelink.json

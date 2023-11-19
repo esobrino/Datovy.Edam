@@ -41,3 +41,4 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI.DataModel\obj\Debug\net6.0-wi
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI.DataModel\obj\Debug\net6.0-windows10.0.19041.0\qualifiers.txt
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI.DataModel\obj\Debug\net6.0-windows10.0.19041.0\qualifiers.txt.intermediate
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI.DataModel\obj\Debug\net6.0-windows10.0.19041.0\MultipleQualifiersPerDimensionFound.txt
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.UI\Edam.UI.DataModel\obj\Debug\net6.0-windows10.0.19041.0\Edam.UI.DataModel.sourcelink.json

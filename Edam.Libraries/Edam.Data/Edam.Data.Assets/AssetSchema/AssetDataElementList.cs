@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Formats.Asn1;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -78,6 +79,10 @@ namespace Edam.Data.AssetSchema
          }
       }
 
+      /// <summary>
+      /// Add element.
+      /// </summary>
+      /// <param name="element">element to add</param>
       public new void Add(AssetDataElement element)
       {
          // check to see if... the element already exists?
@@ -114,6 +119,11 @@ namespace Edam.Data.AssetSchema
          base.Add(element);
       }
 
+      /// <summary>
+      /// Get element namespace.
+      /// </summary>
+      /// <param name="element">element to inspect</param>
+      /// <returns>found URI</returns>
       public static Uri GetNamespace(AssetDataElement element)
       {
          if (String.IsNullOrWhiteSpace(element.Namespace))
@@ -124,6 +134,11 @@ namespace Edam.Data.AssetSchema
          return new Uri(element.NamespaceText);
       }
 
+      /// <summary>
+      /// Get element namespace.
+      /// </summary>
+      /// <param name="element">element to inspect</param>
+      /// <returns>found URI</returns>
       public static Uri GetNamespace(DataElement element)
       {
          if (String.IsNullOrWhiteSpace(element.NamespaceText))
@@ -134,11 +149,19 @@ namespace Edam.Data.AssetSchema
          return new Uri(element.NamespaceText);
       }
 
+      /// <summary>
+      /// Set namespace base on given element namespace.
+      /// </summary>
+      /// <param name="element">element to inspect</param>
       public static void SetNamespace(AssetDataElement element)
       {
          Uri ns = GetNamespace(element);
       }
 
+      /// <summary>
+      /// Set namespace base on given element namespace.
+      /// </summary>
+      /// <param name="element">element to inspect</param>
       public static void SetNamespace(DataElement element)
       {
          Uri ns = GetNamespace(element);
@@ -228,14 +251,40 @@ namespace Edam.Data.AssetSchema
       }
 
       /// <summary>
+      /// Get the Data Type corresponding element type definition.
+      /// </summary>
+      /// <param name="items">list of items to be searched</param>
+      /// <param name="element">ellement whose data-type will be searched
+      /// </param>
+      /// <returns>instance of AssetDataElement is returned if found</returns>
+      public static AssetDataElement GetDataType(
+         AssetDataElementList items, AssetDataElement element)
+      {
+         // if element is a not a type definition, then look at its DataType
+         var typ = items.Find((x) => x.ElementName == element.DataType);
+         if (typ != null)
+         {
+            element = typ;
+         }
+         return element;
+      }
+
+      /// <summary>
       /// Get the Children of a given element.
       /// </summary>
       /// <param name="items">list of items to search</param>
       /// <param name="element">based element type</param>
       /// <returns>Children of the type is returned</returns>
-      public static AssetDataItem GetChildren(AssetDataElementList items,
-         AssetDataElement element)
+      public static AssetDataItem GetChildren(
+         AssetDataElementList items, AssetDataElement element)
       {
+         // if element is a not a type definition, then look at its DataType
+         if (String.IsNullOrWhiteSpace(element.EntityName))
+         {
+            element = GetDataType(items, element);
+         }
+
+         // now get type children...
          AssetDataItem item = new AssetDataItem();
          item.Element = element;
          item.Children = GetChildren(

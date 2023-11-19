@@ -21,3 +21,4 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Application\Edam.Application\obj\Debug\n
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Application\Edam.Application\obj\Debug\net6.0\refint\Edam.Application.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Application\Edam.Application\obj\Debug\net6.0\Edam.Application.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Application\Edam.Application\obj\Debug\net6.0\ref\Edam.Application.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Application\Edam.Application\obj\Debug\net6.0\Edam.Application.sourcelink.json

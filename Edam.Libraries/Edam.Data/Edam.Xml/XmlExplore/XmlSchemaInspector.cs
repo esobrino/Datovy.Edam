@@ -120,7 +120,7 @@ namespace Edam.Xml.XmlExplore
       #region -- Annotations support
 
       public static void AssetSchemaAnnotation(
-         XmlSchemaAnnotation annotation, IAssetElement asset)
+         XmlSchemaAnnotation annotation, IAssetElement element)
       {
          if (annotation == null || annotation.Items == null)
             return;
@@ -135,11 +135,11 @@ namespace Edam.Xml.XmlExplore
                XmlNode node = doc.Markup[c];
                if (node == null)
                   continue;
-               if (asset.Annotation == null)
-                  asset.Annotation = new List<string>();
+               if (element.Annotation == null)
+                  element.Annotation = new List<string>();
                var txt = 
                   node.InnerText.Replace("\r", "").Replace("\n", "").Trim();
-               asset.Annotation.Add(txt);
+               element.Annotation.Add(txt);
             }
          }
       }
@@ -354,6 +354,10 @@ namespace Edam.Xml.XmlExplore
             AutoGenerateType = ConstraintType.none,
             TypeQualifiedName = typeQName
          };
+
+         string note = Text.Convert.ToProperCase(
+            a.ElementQualifiedName.OriginalName).Trim();
+         a.AddAnnotation(note);
 
          AssetSchemaAnnotation(type.Annotation, a);
          a.AddQualifiedTypeName(a.ElementQualifiedName);

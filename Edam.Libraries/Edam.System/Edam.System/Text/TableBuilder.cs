@@ -63,6 +63,12 @@ namespace Edam.Text
          m_ColumnIndex = 0;
          return this;
       }
+
+      public ITableBuilder AppendRowCellLast()
+      {
+         m_ColumnIndex = 0;
+         return this;
+      }
       public ITableBuilder AppendRowCell(String text)
       {
          if (m_ColumnIndex > 0)

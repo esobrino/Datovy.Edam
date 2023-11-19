@@ -14,6 +14,24 @@ namespace Edam.Xml.OpenXml
    {
 
       /// <summary>
+      /// Is Empty List...
+      /// </summary>
+      /// <param name="list">list of strings to evaluate</param>
+      /// <returns>true is returned if it is an empty list</returns>
+      public static bool IsEmptyList(List<string> list)
+      {
+         int cnt = 0;
+         foreach (var item in list)
+         {
+            if (String.IsNullOrWhiteSpace(item))
+            {
+               cnt++;
+            }
+         }
+         return cnt == list.Count;
+      }
+
+      /// <summary>
       /// Read document if the worksheet to be found by name is found, else
       /// failure will be returned if there was an exception or the worksheet
       /// is not found (EventCode == ReferenceNotFound).

@@ -35,6 +35,7 @@ namespace Edam.Data.AssetConsole
       [JsonIgnore]
       public AssetUseCaseList UseCases { get; set; }
 
+      public LexiconInfo Lexicon { get; set; } = new LexiconInfo();
       public prj.ProjectInfo Project { get; set; }
       public ProcessInfo Process { get; set; }
       public AssetArgumentOptions Options { get; set; }
@@ -190,6 +191,19 @@ namespace Edam.Data.AssetConsole
       {
          get { return Domain.Description; }
          set { Domain.Description = value; }
+      }
+
+      [JsonIgnore]
+      public String DomainBusiness
+      {
+         get { return Domain.Business; }
+         set { Domain.Business = value; }
+      }
+      [JsonIgnore]
+      public String DomainBusinessId
+      {
+         get { return Domain.BusinessId; }
+         set { Domain.BusinessId = value; }
       }
 
       // namespace details

@@ -40,6 +40,8 @@ namespace Edam.Data.Schema.ImportExport
       public string Tags { get; set; }
       public string ColumnDescription { get; set; }
 
+      public string MetadataBag { get; set; }
+
       public string TableName
       {
          get { return ObjectName; }

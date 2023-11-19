@@ -29,3 +29,4 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\refint\Edam.Data.AssetDb.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\ref\Edam.Data.AssetDb.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetDb\obj\Debug\net6.0\Edam.Data.AssetDb.sourcelink.json

@@ -33,13 +33,19 @@ namespace Edam.Data.Schema.ImportExport
          get { return m_Arguments.Project.VersionId; }
       }
 
+      /// <summary>
+      /// Import an Item (Table, Function, View, or Stored-Procedure)
+      /// </summary>
+      /// <param name="values">list of values</param>
+      /// <returns>instance of ImportItemInfo is returned with info</returns>
+      /// <exception cref="ArgumentException"></exception>
       public static ImportItemInfo ImportItem(List<string> values)
       {
          String func = "SetValues";
-         if (values.Count > 19)
+         if (values.Count > 21)
          {
             throw new ArgumentException(CLASS_NAME + "::" + func +
-               ": Expected no more than 13, 15 or 19 columns got (" +
+               ": Expected no more than 13, 15 or 19/21 columns got (" +
                values.Count.ToString() + ")");
          }
 
@@ -67,7 +73,9 @@ namespace Edam.Data.Schema.ImportExport
             item.ColumnDescription = (values.Count > 14) ?
                reader.GetString(values[14]) : String.Empty;
          }
-         else if (values.Count == 19)
+
+         // the following support an enhace schema with all object types
+         else if (values.Count >= 19)
          {
             item.Dbms = reader.GetString(values[0]);
             item.TableCatalog = reader.GetString(values[1]);
@@ -114,6 +122,12 @@ namespace Edam.Data.Schema.ImportExport
             {
                item.ColumnName = item.ColumnName.Replace("@", "");
             }
+
+            if (values.Count == 21)
+            {
+               item.Tags = reader.GetString(values[19]);
+               item.ColumnDescription = reader.GetString(values[20]);
+            }
          }
 
          return item;
@@ -138,6 +152,14 @@ namespace Edam.Data.Schema.ImportExport
          return null;
       }
 
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="assetProperties"></param>
+      /// <param name="items"></param>
+      /// <param name="namespaces"></param>
+      /// <param name="rootName"></param>
+      /// <returns></returns>
       public List<AssetData> ToAssetData(
          AssetProperties assetProperties, List<ImportItemInfo> items,
          NamespaceList namespaces, string rootName)
@@ -247,6 +269,13 @@ namespace Edam.Data.Schema.ImportExport
          return assets;
       }
 
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="header"></param>
+      /// <param name="asset"></param>
+      /// <param name="ns"></param>
+      /// <returns></returns>
       private AssetDataElementList PrepareCatalogDocument(
          ImportItemInfo header,
          SortedDictionary<string, DdlAsset> asset, NamespaceInfo ns)
@@ -372,20 +401,12 @@ namespace Edam.Data.Schema.ImportExport
                fname, arguments.Domain.DomainId);
             if (results.Success)
             {
-               int cnt;
                foreach(var list in results.Data)
                {
-                  cnt = 0;
-                  foreach (var item in list)
+                  // skip empty rows
+                  if (ExcelDocumentReader.IsEmptyList(list))
                   {
-                     if (String.IsNullOrWhiteSpace(item))
-                     {
-                        cnt++;
-                     }
-                  }
-                  if (list.Count == cnt)
-                  {
-                     break;
+                     continue;
                   }
                   rows.Add(ImportItem(list));
                }

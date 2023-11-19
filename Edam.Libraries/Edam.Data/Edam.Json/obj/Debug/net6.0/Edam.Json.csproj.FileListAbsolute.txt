@@ -15,3 +15,4 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Debug\net6.0\Edam.Jso
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Debug\net6.0\refint\Edam.Json.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Debug\net6.0\Edam.Json.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Debug\net6.0\ref\Edam.Json.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Json\obj\Debug\net6.0\Edam.Json.sourcelink.json

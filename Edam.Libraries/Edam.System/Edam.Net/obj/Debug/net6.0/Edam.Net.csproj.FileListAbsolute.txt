@@ -13,3 +13,4 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Net\obj\Debug\net6.0\Edam.Ne
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Net\obj\Debug\net6.0\refint\Edam.Net.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Net\obj\Debug\net6.0\Edam.Net.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Net\obj\Debug\net6.0\ref\Edam.Net.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Net\obj\Debug\net6.0\Edam.Net.sourcelink.json

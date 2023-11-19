@@ -13,3 +13,4 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Debug\net6.0\Ed
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Debug\net6.0\refint\Edam.Security.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Debug\net6.0\Edam.Security.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Debug\net6.0\ref\Edam.Security.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.System\Edam.Security\obj\Debug\net6.0\Edam.Security.sourcelink.json

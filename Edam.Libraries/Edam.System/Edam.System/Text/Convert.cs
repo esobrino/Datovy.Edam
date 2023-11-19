@@ -142,7 +142,7 @@ namespace Edam.Text
       /// </summary>
       /// <param name="value">string to operate on</param>
       /// <returns>a clean string is returned</returns>
-      static string CleanString(string value)
+      public static string CleanString(string value)
       {
          // Replace invalid characters with empty strings.
          try

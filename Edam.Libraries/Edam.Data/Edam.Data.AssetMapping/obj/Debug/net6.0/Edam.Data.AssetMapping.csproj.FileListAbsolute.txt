@@ -17,3 +17,4 @@ C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetMapping\obj\Debug\ne
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetMapping\obj\Debug\net6.0\refint\Edam.Data.AssetMapping.dll
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetMapping\obj\Debug\net6.0\Edam.Data.AssetMapping.pdb
 C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetMapping\obj\Debug\net6.0\ref\Edam.Data.AssetMapping.dll
+C:\prjs\Datovy.Edam\Edam.Libraries\Edam.Data\Edam.Data.AssetMapping\obj\Debug\net6.0\Edam.Data.AssetMapping.sourcelink.json

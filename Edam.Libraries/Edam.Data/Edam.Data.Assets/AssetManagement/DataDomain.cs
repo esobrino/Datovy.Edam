@@ -21,6 +21,8 @@ namespace Edam.Data.AssetManagement
       public string DomainId { get; set; }
       public string DomainUri { get; set; }
       public string DomainName { get; set; }
+      public string Business { get; set; }
+      public string BusinessId { get; set; }
       public string Description { get; set; }
       public string UpdateSessionId { get; set; }
       public string RecordStatusCode { get; set; }

@@ -1,7 +1,9 @@
 ﻿using Edam.Application;
 using Edam.Data.Asset.Services;
 using Edam.Data.AssetConsole;
+using Edam.Data.AssetManagement.Writers.Ddl;
 using Edam.Diagnostics;
+using Edam.Data.AssetProject;
 using Edam.InOut;
 using System;
 using System.Collections.Generic;
@@ -56,6 +58,29 @@ namespace Edam.Test.Library.Project
          ResultsLog<object> presults = ProjectConsole.ProcessItem(item);
          return presults.Success ? 
             presults.ResultValueObject as AssetConsoleArgumentsInfo : null;
+      }
+
+      /// <summary>
+      /// Get Test Data Assets...
+      /// </summary>
+      /// <returns></returns>
+      public static AssetConsoleArgumentsInfo? GetTestDataAssets()
+      {
+         ItemBaseInfo item = new ItemBaseInfo();
+         string appPath = AppData.GetApplicationDataFolder();
+         item.FromFullPath(
+            appPath + "Projects/Datovy.HC.CD/" +
+            "Arguments/0001.HC.CD.Full.ToAssets.Args.json", null);
+         ResultsLog<object> presults = ProjectConsole.ProcessItem(item);
+
+         // write DDL
+         AssetConsoleArgumentsInfo? args = null;
+         if (presults.Success)
+         {
+            args = (AssetConsoleArgumentsInfo)presults.ResultValueObject;
+            Edam.Data.AssetProject.Project.GotoProject(args);
+         }
+         return args;
       }
 
    }

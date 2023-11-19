@@ -16,6 +16,7 @@ namespace Edam.Text
       ITableBuilder AppendRow(
          String text, String delimeter = ",", UInt32 styleNo = 0U);
       ITableBuilder AppendRowCellLast(String text = null);
+      ITableBuilder AppendRowCellLast();
       ITableBuilder AppendRowCell(String text);
       ITableBuilder AppendColumn(
          UInt32 columnIndex, bool hidden = false, bool bestFit = true);

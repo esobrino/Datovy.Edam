@@ -83,13 +83,21 @@ namespace Edam.Xml.OpenXml
          List<string> columns, string headerText = null,
          uint rowStyle = (uint)TableRowStyle.Fill3Border1Font14)
       {
-         string header = headerText;
+         string header = headerText +
+            (String.IsNullOrWhiteSpace(headerText) ||  columns.Count == 0 ? 
+               String.Empty : ",");
 
          // add additional columns to append in each row
+         int cnt = 0;
          StringBuilder sb = new StringBuilder();
          foreach (var c in columns)
          {
-            sb.Append("," + c);
+            if (cnt > 0)
+            {
+               sb.Append(",");
+            }
+            sb.Append(c);
+            cnt++;
          }
          header += sb.ToString();
 
@@ -165,11 +173,15 @@ namespace Edam.Xml.OpenXml
       public ITableBuilder AppendRowCellLast(string text = null)
       {
          var txt = text ?? String.Empty;
-         if (!String.IsNullOrEmpty(text))
-         {
-            m_Document.InsertCellText(
-               m_CurrentColumnIndex, m_CurrentRowIndex, txt, m_CurrentStyleNo);
-         }
+         m_Document.InsertCellText(
+            m_CurrentColumnIndex, m_CurrentRowIndex, txt, m_CurrentStyleNo);
+         m_CurrentRowIndex++;
+         m_CurrentColumnIndex = 1;
+         return this;
+      }
+
+      public ITableBuilder AppendRowCellLast()
+      {
          m_CurrentRowIndex++;
          m_CurrentColumnIndex = 1;
          return this;

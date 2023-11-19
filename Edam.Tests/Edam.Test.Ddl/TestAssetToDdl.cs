@@ -9,6 +9,7 @@ using Edam.Data.Asset.Services;
 using Edam.InOut;
 using Edam.Application;
 using Edam.Data.AssetManagement.Writers.Ddl;
+using Edam.Test.Library.Project;
 
 namespace Edam.Test.Ddl
 {
@@ -26,19 +27,9 @@ namespace Edam.Test.Ddl
       [TestMethod]
       public void TestAssetToDdlFiles()
       {
-         ItemBaseInfo item = new ItemBaseInfo();
-         string appPath = AppData.GetApplicationDataFolder();
-         item.FromFullPath(
-            appPath + "Projects/Datovy.HC.RVCT/" +
-            "Arguments/0002.HC.RVCT.ToDdl.Args.json", null);
-         ResultsLog<object> presults = ProjectConsole.ProcessItem(item);
-
-         // write DDL
-         if (presults.Success)
+         var args = ProjectHelper.GetTestDataAssets();
+         if (args != null)
          {
-            AssetConsoleArgumentsInfo args = 
-               (AssetConsoleArgumentsInfo)presults.ResultValueObject;
-            Project.GotoProject(args);
             DdlWriter.WriteSchema(args);
          }
       }

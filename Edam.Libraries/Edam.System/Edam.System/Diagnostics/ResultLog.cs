@@ -444,16 +444,18 @@ namespace Edam.Diagnostics
       }
 
       /// <summary>
-      /// Trace message 
+      /// Trace message.
       /// </summary>
       /// <param name="message">message to trace</param>
       /// <param name="source">source</param>
-      public static void Trace(string message, string source = null)
+      /// <param name="level">severity level</param>
+      public static void Trace(string message, string source = null, 
+         SeverityLevel? level = null)
       {
          IMessageLogEntry entry = new MessageLogEntry();
          entry.Message = message;
          entry.Source = source;
-         entry.Severity = SeverityLevel.Info;
+         entry.Severity = level.HasValue ? level.Value : SeverityLevel.Info;
          
          DefaultLog.Write(entry);
       }

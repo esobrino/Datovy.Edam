@@ -556,33 +556,33 @@ namespace Edam.Data.AssetSchema
       }
 
       public static void CompleteElementUpdate(
-         AssetDataElement asset, NamespaceInfo ns, string versionId = null)
+         AssetDataElement element, NamespaceInfo ns, string versionId = null)
       {
-         asset.ElementNo = 0;
+         element.ElementNo = 0;
 
-         asset.Root = ns.NamePath.Root;
-         asset.Domain = ns.NamePath.Domain;
-         asset.Element = asset.ElementName;
-         asset.VersionId = String.IsNullOrWhiteSpace(versionId) ?
+         element.Root = ns.NamePath.Root;
+         element.Domain = ns.NamePath.Domain;
+         element.Element = element.ElementName;
+         element.VersionId = String.IsNullOrWhiteSpace(versionId) ?
             DEFAULT_VERSION : versionId;
-         asset.UpdateSessionId = Edam.Application.Session.SessionId;
-         asset.ElementUri = String.IsNullOrWhiteSpace(asset.ElementUri) ?
-            asset.ElementUriText : asset.ElementUri;
-         asset.LastUpdateDate = asset.ReferenceDate = DateTime.UtcNow;
-         asset.SchemaText = String.Empty;
+         element.UpdateSessionId = Edam.Application.Session.SessionId;
+         element.ElementUri = String.IsNullOrWhiteSpace(element.ElementUri) ?
+            element.ElementUriText : element.ElementUri;
+         element.LastUpdateDate = element.ReferenceDate = DateTime.UtcNow;
+         element.SchemaText = String.Empty;
 
-         if (asset.Type == null)
+         if (element.Type == null)
          {
-            asset.Type = String.Empty;
+            element.Type = String.Empty;
          }
 
-         if (String.IsNullOrWhiteSpace(asset.OrganizationId))
+         if (String.IsNullOrWhiteSpace(element.OrganizationId))
          {
-            asset.OrganizationId = Session.OrganizationId;
+            element.OrganizationId = Session.OrganizationId;
          }
-         if (String.IsNullOrWhiteSpace(asset.DataOwnerId))
+         if (String.IsNullOrWhiteSpace(element.DataOwnerId))
          {
-            asset.DataOwnerId = Session.OrganizationId;
+            element.DataOwnerId = Session.OrganizationId;
          }
       }
 
