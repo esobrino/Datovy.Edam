@@ -17,6 +17,7 @@ using Edam.Data.AssetSchema;
 using Edam.Data.AssetReport;
 using Edam.Application;
 using Edam.Data.Lexicon.ImportExport;
+using System.Xml.Linq;
 
 namespace Edam.Data.Lexicon.ImportExport
 {
@@ -63,6 +64,9 @@ namespace Edam.Data.Lexicon.ImportExport
          item.Description = String.Empty;
          item.Notes = String.Empty;
 
+         item.KeyID = VerifyKeyId(item);
+         VerifyReferenceLexicon(item);
+
          m_DataSet.Areas.Add(item);
 
          return item;
@@ -101,6 +105,9 @@ namespace Edam.Data.Lexicon.ImportExport
          eitem.Description = String.IsNullOrWhiteSpace(item.Description) ?
             item.AnnotationText : item.Description;
          eitem.Notes = String.Empty;
+
+         eitem.KeyID = VerifyKeyId(eitem);
+         VerifyReferenceLexicon(eitem);
 
          m_DataSet.Entities.Add(eitem);
 
@@ -142,6 +149,9 @@ namespace Edam.Data.Lexicon.ImportExport
             item.AnnotationText : item.Description;
          element.Notes = String.Empty;
          element.MetadataBag = String.Empty;
+
+         element.KeyID = VerifyKeyId(element);
+         VerifyReferenceLexicon(element);
 
          m_DataSet.Elements.Add(element);
 
@@ -186,6 +196,9 @@ namespace Edam.Data.Lexicon.ImportExport
          relationship.Description = constraint.ContraintDescription;
          relationship.Notes = string.Empty;
 
+         relationship.KeyID = VerifyKeyId(relationship);
+         VerifyReferenceLexicon(relationship);
+
          m_DataSet.Relationships.Add(relationship);
 
          return relationship;
@@ -209,6 +222,7 @@ namespace Edam.Data.Lexicon.ImportExport
          items.Add(nameof(LexiconItemInfo.Uri));
          items.Add(nameof(LexiconItemInfo.Synonyms));
          items.Add(nameof(LexiconItemInfo.Aliases));
+         items.Add(nameof(LexiconItemInfo.Labels));
          items.Add(nameof(LexiconItemInfo.Description));
          items.Add(nameof(LexiconItemInfo.Notes));
 
@@ -253,7 +267,7 @@ namespace Edam.Data.Lexicon.ImportExport
          // add areas
          foreach (var item in m_DataSet.Areas)
          {
-            builder.AppendRowCell(item.Value.KeyID);
+            builder.AppendRowCell(VerifyKeyId(item.Value));
             builder.AppendRowCell(item.Value.BusinessDomainID);
             builder.AppendRowCell(item.Value.AreaInclude.ToString());
             builder.AppendRowCell(item.Value.AreaName);
@@ -263,6 +277,8 @@ namespace Edam.Data.Lexicon.ImportExport
             builder.AppendRowCell(item.Value.Base);
             builder.AppendRowCell(item.Value.Description);
             builder.AppendRowCellLast(item.Value.Notes);
+
+            VerifyReferenceLexicon(item.Value);
          }
       }
 
@@ -294,7 +310,7 @@ namespace Edam.Data.Lexicon.ImportExport
          // add entities
          foreach (var item in m_DataSet.Entities)
          {
-            builder.AppendRowCell(item.Value.KeyID);
+            builder.AppendRowCell(VerifyKeyId(item.Value));
             builder.AppendRowCell(item.Value.BusinessDomainID);
             builder.AppendRowCell(item.Value.BusinessAreaID);
             builder.AppendRowCell(item.Value.EntityInclude.ToString());
@@ -305,6 +321,8 @@ namespace Edam.Data.Lexicon.ImportExport
             builder.AppendRowCell(item.Value.Base);
             builder.AppendRowCell(item.Value.Description);
             builder.AppendRowCellLast(item.Value.Notes);
+
+            VerifyReferenceLexicon(item.Value);
          }
       }
 
@@ -338,7 +356,7 @@ namespace Edam.Data.Lexicon.ImportExport
          // add elements
          foreach (var item in m_DataSet.Elements)
          {
-            builder.AppendRowCell(item.Value.KeyID);
+            builder.AppendRowCell(VerifyKeyId(item.Value));
             builder.AppendRowCell(item.Value.BusinessDomainID);
             builder.AppendRowCell(item.Value.BusinessAreaID);
             builder.AppendRowCell(item.Value.EntityName);
@@ -351,6 +369,8 @@ namespace Edam.Data.Lexicon.ImportExport
             builder.AppendRowCell(item.Value.Confidence.ToString());
             builder.AppendRowCell(item.Value.Description);
             builder.AppendRowCellLast(item.Value.Notes);
+
+            VerifyReferenceLexicon(item.Value);
          }
       }
 
@@ -383,7 +403,7 @@ namespace Edam.Data.Lexicon.ImportExport
          // add relationships
          foreach (var item in m_DataSet.Relationships)
          {
-            builder.AppendRowCell(item.Value.KeyID);
+            builder.AppendRowCell(VerifyKeyId(item.Value));
             builder.AppendRowCell(item.Value.RelationshipID);
             builder.AppendRowCell(item.Value.BusinessDomainID);
             builder.AppendRowCell(item.Value.BusinessAreaID);
@@ -395,6 +415,8 @@ namespace Edam.Data.Lexicon.ImportExport
             builder.AppendRowCell(item.Value.ReferenceElementName);
             builder.AppendRowCell(item.Value.Description);
             builder.AppendRowCellLast(item.Value.Notes);
+
+            VerifyReferenceLexicon(item.Value);
          }
       }
 
@@ -422,13 +444,15 @@ namespace Edam.Data.Lexicon.ImportExport
          // add terms
          foreach (var item in m_DataSet.Terms)
          {
-            builder.AppendRowCell(item.Value.KeyID);
+            builder.AppendRowCell(VerifyKeyId(item.Value));
             builder.AppendRowCell(item.Value.BusinessDomainID);
             builder.AppendRowCell(item.Value.Category);
             builder.AppendRowCell(item.Value.Tag);
             builder.AppendRowCell(item.Value.Term);
             builder.AppendRowCell(item.Value.Synonyms);
             builder.AppendRowCellLast(item.Value.Description);
+
+            VerifyReferenceLexicon(item.Value);
          }
       }
 
@@ -442,6 +466,7 @@ namespace Edam.Data.Lexicon.ImportExport
 
          // prepare header
          List<string> items = new List<string>();
+         items.Add(nameof(TagItemInfo.KeyID));
          items.Add(nameof(TagItemInfo.ScopeID));
          items.Add(nameof(TagItemInfo.TagID));
          items.Add(nameof(TagItemInfo.Name));
@@ -453,10 +478,13 @@ namespace Edam.Data.Lexicon.ImportExport
          // add tags
          foreach (var item in m_DataSet.Tags)
          {
+            builder.AppendRowCell(VerifyKeyId(item.Value));
             builder.AppendRowCell(item.Value.ScopeID);
             builder.AppendRowCell(item.Value.TagID);
             builder.AppendRowCell(item.Value.Name);
             builder.AppendRowCellLast(item.Value.Notes);
+
+            VerifyReferenceLexicon(item.Value);
          }
       }
 
@@ -470,6 +498,7 @@ namespace Edam.Data.Lexicon.ImportExport
 
          // prepare header
          List<string> items = new List<string>();
+         items.Add(nameof(MetadataItemInfo.KeyID));
          items.Add(nameof(MetadataItemInfo.ScopeID));
          items.Add(nameof(MetadataItemInfo.ElementID));
          items.Add(nameof(MetadataItemInfo.Value));
@@ -482,11 +511,14 @@ namespace Edam.Data.Lexicon.ImportExport
          // add metadata
          foreach (var item in m_DataSet.Metadata)
          {
+            builder.AppendRowCell(VerifyKeyId(item.Value));
             builder.AppendRowCell(item.Value.ScopeID);
             builder.AppendRowCell(item.Value.ElementID);
             builder.AppendRowCell(item.Value.Value);
             builder.AppendRowCell(item.Value.Synonyms);
             builder.AppendRowCellLast(item.Value.Description);
+
+            VerifyReferenceLexicon(item.Value);
          }
       }
 
@@ -500,6 +532,7 @@ namespace Edam.Data.Lexicon.ImportExport
 
          // prepare header
          List<string> items = new List<string>();
+         items.Add(nameof(voca.UriItemInfo.KeyID));
          items.Add(nameof(voca.UriItemInfo.ScopeID));
          items.Add(nameof(voca.UriItemInfo.Prefix));
          items.Add(nameof(voca.UriItemInfo.URI));
@@ -511,11 +544,44 @@ namespace Edam.Data.Lexicon.ImportExport
          // add uris
          foreach (var item in m_DataSet.Uris)
          {
+            builder.AppendRowCell(VerifyKeyId(item.Value));
             builder.AppendRowCell(item.Value.ScopeID);
             builder.AppendRowCell(item.Value.Prefix);
             builder.AppendRowCell(item.Value.URI);
             builder.AppendRowCellLast(item.Value.Description);
+
+            VerifyReferenceLexicon(item.Value);
          }
+      }
+
+      /// <summary>
+      /// Verify Reference Lexicon.
+      /// </summary>
+      /// <param name="item">item to verify</param>
+      private void VerifyReferenceLexicon(IItemInfo item)
+      {
+         if (item.Lexicon == null)
+         {
+            item.Lexicon = m_DataSet.Lexicon;
+         }
+         if (String.IsNullOrWhiteSpace(item.LexiconID))
+         {
+            item.LexiconID = m_DataSet.Lexicon.KeyID;
+         }
+      }
+
+      /// <summary>
+      /// Ensure that there is a valid KeyID.
+      /// </summary>
+      /// <param name="keyId">key ID to verify/set</param>
+      /// <returns></returns>
+      private string VerifyKeyId(IItemInfo item)
+      {
+         if (String.IsNullOrWhiteSpace(item.KeyID))
+         {
+            item.KeyID = Guid.NewGuid().ToString();
+         }
+         return item.KeyID;
       }
 
       /// <summary>
@@ -528,14 +594,7 @@ namespace Edam.Data.Lexicon.ImportExport
          Edam.InOut.FileInfo file;
 
          // prepare file info to export into...
-         InOut.FileInfo exportFile = new InOut.FileInfo();
-
-         exportFile.Path = arguments.OutFilePath;
-         exportFile.Name =
-            (arguments.Namespace.OrganizationDomainId + ".lexicon").ToLower();
-         exportFile.Full = exportFile.Path + "/" + exportFile.Name + "." +
-            InOut.FileExtension.OPEN_XML;
-         exportFile.Extension = InOut.FileExtension.OPEN_XML;
+         InOut.FileInfo exportFile = LexiconFileInfo.GetFileInfo(arguments);
 
          // export data set
          ITableBuilder builder = AssetReportBuilder.GetBuilder(exportFile);
@@ -603,9 +662,10 @@ namespace Edam.Data.Lexicon.ImportExport
       /// Database based data assets will have 3 levels.
       /// </remarks>
       /// <param name="arguments">arguments</param>
+      /// <param name="toWorksheet">true to export to a workbook</param>
       /// <returns>results log</returns>
       public static IResultsLog ExportDataSet(
-         AssetConsoleArgumentsInfo arguments)
+         AssetConsoleArgumentsInfo arguments, bool toWorksheet = true)
       {
          DataSet dataSet = new DataSet();
          ExportWriter writter = new ExportWriter(dataSet);
@@ -695,17 +755,27 @@ namespace Edam.Data.Lexicon.ImportExport
             }
          }
 
+         // add Lexicon ID if none is proovided
+         if (arguments.Lexicon == null)
+         {
+            arguments.Lexicon = new LexiconInfo();
+         }
+         else
+         if (String.IsNullOrWhiteSpace(arguments.Lexicon.LexiconId))
+         {
+            arguments.Lexicon.LexiconId = 
+               arguments.Namespace.OrganizationDomainId + "." +
+               LexiconFileInfo.LEXICON_FOLDER.ToLower();
+         }
+
          // setup Lexicon
-         dataSet.Lexicon.KeyID = arguments.Lexicon.LexiconId;
-         dataSet.Lexicon.Title = arguments.Lexicon.Title;
-         dataSet.Lexicon.Synonyms = String.Empty;
-         dataSet.Lexicon.Aliases = String.Empty;
-         dataSet.Lexicon.Labels = String.Empty;
-         dataSet.Lexicon.Description = arguments.Lexicon.Description;
-         dataSet.Lexicon.Notes = String.Empty; ;
+         dataSet.SetupLexicon(arguments);
 
          // output to file
-         writter.ExportDataSet(arguments, namespaceList);
+         if (toWorksheet)
+         {
+            writter.ExportDataSet(arguments, namespaceList);
+         }
 
          // all done
          results.Data = dataSet;

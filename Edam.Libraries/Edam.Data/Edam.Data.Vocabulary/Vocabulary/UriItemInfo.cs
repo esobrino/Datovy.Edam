@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Edam.Data.Lexicon.Vocabulary
 {
 
-   public class UriItemInfo
+   public class UriItemInfo : IItemInfo
    {
 
       [MaxLength(128)]

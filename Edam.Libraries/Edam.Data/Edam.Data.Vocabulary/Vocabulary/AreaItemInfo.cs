@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Edam.Data.Lexicon.Vocabulary
 {
 
-   public class AreaItemInfo
+   public partial class AreaItemInfo : IItemInfo
    {
 
       [MaxLength(128)]

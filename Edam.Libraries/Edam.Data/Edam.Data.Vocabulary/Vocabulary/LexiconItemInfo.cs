@@ -9,12 +9,20 @@ using System.ComponentModel.DataAnnotations;
 namespace Edam.Data.Lexicon.Vocabulary
 {
 
+   public interface IItemInfo
+   {
+      string LexiconID { get; set; }
+      string KeyID { get; set; }
+      LexiconItemInfo Lexicon { get; set; }
+      string FullPath { get; }
+   }
+
    public class LexiconItemInfo
    {
 
       [Key, MaxLength(128)]
       public string KeyID { get; set; }
-      [Key, MaxLength(128)]
+      [MaxLength(128)]
       public string? Title { get; set; }
       public string? Uri { get; set; }
 

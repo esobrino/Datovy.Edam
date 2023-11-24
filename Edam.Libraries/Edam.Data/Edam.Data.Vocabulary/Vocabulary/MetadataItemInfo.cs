@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Edam.Data.Lexicon.Vocabulary
 {
 
-   public class MetadataItemInfo
+   public class MetadataItemInfo : IItemInfo
    {
 
       [MaxLength(128)]

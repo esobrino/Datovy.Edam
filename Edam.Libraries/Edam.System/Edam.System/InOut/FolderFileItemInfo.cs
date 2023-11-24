@@ -25,6 +25,12 @@ namespace Edam.InOut
       public String ExtensionName { get; set; }
       public List<BaseColumnInfo> Columns { get; set; }
 
+      public bool IsFullPath
+      {
+         get { return NameFull.Contains("c:/") ||
+               NameFull.Contains("c:\\"); }
+      }
+
       public string Full { get; set; }
 
       public bool IsJson

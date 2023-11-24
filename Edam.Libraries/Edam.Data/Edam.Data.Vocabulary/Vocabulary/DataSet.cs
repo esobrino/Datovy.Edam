@@ -210,6 +210,57 @@ namespace Edam.Data.Lexicon.Vocabulary
       #region -- 4.00 To/From Lexicon...
 
       /// <summary>
+      /// Get List.
+      /// </summary>
+      /// <typeparam name="T">list item type</typeparam>
+      /// <param name="items">items to add to list</param>
+      /// <param name="list">source enumerable</param>
+      /// <returns>list is returned</returns>
+      private List<T> GetList<T>(List<T> items, List<T> list)
+      {
+         var outItems = items == null ? new List<T>() : items;
+         outItems.AddRange(list);
+         return outItems;
+      }
+
+      /// <summary>
+      /// Setup Lexicon using given arguments.
+      /// </summary>
+      /// <param name="arguments">arguments to use</param>
+      public void SetupLexicon(AssetConsoleArgumentsInfo arguments)
+      {
+         Lexicon.KeyID = arguments.Lexicon.LexiconId;
+         Lexicon.Title = arguments.Lexicon.Title;
+         Lexicon.Synonyms = String.Empty;
+         Lexicon.Aliases = String.Empty;
+         Lexicon.Labels = String.Empty;
+         Lexicon.Description = arguments.Lexicon.Description;
+         Lexicon.Notes = String.Empty;
+
+         Lexicon.Areas = GetList<AreaItemInfo>(
+            Lexicon.Areas, Areas.Values.ToList<AreaItemInfo>());
+         Lexicon.Entities = GetList<EntityItemInfo>(
+            Lexicon.Entities,
+            Entities.Values.ToList<EntityItemInfo>());
+         Lexicon.Elements = GetList<ElementItemInfo>(
+            Lexicon.Elements,
+            Elements.Values.ToList<ElementItemInfo>());
+         Lexicon.Relationships = GetList<RelationshipItemInfo>(
+            Lexicon.Relationships,
+            Relationships.Values.ToList<RelationshipItemInfo>());
+         Lexicon.Tags = GetList<TagItemInfo>(
+            Lexicon.Tags, Tags.Values.ToList<TagItemInfo>());
+         Lexicon.Metadata = GetList<MetadataItemInfo>(
+            Lexicon.Metadata,
+            Metadata.Values.ToList<MetadataItemInfo>());
+         Lexicon.Terms = GetList<TermItemInfo>(
+            Lexicon.Terms, Terms.Values.ToList<TermItemInfo>());
+         Lexicon.Uris = GetList<UriItemInfo>(
+            Lexicon.Uris,
+            Uris.Values.ToList<UriItemInfo>());
+      }
+
+      /// <summary>
       /// Go through the different collections and update the corresponding 
       /// data-set.
       /// </summary>
@@ -220,7 +271,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          foreach (var item in Areas)
          {
             var varea = lexicon.Area.Find(item.Value.KeyID);
-            if (varea != null)
+            if (varea == null)
             {
                lexicon.Area.Add(item.Value);
             }
@@ -233,7 +284,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          foreach (var item in Entities)
          {
             var varea = lexicon.Entity.Find(item.Value.KeyID);
-            if (varea != null)
+            if (varea == null)
             {
                lexicon.Entity.Add(item.Value);
             }
@@ -246,7 +297,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          foreach (var item in Elements)
          {
             var varea = lexicon.Element.Find(item.Value.KeyID);
-            if (varea != null)
+            if (varea == null)
             {
                lexicon.Element.Add(item.Value);
             }
@@ -259,7 +310,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          foreach (var item in Relationships)
          {
             var varea = lexicon.Relationship.Find(item.Value.KeyID);
-            if (varea != null)
+            if (varea == null)
             {
                lexicon.Relationship.Add(item.Value);
             }
@@ -272,7 +323,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          foreach (var item in Tags)
          {
             var varea = lexicon.Tag.Find(item.Value.KeyID);
-            if (varea != null)
+            if (varea == null)
             {
                lexicon.Tag.Add(item.Value);
             }
@@ -285,7 +336,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          foreach (var item in Metadata)
          {
             var varea = lexicon.Metadata.Find(item.Value.KeyID);
-            if (varea != null)
+            if (varea == null)
             {
                lexicon.Metadata.Add(item.Value);
             }
@@ -298,7 +349,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          foreach (var item in Terms)
          {
             var varea = lexicon.Term.Find(item.Value.KeyID);
-            if (varea != null)
+            if (varea == null)
             {
                lexicon.Term.Add(item.Value);
             }
@@ -311,7 +362,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          foreach (var item in Uris)
          {
             var varea = lexicon.Uri.Find(item.Value.KeyID);
-            if (varea != null)
+            if (varea == null)
             {
                lexicon.Uri.Add(item.Value);
             }

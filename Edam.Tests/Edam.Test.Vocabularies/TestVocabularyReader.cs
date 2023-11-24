@@ -47,7 +47,12 @@ namespace Edam.Test.Lexicon
          var args = ProjectHelper.GetTestDataAssets();
          if (args != null)
          {
-            ExportWriter.ExportDataSet(args);
+            var results = ExportWriter.ExportDataSet(args);
+            data = results.DataObject as DataSet;
+
+            LexiconContext context = new LexiconContext();
+            data.ToLexicon(context);
+            context.Dispose();
          }
       }
 

@@ -1,15 +1,18 @@
-﻿using Edam.Application;
-using Edam.Data.Asset.Services;
-using Edam.Data.AssetConsole;
-using Edam.Data.AssetManagement.Writers.Ddl;
-using Edam.Diagnostics;
-using Edam.Data.AssetProject;
-using Edam.InOut;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using sett = Edam.Application.Settings;
+
+using Edam.Application;
+using Edam.Data.Asset.Services;
+using Edam.Data.AssetConsole;
+using Edam.Data.AssetManagement.Writers.Ddl;
+using Edam.Diagnostics;
+using prj = Edam.Data.AssetProject;
+using Edam.InOut;
 
 namespace Edam.Test.Library.Project
 {
@@ -64,13 +67,11 @@ namespace Edam.Test.Library.Project
       /// Get Test Data Assets...
       /// </summary>
       /// <returns></returns>
-      public static AssetConsoleArgumentsInfo? GetTestDataAssets()
+      public static AssetConsoleArgumentsInfo? GetTestDataAssets(
+         string filePath)
       {
          ItemBaseInfo item = new ItemBaseInfo();
-         string appPath = AppData.GetApplicationDataFolder();
-         item.FromFullPath(
-            appPath + "Projects/Datovy.HC.CD/" +
-            "Arguments/0001.HC.CD.Full.ToAssets.Args.json", null);
+         item.FromFullPath(filePath, null);
          ResultsLog<object> presults = ProjectConsole.ProcessItem(item);
 
          // write DDL
@@ -81,6 +82,17 @@ namespace Edam.Test.Library.Project
             Edam.Data.AssetProject.Project.GotoProject(args);
          }
          return args;
+      }
+
+      /// <summary>
+      /// Get Test Data Assets...
+      /// </summary>
+      /// <returns></returns>
+      public static AssetConsoleArgumentsInfo? GetTestDataAssets()
+      {
+         string appPath = AppData.GetApplicationDataFolder();
+         return GetTestDataAssets(appPath + "Projects/Datovy.HC.CD/" +
+            "Arguments/0001.HC.CD.Full.ToAssets.Args.json");
       }
 
    }
