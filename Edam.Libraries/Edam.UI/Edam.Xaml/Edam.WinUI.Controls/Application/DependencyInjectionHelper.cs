@@ -53,6 +53,12 @@ namespace Edam.WinUI.Helpers
          AppAssembly.RegisterType(
             AssetResourceHelper.ASSET_ROW_BUILDER_NAME,
             typeof(Edam.Xml.OpenXml.ExcelRowBuilder));
+
+         // TODO: Implement it using the interface !!!
+         AppAssembly.RegisterType(
+            AssetResourceHelper.ASSET_LEXICON,
+            typeof(Edam.Data.Lexicon.LexiconData));
+
       }
 
    }

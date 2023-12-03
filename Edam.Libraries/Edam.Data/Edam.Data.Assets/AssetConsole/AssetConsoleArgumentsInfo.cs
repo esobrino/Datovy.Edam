@@ -18,6 +18,7 @@ using prj = Edam.Data.AssetProject;
 using Edam.Diagnostics;
 using System.Net.Http.Headers;
 using Edam.Data.AssetUseCases;
+using Edam.Data.Lexicon;
 
 namespace Edam.Data.AssetConsole
 {
@@ -31,6 +32,13 @@ namespace Edam.Data.AssetConsole
       #region -- Fields and Properties Declarations
 
       private const string CLASS_NAME = "AssetConsoleArgumentsInfo";
+
+      /// <summary>
+      /// At runtime the Arguments GUID will uniquely identify the arguments
+      /// collection.
+      /// </summary>
+      [JsonIgnore]
+      public Guid ArgumentsGuid { get; } = new Guid();
 
       [JsonIgnore]
       public AssetUseCaseList UseCases { get; set; }

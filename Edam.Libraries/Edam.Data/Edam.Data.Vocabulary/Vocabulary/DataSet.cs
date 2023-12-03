@@ -16,6 +16,7 @@ using Edam.Data.AssetSchema;
 using Edam.Data.AssetReport;
 using Edam.Application;
 using Edam.Data.Lexicon.ImportExport;
+using Microsoft.EntityFrameworkCore;
 
 namespace Edam.Data.Lexicon.Vocabulary
 {
@@ -231,33 +232,48 @@ namespace Edam.Data.Lexicon.Vocabulary
       {
          Lexicon.KeyID = arguments.Lexicon.LexiconId;
          Lexicon.Title = arguments.Lexicon.Title;
+         Lexicon.Uri = arguments.Lexicon.Uri;
          Lexicon.Synonyms = String.Empty;
          Lexicon.Aliases = String.Empty;
          Lexicon.Labels = String.Empty;
          Lexicon.Description = arguments.Lexicon.Description;
          Lexicon.Notes = String.Empty;
 
-         Lexicon.Areas = GetList<AreaItemInfo>(
-            Lexicon.Areas, Areas.Values.ToList<AreaItemInfo>());
-         Lexicon.Entities = GetList<EntityItemInfo>(
-            Lexicon.Entities,
-            Entities.Values.ToList<EntityItemInfo>());
-         Lexicon.Elements = GetList<ElementItemInfo>(
-            Lexicon.Elements,
-            Elements.Values.ToList<ElementItemInfo>());
-         Lexicon.Relationships = GetList<RelationshipItemInfo>(
-            Lexicon.Relationships,
-            Relationships.Values.ToList<RelationshipItemInfo>());
-         Lexicon.Tags = GetList<TagItemInfo>(
-            Lexicon.Tags, Tags.Values.ToList<TagItemInfo>());
-         Lexicon.Metadata = GetList<MetadataItemInfo>(
-            Lexicon.Metadata,
-            Metadata.Values.ToList<MetadataItemInfo>());
-         Lexicon.Terms = GetList<TermItemInfo>(
-            Lexicon.Terms, Terms.Values.ToList<TermItemInfo>());
-         Lexicon.Uris = GetList<UriItemInfo>(
-            Lexicon.Uris,
-            Uris.Values.ToList<UriItemInfo>());
+         if (String.IsNullOrWhiteSpace(Lexicon.Title))
+         {
+            Lexicon.Title = arguments.Domain.Description + " Lexicon";
+         }
+         if (String.IsNullOrWhiteSpace(Lexicon.Uri))
+         {
+            Lexicon.Uri = arguments.Namespace.UriText + "/lexicon";
+         }
+         if (String.IsNullOrWhiteSpace(Lexicon.Description))
+         {
+            Lexicon.Description = Lexicon.Title;
+         }
+
+         // DON'T DO THIS
+         //Lexicon.Areas = GetList<AreaItemInfo>(
+         //   Lexicon.Areas, Areas.Values.ToList<AreaItemInfo>());
+         //Lexicon.Entities = GetList<EntityItemInfo>(
+         //   Lexicon.Entities,
+         //   Entities.Values.ToList<EntityItemInfo>());
+         //Lexicon.Elements = GetList<ElementItemInfo>(
+         //   Lexicon.Elements,
+         //   Elements.Values.ToList<ElementItemInfo>());
+         //Lexicon.Relationships = GetList<RelationshipItemInfo>(
+         //   Lexicon.Relationships,
+         //   Relationships.Values.ToList<RelationshipItemInfo>());
+         //Lexicon.Tags = GetList<TagItemInfo>(
+         //   Lexicon.Tags, Tags.Values.ToList<TagItemInfo>());
+         //Lexicon.Metadata = GetList<MetadataItemInfo>(
+         //   Lexicon.Metadata,
+         //   Metadata.Values.ToList<MetadataItemInfo>());
+         //Lexicon.Terms = GetList<TermItemInfo>(
+         //   Lexicon.Terms, Terms.Values.ToList<TermItemInfo>());
+         //Lexicon.Uris = GetList<UriItemInfo>(
+         //   Lexicon.Uris,
+         //   Uris.Values.ToList<UriItemInfo>());
       }
 
       /// <summary>
@@ -265,7 +281,9 @@ namespace Edam.Data.Lexicon.Vocabulary
       /// data-set.
       /// </summary>
       /// <param name="lexicon">the lexicon to update</param>
-      public void ToLexicon(LexiconContext lexicon)
+      /// <param name="persist">(optional) true to persist synchronously
+      /// [default = false]</param>
+      public void ToLexicon(LexiconContext lexicon, bool persist = false)
       {
 
          foreach (var item in Areas)
@@ -372,8 +390,36 @@ namespace Edam.Data.Lexicon.Vocabulary
             }
          }
 
-         lexicon.SaveChanges();
+         if (persist)
+         {
+            lexicon.SaveChanges();
+         }
+      }
 
+      /// <summary>
+      /// Persist Lexicon Asynchronously...
+      /// </summary>
+      public async void ToLexiconAsync()
+      {
+         LexiconContext? context = null;
+         try
+         {
+            context = new LexiconContext();
+            ToLexicon(context);
+            var t = await context.SaveChangesAsync();
+         }
+         catch (Exception ex)
+         {
+            Diagnostics.ResultLog.Trace(
+               ex.Message, nameof(DataSet.ToLexiconAsync), SeverityLevel.Fatal);
+         }
+         finally
+         {
+            if (context != null)
+            {
+               context.Dispose();
+            }
+         }
       }
 
       /// <summary>
@@ -421,6 +467,63 @@ namespace Edam.Data.Lexicon.Vocabulary
          foreach (var item in lexicon.Uri)
          {
             Uris.Add(item);
+         }
+      }
+
+      /// <summary>
+      /// Fetch all entries of given Lexicon Id.
+      /// </summary>
+      /// <param name="lexiconId">lexicon Id</param>
+      public void FromLexicon(string lexiconId)
+      {
+         int task;
+         LexiconContext? context = null;
+         try
+         {
+            context = new LexiconContext();
+            context.Lexicon.Where(t => t.KeyID == lexiconId);
+            FromLexicon(context);
+         }
+         catch (Exception ex)
+         {
+            Diagnostics.ResultLog.Trace(
+               ex.Message, nameof(DataSet.ToLexiconAsync), SeverityLevel.Fatal);
+         }
+         finally
+         {
+            if (context != null)
+            {
+               context.Dispose();
+            }
+         }
+      }
+
+      /// <summary>
+      /// Delete all entries of given Lexicon Id.
+      /// </summary>
+      /// <param name="lexiconId">lexicon Id</param>
+      public async void DeleteLexicon(string lexiconId)
+      {
+         LexiconContext? context = null;
+         try
+         {
+            context = new LexiconContext();
+            LexiconItemInfo info = new LexiconItemInfo { KeyID = lexiconId };
+            context.Entry(info).State = EntityState.Deleted;
+            await context.SaveChangesAsync();
+            Clear();
+         }
+         catch (Exception ex)
+         {
+            Diagnostics.ResultLog.Trace(
+               ex.Message, nameof(DataSet.ToLexiconAsync), SeverityLevel.Fatal);
+         }
+         finally
+         {
+            if (context != null)
+            {
+               context.Dispose();
+            }
          }
       }
 

@@ -76,7 +76,11 @@ namespace Edam.WinUI.Controls.DataModels
          m_AssetDataSet = dataSet;
       }
 
-      public static void SetProject(ProjectItem item)
+      /// <summary>
+      /// Set Project and Reset Arguments...
+      /// </summary>
+      /// <param name="item">project item to be set</param>
+      public static void SetProjectAndResetArguments(ProjectItem item)
       {
          m_CurrentProject = item;
          if (m_CurrentProject != null)
@@ -92,6 +96,15 @@ namespace Edam.WinUI.Controls.DataModels
                m_AssetData = m_Arguments.AssetDataItems[0];
             }
          }
+      }
+
+      /// <summary>
+      /// A project has been selected, set it as current project...
+      /// </summary>
+      /// <param name="item">project item to be set</param>
+      public static void SetSelectedProject(ProjectItem item)
+      {
+
       }
 
       #endregion

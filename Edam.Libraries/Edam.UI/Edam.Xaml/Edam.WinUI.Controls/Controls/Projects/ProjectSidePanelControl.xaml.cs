@@ -68,6 +68,10 @@ namespace Edam.WinUI.Controls.Projects
 
       #region -- 4.00 - Select Item Support Methods...
 
+      /// <summary>
+      /// The Arguments are selected... notify others.
+      /// </summary>
+      /// <param name="selectedItem">selected item</param>
       private void ItemSelected(object selectedItem = null)
       {
          object sitem = selectedItem == null ?

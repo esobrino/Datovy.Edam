@@ -65,6 +65,12 @@ namespace Edam.WinUI.Controls.Assets
             return;
          }
 
+         if (m_ViewModel.MapContext != null &&
+            context.ContextId != m_ViewModel.MapContext.ContextId)
+         {
+            m_ViewModel.MapContext.ClearAll();
+         }
+
          m_ViewModel.SetUpMapping(context);
          AssetDataTreeViewer.ManageNotification(this, args);
          MapPlayControl.SetMapContext(context);

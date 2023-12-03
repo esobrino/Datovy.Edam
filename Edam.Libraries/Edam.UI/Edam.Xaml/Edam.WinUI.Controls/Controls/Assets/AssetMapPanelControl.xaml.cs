@@ -69,8 +69,13 @@ namespace Edam.WinUI.Controls.Assets
       /// <param name="context"></param>
       public void SetContext(DataMapContext context)
       {
-         m_ViewModel.Context = context;
+         if (m_ViewModel.Context != null &&
+            m_ViewModel.Context.ContextId != context.ContextId)
+         {
+            UseCaseNameBox.Text = String.Empty;
+         }
          MapItemControl.SetContext(context);
+         m_ViewModel.Context = context;
       }
 
       /// <summary>

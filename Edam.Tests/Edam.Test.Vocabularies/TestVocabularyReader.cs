@@ -49,11 +49,36 @@ namespace Edam.Test.Lexicon
          {
             var results = ExportWriter.ExportDataSet(args);
             data = results.DataObject as DataSet;
-
-            LexiconContext context = new LexiconContext();
-            data.ToLexicon(context);
-            context.Dispose();
          }
+      }
+
+      [TestMethod]
+      public void PersistLexicon()
+      {
+         DataSet data = new DataSet();
+         var args = ProjectHelper.GetTestDataAssets();
+         if (args != null)
+         {
+            var results = ExportWriter.ExportDataSet(args, false);
+            data = results.DataObject as DataSet;
+
+            data.ToLexiconAsync();
+            Thread.Sleep(10000);
+         }
+      }
+
+      [TestMethod]
+      public void LoadLexicon()
+      {
+         DataSet data = new DataSet();
+         data.FromLexicon("datovy.hc.cd.lexicon");
+      }
+
+      [TestMethod]
+      public void DeleteLexicon()
+      {
+         DataSet data = new DataSet();
+         data.DeleteLexicon("datovy.hc.cd.lexicon");
       }
 
       [TestMethod]

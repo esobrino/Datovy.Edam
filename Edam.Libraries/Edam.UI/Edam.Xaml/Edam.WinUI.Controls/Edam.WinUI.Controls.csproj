@@ -69,6 +69,7 @@
     <ProjectReference Include="..\..\..\Edam.Data\Edam.Data.AssetMapping\Edam.Data.AssetMapping.csproj" />
     <ProjectReference Include="..\..\..\Edam.Data\Edam.Data.Assets.Services\Edam.Data.Asset.Services.csproj" />
     <ProjectReference Include="..\..\..\Edam.Data\Edam.Data.Templates\Edam.Data.Templates.csproj" />
+    <ProjectReference Include="..\..\..\Edam.Data\Edam.Data.Vocabulary\Edam.Data.Lexicon.csproj" />
     <ProjectReference Include="..\..\..\Edam.Data\Edam.DataObjects\Edam.DataObjects.csproj" />
     <ProjectReference Include="..\..\..\Edam.Data\Edam.Json\Edam.Json.csproj" />
     <ProjectReference Include="..\..\..\Edam.System\Edam.System\Edam.System.csproj" />

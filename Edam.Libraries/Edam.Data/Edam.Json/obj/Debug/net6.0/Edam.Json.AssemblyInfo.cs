@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Edam.Json")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+001298935089275d384c458c17bcae551c638112")]
 [assembly: System.Reflection.AssemblyProductAttribute("Edam.Json")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Edam.Json")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

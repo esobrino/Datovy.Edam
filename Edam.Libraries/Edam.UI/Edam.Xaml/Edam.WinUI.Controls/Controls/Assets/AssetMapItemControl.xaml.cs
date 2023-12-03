@@ -58,6 +58,8 @@ namespace Edam.WinUI.Controls.Assets
                ProjectContext.ProjectFolderPath + "/" +
                AssetUseCaseLog.GetUseCasesFolderName());
             BookletPanel.SetContext(context);
+
+            m_ViewModel.MapItemList.Clear();
          }
       }
 

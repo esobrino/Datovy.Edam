@@ -63,6 +63,9 @@ namespace Edam.WinUI.Controls.Projects
             var results = args.ResultsLog as IResultsLog;
             AssetViewerControl.SetEditorText(results.DataObject as ProjectItem,
                results.ReturnText);
+
+            ProjectContext.SetSelectedProject(
+               results.DataObject as ProjectItem);
          }
          else if (args.Type == NotificationType.AssetViewerChanged)
          {

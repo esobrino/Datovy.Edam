@@ -180,7 +180,7 @@ namespace Edam.WinUI.Controls.DataModels
          item.CurrentArguments = pargs;
 
          ProjectContext.SetAssetDataSet(pargs.AssetDataItems);
-         ProjectContext.SetProject(item);
+         ProjectContext.SetProjectAndResetArguments(item);
 
          // manage found project asset data items...
          List<AssetData> items = pargs == null ?

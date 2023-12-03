@@ -121,6 +121,7 @@ namespace Edam.WinUI.Controls.ViewModels
       {
          ProjectItem prj = (ProjectItem)projectItem;
 
+         // TODO: make the following Async...
          var results = ProjectHelper.Execute(prj);
          if (results.Success)
          {
@@ -151,6 +152,8 @@ namespace Edam.WinUI.Controls.ViewModels
 
             return;
          }
+
+         // TODO: Unify all app-logs using Diagnostics ResultLog Messaging
          if (ApplicationHelper.ApplicationLog != null)
          {
             ApplicationHelper.ApplicationLog.WriteMessage(

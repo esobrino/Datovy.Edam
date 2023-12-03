@@ -25,6 +25,8 @@ using Edam.Data.Books;
 using System.Data.SqlClient;
 using Edam.Data.AssetUseCases;
 using Edam.Json.JsonQuery;
+using Edam.Data.Assets.Lexicon;
+using Edam.Data.Lexicon;
 
 namespace Edam.WinUI.Controls.DataModels
 {
@@ -48,12 +50,17 @@ namespace Edam.WinUI.Controls.DataModels
 
    public delegate void DataTreeEvent(object sender, DataTreeEventArgs args);
 
+   /// <summary>
+   /// Data Instance
+   /// </summary>
    public class DataInstance
    {
       public AssetConsoleArgumentsInfo Arguments { get; set; }
       public object Instance { get; set; }
       public DataTreeModel TreeModel { get; set; }
       public string JsonInstanceSample { get; set; }
+
+      public ILexiconData Lexicon { get; set; }
 
       public DataTreeEvent ManageNotification { get; set; } = null;
    }
@@ -195,6 +202,27 @@ namespace Edam.WinUI.Controls.DataModels
 
       #endregion
       #region -- 4.00 - Manage Context 
+
+      /// <summary>
+      /// Clear all resources...
+      /// </summary>
+      public void ClearAll()
+      {
+         if (UseCase != null)
+         {
+            if (UseCase.SelectedMapItem != null)
+            {
+               UseCase.SelectedMapItem.SourceElement.Clear();
+               UseCase.SelectedMapItem.TargetElement.Clear();
+               UseCase.SelectedMapItem = null;
+            }
+            UseCase.Items.Clear();
+         }
+         if (BookModel != null)
+         {
+            BookModel.Model.ClearAll();
+         }
+      }
 
       /// <summary>
       /// Create context...
