@@ -196,6 +196,7 @@ namespace Edam.Data.Lexicon
          // setup Lexicon
          dataSet.SetupLexicon(arguments);
          LexiconData lexiconData = new LexiconData(dataSet);
+         lexiconData.UpdateTermsCount();
 
          // output to file
          if (toWorksheet)
