@@ -284,8 +284,9 @@ namespace Edam.Data.Lexicon.ImportExport
          item.Category = reader.GetString(values[2]);
          item.Tag = reader.GetString(values[3]);
          item.Term = reader.GetString(values[4]);
-         item.Synonyms = reader.GetString(values[5]);
-         item.Description = reader.GetString(values[6]);
+         item.OriginalTerm = reader.GetString(values[5]);
+         item.Synonyms = reader.GetString(values[6]);
+         item.Description = reader.GetString(values[7]);
 
          return item;
       }

@@ -27,7 +27,7 @@ namespace Edam.Test.Ddl
       [TestMethod]
       public void TestAssetToDdlFiles()
       {
-         var args = ProjectHelper.GetTestDataAssets();
+         var args = ProjectHelper.GetTestAppDataAssets();
          if (args != null)
          {
             DdlWriter.WriteSchema(args);

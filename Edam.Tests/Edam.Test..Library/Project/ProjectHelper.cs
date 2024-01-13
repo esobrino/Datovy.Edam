@@ -88,11 +88,13 @@ namespace Edam.Test.Library.Project
       /// Get Test Data Assets...
       /// </summary>
       /// <returns></returns>
-      public static AssetConsoleArgumentsInfo? GetTestDataAssets()
+      public static AssetConsoleArgumentsInfo? GetTestAppDataAssets(
+         string filePath = null)
       {
          string appPath = AppData.GetApplicationDataFolder();
-         return GetTestDataAssets(appPath + "Projects/Datovy.HC.CD/" +
-            "Arguments/0001.HC.CD.Full.ToAssets.Args.json");
+         string path = filePath ?? "Projects/Datovy.HC.CD/" +
+            "Arguments/0001.HC.CD.Full.ToAssets.Args.json";
+         return GetTestDataAssets(appPath + path);
       }
 
    }

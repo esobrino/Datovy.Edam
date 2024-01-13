@@ -17,9 +17,16 @@ using Edam.Data.Schema.DataDefinitionLanguage;
 using ObjAssets = Edam.DataObjects.Assets;
 using Edam.Data.Assets.AssetSchema;
 using reader = Edam.Text.StringReader;
+using System.Data.SqlTypes;
 
 namespace Edam.Data.Schema.ImportExport
 {
+
+   public class ImportValues
+   {
+      public List<string> Values { get; set; }
+      public List<string> Header { get; set; }
+   }
 
    public class ImportReader : IDataAssets
    {
@@ -39,62 +46,83 @@ namespace Edam.Data.Schema.ImportExport
       /// <param name="values">list of values</param>
       /// <returns>instance of ImportItemInfo is returned with info</returns>
       /// <exception cref="ArgumentException"></exception>
-      public static ImportItemInfo ImportItem(List<string> values)
+      public static ImportItemInfo ImportItem(ImportValues values)
       {
          String func = "SetValues";
-         if (values.Count > 21)
+         if (values.Values.Count > 21)
          {
             throw new ArgumentException(CLASS_NAME + "::" + func +
                ": Expected no more than 13, 15 or 19/21 columns got (" +
-               values.Count.ToString() + ")");
+               values.Values.Count.ToString() + ")");
          }
 
          ImportItemInfo item = new ImportItemInfo();
 
-         if (values.Count <= 15)
+         if (values.Values.Count <= 15 && values.Header[11] != null &&
+             values.Header[11].ToUpper() == "CONSTRAINT_TYPE")
          {
-            item.Dbms = reader.GetString(values[0]);
-            item.TableCatalog = reader.GetString(values[1]);
-            item.TableSchema = reader.GetString(values[2]);
-            item.TableName = reader.GetString(values[3]);
-            item.ColumnName = reader.GetString(values[4]);
-            item.OrdinalPosition = reader.GetLong(values[5]);
-            item.DataType = reader.GetString(values[6]);
-            item.CharacterMaximumLength = reader.GetDecimal(values[7]);
-            item.ConstraintType = reader.GetString(values[8]);
-            item.ConstraintTableSchema = reader.GetString(values[9]);
-            item.ConstraintTableName = reader.GetString(values[10]);
-            item.ConstraintColumnName = reader.GetString(values[11]);
+            item.Dbms = reader.GetString(values.Values[0]);
+            item.TableCatalog = reader.GetString(values.Values[1]);
+            item.TableSchema = reader.GetString(values.Values[2]);
+            item.TableName = reader.GetString(values.Values[3]);
+            item.ColumnName = reader.GetString(values.Values[4]);
+            item.OrdinalPosition = reader.GetLong(values.Values[5]);
+            item.DataType = reader.GetString(values.Values[6]);
+            item.CharacterMaximumLength = reader.GetDecimal(values.Values[7]);
 
-            item.IsIdentity = (values.Count > 12) ?
-               reader.GetBool(values[12]) : false;
-            item.Tags = (values.Count > 13) ?
-               reader.GetString(values[13]) : String.Empty;
-            item.ColumnDescription = (values.Count > 14) ?
-               reader.GetString(values[14]) : String.Empty;
+            item.Precision = reader.GetInteger(values.Values[8]);
+            item.Scale = reader.GetInteger(values.Values[9]);
+            item.IsNullable = reader.GetBool(values.Values[10]);
+
+            item.ConstraintType = reader.GetString(values.Values[11]);
+            item.ConstraintTableSchema = reader.GetString(values.Values[12]);
+            item.ConstraintTableName = reader.GetString(values.Values[13]);
+            item.ConstraintColumnName = reader.GetString(values.Values[14]);
+         }
+         else if (values.Values.Count <= 15)
+         {
+            item.Dbms = reader.GetString(values.Values[0]);
+            item.TableCatalog = reader.GetString(values.Values[1]);
+            item.TableSchema = reader.GetString(values.Values[2]);
+            item.TableName = reader.GetString(values.Values[3]);
+            item.ColumnName = reader.GetString(values.Values[4]);
+            item.OrdinalPosition = reader.GetLong(values.Values[5]);
+            item.DataType = reader.GetString(values.Values[6]);
+            item.CharacterMaximumLength = reader.GetDecimal(values.Values[7]);
+            item.ConstraintType = reader.GetString(values.Values[8]);
+            item.ConstraintTableSchema = reader.GetString(values.Values[9]);
+            item.ConstraintTableName = reader.GetString(values.Values[10]);
+            item.ConstraintColumnName = reader.GetString(values.Values[11]);
+
+            item.IsIdentity = (values.Values.Count > 12) ?
+               reader.GetBool(values.Values[12]) : false;
+            item.Tags = (values.Values.Count > 13) ?
+               reader.GetString(values.Values[13]) : String.Empty;
+            item.ColumnDescription = (values.Values.Count > 14) ?
+               reader.GetString(values.Values[14]) : String.Empty;
          }
 
          // the following support an enhace schema with all object types
-         else if (values.Count >= 19)
+         else if (values.Values.Count >= 19)
          {
-            item.Dbms = reader.GetString(values[0]);
-            item.TableCatalog = reader.GetString(values[1]);
-            item.TableSchema = reader.GetString(values[2]);
-            item.ObjectName = reader.GetString(values[3]);
-            item.ColumnName = reader.GetString(values[4]);
-            item.OrdinalPosition = reader.GetLong(values[5]);
-            item.DataType = reader.GetString(values[6]);
-            item.CharacterMaximumLength = reader.GetDecimal(values[7]);
+            item.Dbms = reader.GetString(values.Values[0]);
+            item.TableCatalog = reader.GetString(values.Values[1]);
+            item.TableSchema = reader.GetString(values.Values[2]);
+            item.ObjectName = reader.GetString(values.Values[3]);
+            item.ColumnName = reader.GetString(values.Values[4]);
+            item.OrdinalPosition = reader.GetLong(values.Values[5]);
+            item.DataType = reader.GetString(values.Values[6]);
+            item.CharacterMaximumLength = reader.GetDecimal(values.Values[7]);
 
-            item.Precision = reader.GetInteger(values[8]);
-            item.Scale = reader.GetInteger(values[9]);
+            item.Precision = reader.GetInteger(values.Values[8]);
+            item.Scale = reader.GetInteger(values.Values[9]);
 
-            item.IsOutput = reader.GetBool(values[10]);
-            item.IsReadOnly = reader.GetBool(values[11]);
-            item.IsNullable = reader.GetBool(values[12]);
-            item.IsIdentity = reader.GetBool(values[13]);
+            item.IsOutput = reader.GetBool(values.Values[10]);
+            item.IsReadOnly = reader.GetBool(values.Values[11]);
+            item.IsNullable = reader.GetBool(values.Values[12]);
+            item.IsIdentity = reader.GetBool(values.Values[13]);
 
-            string otype = reader.GetString(values[14]).ToUpper();
+            string otype = reader.GetString(values.Values[14]).ToUpper();
             switch (otype)
             {
                case "PROCEDURE":
@@ -112,10 +140,10 @@ namespace Edam.Data.Schema.ImportExport
                   break;
             }
 
-            item.ConstraintType = reader.GetString(values[15]);
-            item.ConstraintTableSchema = reader.GetString(values[16]);
-            item.ConstraintTableName = reader.GetString(values[17]);
-            item.ConstraintColumnName = reader.GetString(values[18]);
+            item.ConstraintType = reader.GetString(values.Values[15]);
+            item.ConstraintTableSchema = reader.GetString(values.Values[16]);
+            item.ConstraintTableName = reader.GetString(values.Values[17]);
+            item.ConstraintColumnName = reader.GetString(values.Values[18]);
 
             if (item.ObjectType == ElementType.procedure ||
                 item.ObjectType == ElementType.function)
@@ -123,12 +151,17 @@ namespace Edam.Data.Schema.ImportExport
                item.ColumnName = item.ColumnName.Replace("@", "");
             }
 
-            if (values.Count == 21)
+            if (values.Values.Count == 21)
             {
-               item.Tags = reader.GetString(values[19]);
-               item.ColumnDescription = reader.GetString(values[20]);
+               item.Tags = reader.GetString(values.Values[19]);
+               item.ColumnDescription = reader.GetString(values.Values[20]);
             }
          }
+
+         if (item.ConstraintType == "P")
+            item.ConstraintType = AssetElementConstraintInfo.KEY;
+         else if (item.ConstraintType == "R")
+            item.ConstraintType = AssetElementConstraintInfo.FOREIGN_KEY;
 
          return item;
       }
@@ -397,18 +430,22 @@ namespace Edam.Data.Schema.ImportExport
                   new AssetProperties(
                      new List<ElementPropertyInfo>());
 
+            ImportValues values = new ImportValues();
             var results = ExcelDocumentReader.ReadDocument(
                fname, arguments.Domain.DomainId);
             if (results.Success)
             {
-               foreach(var list in results.Data)
+
+               values.Header = results.Data[0];
+               foreach (var list in results.Data)
                {
                   // skip empty rows
                   if (ExcelDocumentReader.IsEmptyList(list))
                   {
                      continue;
                   }
-                  rows.Add(ImportItem(list));
+                  values.Values = list;
+                  rows.Add(ImportItem(values));
                }
 
                // remove header row

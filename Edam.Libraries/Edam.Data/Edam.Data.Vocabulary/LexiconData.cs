@@ -10,6 +10,10 @@ using Edam.Data.AssetConsole;
 using Edam.Data.Lexicon.ImportExport;
 using Edam.Data.Lexicon.Vocabulary;
 using Edam.Data.Assets.Asset;
+using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Edam.Data.Asset;
+using Edam.Data.AssetSchema;
 
 namespace Edam.Data.Lexicon
 {
@@ -20,8 +24,19 @@ namespace Edam.Data.Lexicon
       private DataSet m_DataSet { get; set; } = null;
       public LexiconInfo LexiconInfo { get; set; } = null;
 
+      public DataSet DataSet
+      {
+         get { return m_DataSet; }
+      }
+
+      public LexiconData() { }
+      public LexiconData(DataSet dataSet)
+      {
+         m_DataSet = dataSet;
+      }
+
       /// <summary>
-      /// Read Lexicon list of files into a data-set.
+      /// Read Lexicon workbook into a data-set.
       /// </summary>
       /// <param name="uriList">list of uri's/file paths</param>
       /// <returns>instance of data set is returned</returns>
@@ -48,7 +63,7 @@ namespace Edam.Data.Lexicon
          DataSet? data = null;
          if (arguments != null)
          {
-            var results = ExportWriter.ExportDataSet(arguments, false);
+            var results = ExportWriter.ExportDataSet(arguments, true);
             data = results.DataObject as DataSet;
             data.ToLexiconAsync();
          }
@@ -58,10 +73,145 @@ namespace Edam.Data.Lexicon
       }
 
       /// <summary>
-      /// Prepare a Lexicon Database...
+      /// Set Data Set using Data Asset Elements and given arguments list.
+      /// </summary>
+      /// <param name="arguments">base arguments list</param>
+      /// <param name="toWorksheet">true to export to a workbook</param>
+      /// <returns>instance of Lexicon Data is returned</returns>
+      public static LexiconData GetLexiconData(
+         AssetConsoleArgumentsInfo arguments, bool toWorksheet = true)
+      {
+         DataSet dataSet = new DataSet();
+         ExportWriter writer = new ExportWriter(dataSet);
+         ResultsLog<DataSet> results = new ResultsLog<DataSet>();
+
+         // see if arguments have the busines-domain and default-business-area
+         string domain = String.IsNullOrWhiteSpace(arguments.Domain.Domain) ?
+            arguments.Domain.DomainId : arguments.Domain.Domain;
+         string area = arguments.Domain.Business;
+
+         // prepare namespaces
+         NamespaceList namespaceList = new NamespaceList();
+
+         // go through each data-set (most of the time just 1)
+         foreach (var asset in arguments.AssetDataItems)
+         {
+            // add asset namespaces...
+            foreach (var ns in asset.Namespaces)
+            {
+               namespaceList.Add(ns);
+            }
+
+            // do we have a root element? (the DOMAIN container)
+            var rootElement =
+               asset.Items.GetRootElement(arguments.RootElementName);
+
+            // if root was found, get its children elements
+            var rootChildren =
+               AssetDataElementList.GetChildren(asset.Items, rootElement);
+            if (rootChildren == null)
+            {
+               continue;
+            }
+
+            // go through all root children (level 2) [business areas]
+            foreach (var item in rootChildren.Children)
+            {
+
+               // treat the business-area as a namespace of related resources
+               var type = AssetDataElementList.GetDataType(asset.Items, item);
+
+               var aitem = writer.AddArea(
+                  domain, item.ElementQualifiedName.OriginalName);
+
+               // get element type children (level 2) [business area entities]
+               var areaChildren =
+                  AssetDataElementList.GetChildren(asset.Items, type);
+
+               // go through the business area entities
+               foreach (var entity in areaChildren.Children)
+               {
+
+                  // get entity children (level 3) [entity data element]
+                  var entityChildren =
+                     AssetDataElementList.GetChildren(asset.Items, entity);
+
+                  EntityItemInfo eitem;
+                  if (entityChildren.Children.Count == 0)
+                  {
+                     var entityType =
+                        AssetDataElementList.GetDataType(asset.Items, entity);
+                     var adomain = String.IsNullOrWhiteSpace(
+                        aitem.BusinessDomainID) ?
+                           domain : aitem.BusinessDomainID;
+
+                     eitem = writer.AddEntity(entityType,
+                        entity.ElementQualifiedName.OriginalName,
+                        adomain, aitem.AreaName);
+                     entityChildren =
+                     AssetDataElementList.GetChildren(
+                           asset.Items, entityType);
+                  }
+                  else
+                  {
+                     eitem = writer.AddEntity(entity, domain, area);
+                  }
+
+                  // add all children (entity - elements)
+                  foreach (var child in entityChildren.Children)
+                  {
+                     if (child.DataType != entity.DataType)
+                     {
+                        var edomain = String.IsNullOrWhiteSpace(
+                           eitem.BusinessDomainID) ?
+                              domain : eitem.BusinessDomainID;
+                        writer.AddElement(
+                           child, entity.ElementQualifiedName.OriginalName,
+                           edomain, eitem.BusinessAreaID);
+                        writer.AddConstraints(
+                           child, entity.ElementQualifiedName.OriginalName,
+                           edomain, eitem.BusinessAreaID);
+                     }
+                  }
+               }
+            }
+         }
+
+         // write URIs
+         writer.AddUri(namespaceList);
+
+         // add Lexicon ID if none is proovided
+         if (arguments.Lexicon == null)
+         {
+            arguments.Lexicon = new LexiconInfo();
+         }
+         else
+         if (String.IsNullOrWhiteSpace(arguments.Lexicon.LexiconId))
+         {
+            arguments.Lexicon.LexiconId =
+               arguments.Namespace.OrganizationDomainId + "." +
+               LexiconFileInfo.LEXICON_FOLDER.ToLower();
+         }
+
+         // setup Lexicon
+         dataSet.SetupLexicon(arguments);
+         LexiconData lexiconData = new LexiconData(dataSet);
+
+         // output to file
+         if (toWorksheet)
+         {
+            writer.ExportDataSet(arguments, namespaceList);
+         }
+
+         return lexiconData;
+      }
+
+      /// <summary>
+      /// Prepare a Lexicon Database... if exists nothing is done, else it will
+      /// try to create it.
       /// </summary>
       /// <returns>results log is returned</returns>
-      public IResultsLog PrepareDatabase()
+      public IResultsLog EnsureDatabaseReady()
       {
          ResultLog resultLog = new ResultLog();
          Edam.Data.Lexicon.LexiconContext? context = null;
@@ -89,6 +239,14 @@ namespace Edam.Data.Lexicon
       }
 
       /// <summary>
+      /// Using loaded lexicon (data set) update terms count.
+      /// </summary>
+      public void UpdateTermsCount()
+      {
+         TermCounter.UpdateTermsCount(this);
+      }
+
+      /// <summary>
       /// Load Lexicon using given Id.
       /// </summary>
       /// <param name="lexiconId">lexicon Id to load</param>
@@ -100,6 +258,45 @@ namespace Edam.Data.Lexicon
 
          m_DataSet = data;
          return data;
+      }
+
+      /// <summary>
+      /// Persist Lexicon.
+      /// </summary>
+      /// <param name="arguments">arguments whose AssetData should be persisted
+      /// </param>
+      /// <returns>result log is returned</returns>
+      public IResultsLog? PersistLexicon(AssetConsoleArgumentsInfo arguments)
+      {
+         var results = ExportWriter.ExportDataSet(arguments, false);
+         if (!results.Success)
+         {
+            return results;
+         }
+         var data = results.DataObject as DataSet;
+         data.ToLexiconAsync();
+         return results;
+      }
+
+      /// <summary>
+      /// Ensure to load the data by persisting if lexicon can't be found.
+      /// </summary>
+      /// <param name="arguments">instance of arguments</param>
+      /// <returns>results log is returned</returns>
+      public IResultsLog? EnsureLoad(AssetConsoleArgumentsInfo arguments)
+      {
+         EnsureDatabaseReady();
+         var data = Load(arguments.Lexicon.LexiconId) as DataSet;
+         if (data != null && data.Lexicon.KeyID ==
+            arguments.Lexicon.LexiconId)
+         {
+            var results = new ResultLog();
+            results.ResultValueObject = data;
+            results.Succeeded();
+            return results;
+         }
+
+         return PersistLexicon(arguments);
       }
 
       /// <summary>
@@ -140,6 +337,15 @@ namespace Edam.Data.Lexicon
          return m_DataSet.Entities.Values.ToList();
       }
 
+      public List<TermItemInfo> GetTerms()
+      {
+         if (m_DataSet == null)
+         {
+            return new List<TermItemInfo>(); ;
+         }
+         return m_DataSet.Terms.Values.ToList();
+      }
+
       public List<MetadataItemInfo> GetMetadata()
       {
          if (m_DataSet == null)
@@ -174,6 +380,17 @@ namespace Edam.Data.Lexicon
             return new List<Vocabulary.UriItemInfo>(); ;
          }
          return m_DataSet.Uris.Values.ToList();
+      }
+
+      public TermItemInfo? FindTerm(string token)
+      {
+         m_DataSet.Terms.TryGetValue(token, out var value);
+         return value;
+      }
+
+      public void AddTerm(TermItemInfo term)
+      {
+         m_DataSet.Terms.Add(term);
       }
 
       //public List<LexiconItemInfo> GetLexicons()

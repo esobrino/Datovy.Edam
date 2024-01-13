@@ -140,7 +140,7 @@ namespace Edam.WinUI.Controls.ViewModels
       #region -- 4.00 - Get/Setup Map Items
 
       private MapItemInfo GetElementItem(
-         string name, string path, NamespaceInfo ns, DataInstance instance)
+         string name, string path, NamespaceInfo ns, DataMapInstance instance)
       {
          return Context.GetMapItem(instance, name, path);
       }

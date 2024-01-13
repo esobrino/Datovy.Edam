@@ -1307,6 +1307,9 @@
           "Edam.Data.Assets": "1.0.0",
           "Edam.System": "1.0.0",
           "Edam.Xml": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.25",
+          "Microsoft.EntityFrameworkCore.Abstractions": "6.0.25",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.25",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.25"
         },
         "runtime": {

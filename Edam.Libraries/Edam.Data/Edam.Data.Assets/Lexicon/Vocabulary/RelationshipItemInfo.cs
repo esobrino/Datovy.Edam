@@ -30,6 +30,8 @@ namespace Edam.Data.Lexicon.Vocabulary
       public string? ReferenceDomainID { get; set; }
       [MaxLength(128)]
       public string? ReferenceAreaID { get; set; }
+      [MaxLength(40)]
+      public string? ReferenceType { get; set; }
       [MaxLength(128)]
       public string? ReferenceEntityName { get; set; }
       [MaxLength(128)]

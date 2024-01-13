@@ -51,21 +51,6 @@ namespace Edam.WinUI.Controls.DataModels
    public delegate void DataTreeEvent(object sender, DataTreeEventArgs args);
 
    /// <summary>
-   /// Data Instance
-   /// </summary>
-   public class DataInstance
-   {
-      public AssetConsoleArgumentsInfo Arguments { get; set; }
-      public object Instance { get; set; }
-      public DataTreeModel TreeModel { get; set; }
-      public string JsonInstanceSample { get; set; }
-
-      public ILexiconData Lexicon { get; set; }
-
-      public DataTreeEvent ManageNotification { get; set; } = null;
-   }
-
-   /// <summary>
    /// Data Use Case Map Context to identify left (A) and right (B) sources.
    /// </summary>
    public class DataMapContext : ObservableObject
@@ -100,8 +85,8 @@ namespace Edam.WinUI.Controls.DataModels
          set { m_UseCase = value; }
       }
 
-      public DataInstance Source { get; set; }
-      public DataInstance Target { get; set; }
+      public DataMapInstance Source { get; set; }
+      public DataMapInstance Target { get; set; }
 
       public DataTreeEvent ManageNotification { get; set; }
 
@@ -256,16 +241,16 @@ namespace Edam.WinUI.Controls.DataModels
                   null : context.UseCase.Name, arguments.ProjectVersionId);
 
             // Use Case was not found in storage
-            DataInstance sourceInstance = new DataInstance
+            DataMapInstance sourceInstance = new DataMapInstance
             {
-               Arguments = ProjectContext.Arguments,
                Instance = source
             };
+            sourceInstance.SetupContext(ProjectContext.Arguments);
 
             newContext = new DataMapContext()
             {
                Source = sourceInstance,
-               Target = new DataInstance()
+               Target = new DataMapInstance()
             };
             newContext.UseCase.SetNamespace(arguments.Namespace);
 
@@ -353,7 +338,7 @@ namespace Edam.WinUI.Controls.DataModels
       /// <param name="path">item path</param>
       /// <returns>instance of MapItemInfo is returned</returns>
       public MapItemInfo GetMapItem(
-         DataInstance instance, string name, string path,
+         DataMapInstance instance, string name, string path,
          MapItemInfo item = null)
       {
          MapItemInfo e = item ?? new MapItemInfo();
@@ -371,7 +356,7 @@ namespace Edam.WinUI.Controls.DataModels
       /// </summary>
       public void RefreshMapItems(
          ObservableCollection<MapItemInfo> items, List<MapItemInfo> source,
-         DataInstance instance)
+         DataMapInstance instance)
       {
          items.Clear();
          foreach (var sitem in source)
@@ -442,7 +427,7 @@ namespace Edam.WinUI.Controls.DataModels
       {
          ObservableCollection<MapItemInfo> items = null;
          List<MapItemInfo> mapItems = null;
-         DataInstance instance = null;
+         DataMapInstance instance = null;
          switch (type)
          {
             case MapItemType.Source:
@@ -661,7 +646,7 @@ namespace Edam.WinUI.Controls.DataModels
             // try to load self
             var selfArgs = ProjectContext.GetArgumentsByProcessName(
                context.Source.Arguments.Process.Name);
-            context.Target.Arguments = selfArgs;
+            context.Target.SetupContext(selfArgs);
             return selfArgs == null ? null : context;
          }
 
@@ -683,7 +668,7 @@ namespace Edam.WinUI.Controls.DataModels
          // item was found... setup target arguments
          var args = ProjectContext.GetArgumentsByProcessName(
             item.ParentProcessName);
-         context.Target.Arguments = args;
+         context.Target.SetupContext(args);
          return context;
       }
 
@@ -710,7 +695,7 @@ namespace Edam.WinUI.Controls.DataModels
       /// json message</param>
       /// <returns>instance of processor is returned</returns>
       public static IBookItemProcessor GetProcessor(
-         AssetUseCaseMap useCase = null, DataInstance instance = null)
+         AssetUseCaseMap useCase = null, DataMapInstance instance = null)
       {
          IBookItemProcessor processor =
             new JsonProcesor(useCase, instance.JsonInstanceSample);

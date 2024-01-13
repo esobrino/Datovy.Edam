@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
+//using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -152,6 +152,10 @@ namespace Edam.Data.Lexicon.Vocabulary
          item.ResetFullPath();
          if (item.FullPath != null)
          {
+            if (TryGetValue(item.Term,out TermItemInfo value))
+            {
+               value.Count++;
+            }
             Add(item.FullPath, item);
          }
       }
@@ -164,7 +168,8 @@ namespace Edam.Data.Lexicon.Vocabulary
          item.ResetFullPath();
          if (item.FullPath != null)
          {
-            Add(item.FullPath, item);
+            bool done = TryAdd(item.FullPath, item);
+            //Add(item.FullPath, item);
          }
       }
    }
@@ -285,7 +290,6 @@ namespace Edam.Data.Lexicon.Vocabulary
       /// [default = false]</param>
       public void ToLexicon(LexiconContext lexicon, bool persist = false)
       {
-
          foreach (var item in Areas)
          {
             var varea = lexicon.Area.Find(item.Value.KeyID);
@@ -410,8 +414,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          }
          catch (Exception ex)
          {
-            Diagnostics.ResultLog.Trace(
-               ex.Message, nameof(DataSet.ToLexiconAsync), SeverityLevel.Fatal);
+            Diagnostics.ResultLog.Trace(ex, nameof(DataSet.ToLexiconAsync));
          }
          finally
          {
@@ -426,47 +429,157 @@ namespace Edam.Data.Lexicon.Vocabulary
       /// Prepare the data-set using given lexicon.
       /// </summary>
       /// <param name="lexicon">source lexicon</param>
-      public void FromLexicon(LexiconContext lexicon)
+      /// <param name="lexiconId">lexicon ID</param>
+      public void FromLexicon(LexiconContext lexicon, string lexiconId)
       {
          Clear();
          foreach (var item in lexicon.Area)
          {
-            Areas.Add(item);
+            if (item.LexiconID == lexiconId)
+               Areas.Add(item);
          }
 
          foreach (var item in lexicon.Entity)
          {
-            Entities.Add(item);
+            if (item.LexiconID == lexiconId)
+               Entities.Add(item);
          }
 
          foreach (var item in lexicon.Element)
          {
-            Elements.Add(item);
+            if (item.LexiconID == lexiconId)
+               Elements.Add(item);
          }
 
          foreach (var item in lexicon.Relationship)
          {
-            Relationships.Add(item);
+            if (item.LexiconID == lexiconId)
+               Relationships.Add(item);
          }
 
          foreach (var item in lexicon.Tag)
          {
-            Tags.Add(item);
+            if (item.LexiconID == lexiconId)
+               Tags.Add(item);
          }
 
          foreach (var item in lexicon.Metadata)
          {
-            Metadata.Add(item);
+            if (item.LexiconID == lexiconId)
+               Metadata.Add(item);
          }
 
          foreach (var item in lexicon.Term)
          {
-            Terms.Add(item);
+            if (item.LexiconID == lexiconId)
+               Terms.Add(item);
          }
 
          foreach (var item in lexicon.Uri)
          {
+            if (item.LexiconID == lexiconId)
+               Uris.Add(item);
+         }
+
+         foreach (var item in lexicon.Lexicon)
+         {
+            if (item.KeyID == lexiconId)
+               Lexicon = item;
+         }
+      }
+
+      /// <summary>
+      /// Prepare the data-set using given lexicon.
+      /// </summary>
+      /// <param name="lexicon">source lexicon</param>
+      public void FromLexicon(List<LexiconItemInfo> lexicon)
+      {
+         Clear();
+         if (lexicon == null || lexicon.Count == 0)
+         {
+            return;
+         }
+
+         var items = lexicon[0];
+         foreach (var item in items.Areas)
+         {
+            Areas.Add(item);
+         }
+
+         foreach (var item in items.Entities)
+         {
+            Entities.Add(item);
+         }
+
+         foreach (var item in items.Elements)
+         {
+            Elements.Add(item);
+         }
+
+         foreach (var item in items.Relationships)
+         {
+            Relationships.Add(item);
+         }
+
+         foreach (var item in items.Tags)
+         {
+            Tags.Add(item);
+         }
+
+         foreach (var item in items.Metadata)
+         {
+            Metadata.Add(item);
+         }
+
+         foreach (var item in items.Terms)
+         {
+            Terms.Add(item);
+         }
+
+         foreach (var item in items.Uris)
+         {
             Uris.Add(item);
+         }
+
+         Lexicon = items;
+      }
+
+      /// <summary>
+      /// Fetch all entries of given Lexicon Id.
+      /// </summary>
+      /// <param name="lexiconId">lexicon Id</param>
+      public void FromLexiconDatabase(string lexiconId)
+      {
+         int task;
+         LexiconContext? context = null;
+         try
+         {
+            context = new LexiconContext();
+            var info = context.Lexicon
+               .Where(t => t.KeyID == lexiconId)
+               .Include(t => t.Areas)
+               .Include(t => t.Entities)
+               .Include(t => t.Elements)
+               .Include(t => t.Relationships)
+               .Include(t => t.Tags)
+               .Include(t => t.Metadata)
+               .Include(t => t.Terms)
+               .Include(t => t.Uris)
+               .ToList();
+
+            FromLexicon(info);
+         }
+         catch (Exception ex)
+         {
+            Diagnostics.ResultLog.Trace(
+               ex.Message, nameof(DataSet.ToLexiconAsync), SeverityLevel.Fatal);
+         }
+         finally
+         {
+            if (context != null)
+            {
+               context.Dispose();
+            }
          }
       }
 
@@ -481,8 +594,7 @@ namespace Edam.Data.Lexicon.Vocabulary
          try
          {
             context = new LexiconContext();
-            context.Lexicon.Where(t => t.KeyID == lexiconId);
-            FromLexicon(context);
+            FromLexicon(context, lexiconId);
          }
          catch (Exception ex)
          {

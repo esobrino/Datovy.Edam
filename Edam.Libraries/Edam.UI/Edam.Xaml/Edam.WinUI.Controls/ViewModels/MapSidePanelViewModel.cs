@@ -191,6 +191,7 @@ namespace Edam.WinUI.Controls.ViewModels
          SaveOptions.Add(SaveOptionInfo.DATABASE);
          SaveOptions.Add(SaveOptionInfo.DDL);
          SaveOptions.Add(SaveOptionInfo.EXCEL);
+         SaveOptions.Add(SaveOptionInfo.LEXICON_WORKBOOK);
          SaveOptions.Add(SaveOptionInfo.DATA_TEMPLATE_FILE);
 
       }

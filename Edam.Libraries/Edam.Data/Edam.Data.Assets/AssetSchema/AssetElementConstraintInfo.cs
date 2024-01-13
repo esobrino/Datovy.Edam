@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 // -----------------------------------------------------------------------------
 using serial = Edam.Serialization;
 using Newtonsoft.Json;
+using Edam.Data.Asset;
 
 namespace Edam.Data.AssetSchema
 {
@@ -14,18 +15,25 @@ namespace Edam.Data.AssetSchema
    public enum AssetElementContraintType
    {
       Unknown = 0,
-      ForeignKey = 1
+      ForeignKey = 1,
+      Key = 2
    }
 
    public class AssetElementConstraintInfo
    {
+      public const string UNKNOWN = "UNKNOWN";
+      public const string KEY = "KEY";
+      public const string PRIMARY_KEY = "PRIMARY KEY";
+      public const string FOREIGN_KEY = "FOREIGN KEY";
+
       [JsonIgnore]
       public string ParentName { get; set; }
       [JsonIgnore]
       public string ElementName { get; set; }
 
       public string ContraintName { get; set; }
-      public AssetElementContraintType ContraintType { get; set; }
+      public AssetElementContraintType ContraintType { get; set; } =
+         AssetElementContraintType.Unknown;
       public string ContraintDescription { get; set; }
       public string ReferenceSchemaName { get; set; }
       public string ReferenceEntityName { get; set; }
@@ -40,7 +48,12 @@ namespace Edam.Data.AssetSchema
       }
       public new void Add(AssetElementConstraintInfo constraint)
       {
-         var item = Find((x) => x.ContraintType == constraint.ContraintType &&
+         var type = String.IsNullOrWhiteSpace(
+            constraint.ReferenceEntityName) ? AssetElementContraintType.Key :
+               constraint.ContraintType;
+         constraint.ContraintType = type;
+
+         var item = Find((x) => x.ContraintType == type &&
             x.ContraintName == constraint.ContraintName &&
             x.ReferenceEntityName == constraint.ReferenceEntityName &&
             x.ReferenceElementName == constraint.ReferenceElementName);

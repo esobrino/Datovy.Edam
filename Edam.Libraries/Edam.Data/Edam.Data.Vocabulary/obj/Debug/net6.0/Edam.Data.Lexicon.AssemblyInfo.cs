@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Edam.Data.Lexicon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+001298935089275d384c458c17bcae551c638112")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Edam.Data.Lexicon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Edam.Data.Lexicon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

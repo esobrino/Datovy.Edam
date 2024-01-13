@@ -15,7 +15,7 @@ namespace Edam.Data.Schema.ImportExport
 
    public class ImportItemInfo
    {
-      private const string NULL = "null";
+      public const string NULL = "null";
 
       public string Dbms { get; set; }
       public string TableCatalog { get; set; }
@@ -58,7 +58,8 @@ namespace Edam.Data.Schema.ImportExport
          get
          { 
             return ConstraintType != NULL && ConstraintType != null &&
-               ConstraintType.ToUpper() == "PRIMARY KEY"; 
+               ConstraintType.ToUpper() == 
+               AssetSchema.AssetElementConstraintInfo.PRIMARY_KEY; 
          }
       }
 
@@ -67,7 +68,8 @@ namespace Edam.Data.Schema.ImportExport
          get
          {
             return ConstraintType != NULL && ConstraintType != null &&
-               ConstraintType.ToUpper() == "FOREIGN KEY";
+               ConstraintType.ToUpper() == 
+               AssetSchema.AssetElementConstraintInfo.FOREIGN_KEY;
          }
       }
 

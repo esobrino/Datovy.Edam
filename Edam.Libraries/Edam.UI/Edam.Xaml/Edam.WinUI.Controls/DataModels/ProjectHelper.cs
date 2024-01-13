@@ -94,6 +94,13 @@ namespace Edam.WinUI.Controls.DataModels
                fileName = defaultName;
                extension = InOut.FileExtension.OPEN_XML;
                break;
+            case AssetConsoleProcedure.AssetsToLexiconWorkbook:
+               file.Extension = InOut.FileExtension.OPEN_XML;
+               defaultName = "dam-lexicon";
+               fileName = defaultName;
+               extension = InOut.FileExtension.OPEN_XML;
+               args.Procedure = AssetConsoleProcedure.AssetsToLexiconWorkbook;
+               break;
             case AssetConsoleProcedure.AssetsToJsd:
                defaultName = "dam-json";
                fileName = defaultName;
@@ -302,6 +309,10 @@ namespace Edam.WinUI.Controls.DataModels
          {
             case SaveOptionInfo.DATABASE:
                SaveAsset(data, type);
+               break;
+            case SaveOptionInfo.LEXICON_WORKBOOK:
+               PrepareOutputFile(ProjectContext.CurrentProject,
+                  AssetConsoleProcedure.AssetsToLexiconWorkbook);
                break;
             case SaveOptionInfo.EXCEL:
                PrepareOutputFile(ProjectContext.CurrentProject, 

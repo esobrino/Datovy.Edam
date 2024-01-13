@@ -48,7 +48,8 @@ namespace Edam.Text
 
         public static bool GetBool(string value)
         {
-            string val = value != NULL ? value.ToLower() : null;
+            string val = value != null && value != NULL ? 
+               value.ToLower() : null;
             if (value == null || val == NULL)
             {
                 return false;

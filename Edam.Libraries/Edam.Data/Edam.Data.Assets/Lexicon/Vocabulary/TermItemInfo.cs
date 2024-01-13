@@ -24,8 +24,11 @@ namespace Edam.Data.Lexicon.Vocabulary
       public string? Tag { get; set; }
       [MaxLength(128)]
       public string? Term { get; set; }
+      [MaxLength(128)]
+      public string? OriginalTerm { get; set; }
       public string? Synonyms { get; set; }
       public string? Description { get; set; }
+      public int? Count { get; set; }
 
       public LexiconItemInfo Lexicon { get; set; }
 

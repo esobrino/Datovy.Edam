@@ -16,10 +16,15 @@ namespace Edam.Data.Lexicon
    {
 
       LexiconInfo LexiconInfo { get; set; }
+
       object Import(List<string> uriList);
       object Export(AssetConsoleArgumentsInfo arguments);
-      IResultsLog PrepareDatabase();
+
+      void UpdateTermsCount();
+
+      IResultsLog EnsureDatabaseReady();
       object Load(string lexiconId);
+      IResultsLog? EnsureLoad(AssetConsoleArgumentsInfo arguments);
       void Delete(string lexiconId);
 
       List<AreaItemInfo> GetAreas();
@@ -27,11 +32,15 @@ namespace Edam.Data.Lexicon
       List<EntityItemInfo> GetEntities();
       List<MetadataItemInfo> GetMetadata();
       List<RelationshipItemInfo> GetRelationships();
+      List<TermItemInfo> GetTerms();
       List<TagItemInfo> GetTags();
       List<lex.Vocabulary.UriItemInfo> GetUris();
 
       //List<LexiconItemInfo> GetLexicons();
+      TermItemInfo? FindTerm(string token);
+      void AddTerm(TermItemInfo term);
 
    }
 
 }
+

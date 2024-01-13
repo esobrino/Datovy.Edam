@@ -44,7 +44,7 @@ namespace Edam.Test.Lexicon
       public void ExportLexicon()
       {
          DataSet data = new DataSet();
-         var args = ProjectHelper.GetTestDataAssets();
+         var args = ProjectHelper.GetTestAppDataAssets("");
          if (args != null)
          {
             var results = ExportWriter.ExportDataSet(args);
@@ -53,10 +53,17 @@ namespace Edam.Test.Lexicon
       }
 
       [TestMethod]
+      public void WordParsingTest()
+      {
+         string txt = "SYS_STS4ZUYCOENB8_SZR3XZJBINLV";
+         txt = Edam.Text.Convert.ToProperCase(txt);
+      }
+
+      [TestMethod]
       public void PersistLexicon()
       {
          DataSet data = new DataSet();
-         var args = ProjectHelper.GetTestDataAssets();
+         var args = ProjectHelper.GetTestAppDataAssets();
          if (args != null)
          {
             var results = ExportWriter.ExportDataSet(args, false);

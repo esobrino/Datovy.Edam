@@ -97,6 +97,11 @@ namespace Edam.Application
          return value;
       }
 
+      /// <summary>
+      /// Get Connection Sting related to given key.
+      /// </summary>
+      /// <param name="key">connection string key</param>
+      /// <returns>returns the connection string</returns>
       public static String GetConnectionString(String key)
       {
          return GetSectionString(key, APP_CONNECTION_STRING_KEY);

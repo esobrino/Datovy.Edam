@@ -460,6 +460,25 @@ namespace Edam.Diagnostics
          DefaultLog.Write(entry);
       }
 
+      /// <summary>
+      /// Trace message.
+      /// </summary>
+      /// <param name="exception">exception whose message to trace</param>
+      /// <param name="source">source</param>
+      public static void Trace(Exception exception, string source = null)
+      {
+         StringBuilder sb = new StringBuilder();
+         sb.Append(exception.Message);
+         Diagnostics.MessageLogEntry.GetInnerErrorMessage(sb, exception);
+
+         IMessageLogEntry entry = new MessageLogEntry();
+         entry.Message = sb.ToString();
+         entry.Source = source;
+         entry.Severity = SeverityLevel.Fatal;
+
+         DefaultLog.Write(entry);
+      }
+
       #endregion
       #region    -- 1.14 Add Items
 

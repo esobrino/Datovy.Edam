@@ -12,14 +12,14 @@ using System.Linq.Expressions;
 using voca = Edam.Data.Lexicon.Vocabulary;
 using System.Runtime.CompilerServices;
 using Edam.Diagnostics;
+using Microsoft.EntityFrameworkCore.Storage;
+using System.Data;
 
 namespace Edam.Data.Lexicon
 {
 
    public class LexiconContext : DbContext
    {
-
-      public const string LEXICON_CONNECTION_STRING = "LexiconConnectionString";
 
       public DbSet<LexiconItemInfo> Lexicon { get; set; }
 
@@ -35,9 +35,13 @@ namespace Edam.Data.Lexicon
       public string ConnectionString { get; }
 
       public LexiconContext()
-      {         
-         ConnectionString = Application.AppSettings.
-            GetConnectionString(LEXICON_CONNECTION_STRING);
+      {
+         ConnectionString = LexiconContextHelper.GetConnectionString();
+      }
+
+      public LexiconContext(string connectionString)
+      {
+         ConnectionString = connectionString;
       }
 
       protected override void OnModelCreating(ModelBuilder modelBuilder)

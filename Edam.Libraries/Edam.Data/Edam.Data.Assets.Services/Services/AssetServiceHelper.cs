@@ -32,6 +32,7 @@ using Edam.DataObjects.Documents;
 using ddl = Edam.Data.Schema.SchemaObject;
 using Edam.Data.AssetDb.Readers;
 using Edam.Json.JsonSchema;
+using Edam.Data.Assets.Lexicon;
 
 namespace Edam.Data.AssetConsole.Services
 {
@@ -139,6 +140,10 @@ namespace Edam.Data.AssetConsole.Services
 
          callBack = new ExecutorHandler(AssetsToDataTemplate);
          m_Registry.Add(AssetConsoleProcedure.AssetsToDataTemplate, callBack);
+
+         callBack = new ExecutorHandler(AssetsToLexiconWorkbook);
+         m_Registry.Add(
+            AssetConsoleProcedure.AssetsToLexiconWorkbook, callBack);
 
          callBack = new ExecutorHandler(EdiToDb);
          m_Registry.Add(AssetConsoleProcedure.EdiToDb, callBack); ;
@@ -455,6 +460,17 @@ namespace Edam.Data.AssetConsole.Services
       {
          ResultsLog<EventCode> results = new ResultsLog<EventCode>();
          DdlSchemaInstance.ToFile(arguments);
+         results.Succeeded();
+         return results;
+      }
+
+      public static IResultsLog AssetsToLexiconWorkbook(
+         AssetConsoleArgumentsInfo arguments)
+      {
+         ResultsLog<object> results = new ResultsLog<object>();
+         var lexiconService = LexiconHelper.GetLexiconDataInstance();
+         var result = lexiconService.Export(arguments);
+         results.Data = result;
          results.Succeeded();
          return results;
       }

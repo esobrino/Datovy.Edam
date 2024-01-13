@@ -191,6 +191,64 @@ namespace Edam.Text
       }
 
       /// <summary>
+      /// Given a string that have text and numbers without spaces separate both
+      /// and return the list of those.
+      /// </summary>
+      /// <param name="text">text to evaluate</param>
+      /// <returns>list of tokens (words) is returned</returns>
+      public static List<string> GetNumberAndTextTokens(string text)
+      {
+         List<string> results = new List<string>();
+         string result = String.Empty;
+         bool isnum = false;
+         for(int i = 0; i < text.Length; i++)
+         {
+            if (char.IsLetter(text[i]))
+            {
+               if (isnum)
+               {
+                  if (!String.IsNullOrEmpty(result))
+                  {
+                     results.Add(result);
+                     result = String.Empty;
+                     isnum = false;
+                  }
+               }
+            }
+            else if (char.IsDigit(text[i]))
+            {
+               if (!isnum)
+               {
+                  if (!String.IsNullOrEmpty(result))
+                  {
+                     results.Add(result);
+                     result = String.Empty;
+                     isnum = true;
+                  }
+               }
+            }
+            result += text[i];
+         }
+         results.Add(result);
+         return results;
+      }
+
+      /// <summary>
+      /// Are all letters capital letters?
+      /// </summary>
+      /// <param name="text">text to test</param>
+      /// <returns>true is returned if all letters are capital letters</returns>
+      public static bool AllCapitals(string text)
+      {
+         for (int i = 0; i < text.Length; i++)
+         {
+            if (Char.IsLetter(text[i]) && !Char.IsUpper(text[i]))
+               return false;
+         }
+         return true;
+      }
+
+      /// <summary>
       /// Convert a string to the proper case... by going through the given 
       /// value and when an upper cases char is found add a space to separate
       /// those into different words.
@@ -224,7 +282,20 @@ namespace Edam.Text
             }
             else
             {
-               sb.Append(ToWordProperCase(word));
+               int c = 0;
+               var l = GetNumberAndTextTokens(word);
+               foreach(var t in l)
+               {
+                  if (c > 0)
+                  {
+                     sb.Append(" ");
+                  }
+                  if (AllCapitals(t))
+                     sb.Append(t);
+                  else
+                     sb.Append(ToWordProperCase(t));
+                  c++;
+               }
             }
             count++;
          }

@@ -18,6 +18,8 @@ using Edam.Data.AssetReport;
 using Edam.Application;
 using Edam.Data.Lexicon.ImportExport;
 using System.Xml.Linq;
+using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Office.CustomUI;
 
 namespace Edam.Data.Lexicon.ImportExport
 {
@@ -97,7 +99,8 @@ namespace Edam.Data.Lexicon.ImportExport
          eitem.BusinessAreaID = area;
          eitem.EntityInclude = true;
          eitem.EntityName = entity;
-         eitem.OriginalEntityName = item.EntityName;
+         eitem.OriginalEntityName = String.IsNullOrWhiteSpace(item.EntityName) ?
+            entity : item.EntityName;
          eitem.Synonyms = String.Empty;
          eitem.Aliases = String.Empty;
          eitem.Base = item.EntityQualifiedName == null ?
@@ -112,6 +115,26 @@ namespace Edam.Data.Lexicon.ImportExport
          m_DataSet.Entities.Add(eitem);
 
          return eitem;
+      }
+
+      /// <summary>
+      /// Add URI.
+      /// </summary>
+      /// <param name="items">namespaces to add</param>
+      public void AddUri(NamespaceList items)
+      {
+         foreach(var item in items)
+         {
+            voca.UriItemInfo uri = new voca.UriItemInfo();
+            uri.Prefix = item.Prefix;
+            uri.KeyID = VerifyKeyId(uri);
+            uri.ScopeID = "Namespace";
+            uri.URI = item.UriText;
+            uri.Description = String.Empty;
+            m_DataSet.Uris.Add(uri);
+
+            VerifyReferenceLexicon(uri);
+         }
       }
 
       /// <summary>
@@ -183,6 +206,20 @@ namespace Edam.Data.Lexicon.ImportExport
          // create new constraint
          RelationshipItemInfo relationship = new RelationshipItemInfo();
 
+         string type;
+         switch(constraint.ContraintType)
+         {
+            case AssetElementContraintType.ForeignKey:
+               type = AssetElementConstraintInfo.FOREIGN_KEY;
+               break;
+            case AssetElementContraintType.Key:
+               type = AssetElementConstraintInfo.KEY;
+               break;
+            default:
+               type = AssetElementConstraintInfo.UNKNOWN;
+               break;
+         }
+
          relationship.KeyID = String.Empty;
          relationship.RelationshipID = relationshipId;
          relationship.BusinessDomainID = domain;
@@ -191,6 +228,7 @@ namespace Edam.Data.Lexicon.ImportExport
          relationship.ElementName = element;
          relationship.ReferenceDomainID = domain;
          relationship.ReferenceAreaID = constraint.ReferenceSchemaName;
+         relationship.ReferenceType = type;
          relationship.ReferenceEntityName = constraint.ReferenceEntityName;
          relationship.ReferenceElementName = constraint.ReferenceElementName;
          relationship.Description = constraint.ContraintDescription;
@@ -392,6 +430,7 @@ namespace Edam.Data.Lexicon.ImportExport
          items.Add(nameof(RelationshipItemInfo.ElementName));
          items.Add(nameof(RelationshipItemInfo.ReferenceDomainID));
          items.Add(nameof(RelationshipItemInfo.ReferenceAreaID));
+         items.Add(nameof(RelationshipItemInfo.ReferenceType));
          items.Add(nameof(RelationshipItemInfo.ReferenceEntityName));
          items.Add(nameof(RelationshipItemInfo.ReferenceElementName));
          items.Add(nameof(RelationshipItemInfo.Description));
@@ -411,6 +450,7 @@ namespace Edam.Data.Lexicon.ImportExport
             builder.AppendRowCell(item.Value.ElementName);
             builder.AppendRowCell(item.Value.ReferenceDomainID);
             builder.AppendRowCell(item.Value.ReferenceAreaID);
+            builder.AppendRowCell(item.Value.ReferenceType);
             builder.AppendRowCell(item.Value.ReferenceEntityName);
             builder.AppendRowCell(item.Value.ReferenceElementName);
             builder.AppendRowCell(item.Value.Description);
@@ -435,8 +475,10 @@ namespace Edam.Data.Lexicon.ImportExport
          items.Add(nameof(TermItemInfo.Category));
          items.Add(nameof(TermItemInfo.Tag));
          items.Add(nameof(TermItemInfo.Term));
+         items.Add(nameof(TermItemInfo.OriginalTerm));
          items.Add(nameof(TermItemInfo.Synonyms));
          items.Add(nameof(TermItemInfo.Description));
+         items.Add(nameof(TermItemInfo.Count));
 
          builder.AppendMainHeader(items, string.Empty);
          builder.SetStyleNo((uint)TableRowStyle.Fill1Font12);
@@ -444,13 +486,19 @@ namespace Edam.Data.Lexicon.ImportExport
          // add terms
          foreach (var item in m_DataSet.Terms)
          {
+            string oterm = String.IsNullOrWhiteSpace(item.Value.OriginalTerm) ?
+               item.Value.Term : item.Value.OriginalTerm;
+
             builder.AppendRowCell(VerifyKeyId(item.Value));
             builder.AppendRowCell(item.Value.BusinessDomainID);
             builder.AppendRowCell(item.Value.Category);
             builder.AppendRowCell(item.Value.Tag);
             builder.AppendRowCell(item.Value.Term);
+            builder.AppendRowCell(oterm);
             builder.AppendRowCell(item.Value.Synonyms);
-            builder.AppendRowCellLast(item.Value.Description);
+            builder.AppendRowCell(item.Value.Description);
+            builder.AppendRowCellLast(item.Value.Count.HasValue ?
+               item.Value.Count.Value.ToString() : String.Empty);
 
             VerifyReferenceLexicon(item.Value);
          }
@@ -667,118 +715,11 @@ namespace Edam.Data.Lexicon.ImportExport
       public static IResultsLog ExportDataSet(
          AssetConsoleArgumentsInfo arguments, bool toWorksheet = true)
       {
-         DataSet dataSet = new DataSet();
-         ExportWriter writter = new ExportWriter(dataSet);
          ResultsLog<DataSet> results = new ResultsLog<DataSet>();
-
-         // see if arguments have the busines-domain and default-business-area
-         string domain = arguments.Domain.Domain;
-         string area = arguments.Domain.Business;
-
-         // prepare namespaces
-         NamespaceList namespaceList = new NamespaceList();
-
-         // go through each data-set (most of the time just 1)
-         foreach (var asset in arguments.AssetDataItems)
-         {
-            // add asset namespaces...
-            foreach (var ns in asset.Namespaces)
-            {
-               namespaceList.Add(ns);
-            }
-
-            // do we have a root element? (the DOMAIN container)
-            var rootElement =
-               asset.Items.GetRootElement(arguments.RootElementName);
-
-            // if root was found, get its children elements
-            var rootChildren =
-               AssetDataElementList.GetChildren(asset.Items, rootElement);
-            if (rootChildren == null)
-            {
-               continue;
-            }
-
-            // go through all root children (level 2) [business areas]
-            foreach (var item in rootChildren.Children)
-            {
-
-               // treat the business-area as a namespace of related resources
-               var type = AssetDataElementList.GetDataType(asset.Items, item);
-
-               var aitem = writter.AddArea(
-                  area, item.ElementQualifiedName.OriginalName);
-
-               // get element type children (level 2) [business area entities]
-               var areaChildren =
-                  AssetDataElementList.GetChildren(asset.Items, type);
-
-               // go through the business area entities
-               foreach (var entity in areaChildren.Children)
-               {
-
-                  // get entity children (level 3) [entity data element]
-                  var entityChildren =
-                     AssetDataElementList.GetChildren(asset.Items, entity);
-
-                  EntityItemInfo eitem;
-                  if (entityChildren.Children.Count == 0)
-                  {
-                     var entityType =
-                        AssetDataElementList.GetDataType(asset.Items, entity);
-                     eitem = writter.AddEntity(entityType,
-                        entity.ElementQualifiedName.OriginalName,
-                        aitem.BusinessDomainID, aitem.AreaName);
-                     entityChildren =
-                        AssetDataElementList.GetChildren(
-                           asset.Items, entityType);
-                  }
-                  else
-                  {
-                     eitem = writter.AddEntity(entity, domain, area);
-                  }
-
-                  // add all children (entity - elements)
-                  foreach (var child in entityChildren.Children)
-                  {
-                     if (child.DataType != entity.DataType)
-                     {
-                        writter.AddElement(
-                           child, entity.ElementQualifiedName.OriginalName,
-                           eitem.BusinessDomainID, eitem.BusinessAreaID);
-                        writter.AddConstraints(
-                           child, entity.ElementQualifiedName.OriginalName,
-                           eitem.BusinessDomainID, eitem.BusinessAreaID);
-                     }
-                  }
-               }
-            }
-         }
-
-         // add Lexicon ID if none is proovided
-         if (arguments.Lexicon == null)
-         {
-            arguments.Lexicon = new LexiconInfo();
-         }
-         else
-         if (String.IsNullOrWhiteSpace(arguments.Lexicon.LexiconId))
-         {
-            arguments.Lexicon.LexiconId = 
-               arguments.Namespace.OrganizationDomainId + "." +
-               LexiconFileInfo.LEXICON_FOLDER.ToLower();
-         }
-
-         // setup Lexicon
-         dataSet.SetupLexicon(arguments);
-
-         // output to file
-         if (toWorksheet)
-         {
-            writter.ExportDataSet(arguments, namespaceList);
-         }
+         var lexiconData = LexiconData.GetLexiconData(arguments);
 
          // all done
-         results.Data = dataSet;
+         results.Data = lexiconData.DataSet;
          results.Succeeded();
 
          return results;

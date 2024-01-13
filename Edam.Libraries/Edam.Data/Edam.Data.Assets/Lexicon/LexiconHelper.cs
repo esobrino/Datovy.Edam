@@ -14,7 +14,7 @@ namespace Edam.Data.Assets.Lexicon
    public class LexiconHelper
    {
 
-      public ILexiconData GetLexiconDataInstance()
+      public static ILexiconData GetLexiconDataInstance()
       {
          return AppAssembly.FetchInstance<ILexiconData>(
             AssetResourceHelper.ASSET_LEXICON);
