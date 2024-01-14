@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Edam.Net")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8afe30ca193242f871cde3bb77e2e3d5a71cf4f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a9da969226064e1ee02f027b8d936ddc4c97574")]
 [assembly: System.Reflection.AssemblyProductAttribute("Edam.Net")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Edam.Net")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
